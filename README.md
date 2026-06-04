@@ -121,7 +121,7 @@ La comunicación entre servicios se define mediante:
 | Área                       | Tecnología          |
 | -------------------------- | ------------------- |
 | Backend                    | .NET                |
-| Frontend                   | React / TypeScript  |
+| Frontend                   | Vue / TypeScript  |
 | Base de datos principal    | PostgreSQL          |
 | Cache / Streams            | Redis               |
 | Datos flexibles opcionales | MongoDB             |
@@ -510,12 +510,10 @@ Hechos:
 [x] Estrategia de despliegue
 [x] Convenciones API
 [x] Seguridad técnica
-
-Pendientes:
-[ ] Diagrama de base de datos
-[ ] Estimación por HU
-[ ] Roadmap de desarrollo
-[ ] Decisiones técnicas
+[x] Diagrama de base de datos
+[x] Estimación por HU
+[x] Roadmap de desarrollo
+[x] Decisiones técnicas
 ```
 
 ---
