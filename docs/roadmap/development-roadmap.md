@@ -69,10 +69,10 @@ Preparar la base documental y técnica antes de iniciar desarrollo fuerte.
 [x] Estrategia de despliegue
 [x] Convenciones API
 [x] Seguridad técnica
-[ ] Roadmap de desarrollo
-[ ] Decisiones técnicas
-[ ] Diagrama de base de datos
-[ ] Estimación por HU
+[X] Roadmap de desarrollo
+[X] Decisiones técnicas
+[X] Diagrama de base de datos
+[X] Estimación por HU
 ```
 
 ### Criterio de salida
