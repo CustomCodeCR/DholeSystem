@@ -1,0 +1,933 @@
+// ======================================================
+// Dhole Microservices Database Diagram
+// Tool: dbdiagram.io
+// Notes:
+// - Each schema represents an independent service database.
+// - There are no physical foreign keys between services.
+// - Cross-service references are logical references only.
+// ======================================================
+
+// ======================================================
+// AUTH SERVICE DATABASE
+// ======================================================
+
+Table auth.Users {
+  Id uuid [pk]
+  Email varchar(250) [not null, unique]
+  UserName varchar(150) [not null, unique]
+  DisplayName varchar(250) [not null]
+  PasswordHash text [not null]
+  IsActive boolean [not null, default: true]
+  IsLocked boolean [not null, default: false]
+  LockedAt timestamp
+  LockedReason varchar(500)
+  FailedLoginAttempts int [not null, default: 0]
+  LastLoginAt timestamp
+  LastFailedLoginAt timestamp
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table auth.Roles {
+  Id uuid [pk]
+  Name varchar(150) [not null, unique]
+  Description varchar(500)
+  IsSystemRole boolean [not null, default: false]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table auth.Scopes {
+  Id uuid [pk]
+  Code varchar(200) [not null, unique]
+  Name varchar(200) [not null]
+  Description varchar(500)
+  ServiceName varchar(150) [not null]
+  ResourceName varchar(150) [not null]
+  ActionName varchar(100) [not null]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table auth.UserRoles {
+  Id uuid [pk]
+  UserId uuid [not null]
+  RoleId uuid [not null]
+  AssignedAt timestamp [not null]
+  AssignedBy uuid
+}
+
+Table auth.RoleScopes {
+  Id uuid [pk]
+  RoleId uuid [not null]
+  ScopeId uuid [not null]
+  AssignedAt timestamp [not null]
+  AssignedBy uuid
+}
+
+Table auth.RefreshTokens {
+  Id uuid [pk]
+  UserId uuid [not null]
+  SessionId uuid [not null]
+  TokenHash text [not null]
+  CreatedAt timestamp [not null]
+  ExpiresAt timestamp [not null]
+  RevokedAt timestamp
+  CreatedByIp varchar(100)
+  RevokedByIp varchar(100)
+  ReplacedByTokenId uuid
+  IsRevoked boolean [not null, default: false]
+}
+
+Table auth.Sessions {
+  Id uuid [pk]
+  UserId uuid [not null]
+  StartedAt timestamp [not null]
+  LastActivityAt timestamp
+  IpAddress varchar(100)
+  UserAgent text
+  IsActive boolean [not null, default: true]
+  ClosedAt timestamp
+  CloseReason varchar(500)
+}
+
+Table auth.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table auth.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: auth.UserRoles.UserId > auth.Users.Id
+Ref: auth.UserRoles.RoleId > auth.Roles.Id
+Ref: auth.RoleScopes.RoleId > auth.Roles.Id
+Ref: auth.RoleScopes.ScopeId > auth.Scopes.Id
+Ref: auth.RefreshTokens.UserId > auth.Users.Id
+Ref: auth.RefreshTokens.SessionId > auth.Sessions.Id
+Ref: auth.Sessions.UserId > auth.Users.Id
+
+// ======================================================
+// CONFIG SERVICE DATABASE
+// ======================================================
+
+Table config.ConfigurationModules {
+  Id uuid [pk]
+  Code varchar(150) [not null, unique]
+  Name varchar(200) [not null]
+  Description varchar(500)
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table config.ConfigurationSettings {
+  Id uuid [pk]
+  ModuleId uuid [not null]
+  Key varchar(250) [not null, unique]
+  Value text
+  ValueType varchar(50) [not null]
+  Description varchar(500)
+  IsEncrypted boolean [not null, default: false]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table config.FeatureFlags {
+  Id uuid [pk]
+  Code varchar(150) [not null, unique]
+  Name varchar(200) [not null]
+  Description varchar(500)
+  IsEnabled boolean [not null, default: false]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table config.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table config.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: config.ConfigurationSettings.ModuleId > config.ConfigurationModules.Id
+
+// ======================================================
+// CRM SERVICE DATABASE
+// ======================================================
+
+Table crm.Customers {
+  Id uuid [pk]
+  CustomerCode varchar(100) [unique]
+  LegalName varchar(250) [not null]
+  TradeName varchar(250)
+  TaxIdentification varchar(100)
+  CustomerType varchar(100)
+  Email varchar(250)
+  Phone varchar(100)
+  Website varchar(250)
+  Status varchar(50) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table crm.Contacts {
+  Id uuid [pk]
+  CustomerId uuid [not null]
+  FullName varchar(250) [not null]
+  Email varchar(250)
+  Phone varchar(100)
+  Mobile varchar(100)
+  Position varchar(150)
+  IsPrimary boolean [not null, default: false]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table crm.CustomerAddresses {
+  Id uuid [pk]
+  CustomerId uuid [not null]
+  AddressType varchar(100) [not null]
+  Country varchar(150)
+  Province varchar(150)
+  City varchar(150)
+  District varchar(150)
+  AddressLine text [not null]
+  PostalCode varchar(50)
+  IsPrimary boolean [not null, default: false]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table crm.CustomerNotes {
+  Id uuid [pk]
+  CustomerId uuid [not null]
+  Note text [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table crm.CustomerFollowUps {
+  Id uuid [pk]
+  CustomerId uuid [not null]
+  ContactId uuid
+  FollowUpType varchar(100) [not null]
+  Subject varchar(250) [not null]
+  Description text
+  FollowUpDate timestamp [not null]
+  NextFollowUpDate timestamp
+  Status varchar(50) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table crm.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table crm.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: crm.Contacts.CustomerId > crm.Customers.Id
+Ref: crm.CustomerAddresses.CustomerId > crm.Customers.Id
+Ref: crm.CustomerNotes.CustomerId > crm.Customers.Id
+Ref: crm.CustomerFollowUps.CustomerId > crm.Customers.Id
+Ref: crm.CustomerFollowUps.ContactId > crm.Contacts.Id
+
+// ======================================================
+// PRICING SERVICE DATABASE
+// ======================================================
+
+Table pricing.Quotes {
+  Id uuid [pk]
+  QuoteNumber varchar(100) [not null, unique]
+  CustomerId uuid [not null, note: "Logical reference to crm.Customers.Id"]
+  CustomerName varchar(250)
+  Status varchar(50) [not null]
+  CurrencyCode varchar(10) [not null]
+  ValidUntil timestamp
+  SubtotalAmount decimal(18, 4) [not null, default: 0]
+  CostAmount decimal(18, 4) [not null, default: 0]
+  MarginAmount decimal(18, 4) [not null, default: 0]
+  MarginPercentage decimal(9, 4) [not null, default: 0]
+  TotalAmount decimal(18, 4) [not null, default: 0]
+  ApprovedAt timestamp
+  ApprovedBy uuid
+  RejectedAt timestamp
+  RejectedBy uuid
+  RejectionReason varchar(500)
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table pricing.QuoteItems {
+  Id uuid [pk]
+  QuoteId uuid [not null]
+  ItemType varchar(100) [not null]
+  Description varchar(500) [not null]
+  Quantity decimal(18, 4) [not null, default: 1]
+  UnitPrice decimal(18, 4) [not null]
+  TotalPrice decimal(18, 4) [not null]
+  SortOrder int [not null, default: 0]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table pricing.QuoteCosts {
+  Id uuid [pk]
+  QuoteId uuid [not null]
+  CostType varchar(100) [not null]
+  Description varchar(500) [not null]
+  Amount decimal(18, 4) [not null]
+  CurrencyCode varchar(10) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table pricing.QuoteCharges {
+  Id uuid [pk]
+  QuoteId uuid [not null]
+  ChargeType varchar(100) [not null]
+  Description varchar(500) [not null]
+  Amount decimal(18, 4) [not null]
+  CurrencyCode varchar(10) [not null]
+  IsOptional boolean [not null, default: false]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table pricing.QuoteMargins {
+  Id uuid [pk]
+  QuoteId uuid [not null]
+  CostAmount decimal(18, 4) [not null]
+  SaleAmount decimal(18, 4) [not null]
+  MarginAmount decimal(18, 4) [not null]
+  MarginPercentage decimal(9, 4) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+}
+
+Table pricing.Offers {
+  Id uuid [pk]
+  QuoteId uuid [not null]
+  OfferNumber varchar(100) [not null, unique]
+  Status varchar(50) [not null]
+  GeneratedAt timestamp
+  SentAt timestamp
+  AcceptedAt timestamp
+  RejectedAt timestamp
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table pricing.OfferDocuments {
+  Id uuid [pk]
+  OfferId uuid [not null]
+  FileId uuid [not null, note: "Logical reference to storage.Files.Id"]
+  FileName varchar(250)
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+}
+
+Table pricing.Rates {
+  Id uuid [pk]
+  Code varchar(100) [not null, unique]
+  Name varchar(250) [not null]
+  Description varchar(500)
+  CurrencyCode varchar(10) [not null]
+  Amount decimal(18, 4) [not null]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table pricing.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table pricing.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: pricing.QuoteItems.QuoteId > pricing.Quotes.Id
+Ref: pricing.QuoteCosts.QuoteId > pricing.Quotes.Id
+Ref: pricing.QuoteCharges.QuoteId > pricing.Quotes.Id
+Ref: pricing.QuoteMargins.QuoteId > pricing.Quotes.Id
+Ref: pricing.Offers.QuoteId > pricing.Quotes.Id
+Ref: pricing.OfferDocuments.OfferId > pricing.Offers.Id
+
+// ======================================================
+// STORAGE SERVICE DATABASE
+// ======================================================
+
+Table storage.StorageProviders {
+  Id uuid [pk]
+  Code varchar(100) [not null, unique]
+  Name varchar(200) [not null]
+  ProviderType varchar(100) [not null]
+  Configuration jsonb
+  IsDefault boolean [not null, default: false]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table storage.Files {
+  Id uuid [pk]
+  ProviderId uuid [not null]
+  OriginalFileName varchar(300) [not null]
+  StoredFileName varchar(300) [not null]
+  ContentType varchar(150) [not null]
+  Extension varchar(50)
+  SizeInBytes bigint [not null]
+  StoragePath text [not null]
+  Checksum varchar(250)
+  Status varchar(50) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+  DeletedAt timestamp
+  DeletedBy uuid
+  IsDeleted boolean [not null, default: false]
+}
+
+Table storage.FileVersions {
+  Id uuid [pk]
+  FileId uuid [not null]
+  VersionNumber int [not null]
+  StoredFileName varchar(300) [not null]
+  StoragePath text [not null]
+  SizeInBytes bigint [not null]
+  Checksum varchar(250)
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+}
+
+Table storage.FileReferences {
+  Id uuid [pk]
+  FileId uuid [not null]
+  SourceService varchar(150) [not null]
+  EntityType varchar(150) [not null]
+  EntityId uuid [not null]
+  ReferenceType varchar(100)
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+}
+
+Table storage.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table storage.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: storage.Files.ProviderId > storage.StorageProviders.Id
+Ref: storage.FileVersions.FileId > storage.Files.Id
+Ref: storage.FileReferences.FileId > storage.Files.Id
+
+// ======================================================
+// NOTIFICATIONS SERVICE DATABASE
+// ======================================================
+
+Table notifications.NotificationTemplates {
+  Id uuid [pk]
+  Code varchar(150) [not null, unique]
+  Name varchar(250) [not null]
+  Channel varchar(50) [not null]
+  SubjectTemplate varchar(500)
+  BodyTemplate text [not null]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table notifications.NotificationMessages {
+  Id uuid [pk]
+  TemplateId uuid
+  Channel varchar(50) [not null]
+  Subject varchar(500)
+  Body text [not null]
+  Status varchar(50) [not null]
+  RequestedBy uuid
+  RequestedAt timestamp [not null]
+  SentAt timestamp
+  FailedAt timestamp
+  ErrorMessage text
+  CorrelationId uuid
+  CreatedAt timestamp [not null]
+}
+
+Table notifications.NotificationRecipients {
+  Id uuid [pk]
+  NotificationMessageId uuid [not null]
+  RecipientType varchar(100) [not null]
+  RecipientId uuid
+  RecipientAddress varchar(300) [not null]
+  DisplayName varchar(250)
+  Status varchar(50) [not null]
+  CreatedAt timestamp [not null]
+}
+
+Table notifications.NotificationAttachments {
+  Id uuid [pk]
+  NotificationMessageId uuid [not null]
+  FileId uuid [not null, note: "Logical reference to storage.Files.Id"]
+  FileName varchar(300)
+  CreatedAt timestamp [not null]
+}
+
+Table notifications.NotificationDeliveryAttempts {
+  Id uuid [pk]
+  NotificationMessageId uuid [not null]
+  AttemptNumber int [not null]
+  Status varchar(50) [not null]
+  AttemptedAt timestamp [not null]
+  ErrorMessage text
+}
+
+Table notifications.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table notifications.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: notifications.NotificationMessages.TemplateId > notifications.NotificationTemplates.Id
+Ref: notifications.NotificationRecipients.NotificationMessageId > notifications.NotificationMessages.Id
+Ref: notifications.NotificationAttachments.NotificationMessageId > notifications.NotificationMessages.Id
+Ref: notifications.NotificationDeliveryAttempts.NotificationMessageId > notifications.NotificationMessages.Id
+
+// ======================================================
+// AUDIT LOGS SERVICE DATABASE
+// ======================================================
+
+Table auditlogs.AuditEvents {
+  Id uuid [pk]
+  EventId uuid
+  CorrelationId uuid
+  SourceService varchar(150) [not null]
+  EntityType varchar(150)
+  EntityId uuid
+  Action varchar(150) [not null]
+  EventType varchar(250)
+  UserId uuid
+  UserName varchar(250)
+  IpAddress varchar(100)
+  UserAgent text
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+}
+
+Table auditlogs.AuditEventDetails {
+  Id uuid [pk]
+  AuditEventId uuid [not null]
+  FieldName varchar(150)
+  OldValue text
+  NewValue text
+  Metadata jsonb
+  CreatedAt timestamp [not null]
+}
+
+Table auditlogs.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table auditlogs.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: auditlogs.AuditEventDetails.AuditEventId > auditlogs.AuditEvents.Id
+
+// ======================================================
+// REPORTS SERVICE DATABASE
+// ======================================================
+
+Table reports.ReportDefinitions {
+  Id uuid [pk]
+  Code varchar(150) [not null, unique]
+  Name varchar(250) [not null]
+  Description varchar(500)
+  ReportType varchar(100) [not null]
+  DefaultFormat varchar(50)
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table reports.ReportRequests {
+  Id uuid [pk]
+  ReportDefinitionId uuid [not null]
+  RequestedBy uuid [not null]
+  RequestedAt timestamp [not null]
+  Parameters jsonb
+  Status varchar(50) [not null]
+  StartedAt timestamp
+  CompletedAt timestamp
+  FailedAt timestamp
+  ErrorMessage text
+  CorrelationId uuid
+}
+
+Table reports.ReportFiles {
+  Id uuid [pk]
+  ReportRequestId uuid [not null]
+  FileId uuid [not null, note: "Logical reference to storage.Files.Id"]
+  FileName varchar(300)
+  Format varchar(50) [not null]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+}
+
+Table reports.ScheduledReports {
+  Id uuid [pk]
+  ReportDefinitionId uuid [not null]
+  Name varchar(250) [not null]
+  CronExpression varchar(100) [not null]
+  Parameters jsonb
+  IsActive boolean [not null, default: true]
+  LastRunAt timestamp
+  NextRunAt timestamp
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table reports.ReportExecutionLogs {
+  Id uuid [pk]
+  ReportRequestId uuid [not null]
+  Status varchar(50) [not null]
+  Message text
+  CreatedAt timestamp [not null]
+}
+
+Table reports.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table reports.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: reports.ReportRequests.ReportDefinitionId > reports.ReportDefinitions.Id
+Ref: reports.ReportFiles.ReportRequestId > reports.ReportRequests.Id
+Ref: reports.ScheduledReports.ReportDefinitionId > reports.ReportDefinitions.Id
+Ref: reports.ReportExecutionLogs.ReportRequestId > reports.ReportRequests.Id
+
+// ======================================================
+// AI SERVICE DATABASE
+// ======================================================
+
+Table ai.AiProviders {
+  Id uuid [pk]
+  Code varchar(100) [not null, unique]
+  Name varchar(200) [not null]
+  ProviderType varchar(100) [not null]
+  Configuration jsonb
+  IsLocal boolean [not null, default: true]
+  IsActive boolean [not null, default: true]
+  CreatedAt timestamp [not null]
+  CreatedBy uuid
+  UpdatedAt timestamp
+  UpdatedBy uuid
+}
+
+Table ai.AiTasks {
+  Id uuid [pk]
+  ProviderId uuid
+  TaskType varchar(150) [not null]
+  SourceService varchar(150)
+  SourceEntityType varchar(150)
+  SourceEntityId uuid
+  Status varchar(50) [not null]
+  RequestedBy uuid
+  RequestedAt timestamp [not null]
+  StartedAt timestamp
+  CompletedAt timestamp
+  FailedAt timestamp
+  ErrorMessage text
+  CorrelationId uuid
+  CreatedAt timestamp [not null]
+}
+
+Table ai.AiTaskMessages {
+  Id uuid [pk]
+  AiTaskId uuid [not null]
+  MessageType varchar(50) [not null]
+  Content text [not null]
+  CreatedAt timestamp [not null]
+}
+
+Table ai.AiTaskResults {
+  Id uuid [pk]
+  AiTaskId uuid [not null]
+  ResultType varchar(100) [not null]
+  Summary text
+  ResultPayload jsonb
+  CreatedAt timestamp [not null]
+}
+
+Table ai.OutboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  Version int [not null, default: 1]
+  SourceService varchar(150) [not null]
+  Payload jsonb [not null]
+  CorrelationId uuid [not null]
+  OccurredAt timestamp [not null]
+  CreatedAt timestamp [not null]
+  PublishedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Table ai.InboxMessages {
+  Id uuid [pk]
+  EventId uuid [not null, unique]
+  EventType varchar(250) [not null]
+  SourceService varchar(150) [not null]
+  CorrelationId uuid [not null]
+  ReceivedAt timestamp [not null]
+  ProcessedAt timestamp
+  Status varchar(50) [not null]
+  RetryCount int [not null, default: 0]
+  ErrorMessage text
+}
+
+Ref: ai.AiTasks.ProviderId > ai.AiProviders.Id
+Ref: ai.AiTaskMessages.AiTaskId > ai.AiTasks.Id
+Ref: ai.AiTaskResults.AiTaskId > ai.AiTasks.Id
