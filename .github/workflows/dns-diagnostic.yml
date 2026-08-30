@@ -17,6 +17,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo 'diagnostic run'
           domains=(
             logisticacastrofallas.com
             www.logisticacastrofallas.com
