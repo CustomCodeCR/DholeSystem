@@ -1,0 +1,171 @@
+name: Sync Production Data to Staging
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - .github/workflows/sync-staging-data.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dhole-sync-staging-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout infrastructure
+        uses: actions/checkout@v4
+
+      - name: Clone production PostgreSQL and MongoDB into staging
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PROD_ENV=/opt/dhole/.env
+          STAGE_ENV=/opt/dhole/.env.staging
+          COMPOSE=/opt/dhole/docker-compose.services.yml
+          OVERRIDE=/opt/dhole/docker-compose.staging.yml
+
+          test -r "$PROD_ENV"
+          test -r "$STAGE_ENV"
+          test -r "$COMPOSE"
+          test -r "$OVERRIDE"
+
+          read_env() {
+            local file="$1" key="$2"
+            awk -F= -v key="$key" '$1 == key { sub(/^[^=]*=/, ""); print; exit }' "$file" | tr -d '\r'
+          }
+
+          find_container_on_network() {
+            local service="$1" network="$2" id
+            while IFS= read -r id; do
+              [[ -n "$id" ]] || continue
+              if docker inspect --format '{{range $name, $cfg := .NetworkSettings.Networks}}{{println $name}}{{end}}' "$id" | grep -Fxq "$network"; then
+                echo "$id"
+                return 0
+              fi
+            done < <(docker ps -q --filter "label=com.docker.compose.service=$service")
+            return 1
+          }
+
+          PROD_PG="$(find_container_on_network postgres dhole)"
+          STAGE_PG="$(find_container_on_network postgres dhole-staging)"
+          PROD_MONGO="$(find_container_on_network mongo dhole)"
+          STAGE_MONGO="$(find_container_on_network mongo dhole-staging)"
+
+          [[ -n "$PROD_PG" && -n "$STAGE_PG" ]] || { echo 'PostgreSQL containers not found'; exit 1; }
+          [[ -n "$PROD_MONGO" && -n "$STAGE_MONGO" ]] || { echo 'MongoDB containers not found'; exit 1; }
+
+          PROD_PG_USER="$(read_env "$PROD_ENV" POSTGRES_USER)"
+          STAGE_PG_USER="$(read_env "$STAGE_ENV" POSTGRES_USER)"
+          PROD_MONGO_USER="$(read_env "$PROD_ENV" MONGO_USER)"
+          PROD_MONGO_PASSWORD="$(read_env "$PROD_ENV" MONGO_PASSWORD)"
+          STAGE_MONGO_USER="$(read_env "$STAGE_ENV" MONGO_USER)"
+          STAGE_MONGO_PASSWORD="$(read_env "$STAGE_ENV" MONGO_PASSWORD)"
+
+          TMP_DIR="$(mktemp -d /tmp/dhole-staging-sync.XXXXXX)"
+          chmod 700 "$TMP_DIR"
+
+          restart_staging() {
+            docker compose \
+              --env-file "$STAGE_ENV" \
+              -f "$COMPOSE" \
+              -f "$OVERRIDE" \
+              -p dhole-staging \
+              up -d --no-build --pull never || true
+            rm -rf "$TMP_DIR"
+          }
+          trap restart_staging EXIT
+
+          echo 'Stopping staging application services during restore...'
+          docker compose \
+            --env-file "$STAGE_ENV" \
+            -f "$COMPOSE" \
+            -f "$OVERRIDE" \
+            -p dhole-staging \
+            stop
+
+          echo 'Cloning PostgreSQL application databases...'
+          mapfile -t DB_KEYS < <(awk -F= '$1 ~ /^[A-Z0-9_]+_DB$/ {print $1}' "$PROD_ENV" | sort -u)
+          [[ ${#DB_KEYS[@]} -gt 0 ]] || { echo 'No *_DB variables found in production env'; exit 1; }
+
+          for key in "${DB_KEYS[@]}"; do
+            prod_db="$(read_env "$PROD_ENV" "$key")"
+            stage_db="$(read_env "$STAGE_ENV" "$key")"
+            [[ -n "$prod_db" && -n "$stage_db" ]] || { echo "Missing database mapping for $key"; exit 1; }
+
+            dump_file="$TMP_DIR/${key}.dump"
+            echo "  $key: production -> staging"
+            docker exec "$PROD_PG" pg_dump -U "$PROD_PG_USER" -Fc "$prod_db" > "$dump_file"
+
+            docker exec "$STAGE_PG" dropdb -U "$STAGE_PG_USER" --if-exists --force "$stage_db"
+            docker exec "$STAGE_PG" createdb -U "$STAGE_PG_USER" "$stage_db"
+            docker exec -i "$STAGE_PG" pg_restore \
+              -U "$STAGE_PG_USER" \
+              -d "$stage_db" \
+              --no-owner \
+              --no-privileges \
+              --exit-on-error < "$dump_file"
+
+            prod_tables="$(docker exec "$PROD_PG" psql -U "$PROD_PG_USER" -d "$prod_db" -Atc "select count(*) from pg_tables where schemaname not in ('pg_catalog','information_schema');")"
+            stage_tables="$(docker exec "$STAGE_PG" psql -U "$STAGE_PG_USER" -d "$stage_db" -Atc "select count(*) from pg_tables where schemaname not in ('pg_catalog','information_schema');")"
+            [[ "$prod_tables" == "$stage_tables" ]] || { echo "Table-count mismatch for $key: prod=$prod_tables staging=$stage_tables"; exit 1; }
+          done
+
+          echo 'Cloning MongoDB application databases...'
+          mapfile -t MONGO_DBS < <(
+            docker exec "$PROD_MONGO" mongosh --quiet \
+              --username "$PROD_MONGO_USER" \
+              --password "$PROD_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --eval 'db.adminCommand({listDatabases:1,nameOnly:true}).databases.map(d=>d.name).filter(n=>!["admin","config","local"].includes(n)).join("\n")' \
+              | sed '/^[[:space:]]*$/d'
+          )
+
+          for db_name in "${MONGO_DBS[@]}"; do
+            archive="$TMP_DIR/mongo-${db_name//[^A-Za-z0-9_.-]/_}.archive"
+            echo "  MongoDB: $db_name"
+            docker exec "$PROD_MONGO" mongodump \
+              --username "$PROD_MONGO_USER" \
+              --password "$PROD_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --db "$db_name" \
+              --archive > "$archive"
+
+            docker exec -i "$STAGE_MONGO" mongorestore \
+              --username "$STAGE_MONGO_USER" \
+              --password "$STAGE_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --drop \
+              --nsInclude "${db_name}.*" \
+              --archive < "$archive"
+          done
+
+          echo 'Data clone completed; staging services will now restart.'
+
+      - name: Verify staging health
+        shell: bash
+        run: |
+          set -euo pipefail
+          for url in \
+            https://dhole.customcodecr.com/health \
+            https://dhole-api.customcodecr.com/health; do
+            ok=0
+            for attempt in $(seq 1 30); do
+              code="$(curl -sS --max-time 10 -o /tmp/staging-health -w '%{http_code}' "$url" || true)"
+              if [[ "$code" =~ ^2[0-9][0-9]$ ]]; then
+                echo "$url -> HTTP $code"
+                ok=1
+                break
+              fi
+              sleep 4
+            done
+            [[ "$ok" == 1 ]] || { echo "Staging health failed for $url"; exit 1; }
+          done
