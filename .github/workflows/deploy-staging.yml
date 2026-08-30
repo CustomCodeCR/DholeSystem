@@ -88,19 +88,19 @@ jobs:
             ps dhole-web api-gateway website
 
           for host in "$DHOLE_WEB_HOST" "$DHOLE_API_HOST" "$FENNEC_HOST"; do
-            echo "Testing Traefik route for $host"
+            echo "Testing Traefik health route for $host"
             ok=0
-            for attempt in $(seq 1 20); do
-              code="$(curl -sS -o /tmp/route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/ || true)"
-              if [[ "$code" != "000" && "$code" != "404" && "$code" != "502" && "$code" != "503" && "$code" != "504" ]]; then
-                echo "$host -> HTTP $code"
+            for attempt in $(seq 1 15); do
+              code="$(curl -sS -o /tmp/route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/health || true)"
+              if [[ "$code" =~ ^2[0-9][0-9]$ || "$code" =~ ^3[0-9][0-9]$ ]]; then
+                echo "$host/health -> HTTP $code"
                 ok=1
                 break
               fi
               sleep 2
             done
             if [[ "$ok" != "1" ]]; then
-              echo "Route failed for $host" >&2
+              echo "Health route failed for $host (last HTTP $code)" >&2
               cat /tmp/route-body 2>/dev/null || true
               exit 1
             fi
