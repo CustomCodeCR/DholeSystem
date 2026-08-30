@@ -20,27 +20,70 @@ jobs:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
 
-      - name: Prepare runtime environments
+      - name: Use server production configuration
         shell: bash
         run: |
           set -euo pipefail
-          ENV_DIR="$RUNNER_TEMP/dhole-env"
-          mkdir -p "$ENV_DIR"
-          bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
-          echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
+          test -r /opt/dhole/.env
+          test -r /opt/dhole/docker-compose.services.yml
+          echo "DHOLE_ENV_FILE=/opt/dhole/.env" >> "$GITHUB_ENV"
+          echo "COMPOSE_FILE=/opt/dhole/docker-compose.services.yml" >> "$GITHUB_ENV"
 
-      - name: Validate production environment
+      - name: Validate production compose
         shell: bash
-        env:
-          DHOLE_IMAGE_TAG: latest
-          DHOLE_NETWORK: dhole
         run: |
           set -euo pipefail
           docker version
           docker compose version
           docker network inspect dhole >/dev/null
-          test -r "$DHOLE_ENV_FILE"
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p dhole config -q
+          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -p dhole config -q
+
+      - name: Verify production containers and local Traefik routes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          read_env() {
+            local key="$1"
+            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r'
+          }
+
+          DHOLE_WEB_HOST="$(read_env DHOLE_WEB_HOST)"
+          DHOLE_API_HOST="$(read_env DHOLE_API_HOST)"
+          FENNEC_HOST="$(read_env FENNEC_HOST)"
+          FENNEC_WWW_HOST="$(read_env FENNEC_WWW_HOST)"
+
+          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -p dhole ps dhole-web api-gateway website
+
+          for host in "$DHOLE_WEB_HOST" "$DHOLE_API_HOST" "$FENNEC_HOST" "$FENNEC_WWW_HOST"; do
+            echo "Testing local Traefik health route for $host"
+            code="$(curl -sS -o /tmp/prod-route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/health || true)"
+            echo "$host/health -> HTTP $code"
+          done
+
+      - name: Diagnose public DNS and Cloudflare tunnel
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for host in logisticacastrofallas.com www.logisticacastrofallas.com sistema.logisticacastrofallas.com api.logisticacastrofallas.com; do
+            echo "=== DNS $host ==="
+            getent ahostsv4 "$host" | head -n3 || true
+          done
+
+          echo "=== cloudflared service ==="
+          systemctl is-active cloudflared 2>/dev/null || true
+          command -v cloudflared || true
+          cloudflared --version 2>/dev/null || true
+
+          echo "=== non-secret cloudflared ingress ==="
+          if [[ -r /etc/cloudflared/config.yml ]]; then
+            grep -E '^([[:space:]]*tunnel:|[[:space:]]*-?[[:space:]]*hostname:|[[:space:]]*service:)' /etc/cloudflared/config.yml || true
+          elif [[ -r /etc/cloudflared/config.yaml ]]; then
+            grep -E '^([[:space:]]*tunnel:|[[:space:]]*-?[[:space:]]*hostname:|[[:space:]]*service:)' /etc/cloudflared/config.yaml || true
+          else
+            echo "No readable /etc/cloudflared/config.yml found"
+          fi
 
       - name: Keep DholeSystem feature branches clean
         shell: bash
@@ -54,9 +97,3 @@ jobs:
             echo "Deleting obsolete branch: $branch"
             git push origin --delete "$branch"
           done < <(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | grep -v '^HEAD$' || true)
-
-      - name: Show environment routing
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN)=' "$DHOLE_ENV_FILE"
