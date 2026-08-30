@@ -26,6 +26,7 @@ jobs:
           set -euo pipefail
           mkdir -p /opt/dhole
           cp deploy/docker-compose.services.yml /opt/dhole/docker-compose.services.yml
+          cp deploy/docker-compose.staging.yml /opt/dhole/docker-compose.staging.yml
           cp deploy/docker-compose.staging-infra.yml /opt/dhole/docker-compose.staging-infra.yml
           bash deploy/prepare-environments.sh /opt/dhole/.env /opt/dhole
 

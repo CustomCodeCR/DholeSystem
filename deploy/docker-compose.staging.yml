@@ -1,0 +1,8 @@
+services:
+  api-gateway:
+    ports:
+      - "127.0.0.1:18080:8080"
+
+  dhole-web:
+    ports:
+      - "127.0.0.1:18081:80"

@@ -37,7 +37,16 @@ The server keeps the private base file at `/opt/dhole/.env`. It is never committ
 - Docker project: `dhole-staging`
 - Docker network: `dhole-staging`
 - Image tag: `staging`
+- API Gateway loopback origin: `http://127.0.0.1:18080`
+- Web loopback origin: `http://127.0.0.1:18081`
 
-Staging has its own PostgreSQL, MongoDB, Redis and MinIO volumes. This prevents development deployments from using production data. Ollama is shared read-only at the infrastructure level by attaching the existing Ollama container to the staging network.
+Staging has its own PostgreSQL, MongoDB, Redis and MinIO volumes. This prevents development deployments from using production data. Ollama is shared by attaching the existing Ollama container to the isolated staging network.
 
-Cloudflare/Tunnel hostnames must point the production domains to the production API Gateway/Web origins and the CustomCodeCR domains to the staging API Gateway/Web origins. DNS/Tunnel configuration is intentionally not stored with application secrets.
+Cloudflare Tunnel should route:
+
+- `api.logisticacastrofallas.com` -> the existing production API Gateway origin.
+- `sistema.logisticacastrofallas.com` -> the existing production Web origin.
+- `dhole-api.customcodecr.com` -> `http://127.0.0.1:18080`.
+- `dhole.customcodecr.com` -> `http://127.0.0.1:18081`.
+
+The Cloudflare account/tunnel configuration is intentionally not stored with application code or credentials.

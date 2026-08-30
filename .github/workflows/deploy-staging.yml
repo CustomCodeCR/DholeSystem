@@ -26,6 +26,7 @@ jobs:
           set -euo pipefail
           mkdir -p /opt/dhole
           cp deploy/docker-compose.services.yml /opt/dhole/docker-compose.services.yml
+          cp deploy/docker-compose.staging.yml /opt/dhole/docker-compose.staging.yml
           cp deploy/docker-compose.staging-infra.yml /opt/dhole/docker-compose.staging-infra.yml
           bash deploy/prepare-environments.sh /opt/dhole/.env /opt/dhole
 
@@ -99,5 +100,5 @@ jobs:
           DHOLE_NETWORK: dhole-staging
         run: |
           set -euo pipefail
-          docker compose --env-file "$DHOLE_ENV_FILE" -f /opt/dhole/docker-compose.services.yml -p dhole-staging config -q
+          docker compose --env-file "$DHOLE_ENV_FILE" -f /opt/dhole/docker-compose.services.yml -f /opt/dhole/docker-compose.staging.yml -p dhole-staging config -q
           grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN|DATA_EXTRACTION_EMAIL_ENABLED|NOTIFICATIONS_EMAIL_ENABLED)=' "$DHOLE_ENV_FILE"
