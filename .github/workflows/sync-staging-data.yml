@@ -43,25 +43,67 @@ jobs:
             awk -F= -v key="$key" '$1 == key { sub(/^[^=]*=/, ""); print; exit }' "$file" | tr -d '\r'
           }
 
-          find_container_on_network() {
-            local service="$1" network="$2" id
-            while IFS= read -r id; do
+          container_networks() {
+            docker inspect --format '{{range $name, $cfg := .NetworkSettings.Networks}}{{println $name}}{{end}}' "$1" 2>/dev/null || true
+          }
+
+          image_matches_kind() {
+            local image="${1,,}" kind="$2"
+            case "$kind" in
+              postgres) [[ "$image" == postgres:* || "$image" == */postgres:* ]] ;;
+              mongo) [[ "$image" == mongo:* || "$image" == */mongo:* ]] ;;
+              *) return 1 ;;
+            esac
+          }
+
+          find_db_container() {
+            local kind="$1" network="$2" environment="$3"
+            local id image name
+
+            # Preferred: match the database image and the exact Docker network.
+            while IFS='|' read -r id image name; do
               [[ -n "$id" ]] || continue
-              if docker inspect --format '{{range $name, $cfg := .NetworkSettings.Networks}}{{println $name}}{{end}}' "$id" | grep -Fxq "$network"; then
+              image_matches_kind "$image" "$kind" || continue
+              if container_networks "$id" | grep -Fxq "$network"; then
                 echo "$id"
                 return 0
               fi
-            done < <(docker ps -q --filter "label=com.docker.compose.service=$service")
+            done < <(docker ps --format '{{.ID}}|{{.Image}}|{{.Names}}')
+
+            # Fallback for older production compose layouts: distinguish by container name.
+            while IFS='|' read -r id image name; do
+              [[ -n "$id" ]] || continue
+              image_matches_kind "$image" "$kind" || continue
+              if [[ "$environment" == staging && "${name,,}" == *staging* ]]; then
+                echo "$id"
+                return 0
+              fi
+              if [[ "$environment" == production && "${name,,}" != *staging* ]]; then
+                echo "$id"
+                return 0
+              fi
+            done < <(docker ps --format '{{.ID}}|{{.Image}}|{{.Names}}')
+
             return 1
           }
 
-          PROD_PG="$(find_container_on_network postgres dhole)"
-          STAGE_PG="$(find_container_on_network postgres dhole-staging)"
-          PROD_MONGO="$(find_container_on_network mongo dhole)"
-          STAGE_MONGO="$(find_container_on_network mongo dhole-staging)"
+          PROD_PG="$(find_db_container postgres dhole production || true)"
+          STAGE_PG="$(find_db_container postgres dhole-staging staging || true)"
+          PROD_MONGO="$(find_db_container mongo dhole production || true)"
+          STAGE_MONGO="$(find_db_container mongo dhole-staging staging || true)"
 
-          [[ -n "$PROD_PG" && -n "$STAGE_PG" ]] || { echo 'PostgreSQL containers not found'; exit 1; }
-          [[ -n "$PROD_MONGO" && -n "$STAGE_MONGO" ]] || { echo 'MongoDB containers not found'; exit 1; }
+          if [[ -z "$PROD_PG" || -z "$STAGE_PG" || -z "$PROD_MONGO" || -z "$STAGE_MONGO" ]]; then
+            echo 'Could not resolve every database container. Running database containers:'
+            docker ps --format '{{.ID}}  {{.Image}}  {{.Names}}' | grep -Ei 'postgres|mongo' || true
+            echo 'Networks:'
+            docker network ls --format '{{.Name}}' | grep -E 'dhole|database' || true
+            exit 1
+          fi
+
+          echo "Production PostgreSQL: $(docker inspect --format '{{.Name}}' "$PROD_PG" | sed 's#^/##')"
+          echo "Staging PostgreSQL:    $(docker inspect --format '{{.Name}}' "$STAGE_PG" | sed 's#^/##')"
+          echo "Production MongoDB:    $(docker inspect --format '{{.Name}}' "$PROD_MONGO" | sed 's#^/##')"
+          echo "Staging MongoDB:       $(docker inspect --format '{{.Name}}' "$STAGE_MONGO" | sed 's#^/##')"
 
           PROD_PG_USER="$(read_env "$PROD_ENV" POSTGRES_USER)"
           STAGE_PG_USER="$(read_env "$STAGE_ENV" POSTGRES_USER)"
