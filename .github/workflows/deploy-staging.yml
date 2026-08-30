@@ -106,6 +106,20 @@ jobs:
             fi
           done
 
+      - name: Verify public Cloudflare staging routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for host in dhole.customcodecr.com dhole-api.customcodecr.com website-castrofallas.customcodecr.com; do
+            echo "Testing public https://$host/health"
+            code="$(curl -sS --max-time 20 -o /tmp/public-body -w '%{http_code}' "https://$host/health" || true)"
+            echo "$host -> HTTP $code"
+            if [[ ! "$code" =~ ^2[0-9][0-9]$ && ! "$code" =~ ^3[0-9][0-9]$ ]]; then
+              cat /tmp/public-body 2>/dev/null || true
+              exit 1
+            fi
+          done
+
       - name: Show public staging DNS state
         shell: bash
         run: |
