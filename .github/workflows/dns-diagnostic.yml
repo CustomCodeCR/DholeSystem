@@ -1,0 +1,45 @@
+name: DNS Diagnostic
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - .github/workflows/dns-diagnostic.yml
+
+permissions:
+  contents: read
+
+jobs:
+  dns:
+    runs-on: [self-hosted, linux, x64, dhole]
+    steps:
+      - name: Check public DNS and HTTP
+        shell: bash
+        run: |
+          set -euo pipefail
+          domains=(
+            logisticacastrofallas.com
+            www.logisticacastrofallas.com
+            sistema.logisticacastrofallas.com
+            api.logisticacastrofallas.com
+            website-castrofallas.customcodecr.com
+          )
+
+          echo '=== Authoritative nameservers ==='
+          curl -fsS 'https://dns.google/resolve?name=logisticacastrofallas.com&type=NS' || true
+          echo
+
+          for d in "${domains[@]}"; do
+            echo
+            echo "=== $d ==="
+            echo '-- Google DNS A --'
+            curl -fsS "https://dns.google/resolve?name=$d&type=A" || true
+            echo
+            echo '-- Google DNS CNAME --'
+            curl -fsS "https://dns.google/resolve?name=$d&type=CNAME" || true
+            echo
+            echo '-- system resolver --'
+            getent ahostsv4 "$d" || true
+            echo '-- HTTPS --'
+            curl -sSIk --connect-timeout 10 --max-time 20 "https://$d/health" | head -n 8 || true
+          done
