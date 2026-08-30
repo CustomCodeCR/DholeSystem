@@ -61,7 +61,7 @@ jobs:
           STAGE_MONGO_USER="$(read_env "$STAGE_ENV" MONGO_USER)"
           STAGE_MONGO_PASSWORD="$(read_env "$STAGE_ENV" MONGO_PASSWORD)"
 
-          PROD_VERSION="$(docker exec "$PROD_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$4); print $4; exit}')"
+          PROD_VERSION="$(docker exec "$PROD_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$3); print $3; exit}')"
           echo "Production MongoDB version: $PROD_VERSION"
           [[ "$PROD_VERSION" == "7.0.40" ]] || { echo "Unexpected production MongoDB version: $PROD_VERSION"; exit 1; }
 
@@ -108,7 +108,7 @@ jobs:
             sleep 2
           done
 
-          STAGE_VERSION="$(docker exec "$STAGE_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$4); print $4; exit}')"
+          STAGE_VERSION="$(docker exec "$STAGE_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$3); print $3; exit}')"
           echo "Staging MongoDB version: $STAGE_VERSION"
           [[ "$STAGE_VERSION" == "$PROD_VERSION" ]] || { echo "MongoDB version mismatch: prod=$PROD_VERSION staging=$STAGE_VERSION"; exit 1; }
 
