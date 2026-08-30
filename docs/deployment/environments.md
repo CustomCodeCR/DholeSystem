@@ -2,7 +2,7 @@
 
 The server keeps the private base file at `/opt/dhole/.env`. It is never committed to GitHub.
 
-`deploy/prepare-environments.sh` creates two runtime files while preserving the server-only passwords, JWT secret, SMTP credentials and internal keys.
+`deploy/prepare-environments.sh` creates temporary runtime copies inside the self-hosted runner while preserving the server-only passwords, JWT secret, SMTP credentials and internal keys. The runner only needs read access to `/opt/dhole/.env`; it does not modify that file or write deployment configuration back into `/opt/dhole`.
 
 ## Production (`master`)
 
@@ -15,7 +15,6 @@ The server keeps the private base file at `/opt/dhole/.env`. It is never committ
 - VITE_API_URL=https://api.logisticacastrofallas.com
 - VITE_FRONTEND_DOMAIN=https://sistema.logisticacastrofallas.com
 - CORS_WEB_ORIGIN=https://sistema.logisticacastrofallas.com
-- Runtime env: `/opt/dhole/.env.production`
 - Docker project: `dhole`
 - Docker network: `dhole`
 - Image tag: `latest`
@@ -33,7 +32,6 @@ The server keeps the private base file at `/opt/dhole/.env`. It is never committ
 - CORS_WEB_ORIGIN=https://dhole.customcodecr.com
 - DATA_EXTRACTION_EMAIL_ENABLED=false
 - NOTIFICATIONS_EMAIL_ENABLED=false
-- Runtime env: `/opt/dhole/.env.staging`
 - Docker project: `dhole-staging`
 - Docker network: `dhole-staging`
 - Image tag: `staging`

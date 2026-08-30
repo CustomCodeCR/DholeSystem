@@ -3,7 +3,7 @@ services:
     image: postgres:17-alpine
     restart: unless-stopped
     env_file:
-      - /opt/dhole/.env.staging
+      - ${DHOLE_ENV_FILE}
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -21,7 +21,7 @@ services:
     image: mongo:8
     restart: unless-stopped
     env_file:
-      - /opt/dhole/.env.staging
+      - ${DHOLE_ENV_FILE}
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
@@ -42,7 +42,7 @@ services:
     image: minio/minio:latest
     restart: unless-stopped
     env_file:
-      - /opt/dhole/.env.staging
+      - ${DHOLE_ENV_FILE}
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
