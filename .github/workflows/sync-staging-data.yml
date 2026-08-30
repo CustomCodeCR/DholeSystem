@@ -1,10 +1,6 @@
 name: Sync Production Data to Staging
 
 on:
-  push:
-    branches: [develop]
-    paths:
-      - .github/workflows/sync-staging-data.yml
   workflow_dispatch:
 
 permissions:
@@ -60,7 +56,6 @@ jobs:
             local kind="$1" network="$2" environment="$3"
             local id image name
 
-            # Preferred: match the database image and the exact Docker network.
             while IFS='|' read -r id image name; do
               [[ -n "$id" ]] || continue
               image_matches_kind "$image" "$kind" || continue
@@ -70,7 +65,6 @@ jobs:
               fi
             done < <(docker ps --format '{{.ID}}|{{.Image}}|{{.Names}}')
 
-            # Fallback for older production compose layouts: distinguish by container name.
             while IFS='|' read -r id image name; do
               [[ -n "$id" ]] || continue
               image_matches_kind "$image" "$kind" || continue
