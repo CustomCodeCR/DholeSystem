@@ -18,7 +18,7 @@ services:
       retries: 10
 
   mongo:
-    image: mongo:8
+    image: mongo:7.0.40
     restart: unless-stopped
     env_file:
       - ${DHOLE_ENV_FILE}
