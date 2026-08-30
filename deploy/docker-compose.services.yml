@@ -3,89 +3,90 @@ x-service-defaults: &service-defaults
   networks:
     - dhole
   env_file:
-    - /opt/dhole/.env
+    - ${DHOLE_ENV_FILE:-/opt/dhole/.env.production}
 
 services:
   auth-api:
     <<: *service-defaults
-    image: dhole/auth-api:latest
+    image: dhole/auth-api:${DHOLE_IMAGE_TAG:-latest}
 
   auth-workers:
     <<: *service-defaults
-    image: dhole/auth-workers:latest
+    image: dhole/auth-workers:${DHOLE_IMAGE_TAG:-latest}
 
   config-api:
     <<: *service-defaults
-    image: dhole/config-api:latest
+    image: dhole/config-api:${DHOLE_IMAGE_TAG:-latest}
 
   config-workers:
     <<: *service-defaults
-    image: dhole/config-workers:latest
+    image: dhole/config-workers:${DHOLE_IMAGE_TAG:-latest}
 
   auditlogs-api:
     <<: *service-defaults
-    image: dhole/auditlogs-api:latest
+    image: dhole/auditlogs-api:${DHOLE_IMAGE_TAG:-latest}
 
   auditlogs-workers:
     <<: *service-defaults
-    image: dhole/auditlogs-workers:latest
+    image: dhole/auditlogs-workers:${DHOLE_IMAGE_TAG:-latest}
 
   dataextraction-api:
     <<: *service-defaults
-    image: dhole/dataextraction-api:latest
+    image: dhole/dataextraction-api:${DHOLE_IMAGE_TAG:-latest}
 
   dataextraction-workers:
     <<: *service-defaults
-    image: dhole/dataextraction-workers:latest
+    image: dhole/dataextraction-workers:${DHOLE_IMAGE_TAG:-latest}
 
   pricing-api:
     <<: *service-defaults
-    image: dhole/pricing-api:latest
+    image: dhole/pricing-api:${DHOLE_IMAGE_TAG:-latest}
 
   pricing-workers:
     <<: *service-defaults
-    image: dhole/pricing-workers:latest
+    image: dhole/pricing-workers:${DHOLE_IMAGE_TAG:-latest}
 
   ai-api:
     <<: *service-defaults
-    image: dhole/ai-api:latest
+    image: dhole/ai-api:${DHOLE_IMAGE_TAG:-latest}
 
   ai-workers:
     <<: *service-defaults
-    image: dhole/ai-workers:latest
+    image: dhole/ai-workers:${DHOLE_IMAGE_TAG:-latest}
 
   storage-api:
     <<: *service-defaults
-    image: dhole/storage-api:latest
+    image: dhole/storage-api:${DHOLE_IMAGE_TAG:-latest}
 
   storage-workers:
     <<: *service-defaults
-    image: dhole/storage-workers:latest
+    image: dhole/storage-workers:${DHOLE_IMAGE_TAG:-latest}
 
   reports-api:
     <<: *service-defaults
-    image: dhole/reports-api:latest
+    image: dhole/reports-api:${DHOLE_IMAGE_TAG:-latest}
 
   reports-workers:
     <<: *service-defaults
-    image: dhole/reports-workers:latest
+    image: dhole/reports-workers:${DHOLE_IMAGE_TAG:-latest}
 
   notifications-api:
     <<: *service-defaults
-    image: dhole/notifications-api:latest
+    image: dhole/notifications-api:${DHOLE_IMAGE_TAG:-latest}
 
   notifications-workers:
     <<: *service-defaults
-    image: dhole/notifications-workers:latest
+    image: dhole/notifications-workers:${DHOLE_IMAGE_TAG:-latest}
 
   api-gateway:
     <<: *service-defaults
-    image: dhole/api-gateway:latest
+    image: dhole/api-gateway:${DHOLE_IMAGE_TAG:-latest}
 
   dhole-web:
     <<: *service-defaults
-    image: dhole/web:latest
+    image: dhole/web:${DHOLE_IMAGE_TAG:-latest}
 
 networks:
   dhole:
     external: true
+    name: ${DHOLE_NETWORK:-dhole}

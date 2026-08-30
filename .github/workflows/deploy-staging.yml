@@ -1,0 +1,103 @@
+name: Deploy Dhole Infrastructure - Staging
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dhole-infrastructure-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, x64, dhole]
+
+    steps:
+      - name: Checkout infrastructure
+        uses: actions/checkout@v4
+
+      - name: Install deployment files and prepare envs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /opt/dhole
+          cp deploy/docker-compose.services.yml /opt/dhole/docker-compose.services.yml
+          cp deploy/docker-compose.staging-infra.yml /opt/dhole/docker-compose.staging-infra.yml
+          bash deploy/prepare-environments.sh /opt/dhole/.env /opt/dhole
+
+      - name: Start isolated staging infrastructure
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker network inspect dhole-staging >/dev/null 2>&1 || docker network create dhole-staging
+          docker compose \
+            --env-file /opt/dhole/.env.staging \
+            -f /opt/dhole/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            up -d
+          docker compose \
+            --env-file /opt/dhole/.env.staging \
+            -f /opt/dhole/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            ps
+
+      - name: Initialize staging PostgreSQL databases
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          read_env() {
+            local key="$1"
+            grep -m1 "^${key}=" /opt/dhole/.env.staging | cut -d= -f2- | tr -d '\r'
+          }
+
+          POSTGRES_USER="$(read_env POSTGRES_USER)"
+          POSTGRES_ID="$(docker compose --env-file /opt/dhole/.env.staging -f /opt/dhole/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q postgres)"
+          test -n "$POSTGRES_ID"
+
+          for attempt in $(seq 1 30); do
+            if docker exec "$POSTGRES_ID" pg_isready -U "$POSTGRES_USER" >/dev/null 2>&1; then
+              break
+            fi
+            if [[ "$attempt" == "30" ]]; then
+              docker logs --tail 200 "$POSTGRES_ID" || true
+              exit 1
+            fi
+            sleep 2
+          done
+
+          for key in AUTH_DB CONFIG_DB AUDITLOGS_DB DATAEXTRACTION_DB PRICING_DB AI_DB STORAGE_DB REPORTS_DB NOTIFICATIONS_DB; do
+            db="$(read_env "$key")"
+            test -n "$db"
+            exists="$(docker exec "$POSTGRES_ID" psql -U "$POSTGRES_USER" -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='${db}'" | tr -d '[:space:]')"
+            if [[ "$exists" != "1" ]]; then
+              echo "Creating staging database: $db"
+              docker exec "$POSTGRES_ID" createdb -U "$POSTGRES_USER" "$db"
+            fi
+          done
+
+      - name: Attach shared Ollama to staging network
+        shell: bash
+        run: |
+          set -euo pipefail
+          OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
+          if [[ -n "$OLLAMA_ID" ]]; then
+            docker network connect --alias ollama dhole-staging "$OLLAMA_ID" 2>/dev/null || true
+          else
+            echo "Ollama container was not found; AI staging can still deploy but Ollama calls will fail until it is attached."
+          fi
+
+      - name: Validate staging application compose
+        shell: bash
+        env:
+          DHOLE_ENV_FILE: /opt/dhole/.env.staging
+          DHOLE_IMAGE_TAG: staging
+          DHOLE_NETWORK: dhole-staging
+        run: |
+          set -euo pipefail
+          docker compose --env-file "$DHOLE_ENV_FILE" -f /opt/dhole/docker-compose.services.yml -p dhole-staging config -q
+          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN|DATA_EXTRACTION_EMAIL_ENABLED|NOTIFICATIONS_EMAIL_ENABLED)=' "$DHOLE_ENV_FILE"

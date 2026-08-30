@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    env_file:
+      - /opt/dhole/.env.staging
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - dhole-staging-postgres:/var/lib/postgresql/data
+    networks:
+      - dhole-staging
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  mongo:
+    image: mongo:8
+    restart: unless-stopped
+    env_file:
+      - /opt/dhole/.env.staging
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - dhole-staging-mongo:/data/db
+    networks:
+      - dhole-staging
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - dhole-staging-redis:/data
+    networks:
+      - dhole-staging
+
+  minio:
+    image: minio/minio:latest
+    restart: unless-stopped
+    env_file:
+      - /opt/dhole/.env.staging
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    volumes:
+      - dhole-staging-minio:/data
+    networks:
+      - dhole-staging
+
+networks:
+  dhole-staging:
+    external: true
+    name: dhole-staging
+
+volumes:
+  dhole-staging-postgres:
+  dhole-staging-mongo:
+  dhole-staging-redis:
+  dhole-staging-minio:
