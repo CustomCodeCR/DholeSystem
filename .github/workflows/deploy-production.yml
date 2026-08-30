@@ -76,13 +76,18 @@ jobs:
           command -v cloudflared || true
           cloudflared --version 2>/dev/null || true
 
-          echo "=== non-secret cloudflared ingress ==="
-          if [[ -r /etc/cloudflared/config.yml ]]; then
-            grep -E '^([[:space:]]*tunnel:|[[:space:]]*-?[[:space:]]*hostname:|[[:space:]]*service:)' /etc/cloudflared/config.yml || true
-          elif [[ -r /etc/cloudflared/config.yaml ]]; then
-            grep -E '^([[:space:]]*tunnel:|[[:space:]]*-?[[:space:]]*hostname:|[[:space:]]*service:)' /etc/cloudflared/config.yaml || true
+          echo "=== tunnel management capability ==="
+          if cloudflared tunnel list --output json >/tmp/cloudflared-tunnels.json 2>/tmp/cloudflared-list.err; then
+            python3 - <<'PY'
+import json
+from pathlib import Path
+items=json.loads(Path('/tmp/cloudflared-tunnels.json').read_text() or '[]')
+for item in items:
+    print(f"tunnel id={item.get('id')} name={item.get('name')} status={item.get('status')}")
+PY
           else
-            echo "No readable /etc/cloudflared/config.yml found"
+            echo "cloudflared tunnel list is not authorized for this runner"
+            sed -E 's/(token|secret|credential)[^ ]*/[REDACTED]/Ig' /tmp/cloudflared-list.err | head -n20 || true
           fi
 
       - name: Keep DholeSystem feature branches clean
