@@ -18,7 +18,7 @@ services:
       retries: 10
 
   mongo:
-    image: mongo:8
+    image: mongo:7.0.40
     restart: unless-stopped
     env_file:
       - ${DHOLE_ENV_FILE}
@@ -45,7 +45,7 @@ services:
       - ${DHOLE_ENV_FILE}
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
     command: server /data --console-address ":9001"
     volumes:
       - dhole-staging-minio:/data
