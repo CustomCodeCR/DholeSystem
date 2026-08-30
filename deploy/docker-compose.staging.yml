@@ -6,3 +6,7 @@ services:
   dhole-web:
     ports:
       - "127.0.0.1:18081:80"
+
+  website:
+    ports:
+      - "127.0.0.1:18082:80"
