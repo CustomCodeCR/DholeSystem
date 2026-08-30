@@ -59,6 +59,10 @@ jobs:
             echo "Testing local Traefik health route for $host"
             code="$(curl -sS -o /tmp/prod-route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/health || true)"
             echo "$host/health -> HTTP $code"
+            if [[ ! "$code" =~ ^2[0-9][0-9]$ && ! "$code" =~ ^3[0-9][0-9]$ ]]; then
+              cat /tmp/prod-route-body 2>/dev/null || true
+              exit 1
+            fi
           done
 
       - name: Diagnose public DNS and Cloudflare tunnel
@@ -75,20 +79,6 @@ jobs:
           systemctl is-active cloudflared 2>/dev/null || true
           command -v cloudflared || true
           cloudflared --version 2>/dev/null || true
-
-          echo "=== tunnel management capability ==="
-          if cloudflared tunnel list --output json >/tmp/cloudflared-tunnels.json 2>/tmp/cloudflared-list.err; then
-            python3 - <<'PY'
-import json
-from pathlib import Path
-items=json.loads(Path('/tmp/cloudflared-tunnels.json').read_text() or '[]')
-for item in items:
-    print(f"tunnel id={item.get('id')} name={item.get('name')} status={item.get('status')}")
-PY
-          else
-            echo "cloudflared tunnel list is not authorized for this runner"
-            sed -E 's/(token|secret|credential)[^ ]*/[REDACTED]/Ig' /tmp/cloudflared-list.err | head -n20 || true
-          fi
 
       - name: Keep DholeSystem feature branches clean
         shell: bash
