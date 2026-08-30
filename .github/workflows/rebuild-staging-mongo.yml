@@ -1,0 +1,163 @@
+name: Rebuild Staging MongoDB
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - .github/workflows/rebuild-staging-mongo.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dhole-rebuild-staging-mongo
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout infrastructure
+        uses: actions/checkout@v4
+
+      - name: Rebuild and clone staging MongoDB
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PROD_ENV=/opt/dhole/.env
+          STAGE_ENV=/opt/dhole/.env.staging
+          COMPOSE=/opt/dhole/docker-compose.services.yml
+          OVERRIDE=/opt/dhole/docker-compose.staging.yml
+          INFRA_COMPOSE="$GITHUB_WORKSPACE/deploy/docker-compose.staging-infra.yml"
+
+          read_env() {
+            local file="$1" key="$2"
+            awk -F= -v key="$key" '$1 == key { sub(/^[^=]*=/, ""); print; exit }' "$file" | tr -d '\r'
+          }
+
+          find_mongo() {
+            local environment="$1" id image name
+            while IFS='|' read -r id image name; do
+              [[ "${image,,}" == mongo:* || "${image,,}" == */mongo:* ]] || continue
+              if [[ "$environment" == staging && "${name,,}" == *staging* ]]; then
+                echo "$id"; return 0
+              fi
+              if [[ "$environment" == production && "${name,,}" != *staging* ]]; then
+                echo "$id"; return 0
+              fi
+            done < <(docker ps --format '{{.ID}}|{{.Image}}|{{.Names}}')
+            return 1
+          }
+
+          PROD_MONGO="$(find_mongo production)"
+          STAGE_MONGO="$(find_mongo staging)"
+          [[ -n "$PROD_MONGO" && -n "$STAGE_MONGO" ]] || { echo 'MongoDB containers not found'; exit 1; }
+
+          PROD_MONGO_USER="$(read_env "$PROD_ENV" MONGO_USER)"
+          PROD_MONGO_PASSWORD="$(read_env "$PROD_ENV" MONGO_PASSWORD)"
+          STAGE_MONGO_USER="$(read_env "$STAGE_ENV" MONGO_USER)"
+          STAGE_MONGO_PASSWORD="$(read_env "$STAGE_ENV" MONGO_PASSWORD)"
+
+          PROD_VERSION="$(docker exec "$PROD_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$4); print $4; exit}')"
+          echo "Production MongoDB version: $PROD_VERSION"
+          [[ "$PROD_VERSION" == "7.0.40" ]] || { echo "Unexpected production MongoDB version: $PROD_VERSION"; exit 1; }
+
+          TMP_DIR="$(mktemp -d /tmp/dhole-mongo-sync.XXXXXX)"
+          chmod 700 "$TMP_DIR"
+
+          restart_staging() {
+            docker compose --env-file "$STAGE_ENV" -f "$COMPOSE" -f "$OVERRIDE" -p dhole-staging up -d --no-build --pull never || true
+            rm -rf "$TMP_DIR"
+          }
+          trap restart_staging EXIT
+
+          echo 'Stopping staging application services...'
+          docker compose --env-file "$STAGE_ENV" -f "$COMPOSE" -f "$OVERRIDE" -p dhole-staging stop
+
+          STAGE_VOLUME="$(docker inspect --format '{{range .Mounts}}{{if eq .Destination "/data/db"}}{{.Name}}{{end}}{{end}}' "$STAGE_MONGO")"
+          [[ -n "$STAGE_VOLUME" ]] || { echo 'Could not resolve staging MongoDB data volume'; exit 1; }
+
+          echo 'Recreating staging MongoDB volume on MongoDB 7.0.40...'
+          docker rm -f "$STAGE_MONGO"
+          docker volume rm "$STAGE_VOLUME"
+
+          DHOLE_ENV_FILE="$STAGE_ENV" docker compose \
+            --env-file "$STAGE_ENV" \
+            -f "$INFRA_COMPOSE" \
+            -p dhole-staging-infra \
+            up -d --pull always mongo
+
+          STAGE_MONGO="$(DHOLE_ENV_FILE="$STAGE_ENV" docker compose --env-file "$STAGE_ENV" -f "$INFRA_COMPOSE" -p dhole-staging-infra ps -q mongo)"
+          [[ -n "$STAGE_MONGO" ]] || { echo 'Staging MongoDB did not start'; exit 1; }
+
+          for attempt in $(seq 1 60); do
+            if docker exec "$STAGE_MONGO" mongosh --quiet \
+              --username "$STAGE_MONGO_USER" \
+              --password "$STAGE_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --eval 'db.runCommand({ping:1}).ok' 2>/dev/null | grep -qx '1'; then
+              break
+            fi
+            if [[ "$attempt" == 60 ]]; then
+              docker logs --tail 100 "$STAGE_MONGO"
+              exit 1
+            fi
+            sleep 2
+          done
+
+          STAGE_VERSION="$(docker exec "$STAGE_MONGO" mongod --version | awk '/db version v/{sub(/^v/,"",$4); print $4; exit}')"
+          echo "Staging MongoDB version: $STAGE_VERSION"
+          [[ "$STAGE_VERSION" == "$PROD_VERSION" ]] || { echo "MongoDB version mismatch: prod=$PROD_VERSION staging=$STAGE_VERSION"; exit 1; }
+
+          echo 'Cloning MongoDB application databases from production...'
+          mapfile -t DBS < <(
+            docker exec "$PROD_MONGO" mongosh --quiet \
+              --username "$PROD_MONGO_USER" \
+              --password "$PROD_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --eval 'db.adminCommand({listDatabases:1,nameOnly:true}).databases.map(d=>d.name).filter(n=>!["admin","config","local"].includes(n)).join("\n")' \
+              | sed '/^[[:space:]]*$/d'
+          )
+
+          for db_name in "${DBS[@]}"; do
+            archive="$TMP_DIR/${db_name//[^A-Za-z0-9_.-]/_}.archive"
+            echo "  $db_name"
+
+            docker exec "$PROD_MONGO" mongodump \
+              --username "$PROD_MONGO_USER" \
+              --password "$PROD_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --db "$db_name" \
+              --archive > "$archive"
+
+            docker exec -i "$STAGE_MONGO" mongorestore \
+              --username "$STAGE_MONGO_USER" \
+              --password "$STAGE_MONGO_PASSWORD" \
+              --authenticationDatabase admin \
+              --drop \
+              --nsInclude "${db_name}.*" \
+              --archive < "$archive"
+          done
+
+          echo 'MongoDB staging clone completed.'
+
+      - name: Verify staging health
+        shell: bash
+        run: |
+          set -euo pipefail
+          for url in https://dhole.customcodecr.com/health https://dhole-api.customcodecr.com/health; do
+            ok=0
+            for attempt in $(seq 1 30); do
+              code="$(curl -sS --max-time 10 -o /tmp/health-body -w '%{http_code}' "$url" || true)"
+              if [[ "$code" =~ ^2[0-9][0-9]$ ]]; then
+                echo "$url -> HTTP $code"
+                ok=1
+                break
+              fi
+              sleep 4
+            done
+            [[ "$ok" == 1 ]] || { echo "Health check failed: $url"; exit 1; }
+          done
