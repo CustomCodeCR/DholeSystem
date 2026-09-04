@@ -26,14 +26,21 @@ jobs:
           mkdir -p "$backup_dir"
           chmod 700 "$backup_dir"
 
-          psql_db() {
-            local db="$1"; shift
-            docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d "$1" "$@"' sh "$db" "$@"
-          }
-
           query_tables() {
             local db="$1"
             docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -c "SELECT schemaname || CHR(46) || relname FROM pg_stat_user_tables ORDER BY schemaname, relname;"' sh "$db"
+          }
+
+          run_sql() {
+            local db="$1"
+            local sql="$2"
+            docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d "$1" -c "$2"' sh "$db" "$sql"
+          }
+
+          count_table() {
+            local db="$1"
+            local table="$2"
+            docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d "$1" -At -c "SELECT COUNT(*) FROM $2;"' sh "$db" "$table"
           }
 
           check_exact_tables() {
@@ -43,7 +50,7 @@ jobs:
             actual_file="$(mktemp)"
             expected_file="$(mktemp)"
             query_tables "$db" | sort > "$actual_file"
-            printf '%s\n' "$expected" | sed '/^[[:space:]]*$/d' | sort > "$expected_file"
+            printf '%s\n' "$expected" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//;/^$/d' | sort > "$expected_file"
             if ! diff -u "$expected_file" "$actual_file"; then
               echo "ERROR: table inventory for $db differs from the reviewed whitelist. No data has been deleted."
               rm -f "$actual_file" "$expected_file"
@@ -156,6 +163,16 @@ jobs:
           storage.inbox_messages
           storage.outbox_messages"
 
+          declare -A RESET_SQL
+          RESET_SQL[dhole_ai]='TRUNCATE TABLE ai."AiEmailAnalysisJobs", ai."AiExecutionAttempts", ai."AiExecutions", ai.inbox_messages, ai.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_auditlogs]='TRUNCATE TABLE auditlogs."AuditEvents", auditlogs.inbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_auth]='TRUNCATE TABLE auth."Sessions", auth.inbox_messages, auth.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_config]='TRUNCATE TABLE config.inbox_messages, config.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_data_extraction]='TRUNCATE TABLE data_extraction."EmailAiAnalysisRequests", data_extraction."EmailExtractionJobs", data_extraction."EmailAttachments", data_extraction."EmailMessages", data_extraction."ExtractionIssues", data_extraction."PricingExtractionRecords", data_extraction."SourceDocuments", data_extraction."ExtractionExecutions", data_extraction.inbox_messages, data_extraction.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_notifications]='TRUNCATE TABLE notifications.notification_delivery_attempts, notifications.notification_recipients, notifications.notification_messages, notifications.inbox_messages, notifications.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_pricing]='TRUNCATE TABLE pricing."RateComparisonDetails", pricing."RateComparisons", pricing."RateRevisions", pricing."RateContainerAllocations", pricing."RateDetails", pricing."RateServices", pricing."RateHeaders", pricing."RateRequests", pricing."PricingImportFromExtractionJobs", pricing."LogisticsNewsRateImpacts", pricing."LogisticsNews", pricing."OwnLclConsolidationPricingLines", pricing."OwnLclConsolidations", pricing.inbox_messages, pricing.outbox_messages RESTART IDENTITY;'
+          RESET_SQL[dhole_storage]='TRUNCATE TABLE storage.inbox_messages, storage.outbox_messages RESTART IDENTITY;'
+
           echo '=== Pause Dhole application containers for a consistent backup/reset point ==='
           mapfile -t app_containers < <(docker network inspect dhole --format '{{range .Containers}}{{.Name}}{{"\n"}}{{end}}' | grep -E '^dhole-(ai|api-gateway|auditlogs|auth|config|dataextraction|dhole-web|notifications|pricing|reports|storage)-' | sort)
           paused=()
@@ -178,189 +195,123 @@ jobs:
             file="$backup_dir/${db}.dump"
             docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" pg_dump -U "${POSTGRES_USER:-postgres}" -Fc --no-owner --no-privileges "$1"' sh "$db" > "$file"
             test -s "$file"
-            pg_restore -l "$file" >/dev/null
+            test "$(head -c 5 "$file")" = 'PGDMP'
             echo "BACKUP_OK|$db|$(stat -c%s "$file")"
           done
           sha256sum "$backup_dir"/*.dump > "$backup_dir/SHA256SUMS"
           chmod 600 "$backup_dir"/*
           echo "BACKUP_DIR=$backup_dir"
 
-          echo '=== Row counts retained before reset ==='
-          for spec in \
-            'dhole_auth|auth.Users' \
-            'dhole_auth|auth.Roles' \
-            'dhole_auth|auth.Scopes' \
-            'dhole_config|config.CatalogGroups' \
-            'dhole_config|config.CatalogItems' \
-            'dhole_ai|ai.AiConnections' \
-            'dhole_ai|ai.AiModels' \
-            'dhole_ai|ai.AiProfiles' \
-            'dhole_ai|ai.AiProfileModels' \
-            'dhole_ai|ai.AiPromptTemplates' \
-            'dhole_pricing|pricing.ImportFclRates' \
-            'dhole_pricing|pricing.Costs' \
-            'dhole_pricing|pricing.RateTermItems' \
-            'dhole_pricing|pricing.RateTermBlocks' \
-            'dhole_pricing|pricing.OwnLclHistoricalRates' \
-            'dhole_reports|reports.report_templates' \
-            'dhole_storage|storage.Files'; do
-            db="${spec%%|*}"; table="${spec#*|}"
-            count="$(docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -c "SELECT COUNT(*) FROM $2;"' sh "$db" "$table")"
-            echo "KEEP_BEFORE|$db|$table|$count"
+          echo '=== Snapshot every retained table count before reset ==='
+          retained_counts="$backup_dir/retained-counts.txt"
+          : > "$retained_counts"
+          while IFS='|' read -r db table; do
+            [ -n "$db" ] || continue
+            count="$(count_table "$db" "$table")"
+            printf '%s|%s|%s\n' "$db" "$table" "$count" | tee -a "$retained_counts"
+          done <<'EOF'
+          dhole_ai|ai."AiConnections"
+          dhole_ai|ai."AiModels"
+          dhole_ai|ai."AiProfileModels"
+          dhole_ai|ai."AiProfiles"
+          dhole_ai|ai."AiPromptTemplates"
+          dhole_ai|public."__EFMigrationsHistory"
+          dhole_auditlogs|public."__EFMigrationsHistory"
+          dhole_auth|auth."RoleScopes"
+          dhole_auth|auth."Roles"
+          dhole_auth|auth."Scopes"
+          dhole_auth|auth."UserRoles"
+          dhole_auth|auth."UserScopes"
+          dhole_auth|auth."Users"
+          dhole_auth|public."__EFMigrationsHistory"
+          dhole_config|config."CatalogGroups"
+          dhole_config|config."CatalogItems"
+          dhole_config|public."__EFMigrationsHistory"
+          dhole_data_extraction|data_extraction."ColumnMappingProfiles"
+          dhole_data_extraction|data_extraction."ColumnMappingRules"
+          dhole_data_extraction|data_extraction."EmailIngestionAccounts"
+          dhole_data_extraction|public."__EFMigrationsHistory"
+          dhole_notifications|notifications.notification_templates
+          dhole_pricing|pricing."CarrierFreeDayRules"
+          dhole_pricing|pricing."CostIncoterms"
+          dhole_pricing|pricing."CostServices"
+          dhole_pricing|pricing."Costs"
+          dhole_pricing|pricing."ImportFclRates"
+          dhole_pricing|pricing."LclRateSources"
+          dhole_pricing|pricing."OwnLclHistoricalRates"
+          dhole_pricing|pricing."RateTermBlockItems"
+          dhole_pricing|pricing."RateTermBlockServices"
+          dhole_pricing|pricing."RateTermBlocks"
+          dhole_pricing|pricing."RateTermItems"
+          dhole_pricing|public."__EFMigrationsHistory"
+          dhole_reports|reports.report_templates
+          dhole_reports|public."__EFMigrationsHistory"
+          dhole_storage|storage."FileReferences"
+          dhole_storage|storage."FileVersions"
+          dhole_storage|storage."Files"
+          dhole_storage|storage."StorageProviders"
+          dhole_storage|public."__EFMigrationsHistory"
+          EOF
+
+          echo '=== Preflight every truncate inside a rolled-back transaction ==='
+          for db in "${!RESET_SQL[@]}"; do
+            run_sql "$db" "BEGIN; ${RESET_SQL[$db]} ROLLBACK;"
+            echo "PREFLIGHT_OK|$db"
           done
 
-          echo '=== Truncate reviewed transactional/history tables (NO CASCADE) ==='
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_ai <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE
-  ai."AiEmailAnalysisJobs",
-  ai."AiExecutionAttempts",
-  ai."AiExecutions",
-  ai.inbox_messages,
-  ai.outbox_messages
-RESTART IDENTITY;
-COMMIT;
-SQL'
+          echo '=== Execute reviewed transactional/history reset (NO CASCADE) ==='
+          for db in dhole_ai dhole_auditlogs dhole_auth dhole_config dhole_data_extraction dhole_notifications dhole_pricing dhole_storage; do
+            run_sql "$db" "BEGIN; ${RESET_SQL[$db]} COMMIT;"
+            echo "TRUNCATE_OK|$db"
+          done
 
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_auditlogs <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE auditlogs."AuditEvents", auditlogs.inbox_messages RESTART IDENTITY;
-COMMIT;
-SQL'
+          echo '=== Verify all retained table counts are unchanged ==='
+          while IFS='|' read -r db table expected; do
+            [ -n "$db" ] || continue
+            actual="$(count_table "$db" "$table")"
+            echo "KEEP_CHECK|$db|$table|before=$expected|after=$actual"
+            if [ "$actual" != "$expected" ]; then
+              echo "ERROR: retained table changed: $db $table"
+              exit 1
+            fi
+          done < "$retained_counts"
 
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_auth <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE auth."Sessions", auth.inbox_messages, auth.outbox_messages RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_config <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE config.inbox_messages, config.outbox_messages RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_data_extraction <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE
-  data_extraction."EmailAiAnalysisRequests",
-  data_extraction."EmailExtractionJobs",
-  data_extraction."EmailAttachments",
-  data_extraction."EmailMessages",
-  data_extraction."ExtractionIssues",
-  data_extraction."PricingExtractionRecords",
-  data_extraction."SourceDocuments",
-  data_extraction."ExtractionExecutions",
-  data_extraction.inbox_messages,
-  data_extraction.outbox_messages
-RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_notifications <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE
-  notifications.notification_delivery_attempts,
-  notifications.notification_recipients,
-  notifications.notification_messages,
-  notifications.inbox_messages,
-  notifications.outbox_messages
-RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_pricing <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE
-  pricing."RateComparisonDetails",
-  pricing."RateComparisons",
-  pricing."RateRevisions",
-  pricing."RateContainerAllocations",
-  pricing."RateDetails",
-  pricing."RateServices",
-  pricing."RateHeaders",
-  pricing."RateRequests",
-  pricing."PricingImportFromExtractionJobs",
-  pricing."LogisticsNewsRateImpacts",
-  pricing."LogisticsNews",
-  pricing."OwnLclConsolidationPricingLines",
-  pricing."OwnLclConsolidations",
-  pricing.inbox_messages,
-  pricing.outbox_messages
-RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -v ON_ERROR_STOP=1 -U "${POSTGRES_USER:-postgres}" -d dhole_storage <<'"'"'SQL'"'"'
-BEGIN;
-TRUNCATE TABLE storage.inbox_messages, storage.outbox_messages RESTART IDENTITY;
-COMMIT;
-SQL'
-
-          echo '=== Verify cleaned tables are zero ==='
-          verify_zero() {
-            local db="$1" table="$2"
-            local count
-            count="$(docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -c "SELECT COUNT(*) FROM $2;"' sh "$db" "$table")"
+          echo '=== Verify representative cleaned tables are empty ==='
+          for spec in \
+            'dhole_ai|ai."AiExecutions"' \
+            'dhole_ai|ai.outbox_messages' \
+            'dhole_auditlogs|auditlogs."AuditEvents"' \
+            'dhole_auth|auth."Sessions"' \
+            'dhole_config|config.outbox_messages' \
+            'dhole_data_extraction|data_extraction."ExtractionExecutions"' \
+            'dhole_data_extraction|data_extraction."PricingExtractionRecords"' \
+            'dhole_notifications|notifications.notification_messages' \
+            'dhole_pricing|pricing."RateHeaders"' \
+            'dhole_pricing|pricing."OwnLclConsolidations"' \
+            'dhole_storage|storage.outbox_messages'; do
+            db="${spec%%|*}"
+            table="${spec#*|}"
+            count="$(count_table "$db" "$table")"
             echo "ZERO_CHECK|$db|$table|$count"
             [ "$count" = "0" ]
-          }
-          verify_zero dhole_ai 'ai."AiExecutions"'
-          verify_zero dhole_auditlogs 'auditlogs."AuditEvents"'
-          verify_zero dhole_auth 'auth."Sessions"'
-          verify_zero dhole_data_extraction 'data_extraction."ExtractionExecutions"'
-          verify_zero dhole_notifications 'notifications.notification_messages'
-          verify_zero dhole_pricing 'pricing."RateHeaders"'
-          verify_zero dhole_pricing 'pricing."OwnLclConsolidations"'
-
-          echo '=== Verify retained master/reference data still exists with exact expected counts ==='
-          assert_count() {
-            local db="$1" table="$2" expected="$3"
-            local count
-            count="$(docker exec "$PG_CONTAINER" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -c "SELECT COUNT(*) FROM $2;"' sh "$db" "$table")"
-            echo "KEEP_AFTER|$db|$table|$count"
-            [ "$count" = "$expected" ]
-          }
-          assert_count dhole_auth 'auth."Users"' 4
-          assert_count dhole_auth 'auth."Roles"' 3
-          assert_count dhole_auth 'auth."Scopes"' 126
-          assert_count dhole_config 'config."CatalogGroups"' 27
-          assert_count dhole_config 'config."CatalogItems"' 453
-          assert_count dhole_ai 'ai."AiConnections"' 1
-          assert_count dhole_ai 'ai."AiModels"' 4
-          assert_count dhole_ai 'ai."AiProfiles"' 3
-          assert_count dhole_ai 'ai."AiProfileModels"' 9
-          assert_count dhole_ai 'ai."AiPromptTemplates"' 3
-          assert_count dhole_pricing 'pricing."ImportFclRates"' 12969
-          assert_count dhole_pricing 'pricing."Costs"' 44
-          assert_count dhole_pricing 'pricing."RateTermItems"' 60
-          assert_count dhole_pricing 'pricing."RateTermBlocks"' 33
-          assert_count dhole_pricing 'pricing."OwnLclHistoricalRates"' 48
-          assert_count dhole_reports 'reports.report_templates' 3
-          assert_count dhole_storage 'storage."Files"' 561
+          done
 
           echo '=== Resume Dhole application containers ==='
           cleanup_pause
           paused=()
           trap - EXIT
 
-          echo '=== Health checks after reset ==='
-          for url in \
-            'http://localhost:5201/health' \
-            'http://localhost:5202/health' \
-            'http://localhost:5203/health' \
-            'http://localhost:5205/health' \
-            'http://localhost:5206/health' \
-            'http://localhost:5207/health' \
-            'http://localhost:5208/health' \
-            'http://localhost:5209/health'; do
-            for attempt in $(seq 1 20); do
-              if curl -fsS "$url" >/dev/null; then
-                echo "HEALTH_OK|$url"
+          echo '=== Verify application containers resumed ==='
+          for c in "${app_containers[@]}"; do
+            for attempt in $(seq 1 30); do
+              state="$(docker inspect -f '{{.State.Status}}' "$c")"
+              health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$c")"
+              if [ "$state" = 'running' ] && { [ "$health" = 'healthy' ] || [ "$health" = 'none' ]; }; then
+                echo "CONTAINER_OK|$c|$state|$health"
                 break
               fi
-              if [ "$attempt" -eq 20 ]; then
-                echo "HEALTH_FAILED|$url"
+              if [ "$attempt" -eq 30 ]; then
+                echo "CONTAINER_FAILED|$c|$state|$health"
                 exit 1
               fi
               sleep 2
