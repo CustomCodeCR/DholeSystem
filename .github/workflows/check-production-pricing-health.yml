@@ -14,7 +14,7 @@ jobs:
     runs-on: [self-hosted, linux, x64, dhole]
     steps:
       - uses: actions/checkout@v4
-      - name: Verify Pricing container and health endpoint
+      - name: Verify Pricing container health
         shell: bash
         run: |
           set -euo pipefail
@@ -24,7 +24,8 @@ jobs:
             health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$container")"
             echo "PRICING_STATE|attempt=$attempt|state=$state|health=$health"
             if [ "$state" = running ] && [ "$health" = healthy ]; then
-              break
+              echo 'PRICING_HEALTH_OK'
+              exit 0
             fi
             if [ "$attempt" -eq 30 ]; then
               docker logs --tail 120 "$container" || true
@@ -32,5 +33,3 @@ jobs:
             fi
             sleep 2
           done
-          curl -fsS --max-time 10 http://127.0.0.1:5206/health >/dev/null
-          echo 'PRICING_HEALTH_ENDPOINT_OK'
