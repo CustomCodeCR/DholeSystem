@@ -64,3 +64,5 @@ jobs:
           set -euo pipefail
           echo '=== Relevant environment key names (values intentionally hidden) ==='
           cut -d= -f1 "$DHOLE_ENV_FILE" | grep -Ei '(^|_)(DB|DATABASE|POSTGRES|CONNECTION)' | sort -u || true
+
+# Final inventory after the 2026-09-04 production promotion.
