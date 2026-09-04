@@ -54,21 +54,7 @@ jobs:
               [ -n "$db" ] || continue
               echo "--- DATABASE: $db ---"
               docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -F "|" -c "SELECT schemaname, relname, COALESCE(n_live_tup,0)::bigint FROM pg_stat_user_tables ORDER BY schemaname, relname;"' sh "$db" | sed 's/^/TABLE|/'
-              docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -F "|" <<'"'"'SQL'"'"'
-SELECT ns.nspname AS child_schema,
-       child.relname AS child_table,
-       pns.nspname AS parent_schema,
-       parent.relname AS parent_table,
-       con.conname
-FROM pg_constraint con
-JOIN pg_class child ON child.oid = con.conrelid
-JOIN pg_namespace ns ON ns.oid = child.relnamespace
-JOIN pg_class parent ON parent.oid = con.confrelid
-JOIN pg_namespace pns ON pns.oid = parent.relnamespace
-WHERE con.contype = 'f'
-  AND ns.nspname NOT IN ('pg_catalog', 'information_schema')
-ORDER BY child_schema, child_table, parent_schema, parent_table;
-SQL
+              docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -F "|" -c "SELECT ns.nspname, child.relname, pns.nspname, parent.relname, con.conname FROM pg_constraint con JOIN pg_class child ON child.oid=con.conrelid JOIN pg_namespace ns ON ns.oid=child.relnamespace JOIN pg_class parent ON parent.oid=con.confrelid JOIN pg_namespace pns ON pns.oid=parent.relnamespace WHERE con.contype=CHR(102) ORDER BY ns.nspname, child.relname, pns.nspname, parent.relname;"' sh "$db" | sed 's/^/FK|/'
             done
           done
 
