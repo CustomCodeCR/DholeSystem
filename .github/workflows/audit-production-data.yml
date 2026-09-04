@@ -1,0 +1,66 @@
+name: Audit production database structure
+
+on:
+  push:
+    branches: [ops-production-data-audit]
+    paths:
+      - '.github/workflows/audit-production-data.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: [self-hosted, linux, x64, dhole]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare production runtime environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          ENV_DIR="$RUNNER_TEMP/dhole-prod-data-audit"
+          mkdir -p "$ENV_DIR"
+          bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR" >/dev/null
+          echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
+
+      - name: Inventory production PostgreSQL without reading row contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== Production network containers ==='
+          docker network inspect dhole --format '{{range .Containers}}{{.Name}}{{"\n"}}{{end}}' | sort
+
+          mapfile -t NETWORK_CONTAINERS < <(docker network inspect dhole --format '{{range .Containers}}{{.Name}}{{"\n"}}{{end}}')
+          PG_CONTAINERS=()
+          for c in "${NETWORK_CONTAINERS[@]}"; do
+            [ -n "$c" ] || continue
+            image="$(docker inspect -f '{{.Config.Image}}' "$c" 2>/dev/null || true)"
+            case "${image,,}" in
+              *postgres*) PG_CONTAINERS+=("$c") ;;
+            esac
+          done
+
+          if [ "${#PG_CONTAINERS[@]}" -eq 0 ]; then
+            echo 'ERROR: no PostgreSQL container attached to production network dhole.'
+            exit 1
+          fi
+
+          echo "POSTGRES_CONTAINERS=${#PG_CONTAINERS[@]}"
+          for c in "${PG_CONTAINERS[@]}"; do
+            echo "=== PostgreSQL container: $c ==="
+            mapfile -t DBS < <(docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "${POSTGRES_DB:-postgres}" -At -c "SELECT datname FROM pg_database WHERE datistemplate = false ORDER BY datname;"')
+            for db in "${DBS[@]}"; do
+              [ -n "$db" ] || continue
+              echo "--- DATABASE: $db ---"
+              docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -F "|" -c "SELECT schemaname, relname, COALESCE(n_live_tup,0)::bigint FROM pg_stat_user_tables ORDER BY schemaname, relname;"' sh "$db" | sed 's/^/TABLE|/'
+              docker exec "$c" sh -lc 'PGPASSWORD="${POSTGRES_PASSWORD:-}" psql -U "${POSTGRES_USER:-postgres}" -d "$1" -At -F "|" -c "SELECT ns.nspname AS child_schema, child.relname AS child_table, pns.nspname AS parent_schema, parent.relname AS parent_table, con.conname FROM pg_constraint con JOIN pg_class child ON child.oid=con.conrelid JOIN pg_namespace ns ON ns.oid=child.relnamespace JOIN pg_class parent ON parent.oid=con.confrelid JOIN pg_namespace pns ON pns.oid=parent.relnamespace WHERE con.contype=CHR(102) AND ns.nspname NOT IN ('pg_catalog','information_schema') ORDER BY child_schema, child_table, parent_schema, parent_table;"' sh "$db" | sed 's/^/FK|/'
+            done
+          done
+
+      - name: Show database-related environment key names only
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== Relevant environment key names (values intentionally hidden) ==='
+          cut -d= -f1 "$DHOLE_ENV_FILE" | grep -Ei '(^|_)(DB|DATABASE|POSTGRES|CONNECTION)' | sort -u || true
