@@ -1,0 +1,70 @@
+name: Nightly Production Data -> Staging
+
+on:
+  schedule:
+    # 02:00 Costa Rica (UTC-6)
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      check_only:
+        description: 'Solo validar contenedores y bases; no copiar datos'
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches: [main]
+    paths:
+      - 'deploy/sync-prod-to-staging.sh'
+      - '.github/workflows/sync-prod-to-staging.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dhole-nightly-prod-to-staging-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout infrastructure
+        uses: actions/checkout@v4
+
+      - name: Validate sync script syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n deploy/sync-prod-to-staging.sh
+
+      - name: Check production/staging database discovery
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.check_only == true)
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash deploy/sync-prod-to-staging.sh --check
+
+      - name: Merge missing production data into staging
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.check_only != true)
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash deploy/sync-prod-to-staging.sh
+
+      - name: Write job summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Dhole production -> staging data merge'
+            echo
+            echo '- Schedule: 02:00 Costa Rica / 08:00 UTC'
+            echo '- Strategy: insert missing records only'
+            echo '- Existing staging rows/documents are not overwritten'
+            echo '- Staging-only rows/documents are not deleted'
+            echo '- PostgreSQL technical session/token/outbox/inbox tables are excluded'
+            echo '- MongoDB system databases and operational session/outbox/inbox collections are excluded'
+            echo '- Redis is intentionally not synchronized because it is cache/streams state'
+          } >> "$GITHUB_STEP_SUMMARY"
