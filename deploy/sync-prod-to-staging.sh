@@ -133,12 +133,18 @@ sync_postgres_db() {
     --exclude-table-data='*."__EFMigrationsHistory"' \
     --exclude-table-data='*.sessions' \
     --exclude-table-data='*.session' \
+    --exclude-table-data='*."Sessions"' \
+    --exclude-table-data='*."Session"' \
     --exclude-table-data='*.refresh_tokens' \
     --exclude-table-data='*.refresh_token' \
+    --exclude-table-data='*."RefreshTokens"' \
+    --exclude-table-data='*."RefreshToken"' \
     --exclude-table-data='*.outbox_messages' \
     --exclude-table-data='*.outboxmessages' \
+    --exclude-table-data='*."OutboxMessages"' \
     --exclude-table-data='*.inbox_messages' \
     --exclude-table-data='*.inboxmessages' \
+    --exclude-table-data='*."InboxMessages"' \
     > "$dump_file"
 
   # Production sequence positions must never lower staging sequence positions.
@@ -220,7 +226,7 @@ sync_mongo() {
     docker network disconnect "$SYNC_NETWORK" "$STAGING_MONGO_ID" >/dev/null 2>&1 || true
     docker network rm "$SYNC_NETWORK" >/dev/null 2>&1 || true
   }
-  trap cleanup_mongo_network RETURN
+  trap cleanup_mongo_network EXIT
 
   docker run --rm -i \
     --network "$SYNC_NETWORK" \
@@ -291,7 +297,7 @@ for (const dbName of databases) {
 JS
 
   cleanup_mongo_network
-  trap - RETURN
+  trap - EXIT
 }
 
 ensure_staging_infra
@@ -318,7 +324,8 @@ mapfile -t POSTGRES_DATABASES < <(
   awk -F= '
     $1 ~ /^[A-Z0-9_]+_DB$/ && $1 != "POSTGRES_DB" && $1 != "MONGO_DB" {
       value = substr($0, index($0, "=") + 1)
-      gsub(/^['"'"']|['"'"']$/, "", value)
+      gsub(/^\047|\047$/, "", value)
+      gsub(/^\042|\042$/, "", value)
       if (length(value) > 0) print value
     }
   ' "$PROD_ENV" | sort -u
