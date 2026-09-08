@@ -3,7 +3,7 @@ x-service-defaults: &service-defaults
   networks:
     - dhole
   env_file:
-    - ${DHOLE_ENV_FILE:-/opt/dhole/.env.production}
+    - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
 
 services:
   auth-api:
