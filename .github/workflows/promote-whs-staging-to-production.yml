@@ -1,0 +1,47 @@
+name: Promote WHS Staging to Production
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'deploy/promote-whs-staging-to-production.sh'
+      - '.github/workflows/promote-whs-staging-to-production.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dhole-whs-staging-to-production
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 45
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+
+      - name: Validate environments
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -r /opt/dhole/.env
+          test -r /opt/dhole/.env.staging
+          docker network inspect dhole >/dev/null
+          docker network inspect dhole-staging >/dev/null
+          python3 --version
+
+      - name: Promote WHS Config and Storage images
+        shell: bash
+        run: bash deploy/promote-whs-staging-to-production.sh
+
+      - name: Upload production backup and promotion summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whs-production-promotion-backup-${{ github.run_id }}
+          path: ${{ runner.temp }}/whs-promotion-backup
+          if-no-files-found: warn
+          retention-days: 30
