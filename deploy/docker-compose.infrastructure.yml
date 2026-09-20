@@ -53,12 +53,36 @@ services:
       - dhole
     restart: "no"
 
+  hermes-config-init:
+    image: alpine:3.20
+    container_name: hermes-config-init
+    environment:
+      HERMES_OLLAMA_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_CONTEXT_LENGTH: ${HERMES_CONTEXT_LENGTH:-65536}
+    volumes:
+      - hermes_data:/opt/data
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        cat > /opt/data/config.yaml <<EOF
+        model:
+          default: ${HERMES_OLLAMA_MODEL}
+          provider: custom
+          base_url: http://ollama:11434/v1
+          context_length: ${HERMES_CONTEXT_LENGTH}
+        EOF
+        chmod 600 /opt/data/config.yaml
+        echo "Hermes config generated for local Ollama model: ${HERMES_OLLAMA_MODEL}"
+    restart: "no"
+
   hermes-agent:
     image: nousresearch/hermes-agent:latest
     container_name: hermes-agent
     command: ["gateway", "run"]
     depends_on:
-      - ollama
+      hermes-config-init:
+        condition: service_completed_successfully
     environment:
       TZ: America/Costa_Rica
       API_SERVER_ENABLED: "true"
@@ -70,7 +94,6 @@ services:
       - "127.0.0.1:8642:8642"
     volumes:
       - hermes_data:/opt/data
-      - ${HERMES_CONFIG_FILE:?HERMES_CONFIG_FILE is required}:/opt/data/config.yaml:ro
     shm_size: "2gb"
     networks:
       - dhole
