@@ -1,0 +1,119 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    environment:
+      TZ: America/Costa_Rica
+      OLLAMA_KEEP_ALIVE: "30m"
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - dhole
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: turbodiesel
+      TZ: America/Costa_Rica
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - dhole
+    restart: unless-stopped
+
+  minio-init:
+    image: minio/mc:latest
+    container_name: minio-init
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+        until /usr/bin/mc alias set local http://minio:9000 minio turbodiesel;
+        do
+          echo 'Esperando a MinIO...';
+          sleep 2;
+        done;
+
+        /usr/bin/mc mb --ignore-existing local/dhole-files;
+
+        echo 'Bucket dhole-files creado.';
+        exit 0;
+      "
+    networks:
+      - dhole
+    restart: "no"
+
+  hermes-agent:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-agent
+    command: ["gateway", "run"]
+    environment:
+      TZ: America/Costa_Rica
+      API_SERVER_ENABLED: "true"
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_PORT: "8642"
+      API_SERVER_KEY: ${HERMES_API_SERVER_KEY}
+      API_SERVER_MODEL_NAME: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      HERMES_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_INFERENCE_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_INFERENCE_PROVIDER: custom
+      HERMES_BASE_URL: http://ollama:11434/v1
+      HERMES_API_KEY: ollama
+    ports:
+      - "127.0.0.1:8642:8642"
+    volumes:
+      - hermes_data:/opt/data
+    shm_size: "2gb"
+    networks:
+      - dhole
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8642/health >/dev/null || exit 1"]
+      interval: 20s
+      timeout: 8s
+      retries: 10
+      start_period: 40s
+
+  traefik:
+    image: traefik:v3
+    container_name: traefik
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=dhole"
+      - "--entrypoints.web.address=:80"
+      - "--api.dashboard=true"
+      - "--log.level=INFO"
+      - "--accesslog=true"
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    networks:
+      - dhole
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.customcodecr.com`)"
+      - "traefik.http.routers.traefik.entrypoints=web"
+      - "traefik.http.routers.traefik.service=api@internal"
+    restart: unless-stopped
+
+networks:
+  dhole:
+    external: true
+
+volumes:
+  ollama_data:
+  minio_data:
+  hermes_data:
+  traefik_letsencrypt:

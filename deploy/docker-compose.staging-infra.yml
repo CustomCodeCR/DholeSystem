@@ -52,6 +52,41 @@ services:
     networks:
       - dhole-staging
 
+  hermes-agent-staging:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-agent-staging
+    command: ["gateway", "run"]
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      TZ: America/Costa_Rica
+      API_SERVER_ENABLED: "true"
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_PORT: "8642"
+      API_SERVER_KEY: ${HERMES_API_SERVER_KEY}
+      API_SERVER_MODEL_NAME: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      HERMES_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_INFERENCE_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_INFERENCE_PROVIDER: custom
+      HERMES_BASE_URL: http://ollama:11434/v1
+      HERMES_API_KEY: ollama
+    ports:
+      - "127.0.0.1:18642:8642"
+    volumes:
+      - dhole-staging-hermes:/opt/data
+    shm_size: "2gb"
+    networks:
+      dhole-staging:
+        aliases:
+          - hermes-agent
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8642/health >/dev/null || exit 1"]
+      interval: 20s
+      timeout: 8s
+      retries: 10
+      start_period: 40s
+
 networks:
   dhole-staging:
     external: true
@@ -62,3 +97,4 @@ volumes:
   dhole-staging-mongo:
   dhole-staging-redis:
   dhole-staging-minio:
+  dhole-staging-hermes:
