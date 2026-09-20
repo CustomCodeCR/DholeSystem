@@ -4,7 +4,8 @@ services:
     container_name: ollama
     environment:
       TZ: America/Costa_Rica
-      OLLAMA_KEEP_ALIVE: "30m"\n      OLLAMA_CONTEXT_LENGTH: "65536"
+      OLLAMA_KEEP_ALIVE: "30m"
+      OLLAMA_CONTEXT_LENGTH: ${OLLAMA_CONTEXT_LENGTH:-65536}
     ports:
       - "127.0.0.1:11434:11434"
     volumes:
@@ -42,7 +43,9 @@ services:
           echo 'Esperando a MinIO...';
           sleep 2;
         done;
+
         /usr/bin/mc mb --ignore-existing local/dhole-files;
+
         echo 'Bucket dhole-files creado.';
         exit 0;
       "
@@ -67,7 +70,7 @@ services:
       - "127.0.0.1:8642:8642"
     volumes:
       - hermes_data:/opt/data
-      - ${HERMES_CONFIG_FILE:-/opt/dhole/hermes/config.yaml}:/opt/data/config.yaml:ro
+      - ${HERMES_CONFIG_FILE:?HERMES_CONFIG_FILE is required}:/opt/data/config.yaml:ro
     shm_size: "2gb"
     networks:
       - dhole
