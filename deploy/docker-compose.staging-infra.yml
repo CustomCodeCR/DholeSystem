@@ -52,6 +52,75 @@ services:
     networks:
       - dhole-staging
 
+  hermes-config-init-staging:
+    image: alpine:3.20
+    container_name: hermes-config-init-staging
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      HERMES_OLLAMA_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_CONTEXT_LENGTH: ${HERMES_CONTEXT_LENGTH:-65536}
+    volumes:
+      - dhole-staging-hermes:/opt/data
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        cat > /opt/data/config.yaml <<EOF
+        model:
+          default: ${HERMES_OLLAMA_MODEL}
+          provider: custom
+          base_url: http://ollama:11434/v1
+          api_key: ollama
+          context_length: ${HERMES_CONTEXT_LENGTH}
+        toolsets:
+          - hermes-cli
+          - browser
+        browser:
+          engine: chrome
+          headed: false
+        EOF
+        chmod 600 /opt/data/config.yaml
+        echo "Hermes staging config generated for local Ollama model: ${HERMES_OLLAMA_MODEL}"
+    restart: "no"
+
+  hermes-agent-staging:
+    image: dhole/hermes-agent:staging
+    container_name: hermes-agent-staging
+    command: ["gateway", "run"]
+    depends_on:
+      hermes-config-init-staging:
+        condition: service_completed_successfully
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      TZ: America/Costa_Rica
+      API_SERVER_ENABLED: "true"
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_PORT: "8642"
+      API_SERVER_KEY: ${HERMES_API_SERVER_KEY}
+      API_SERVER_MODEL_NAME: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      AGENT_BROWSER_EXECUTABLE_PATH: /usr/bin/chromium
+      AGENT_BROWSER_ENGINE: chrome
+      AGENT_BROWSER_ARGS: --no-sandbox,--disable-dev-shm-usage
+      BROWSER_INACTIVITY_TIMEOUT: ${HERMES_BROWSER_INACTIVITY_TIMEOUT:-600}
+    ports:
+      - "127.0.0.1:18642:8642"
+    volumes:
+      - dhole-staging-hermes:/opt/data
+    shm_size: "2gb"
+    networks:
+      dhole-staging:
+        aliases:
+          - hermes-agent
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8642/health >/dev/null || exit 1"]
+      interval: 20s
+      timeout: 8s
+      retries: 10
+      start_period: 40s
+
 networks:
   dhole-staging:
     external: true
@@ -62,3 +131,4 @@ volumes:
   dhole-staging-mongo:
   dhole-staging-redis:
   dhole-staging-minio:
+  dhole-staging-hermes:
