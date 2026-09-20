@@ -1,5 +1,9 @@
 services:
   api-gateway:
+    environment:
+      CONTENT_HTTP_URL: http://content-api:8080
+      AGENT_HTTP_URL: http://dhole-agent-api:8080
+      HERMES_HTTP_URL: http://hermes-agent:8642
     ports:
       - "127.0.0.1:18080:8080"
 
@@ -10,3 +14,11 @@ services:
   website:
     ports:
       - "127.0.0.1:18082:80"
+
+  content-api:
+    ports:
+      - "127.0.0.1:18210:8080"
+
+  dhole-agent-api:
+    ports:
+      - "127.0.0.1:18211:8080"
