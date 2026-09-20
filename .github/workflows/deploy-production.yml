@@ -12,6 +12,11 @@ concurrency:
   group: dhole-infrastructure-production
   cancel-in-progress: false
 
+env:
+  DHOLE_IMAGE_TAG: latest
+  DHOLE_NETWORK: dhole
+  COMPOSE_PROJECT: dhole
+
 jobs:
   deploy:
     runs-on: [self-hosted, linux, x64, dhole]
@@ -29,18 +34,45 @@ jobs:
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
-      - name: Validate production environment
+      - name: Ensure production network
         shell: bash
-        env:
-          DHOLE_IMAGE_TAG: latest
-          DHOLE_NETWORK: dhole
+        run: docker network inspect dhole >/dev/null 2>&1 || docker network create dhole
+
+      - name: Start production Hermes with Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull always hermes-agent
+          HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q hermes-agent)"
+          test -n "$HERMES_ID"
+          for attempt in $(seq 1 30); do
+            health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$HERMES_ID" 2>/dev/null || true)"
+            if [[ "$health" = "healthy" ]]; then exit 0; fi
+            if [[ "$health" = "unhealthy" || "$health" = "exited" || "$health" = "dead" ]]; then
+              docker logs --tail 200 "$HERMES_ID" || true
+              exit 1
+            fi
+            sleep 4
+          done
+          docker logs --tail 200 "$HERMES_ID" || true
+          exit 1
+
+      - name: Validate production environment and services
+        shell: bash
         run: |
           set -euo pipefail
           docker version
           docker compose version
-          docker network inspect dhole >/dev/null
           test -r "$DHOLE_ENV_FILE"
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p dhole config -q
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p "$COMPOSE_PROJECT" config -q
+          services="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p "$COMPOSE_PROJECT" config --services)"
+          for service in content-api content-workers dhole-agent-api dhole-agent-workers api-gateway; do
+            grep -qx "$service" <<<"$services" || { echo "Missing production service: $service" >&2; exit 1; }
+          done
+
+      - name: Verify Hermes production API
+        shell: bash
+        run: curl -fsS --max-time 10 http://127.0.0.1:8642/health >/dev/null
 
       - name: Keep DholeSystem feature branches clean
         shell: bash
@@ -59,4 +91,4 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN)=' "$DHOLE_ENV_FILE"
+          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN|HERMES_API_SERVER_MODEL_NAME)=' "$DHOLE_ENV_FILE" || true
