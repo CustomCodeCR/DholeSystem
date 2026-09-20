@@ -34,28 +34,42 @@ jobs:
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
-      - name: Ensure production network
+      - name: Ensure production network and local Ollama
         shell: bash
-        run: docker network inspect dhole >/dev/null 2>&1 || docker network create dhole
+        run: |
+          set -euo pipefail
+          docker network inspect dhole >/dev/null 2>&1 || docker network create dhole
+          OLLAMA_ID="$(docker ps -q --filter name=^/ollama$ | head -n1 || true)"
+          if [[ -z "$OLLAMA_ID" ]]; then
+            OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
+          fi
+          if [[ -z "$OLLAMA_ID" ]]; then
+            echo "Ollama container not found. Hermes must use local Ollama." >&2
+            exit 1
+          fi
+          docker network connect --alias ollama dhole "$OLLAMA_ID" 2>/dev/null || true
 
       - name: Start production Hermes with Chromium
         shell: bash
         run: |
           set -euo pipefail
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull always hermes-agent
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --no-deps --pull always hermes-agent
           HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q hermes-agent)"
           test -n "$HERMES_ID"
           for attempt in $(seq 1 30); do
             health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$HERMES_ID" 2>/dev/null || true)"
-            if [[ "$health" = "healthy" ]]; then exit 0; fi
+            if [[ "$health" = "healthy" ]]; then break; fi
             if [[ "$health" = "unhealthy" || "$health" = "exited" || "$health" = "dead" ]]; then
               docker logs --tail 200 "$HERMES_ID" || true
               exit 1
             fi
             sleep 4
           done
-          docker logs --tail 200 "$HERMES_ID" || true
-          exit 1
+          if [[ "$(docker inspect -f '{{.State.Health.Status}}' "$HERMES_ID" 2>/dev/null || true)" != "healthy" ]]; then
+            docker logs --tail 200 "$HERMES_ID" || true
+            exit 1
+          fi
+          docker exec "$HERMES_ID" curl -fsS http://ollama:11434/v1/models >/dev/null
 
       - name: Validate production environment and services
         shell: bash
