@@ -67,6 +67,7 @@ prepare_runtime_env() {
   append_if_missing "$file" AGENT_POSTGRES_CONNECTION_STRING "Host=postgres;Port=5432;Database=dhole_agent;Username=$postgres_user;Password=$postgres_password"
   append_if_missing "$file" CONTENT_REDIS_CONNECTION "redis:6379"
   append_if_missing "$file" AGENT_REDIS_CONNECTION_STRING "redis:6379"
+  append_if_missing "$file" HERMES_GATEWAY_URL "http://hermes-agent:8642"
 
   printf '\n# Hermes runtime\n' >> "$file"
   while IFS= read -r line || [[ -n "$line" ]]; do
