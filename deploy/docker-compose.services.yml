@@ -1,2 +1,78 @@
 include:
   - path: /opt/dhole/docker-compose.services.yml
+
+services:
+  content-api:
+    image: dhole/content-api:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION:-Host=postgres;Port=5432;Database=dhole_content;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
+      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-${REDIS_CONNECTION:-redis:6379}}
+      Auth__Jwt__SecretKey: ${AUTH_JWT_SECRET}
+      Services__Storage__BaseUrl: ${STORAGE_BASE_URL:-http://192.168.1.12:5207/}
+    networks:
+      - dhole-runtime
+
+  content-workers:
+    image: dhole/content-workers:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION:-Host=postgres;Port=5432;Database=dhole_content;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
+      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-${REDIS_CONNECTION:-redis:6379}}
+    depends_on:
+      - content-api
+    networks:
+      - dhole-runtime
+
+  dhole-agent-api:
+    image: dhole/agent-api:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:8080
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING:-Host=postgres;Port=5432;Database=dhole_agent;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-${REDIS_CONNECTION:-redis:6379}}
+      Auth__Authority: ${AUTH_HTTP_URL:-http://auth-api:8080}
+      Auth__Audience: ${AUTH_AUDIENCE:-dhole}
+      Hermes__BaseUrl: ${HERMES_BASE_URL:-http://hermes-agent:8642}
+      Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
+      Hermes__ExecutePath: /v1/runs
+    networks:
+      - dhole-runtime
+
+  dhole-agent-workers:
+    image: dhole/agent-workers:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING:-Host=postgres;Port=5432;Database=dhole_agent;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-${REDIS_CONNECTION:-redis:6379}}
+      Hermes__BaseUrl: ${HERMES_BASE_URL:-http://hermes-agent:8642}
+      Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
+      Hermes__ExecutePath: /v1/runs
+      Browser__ProfilesPath: /data/browser-profiles
+      Browser__Headless: "true"
+    volumes:
+      - agent-browser-profiles:/data/browser-profiles
+    shm_size: "2gb"
+    networks:
+      - dhole-runtime
+
+networks:
+  dhole-runtime:
+    external: true
+    name: ${DHOLE_NETWORK:-dhole}
+
+volumes:
+  agent-browser-profiles:
