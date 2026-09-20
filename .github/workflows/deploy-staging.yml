@@ -12,6 +12,11 @@ concurrency:
   group: dhole-infrastructure-staging
   cancel-in-progress: false
 
+env:
+  DHOLE_IMAGE_TAG: staging
+  DHOLE_NETWORK: dhole-staging
+  COMPOSE_PROJECT: dhole-staging
+
 jobs:
   deploy:
     runs-on: [self-hosted, linux, x64, dhole]
@@ -20,83 +25,116 @@ jobs:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
 
-      - name: Prepare runtime environments
+      - name: Prepare staging runtime environment
         shell: bash
         run: |
           set -euo pipefail
+          test -r /opt/dhole/.env
+          test -r /opt/dhole/.env.staging
+          test -r /opt/dhole/docker-compose.services.yml
           ENV_DIR="$RUNNER_TEMP/dhole-env"
           mkdir -p "$ENV_DIR"
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.staging" >> "$GITHUB_ENV"
+          echo "COMPOSE_FILE=$GITHUB_WORKSPACE/deploy/docker-compose.services.yml" >> "$GITHUB_ENV"
+          echo "COMPOSE_OVERRIDE=$GITHUB_WORKSPACE/deploy/docker-compose.staging.yml" >> "$GITHUB_ENV"
 
-      - name: Start isolated staging infrastructure
+      - name: Ensure staging network and shared services
         shell: bash
         run: |
           set -euo pipefail
           docker network inspect dhole-staging >/dev/null 2>&1 || docker network create dhole-staging
-          docker compose \
-            --env-file "$DHOLE_ENV_FILE" \
-            -f deploy/docker-compose.staging-infra.yml \
-            -p dhole-staging-infra \
-            up -d
-          docker compose \
-            --env-file "$DHOLE_ENV_FILE" \
-            -f deploy/docker-compose.staging-infra.yml \
-            -p dhole-staging-infra \
-            ps
+          OLLAMA_ID="$(docker ps -q --filter name=^/ollama$ | head -n1 || true)"
+          if [[ -z "$OLLAMA_ID" ]]; then
+            OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
+          fi
+          if [[ -z "$OLLAMA_ID" ]]; then
+            echo "Ollama container not found. Start docker-compose.infrastructure.yml first." >&2
+            exit 1
+          fi
+          docker network connect --alias ollama dhole-staging "$OLLAMA_ID" 2>/dev/null || true
+          TRAEFIK_ID="$(docker ps -q --filter label=com.docker.compose.service=traefik | head -n1 || true)"
+          if [[ -z "$TRAEFIK_ID" ]]; then
+            TRAEFIK_ID="$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk 'tolower($0) ~ /traefik/ {print $1; exit}')"
+          fi
+          if [[ -z "$TRAEFIK_ID" ]]; then
+            echo "Traefik container not found" >&2
+            docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}'
+            exit 1
+          fi
+          docker network connect dhole-staging "$TRAEFIK_ID" 2>/dev/null || true
 
-      - name: Initialize staging PostgreSQL databases
+      - name: Start staging Hermes with Chromium
         shell: bash
         run: |
           set -euo pipefail
-
-          read_env() {
-            local key="$1"
-            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r'
-          }
-
-          POSTGRES_USER="$(read_env POSTGRES_USER)"
-          POSTGRES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q postgres)"
-          test -n "$POSTGRES_ID"
-
+          docker build --pull -f deploy/hermes/Dockerfile -t dhole/hermes-agent:staging .
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra up -d --pull never hermes-config-init-staging hermes-agent-staging
+          HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q hermes-agent-staging)"
+          test -n "$HERMES_ID"
           for attempt in $(seq 1 30); do
-            if docker exec "$POSTGRES_ID" pg_isready -U "$POSTGRES_USER" >/dev/null 2>&1; then
-              break
-            fi
-            if [[ "$attempt" == "30" ]]; then
-              docker logs --tail 200 "$POSTGRES_ID" || true
+            health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$HERMES_ID" 2>/dev/null || true)"
+            if [[ "$health" = "healthy" ]]; then break; fi
+            if [[ "$health" = "unhealthy" || "$health" = "exited" || "$health" = "dead" ]]; then
+              docker logs --tail 200 "$HERMES_ID" || true
               exit 1
             fi
-            sleep 2
+            sleep 4
+          done
+          if [[ "$(docker inspect -f '{{.State.Health.Status}}' "$HERMES_ID" 2>/dev/null || true)" != "healthy" ]]; then
+            docker logs --tail 200 "$HERMES_ID" || true
+            exit 1
+          fi
+          docker exec "$HERMES_ID" curl -fsS http://ollama:11434/v1/models >/dev/null
+          docker exec "$HERMES_ID" test -x /usr/bin/chromium
+
+      - name: Validate staging compose and required services
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -f "$COMPOSE_OVERRIDE" -p "$COMPOSE_PROJECT" config -q
+          services="$(docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -f "$COMPOSE_OVERRIDE" -p "$COMPOSE_PROJECT" config --services)"
+          for service in content-api content-workers dhole-agent-api dhole-agent-workers api-gateway; do
+            grep -qx "$service" <<<"$services" || { echo "Missing staging service: $service" >&2; exit 1; }
           done
 
-          for key in AUTH_DB CONFIG_DB AUDITLOGS_DB DATAEXTRACTION_DB PRICING_DB AI_DB STORAGE_DB REPORTS_DB NOTIFICATIONS_DB; do
-            db="$(read_env "$key")"
-            test -n "$db"
-            exists="$(docker exec "$POSTGRES_ID" psql -U "$POSTGRES_USER" -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='${db}'" | tr -d '[:space:]')"
-            if [[ "$exists" != "1" ]]; then
-              echo "Creating staging database: $db"
-              docker exec "$POSTGRES_ID" createdb -U "$POSTGRES_USER" "$db"
+      - name: Verify staging containers and Traefik routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          read_env() { local env_key="$1"; grep -m1 "^${env_key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r'; }
+          DHOLE_WEB_HOST="$(read_env DHOLE_WEB_HOST)"
+          DHOLE_API_HOST="$(read_env DHOLE_API_HOST)"
+          FENNEC_HOST="$(read_env FENNEC_HOST)"
+          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -f "$COMPOSE_OVERRIDE" -p "$COMPOSE_PROJECT" ps dhole-web api-gateway website
+          for host in "$DHOLE_WEB_HOST" "$DHOLE_API_HOST" "$FENNEC_HOST"; do
+            echo "Testing Traefik health route for $host"
+            ok=0
+            for attempt in $(seq 1 15); do
+              code="$(curl -sS -o /tmp/route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/health || true)"
+              if [[ "$code" =~ ^2[0-9][0-9]$ || "$code" =~ ^3[0-9][0-9]$ ]]; then ok=1; break; fi
+              sleep 2
+            done
+            if [[ "$ok" != "1" ]]; then
+              echo "Health route failed for $host (last HTTP $code)" >&2
+              cat /tmp/route-body 2>/dev/null || true
+              exit 1
             fi
           done
 
-      - name: Attach shared Ollama to staging network
+      - name: Verify Hermes staging API
         shell: bash
-        run: |
-          set -euo pipefail
-          OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
-          if [[ -n "$OLLAMA_ID" ]]; then
-            docker network connect --alias ollama dhole-staging "$OLLAMA_ID" 2>/dev/null || true
-          else
-            echo "Ollama container was not found; AI staging can still deploy but Ollama calls will fail until it is attached."
-          fi
+        run: curl -fsS --max-time 10 http://127.0.0.1:18642/health >/dev/null
 
-      - name: Validate staging application compose
+      - name: Verify public Cloudflare staging routes
         shell: bash
-        env:
-          DHOLE_IMAGE_TAG: staging
-          DHOLE_NETWORK: dhole-staging
         run: |
           set -euo pipefail
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -f deploy/docker-compose.staging.yml -p dhole-staging config -q
-          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN|DATA_EXTRACTION_EMAIL_ENABLED|NOTIFICATIONS_EMAIL_ENABLED)=' "$DHOLE_ENV_FILE"
+          for host in dhole.customcodecr.com dhole-api.customcodecr.com website-castrofallas.customcodecr.com; do
+            code="$(curl -sS --max-time 20 -o /tmp/public-body -w '%{http_code}' "https://$host/health" || true)"
+            echo "$host -> HTTP $code"
+            if [[ ! "$code" =~ ^2[0-9][0-9]$ && ! "$code" =~ ^3[0-9][0-9]$ ]]; then
+              cat /tmp/public-body 2>/dev/null || true
+              exit 1
+            fi
+          done
