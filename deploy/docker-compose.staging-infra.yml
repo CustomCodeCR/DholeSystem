@@ -52,10 +52,38 @@ services:
     networks:
       - dhole-staging
 
+  hermes-config-init-staging:
+    image: alpine:3.20
+    container_name: hermes-config-init-staging
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      HERMES_OLLAMA_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_CONTEXT_LENGTH: ${HERMES_CONTEXT_LENGTH:-65536}
+    volumes:
+      - dhole-staging-hermes:/opt/data
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        cat > /opt/data/config.yaml <<EOF
+        model:
+          default: ${HERMES_OLLAMA_MODEL}
+          provider: custom
+          base_url: http://ollama:11434/v1
+          context_length: ${HERMES_CONTEXT_LENGTH}
+        EOF
+        chmod 600 /opt/data/config.yaml
+        echo "Hermes staging config generated for local Ollama model: ${HERMES_OLLAMA_MODEL}"
+    restart: "no"
+
   hermes-agent-staging:
     image: nousresearch/hermes-agent:latest
     container_name: hermes-agent-staging
     command: ["gateway", "run"]
+    depends_on:
+      hermes-config-init-staging:
+        condition: service_completed_successfully
     env_file:
       - ${DHOLE_ENV_FILE}
     environment:
@@ -69,7 +97,6 @@ services:
       - "127.0.0.1:18642:8642"
     volumes:
       - dhole-staging-hermes:/opt/data
-      - ${HERMES_CONFIG_FILE:?HERMES_CONFIG_FILE is required}:/opt/data/config.yaml:ro
     shm_size: "2gb"
     networks:
       dhole-staging:
