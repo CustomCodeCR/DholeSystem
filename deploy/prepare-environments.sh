@@ -19,18 +19,6 @@ if [[ ! -r "$STAGING_SOURCE" ]]; then
   exit 1
 fi
 
-if [[ ! -r "$HERMES_ENV_SOURCE" ]]; then
-  echo "Creating persistent Hermes runtime configuration at $HERMES_ENV_SOURCE"
-  umask 077
-  mkdir -p "$(dirname "$HERMES_ENV_SOURCE")"
-  {
-    printf 'HERMES_API_SERVER_KEY=%s\n' "$(openssl rand -hex 32)"
-    printf 'HERMES_API_SERVER_MODEL_NAME=hermes-agent\n'
-    printf 'HERMES_OLLAMA_MODEL=mistral-nemo:12b\n'
-  } > "$HERMES_ENV_SOURCE"
-  chmod 600 "$HERMES_ENV_SOURCE"
-fi
-
 mkdir -p "$TARGET_DIR"
 cp "$PROD_SOURCE" "$PROD_ENV"
 cp "$STAGING_SOURCE" "$STAGING_ENV"
@@ -51,9 +39,23 @@ read_env_value() {
   grep -m1 "^$key=" "$file" | cut -d= -f2- | tr -d '\r' || true
 }
 
+merge_optional_env() {
+  local target="$1"
+  local source="$2"
+
+  [[ -r "$source" ]] || return 0
+
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    local key="${line%%=*}"
+    local value="${line#*=}"
+    append_if_missing "$target" "$key" "$value"
+  done < "$source"
+}
+
 prepare_runtime_env() {
   local file="$1"
-  local postgres_user postgres_password
+  local postgres_user postgres_password hermes_key auth_secret
 
   postgres_user="$(read_env_value "$file" POSTGRES_USER)"
   postgres_password="$(read_env_value "$file" POSTGRES_PASSWORD)"
@@ -69,13 +71,22 @@ prepare_runtime_env() {
   append_if_missing "$file" AGENT_REDIS_CONNECTION_STRING "redis:6379"
   append_if_missing "$file" HERMES_GATEWAY_URL "http://hermes-agent:8642"
 
-  printf '\n# Hermes runtime\n' >> "$file"
-  while IFS= read -r line || [[ -n "$line" ]]; do
-    [[ -z "$line" || "$line" == \#* ]] && continue
-    local key="${line%%=*}"
-    local value="${line#*=}"
-    append_if_missing "$file" "$key" "$value"
-  done < "$HERMES_ENV_SOURCE"
+  merge_optional_env "$file" "$HERMES_ENV_SOURCE"
+
+  append_if_missing "$file" HERMES_API_SERVER_MODEL_NAME "hermes-agent"
+  append_if_missing "$file" HERMES_OLLAMA_MODEL "mistral-nemo:12b"
+
+  hermes_key="$(read_env_value "$file" HERMES_API_SERVER_KEY)"
+  if [[ -z "$hermes_key" ]]; then
+    auth_secret="$(read_env_value "$file" AUTH_JWT_SECRET)"
+    if [[ -z "$auth_secret" ]]; then
+      echo "HERMES_API_SERVER_KEY or AUTH_JWT_SECRET is required in $file" >&2
+      exit 1
+    fi
+
+    hermes_key="$(printf 'dhole-hermes:%s' "$auth_secret" | sha256sum | awk '{print $1}')"
+    append_if_missing "$file" HERMES_API_SERVER_KEY "$hermes_key"
+  fi
 }
 
 prepare_runtime_env "$PROD_ENV"
@@ -84,5 +95,9 @@ prepare_runtime_env "$STAGING_ENV"
 chmod 600 "$PROD_ENV" "$STAGING_ENV"
 
 printf 'Loaded production env from %s and staging env from %s.\n' "$PROD_SOURCE" "$STAGING_SOURCE"
-printf 'Merged Hermes/Ollama runtime environment from %s.\n' "$HERMES_ENV_SOURCE"
+if [[ -r "$HERMES_ENV_SOURCE" ]]; then
+  printf 'Merged optional Hermes overrides from %s.\n' "$HERMES_ENV_SOURCE"
+else
+  printf 'No writable Hermes env file required; runtime Hermes credentials are derived per environment.\n'
+fi
 printf 'Runtime copies: %s and %s\n' "$PROD_ENV" "$STAGING_ENV"
