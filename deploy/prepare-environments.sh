@@ -5,6 +5,7 @@ PROD_SOURCE="${1:-/opt/dhole/.env}"
 TARGET_DIR="${2:-/opt/dhole}"
 STAGING_SOURCE="${DHOLE_STAGING_ENV_SOURCE:-/opt/dhole/.env.staging}"
 HERMES_ENV_SOURCE="${DHOLE_HERMES_ENV_SOURCE:-/opt/dhole/.env.hermes}"
+HERMES_CONFIG_DIR="${DHOLE_HERMES_CONFIG_DIR:-/opt/dhole/hermes}"
 
 PROD_ENV="$TARGET_DIR/.env.production"
 STAGING_ENV="$TARGET_DIR/.env.staging"
@@ -108,6 +109,7 @@ prepare_runtime_env() {
 
   append_if_missing "$file" HERMES_API_SERVER_MODEL_NAME "hermes-agent"
   append_if_missing "$file" HERMES_OLLAMA_MODEL "mistral-nemo:12b"
+  append_if_missing "$file" HERMES_CONTEXT_LENGTH "65536"
 
   auth_secret="$(resolve_auth_jwt_secret "$file" "$project" || true)"
   if [[ -n "$auth_secret" ]]; then
@@ -125,6 +127,34 @@ prepare_runtime_env() {
 
 prepare_runtime_env "$PROD_ENV" "dhole"
 prepare_runtime_env "$STAGING_ENV" "dhole-staging"
+
+write_hermes_config() {
+  local file="$1"
+  local suffix="$2"
+  local model context_length config_file
+
+  model="$(read_env_value "$file" HERMES_OLLAMA_MODEL)"
+  context_length="$(read_env_value "$file" HERMES_CONTEXT_LENGTH)"
+  model="${model:-mistral-nemo:12b}"
+  context_length="${context_length:-65536}"
+
+  mkdir -p "$HERMES_CONFIG_DIR"
+  config_file="$HERMES_CONFIG_DIR/config.$suffix.yaml"
+
+  cat > "$config_file" <<EOF
+model:
+  default: $model
+  provider: custom
+  base_url: http://ollama:11434/v1
+  context_length: $context_length
+EOF
+
+  chmod 600 "$config_file"
+  append_if_missing "$file" HERMES_CONFIG_FILE "$config_file"
+}
+
+write_hermes_config "$PROD_ENV" "production"
+write_hermes_config "$STAGING_ENV" "staging"
 
 chmod 600 "$PROD_ENV" "$STAGING_ENV"
 
