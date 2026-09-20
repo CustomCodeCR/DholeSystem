@@ -2,6 +2,14 @@ include:
   - path: /opt/dhole/docker-compose.services.yml
 
 services:
+  api-gateway:
+    environment:
+      CONTENT_HTTP_URL: http://content-api:8080
+      AGENT_HTTP_URL: http://dhole-agent-api:8080
+      HERMES_HTTP_URL: http://hermes-agent:8642
+    networks:
+      - dhole-runtime
+
   content-api:
     image: dhole/content-api:${DHOLE_IMAGE_TAG:-latest}
     restart: unless-stopped
@@ -10,10 +18,10 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ASPNETCORE_URLS: http://+:8080
-      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION:-Host=postgres;Port=5432;Database=dhole_content;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
-      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-${REDIS_CONNECTION:-redis:6379}}
+      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION}
+      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-redis:6379}
       Auth__Jwt__SecretKey: ${AUTH_JWT_SECRET}
-      Services__Storage__BaseUrl: ${STORAGE_BASE_URL:-http://192.168.1.12:5207/}
+      ServiceUrls__Storage: ${STORAGE_BASE_URL:-http://192.168.1.12:5207/}
     networks:
       - dhole-runtime
 
@@ -24,8 +32,8 @@ services:
       - ${DHOLE_ENV_FILE}
     environment:
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
-      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION:-Host=postgres;Port=5432;Database=dhole_content;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
-      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-${REDIS_CONNECTION:-redis:6379}}
+      ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION}
+      Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-redis:6379}
     depends_on:
       - content-api
     networks:
@@ -39,13 +47,14 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ASPNETCORE_URLS: http://+:8080
-      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING:-Host=postgres;Port=5432;Database=dhole_agent;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
-      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-${REDIS_CONNECTION:-redis:6379}}
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
       Auth__Authority: ${AUTH_HTTP_URL:-http://auth-api:8080}
       Auth__Audience: ${AUTH_AUDIENCE:-dhole}
       Hermes__BaseUrl: ${HERMES_BASE_URL:-http://hermes-agent:8642}
       Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
-      Hermes__ExecutePath: /v1/runs
+      Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      Hermes__ExecutePath: /v1/chat/completions
     networks:
       - dhole-runtime
 
@@ -56,11 +65,12 @@ services:
       - ${DHOLE_ENV_FILE}
     environment:
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
-      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING:-Host=postgres;Port=5432;Database=dhole_agent;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}}
-      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-${REDIS_CONNECTION:-redis:6379}}
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
       Hermes__BaseUrl: ${HERMES_BASE_URL:-http://hermes-agent:8642}
       Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
-      Hermes__ExecutePath: /v1/runs
+      Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      Hermes__ExecutePath: /v1/chat/completions
       Browser__ProfilesPath: /data/browser-profiles
       Browser__Headless: "true"
     volumes:
