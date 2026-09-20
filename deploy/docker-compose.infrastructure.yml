@@ -73,8 +73,6 @@ services:
     volumes:
       - hermes_data:/opt/data
     shm_size: "2gb"
-    depends_on:
-      - ollama
     networks:
       - dhole
     restart: unless-stopped
