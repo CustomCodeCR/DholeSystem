@@ -135,4 +135,5 @@ if [[ -r "$HERMES_ENV_SOURCE" ]]; then
 else
   printf 'No writable Hermes env file required; runtime Hermes credentials are derived per environment.\n'
 fi
-printf 'Hermes inference uses local Ollama at http://ollama:11434/v1.\n'\nprintf 'Runtime copies: %s and %s\n' "$PROD_ENV" "$STAGING_ENV"
+printf 'Hermes inference uses local Ollama at http://ollama:11434/v1.\n'
+printf 'Runtime copies: %s and %s\n' "$PROD_ENV" "$STAGING_ENV"
