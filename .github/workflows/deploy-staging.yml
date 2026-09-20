@@ -44,10 +44,15 @@ jobs:
         run: |
           set -euo pipefail
           docker network inspect dhole-staging >/dev/null 2>&1 || docker network create dhole-staging
-          OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
-          if [[ -n "$OLLAMA_ID" ]]; then
-            docker network connect --alias ollama dhole-staging "$OLLAMA_ID" 2>/dev/null || true
+          OLLAMA_ID="$(docker ps -q --filter name=^/ollama$ | head -n1 || true)"
+          if [[ -z "$OLLAMA_ID" ]]; then
+            OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
           fi
+          if [[ -z "$OLLAMA_ID" ]]; then
+            echo "Ollama container not found. Start docker-compose.infrastructure.yml first." >&2
+            exit 1
+          fi
+          docker network connect --alias ollama dhole-staging "$OLLAMA_ID" 2>/dev/null || true
           TRAEFIK_ID="$(docker ps -q --filter label=com.docker.compose.service=traefik | head -n1 || true)"
           if [[ -z "$TRAEFIK_ID" ]]; then
             TRAEFIK_ID="$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk 'tolower($0) ~ /traefik/ {print $1; exit}')"
@@ -68,15 +73,18 @@ jobs:
           test -n "$HERMES_ID"
           for attempt in $(seq 1 30); do
             health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$HERMES_ID" 2>/dev/null || true)"
-            if [[ "$health" = "healthy" ]]; then exit 0; fi
+            if [[ "$health" = "healthy" ]]; then break; fi
             if [[ "$health" = "unhealthy" || "$health" = "exited" || "$health" = "dead" ]]; then
               docker logs --tail 200 "$HERMES_ID" || true
               exit 1
             fi
             sleep 4
           done
-          docker logs --tail 200 "$HERMES_ID" || true
-          exit 1
+          if [[ "$(docker inspect -f '{{.State.Health.Status}}' "$HERMES_ID" 2>/dev/null || true)" != "healthy" ]]; then
+            docker logs --tail 200 "$HERMES_ID" || true
+            exit 1
+          fi
+          docker exec "$HERMES_ID" curl -fsS http://ollama:11434/v1/models >/dev/null
 
       - name: Validate staging compose and required services
         shell: bash
