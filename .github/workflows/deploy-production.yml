@@ -53,7 +53,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull always hermes-agent
+          docker build --pull -f deploy/hermes/Dockerfile -t dhole/hermes-agent:latest .
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never hermes-config-init hermes-agent
           HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q hermes-agent)"
           test -n "$HERMES_ID"
           for attempt in $(seq 1 30); do
@@ -70,6 +71,7 @@ jobs:
             exit 1
           fi
           docker exec "$HERMES_ID" curl -fsS http://ollama:11434/v1/models >/dev/null
+          docker exec "$HERMES_ID" test -x /usr/bin/chromium
 
       - name: Validate production environment and services
         shell: bash
