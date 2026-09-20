@@ -1,5 +1,0 @@
-model:
-  default: mistral-nemo:12b
-  provider: custom
-  base_url: http://ollama:11434/v1
-  context_length: 65536
