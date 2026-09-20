@@ -53,9 +53,42 @@ merge_optional_env() {
   done < "$source"
 }
 
+resolve_auth_jwt_secret() {
+  local file="$1"
+  local project="$2"
+  local value candidate container_id
+
+  for candidate in AUTH_JWT_SECRET AUTH_JWT_SECRET_KEY JWT_SECRET JWT_SECRET_KEY; do
+    value="$(read_env_value "$file" "$candidate")"
+    if [[ -n "$value" ]]; then
+      printf '%s' "$value"
+      return 0
+    fi
+  done
+
+  if command -v docker >/dev/null 2>&1; then
+    container_id="$(
+      docker ps -q         --filter "label=com.docker.compose.project=$project"         --filter "label=com.docker.compose.service=auth-api"         | head -n1 || true
+    )"
+
+    if [[ -n "$container_id" ]]; then
+      value="$(
+        docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' "$container_id" 2>/dev/null           | sed -n 's/^Auth__Jwt__SecretKey=//p'           | head -n1
+      )"
+      if [[ -n "$value" ]]; then
+        printf '%s' "$value"
+        return 0
+      fi
+    fi
+  fi
+
+  return 1
+}
+
 prepare_runtime_env() {
   local file="$1"
-  local postgres_user postgres_password hermes_key auth_secret
+  local project="$2"
+  local postgres_user postgres_password auth_secret hermes_key
 
   postgres_user="$(read_env_value "$file" POSTGRES_USER)"
   postgres_password="$(read_env_value "$file" POSTGRES_PASSWORD)"
@@ -76,21 +109,22 @@ prepare_runtime_env() {
   append_if_missing "$file" HERMES_API_SERVER_MODEL_NAME "hermes-agent"
   append_if_missing "$file" HERMES_OLLAMA_MODEL "mistral-nemo:12b"
 
+  auth_secret="$(resolve_auth_jwt_secret "$file" "$project" || true)"
+  if [[ -n "$auth_secret" ]]; then
+    append_if_missing "$file" AUTH_JWT_SECRET "$auth_secret"
+  fi
+
   hermes_key="$(read_env_value "$file" HERMES_API_SERVER_KEY)"
   if [[ -z "$hermes_key" ]]; then
-    auth_secret="$(read_env_value "$file" AUTH_JWT_SECRET)"
-    if [[ -z "$auth_secret" ]]; then
-      echo "HERMES_API_SERVER_KEY or AUTH_JWT_SECRET is required in $file" >&2
-      exit 1
-    fi
-
-    hermes_key="$(printf 'dhole-hermes:%s' "$auth_secret" | sha256sum | awk '{print $1}')"
+    hermes_key="$(
+      printf 'dhole-hermes:%s:%s' "$postgres_user" "$postgres_password"         | sha256sum         | awk '{print $1}'
+    )"
     append_if_missing "$file" HERMES_API_SERVER_KEY "$hermes_key"
   fi
 }
 
-prepare_runtime_env "$PROD_ENV"
-prepare_runtime_env "$STAGING_ENV"
+prepare_runtime_env "$PROD_ENV" "dhole"
+prepare_runtime_env "$STAGING_ENV" "dhole-staging"
 
 chmod 600 "$PROD_ENV" "$STAGING_ENV"
 
