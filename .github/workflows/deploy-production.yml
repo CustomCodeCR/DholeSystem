@@ -12,6 +12,11 @@ concurrency:
   group: dhole-infrastructure-production
   cancel-in-progress: false
 
+env:
+  DHOLE_IMAGE_TAG: latest
+  DHOLE_NETWORK: dhole
+  COMPOSE_PROJECT: dhole
+
 jobs:
   deploy:
     runs-on: [self-hosted, linux, x64, dhole]
@@ -20,65 +25,70 @@ jobs:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
 
-      - name: Use server production configuration
+      - name: Prepare runtime environments
         shell: bash
         run: |
           set -euo pipefail
-          test -r /opt/dhole/.env
-          test -r /opt/dhole/docker-compose.services.yml
-          echo "DHOLE_ENV_FILE=/opt/dhole/.env" >> "$GITHUB_ENV"
-          echo "COMPOSE_FILE=/opt/dhole/docker-compose.services.yml" >> "$GITHUB_ENV"
+          ENV_DIR="$RUNNER_TEMP/dhole-env"
+          mkdir -p "$ENV_DIR"
+          bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
+          echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
-      - name: Validate production compose
+      - name: Ensure production network and local Ollama
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker network inspect dhole >/dev/null 2>&1 || docker network create dhole
+          OLLAMA_ID="$(docker ps -q --filter name=^/ollama$ | head -n1 || true)"
+          if [[ -z "$OLLAMA_ID" ]]; then
+            OLLAMA_ID="$(docker ps -q --filter label=com.docker.compose.service=ollama | head -n1 || true)"
+          fi
+          if [[ -z "$OLLAMA_ID" ]]; then
+            echo "Ollama container not found. Hermes must use local Ollama." >&2
+            exit 1
+          fi
+          docker network connect --alias ollama dhole "$OLLAMA_ID" 2>/dev/null || true
+
+      - name: Start production Hermes with Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker build --pull -f deploy/hermes/Dockerfile -t dhole/hermes-agent:latest .
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never hermes-config-init hermes-agent
+          HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q hermes-agent)"
+          test -n "$HERMES_ID"
+          for attempt in $(seq 1 30); do
+            health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$HERMES_ID" 2>/dev/null || true)"
+            if [[ "$health" = "healthy" ]]; then break; fi
+            if [[ "$health" = "unhealthy" || "$health" = "exited" || "$health" = "dead" ]]; then
+              docker logs --tail 200 "$HERMES_ID" || true
+              exit 1
+            fi
+            sleep 4
+          done
+          if [[ "$(docker inspect -f '{{.State.Health.Status}}' "$HERMES_ID" 2>/dev/null || true)" != "healthy" ]]; then
+            docker logs --tail 200 "$HERMES_ID" || true
+            exit 1
+          fi
+          docker exec "$HERMES_ID" curl -fsS http://ollama:11434/v1/models >/dev/null
+          docker exec "$HERMES_ID" test -x /usr/bin/chromium
+
+      - name: Validate production environment and services
         shell: bash
         run: |
           set -euo pipefail
           docker version
           docker compose version
-          docker network inspect dhole >/dev/null
-          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -p dhole config -q
-
-      - name: Verify production containers and local Traefik routes
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          read_env() {
-            local key="$1"
-            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r'
-          }
-
-          DHOLE_WEB_HOST="$(read_env DHOLE_WEB_HOST)"
-          DHOLE_API_HOST="$(read_env DHOLE_API_HOST)"
-          FENNEC_HOST="$(read_env FENNEC_HOST)"
-          FENNEC_WWW_HOST="$(read_env FENNEC_WWW_HOST)"
-
-          docker compose --env-file "$DHOLE_ENV_FILE" -f "$COMPOSE_FILE" -p dhole ps dhole-web api-gateway website
-
-          for host in "$DHOLE_WEB_HOST" "$DHOLE_API_HOST" "$FENNEC_HOST" "$FENNEC_WWW_HOST"; do
-            echo "Testing local Traefik health route for $host"
-            code="$(curl -sS -o /tmp/prod-route-body -w '%{http_code}' -H "Host: $host" http://127.0.0.1/health || true)"
-            echo "$host/health -> HTTP $code"
-            if [[ ! "$code" =~ ^2[0-9][0-9]$ && ! "$code" =~ ^3[0-9][0-9]$ ]]; then
-              cat /tmp/prod-route-body 2>/dev/null || true
-              exit 1
-            fi
+          test -r "$DHOLE_ENV_FILE"
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p "$COMPOSE_PROJECT" config -q
+          services="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.services.yml -p "$COMPOSE_PROJECT" config --services)"
+          for service in content-api content-workers dhole-agent-api dhole-agent-workers api-gateway; do
+            grep -qx "$service" <<<"$services" || { echo "Missing production service: $service" >&2; exit 1; }
           done
 
-      - name: Diagnose public DNS and Cloudflare tunnel
+      - name: Verify Hermes production API
         shell: bash
-        run: |
-          set -euo pipefail
-
-          for host in logisticacastrofallas.com www.logisticacastrofallas.com sistema.logisticacastrofallas.com api.logisticacastrofallas.com; do
-            echo "=== DNS $host ==="
-            getent ahostsv4 "$host" | head -n3 || true
-          done
-
-          echo "=== cloudflared service ==="
-          systemctl is-active cloudflared 2>/dev/null || true
-          command -v cloudflared || true
-          cloudflared --version 2>/dev/null || true
+        run: curl -fsS --max-time 10 http://127.0.0.1:8642/health >/dev/null
 
       - name: Keep DholeSystem feature branches clean
         shell: bash
@@ -92,3 +102,9 @@ jobs:
             echo "Deleting obsolete branch: $branch"
             git push origin --delete "$branch"
           done < <(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | grep -v '^HEAD$' || true)
+
+      - name: Show environment routing
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -E '^(ASPNETCORE_ENVIRONMENT|DHOLE_WEB_HOST|DHOLE_API_HOST|DHOLE_WEB_PUBLIC_URL|DHOLE_API_PUBLIC_URL|VITE_API_URL|VITE_FRONTEND_DOMAIN|CORS_WEB_ORIGIN|HERMES_API_SERVER_MODEL_NAME)=' "$DHOLE_ENV_FILE" || true
