@@ -64,6 +64,54 @@ jobs:
           fi
           docker network connect dhole-staging "$TRAEFIK_ID" 2>/dev/null || true
 
+      - name: Reconcile staging MongoDB runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # The staging volume currently has FCV 7.0. Starting it directly with
+          # MongoDB 8 is an unsupported major-version jump and causes a restart
+          # loop. Reconcile only Mongo here so the existing volume is preserved.
+          docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            pull mongo
+
+          docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            up -d --no-deps --force-recreate mongo
+
+          MONGO_ID="$(docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            ps -q mongo)"
+          test -n "$MONGO_ID"
+
+          for attempt in $(seq 1 30); do
+            status="$(docker inspect -f '{{.State.Status}}' "$MONGO_ID" 2>/dev/null || true)"
+
+            if [[ "$status" = "running" ]] && \
+               docker exec "$MONGO_ID" mongosh --quiet --eval 'db.adminCommand({ ping: 1 }).ok' 2>/dev/null | grep -qx '1'; then
+              docker exec "$MONGO_ID" mongod --version | head -n 1
+              exit 0
+            fi
+
+            if [[ "$status" = "exited" || "$status" = "dead" ]]; then
+              docker logs --tail 200 "$MONGO_ID" || true
+              exit 1
+            fi
+
+            sleep 2
+          done
+
+          docker logs --tail 200 "$MONGO_ID" || true
+          echo "MongoDB staging did not become ready." >&2
+          exit 1
+
       - name: Start staging Hermes with Chromium
         shell: bash
         run: |
