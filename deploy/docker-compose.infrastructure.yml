@@ -148,5 +148,7 @@ networks:
 volumes:
   ollama_data:
   minio_data:
+    external: true
+    name: ${MINIO_VOLUME_NAME}
   hermes_data:
   traefik_letsencrypt:
