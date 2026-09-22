@@ -131,4 +131,6 @@ volumes:
   dhole-staging-mongo:
   dhole-staging-redis:
   dhole-staging-minio:
+    external: true
+    name: ${MINIO_STAGING_VOLUME_NAME}
   dhole-staging-hermes:
