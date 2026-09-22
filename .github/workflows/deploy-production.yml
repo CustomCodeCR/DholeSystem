@@ -34,6 +34,43 @@ jobs:
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
+      - name: Resolve persistent MinIO volume
+        shell: bash
+        run: |
+          set -euo pipefail
+          read_env() {
+            local key="$1"
+            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r' || true
+          }
+
+          configured_volume="$(read_env MINIO_VOLUME_NAME)"
+          selected_volume=""
+          candidates=()
+          if [[ -n "$configured_volume" ]]; then
+            candidates+=("$configured_volume")
+          fi
+          candidates+=(
+            "dhole-infrastructure_minio_data"
+            "minio_data"
+            "dhole_minio_data"
+          )
+
+          for candidate in "${candidates[@]}"; do
+            if docker volume inspect "$candidate" >/dev/null 2>&1; then
+              selected_volume="$candidate"
+              break
+            fi
+          done
+
+          if [[ -z "$selected_volume" ]]; then
+            echo "No se encontró un volumen persistente existente para MinIO." >&2
+            echo "Candidatos revisados: ${candidates[*]}" >&2
+            echo "Se cancela el deploy para evitar crear un MinIO vacío." >&2
+            exit 1
+          fi
+
+          echo "MINIO_VOLUME_NAME=$selected_volume" >> "$GITHUB_ENV"
+          echo "MinIO production volume: $selected_volume"
       - name: Ensure production network and local Ollama
         shell: bash
         run: |
@@ -49,6 +86,23 @@ jobs:
           fi
           docker network connect --alias ollama dhole "$OLLAMA_ID" 2>/dev/null || true
 
+      - name: Start production MinIO with persistent data
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker volume inspect "$MINIO_VOLUME_NAME" >/dev/null
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never minio minio-init
+
+          MINIO_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q minio)"
+          test -n "$MINIO_ID"
+
+          mounted_volume="$(docker inspect "$MINIO_ID" --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Name}}{{end}}{{end}}')"
+          if [[ "$mounted_volume" != "$MINIO_VOLUME_NAME" ]]; then
+            echo "MinIO montó '$mounted_volume' pero se esperaba '$MINIO_VOLUME_NAME'." >&2
+            exit 1
+          fi
+
+          echo "MinIO usa el volumen persistente: $mounted_volume"
       - name: Start production Hermes with Chromium
         shell: bash
         run: |
