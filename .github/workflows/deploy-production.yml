@@ -95,7 +95,7 @@ jobs:
           # minio-init uses the MinIO client image. The runner may not have it
           # cached, while --pull never intentionally prevents Compose from
           # downloading anything during the actual MinIO start.
-          docker image inspect minio/mc:latest >/dev/null 2>&1 || docker pull minio/mc:latest
+          docker image inspect quay.io/minio/mc:latest >/dev/null 2>&1 || docker pull quay.io/minio/mc:latest
 
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never minio minio-init
 
@@ -113,6 +113,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          docker image inspect alpine:3.20 >/dev/null 2>&1 || docker pull alpine:3.20
           docker build --pull -f deploy/hermes/Dockerfile -t dhole/hermes-agent:latest .
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never hermes-config-init hermes-agent
           HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q hermes-agent)"
