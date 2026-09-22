@@ -39,6 +39,41 @@ jobs:
           echo "COMPOSE_FILE=$GITHUB_WORKSPACE/deploy/docker-compose.services.yml" >> "$GITHUB_ENV"
           echo "COMPOSE_OVERRIDE=$GITHUB_WORKSPACE/deploy/docker-compose.staging.yml" >> "$GITHUB_ENV"
 
+      - name: Resolve persistent staging MinIO volume
+        shell: bash
+        run: |
+          set -euo pipefail
+          read_env() {
+            local key="$1"
+            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r' || true
+          }
+
+          configured_volume="$(read_env MINIO_STAGING_VOLUME_NAME)"
+          selected_volume=""
+          candidates=()
+          if [[ -n "$configured_volume" ]]; then
+            candidates+=("$configured_volume")
+          fi
+          candidates+=(
+            "dhole-staging-infra_dhole-staging-minio"
+            "dhole-staging-minio"
+          )
+
+          for candidate in "${candidates[@]}"; do
+            if docker volume inspect "$candidate" >/dev/null 2>&1; then
+              selected_volume="$candidate"
+              break
+            fi
+          done
+
+          if [[ -z "$selected_volume" ]]; then
+            echo "No se encontró el volumen persistente de MinIO para staging." >&2
+            echo "Se cancela el deploy para no crear almacenamiento vacío." >&2
+            exit 1
+          fi
+
+          echo "MINIO_STAGING_VOLUME_NAME=$selected_volume" >> "$GITHUB_ENV"
+          echo "MinIO staging volume: $selected_volume"
       - name: Ensure staging network and shared services
         shell: bash
         run: |
@@ -112,6 +147,23 @@ jobs:
           echo "MongoDB staging did not become ready." >&2
           exit 1
 
+      - name: Start staging MinIO with persistent data
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker volume inspect "$MINIO_STAGING_VOLUME_NAME" >/dev/null
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra up -d --pull never minio
+
+          MINIO_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q minio)"
+          test -n "$MINIO_ID"
+
+          mounted_volume="$(docker inspect "$MINIO_ID" --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Name}}{{end}}{{end}}')"
+          if [[ "$mounted_volume" != "$MINIO_STAGING_VOLUME_NAME" ]]; then
+            echo "MinIO staging montó '$mounted_volume' pero se esperaba '$MINIO_STAGING_VOLUME_NAME'." >&2
+            exit 1
+          fi
+
+          echo "MinIO staging usa el volumen persistente: $mounted_volume"
       - name: Start staging Hermes with Chromium
         shell: bash
         run: |
