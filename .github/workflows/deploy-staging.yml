@@ -120,6 +120,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          docker image inspect alpine:3.20 >/dev/null 2>&1 || docker pull alpine:3.20
           docker build --pull -f deploy/hermes/Dockerfile -t dhole/hermes-agent:staging .
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra up -d --pull never hermes-config-init-staging hermes-agent-staging
           HERMES_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q hermes-agent-staging)"
