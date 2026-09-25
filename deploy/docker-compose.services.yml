@@ -63,6 +63,7 @@ services:
 
   dhole-agent-workers:
     image: dhole/agent-workers:${DHOLE_IMAGE_TAG:-latest}
+    entrypoint: ["/app/start-worker.sh"]
     restart: unless-stopped
     env_file:
       - ${DHOLE_ENV_FILE}
