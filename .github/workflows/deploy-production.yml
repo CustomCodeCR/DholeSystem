@@ -92,10 +92,10 @@ jobs:
           set -euo pipefail
           docker volume inspect "$MINIO_VOLUME_NAME" >/dev/null
 
-          # minio-init uses the MinIO client image. The runner may not have it
-          # cached, while --pull never intentionally prevents Compose from
-          # downloading anything during the actual MinIO start.
-          docker image inspect quay.io/minio/mc:latest >/dev/null 2>&1 || docker pull quay.io/minio/mc:latest
+          # minio-init uses a pinned public Docker Hub MinIO client image.
+          # Avoid quay.io here: the self-hosted runner receives 401 on anonymous
+          # manifest HEAD requests. Pre-pull because Compose runs with --pull never.
+          docker image inspect minio/mc:RELEASE.2025-08-13T08-35-41Z >/dev/null 2>&1 || docker pull minio/mc:RELEASE.2025-08-13T08-35-41Z
 
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never minio minio-init
 
