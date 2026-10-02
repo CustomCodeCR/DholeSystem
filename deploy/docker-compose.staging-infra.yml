@@ -39,7 +39,7 @@ services:
       - dhole-staging
 
   minio:
-    image: minio/minio:latest
+    image: dhole/minio:community-2025-09-07
     restart: unless-stopped
     env_file:
       - ${DHOLE_ENV_FILE}
