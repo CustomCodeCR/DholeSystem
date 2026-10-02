@@ -152,6 +152,7 @@ jobs:
         run: |
           set -euo pipefail
           docker volume inspect "$MINIO_STAGING_VOLUME_NAME" >/dev/null
+          docker image inspect minio/minio:latest >/dev/null 2>&1 || docker pull minio/minio:latest
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra up -d --pull never minio
 
           MINIO_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q minio)"
