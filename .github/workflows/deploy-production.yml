@@ -184,12 +184,12 @@ jobs:
           set -euo pipefail
           docker volume inspect "$MINIO_VOLUME_NAME" >/dev/null
 
-          # minio-init uses a pinned public Docker Hub MinIO client image.
-          # Avoid quay.io here: the self-hosted runner receives 401 on anonymous
-          # manifest HEAD requests. Pre-pull because Compose runs with --pull never.
-          docker image inspect minio/mc:RELEASE.2025-08-13T08-35-41Z >/dev/null 2>&1 || docker pull minio/mc:RELEASE.2025-08-13T08-35-41Z
+          # Recovery path: the persistent MinIO volume already contains the
+          # existing bucket/data. Avoid minio-init because its client image may
+          # be unavailable while restoring the host.
+          docker image inspect minio/minio:latest >/dev/null 2>&1 || docker pull minio/minio:latest
 
-          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never minio minio-init
+          docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure up -d --pull never minio
 
           MINIO_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.infrastructure.yml -p dhole-infrastructure ps -q minio)"
           test -n "$MINIO_ID"
