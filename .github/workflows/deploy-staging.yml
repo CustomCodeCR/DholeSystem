@@ -215,7 +215,36 @@ jobs:
         run: |
           set -euo pipefail
           docker volume inspect "$MINIO_STAGING_VOLUME_NAME" >/dev/null
-          docker image inspect minio/minio:latest >/dev/null 2>&1 || docker pull minio/minio:latest
+
+          # Restore MinIO from the official binary archive without replacing
+          # the persistent staging volume.
+          MINIO_IMAGE="dhole/minio:community-2025-09-07"
+          MINIO_RELEASE="RELEASE.2025-09-07T16-13-09Z"
+          if ! docker image inspect "$MINIO_IMAGE" >/dev/null 2>&1; then
+            MINIO_BUILD_DIR="$(mktemp -d)"
+            trap 'rm -rf "$MINIO_BUILD_DIR"' EXIT
+            curl -fL --retry 5 --retry-delay 2 \
+              "https://dl.min.io/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE" \
+              -o "$MINIO_BUILD_DIR/minio.$MINIO_RELEASE"
+            curl -fL --retry 5 --retry-delay 2 \
+              "https://dl.min.io/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE.sha256sum" \
+              -o "$MINIO_BUILD_DIR/minio.$MINIO_RELEASE.sha256sum"
+            (
+              cd "$MINIO_BUILD_DIR"
+              sha256sum -c "minio.$MINIO_RELEASE.sha256sum"
+              mv "minio.$MINIO_RELEASE" minio
+              chmod 0755 minio
+              cat > Dockerfile <<'EOF'
+FROM alpine:3.20
+COPY minio /usr/local/bin/minio
+ENTRYPOINT ["/usr/local/bin/minio"]
+EOF
+              docker image inspect alpine:3.20 >/dev/null 2>&1 || docker pull alpine:3.20
+              docker build --pull=false -t "$MINIO_IMAGE" .
+            )
+          fi
+          docker image inspect "$MINIO_IMAGE" >/dev/null
+
           docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra up -d --pull never minio
 
           MINIO_ID="$(docker compose --env-file "$DHOLE_ENV_FILE" -f deploy/docker-compose.staging-infra.yml -p dhole-staging-infra ps -q minio)"
