@@ -99,6 +99,69 @@ jobs:
           fi
           docker network connect dhole-staging "$TRAEFIK_ID" 2>/dev/null || true
 
+      - name: Start staging PostgreSQL and Redis with persistent data
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          POSTGRES_VOLUME="dhole-staging-infra_dhole-staging-postgres"
+          REDIS_VOLUME="dhole-staging-infra_dhole-staging-redis"
+
+          for volume in "$POSTGRES_VOLUME" "$REDIS_VOLUME"; do
+            if ! docker volume inspect "$volume" >/dev/null 2>&1; then
+              echo "Required persistent staging volume missing: $volume" >&2
+              echo "Refusing to create an empty database/cache volume during recovery." >&2
+              exit 1
+            fi
+            echo "Found persistent staging volume: $volume"
+          done
+
+          docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            pull postgres redis
+
+          docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            up -d --no-deps --force-recreate postgres redis
+
+          POSTGRES_ID="$(docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            ps -q postgres)"
+          REDIS_ID="$(docker compose \
+            --env-file "$DHOLE_ENV_FILE" \
+            -f deploy/docker-compose.staging-infra.yml \
+            -p dhole-staging-infra \
+            ps -q redis)"
+
+          test -n "$POSTGRES_ID"
+          test -n "$REDIS_ID"
+
+          POSTGRES_USER="$(grep -m1 '^POSTGRES_USER=' "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r')"
+          test -n "$POSTGRES_USER"
+
+          for attempt in $(seq 1 30); do
+            pg_state="$(docker inspect -f '{{.State.Status}}' "$POSTGRES_ID" 2>/dev/null || true)"
+            if [[ "$pg_state" = "running" ]] && docker exec "$POSTGRES_ID" pg_isready -U "$POSTGRES_USER" >/dev/null 2>&1; then
+              break
+            fi
+            if [[ "$pg_state" = "exited" || "$pg_state" = "dead" ]]; then
+              docker logs --tail 200 "$POSTGRES_ID" || true
+              exit 1
+            fi
+            sleep 2
+          done
+
+          docker exec "$POSTGRES_ID" pg_isready -U "$POSTGRES_USER"
+          docker exec "$REDIS_ID" redis-cli ping | grep -qx PONG
+
+          echo "Staging PostgreSQL and Redis are ready."
+
       - name: Reconcile staging MongoDB runtime
         shell: bash
         run: |
