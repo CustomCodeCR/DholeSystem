@@ -10,7 +10,7 @@ permissions:
 
 concurrency:
   group: dhole-infrastructure-staging
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   DHOLE_IMAGE_TAG: staging
