@@ -193,10 +193,10 @@ jobs:
             MINIO_BUILD_DIR="$(mktemp -d)"
             trap 'rm -rf "$MINIO_BUILD_DIR"' EXIT
             curl -fL --retry 5 --retry-delay 2 \
-              "https://dl.min.io/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE" \
+              "https://dl.min.io/community/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE" \
               -o "$MINIO_BUILD_DIR/minio.$MINIO_RELEASE"
             curl -fL --retry 5 --retry-delay 2 \
-              "https://dl.min.io/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE.sha256sum" \
+              "https://dl.min.io/community/server/minio/release/linux-amd64/archive/minio.$MINIO_RELEASE.sha256sum" \
               -o "$MINIO_BUILD_DIR/minio.$MINIO_RELEASE.sha256sum"
             (
               cd "$MINIO_BUILD_DIR"
