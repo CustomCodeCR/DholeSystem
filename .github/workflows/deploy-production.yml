@@ -203,11 +203,11 @@ jobs:
               sha256sum -c "minio.$MINIO_RELEASE.sha256sum"
               mv "minio.$MINIO_RELEASE" minio
               chmod 0755 minio
-              cat > Dockerfile <<'EOF'
-FROM alpine:3.20
-COPY minio /usr/local/bin/minio
-ENTRYPOINT ["/usr/local/bin/minio"]
-EOF
+              printf '%s\n' \
+                'FROM alpine:3.20' \
+                'COPY minio /usr/local/bin/minio' \
+                'ENTRYPOINT ["/usr/local/bin/minio"]' \
+                > Dockerfile
               docker image inspect alpine:3.20 >/dev/null 2>&1 || docker pull alpine:3.20
               docker build --pull=false -t "$MINIO_IMAGE" .
             )
