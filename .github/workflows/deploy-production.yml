@@ -72,6 +72,7 @@ jobs:
           docker rm -f postgres mongo redis ollama traefik 2>/dev/null || true
 
           docker run -d --name postgres --restart unless-stopped --network dhole \
+            -p 127.0.0.1:5432:5432 \
             -e POSTGRES_USER="$POSTGRES_USER" \
             -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
             -e TZ=America/Costa_Rica \
@@ -123,6 +124,7 @@ jobs:
           done
 
           docker exec postgres pg_isready -U "$POSTGRES_USER"
+          docker port postgres 5432/tcp | grep -qx '127.0.0.1:5432'
           docker exec redis redis-cli ping | grep -q PONG
           docker exec mongo mongosh --quiet --eval 'db.runCommand({ping:1}).ok' | grep -q 1
           curl -fsS --max-time 10 http://127.0.0.1:11434/api/tags >/dev/null
