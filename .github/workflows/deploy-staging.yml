@@ -158,6 +158,7 @@ jobs:
           done
 
           docker exec "$POSTGRES_ID" pg_isready -U "$POSTGRES_USER"
+          docker port "$POSTGRES_ID" 5432/tcp | grep -qx '127.0.0.1:5433'
           docker exec "$REDIS_ID" redis-cli ping | grep -qx PONG
 
           echo "Staging PostgreSQL and Redis are ready."
