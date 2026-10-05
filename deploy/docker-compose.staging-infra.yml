@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - dhole-staging-postgres:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5433:5432"
     networks:
       - dhole-staging
     healthcheck:
