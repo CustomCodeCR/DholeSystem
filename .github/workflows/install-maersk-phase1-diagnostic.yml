@@ -44,12 +44,19 @@ jobs:
             # access to persistent application volumes or databases.
             owner_uid="$(stat -c %u /home/Argos)"
             owner_gid="$(stat -c %g /home/Argos)"
-            docker image inspect alpine:3.20 >/dev/null
+            install_image=""
+            for candidate in postgres:16 postgres:16-alpine alpine:3.20; do
+              if docker image inspect "$candidate" >/dev/null 2>&1; then
+                install_image="$candidate"
+                break
+              fi
+            done
+            test -n "$install_image" || { echo 'No pre-existing image for isolated copy'; exit 1; }
             docker run --rm --network none \
               --mount type=bind,src=/home/Argos,dst=/argosh \
               --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/diagnostics,dst=/src,readonly" \
               --env TARGET_UID="$owner_uid" --env TARGET_GID="$owner_gid" \
-              alpine:3.20 sh -ec '
+              --user 0:0 --entrypoint /bin/sh "$install_image" -ec '
                 mkdir -p /argosh/scripts
                 cp /src/inspect-maersk-phase1.sh /argosh/scripts/
                 cp /src/maersk-phase8-schema-check.sh /argosh/scripts/
