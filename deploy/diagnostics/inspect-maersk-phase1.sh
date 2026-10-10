@@ -101,7 +101,7 @@ WHERE provider_id='2155f49f-ef15-43a5-9cc1-55203598af59' GROUP BY status ORDER B
 SELECT 'incident|' || id || '|' || status || '|' || COALESCE(error_code,'NONE')
 FROM agent."AgentExecutions"
 WHERE provider_id='2155f49f-ef15-43a5-9cc1-55203598af59'
-AND id IN (
+AND id::text IN (
 '34410256-cb49-446e-9c3b-497072637428',
 '87904432-169b-4626-b9e5-a0dae2e3bd8d',
 '26948205-b888-4745-bd23-4b3163524ba1',
