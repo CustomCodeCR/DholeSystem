@@ -1,0 +1,62 @@
+name: Install Maersk Chromium Session Maintenance
+on:
+  push:
+    branches:
+      - 'fix/maersk-phase1-chromium-only-*'
+    paths:
+      - 'deploy/diagnostics/prepare-maersk-session.sh'
+      - 'deploy/diagnostics/tests/test-prepare-maersk-session.sh'
+      - '.github/workflows/install-maersk-session-maintenance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: maersk-session-maintenance-installer
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout DholeSystem
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate and test dry-run, reject unconfirmed apply
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n deploy/diagnostics/prepare-maersk-session.sh
+          bash deploy/diagnostics/tests/test-prepare-maersk-session.sh
+      - name: Install standalone Bash on Argos (never execute session rotation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d /home/Argos
+          source_script="$GITHUB_WORKSPACE/deploy/diagnostics/prepare-maersk-session.sh"
+          target="/home/Argos/scripts/prepare-maersk-session.sh"
+          if [[ -w /home/Argos ]]; then
+            install -D -m 0755 "$source_script" "$target"
+            cmp -s "$source_script" "$target"
+          else
+            owner_uid="$(stat -c %u /home/Argos)"
+            owner_gid="$(stat -c %g /home/Argos)"
+            image=""
+            for candidate in postgres:16 postgres:16-alpine alpine:3.20; do
+              if docker image inspect "$candidate" >/dev/null 2>&1; then image="$candidate"; break; fi
+            done
+            test -n "$image" || { echo 'No cached image available for isolated installation'; exit 1; }
+            docker run --rm --network none --user 0:0 \
+              --mount "type=bind,src=/home/Argos,dst=/argosh" \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/diagnostics,dst=/src,readonly" \
+              --env UID_ARG="$owner_uid" --env GID_ARG="$owner_gid" \
+              --entrypoint /bin/sh "$image" -ec '
+                mkdir -p /argosh/scripts
+                cp /src/prepare-maersk-session.sh /argosh/scripts/prepare-maersk-session.sh
+                chmod 0755 /argosh/scripts/prepare-maersk-session.sh
+                chown "$UID_ARG:$GID_ARG" /argosh/scripts/prepare-maersk-session.sh
+                cmp -s /src/prepare-maersk-session.sh /argosh/scripts/prepare-maersk-session.sh
+              '
+          fi
+          echo "INSTALLED=$target"
+          echo "Installation only: database untouched; no worker or Chromium process restarted."
