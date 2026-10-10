@@ -1,0 +1,49 @@
+name: Install Maersk Phase 1 Diagnostic (Bash only)
+on:
+  push:
+    branches:
+      - 'fix/maersk-phase1-diagnostic-upload-*'
+    paths:
+      - 'deploy/diagnostics/**'
+      - '.github/workflows/install-maersk-phase1-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: maersk-phase1-diagnostic-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout DholeSystem in temporary runner workspace
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate scripts without reaching application servers
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n deploy/diagnostics/inspect-maersk-phase1.sh
+          bash -n deploy/diagnostics/maersk-phase8-schema-check.sh
+          bash deploy/diagnostics/tests/test-maersk-phase8-schema-check.sh
+          bash deploy/diagnostics/tests/test-maersk-phase1-inspect.sh
+      - name: Install only two read-only Bash files on Argos
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_dir=/home/Argos/scripts
+          test -d /home/Argos || { echo 'Argos home not found'; exit 1; }
+          if [[ -w /home/Argos ]]; then
+            install -D -m 0755 deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
+            install -D -m 0755 deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
+          else
+            sudo -n install -D -m 0755 deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
+            sudo -n install -D -m 0755 deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
+          fi
+          cmp -s deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
+          cmp -s deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
+          echo "PHASE1_DIAGNOSTIC_INSTALLED=$target_dir/inspect-maersk-phase1.sh"
+          echo "PHASE1_SCHEMA_GATE_INSTALLED=$target_dir/maersk-phase8-schema-check.sh"
+          echo 'No services restarted, no volumes touched and no database writes.'
