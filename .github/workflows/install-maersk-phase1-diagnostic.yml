@@ -39,8 +39,23 @@ jobs:
             install -D -m 0755 deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
             install -D -m 0755 deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
           else
-            sudo -n install -D -m 0755 deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
-            sudo -n install -D -m 0755 deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
+            # Runner cannot sudo non-interactively. Reuse its existing Docker
+            # permission to copy exactly two scripts, with no network and no
+            # access to persistent application volumes or databases.
+            owner_uid="$(stat -c %u /home/Argos)"
+            owner_gid="$(stat -c %g /home/Argos)"
+            docker image inspect alpine:3.20 >/dev/null
+            docker run --rm --network none \
+              --mount type=bind,src=/home/Argos,dst=/argosh \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/diagnostics,dst=/src,readonly" \
+              --env TARGET_UID="$owner_uid" --env TARGET_GID="$owner_gid" \
+              alpine:3.20 sh -ec '
+                mkdir -p /argosh/scripts
+                cp /src/inspect-maersk-phase1.sh /argosh/scripts/
+                cp /src/maersk-phase8-schema-check.sh /argosh/scripts/
+                chmod 0755 /argosh/scripts/inspect-maersk-phase1.sh /argosh/scripts/maersk-phase8-schema-check.sh
+                chown "$TARGET_UID:$TARGET_GID" /argosh/scripts/inspect-maersk-phase1.sh /argosh/scripts/maersk-phase8-schema-check.sh
+              '
           fi
           cmp -s deploy/diagnostics/inspect-maersk-phase1.sh "$target_dir/inspect-maersk-phase1.sh"
           cmp -s deploy/diagnostics/maersk-phase8-schema-check.sh "$target_dir/maersk-phase8-schema-check.sh"
