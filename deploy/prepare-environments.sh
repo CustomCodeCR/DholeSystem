@@ -109,6 +109,15 @@ prepare_runtime_env() {
   append_if_missing "$file" MaerskCircuit__Enabled "true"
   append_if_missing "$file" MaerskMonitoring__Enabled "true"
 
+  # The Agent Worker dispatches generation events to GitHub Actions only when
+  # a private, scoped token is configured on this host. No token is shipped
+  # with the repository, and no event is sent before consent is configured.
+  if [[ -n "$(read_env_value "$file" GenerationOrchestrator__GitHubToken)" ]]; then
+    append_if_missing "$file" GenerationOrchestrator__Enabled "true"
+  else
+    append_if_missing "$file" GenerationOrchestrator__Enabled "false"
+  fi
+
   merge_optional_env "$file" "$HERMES_ENV_SOURCE"
 
   append_if_missing "$file" HERMES_API_SERVER_MODEL_NAME "hermes-agent"
