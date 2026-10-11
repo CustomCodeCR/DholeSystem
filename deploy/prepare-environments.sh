@@ -104,6 +104,11 @@ prepare_runtime_env() {
   append_if_missing "$file" AGENT_REDIS_CONNECTION_STRING "redis:6379"
   append_if_missing "$file" HERMES_GATEWAY_URL "http://hermes-agent:8642"
 
+  # Default to active monitoring and the schema-gated Maersk circuit.
+  # Explicit operator overrides in the source environment are preserved.
+  append_if_missing "$file" MaerskCircuit__Enabled "true"
+  append_if_missing "$file" MaerskMonitoring__Enabled "true"
+
   merge_optional_env "$file" "$HERMES_ENV_SOURCE"
 
   append_if_missing "$file" HERMES_API_SERVER_MODEL_NAME "hermes-agent"
