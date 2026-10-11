@@ -1,0 +1,127 @@
+# Generic isolated production generation. Set AGENT_GENERATION=prod2, prod3, ...
+# Only the three existing DATA SERVICES (PostgreSQL/MongoDB/Redis) are shared.
+# Each generation owns new, persistent volumes for Chromium and Hermes;
+# no browser profile/cookie/session is copied from another generation.
+# Docker Compose project name MUST be dhole-agent-<AGENT_GENERATION>.
+services:
+  hermes-config-init:
+    image: alpine:3.20
+    environment:
+      HERMES_OLLAMA_MODEL: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+      HERMES_CONTEXT_LENGTH: ${HERMES_CONTEXT_LENGTH:-65536}
+    volumes:
+      - hermes-state:/opt/data
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        cat > /opt/data/config.yaml <<EOF
+        model:
+          default: ${HERMES_OLLAMA_MODEL:-mistral-nemo:12b}
+          provider: custom
+          base_url: http://ollama:11434/v1
+          api_key: ollama
+          context_length: ${HERMES_CONTEXT_LENGTH:-65536}
+        toolsets:
+          - hermes-cli
+          - browser
+        browser:
+          engine: chrome
+          headed: false
+        EOF
+        chmod 600 /opt/data/config.yaml
+    restart: "no"
+    networks: [runtime]
+
+  hermes-agent:
+    image: dhole/hermes-agent:${DHOLE_IMAGE_TAG:-latest}
+    depends_on:
+      hermes-config-init:
+        condition: service_completed_successfully
+    command: ["gateway", "run"]
+    environment:
+      TZ: America/Costa_Rica
+      API_SERVER_ENABLED: "true"
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_PORT: "8642"
+      API_SERVER_KEY: ${HERMES_API_SERVER_KEY}
+      API_SERVER_MODEL_NAME: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      AGENT_BROWSER_EXECUTABLE_PATH: /usr/bin/chromium
+      AGENT_BROWSER_ENGINE: chrome
+      AGENT_BROWSER_ARGS: --no-sandbox,--disable-dev-shm-usage
+    volumes:
+      - hermes-state:/opt/data
+    shm_size: "2gb"
+    networks:
+      runtime:
+        aliases:
+          - hermes-agent-${AGENT_GENERATION:?AGENT_GENERATION is required}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8642/health >/dev/null || exit 1"]
+      interval: 20s
+      timeout: 8s
+      retries: 10
+      start_period: 40s
+
+  dhole-agent-api:
+    image: dhole/agent-api:${DHOLE_IMAGE_TAG:-latest}
+    env_file:
+      - ${DHOLE_ENV_FILE:?prepared production env file is required}
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
+      Hermes__BaseUrl: http://hermes-agent-${AGENT_GENERATION}:8642
+      Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
+      Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      Hermes__ExecutePath: /v1/chat/completions
+      CredentialProtection__KeyRingPath: /data/agent-keys
+    volumes:
+      - agent-keys:/data/agent-keys
+    networks:
+      runtime:
+        aliases:
+          - agent-api-${AGENT_GENERATION}
+    restart: unless-stopped
+
+  dhole-agent-workers:
+    profiles: ["activated"]
+    image: dhole/agent-workers:${DHOLE_IMAGE_TAG:-latest}
+    entrypoint: ["/app/start-worker.sh"]
+    env_file:
+      - ${DHOLE_ENV_FILE}
+    environment:
+      DOTNET_ENVIRONMENT: Production
+      Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
+      Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
+      Hermes__BaseUrl: http://hermes-agent-${AGENT_GENERATION}:8642
+      Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
+      Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
+      Hermes__ExecutePath: /v1/chat/completions
+      Browser__ProfilesPath: /data/browser-profiles
+      Browser__Headless: "false"
+      AGENT_NOVNC_ENABLED: "true"
+      AGENT_NOVNC_PORT: "6080"
+      CredentialProtection__KeyRingPath: /data/agent-keys
+      MAERSK_USERNAME: ${MAERSK_USERNAME:-}
+      MAERSK_PASSWORD: ${MAERSK_PASSWORD:-}
+    volumes:
+      - browser-profiles:/data/browser-profiles
+      - agent-keys:/data/agent-keys
+    shm_size: "2gb"
+    networks: [runtime]
+    restart: "no"
+
+networks:
+  runtime:
+    external: true
+    name: ${DHOLE_NETWORK:-dhole}
+
+volumes:
+  hermes-state:
+  browser-profiles:
+  agent-keys:
+    external: true
+    name: dhole_agent_${AGENT_GENERATION}_keys
