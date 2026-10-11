@@ -76,7 +76,7 @@ services:
       Hermes__ExecutePath: /v1/chat/completions
       CredentialProtection__KeyRingPath: /data/agent-keys
     volumes:
-      - agent-keys:/data/agent-keys
+      - agent-keys-prod1:/data/agent-keys
     networks: [dhole-runtime]
     restart: unless-stopped
 
@@ -103,7 +103,7 @@ services:
       MAERSK_PASSWORD: ${MAERSK_PASSWORD:-}
     volumes:
       - agent-browser-profiles-prod1:/data/browser-profiles
-      - agent-keys:/data/agent-keys
+      - agent-keys-prod1:/data/agent-keys
     ports:
       - "127.0.0.1:${AGENT_PROD1_NOVNC_HOST_PORT:-6082}:6080"
     shm_size: "2gb"
@@ -118,6 +118,5 @@ networks:
 volumes:
   hermes-prod1-data:
   agent-browser-profiles-prod1:
-  agent-keys:
-    external: true
-    name: dhole_agent-data-protection-keys
+  agent-keys-prod1:
+    name: dhole_agent_prod1_keys
