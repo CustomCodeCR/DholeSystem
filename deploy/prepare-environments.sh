@@ -127,6 +127,51 @@ prepare_runtime_env() {
   auth_secret="$(resolve_auth_jwt_secret "$file" "$project" || true)"
   if [[ -n "$auth_secret" ]]; then
     append_if_missing "$file" AUTH_JWT_SECRET "$auth_secret"
+    append_if_missing "$file" Auth__Jwt__SecretKey "$auth_secret"
+  fi
+
+  # A generation's API inherits the canonical production application's
+  # Auth/JWT and PostgreSQL settings through this prepared env file.
+  # Values must originate in the protected production source or approved
+  # aliases, never from hardcoded defaults or another browser/session.
+  local key value candidate
+  for key in Auth__Jwt__Issuer Auth__Jwt__Audience \
+             Auth__Jwt__ExpirationMinutes Auth__Jwt__RequireHttpsMetadata; do
+    value="$(read_env_value "$file" "$key")"
+    if [[ -z "$value" ]]; then
+      case "$key" in
+        Auth__Jwt__Issuer)
+          for candidate in AUTH_JWT_ISSUER JWT_ISSUER; do
+            value="$(read_env_value "$file" "$candidate")"
+            [[ -n "$value" ]] && break
+          done ;;
+        Auth__Jwt__Audience)
+          for candidate in AUTH_JWT_AUDIENCE JWT_AUDIENCE AUTH_AUDIENCE; do
+            value="$(read_env_value "$file" "$candidate")"
+            [[ -n "$value" ]] && break
+          done ;;
+        Auth__Jwt__ExpirationMinutes)
+          for candidate in AUTH_JWT_EXPIRATION_MINUTES JWT_EXPIRATION_MINUTES; do
+            value="$(read_env_value "$file" "$candidate")"
+            [[ -n "$value" ]] && break
+          done ;;
+        Auth__Jwt__RequireHttpsMetadata)
+          for candidate in AUTH_JWT_REQUIRE_HTTPS_METADATA JWT_REQUIRE_HTTPS_METADATA; do
+            value="$(read_env_value "$file" "$candidate")"
+            [[ -n "$value" ]] && break
+          done ;;
+      esac
+    fi
+    if [[ -n "$value" ]]; then
+      append_if_missing "$file" "$key" "$value"
+    fi
+  done
+
+  # The standby API uses the same Agent PostgreSQL database as production.
+  # Never generate a separate DB or alter the primary connection string.
+  value="$(read_env_value "$file" AGENT_POSTGRES_CONNECTION_STRING)"
+  if [[ -n "$value" ]]; then
+    append_if_missing "$file" ConnectionStrings__Postgres "$value"
   fi
 
   hermes_key="$(read_env_value "$file" HERMES_API_SERVER_KEY)"
