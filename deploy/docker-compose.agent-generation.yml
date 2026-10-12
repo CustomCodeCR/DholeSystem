@@ -73,6 +73,8 @@ services:
       ASPNETCORE_URLS: http://+:8080
       Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
       Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
+      Auth__Authority: ${AUTH_HTTP_URL:-http://auth-api:8080}
+      Auth__Audience: ${AUTH_AUDIENCE:-dhole}
       Hermes__BaseUrl: http://hermes-agent-${AGENT_GENERATION}:8642
       Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
       Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
