@@ -5,7 +5,12 @@ services:
   api-gateway:
     environment:
       CONTENT_HTTP_URL: http://content-api:8080
-      AGENT_HTTP_URL: http://dhole-agent-api:8080
+      # Always use the unique primary API container hostname. Other prodN
+      # Compose projects share the 'dhole-agent-api' service alias on network
+      # dhole; using it causes nondeterministic routing to stale standby APIs.
+      AGENT_HTTP_URL: http://dhole-dhole-agent-api-1:8080
+      Gateway__Routes__11__Destination: http://dhole-dhole-agent-api-1:8080
+      Gateway__HealthChecks__agent: http://dhole-dhole-agent-api-1:8080/health
       HERMES_HTTP_URL: http://hermes-agent:8642
     networks:
       - dhole-runtime
