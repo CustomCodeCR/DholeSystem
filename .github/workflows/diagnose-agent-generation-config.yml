@@ -1,0 +1,39 @@
+name: Diagnose production Agent generation configuration names
+on:
+  push:
+    branches: [master]
+    paths:
+      - .github/workflows/diagnose-agent-generation-config.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect only option names (never values)
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +x
+          tempfile="$(mktemp -d)"
+          trap 'rm -rf "$tempfile"' EXIT
+          bash deploy/prepare-environments.sh /opt/dhole/.env "$tempfile" >/dev/null
+          for key in \
+            Auth__Jwt__SecretKey Auth__Jwt__Issuer Auth__Jwt__Audience \
+            Auth__Jwt__ExpirationMinutes Auth__Jwt__RequireHttpsMetadata \
+            ConnectionStrings__Postgres AUTH_JWT_SECRET AUTH_JWT_ISSUER \
+            AUTH_JWT_AUDIENCE AUTH_JWT_EXPIRATION_MINUTES \
+            AUTH_JWT_REQUIRE_HTTPS_METADATA AGENT_POSTGRES_CONNECTION_STRING; do
+            if grep -q -F "${key}=" /opt/dhole/.env; then
+              echo "SOURCE_PRESENT: $key"
+            fi
+            if grep -q -F "${key}=" "$tempfile/.env.production"; then
+              echo "PREPARED_PRESENT: $key"
+            fi
+          done
+          echo "GENERATION_CONFIG_NAME_DIAGNOSTIC_COMPLETE"
