@@ -167,6 +167,48 @@ prepare_runtime_env() {
     fi
   done
 
+  # The protected source historically provided the JWT signing secret
+  # and Agent DB connection, but not all non-secret JWT metadata. For production
+  # only, inherit those four metadata options from the already-running main
+  # Agent API when they are absent from the protected source/its aliases.
+  # Never copy a signing key, token, cookie, or browser profile this way.
+  if [[ "$project" == "dhole" ]] && command -v docker >/dev/null 2>&1; then
+    local main_agent_api_id option_line option_name option_value
+    main_agent_api_id="$(docker ps -q \
+      --filter 'label=com.docker.compose.project=dhole' \
+      --filter 'label=com.docker.compose.service=dhole-agent-api' | head -n1 || true)"
+    if [[ -n "$main_agent_api_id" ]]; then
+      while IFS= read -r option_line; do
+        [[ "$option_line" == *=* ]] || continue
+        option_name="${option_line%%=*}"
+        option_value="${option_line#*=}"
+        [[ -n "$option_value" ]] || continue
+        append_if_missing "$file" "$option_name" "$option_value"
+      done < <(
+        docker inspect --format '{{json .Config.Env}}' "$main_agent_api_id" 2>/dev/null \
+          | python3 -c '
+import json,sys
+allowed={
+  "Auth__Jwt__Issuer",
+  "Auth__Jwt__Audience",
+  "Auth__Jwt__ExpirationMinutes",
+  "Auth__Jwt__RequireHttpsMetadata",
+}
+try:
+    values=json.load(sys.stdin)
+    for item in values:
+        if "=" not in item:
+            continue
+        key,value=item.split("=",1)
+        if key in allowed and value and "\\n" not in value and "\\r" not in value:
+            print(key+"="+value)
+except (ValueError,TypeError):
+    pass
+'
+      )
+    fi
+  fi
+
   # The standby API uses the same Agent PostgreSQL database as production.
   # Never generate a separate DB or alter the primary connection string.
   value="$(read_env_value "$file" AGENT_POSTGRES_CONNECTION_STRING)"
