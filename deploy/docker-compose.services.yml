@@ -7,6 +7,9 @@ services:
       CONTENT_HTTP_URL: http://content-api:8080
       AGENT_HTTP_URL: http://dhole-agent-api:8080
       HERMES_HTTP_URL: http://hermes-agent:8642
+      CRM_HTTP_URL: ${CRM_HTTP_URL:-http://crm-api:8080}
+      Gateway__Routes__12__Destination: ${CRM_HTTP_URL:-http://crm-api:8080}
+      Gateway__HealthChecks__crm: ${CRM_HTTP_URL:-http://crm-api:8080}
     networks:
       - dhole-runtime
 
@@ -96,6 +99,75 @@ services:
     shm_size: "2gb"
     networks:
       - dhole-runtime
+
+  # ==========================================================
+  # CRM - API + background workers
+  # ==========================================================
+
+  crm-api:
+    image: dhole/crm-api:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
+    environment:
+      TZ: ${TZ:-America/Costa_Rica}
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
+      Kestrel__Endpoints__Http__Url: "http://+:8080"
+      Kestrel__Endpoints__Http__Protocols: "Http1"
+      Kestrel__Endpoints__Grpc__Url: "http://+:8081"
+      Kestrel__Endpoints__Grpc__Protocols: "Http2"
+      ConnectionStrings__Postgres: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${CRM_DB:-dhole_crm};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+      Postgres__ConnectionString: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${CRM_DB:-dhole_crm};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+      Redis__ConnectionString: ${REDIS_CONNECTION_STRING:-redis:6379}
+      Auth__Jwt__Issuer: ${JWT_ISSUER:-DholeAuthService}
+      Auth__Jwt__Audience: ${JWT_AUDIENCE:-DholeEcosystem}
+      Auth__Jwt__SecretKey: ${JWT_SECRET}
+      Auth__Jwt__ExpirationMinutes: ${JWT_EXPIRATION_MINUTES:-30}
+      Auth__Jwt__RequireHttpsMetadata: ${JWT_REQUIRE_HTTPS_METADATA:-false}
+      Auth__Client__BaseAddress: ${AUTH_HTTP_URL:-http://auth-api:8080}
+      Auth__Client__InternalServiceKeyHeader: "X-Dhole-Service-Key"
+      Auth__Client__InternalServiceKey: ${INTERNAL_SERVICE_KEY}
+      Grpc__Clients__Config__Address: ${CONFIG_GRPC_URL:-http://config-api:8081}
+      Integrations__Pricing__BaseUrl: ${PRICING_HTTP_URL:-http://pricing-api:8080}
+      Integrations__AuditLogs__BaseUrl: ${AUDITLOGS_HTTP_URL:-http://auditlogs-api:8080}
+      Integrations__Notifications__BaseUrl: ${NOTIFICATIONS_HTTP_URL:-http://notifications-api:8080}
+      Integrations__Storage__BaseUrl: ${STORAGE_HTTP_URL:-http://storage-api:5207}
+      Cors__AllowedOrigins__0: ${CORS_WEB_ORIGIN}
+    expose:
+      - "8080"
+      - "8081"
+    networks:
+      - dhole-runtime
+
+  crm-workers:
+    image: dhole/crm-workers:${DHOLE_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    env_file:
+      - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
+    environment:
+      TZ: ${TZ:-America/Costa_Rica}
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
+      ConnectionStrings__Postgres: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${CRM_DB:-dhole_crm};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+      Postgres__ConnectionString: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${CRM_DB:-dhole_crm};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+      Redis__ConnectionString: ${REDIS_CONNECTION_STRING:-redis:6379}
+      Auth__Jwt__Issuer: ${JWT_ISSUER:-DholeAuthService}
+      Auth__Jwt__Audience: ${JWT_AUDIENCE:-DholeEcosystem}
+      Auth__Jwt__SecretKey: ${JWT_SECRET}
+      Auth__Jwt__ExpirationMinutes: ${JWT_EXPIRATION_MINUTES:-30}
+      Auth__Jwt__RequireHttpsMetadata: ${JWT_REQUIRE_HTTPS_METADATA:-false}
+      Auth__Client__BaseAddress: ${AUTH_HTTP_URL:-http://auth-api:8080}
+      Auth__Client__InternalServiceKeyHeader: "X-Dhole-Service-Key"
+      Auth__Client__InternalServiceKey: ${INTERNAL_SERVICE_KEY}
+      Grpc__Clients__Config__Address: ${CONFIG_GRPC_URL:-http://config-api:8081}
+      Integrations__Pricing__BaseUrl: ${PRICING_HTTP_URL:-http://pricing-api:8080}
+      Integrations__AuditLogs__BaseUrl: ${AUDITLOGS_HTTP_URL:-http://auditlogs-api:8080}
+      Integrations__Notifications__BaseUrl: ${NOTIFICATIONS_HTTP_URL:-http://notifications-api:8080}
+      Integrations__Storage__BaseUrl: ${STORAGE_HTTP_URL:-http://storage-api:5207}
+    networks:
+      - dhole-runtime
+
 
 networks:
   dhole-runtime:
