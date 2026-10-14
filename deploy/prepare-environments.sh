@@ -102,6 +102,10 @@ prepare_runtime_env() {
   append_if_missing "$file" AGENT_POSTGRES_CONNECTION_STRING "Host=postgres;Port=5432;Database=dhole_agent;Username=$postgres_user;Password=$postgres_password"
   append_if_missing "$file" CONTENT_REDIS_CONNECTION "redis:6379"
   append_if_missing "$file" AGENT_REDIS_CONNECTION_STRING "redis:6379"
+  # CRM defaults are appended to runtime copies only, preserving protected .env sources.
+  append_if_missing "$file" CRM_DB "dhole_crm"
+  append_if_missing "$file" CRM_HTTP_URL "http://crm-api:8080"
+  append_if_missing "$file" CRM_GRPC_URL "http://crm-api:8081"
   append_if_missing "$file" HERMES_GATEWAY_URL "http://hermes-agent:8642"
 
   # Default to active monitoring and the schema-gated Maersk circuit.
