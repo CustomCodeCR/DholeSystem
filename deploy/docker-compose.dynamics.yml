@@ -1,0 +1,129 @@
+# Dedicated Dynamics Connector stack. DO NOT add this to the shared Dhole database.
+# Deploy with -p dhole-dynamics-staging / -p dhole-dynamics-production.
+# Only dynamics-api attaches to the existing Dhole network, so api-gateway can reach it.
+services:
+  dynamics-postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dhole_dynamics_connector
+      POSTGRES_USER: connector_app
+      POSTGRES_PASSWORD_FILE: /run/secrets/dynamics_postgres_password
+    secrets: [dynamics_postgres_password]
+    volumes: [dynamics_postgres_data:/var/lib/postgresql/data]
+    networks: [dynamics_private]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U connector_app -d dhole_dynamics_connector"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    security_opt: [no-new-privileges:true]
+
+  dynamics-migrate:
+    image: dhole/dynamics-tools:${DYNAMICS_IMAGE_TAG:?Set dynamics image tag}
+    command: ["migrate"]
+    restart: "no"
+    environment:
+      DYNAMICS_CONNECTION_STRING_FILE: /run/secrets/dynamics_connection
+    secrets: [dynamics_connection]
+    depends_on:
+      dynamics-postgres: {condition: service_healthy}
+    networks: [dynamics_private]
+    security_opt: [no-new-privileges:true]
+
+  dynamics-key-init:
+    image: busybox:1.36
+    command: ["sh", "-ec", "chown -R 1654:1654 /data/keys; chmod 700 /data/keys"]
+    restart: "no"
+    volumes: [dynamics_auth_keys:/data/keys]
+    networks: [dynamics_private]
+    security_opt: [no-new-privileges:true]
+
+  dynamics-api:
+    image: dhole/dynamics-api:${DYNAMICS_IMAGE_TAG:?Set dynamics image tag}
+    restart: unless-stopped
+    environment: &api_env
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:?}
+      ASPNETCORE_URLS: http://+:8080
+      DYNAMICS_CONNECTION_STRING_FILE: /run/secrets/dynamics_connection
+      DYNAMICS_ENCRYPTION_KEY_FILE: /run/secrets/dynamics_encryption_key
+      DYNAMICS_CURSOR_KEY_FILE: /run/secrets/dynamics_cursor_key
+      ADMIN_OIDC_CLIENT_SECRET_FILE: /run/secrets/dynamics_admin_oidc_secret
+      DYNAMICS_DP_CERT_PASSWORD_FILE: /run/secrets/dynamics_dp_password
+      DataProtection__CertificatePath: /run/secrets/dynamics_dp_cert
+      DataProtection__KeyPath: /data/keys
+      DYNAMICS_ENCRYPTION_ACTIVE_KEY_VERSION: "1"
+      Admin__PublicOrigin: ${DHOLE_API_PUBLIC_URL:?}
+      AdminOidc__Authority: ${DYNAMICS_ADMIN_OIDC_AUTHORITY:?}
+      AdminOidc__ClientId: ${DYNAMICS_ADMIN_OIDC_CLIENT_ID:?}
+      M2m__Authority: ${DYNAMICS_M2M_AUTHORITY:?}
+      M2m__Audience: ${DYNAMICS_M2M_AUDIENCE:?}
+      Jobs__Enabled: "false"
+      Metadata__SchedulerEnabled: "false"
+      ProductionWrites__Approved: ${DYNAMICS_PRODUCTION_WRITES_APPROVED:-NO}
+      ProductionWrites__ApprovalReference: ${DYNAMICS_PRODUCTION_WRITES_TICKET:-}
+      ProductionWrites__DeletesApproved: ${DYNAMICS_PRODUCTION_DELETES_APPROVED:-NO}
+      ProductionWrites__DeletesApprovalReference: ${DYNAMICS_PRODUCTION_DELETES_TICKET:-}
+    secrets: &api_secrets
+      - dynamics_connection
+      - dynamics_encryption_key
+      - dynamics_cursor_key
+      - dynamics_admin_oidc_secret
+      - dynamics_dp_cert
+      - dynamics_dp_password
+    volumes: [dynamics_auth_keys:/data/keys]
+    read_only: true
+    tmpfs: [/tmp]
+    depends_on:
+      dynamics-migrate: {condition: service_completed_successfully}
+      dynamics-key-init: {condition: service_completed_successfully}
+    expose: ["8080"]
+    networks:
+      dynamics_private: {}
+      dhole_gateway:
+        aliases: [dynamics-api]
+    security_opt: [no-new-privileges:true]
+
+  dynamics-worker:
+    image: dhole/dynamics-api:${DYNAMICS_IMAGE_TAG:?Set dynamics image tag}
+    restart: unless-stopped
+    environment:
+      <<: *api_env
+      ASPNETCORE_URLS: http://127.0.0.1:8080
+      Jobs__Enabled: ${DYNAMICS_JOBS_ENABLED:-false}
+    secrets: *api_secrets
+    volumes: [dynamics_auth_keys:/data/keys]
+    read_only: true
+    tmpfs: [/tmp]
+    depends_on:
+      dynamics-migrate: {condition: service_completed_successfully}
+      dynamics-key-init: {condition: service_completed_successfully}
+    networks: [dynamics_private, dynamics_egress]
+    security_opt: [no-new-privileges:true]
+
+networks:
+  dynamics_private: {internal: true}
+  dynamics_egress: {}
+  dhole_gateway:
+    external: true
+    name: ${DHOLE_NETWORK:?Dhole network required}
+
+secrets:
+  dynamics_postgres_password:
+    file: "${DYNAMICS_POSTGRES_PASSWORD_FILE:?}"
+  dynamics_connection:
+    file: "${DYNAMICS_DB_CONNECTION_FILE:?}"
+  dynamics_encryption_key:
+    file: "${DYNAMICS_ENCRYPTION_KEY_FILE:?}"
+  dynamics_cursor_key:
+    file: "${DYNAMICS_CURSOR_KEY_FILE:?}"
+  dynamics_admin_oidc_secret:
+    file: "${DYNAMICS_ADMIN_OIDC_SECRET_FILE:?}"
+  dynamics_dp_cert:
+    file: "${DYNAMICS_DP_CERT_FILE:?}"
+  dynamics_dp_password:
+    file: "${DYNAMICS_DP_PASSWORD_FILE:?}"
+
+volumes:
+  dynamics_postgres_data:
+  dynamics_auth_keys:

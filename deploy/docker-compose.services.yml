@@ -10,6 +10,13 @@ services:
       CRM_HTTP_URL: ${CRM_HTTP_URL:-http://crm-api:8080}
       Gateway__Routes__12__Destination: ${CRM_HTTP_URL:-http://crm-api:8080}
       Gateway__HealthChecks__crm: ${CRM_HTTP_URL:-http://crm-api:8080}
+      # Standalone OAuth2/Dataverse connector. Route maps public /api/dynamics-connector/*
+      # to /api/v1/* inside the independently deployed Dynamics API.
+      Gateway__Routes__13__Prefix: "/api/dynamics-connector"
+      Gateway__Routes__13__Destination: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}/api/v1"
+      Gateway__Routes__13__StripPrefix: "true"
+      Gateway__Routes__13__TimeoutSeconds: "120"
+      Gateway__HealthChecks__dynamics-connector: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}"
     networks:
       - dhole-runtime
 
