@@ -5,7 +5,13 @@ services:
   api-gateway:
     environment:
       CONTENT_HTTP_URL: http://content-api:8080
-      AGENT_HTTP_URL: http://dhole-agent-api:8080
+      # The prod2+ Compose projects also advertise the generic
+      # dhole-agent-api DNS alias on the shared dhole network. Bind the
+      # gateway only to the uniquely named primary API container.
+      # Without this override, /api/agents may randomly reach prod2,
+      # where the production dispatcher is deliberately disabled.
+      AGENT_HTTP_URL: http://dhole-dhole-agent-api-1:8080
+      Gateway__Routes__11__Destination: http://dhole-dhole-agent-api-1:8080
       HERMES_HTTP_URL: http://hermes-agent:8642
       CRM_HTTP_URL: ${CRM_HTTP_URL:-http://crm-api:8080}
       Gateway__Routes__12__Destination: ${CRM_HTTP_URL:-http://crm-api:8080}
