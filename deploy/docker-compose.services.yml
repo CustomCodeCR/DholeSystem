@@ -9,6 +9,7 @@ services:
       HERMES_HTTP_URL: http://hermes-agent:8642
       CRM_HTTP_URL: ${CRM_HTTP_URL:-http://crm-api:8080}
       Gateway__Routes__12__Destination: ${CRM_HTTP_URL:-http://crm-api:8080}
+      Gateway__Routes__12__Prefix: "/api/crm"
       Gateway__HealthChecks__crm: ${CRM_HTTP_URL:-http://crm-api:8080}
       # Standalone OAuth2/Dataverse connector. Route maps public /api/dynamics-connector/*
       # to /api/v1/* inside the independently deployed Dynamics API.
