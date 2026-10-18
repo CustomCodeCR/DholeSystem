@@ -1,8 +1,8 @@
 name: Deploy Dhole Infrastructure - Production
 
 on:
-  push:
-    branches: [master]
+  # Production requires an explicit approved dispatch; do not automatically touch
+  # the shared host merely because a deployment topology file changed.
   workflow_dispatch:
 
 permissions:
