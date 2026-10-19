@@ -24,6 +24,11 @@ services:
       Gateway__Routes__13__StripPrefix: "true"
       Gateway__Routes__13__TimeoutSeconds: "120"
       Gateway__HealthChecks__dynamics-connector: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}"
+      # DholeAuth user-only administrative connection configuration.
+      Gateway__Routes__14__Prefix: "/api/dynamics-admin"
+      Gateway__Routes__14__Destination: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}/api/admin/v1"
+      Gateway__Routes__14__StripPrefix: "true"
+      Gateway__Routes__14__TimeoutSeconds: "120"
     networks:
       - dhole-runtime
 
