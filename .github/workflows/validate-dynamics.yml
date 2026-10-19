@@ -27,6 +27,7 @@ jobs:
         env:
           DYNAMICS_IMAGE_TAG: test
           DYNAMICS_DB: dhole_dynamics_connector
+          CORS_WEB_ORIGIN: https://ci.example.invalid
           POSTGRES_HOST: postgres
           POSTGRES_PORT: "5432"
           POSTGRES_USER: ci-placeholder
