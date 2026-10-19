@@ -47,6 +47,9 @@ services:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:?}
       ASPNETCORE_URLS: http://+:8080
       DYNAMICS_AUTH_MODE: Dhole
+      # Match the existing Gateway CORS origin for authenticated admin responses,
+      # including non-2xx dependency errors. No wildcard or arbitrary origins.
+      Admin__CorsOrigins__0: ${CORS_WEB_ORIGIN:?Dhole web CORS origin required}
       DYNAMICS_LOCAL_KEYS_DIR: /data/dynamics-keys
       DYNAMICS_ENCRYPTION_ACTIVE_KEY_VERSION: "1"
       ConnectionStrings__Dynamics: "Host=${POSTGRES_HOST};Port=${POSTGRES_PORT};Database=${DYNAMICS_DB:?DYNAMICS_DB required};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
