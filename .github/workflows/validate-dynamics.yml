@@ -1,4 +1,4 @@
-name: Validate Dynamics Gateway integration
+name: Validate Dynamics in existing Dhole PostgreSQL
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     paths:
       - "deploy/docker-compose.dynamics.yml"
       - "deploy/docker-compose.services.yml"
-      - "deploy/dynamics.env.example"
+      - "docs/deployment/dynamics-gateway.md"
       - ".github/workflows/validate-dynamics.yml"
   pull_request:
     branches: [master, develop]
@@ -22,33 +22,30 @@ jobs:
         target: [Staging, Production]
     steps:
       - uses: actions/checkout@v4
-      - name: Parse dedicated Dynamics Compose with non-secret placeholders
+      - name: Validate isolated Dynamics schema/database on existing Dhole network
         shell: bash
         env:
           DYNAMICS_IMAGE_TAG: test
-          DYNAMICS_POSTGRES_PASSWORD_FILE: /tmp/no-real-password
-          DYNAMICS_DB_CONNECTION_FILE: /tmp/no-real-connection
-          DYNAMICS_ENCRYPTION_KEY_FILE: /tmp/no-real-key
-          DYNAMICS_CURSOR_KEY_FILE: /tmp/no-real-cursor
-          DYNAMICS_ADMIN_OIDC_SECRET_FILE: /tmp/no-real-oidc
-          DYNAMICS_DP_CERT_FILE: /tmp/no-real-pfx
-          DYNAMICS_DP_PASSWORD_FILE: /tmp/no-real-password-pfx
-          DYNAMICS_ADMIN_OIDC_AUTHORITY: https://login.microsoftonline.com/test/v2.0
-          DYNAMICS_ADMIN_OIDC_CLIENT_ID: placeholder-admin
-          DYNAMICS_M2M_AUTHORITY: https://login.microsoftonline.com/test/v2.0
-          DYNAMICS_M2M_AUDIENCE: api://placeholder-resource
-          DHOLE_API_PUBLIC_URL: https://api.example.com
-          DHOLE_NETWORK: ci-dhole-test
+          DYNAMICS_DB: dhole_dynamics_connector
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: "5432"
+          POSTGRES_USER: ci-placeholder
+          POSTGRES_PASSWORD: ci-placeholder
+          JWT_ISSUER: DholeAuthService
+          JWT_AUDIENCE: DholeEcosystem
+          JWT_SECRET: ci-placeholder-unused-by-ci
+          DHOLE_NETWORK: ci-dhole-${{ matrix.target }}
           ASPNETCORE_ENVIRONMENT: ${{ matrix.target }}
         run: |
           set -euo pipefail
           docker compose -f deploy/docker-compose.dynamics.yml -p "ci-dynamics-${ASPNETCORE_ENVIRONMENT,,}" config -q
-          docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx dynamics-postgres
-          docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx dynamics-api
-          docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx dynamics-worker
-          # No database ports published, and the gateway must be on a distinct network.
-          ! docker compose -f deploy/docker-compose.dynamics.yml config | grep -q 'published: "5432"'
+          for service in dynamics-api dynamics-worker dynamics-migrate dynamics-key-init; do
+            docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx "$service"
+          done
+          ! docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx dynamics-postgres
+          grep -q "DYNAMICS_AUTH_MODE: Dhole" deploy/docker-compose.dynamics.yml
           grep -q 'Gateway__Routes__13__Prefix: "/api/dynamics-connector"' deploy/docker-compose.services.yml
-          grep -q 'Gateway__Routes__13__StripPrefix: "true"' deploy/docker-compose.services.yml
-          grep -q 'Gateway__HealthChecks__dynamics-connector' deploy/docker-compose.services.yml
-          echo "Dedicated Dynamics Compose and Dhole Gateway route are valid."
+          grep -q 'Gateway__Routes__14__Prefix: "/api/dynamics-admin"' deploy/docker-compose.services.yml
+          grep -q 'Gateway__Routes__14__StripPrefix: "true"' deploy/docker-compose.services.yml
+          ! docker compose -f deploy/docker-compose.dynamics.yml config | grep -q 'published: "5432"'
+          echo "Existing Dhole PostgreSQL, separate connector DB, DholeAuth and both gateway routes validated."
