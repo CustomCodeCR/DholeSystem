@@ -81,7 +81,9 @@ services:
     environment:
       <<: *dynamics_env
       ASPNETCORE_URLS: http://127.0.0.1:8080
-      Jobs__Enabled: ${DYNAMICS_JOBS_ENABLED:-false}
+      # Dedicated worker: metadata discovery only. No sync, import or write jobs.
+      Jobs__Enabled: "true"
+      Jobs__MetadataOnly: "true"
     volumes:
       - dynamics_runtime_keys:/data/dynamics-keys:ro
     read_only: true
