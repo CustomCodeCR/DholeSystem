@@ -47,6 +47,10 @@ services:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:?}
       ASPNETCORE_URLS: http://+:8080
       DYNAMICS_AUTH_MODE: Dhole
+      # OAuth2 machine-to-machine issuer and API audience for external applications.
+      # Empty by default: M2M remains disabled until Entra IDs are explicitly configured.
+      M2m__Authority: ${DYNAMICS_M2M_AUTHORITY:-}
+      M2m__Audience: ${DYNAMICS_M2M_AUDIENCE:-}
       # Match the existing Gateway CORS origin for authenticated admin responses,
       # including non-2xx dependency errors. No wildcard or arbitrary origins.
       Admin__CorsOrigins__0: ${CORS_WEB_ORIGIN:?Dhole web CORS origin required}
