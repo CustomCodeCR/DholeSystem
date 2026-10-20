@@ -114,6 +114,53 @@ Los grants por tabla/campo, el rate limiting y las políticas de escrituras
 de producción continúan vigentes. No hay nuevas credenciales reales configuradas
 automáticamente con este cambio.
 
+
+## Integración sencilla sin tokens OAuth (clave de API de Dhole)
+
+Para integrar Pangolin u otro backend externo **sin Microsoft Entra ni un
+inicio de sesión humano**, Dhole permite generar claves de API de **solo
+lectura**, vinculadas a una única consulta guardada y habilitada.
+
+1. En **Dynamics 365 → Catálogo**, habilitar tabla y campos de lectura.
+2. En **Query Builder**, guardar una consulta, revisarla y habilitarla.
+3. Entrar a **API / Integraciones** y seleccionar **Clave de API de Dhole**.
+4. Elegir la consulta, poner el nombre de la aplicación (ejemplo: Pangolin),
+   caducidad (1–90 días) y cuota (1–120 peticiones por minuto).
+5. Pulsar **Generar clave de API**. La clave solo se muestra en ese momento.
+   Guardarla como secreto en el backend consumidor, no en JavaScript del
+   navegador. Se puede revocar desde esta misma pantalla.
+6. Ejecutar la consulta mediante HTTPS desde el backend externo:
+
+```bash
+curl -X POST \
+  'https://api.logisticacastrofallas.com/api/dynamics-connector/keyed/saved-queries/ofertas_abiertas/execute' \
+  -H 'X-Dhole-Api-Key: <CLAVE_REAL_GENERADA_EN_DHOLE>' \
+  -H 'Content-Type: application/json' \
+  --data '{"connectionCode":"principal","parameters":{}}'
+```
+
+`ofertas_abiertas` es un nombre de ejemplo; se debe sustituir por la consulta
+real guardada y habilitada. Si esa consulta contiene parámetros, enviar valores
+tipados en el objeto `parameters`. Para la página siguiente enviar `cursor`
+y un objeto `parameters` vacío.
+
+Las claves se guardan como SHA-256 de un secreto aleatorio de 256 bits (no
+como texto plano). Cada clave está limitada a una conexión y una consulta,
+debe estar activa y no caducada, y consume cuota transaccional en PostgreSQL.
+Al modificar o volver a habilitar la consulta se invalida la clave emitida
+para la versión anterior, y al revocarla el acceso queda bloqueado.
+
+Este endpoint **no es anónimo**: exige `X-Dhole-Api-Key`, no
+`Authorization: Bearer`. Un OTP manual no es apropiado para una conexión
+automática recurrente. No hay rutas públicas que extraigan información privada
+de Dataverse sin credenciales. CREATE, UPDATE, UPSERT y DELETE siguen
+requiriendo autenticación M2M y todas sus políticas de producción.
+
+La ruta anterior de OAuth2 sigue disponible para sistemas que sí estén
+configurados en Microsoft Entra. Nunca enviar claves o tokens en parámetros
+de URL ni a dominios del frontend como
+`sistema.logisticacastrofallas.com`.
+
 ## Seguridad y acceso
 
 `/api/dynamics-admin/*` se dirige al `/api/admin/v1/*` del conector, protegido con bearer DholeAuth y scopes explícitos. La ruta `/api/dynamics-connector/*` permanece para la API machine-to-machine y conserva la validación OAuth app-only original: no confundir el JWT de usuario DholeAuth con credenciales de máquina. Este despliegue permite administración y conexión Dataverse con DholeAuth; para consumidores automáticos M2M todavía se requiere una integración adicional de identidad de servicio.
