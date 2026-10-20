@@ -43,6 +43,77 @@ En staging cambiar `DYNAMICS_IMAGE_TAG=staging`. Las restantes variables Postgre
 
 El nombre de la base NO implica que ya exista: solo el workflow inicial manual crea `dhole_dynamics_connector` cuando no está presente. Se crea dentro del PostgreSQL de la red correcta, sin ejecutar SQL en `dhole_auth`, `dhole_pricing` ni `dhole_crm`.
 
+
+## API para aplicaciones externas (Pangolin u otros consumidores)
+
+El endpoint público de PRODUCCIÓN usa exclusivamente `https://api.logisticacastrofallas.com`,
+no `https://sistema.logisticacastrofallas.com`. Por ejemplo:
+
+```http
+POST https://api.logisticacastrofallas.com/api/dynamics-connector/saved-queries/ofertas_abiertas/execute
+Authorization: Bearer <TOKEN_DE_APLICACION>
+Content-Type: application/json
+
+{"connectionCode":"principal","parameters":{}}
+```
+
+Abrir este enlace desde un navegador no ejecuta la consulta: es una ruta POST con
+autenticación M2M, no una página ni una sesión DholeAuth.
+
+La API M2M está protegida mediante Microsoft Entra, con token **app-only**, no
+mediante el JWT de un usuario Dhole. Para activarla de manera explícita en el
+entorno correspondiente, agregar **únicamente** estos valores no secretos al
+archivo de entorno de despliegue, una vez configurados en Entra:
+
+```dotenv
+DYNAMICS_M2M_AUTHORITY=https://login.microsoftonline.com/<TENANT_GUID_REAL>/v2.0
+DYNAMICS_M2M_AUDIENCE=api://<ID_REAL_DE_LA_APLICACION_API_EN_ENTRA>
+```
+
+El Compose pasa estas variables como `M2m:Authority` y `M2m:Audience` a
+Dynamics, y mantiene la API de máquina cerrada si faltan. El público puede
+consultar si el servicio está activo solo a través del diagnóstico administrativo
+`/api/dynamics-admin/console/diagnostics`, protegido por DholeAuth.
+
+1. Registrar en Microsoft Entra una **aplicación recurso API** y definir app roles
+   como `dynamics.records.read`, `dynamics.records.create`, `dynamics.records.update`
+   y `dynamics.records.delete`, habilitados para aplicaciones. Configurar su URI
+   de aplicación como el audience esperado.
+2. Registrar la aplicación cliente externa (Pangolin si es el consumidor). Asignarle
+   únicamente el app role que necesita sobre la aplicación API; otorgar consentimiento
+   administrativo y guardar su secreto/certificado **solo en el backend seguro**.
+3. En Dynamics 365 de Dhole, pestaña **Seguridad**, registrar el cliente M2M con
+   el `issuer` exacto del token y el `client_id` de la aplicación consumidora.
+   Crear un grant habilitado para `principal`, la tabla lógica (por ejemplo
+   `quote`, NO el nombre de colección `quotes`), `read`, las columnas
+   autorizadas y una cuota razonable.
+4. Guardar y activar una consulta en Query Builder y seleccionar su nombre desde
+   **API / Integraciones**. Allí se copia el endpoint de API y el ejemplo cURL.
+5. Desde el **servidor** de Pangolin obtener un token OAuth2 client_credentials:
+
+```http
+POST https://login.microsoftonline.com/<TENANT_GUID_REAL>/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id=<CLIENT_ID_REAL>
+&client_secret=<SECRET_GUARDADO_EN_SERVIDOR>
+&scope=api%3A%2F%2F<APP_ID_URI_REAL>%2F.default
+```
+
+   Usar `Authorization: Bearer <access_token>` en cada llamada al gateway.
+   El token debe incluir la identidad de aplicación y el app role correspondiente,
+   y su `aud` e `iss` deben coincidir con la configuración del servidor. Si
+   Pangolin es solamente un *reverse proxy* o túnel, debe preservar el método,
+   cuerpo y cabecera Authorization al reenviar al gateway, sin redirigir al
+   frontend. Para aplicaciones web externas, priorizar un backend propio para
+   evitar exponer credenciales o depender de CORS del navegador.
+
+Nunca agregar secretos a las URLs ni habilitar M2M con tokens de usuarios.
+Los grants por tabla/campo, el rate limiting y las políticas de escrituras
+de producción continúan vigentes. No hay nuevas credenciales reales configuradas
+automáticamente con este cambio.
+
 ## Seguridad y acceso
 
 `/api/dynamics-admin/*` se dirige al `/api/admin/v1/*` del conector, protegido con bearer DholeAuth y scopes explícitos. La ruta `/api/dynamics-connector/*` permanece para la API machine-to-machine y conserva la validación OAuth app-only original: no confundir el JWT de usuario DholeAuth con credenciales de máquina. Este despliegue permite administración y conexión Dataverse con DholeAuth; para consumidores automáticos M2M todavía se requiere una integración adicional de identidad de servicio.
