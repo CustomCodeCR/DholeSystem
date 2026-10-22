@@ -64,6 +64,10 @@ services:
       Metadata__SchedulerEnabled: "false"
       ProductionWrites__Approved: ${DYNAMICS_PRODUCTION_WRITES_APPROVED:-NO}
       ProductionWrites__ApprovalReference: ${DYNAMICS_PRODUCTION_WRITES_TICKET:-}
+      # Independent ticketed grant: only crear_oferta/execute-with-total, default DENY.
+      # Generic CRUD and deletes remain read-only unless separately approved.
+      ProductionQuotes__Approved: ${DYNAMICS_PRODUCTION_QUOTE_WRITES_APPROVED:-NO}
+      ProductionQuotes__ApprovalReference: ${DYNAMICS_PRODUCTION_QUOTE_WRITES_TICKET:-}
       ProductionWrites__DeletesApproved: ${DYNAMICS_PRODUCTION_DELETES_APPROVED:-NO}
       ProductionWrites__DeletesApprovalReference: ${DYNAMICS_PRODUCTION_DELETES_TICKET:-}
     volumes:
