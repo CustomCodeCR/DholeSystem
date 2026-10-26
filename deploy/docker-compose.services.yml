@@ -132,6 +132,7 @@ services:
       TZ: ${TZ:-America/Costa_Rica}
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
+      Features__CrmEnabled: "true"
       Kestrel__Endpoints__Http__Url: "http://+:8080"
       Kestrel__Endpoints__Http__Protocols: "Http1"
       Kestrel__Endpoints__Grpc__Url: "http://+:8081"
