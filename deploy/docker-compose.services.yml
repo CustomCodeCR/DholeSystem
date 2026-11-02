@@ -15,6 +15,11 @@ services:
       ThirdParty__ServiceTokens__pricing-rate-create: "${THIRDPARTY_PRICING_RATE_CREATE_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-rate-update: "${THIRDPARTY_PRICING_RATE_UPDATE_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-rate-delete: "${THIRDPARTY_PRICING_RATE_DELETE_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-request-create: "${THIRDPARTY_PRICING_REQUEST_CREATE_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-requests-open: "${THIRDPARTY_PRICING_REQUESTS_OPEN_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-request-detail: "${THIRDPARTY_PRICING_REQUEST_DETAIL_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-requests-linked: "${THIRDPARTY_PRICING_REQUESTS_LINKED_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-exchange-eur-usd: "${THIRDPARTY_PRICING_EUR_USD_TOKEN:-}"
       CONTENT_HTTP_URL: http://content-api:8080
       # The prod2+ Compose projects also advertise the generic
       # dhole-agent-api DNS alias on the shared dhole network. Bind the
