@@ -11,6 +11,10 @@ services:
       # Use dedicated short-lived credentials per target, never a superuser JWT.
       ThirdParty__ServiceTokens__pricing-rate-detail: "${THIRDPARTY_PRICING_RATE_DETAIL_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-usd-crc: "${THIRDPARTY_PRICING_USD_CRC_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rates-list: "${THIRDPARTY_PRICING_RATES_LIST_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-create: "${THIRDPARTY_PRICING_RATE_CREATE_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-update: "${THIRDPARTY_PRICING_RATE_UPDATE_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-rate-delete: "${THIRDPARTY_PRICING_RATE_DELETE_TOKEN:-}"
       CONTENT_HTTP_URL: http://content-api:8080
       # The prod2+ Compose projects also advertise the generic
       # dhole-agent-api DNS alias on the shared dhole network. Bind the
