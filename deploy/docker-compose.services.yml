@@ -4,9 +4,10 @@ include:
 services:
   api-gateway:
     environment:
-      # External API storage: opt-in; no PostgreSQL passwords embedded in Git.
+      # External API storage: compose interpolates source variables directly.
+      # Avoid passing a nested ${...} value from .env (Compose does not expand it again).
       ThirdParty__Enabled: "${ThirdParty__Enabled:-false}"
-      ThirdParty__ConnectionString: "${ThirdParty__ConnectionString:-}"
+      ThirdParty__ConnectionString: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${THIRDPARTY_DB:-dhole_integrations};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
       # Use dedicated short-lived credentials per target, never a superuser JWT.
       ThirdParty__ServiceTokens__pricing-rate-detail: "${THIRDPARTY_PRICING_RATE_DETAIL_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-usd-crc: "${THIRDPARTY_PRICING_USD_CRC_TOKEN:-}"
