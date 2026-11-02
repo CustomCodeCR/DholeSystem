@@ -4,6 +4,12 @@ include:
 services:
   api-gateway:
     environment:
+      # External API storage: opt-in; no PostgreSQL passwords embedded in Git.
+      ThirdParty__Enabled: "${ThirdParty__Enabled:-false}"
+      ThirdParty__ConnectionString: "${ThirdParty__ConnectionString:-}"
+      # Use dedicated short-lived credentials per target, never a superuser JWT.
+      ThirdParty__ServiceTokens__pricing-rate-detail: "${THIRDPARTY_PRICING_RATE_DETAIL_TOKEN:-}"
+      ThirdParty__ServiceTokens__pricing-usd-crc: "${THIRDPARTY_PRICING_USD_CRC_TOKEN:-}"
       CONTENT_HTTP_URL: http://content-api:8080
       # The prod2+ Compose projects also advertise the generic
       # dhole-agent-api DNS alias on the shared dhole network. Bind the
