@@ -72,7 +72,23 @@ def main():
         assert manifest["ecosystemVersion"] == version
         assert manifest["releaseId"] == metadata["releaseId"]
         assert len(manifest["components"]) >= 15
-        assert all(item["version"] == version for item in manifest["components"])
+        versions = {item["component"]: item["version"] for item in manifest["components"]}
+        assert len(versions) == len(manifest["components"]), "Duplicated component in manifest"
+        assert all(parse(value) <= parse(version) for value in versions.values())
+        changed = manifest.get("releaseComponents", [])
+        assert changed and all(name in versions and versions[name] == version for name in changed), (
+            "Every changed component must match global release version"
+        )
+        old = source_at(os.environ.get("DH_VERSION_BASE", ""), "release-manifest.json")
+        if old:
+            previous = {item["component"]: item["version"]
+                        for item in json.loads(old)["components"]}
+            for name, value in versions.items():
+                if name in previous:
+                    if name in changed:
+                        assert parse(value) > parse(previous[name]), f"{name} must increment SemVer"
+                    else:
+                        assert value == previous[name], f"{name} must retain prior version"
 
     ref = os.environ.get("DH_VERSION_BASE", "").strip()
     prev = previous_version(ref)
