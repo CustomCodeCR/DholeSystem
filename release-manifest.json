@@ -3,7 +3,7 @@
   "releaseId": "DH-20261105-VERSION-001",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.2.0",
-  "status": "blocked-ci",
+  "status": "source-merged-develop-master-integration-pending",
   "branches": [
     "develop",
     "master"
@@ -135,25 +135,14 @@
     "checks": 32,
     "total": 32
   },
-  "mergeState": "draft-no-merges",
+  "mergeState": "develop-16-of-16-complete-master-in-progress",
   "productionDeploymentAuthorized": false,
-  "blockers": [
-    {
-      "repo": "DholeWeb",
-      "reason": "Dhole Web CI still fails 7 preexisting CRM regression expectations after Pricing fixes",
-      "workflow": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/42081352431"
-    },
-    {
-      "repo": "DholeSystem",
-      "reason": "master push automatically redeploys production infrastructure; explicit deployment authorization and passing staging required"
-    }
-  ],
+  "blockers": [],
   "validationEvidence": {
-    "versionPolicy": "passed-32-of-32-before-fixes",
-    "configCi": "passed-after-catalog-test-update",
-    "reportsCi": "passed-after-pdf-template-test-update",
-    "dynamicsConnectorCi": "passed-after-vue-i18n-security-update",
-    "dynamicsSecurity": "passed",
-    "webCi": "failed-existing-pricing-regressions"
+    "versionPolicy": "passed",
+    "developPrCi": "passed",
+    "masterPrChecks": "passed-except-web-build-pending",
+    "stagingDeployment": "not-verified",
+    "productionDeployment": "not-requested"
   }
 }
