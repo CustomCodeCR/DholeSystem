@@ -3,7 +3,7 @@
   "releaseId": "DH-20261105-VERSION-001",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.2.0",
-  "status": "blocked-pending-full-ci-and-staging",
+  "status": "blocked-pending-web-ci-and-staging",
   "branches": [
     "develop",
     "master"
@@ -140,19 +140,19 @@
   "blockers": [
     {
       "repo": "DholeWeb",
-      "reason": "Pricing rate-update regression test failed"
+      "reason": "10 Pricing regression assertions failing; merging blocked until functional CI passes"
     },
     {
-      "repo": "DholeConfigService",
-      "reason": "PostgreSQL migration/test workflow failed in develop PR"
-    },
-    {
-      "repo": "DholeReportsService",
-      "reason": "PDF template integration test failed in develop PR"
-    },
-    {
-      "repo": "DholeDynamicsConnectorService",
-      "reason": "frontend security audit found 3 high vulnerabilities"
+      "repo": "DholeSystem",
+      "reason": "master push auto-deploys infrastructure; explicit production deployment authorization required"
     }
-  ]
+  ],
+  "validationEvidence": {
+    "versionPolicy": "passed-32-of-32-before-fixes",
+    "configCi": "passed-after-catalog-test-update",
+    "reportsCi": "passed-after-pdf-template-test-update",
+    "dynamicsConnectorCi": "passed-after-vue-i18n-security-update",
+    "dynamicsSecurity": "passed",
+    "webCi": "failed-existing-pricing-regressions"
+  }
 }
