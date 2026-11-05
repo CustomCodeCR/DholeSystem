@@ -3,7 +3,7 @@
   "releaseId": "DH-20261105-VERSION-001",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.2.0",
-  "status": "blocked-pending-web-ci-and-staging",
+  "status": "blocked-ci",
   "branches": [
     "develop",
     "master"
@@ -140,11 +140,12 @@
   "blockers": [
     {
       "repo": "DholeWeb",
-      "reason": "10 Pricing regression assertions failing; merging blocked until functional CI passes"
+      "reason": "Dhole Web CI still fails 7 preexisting CRM regression expectations after Pricing fixes",
+      "workflow": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/42081352431"
     },
     {
       "repo": "DholeSystem",
-      "reason": "master push auto-deploys infrastructure; explicit production deployment authorization required"
+      "reason": "master push automatically redeploys production infrastructure; explicit deployment authorization and passing staging required"
     }
   ],
   "validationEvidence": {
