@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "ecosystemVersion": "1.2.0",
-  "releaseState": "candidate-ci-blocked",
+  "ecosystemVersion": "1.3.0",
+  "releaseState": "candidate-blocked-by-ci-and-staging",
   "releaseDate": "2026-11-05",
   "description": "Procesamiento por lotes de correos tarifarios y recuperación de backlog",
   "notes": "Componentes con versionAuditPending requieren confirmar versión vigente antes de autorizar el release coordinado; nunca inferir versiones.",
@@ -72,19 +72,30 @@
       "versionSource": "package.json on master"
     },
     "DholeAIService": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "change": "minor",
       "repository": "CustomCodeCR/DholeAIService",
       "pr": 7,
-      "branch": "feature/email-batch-throughput-20261105-validated"
+      "branch": "feature/email-batch-throughput-20261105-validated",
+      "developPR": 8,
+      "masterPR": 9
     },
     "DholeDataExtractionService": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "change": "minor",
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "pr": 26,
-      "branch": "feature/email-batch-throughput-20261105-validated"
+      "branch": "feature/email-batch-throughput-20261105-validated",
+      "developPR": 27,
+      "masterPR": 28
+    },
+    "DholeSystem": {
+      "version": "1.2.0",
+      "change": "pending global release 1.3.0",
+      "currentVersion": "1.2.0"
     }
   },
-  "releaseNotes": "DholeAIService PR 7 y DholeDataExtractionService PR 26; CI completo tiene fallos heredados sin resolver; no integrar hasta verificar suite y staging. Manifest compose usa include externo /opt/dhole/docker-compose.services.yml."
+  "releaseNotes": "AI y DataExtraction disponen de PR a develop y master; tests de lotes y SemVer pasan; suite completa sigue reportando 6/25 fallos históricos. No autoriza merges ni producción hasta validación.",
+  "releaseId": "DH-20261105-EMAIL-BATCH-002",
+  "versioningNote": "Official release-manifest.json remains ecosystem 1.2.0. Do not merge this candidate until coordinated version manifest for 1.3.0 is synchronized across all components."
 }
