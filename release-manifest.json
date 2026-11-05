@@ -3,7 +3,7 @@
   "releaseId": "DH-20261105-VERSION-001",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.2.0",
-  "status": "source-merged-develop-master-integration-pending",
+  "status": "source-integrated-branches-no-production-deployment",
   "branches": [
     "develop",
     "master"
@@ -135,14 +135,14 @@
     "checks": 32,
     "total": 32
   },
-  "mergeState": "develop-16-of-16-complete-master-in-progress",
+  "mergeState": "develop-16-of-16-master-15-of-16-system-final-pr",
   "productionDeploymentAuthorized": false,
   "blockers": [],
   "validationEvidence": {
     "versionPolicy": "passed",
     "developPrCi": "passed",
-    "masterPrChecks": "passed-except-web-build-pending",
-    "stagingDeployment": "not-verified",
-    "productionDeployment": "not-requested"
+    "masterPrCi": "passed",
+    "stagingDeployment": "not-confirmed",
+    "productionDeployment": "not-authorized"
   }
 }
