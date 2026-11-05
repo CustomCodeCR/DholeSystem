@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "ecosystemVersion": "1.2.0",
+  "releaseState": "candidate-not-authorized-for-production",
+  "releaseDate": "2026-11-05",
+  "description": "Procesamiento por lotes de correos tarifarios y recuperación de backlog",
+  "notes": "Componentes con versionAuditPending requieren confirmar versión vigente antes de autorizar el release coordinado; nunca inferir versiones.",
+  "components": {
+    "DholeApiGateway": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeAuthService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeConfigService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeAuditLogsService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeNotificationsService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeStorageService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholePricingService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeReportsService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeContentService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeAgentService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeDynamicsConnectorService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeCRMService": {
+      "version": null,
+      "versionAuditPending": true,
+      "change": "unchanged"
+    },
+    "DholeWeb": {
+      "version": "1.1.0",
+      "change": "unchanged",
+      "versionSource": "package.json on master"
+    },
+    "DholeAIService": {
+      "version": "1.2.0",
+      "change": "minor",
+      "repository": "CustomCodeCR/DholeAIService",
+      "pr": 4
+    },
+    "DholeDataExtractionService": {
+      "version": "1.2.0",
+      "change": "minor",
+      "repository": "CustomCodeCR/DholeDataExtractionService",
+      "pr": 23
+    }
+  }
+}
