@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "ecosystemVersion": "1.2.0",
-  "releaseState": "candidate-not-authorized-for-production",
+  "releaseState": "candidate-ci-blocked",
   "releaseDate": "2026-11-05",
   "description": "Procesamiento por lotes de correos tarifarios y recuperación de backlog",
   "notes": "Componentes con versionAuditPending requieren confirmar versión vigente antes de autorizar el release coordinado; nunca inferir versiones.",
@@ -75,13 +75,16 @@
       "version": "1.2.0",
       "change": "minor",
       "repository": "CustomCodeCR/DholeAIService",
-      "pr": 4
+      "pr": 7,
+      "branch": "feature/email-batch-throughput-20261105-validated"
     },
     "DholeDataExtractionService": {
       "version": "1.2.0",
       "change": "minor",
       "repository": "CustomCodeCR/DholeDataExtractionService",
-      "pr": 23
+      "pr": 26,
+      "branch": "feature/email-batch-throughput-20261105-validated"
     }
-  }
+  },
+  "releaseNotes": "DholeAIService PR 7 y DholeDataExtractionService PR 26; CI completo tiene fallos heredados sin resolver; no integrar hasta verificar suite y staging. Manifest compose usa include externo /opt/dhole/docker-compose.services.yml."
 }
