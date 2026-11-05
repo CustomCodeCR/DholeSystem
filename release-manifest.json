@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261105-VERSION-001",
+  "releaseId": "DH-20261105-EMAIL-BATCH-002",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.2.0",
-  "status": "merged-develop-staging-validation",
+  "ecosystemVersion": "1.3.0",
+  "status": "candidate-pending-staging",
   "branches": [
     "develop",
     "master"
@@ -15,7 +15,7 @@
       "version": "1.2.0",
       "developPR": 7,
       "masterPR": 8,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -23,7 +23,7 @@
       "version": "1.2.0",
       "developPR": 20,
       "masterPR": 21,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
@@ -31,7 +31,7 @@
       "version": "1.2.0",
       "developPR": 258,
       "masterPR": 259,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -39,7 +39,7 @@
       "version": "1.2.0",
       "developPR": 15,
       "masterPR": 16,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -47,15 +47,15 @@
       "version": "1.2.0",
       "developPR": 4,
       "masterPR": 5,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.2.0",
-      "developPR": 24,
-      "masterPR": 25,
-      "mergeState": "draft"
+      "version": "1.3.0",
+      "developPR": 27,
+      "masterPR": 28,
+      "mergeState": "candidate-ci-passed"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -63,15 +63,15 @@
       "version": "1.2.0",
       "developPR": 88,
       "masterPR": 89,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.2.0",
-      "developPR": 5,
-      "masterPR": 6,
-      "mergeState": "draft"
+      "version": "1.3.0",
+      "developPR": 8,
+      "masterPR": 9,
+      "mergeState": "candidate-ci-passed"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -79,7 +79,7 @@
       "version": "1.2.0",
       "developPR": 5,
       "masterPR": 6,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -87,7 +87,7 @@
       "version": "1.2.0",
       "developPR": 12,
       "masterPR": 13,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -95,7 +95,7 @@
       "version": "1.2.0",
       "developPR": 6,
       "masterPR": 7,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -103,7 +103,7 @@
       "version": "1.2.0",
       "developPR": 33,
       "masterPR": 34,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -111,7 +111,7 @@
       "version": "1.2.0",
       "developPR": 167,
       "masterPR": 168,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -119,7 +119,7 @@
       "version": "1.2.0",
       "developPR": 21,
       "masterPR": 22,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -127,7 +127,13 @@
       "version": "1.2.0",
       "developPR": 38,
       "masterPR": 39,
-      "mergeState": "draft"
+      "mergeState": "unchanged-1.2.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "version": "1.3.0",
+      "mergeState": "candidate-ci-pending"
     }
   ],
   "policyCheck": {
@@ -135,18 +141,22 @@
     "checks": 32,
     "total": 32
   },
-  "mergeState": "develop-15-of-16-complete-system-pending",
+  "mergeState": "pending-develop-validation",
   "productionDeploymentAuthorized": false,
-  "blockers": [],
+  "blockers": [
+    "Validation of the coordinated release in staging is pending"
+  ],
   "validationEvidence": {
-    "versionPolicy": "passed",
-    "webCi": "passed",
-    "webVersioning": "passed",
-    "maersk": "passed",
-    "configCi": "passed",
-    "reportsCi": "passed",
-    "dynamicsConnectorCi": "passed",
-    "dynamicsSecurity": "passed",
-    "otherServiceCi": "passed"
-  }
+    "ai": "31/31 passed",
+    "extraction": "262/262 passed",
+    "batch": "passed",
+    "pdfs": "passed",
+    "semver": "passed",
+    "staging": "pending"
+  },
+  "releaseComponents": [
+    "DholeAIService",
+    "DholeDataExtractionService",
+    "DholeSystem"
+  ]
 }
