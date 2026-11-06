@@ -34,100 +34,36 @@ jobs:
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
-      - name: Bootstrap production databases, Ollama and Traefik
+      - name: Validate production dependencies (read-only)
         shell: bash
         run: |
           set -euo pipefail
-
-          read_env() {
-            local key="$1"
-            grep -m1 "^${key}=" "$DHOLE_ENV_FILE" | cut -d= -f2- | tr -d '\r'
+          service_ready() {
+            case "$1" in
+              postgres) docker exec postgres pg_isready >/dev/null 2>&1 ;;
+              redis) [[ "$(docker exec redis redis-cli ping 2>/dev/null)" == "PONG" ]] ;;
+              mongo) docker exec mongo mongosh --quiet --eval 'db.runCommand({ping:1}).ok' 2>/dev/null | grep -qx 1 ;;
+              ollama) curl -fsS --max-time 5 http://127.0.0.1:11434/api/tags >/dev/null ;;
+              traefik) [[ "$(docker inspect -f '{{.State.Running}}' traefik 2>/dev/null)" == "true" ]] ;;
+            esac
           }
-
-          POSTGRES_USER="$(read_env POSTGRES_USER)"
-          POSTGRES_PASSWORD="$(read_env POSTGRES_PASSWORD)"
-          MONGO_USER="$(read_env MONGO_USER)"
-          MONGO_PASSWORD="$(read_env MONGO_PASSWORD)"
-
-          for volume in \
-            argos_postgres_data \
-            argos_mongo_data \
-            argos_redis_data \
-            dhole-infrastructure_ollama_data \
-            dhole-infrastructure_traefik_letsencrypt; do
-            docker volume inspect "$volume" >/dev/null || {
-              echo "Required persistent volume missing: $volume" >&2
+          for service in postgres redis mongo ollama traefik; do
+            ready=false
+            for attempt in $(seq 1 30); do
+              if service_ready "$service"; then
+                ready=true
+                break
+              fi
+              sleep 2
+            done
+            if [[ "$ready" != "true" ]]; then
+              echo "SERVICE_HEALTH_FAILED: $service" >&2
+              docker logs --tail 50 "$service" >&2 || true
               exit 1
-            }
-          done
-
-          docker network inspect dhole >/dev/null 2>&1 || docker network create dhole
-
-          docker image inspect postgres:16 >/dev/null 2>&1 || docker pull postgres:16
-          docker image inspect mongo:7 >/dev/null 2>&1 || docker pull mongo:7
-          docker image inspect redis:7-alpine >/dev/null 2>&1 || docker pull redis:7-alpine
-          docker image inspect ollama/ollama:latest >/dev/null 2>&1 || docker pull ollama/ollama:latest
-          docker image inspect traefik:v3 >/dev/null 2>&1 || docker pull traefik:v3
-
-          docker rm -f postgres mongo redis ollama traefik 2>/dev/null || true
-
-          docker run -d --name postgres --restart unless-stopped --network dhole \
-            -p 127.0.0.1:5432:5432 \
-            -e POSTGRES_USER="$POSTGRES_USER" \
-            -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
-            -e TZ=America/Costa_Rica \
-            -v argos_postgres_data:/var/lib/postgresql/data \
-            postgres:16
-
-          docker run -d --name mongo --restart unless-stopped --network dhole \
-            -e MONGO_INITDB_ROOT_USERNAME="$MONGO_USER" \
-            -e MONGO_INITDB_ROOT_PASSWORD="$MONGO_PASSWORD" \
-            -e TZ=America/Costa_Rica \
-            -v argos_mongo_data:/data/db \
-            mongo:7
-
-          docker run -d --name redis --restart unless-stopped --network dhole \
-            -e TZ=America/Costa_Rica \
-            -v argos_redis_data:/data \
-            redis:7-alpine
-
-          docker run -d --name ollama --restart unless-stopped --network dhole \
-            -p 127.0.0.1:11434:11434 \
-            -e TZ=America/Costa_Rica \
-            -e OLLAMA_KEEP_ALIVE=30m \
-            -e OLLAMA_CONTEXT_LENGTH=65536 \
-            -v dhole-infrastructure_ollama_data:/root/.ollama \
-            ollama/ollama:latest
-
-          docker run -d --name traefik --restart unless-stopped --network dhole \
-            -p 127.0.0.1:80:80 \
-            -v /var/run/docker.sock:/var/run/docker.sock:ro \
-            -v dhole-infrastructure_traefik_letsencrypt:/letsencrypt \
-            --label traefik.enable=true \
-            --label 'traefik.http.routers.traefik.rule=Host(`traefik.customcodecr.com`)' \
-            --label traefik.http.routers.traefik.entrypoints=web \
-            --label traefik.http.routers.traefik.service=api@internal \
-            traefik:v3 \
-            --providers.docker=true \
-            --providers.docker.exposedbydefault=false \
-            --providers.docker.network=dhole \
-            --entrypoints.web.address=:80 \
-            --api.dashboard=true \
-            --log.level=INFO \
-            --accesslog=true
-
-          for attempt in $(seq 1 30); do
-            if docker exec postgres pg_isready -U "$POSTGRES_USER" >/dev/null 2>&1; then
-              break
             fi
-            sleep 2
+            echo "SERVICE_READY: $service"
           done
 
-          docker exec postgres pg_isready -U "$POSTGRES_USER"
-          docker port postgres 5432/tcp | grep -qx '127.0.0.1:5432'
-          docker exec redis redis-cli ping | grep -q PONG
-          docker exec mongo mongosh --quiet --eval 'db.runCommand({ping:1}).ok' | grep -q 1
-          curl -fsS --max-time 10 http://127.0.0.1:11434/api/tags >/dev/null
       - name: Resolve persistent MinIO volume
         shell: bash
         run: |
@@ -186,9 +122,9 @@ jobs:
           set -euo pipefail
           docker volume inspect "$MINIO_VOLUME_NAME" >/dev/null
 
-          # Recovery path: Docker Hub and anonymous Quay pulls for MinIO
-          # are unavailable. Build the last Community Edition locally from the
-          # official MinIO binary archive, without touching the persistent data.
+          # Restore MinIO from the official binary archive. Public registry
+          # images are no longer reliably available, and the persistent volume
+          # already contains the existing bucket/data.
           MINIO_IMAGE="dhole/minio:community-2025-09-07"
           MINIO_RELEASE="RELEASE.2025-09-07T16-13-09Z"
           MINIO_ASSET="minio.linux-amd64.$MINIO_RELEASE"
@@ -267,6 +203,19 @@ jobs:
       - name: Verify Hermes production API
         shell: bash
         run: curl -fsS --max-time 10 http://127.0.0.1:8642/health >/dev/null
+
+      - name: Keep DholeSystem feature branches clean
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          while IFS= read -r branch; do
+            case "$branch" in
+              master|develop|main) continue ;;
+            esac
+            echo "Deleting obsolete branch: $branch"
+            git push origin --delete "$branch"
+          done < <(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | grep -v '^HEAD$' || true)
 
       - name: Show environment routing
         shell: bash
