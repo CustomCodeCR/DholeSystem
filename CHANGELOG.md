@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.6] - 2026-11-06
+
+- Registra el release coordinado DH-20261106-MODIFICATION-CLOSURE-008 para evitar cierre automático de modificaciones.
+- DholePricingService 1.2.5 → 1.2.6 y DholeWeb 1.3.2 → 1.3.3; incrementa DholeSystem a 1.3.6.
+- Separa guardar de enviar al vendedor, bloquea cierre por SLA y revisión, y protege cancelaciones auditadas.
+- Requiere validación en staging antes de master y no autoriza despliegue en producción.
+
+
 ## [1.3.4] - 2026-11-06
 
 - Coordina control de saturación AI y extracción de tarifas desde correos sin pérdida de fuentes.
