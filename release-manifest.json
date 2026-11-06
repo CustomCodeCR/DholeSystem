@@ -155,8 +155,21 @@
     "staging": "pending"
   },
   "releaseComponents": [
-    "DholeAIService",
+    "DholeApiGateway",
+    "DholeAuthService",
+    "DholeWeb",
+    "DholeConfigService",
+    "DholeAuditLogsService",
     "DholeDataExtractionService",
+    "DholePricingService",
+    "DholeAIService",
+    "DholeStorageService",
+    "DholeReportsService",
+    "DholeNotificationsService",
+    "DholeContentService",
+    "DholeAgentService",
+    "DholeDynamicsConnectorService",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "monitoringVersionSource": "Runtime assembly version reported in X-Dhole-Version on /api/health/{service}"
