@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.9] - 2026-11-06
+
+- Cierra extracciones de octubre y meses anteriores según la fecha de recepción y calendario de Costa Rica; solo noviembre queda activo.
+- Conserva correo y adjuntos históricos, solicitudes Pricing ya enviadas y filas importadas.
+- DataExtraction 1.3.2 a 1.3.3: archivado gradual, prevención de reencolado, API HTTP 410 para solicitudes obsoletas.
+- AIService 1.3.5 a 1.3.6: cancela tareas antiguas pendientes y trata HTTP 410 como cierre esperado.
+- DholeSystem 1.3.8 a 1.3.9. Release DH-20261106-HISTORICAL-CLOSE-011.
+
+
+## [1.3.8] - 2026-11-06
+
+- Release de optimización de extracción de correos: Qwen genera filas JSON compactas y evita 22 valores null por tarifa.
+- DholeAIService 1.3.4 a 1.3.5; DholeSystem 1.3.7 a 1.3.8.
+- Sin borrado de colas, sin incremento de paralelismo y sin interrupción de servicios persistentes.
+- Se requiere staging previo a producción. DH-20261106-AI-THROUGHPUT-010.
+
+
 ## [1.3.7] - 2026-11-06
 
 - Valida servicios de infraestructura sin reiniciarlos ni borrar sus volúmenes persistentes en producción.
