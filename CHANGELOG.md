@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.3] - 2026-11-05
+
+- Release coordinado para corregir Otras pestañas y mostrar versiones SemVer de servicios en monitoreo.
+- Actualiza DholeWeb y DholeApiGateway a 1.3.0 sin incrementar componentes no modificados.
+- Conserva verificaciones de staging antes de integrar a producción.
+
 ## [1.3.2] - 2026-11-05
 
 - Release coordinado para corregir CI y despliegues de AI, Agent y Storage.
