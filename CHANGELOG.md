@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.2] - 2026-11-05
+
+- Release coordinado para corregir CI y despliegues de AI, Agent y Storage.
+- Actualiza manifiesto global para las cuatro modificaciones.
+
+
 ## [1.3.1] - 2026-11-05
 
 - Unifica versión global Dhole 1.3.1 y manifiesto de los 16 componentes SemVer.
