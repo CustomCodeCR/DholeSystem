@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-EMAIL-QUEUE-001",
+  "releaseId": "DH-20261106-MODIFICATION-CLOSURE-008",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.4",
+  "ecosystemVersion": "1.3.6",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.3.0",
+      "version": "1.3.3",
       "mergeState": "candidate-pending-staging"
     },
     {
@@ -48,8 +48,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.2.5",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.2.6",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.4",
+      "version": "1.3.6",
       "mergeState": "candidate-pending-staging"
     }
   ],
@@ -114,7 +114,8 @@
   "mergeState": "pending-staging-validation",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Requires staging checks and coordinated promotion before master production deployment"
+    "Integrate both changed services to develop and validate staging before master",
+    "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
     "semver": "pending",
@@ -122,8 +123,8 @@
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeAIService",
-    "DholeDataExtractionService",
+    "DholeWeb",
+    "DholePricingService",
     "DholeSystem"
   ]
 }
