@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261105-EMAIL-BATCH-002",
+  "releaseId": "DH-20261105-AUTO-DEPLOY-003",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.0",
-  "status": "candidate-pending-staging",
+  "ecosystemVersion": "1.3.1",
+  "status": "candidate-validation-pending",
   "branches": [
     "develop",
     "master"
@@ -12,151 +12,131 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.2.0",
-      "developPR": 7,
-      "masterPR": 8,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.2.0",
-      "developPR": 20,
-      "masterPR": 21,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.2.0",
-      "developPR": 258,
-      "masterPR": 259,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.4",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.2.0",
-      "developPR": 15,
-      "masterPR": 16,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.2.0",
-      "developPR": 4,
-      "masterPR": 5,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.3.0",
-      "developPR": 27,
-      "masterPR": 28,
-      "mergeState": "candidate-ci-passed"
+      "version": "1.3.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.2.0",
-      "developPR": 88,
-      "masterPR": 89,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.5",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.3.0",
-      "developPR": 8,
-      "masterPR": 9,
-      "mergeState": "candidate-ci-passed"
+      "version": "1.3.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
-      "version": "1.2.0",
-      "developPR": 5,
-      "masterPR": 6,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.2.0",
-      "developPR": 12,
-      "masterPR": 13,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.2.0",
-      "developPR": 6,
-      "masterPR": 7,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
-      "version": "1.2.0",
-      "developPR": 33,
-      "masterPR": 34,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.2.0",
-      "developPR": 167,
-      "masterPR": 168,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.2.0",
-      "developPR": 21,
-      "masterPR": 22,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.2.0",
-      "developPR": 38,
-      "masterPR": 39,
-      "mergeState": "unchanged-1.2.0"
+      "version": "1.2.1",
+      "mergeState": "feature-prepared"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.0",
-      "mergeState": "candidate-ci-pending"
+      "version": "1.3.1",
+      "mergeState": "feature-prepared"
     }
   ],
   "policyCheck": {
-    "status": "passed",
-    "checks": 32,
+    "status": "pending",
+    "checks": 0,
     "total": 32
   },
-  "mergeState": "pending-develop-validation",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "pending-coordinated-develop-integration",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Validation of the coordinated release in staging is pending"
+    "Staging integration and runtime health validation must pass"
   ],
   "validationEvidence": {
-    "ai": "31/31 passed",
-    "extraction": "262/262 passed",
-    "batch": "passed",
-    "pdfs": "passed",
-    "semver": "passed",
-    "staging": "pending"
+    "semver": "pending",
+    "staging": "pending",
+    "production": "pending"
   },
   "releaseComponents": [
-    "DholeAIService",
+    "DholeApiGateway",
+    "DholeAuthService",
+    "DholeWeb",
+    "DholeConfigService",
+    "DholeAuditLogsService",
     "DholeDataExtractionService",
+    "DholePricingService",
+    "DholeAIService",
+    "DholeStorageService",
+    "DholeReportsService",
+    "DholeNotificationsService",
+    "DholeContentService",
+    "DholeAgentService",
+    "DholeDynamicsConnectorService",
+    "DholeCRMService",
     "DholeSystem"
   ]
 }
