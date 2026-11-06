@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.3] - 2026-11-05
+
+- Release coordinado para corregir Otras pestañas y mostrar versiones SemVer de servicios en monitoreo.
+- Registra DholeWeb 1.3.0 y DholeApiGateway 1.3.0; conserva las versiones de los otros 13 componentes.
+- Diferencia versiones del proceso en ejecución de versiones declaradas en el manifiesto.
+
 ## [1.3.2] - 2026-11-05
 
 - Release coordinado de recuperación de GitHub Actions para AI, Storage y Agent.
