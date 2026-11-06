@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.4] - 2026-11-06
+
+- Coordina control de saturación AI y extracción de tarifas desde correos sin pérdida de fuentes.
+- DholeAIService 1.3.2 → 1.3.3: recuperación de duplicados de AI y menor concurrencia.
+- DholeDataExtractionService 1.3.1 → 1.3.2: MarkItDown prioritario en documentos Office, backpressure y límite de reintentos.
+- Requiere pruebas de staging antes de permitir integración a master y autorización explícita antes del despliegue de producción.
+
+
 ## [1.3.3] - 2026-11-05
 
 - Release coordinado para corregir Otras pestañas y mostrar versiones SemVer de servicios en monitoreo.
