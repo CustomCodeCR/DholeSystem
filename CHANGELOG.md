@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.2] - 2026-11-05
+
+- Release coordinado de recuperación de GitHub Actions para AI, Storage y Agent.
+- Registra la versión global y el estado de las cuatro modificaciones del lote.
+
 ## [1.3.1] - 2026-11-05
 
 - Define release global 1.3.1 y registra versiones SemVer independientes de 16 componentes.
