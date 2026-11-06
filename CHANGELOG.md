@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.8] - 2026-11-06
+
+- Release de optimización de extracción de correos: Qwen genera filas JSON compactas y evita 22 valores null por tarifa.
+- DholeAIService 1.3.4 a 1.3.5; DholeSystem 1.3.7 a 1.3.8.
+- Sin borrado de colas, sin incremento de paralelismo y sin interrupción de servicios persistentes.
+- Se requiere staging previo a producción. DH-20261106-AI-THROUGHPUT-010.
+
+
 ## [1.3.7] - 2026-11-06
 
 - Valida servicios de infraestructura sin reiniciarlos ni borrar sus volúmenes persistentes en producción.
