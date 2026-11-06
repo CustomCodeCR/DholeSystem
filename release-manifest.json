@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261105-OPS-REPAIR-004",
+  "releaseId": "DH-20261105-WORKSPACE-MONITOR-005",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.2",
+  "ecosystemVersion": "1.3.3",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -12,8 +12,8 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.3.0",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.2.4",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.3.0",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -55,13 +55,13 @@
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.3.2",
-      "mergeState": "develop-candidate-master-pending"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.2.2",
-      "mergeState": "develop-candidate-master-pending"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -85,7 +85,7 @@
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.2.2",
-      "mergeState": "develop-candidate-master-pending"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.2",
-      "mergeState": "develop-candidate-master-pending"
+      "version": "1.3.3",
+      "mergeState": "candidate-pending-staging"
     }
   ],
   "policyCheck": {
@@ -112,9 +112,9 @@
     "total": 8
   },
   "mergeState": "pending-staging-validation",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run staging CI/CD before coordinated master release"
+    "Requires staging checks before coordinated master promotion"
   ],
   "validationEvidence": {
     "semver": "pending",
@@ -123,8 +123,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAIService",
-    "DholeAgentService",
-    "DholeStorageService"
+    "DholeWeb",
+    "DholeApiGateway"
   ]
 }
