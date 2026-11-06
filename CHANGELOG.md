@@ -1,22 +1,29 @@
 # Changelog
 
+## [1.3.4] - 2026-11-06
+
+- Coordina control de saturación AI y extracción de tarifas desde correos sin pérdida de fuentes.
+- DholeAIService 1.3.2 → 1.3.3: recuperación de duplicados de AI y menor concurrencia.
+- DholeDataExtractionService 1.3.1 → 1.3.2: MarkItDown prioritario en documentos Office, backpressure y límite de reintentos.
+- Requiere pruebas de staging antes de permitir integración a master y autorización explícita antes del despliegue de producción.
+
+
 ## [1.3.3] - 2026-11-05
 
 - Release coordinado para corregir Otras pestañas y mostrar versiones SemVer de servicios en monitoreo.
-- Actualiza DholeWeb y DholeApiGateway a 1.3.0 sin incrementar componentes no modificados.
-- Conserva verificaciones de staging antes de integrar a producción.
+- Registra DholeWeb 1.3.0 y DholeApiGateway 1.3.0; conserva las versiones de los otros 13 componentes.
+- Diferencia versiones del proceso en ejecución de versiones declaradas en el manifiesto.
 
 ## [1.3.2] - 2026-11-05
 
-- Release coordinado para corregir CI y despliegues de AI, Agent y Storage.
-- Actualiza manifiesto global para las cuatro modificaciones.
-
+- Release coordinado de recuperación de GitHub Actions para AI, Storage y Agent.
+- Registra la versión global y el estado de las cuatro modificaciones del lote.
 
 ## [1.3.1] - 2026-11-05
 
-- Unifica versión global Dhole 1.3.1 y manifiesto de los 16 componentes SemVer.
-- Corrige job skipped de producción, activa deploy por push a master conservando preflights de volúmenes y disponibilidad del host.
-- Respeta ramas intermedias, CI y staging previo a producción.
+- Define release global 1.3.1 y registra versiones SemVer independientes de 16 componentes.
+- Activa el deploy de infraestructura de producción por push a master sin confirmación manual; staging continúa por develop.
+- Conserva validaciones de volúmenes persistentes, host, red y servicios existentes.
 
 ## [1.3.0] - 2026-11-05
 
