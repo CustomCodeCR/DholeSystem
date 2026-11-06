@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.14] - 2026-11-06
+
+- Registra el release coordinado DH-20261106-PRICING-INLAND-LCL-016 con DholeWeb 1.3.7 y DholePricingService 1.2.8.
+- Corrige la dirección de entrega y elimina la validación LCL de naviera oculta.
+- Añade persistencia de ubicaciones, migración y verificación de versión; promoción a producción pendiente de staging y autorización.
+- Sin cambios al contrato SignalR ni a los servicios no involucrados.
+
 ## [1.3.9] - 2026-11-06
 
 - Cierra extracciones de octubre y meses anteriores según la fecha de recepción y calendario de Costa Rica; solo noviembre queda activo.

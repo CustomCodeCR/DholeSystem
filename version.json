@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.3.9",
-  "ecosystemVersion": "1.3.9",
-  "releaseId": "DH-20261106-HISTORICAL-CLOSE-011"
+  "version": "1.3.14",
+  "ecosystemVersion": "1.3.14",
+  "releaseId": "DH-20261106-PRICING-INLAND-LCL-016"
 }
