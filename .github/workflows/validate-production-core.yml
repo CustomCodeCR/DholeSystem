@@ -1,0 +1,35 @@
+name: Validate production core preflight
+
+on:
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - '.github/workflows/deploy-production.yml'
+      - '.github/workflows/validate-production-core.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-production-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate non-disruptive production checks
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          workflow = Path('.github/workflows/deploy-production.yml').read_text()
+          assert 'Bootstrap production databases, Ollama and Traefik' not in workflow
+          assert 'docker rm -f postgres mongo redis ollama traefik' not in workflow
+          assert 'docker port postgres 5432/tcp | grep -qx' not in workflow
+          assert 'git push origin --delete' not in workflow
+          assert 'Deleting obsolete branch:' not in workflow
+          assert 'Validate production dependencies (read-only)' in workflow
+          assert 'SERVICE_HEALTH_FAILED:' in workflow
+          for name in ('postgres', 'mongo', 'redis', 'ollama', 'traefik'):
+              assert f'SERVICE_READY: $service' in workflow
+              assert f'{name})' in workflow
+          print('Production preflight is non-disruptive')
+          PY
