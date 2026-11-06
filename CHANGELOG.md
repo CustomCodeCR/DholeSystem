@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1] - 2026-11-05
+
+- Define release global 1.3.1 y registra versiones SemVer independientes de 16 componentes.
+- Activa el deploy de infraestructura de producción por push a master sin confirmación manual; staging continúa por develop.
+- Conserva validaciones de volúmenes persistentes, host, red y servicios existentes.
+
 ## [1.3.0] - 2026-11-05
 
 - Release coordinado de DholeAIService y DholeDataExtractionService para procesar correos tarifarios por lotes.
