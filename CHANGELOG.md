@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1] - 2026-11-05
+
+- Incorporar reporte de versión real ejecutándose en el Gateway, 13 APIs y la interfaz de monitoreo de DholeWeb.
+- Centralizar versiones de cada componente del batch y garantizar que no se confunda la versión del repositorio con la desplegada.
+- Verificar SemVer por componente y mantener el flujo batch develop -> staging -> master.
+
 ## [1.3.0] - 2026-11-05
 
 - Release coordinado de DholeAIService y DholeDataExtractionService para procesar correos tarifarios por lotes.
