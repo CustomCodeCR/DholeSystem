@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-AI-RELIABILITY-009",
+  "releaseId": "DH-20261106-HISTORICAL-CLOSE-011",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.7",
+  "ecosystemVersion": "1.3.9",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -13,7 +13,7 @@
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.3.0",
-      "mergeState": "candidate-pending-staging"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -25,7 +25,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.3.3",
-      "mergeState": "candidate-pending-staging"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -42,19 +42,19 @@
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.3.2",
+      "version": "1.3.3",
       "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.2.6",
-      "mergeState": "candidate-pending-staging"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.3.4",
+      "version": "1.3.6",
       "mergeState": "candidate-pending-staging"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.7",
+      "version": "1.3.9",
       "mergeState": "candidate-pending-staging"
     }
   ],
@@ -114,7 +114,7 @@
   "mergeState": "pending-staging-validation",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Staging validation required before master promotion"
+    "All component CI and staging must pass before master release"
   ],
   "validationEvidence": {
     "semver": "pending",
@@ -123,6 +123,7 @@
   },
   "releaseComponents": [
     "DholeAIService",
+    "DholeDataExtractionService",
     "DholeSystem"
   ]
 }
