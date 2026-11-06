@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.7] - 2026-11-06
+
+- Valida servicios de infraestructura sin reiniciarlos ni borrar sus volúmenes persistentes en producción.
+- Registra fallos de salud con el nombre del servicio y diagnóstico, eliminando reinicios innecesarios de Ollama.
+- Coordina el cambio de AIService 1.3.4 para agilizar Qwen y mejorar salida JSON.
+- Release DH-20261106-AI-RELIABILITY-009.
+
+
 ## [1.3.6] - 2026-11-06
 
 - Registra el release coordinado DH-20261106-MODIFICATION-CLOSURE-008 para evitar cierre automático de modificaciones.
