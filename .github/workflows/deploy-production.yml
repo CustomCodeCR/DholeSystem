@@ -19,8 +19,6 @@ env:
 
 jobs:
   deploy:
-    # Production deployment requires explicit workflow_dispatch authorization.
-    if: github.event_name == 'workflow_dispatch'
     runs-on: [self-hosted, linux, x64, dhole]
 
     steps:

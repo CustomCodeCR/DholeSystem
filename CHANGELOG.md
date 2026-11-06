@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1] - 2026-11-05
+
+- Unifica versión global Dhole 1.3.1 y manifiesto de los 16 componentes SemVer.
+- Corrige job skipped de producción, activa deploy por push a master conservando preflights de volúmenes y disponibilidad del host.
+- Respeta ramas intermedias, CI y staging previo a producción.
+
 ## [1.3.0] - 2026-11-05
 
 - Release coordinado de DholeAIService y DholeDataExtractionService para procesar correos tarifarios por lotes.
