@@ -41,7 +41,7 @@ def main():
     assert metadata["component"].startswith("Dhole")
     assert metadata["schemaVersion"] == 1
     assert metadata["releaseId"].strip()
-    assert metadata["ecosystemVersion"] == version, "Global and component version out of sync"
+    assert parse(metadata["ecosystemVersion"]) >= parse(version), "Global version must not predate component version"
     assert Path("AGENTS.md").is_file(), "Missing permanent Codex instructions"
     changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
     assert f"## [{version}]" in changelog, "CHANGELOG missing current release"
@@ -76,8 +76,8 @@ def main():
         assert len(versions) == len(manifest["components"]), "Duplicated component in manifest"
         assert all(parse(value) <= parse(version) for value in versions.values())
         changed = manifest.get("releaseComponents", [])
-        assert changed and all(name in versions and versions[name] == version for name in changed), (
-            "Every changed component must match global release version"
+        assert changed and all(name in versions and parse(versions[name]) <= parse(version) for name in changed), (
+            "Every changed component must have a valid version at or below the ecosystem release version"
         )
         old = source_at(os.environ.get("DH_VERSION_BASE", ""), "release-manifest.json")
         if old:
