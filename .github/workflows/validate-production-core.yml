@@ -22,6 +22,10 @@ jobs:
           from pathlib import Path
           workflow = Path('.github/workflows/deploy-production.yml').read_text()
           assert 'Bootstrap production databases, Ollama and Traefik' not in workflow
+          assert 'docker rm -f postgres mongo redis ollama traefik' not in workflow
+          assert 'docker port postgres 5432/tcp | grep -qx' not in workflow
+          assert 'git push origin --delete' not in workflow
+          assert 'Deleting obsolete branch:' not in workflow
           assert 'Validate production dependencies (read-only)' in workflow
           assert 'SERVICE_HEALTH_FAILED:' in workflow
           for name in ('postgres', 'mongo', 'redis', 'ollama', 'traefik'):
