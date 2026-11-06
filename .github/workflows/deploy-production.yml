@@ -34,6 +34,36 @@ jobs:
           bash deploy/prepare-environments.sh /opt/dhole/.env "$ENV_DIR"
           echo "DHOLE_ENV_FILE=$ENV_DIR/.env.production" >> "$GITHUB_ENV"
 
+      - name: Validate production dependencies (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          service_ready() {
+            case "$1" in
+              postgres) docker exec postgres pg_isready >/dev/null 2>&1 ;;
+              redis) [[ "$(docker exec redis redis-cli ping 2>/dev/null)" == "PONG" ]] ;;
+              mongo) docker exec mongo mongosh --quiet --eval 'db.runCommand({ping:1}).ok' 2>/dev/null | grep -qx 1 ;;
+              ollama) curl -fsS --max-time 5 http://127.0.0.1:11434/api/tags >/dev/null ;;
+              traefik) [[ "$(docker inspect -f '{{.State.Running}}' traefik 2>/dev/null)" == "true" ]] ;;
+            esac
+          }
+          for service in postgres redis mongo ollama traefik; do
+            ready=false
+            for attempt in $(seq 1 30); do
+              if service_ready "$service"; then
+                ready=true
+                break
+              fi
+              sleep 2
+            done
+            if [[ "$ready" != "true" ]]; then
+              echo "SERVICE_HEALTH_FAILED: $service" >&2
+              docker logs --tail 50 "$service" >&2 || true
+              exit 1
+            fi
+            echo "SERVICE_READY: $service"
+          done
+
       - name: Resolve persistent MinIO volume
         shell: bash
         run: |

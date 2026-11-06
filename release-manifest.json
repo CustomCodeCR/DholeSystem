@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-MODIFICATION-CLOSURE-008",
+  "releaseId": "DH-20261106-AI-RELIABILITY-009",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.6",
+  "ecosystemVersion": "1.3.7",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -54,7 +54,7 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "mergeState": "candidate-pending-staging"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.6",
+      "version": "1.3.7",
       "mergeState": "candidate-pending-staging"
     }
   ],
@@ -114,8 +114,7 @@
   "mergeState": "pending-staging-validation",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Integrate both changed services to develop and validate staging before master",
-    "Production deployment requires explicit authorization"
+    "Staging validation required before master promotion"
   ],
   "validationEvidence": {
     "semver": "pending",
@@ -123,8 +122,7 @@
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholePricingService",
+    "DholeAIService",
     "DholeSystem"
   ]
 }
