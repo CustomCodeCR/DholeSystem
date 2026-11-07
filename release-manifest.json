@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTI-POE-SELECTOR-019",
+  "releaseId": "DH-20261107-MULTI-POE-CARRIERS-020",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.6.0",
+  "ecosystemVersion": "1.7.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.6.0",
+      "version": "1.7.0",
       "mergeState": "feature-branch-candidate"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.6.0",
+      "version": "1.7.0",
       "mergeState": "feature-branch-candidate"
     }
   ],
@@ -114,12 +114,12 @@
   "mergeState": "feature-branch-candidate",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Grouped sub-QUO persistence and exclusive acceptance not implemented in PricingService",
-    "Multi-carrier group persistence and consolidated PDF integration remain incomplete",
-    "Validate CI + staging before master"
+    "API transaccional para crear/aceptar sub-QUO múltiple pendiente en Pricing",
+    "Borradores de alternativas POE–naviera se mantienen en memoria hasta integrar persistencia de grupos",
+    "Validar compilación, staging y aprobaciones de producción"
   ],
   "validationEvidence": {
-    "semver": "Pending PR validation",
+    "semver": "pending CI",
     "staging": "pending",
     "production": "not deployed"
   },
