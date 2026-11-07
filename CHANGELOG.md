@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.11.0] - 2026-11-07
+
+- Coordina el release DholeWeb 1.11.0 para alternativas marítimas FCL: selección visible de tarifas, navegación fija por POE y naviera, herencia Merchant/Carrier Haulage y resumen colapsable por subtarifa.
+- Restringe las sub-QUO de múltiples POE exclusivamente a FCL. Mantiene el guardado agrupado bloqueado mientras DholePricingService no cuente con transacción atómica.
+- Actualiza manifiesto global, metadatos de versión y estado de validación CI/staging. No autoriza despliegues a producción.
+
 ## [1.10.0] - 2026-11-07
 
 - Coordina el release de interfaz DholeWeb 1.10.0: persistencia visible de POE y POD, navegación anterior/siguiente por ruta, recarga segura de costos y vista detallada de cada subtarifa.
