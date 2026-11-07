@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-MULTI-QUO-018",
+  "releaseId": "DH-20261107-MULTI-POE-SELECTOR-019",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.5.0",
-  "status": "work-in-progress-unreleased",
+  "ecosystemVersion": "1.6.0",
+  "status": "candidate-pending-staging",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.5.0",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.6.0",
+      "mergeState": "feature-branch-candidate"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,33 +102,29 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.5.0",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.6.0",
+      "mergeState": "feature-branch-candidate"
     }
   ],
   "policyCheck": {
-    "status": "pending-ci",
+    "status": "pending",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "feature-branches-only",
+  "mergeState": "feature-branch-candidate",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing group API and EF persistence pending",
-    "Web wizard subtab integration pending",
-    "Pricing->Reports PDF integration pending",
-    "Required CI/staging tests pending",
-    "Production not authorized"
+    "Grouped sub-QUO persistence and exclusive acceptance not implemented in PricingService",
+    "Multi-carrier group persistence and consolidated PDF integration remain incomplete",
+    "Validate CI + staging before master"
   ],
   "validationEvidence": {
-    "semver": "Versions reserved in feature branches; CI pending",
-    "staging": "not tested",
-    "production": "not authorized"
+    "semver": "Pending PR validation",
+    "staging": "pending",
+    "production": "not deployed"
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
-    "DholeReportsService",
     "DholeSystem"
   ]
 }
