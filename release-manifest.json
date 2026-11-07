@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTI-POE-CARRIERS-020",
+  "releaseId": "DH-20261107-MANUAL-CARRIER-WIZARD-021",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.7.0",
-  "status": "candidate-pending-staging",
+  "ecosystemVersion": "1.8.0",
+  "status": "feature-candidate-pending-ci",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.7.0",
-      "mergeState": "feature-branch-candidate"
+      "version": "1.8.0",
+      "mergeState": "feature-candidate"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.7.0",
-      "mergeState": "feature-branch-candidate"
+      "version": "1.8.0",
+      "mergeState": "feature-candidate"
     }
   ],
   "policyCheck": {
@@ -111,17 +111,17 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "feature-branch-candidate",
+  "mergeState": "feature-branches-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "API transaccional para crear/aceptar sub-QUO múltiple pendiente en Pricing",
-    "Borradores de alternativas POE–naviera se mantienen en memoria hasta integrar persistencia de grupos",
-    "Validar compilación, staging y aprobaciones de producción"
+    "Transactional multi-option sub-QUO backend is not implemented",
+    "Multi-naviera wizard selections are in-session drafts; grouped commercial save remains safely disabled",
+    "CI and staging validation required"
   ],
   "validationEvidence": {
-    "semver": "pending CI",
+    "semver": "pending",
     "staging": "pending",
-    "production": "not deployed"
+    "production": "not authorized"
   },
   "releaseComponents": [
     "DholeWeb",
