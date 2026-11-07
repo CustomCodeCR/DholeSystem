@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0] - 2026-11-07
+
+- Coordina el release DH-20261107-MULTI-POE-SELECTOR-019 para seleccionar varios POE y alternar pestañas individuales de tarifa.
+- Incrementa DholeWeb 1.5.0 → 1.6.0 y DholeSystem 1.5.0 → 1.6.0; PricingService/ReportsService mantienen sus versiones previas.
+- Registra explícitamente la limitación del backend: no se pueden guardar varias sub-QUO en una transacción, por lo que el frontend impide guardados parciales.
+- Mantiene dependencias del release multi-QUO pendientes y requiere validaciones de staging antes de master.
+
+
 ## [1.5.0] - 2026-11-06 (en desarrollo, sin publicar)
 
 - Prepara el release global DH-20261106-MULTI-QUO-018 para cotizaciones agrupadas con alternativas por POE, ruta, naviera y Merchant/Carrier.
