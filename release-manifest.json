@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.10.2",
+      "version": "1.11.1",
       "mergeState": "feature-branch-not-merged"
     }
   ],
