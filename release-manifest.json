@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-SEQUENTIAL-POE-WIZARD-022",
+  "releaseId": "DH-20261107-POE-COST-UX-023",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.9.0",
+  "ecosystemVersion": "1.10.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.9.0",
+      "version": "1.10.0",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.9.0",
+      "version": "1.10.0",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -114,12 +114,12 @@
   "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing backend still lacks the atomic principal/sub-QUO group create and acceptance endpoint",
-    "Before release: verify browser flow against staging and CI",
-    "No production deployment authorization"
+    "Pricing group creation still requires atomic transaction",
+    "Staging validation required before master promotion",
+    "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "Pending PR CI",
+    "semver": "Pending CI",
     "staging": "Pending staging",
     "production": "not authorized"
   },
