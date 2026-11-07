@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTI-POE-SELECTOR-019",
+  "releaseId": "DH-20261107-MULTI-POE-CARRIERS-020",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.6.0",
+  "ecosystemVersion": "1.7.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.6.0",
-      "mergeState": "master-candidate"
+      "version": "1.7.0",
+      "mergeState": "master-review-pending"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.6.0",
-      "mergeState": "master-candidate"
+      "version": "1.7.0",
+      "mergeState": "master-review-pending"
     }
   ],
   "policyCheck": {
@@ -111,17 +111,17 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "master-staging-pending",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "master-review-pending",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Grouped sub-QUO API and exclusive acceptance still not implemented",
-    "Naviera + PDF grouped workflow remains incomplete",
-    "Release staging/CI checks required"
+    "Multi-sub-QUO transactional persistence and exclusive acceptance still pending in DholePricingService",
+    "POE–naviera alternatives held in wizard state, not yet saved to grouped commercial document",
+    "Production deployment requires express approval"
   ],
   "validationEvidence": {
-    "semver": "Pending master CI",
-    "staging": "develop deployment verification pending",
-    "production": "user requested master + develop promotion; deployment not yet confirmed"
+    "semver": "pending master CI",
+    "staging": "develop staging pending",
+    "production": "not authorized"
   },
   "releaseComponents": [
     "DholeWeb",
