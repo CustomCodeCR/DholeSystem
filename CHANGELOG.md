@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.1] - 2026-11-07
+
+- Coordina el parche FCL de DholeWeb 1.10.1: selección visible, navegación sticky por POE y naviera, cargos Merchant/Carrier y pantalla 8 con acordeones.
+- Restringe subtarifas multi-POE a FCL y conserva el contrato existente para LCL, terrestre y aéreo.
+- Mantiene pendiente la API de guardado transaccional de sub-QUO; requiere validación CI/staging y autorización expresa antes de despliegue a producción.
+
 ## [1.10.0] - 2026-11-07
 
 - Coordina el release de interfaz DholeWeb 1.10.0: persistencia visible de POE y POD, navegación anterior/siguiente por ruta, recarga segura de costos y vista detallada de cada subtarifa.

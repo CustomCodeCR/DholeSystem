@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-POE-COST-UX-023",
+  "releaseId": "DH-20261107-FCL-STICKY-ACCORDION-024",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.10.0",
+  "ecosystemVersion": "1.10.1",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "mergeState": "feature-branch-not-merged"
     }
   ],
