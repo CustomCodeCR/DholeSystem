@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTIQUO-VALUE-INDEX-027",
+  "releaseId": "DH-20261107-FCL-HAULAGE-HANDOFF-028",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.11.2",
+  "ecosystemVersion": "1.11.3",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.11.2",
+      "version": "1.11.3",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.2",
+      "version": "1.5.3",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.11.2",
+      "version": "1.11.3",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -126,14 +126,12 @@
   "releaseComponents": [
     "DholeWeb",
     "DholePricingService",
-    "DholeReportsService",
     "DholeSystem"
   ],
   "changes": [
-    "Auto-apply configured inland carrier/merchant charges per POE, preserving prices when switching options",
-    "No stale zero-cost Inland draft over configured cost/sale; display missing-cost warning",
-    "Use catalog Currency Value not internal CUR identifier in MultiQUO and PDF",
-    "Responsive full-width commercial summary",
-    "PDF index redesigned as linked quote cards with route/naviera/Ocean Freight"
+    "FCL Step 6 Carrier/Merchant choice saved per POE and carrier on selection",
+    "Step 6 route hydration never clears restored Carrier choice while entering step 7",
+    "Step 7 displays chosen haulage read-only, with no duplicate Carrier/Merchant toggle",
+    "Step 7 includes priced Inland CostIds from the same contextual costs used in Step 6, with no duplicates"
   ]
 }
