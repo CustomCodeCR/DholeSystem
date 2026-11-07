@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-PRICING-INLAND-LCL-016",
+  "releaseId": "DH-20261106-CARRIER-ROUTE-COMMENTS-017",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.14",
+  "ecosystemVersion": "1.4.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.3.7",
-      "mergeState": "develop-integrated-staging-pending"
+      "version": "1.4.0",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -48,8 +48,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.2.8",
-      "mergeState": "develop-integrated-staging-pending"
+      "version": "1.3.0",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -66,8 +66,8 @@
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.3.0",
+      "mergeState": "candidate-pending-staging"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -102,28 +102,29 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.14",
+      "version": "1.4.0",
       "mergeState": "candidate-pending-staging"
     }
   ],
   "policyCheck": {
-    "status": "CI-passed-staging-pending",
-    "checks": 9,
-    "total": 9
+    "status": "pending-ci-validation",
+    "checks": 0,
+    "total": 0
   },
-  "mergeState": "develop-integrated-staging-pending",
+  "mergeState": "candidate-not-integrated",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Complete staging and get explicit production authorization before master deploy"
+    "Execute staging tests on develop, then obtain explicit authorization before deployment to production."
   ],
   "validationEvidence": {
-    "semver": "develop PR gates passed",
-    "staging": "in progress",
+    "semver": "candidate awaiting GitHub Actions",
+    "staging": "pending",
     "production": "not authorized"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholePricingService",
+    "DholeReportsService",
     "DholeSystem"
   ]
 }

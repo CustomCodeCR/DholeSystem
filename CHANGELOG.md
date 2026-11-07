@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0] - 2026-11-06
+
+- Registra DH-20261106-CARRIER-ROUTE-COMMENTS-017 con ruta y comentarios de naviera en DholeWeb, DholePricingService y PDF de DholeReportsService.
+- Versiones coordinadas: Web 1.4.0, Pricing 1.3.0, Reports 1.3.0, System 1.4.0; otros servicios sin cambios.
+- Requiere validación CI y staging antes de promover el mismo release a producción.
+
 ## [1.3.14] - 2026-11-06
 
 - Registra el release coordinado DH-20261106-PRICING-INLAND-LCL-016 con DholeWeb 1.3.7 y DholePricingService 1.2.8.
