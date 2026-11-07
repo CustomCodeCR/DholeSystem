@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.11.1] - 2026-11-07 (pendiente de CI/staging)
+
+- Actualiza el manifiesto global del lote MultiQUO con versiones de Web, Pricing y Reports, sin autorización de producción.
+- Release DH-20261107-MULTIQUO-PERSISTED-PDF-026; sin autorización de despliegue a producción.
+
 ## [1.10.1] - 2026-11-07
 
 - Coordina el parche de DholeWeb con navegación sticky, acordeones de subtarifas y cargos Merchant/Carrier.
