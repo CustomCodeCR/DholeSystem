@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.11.2] - 2026-11-07
+
+- Manifiesto global del release coordinado: Inland automático, Value de moneda, PDF e interfaz de resumen.
+- Release DH-20261107-MULTIQUO-VALUE-INDEX-027. Merge coordinado a develop y master sujeto a CI y staging.
+
 ## [1.11.1] - 2026-11-07 (pendiente de CI/staging)
 
 - Actualiza el manifiesto global del lote MultiQUO con versiones de Web, Pricing y Reports, sin autorización de producción.
