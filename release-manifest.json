@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MANUAL-CARRIER-WIZARD-021",
+  "releaseId": "DH-20261107-SEQUENTIAL-POE-WIZARD-022",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.8.0",
-  "status": "feature-candidate-pending-ci",
+  "ecosystemVersion": "1.9.0",
+  "status": "candidate-pending-staging",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.8.0",
-      "mergeState": "feature-candidate"
+      "version": "1.9.0",
+      "mergeState": "feature-branch-not-merged"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.8.0",
-      "mergeState": "feature-candidate"
+      "version": "1.9.0",
+      "mergeState": "feature-branch-not-merged"
     }
   ],
   "policyCheck": {
@@ -111,16 +111,16 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "feature-branches-only",
+  "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Transactional multi-option sub-QUO backend is not implemented",
-    "Multi-naviera wizard selections are in-session drafts; grouped commercial save remains safely disabled",
-    "CI and staging validation required"
+    "Pricing backend still lacks the atomic principal/sub-QUO group create and acceptance endpoint",
+    "Before release: verify browser flow against staging and CI",
+    "No production deployment authorization"
   ],
   "validationEvidence": {
-    "semver": "pending",
-    "staging": "pending",
+    "semver": "Pending PR CI",
+    "staging": "Pending staging",
     "production": "not authorized"
   },
   "releaseComponents": [
