@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.10.0",
-  "ecosystemVersion": "1.10.0",
-  "releaseId": "DH-20261107-POE-COST-UX-023"
+  "version": "1.10.1",
+  "ecosystemVersion": "1.10.1",
+  "releaseId": "DH-20261107-FCL-STICKY-ACCORDION-024"
 }
