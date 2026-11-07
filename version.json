@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.10.2",
+  "version": "1.11.1",
   "ecosystemVersion": "1.11.1",
   "releaseId": "DH-20261107-MULTIQUO-PERSISTED-PDF-026"
 }
