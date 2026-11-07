@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.10.2] - 2026-11-07 (pendiente de CI/staging)
+## [1.11.1] - 2026-11-07 (pendiente de CI/staging)
 
 - Actualiza el manifiesto global del lote MultiQUO con versiones de Web, Pricing y Reports, sin autorización de producción.
 - Release DH-20261107-MULTIQUO-PERSISTED-PDF-026; sin autorización de despliegue a producción.
