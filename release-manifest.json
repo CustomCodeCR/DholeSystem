@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MANUAL-CARRIER-WIZARD-021",
+  "releaseId": "DH-20261107-SEQUENTIAL-POE-WIZARD-022",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.8.0",
+  "ecosystemVersion": "1.9.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.8.0",
-      "mergeState": "master-candidate"
+      "version": "1.9.0",
+      "mergeState": "feature-branch-not-merged"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.8.0",
-      "mergeState": "master-candidate"
+      "version": "1.9.0",
+      "mergeState": "feature-branch-not-merged"
     }
   ],
   "policyCheck": {
@@ -111,16 +111,16 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "master-candidate",
+  "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Grouped multi-option sub-QUO transaction remains unimplemented in Pricing backend",
-    "Alternative drafts remain in active wizard session until group-save backend is integrated",
-    "CI, staging and production deployment authorization required"
+    "Pricing backend still lacks the atomic principal/sub-QUO group create and acceptance endpoint",
+    "Before release: verify browser flow against staging and CI",
+    "No production deployment authorization"
   ],
   "validationEvidence": {
-    "semver": "Pending master candidate CI",
-    "staging": "develop staging pending",
+    "semver": "Pending PR CI",
+    "staging": "Pending staging",
     "production": "not authorized"
   },
   "releaseComponents": [
