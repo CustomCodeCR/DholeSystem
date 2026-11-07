@@ -1,0 +1,41 @@
+{
+  "releaseId": "DH-20261106-CARRIER-ROUTE-COMMENTS-017",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.4.0",
+  "date": "2026-11-06",
+  "components": [
+    {
+      "repo": "CustomCodeCR/DholeWeb",
+      "previous": "1.3.7",
+      "version": "1.4.0"
+    },
+    {
+      "repo": "CustomCodeCR/DholePricingService",
+      "previous": "1.2.8",
+      "version": "1.3.0"
+    },
+    {
+      "repo": "CustomCodeCR/DholeReportsService",
+      "previous": "1.2.1",
+      "version": "1.3.0"
+    },
+    {
+      "repo": "CustomCodeCR/DholeSystem",
+      "previous": "1.3.14",
+      "version": "1.4.0"
+    }
+  ],
+  "status": "candidate-pending-staging",
+  "productionDeploymentAuthorized": false,
+  "changes": [
+    "Pantalla 6: ruta y comentarios de la naviera",
+    "API Pricing: persistencia y consulta de ambos campos",
+    "PDF FCL/LCL: sección debajo de tiempo de tránsito"
+  ],
+  "validation": [
+    "Build + tests + migrations",
+    "Version manifests + CHANGELOG",
+    "Compatibility REST/SignalR",
+    "Staging before master"
+  ]
+}
