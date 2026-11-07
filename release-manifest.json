@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-MULTI-QUO-018",
+  "releaseId": "DH-20261107-MULTI-POE-SELECTOR-019",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.5.0",
-  "status": "foundation-only-release-candidate",
+  "ecosystemVersion": "1.6.0",
+  "status": "candidate-pending-staging",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.5.0",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.6.0",
+      "mergeState": "master-candidate"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,32 +102,29 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.5.0",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.6.0",
+      "mergeState": "master-candidate"
     }
   ],
   "policyCheck": {
-    "status": "pending-ci",
+    "status": "pending",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "develop-staging-validated-master-pending",
+  "mergeState": "master-staging-pending",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Commercial multi-POE wizard and Pricing persisted group API are not included in this foundation batch",
-    "Acceptance exclusive transaction and Dynamics integration are not implemented",
-    "Report PDF rendering is a standalone internal endpoint, not integrated into the Pricing quotation workflow",
-    "Reports staging verification pending"
+    "Grouped sub-QUO API and exclusive acceptance still not implemented",
+    "Naviera + PDF grouped workflow remains incomplete",
+    "Release staging/CI checks required"
   ],
   "validationEvidence": {
-    "semver": "Web/Pricing/System verified on develop, Reports staged for validation",
-    "staging": "Web/Pricing/System passed; Reports pending",
-    "production": "user-authorized master promotion; actual deployment pending"
+    "semver": "Pending master CI",
+    "staging": "develop deployment verification pending",
+    "production": "user requested master + develop promotion; deployment not yet confirmed"
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
-    "DholeReportsService",
     "DholeSystem"
   ]
 }
