@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.7.0",
-  "ecosystemVersion": "1.7.0",
-  "releaseId": "DH-20261107-MULTI-POE-CARRIERS-020"
+  "version": "1.8.0",
+  "ecosystemVersion": "1.8.0",
+  "releaseId": "DH-20261107-MANUAL-CARRIER-WIZARD-021"
 }
