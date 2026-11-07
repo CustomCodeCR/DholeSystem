@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTI-POE-CARRIERS-020",
+  "releaseId": "DH-20261107-MANUAL-CARRIER-WIZARD-021",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.7.0",
+  "ecosystemVersion": "1.8.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.7.0",
-      "mergeState": "master-review-pending"
+      "version": "1.8.0",
+      "mergeState": "master-candidate"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -102,8 +102,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.7.0",
-      "mergeState": "master-review-pending"
+      "version": "1.8.0",
+      "mergeState": "master-candidate"
     }
   ],
   "policyCheck": {
@@ -111,15 +111,15 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "master-review-pending",
+  "mergeState": "master-candidate",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Multi-sub-QUO transactional persistence and exclusive acceptance still pending in DholePricingService",
-    "POE–naviera alternatives held in wizard state, not yet saved to grouped commercial document",
-    "Production deployment requires express approval"
+    "Grouped multi-option sub-QUO transaction remains unimplemented in Pricing backend",
+    "Alternative drafts remain in active wizard session until group-save backend is integrated",
+    "CI, staging and production deployment authorization required"
   ],
   "validationEvidence": {
-    "semver": "pending master CI",
+    "semver": "Pending master candidate CI",
     "staging": "develop staging pending",
     "production": "not authorized"
   },
