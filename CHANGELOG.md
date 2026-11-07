@@ -2,7 +2,7 @@
 
 ## [1.8.0] - 2026-11-07
 
-- Coordina DH-20261107-MANUAL-CARRIER-WIZARD-021: selección manual de múltiples navieras en cada POE, independientemente de tarifas preaprobadas.
+- Coordina DH-20261107-MANUAL-CARRIER-WIZARD-021: selección mixta de tarifas preaprobadas, preautorizadas y navieras manuales por POE, con pregunta para agregar otra naviera o continuar.
 - Mejora el asistente de pantallas 6 y 7 con navegación por alternativa y preservación de datos de costos, flete y agente por POE–naviera.
 - Incrementa DholeWeb y DholeSystem de 1.7.0 a 1.8.0, con registro centralizado y pruebas.
 - Mantiene bloqueado el guardado parcial hasta implementar API transaccional de grupos de sub-QUO en Pricing.
