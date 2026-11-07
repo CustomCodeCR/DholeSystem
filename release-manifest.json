@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-FCL-STICKY-ACCORDION-024",
+  "releaseId": "DH-20261107-MULTIQUO-PERSISTED-PDF-026",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.10.1",
+  "ecosystemVersion": "1.11.1",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.10.1",
+      "version": "1.11.1",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.4.0",
+      "version": "1.5.1",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -66,7 +66,7 @@
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,19 +102,19 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.10.1",
+      "version": "1.11.1",
       "mergeState": "feature-branch-not-merged"
     }
   ],
   "policyCheck": {
-    "status": "pending",
+    "status": "pending-ci",
     "checks": 0,
     "total": 0
   },
   "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing group creation still requires atomic transaction",
+    "Type-check, tests and SemVer CI gates must pass",
     "Staging validation required before master promotion",
     "Production deployment requires explicit authorization"
   ],
@@ -125,6 +125,14 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholePricingService",
+    "DholeReportsService",
     "DholeSystem"
+  ],
+  "changes": [
+    "FCL 3 POE / 4 alternative persistence and view recovery",
+    "Merchant/Carrier charges per saved subQUO, screen 8 full width, screen 9 accordions",
+    "Group PDF index and individual commercial pages, Ocean Freight and carrier routes",
+    "PDF conditional token and multiline terms repair"
   ]
 }
