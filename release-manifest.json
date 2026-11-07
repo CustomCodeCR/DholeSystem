@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTIQUO-PERSISTED-PDF-026",
+  "releaseId": "DH-20261107-MULTIQUO-VALUE-INDEX-027",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.11.1",
+  "ecosystemVersion": "1.11.2",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.11.1",
+      "version": "1.11.2",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.1",
+      "version": "1.5.2",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -66,7 +66,7 @@
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.11.1",
+      "version": "1.11.2",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -130,9 +130,10 @@
     "DholeSystem"
   ],
   "changes": [
-    "FCL 3 POE / 4 alternative persistence and view recovery",
-    "Merchant/Carrier charges per saved subQUO, screen 8 full width, screen 9 accordions",
-    "Group PDF index and individual commercial pages, Ocean Freight and carrier routes",
-    "PDF conditional token and multiline terms repair"
+    "Auto-apply configured inland carrier/merchant charges per POE, preserving prices when switching options",
+    "No stale zero-cost Inland draft over configured cost/sale; display missing-cost warning",
+    "Use catalog Currency Value not internal CUR identifier in MultiQUO and PDF",
+    "Responsive full-width commercial summary",
+    "PDF index redesigned as linked quote cards with route/naviera/Ocean Freight"
   ]
 }
