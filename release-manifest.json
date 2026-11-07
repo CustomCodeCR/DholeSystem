@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261106-HISTORICAL-CLOSE-011",
+  "releaseId": "DH-20261106-PRICING-INLAND-LCL-016",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.3.9",
+  "ecosystemVersion": "1.3.14",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.3.3",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.3.7",
+      "mergeState": "develop-integrated-staging-pending"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -48,8 +48,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.2.6",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.2.8",
+      "mergeState": "develop-integrated-staging-pending"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -102,28 +102,28 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.3.9",
+      "version": "1.3.14",
       "mergeState": "candidate-pending-staging"
     }
   ],
   "policyCheck": {
-    "status": "pending",
-    "checks": 0,
-    "total": 8
+    "status": "CI-passed-staging-pending",
+    "checks": 9,
+    "total": 9
   },
-  "mergeState": "pending-staging-validation",
+  "mergeState": "develop-integrated-staging-pending",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "All component CI and staging must pass before master release"
+    "Complete staging and get explicit production authorization before master deploy"
   ],
   "validationEvidence": {
-    "semver": "pending",
-    "staging": "pending",
-    "production": "pending"
+    "semver": "develop PR gates passed",
+    "staging": "in progress",
+    "production": "not authorized"
   },
   "releaseComponents": [
-    "DholeAIService",
-    "DholeDataExtractionService",
+    "DholeWeb",
+    "DholePricingService",
     "DholeSystem"
   ]
 }
