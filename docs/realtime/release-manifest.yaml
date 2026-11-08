@@ -440,3 +440,36 @@ notes:
   - "Los conteos de ahead/behind provienen de comparación base develop ... head master en GitHub."
   - "No se ha auditado la infraestructura en vivo ni los endpoints mutables al 100%."
   - "El manifest NO autoriza habilitar funciones, merges ni despliegues."
+
+# Revalidación posterior a baseline, sin reemplazar SHAs iniciales
+branchRevalidation:
+  checkedOn: "2026-11-07"
+  evidence: docs/realtime/test-evidence/F0-branch-revalidation-20261107.md
+  reposChecked: 16
+  intermediateBranchesPresent: 16
+  targetBranchesModifiedByThisBatch: 0
+  phaseF0Gate: RECHAZADO
+  phaseF1State: PENDIENTE
+  drift:
+    - repo: CustomCodeCR/DholePricingService
+      target: develop
+      previousSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+      currentSha: 3777ac1441ed2a1d14b4b59223945065f4259fff
+      commitsAhead: 2
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+    - repo: CustomCodeCR/DholeWeb
+      target: develop
+      previousSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+      currentSha: 9bce4d835c95cc0c34868674578a9a9f190b1764
+      commitsAhead: 3
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+    - repo: CustomCodeCR/DholeWeb
+      target: master
+      previousSha: a74a87a0f9e68a017a44bc543ca4f7de16abb52d
+      currentSha: 0e86a8e35a24e04c2864e4074c2bc747c44564ca
+      commitsAhead: 2
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+  action: "Preservar cambios ajenos. No adelantar merges, no sobrescribir baselines ni declarar F1 validada."
