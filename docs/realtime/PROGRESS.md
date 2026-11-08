@@ -81,3 +81,15 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [CI AOF run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160): configuración staging en rama intermedia y volumen efímero verificados, sobrevive eliminación/recreación de contenedor. **No** equivale a prueba de infraestructura staging/producción real.
 - Gate F2 **NO APROBADO** hasta F0/F1 aprobadas, retención/alertas reales, backups, auditoría de permisos y prueba del conjunto REST/Hub real. No F3, no PR, no merge, no deployment, flags OFF.
 - Evidencia detallada: `test-evidence/F2-CRM-DURABILITY-CI.md`; runbook `F2-OUTBOX-INBOX-RUNBOOK.md`; `stream-registry.f2.yaml`.
+
+## F3 — implementación candidata del Hub universal (2026-11-07 Costa Rica)
+
+- `DholeApiGateway` rama `feature/dhole-realtime-universal-rt-20261107-01`, versión componente **1.4.0** (anterior 1.3.1), ecosistema candidato **1.13.0**. No `develop/master/main` editados.
+- Host `/hubs/realtime`, tickets de conexión Redis GETDEL un uso (60s), JWT solo header/ticket, ACL delegada a CRM/Pricing por GET y revalidación de permisos **antes de cada envío**; clientes no escogen grupos arbitrarios. Hub de Notifications preservado.
+- Bridge `dhole.crm.realtime.v1` con grupo Redis durable por InstanceId, `XAUTOCLAIM`, Inbox PostgreSQL `realtime.gateway_inbox`, cuarentena `gateway_deadletter`, ACK después de persistencia, notificaciones mínimas sin PII.
+- Activación requiere simultáneamente `Features:UniversalRealtimeEnabled`, `Realtime:Enabled`, `Realtime:BatchApproved` y release ID exacto. Además `Realtime:BridgeEnabled` para consumir Redis. **Todos apagados** por defecto, incluido Compose candidato intermedio.
+- Seguridad: Origin WS validado server-side, protección contra expiración JWT, límite de suscripciones y tokens efímeros. `NuGet` detectó dependencias crypto transitivas vulnerables durante CI; se subió a paquetes corregidos sin desactivar alertas de seguridad.
+- [CI F3 seguridad base 42446139059](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446139059) compiló y aprobó **80/80** pruebas, con 30 casos de lectores denegados; repositorio versionado únicamente en rama intermedia. 
+- CI extendida de WebSocket TestServer, dos usuarios autorizados/uno denegado y revocación de permisos está **en validación**, no contabilizarla como aprobada sin log verde SHA exacto.
+- ADR `ADRs/0002-gateway-hub-authorization.md`, runbook `F3-HUB-GATEWAY-RUNBOOK.md`, migración SQL de Gateway solo como candidata.
+- **F0/F1/F2 siguen sin gate aprobado; F3 formal también NO APROBADA** hasta WSS/TLS real con Traefik, dos instancias reales, JWT/Auth y scopes reales, y validación de ambiente. Ningún merge, despliegue, PR por fase ni flags activados. **F4 bloqueada.**
