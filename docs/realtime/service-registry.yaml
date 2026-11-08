@@ -13,7 +13,12 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.5.0"
+    candidateIntegrationTestsPassed: 15
+    candidateImplementation: ACCOUNT_LIFECYCLE_OUTBOX
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
   - id: S02
     repo: CustomCodeCR/DholePricingService
     name: Pricing
@@ -22,7 +27,12 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.6.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: RATEHEADER_EXISTING_OUTBOX_SEPARATE_STREAM
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
   - id: S03
     repo: CustomCodeCR/DholeNotificationsService
     name: Notifications
