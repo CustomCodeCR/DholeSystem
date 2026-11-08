@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.11.4] - 2026-11-07
+
+- Actualiza el manifiesto global 1.11.4 para la visualización persistida de subQUO en Pantalla 8; DholePricingService conserva su versión y contrato existentes.
+- Release `DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029`. Pruebas de compilación/CI y staging previas a la promoción coordinada.
+
 ## [1.11.3] - 2026-11-07
 
 - Registra el release de traspaso automático de Inland FCL entre Proveedor y Líneas y los componentes participantes.
