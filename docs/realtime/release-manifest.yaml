@@ -540,14 +540,16 @@ branchRevalidation:
       action: "NO tocar target; preservar releases concurrentes y reevaluar batch SemVer."
 
 sharedContractsF1:
-  status: EN_PROGRESO
+  status: TECHNICAL_F1_GATE_CI_PASS_SEQUENTIAL_APPROVAL_BLOCKED
   formalGateApproved: false
   blockedByF0Gate: true
   packageRepository: CustomCodeCR/CustomCodeFramework
   namespace: CustomCodeFramework.Messaging.Realtime
   contractsImplemented: [RealtimeEnvelope, IOutboxWriter, IEventPublisher, IInboxStore, IRealtimeAudienceResolver]
-  workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145
-  unitTests: { passed: 42, failed: 0, skipped: 0 }
+  workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42485214061
+  testedSha: 86645d36403869ccd791debb384bc298a6b2328a
+  evidenceArtifactId: 13619555610
+  unitTests: { passed: 44, failed: 0, skipped: 0 }
   deployed: false
   exportedNugetPackage: false
   allServicesIntegrated: false
@@ -555,13 +557,18 @@ sharedContractsF1:
   furtherTestingNeeded: [F0_completion, multi_service_contract_integration, authorization_allowlists, schema_evolution_compatibility]
 
 f0StaticAudit:
-  workflowRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443461440
-  workflowCommitSha: d58fb61673ee4b7029619642675e816ac33e92e0
+  workflowRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485543924
+  workflowCommitSha: 85b6eb20d10d52c454c48679a7feca622d4fd0b9
   policyShape: PASSED
   reposClonedReadOnly: 17
-  routeCandidates: 928
-  workerFileCandidates: 67
-  frontendApiFileCandidates: 13
+  routeCandidates: 929
+  workerFileCandidates: 68
+  frontendApiFileCandidates: 15
+  mutableRouteCandidatesRequiringReview: 510
+  workerHandlerCandidatesRequiringReview: 68
+  unresolvedTotalCandidates: 578
+  unresolvedInventoryArtifactId: 13619425949
+  unresolvedStatus: GATE_BLOCKED_MISSING_RESOURCE_OWNERSHIP_AUTH_AND_RUNTIME
   rawSourceFileCandidates: 646
   completeMutableEndpointCoverage: false
   actualInfrastructureVerified: false
@@ -605,20 +612,22 @@ f2DurabilityPilot:
   deadLetter: PostgreSQL_DeadLetter_status_after_5_attempts
   inbox: idempotent_atomic_effect_then_ack
   ciWorkflow: .github/workflows/realtime-f2-durability.yml
-  candidateTestedSha: b28ae8278ea28b05624ec30021ada38ad3d8ca21
+  candidateTestedSha: ec4bf2c01b4d4a84eff4a1358187b6ac37c4ec78
+  isolatedHttpTestServerRestSurvivesRedisPublisherOutage: true
+  realCrmRestHandlersUnderOutageVerified: false
   tests:
-    workflowRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037
+    workflowRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42485087251
     compiled: true
     warnings: 0
     errors: 0
-    passed: 10
+    passed: 11
     failed: 0
     skipped: 0
     includesOneThousandCommittedOperations: true
     includesRedisStreamLossReplay: true
     includesAbandonedConsumerXAUTOCLAIM: true
     includesPayloadSafety: true
-    trxArtifactId: 13603795163
+    trxArtifactId: 13619366230
   redisAofCandidate:
     branchConfig: deploy/docker-compose.staging-infra.yml
     runtimeDeployed: false
@@ -667,8 +676,10 @@ f3GatewayHubCandidate:
     Realtime__Enabled: false
     Realtime__BatchApproved: false
     Realtime__BridgeEnabled: false
-  runtimeWebsocketTest: PENDIENTE
+  runtimeWebsocketTest: PASSED_ISOLATED_TESTSERVER_ONLY
   infraWssThroughRealTraefik: NO_VERIFICADO
+  isolatedTwoGatewayInstancesDeliveryCi: PASSED
+  isolatedHostRestartDurableCursorCi: PASSED
   realTwoInstanceDelivery: NO_VERIFICADO
   roleRevocationWithActualAuth: NO_VERIFICADO
   pricingResourceAccessPolicy: PENDIENTE_AUDITORIA
@@ -679,14 +690,14 @@ f3GatewayHubCandidate:
     initialSecurityFailed: 0
     websocketIntegrationCandidateRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446649159
     websocketIntegrationResult: PASSED_IN_ISOLATED_CI_ONLY
-    finalTestedSha: 097890a33ed05f63bf6b3616d7bd7fe17c412b8e
-    finalWorkflowRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096
+    finalTestedSha: 9ec7c1a60b21450c04aebca181106cf6ea11c4ce
+    finalWorkflowRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42485284958
     finalBuildWarnings: 0
     finalBuildErrors: 0
-    finalUnitIntegrationTestsPassed: 99
+    finalUnitIntegrationTestsPassed: 100
     finalUnitIntegrationTestsFailed: 0
     finalUnitIntegrationTestsSkipped: 0
-    finalTrxArtifactId: 13603454219
+    finalTrxArtifactId: 13618808084
     testedRealStagingWss: false
   adr: docs/realtime/ADRs/0002-gateway-hub-authorization.md
   runbook: docs/realtime/F3-HUB-GATEWAY-RUNBOOK.md
@@ -779,3 +790,17 @@ f4VueClientCandidate:
   batchReady: false
   runbook: docs/realtime/F4-VUE-CLIENT-OFFLINE.md
   phaseAcceptance: BLOQUEADA_POR_PREVIOUS_GATES_AND_STAGING
+
+gatesF0F4Verified20261108:
+  state: FAIL_CLOSED_UNTIL_REAL_STAGING_AND_PREVIOUS_PHASES_PASSED
+  sourceOfTruth: docs/realtime/gate-evidence.f0-f4.yaml
+  policyScript: scripts/realtime/verify-f0-f4-gates.py
+  policyCi: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485710957
+  policyCiPassedWhileCorrectlyBlockingPrematureRelease: true
+  F0: {approved: false, blockers: 6}
+  F1: {approved: false, blockers: 1, technicalTestsPassed: 44}
+  F2: {approved: false, blockers: 4, technicalTestsPassed: 11}
+  F3: {approved: false, blockers: 5, technicalTestsPassed: 100}
+  F4: {approved: false, blockers: 3, managerTestsPassed: 12, regressionsPassed: 91}
+  promotionF9: BLOCKED
+  productionF10: NOT_AUTHORIZED
