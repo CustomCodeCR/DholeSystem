@@ -328,3 +328,9 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Gateway: reconciliado `Dhole.ApiGateway/service-versions.json` con catálogo de 13 servicios; CI semantic version `42532362376` PASS y F3 Gateway `42532357921` PASS. Versión Gateway final 1.4.3 (requiere nuevo CI a este SHA).
 - Todas las 17 ramas elevadas a ecosistema 1.13.11 con versiones de componente individuales y metadatos de build, central manifest y guard F6 sincronizados. F0 debe volver a auditar SHA exacto final.
 - F9 continúa pendiente: 17 PR en draft, no fusionadas. F10 aún sin integración ni despliegue a master. Los gates F0/F2/F7/F8 formales no están aprobados.
+
+## F6/F9 — auditoría nueva del Redis real de staging, sin mutación (2026-11-08)
+
+- Añadidos `scripts/realtime/staging_f6_readiness.py`, 7 tests y workflow self-hosted `realtime-f6-staging-preflight.yml`. Ejecuta solo en la rama intermedia al modificar estos archivos; inspecciona Redis/Postgres por etiquetas y volúmenes exactos, no toca producción ni modifica configuración.
+- Prueba que el contenedor Redis de staging efectivamente ejecuta AOF (no solo que el Compose nuevo lo declara) y detecta fallos write/rewrite antes de permitir redeploy. No supone backup restaurado ni F7 14/14.
+- Resultado previo de staging #42508243878 reejecutado: 100/100 health PASS, Redis `aof_enabled=0` y comando AOF OFF. No hacer merge F9 hasta migración segura y gates formales aprobados.

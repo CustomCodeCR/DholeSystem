@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.13.11",
+  "ecosystemVersion": "1.13.12",
   "status": "candidate-incomplete",
   "branches": [
     "develop",
@@ -117,7 +117,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.13.11",
+      "version": "1.13.12",
       "branch": "feature/dhole-realtime-universal-rt-20261107-01",
       "mergeState": "candidate-not-merged"
     },

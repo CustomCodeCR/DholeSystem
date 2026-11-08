@@ -74,6 +74,8 @@ jobs:
           assert p.index("scripts/realtime/verify_f10_production_preflight.py") < p.index("Prepare runtime environments")
           print("F10_PROD_DEPLOY_POLICY_PASS: approval guard precedes all runtime mutation")
           PY
+      - name: Test staging Redis read-only F6 preflight policy
+        run: python -m unittest discover -s scripts/realtime -p 'test_staging_f6_readiness.py' -v
       - name: Upload audit evidence (never deploy)
         if: always()
         uses: actions/upload-artifact@v4

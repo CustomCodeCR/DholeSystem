@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.11"
+  proposedGlobalRelease: "1.13.12"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.11"
+    releaseComponentVersion: "1.13.12"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1128,3 +1128,11 @@ f9ReleaseCandidateAfterCiRemediation:
   f7FormalStagingScenariosPassed: 0
   f9IntegrationsMerged: 0
   f10ProductionDeployed: false
+
+f6StagingLiveReadOnlyPreflight20261108:
+  script: scripts/realtime/staging_f6_readiness.py
+  workflow: .github/workflows/realtime-f6-staging-preflight.yml
+  verifiesExactStagingDockerLabels: true
+  verifiesAofReadyBeforeCompose: true
+  neverMutatesData: true
+  currentF9GateStatus: BLOCKED
