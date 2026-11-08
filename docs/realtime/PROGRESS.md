@@ -5,7 +5,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | Fase | Estado | Gate | Observación |
 |---|---|---|---|
 | F0 | BLOQUEADA | RECHAZADO | 16 ramas intermedias creadas; endpoints y ambiente no verificados completamente |
-| F1 | PENDIENTE | NO EVALUADO | Prohibido iniciar hasta F0 aprobado |
+| F1 | EN_PROGRESO | NO APROBADO | Contratos preliminares aislados; 42/42 pruebas CI, pero F0 todavía bloqueada y faltan integración/cobertura |
 | F2 | PENDIENTE | NO EVALUADO | Contratos y durabilidad |
 | F3 | PENDIENTE | NO EVALUADO | Gateway/Hub y grupos |
 | F4 | PENDIENTE | NO EVALUADO | Frontend + fallback |
@@ -39,3 +39,13 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - Sin cambios funcionales, flags activos, merges, PRs a targets ni despliegues. Los cambios de este chequeo son exclusivamente documentos en intermedia DholeSystem.
 
 - Addendum posterior: `DholeSystem/develop` también avanzó **+6 commits** hasta `ebbbaa031f37f10611433b77403da5820ae03345`, versión `1.12.6` (CHANGELOG, `release-manifest.json`, `version.json`). Su rama intermedia no fue movida, y su versión documental 1.12.4 debe reconciliarse con cambios ajenos antes de cualquier release.
+
+## Trabajo nuevo F0 + F1 — 2026-11-07
+
+- F0: inspección de árboles `git/trees/develop?recursive=1` en 16 repos y `CustomCodeFramework/master`; evidencias `test-evidence/F0-source-inventory-services-01-08.csv` y `F0-source-inventory-components-09-17.csv`. **646 archivos candidatos** a examinar (endpoints, jobs, pipelines, infraestructura y clientes), sin afirmar aún rutas/jobs al 100%. SRM confirmado en `DholeConfigService/src/Dhole.Config.Api/Endpoints/SrmCatalogEndpoints.cs`.
+- F0: Notifications ya implementa `NotificationsHub`; DholeWeb cliente específico `notificationRealtime.ts`; Gateway tiene `UseWebSockets` y middleware de proxy. La solución universal debe reutilizar y no duplicar estas funciones.
+- Nueva dependencia F1: `CustomCodeCR/CustomCodeFramework` fue auditado; faltaba `develop`, creada sin borrar master desde `18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97`. Intermedia con releaseId único creada desde el mismo SHA. Total: **17 repos dentro del manifiesto**, de los cuales **13 son servicios**.
+- F1: código de contratos preliminares en `CustomCodeFramework.Messaging.Realtime`, no se han modificado firmas previas. Versión candidata `0.3.0` (antes `0.2.0`).
+- F1: [Actions run 42443081145](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145), commit `a81447dd00d004d6a32eb28001a379ee89ddb552`: **build OK; 42 tests passed, 0 failed, 0 skipped**, archivo TRX subido. Hay avisos CS1591 sobre comentarios XML y advertencias del runner Node, pero cero errores de compilación.
+- F1: catálogo semilla `docs/realtime/event-catalog.draft.yaml`, 13 eventos propuestos, aún no cotejados con permisos/contratos reales.
+- Gate formal F0: **BLOQUEADO** por endpoints/jobs todavía pendientes de completar, infra viva y cargas no medidas. Gate formal F1: **NO APROBADO** porque falta cerrar F0 y probar integración multi-servicio. No ejecutar F2, PRs finales ni despliegues.
