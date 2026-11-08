@@ -53,3 +53,9 @@ Detener escenario ante exposición ACL, escritura duplicada, pérdida de commit,
 - [Dynamics Postgres CI #42507593928](https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928): C14 parcial, un solo trabajo/Outbox ante dedupeKey repetido con esquema SQL real; **falta** correo y terceros.
 - [Conversión AOF segura #42507199248](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248): los datos existentes de RDB deben convertirse al AOF **mientras Redis está en línea**, esperar fin de rewrite y comprobar persistencia antes de reconfigurar Compose. Ver `F6-REDIS-AOF-STAGING-MIGRATION.md`. La simple recreación perdida en CI #42507114616 está prohibida.
 - Se consideran **12 candidatos con alguna evidencia parcial**, no 12 casos aprobados; C08/C13 no poseen todavía suite F7 dedicada. **14/14 formales continúan pendientes y F8 no está autorizada**.
+
+## C08 y C13 — candidatos actualizados 2026-11-08
+
+- C08: [CRM #42511869179](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179) 10 iteraciones reales PostgreSQL+TestServer con dos HTTP clients del **mismo usuario**: un 200, un 409 por carrera, 10 Outbox y cero escrituras obsoletas. **No demuestra dos usuarios reales ni 2 pestañas Firefox contra staging**.
+- C13: [Gateway #42501705251](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251) dos hosts Gateway TestServer, Redis/PostgreSQL de CI, cursor durable tras reinicio de un host; **no es Traefik WSS/TLS con replicación real**.
+- Con estas evidencias los 14 IDs tienen al menos un soporte aislado **heterogéneo, algunos simulados o parciales**, pero `formalStatus=PENDIENTE`, `realEnvironmentRuns=0`, `stagingTestsExecuted=false`, `formalApproved=false` para todos. F8 y F9 siguen bloqueadas.
