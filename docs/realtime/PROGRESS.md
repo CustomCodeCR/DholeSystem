@@ -320,3 +320,11 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Se elevó la versión global **propuesta** a `1.13.10` en los 17 repositorios de la rama intermedia. Cada componente también incrementó su versión PATCH propia, con CHANGELOG, metadata assembly/package y root version.json correspondiente; no se modificaron ramas finales.
 - Se alinearon `release-manifest.json`, `docs/realtime/release-manifest.yaml`, `service-registry.yaml` y el guard candidato F6 con esas versiones independientes. `f9-draft-prs.yaml` informa alineación global, pero mantiene merge no autorizado, SHAs sin congelar, staging sin validar y F0–F8 bloqueados.
 - El check F0 ejecutará auditoría exacta de 17 fuentes; **no** inferir pase de gate de la simple corrección de metadata.
+
+## F9/F10 — Corrección de CI y candidato unificado 1.13.11 (2026-11-08)
+
+- Config: `F6ConfigRealtimeContractTests.cs` corregido para compilación con analyzers MSTest; CI principal `42532130660` PASS. Versión candidata 1.3.2.
+- Reports: CI principal emplea PostgreSQL efímero y ejecuta prueba F6 de Outbox real, sin saltarla; CI `42532327420` PASS y F6 `42532322213` PASS. Versión 1.5.2.
+- Gateway: reconciliado `Dhole.ApiGateway/service-versions.json` con catálogo de 13 servicios; CI semantic version `42532362376` PASS y F3 Gateway `42532357921` PASS. Versión Gateway final 1.4.3 (requiere nuevo CI a este SHA).
+- Todas las 17 ramas elevadas a ecosistema 1.13.11 con versiones de componente individuales y metadatos de build, central manifest y guard F6 sincronizados. F0 debe volver a auditar SHA exacto final.
+- F9 continúa pendiente: 17 PR en draft, no fusionadas. F10 aún sin integración ni despliegue a master. Los gates F0/F2/F7/F8 formales no están aprobados.

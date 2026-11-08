@@ -12,7 +12,7 @@ all17FinalShasFrozen: false
 stagingValidated: false
 notes:
   - "Existing realtime code is candidate-only; all flags remain OFF."
-  - "All 17 feature branches declare ecosystemVersion=1.13.10; frozen SHA/CI and formal gates still pending."
+  - "All 17 feature branches declare ecosystemVersion=1.13.11; frozen SHA/CI and formal gates still pending."
   - "Do not merge any F9 PR while Redis staging AOF OFF or F7 staging 0/14."
   - "Pricing and System upstream commits merged into feature branches at exact checked SHAs; review CI and remaining release gates."
 pullRequests:
