@@ -1,0 +1,28 @@
+name: Realtime F6 formal promotion gate (develop/master)
+on:
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'docs/realtime/**'
+      - 'scripts/realtime/**'
+      - 'deploy/docker-compose.services.yml'
+      - 'version.json'
+      - '.github/workflows/realtime-f6-promotion-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  f6-formal-promotion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned YAML parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Compile formal release gate verifier
+        run: python -m py_compile scripts/realtime/verify-f6-formal-gate.py
+      - name: Enforce sequential phase approvals before develop/master
+        run: python scripts/realtime/verify-f6-formal-gate.py --require-all
