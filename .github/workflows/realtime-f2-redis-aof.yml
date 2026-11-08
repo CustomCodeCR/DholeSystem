@@ -1,0 +1,67 @@
+name: Realtime F2 Redis AOF isolation and recovery
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'deploy/docker-compose.staging-infra.yml'
+      - '.github/workflows/realtime-f2-redis-aof.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  aof-persistence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check staging Compose AOF flags and persistent volume (static only)
+        run: |
+          python -m pip install --disable-pip-version-check PyYAML==6.0.2
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          source = yaml.safe_load(Path('deploy/docker-compose.staging-infra.yml').read_text())
+          redis = source['services']['redis']
+          command = redis['command']
+          assert command[0] == 'redis-server', command
+          assert '--appendonly' in command and command[command.index('--appendonly') + 1] == 'yes'
+          assert '--appendfsync' in command and command[command.index('--appendfsync') + 1] == 'everysec'
+          assert any(str(v).endswith(':/data') for v in redis['volumes'])
+          print('PASS: staging Redis AOF configured, persistent /data mount declared')
+          PY
+      - name: Prove AOF retained event across container replacement with same volume (CI only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="dhole-f2-aof-$GITHUB_RUN_ID"
+          volume="dhole-f2-volume-$GITHUB_RUN_ID"
+          cleanup() {
+            docker rm -f "$name" >/dev/null 2>&1 || true
+            docker volume rm "$volume" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+          docker volume create "$volume"
+          docker run -d --name "$name" -v "$volume:/data" redis:7-alpine \
+            redis-server --appendonly yes --appendfsync everysec
+          for i in $(seq 1 30); do
+            if [ "$(docker exec "$name" redis-cli ping 2>/dev/null)" = "PONG" ]; then break; fi
+            sleep 1
+          done
+          test "$(docker exec "$name" redis-cli ping)" = "PONG"
+          test "$(docker exec "$name" redis-cli CONFIG GET appendonly | tail -1)" = "yes"
+          docker exec "$name" redis-cli XADD dhole.f2.ci.events '*' event_id rt-20261107-01-ci stream durable
+          sleep 2
+          docker stop "$name"
+          docker rm "$name"
+          docker run -d --name "$name" -v "$volume:/data" redis:7-alpine \
+            redis-server --appendonly yes --appendfsync everysec
+          for i in $(seq 1 30); do
+            if [ "$(docker exec "$name" redis-cli ping 2>/dev/null)" = "PONG" ]; then break; fi
+            sleep 1
+          done
+          docker exec "$name" redis-cli XRANGE dhole.f2.ci.events - + | grep -q rt-20261107-01-ci
+          echo "PASS: AOF stream entry survives replacing Redis container (same persistent volume)"
+          echo "NOTE: This does NOT verify dhole-staging or production Redis volumes or disaster recovery."
