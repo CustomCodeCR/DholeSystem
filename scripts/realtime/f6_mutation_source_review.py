@@ -15,11 +15,11 @@ import re
 
 import yaml
 
-GROUP = re.compile(r'\\bMapGroup\\s*\\(\\s*"([^"]+)"', re.S)
-ROUTE = re.compile(r'\\bMap(Get|Post|Put|Patch|Delete|Methods)\\s*\\(\\s*"([^"]+)"', re.S)
-SCOPE = re.compile(r'\\bRequire(?:Any)?Scope\\s*\\(([^)]{1,250})\\)')
-AUTH = re.compile(r'\\bRequireAuthorization\\s*\\(')
-SAVE = re.compile(r'\\b(?:SaveChanges(?:Async)?|Execute(?:Update|Delete)(?:Async)?|INSERT\\s+INTO|UPDATE\\s+\\w|DELETE\\s+FROM)\\b', re.I)
+GROUP = re.compile(r'\bMapGroup\s*\(\s*"([^"]+)"', re.S)
+ROUTE = re.compile(r'\bMap(Get|Post|Put|Patch|Delete|Methods)\s*\(\s*"([^"]+)"', re.S)
+SCOPE = re.compile(r'\bRequire(?:Any)?Scope\s*\(([^)]{1,250})\)')
+AUTH = re.compile(r'\bRequireAuthorization\s*\(')
+SAVE = re.compile(r'\b(?:SaveChanges(?:Async)?|Execute(?:Update|Delete)(?:Async)?|INSERT\s+INTO|UPDATE\s+\w|DELETE\s+FROM)\b', re.I)
 MUTATING = {"POST", "PUT", "PATCH", "DELETE"}
 COLUMNS = [
     "repo", "serviceId", "kind", "sourceFile", "sourceLine", "verb",
