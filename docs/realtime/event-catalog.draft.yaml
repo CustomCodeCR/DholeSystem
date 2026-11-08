@@ -1,0 +1,116 @@
+# Catálogo semilla de contratos; no representa cobertura total.
+schemaVersion: 1
+releaseId: rt-20261107-01
+status: DRAFT_F1_PRELIMINARY
+ownerPolicy: "El servicio dueño resuelve audiencia en servidor; scope final debe auditase en F0/F6"
+globalEnvelope:
+  eventId: uuid
+  eventType: versioned_name
+  schemaVersion: positive_integer
+  aggregateType: string
+  aggregateId: string
+  aggregateVersion: positive_integer
+  occurredAtUtc: utc_datetime
+  producer: service_name
+  correlationId: string
+  audienceRef: server_side_resource_ref
+  payload: minimal_json_object
+  traceId: optional_string
+  personalDataAllowed: false
+  sourceOfTruth: REST
+candidates:
+  - serviceId: S01
+    eventType: crm.account.updated.v1
+    aggregateType: crm.account
+    candidateRequiredScope: crm.account.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S02
+    eventType: pricing.quote.updated.v1
+    aggregateType: pricing.quote
+    candidateRequiredScope: pricing.quote.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S03
+    eventType: notifications.message.updated.v1
+    aggregateType: notifications.message
+    candidateRequiredScope: notifications.message.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S04
+    eventType: auth.user.access.changed.v1
+    aggregateType: auth.user
+    candidateRequiredScope: auth.user.manage
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S05
+    eventType: config.catalog.updated.v1
+    aggregateType: config.catalog
+    candidateRequiredScope: config.catalog.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S06
+    eventType: audit.event.created.v1
+    aggregateType: audit.event
+    candidateRequiredScope: audit.event.read
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S07
+    eventType: storage.attachment.updated.v1
+    aggregateType: storage.attachment
+    candidateRequiredScope: storage.attachment.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S08
+    eventType: extraction.job.updated.v1
+    aggregateType: extraction.job
+    candidateRequiredScope: extraction.job.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S09
+    eventType: reports.job.updated.v1
+    aggregateType: reports.job
+    candidateRequiredScope: reports.job.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S10
+    eventType: dynamics.sync.updated.v1
+    aggregateType: dynamics.sync
+    candidateRequiredScope: dynamics.sync.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S11
+    eventType: ai.execution.updated.v1
+    aggregateType: ai.execution
+    candidateRequiredScope: ai.execution.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S12
+    eventType: agent.execution.updated.v1
+    aggregateType: agent.execution
+    candidateRequiredScope: agent.execution.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+  - serviceId: S13
+    eventType: content.item.updated.v1
+    aggregateType: content.item
+    candidateRequiredScope: content.item.view
+    audienceResolver: SERVER_ONLY
+    payload: { aggregateVersion: integer, changedFields: optional_string_array }
+    status: PENDIENTE_VALIDACION_SERVICIO
+notes:
+  - "Nombres y permisos son candidatos, no se han cotejado los scopes de Auth."
+  - "El contrato compilable vive en CustomCodeFramework.Messaging.Realtime (rama intermedia)."
+  - "No publicar a SignalR ni Redis Streams hasta F2/F3 y batch F9/F10 completo."
