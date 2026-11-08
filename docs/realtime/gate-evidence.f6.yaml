@@ -7,11 +7,11 @@ status: IMPLEMENTACION_CANDIDATA_13_SERVICIOS
 formalApproved: false
 nextPhaseF7Authorized: false
 branch: feature/dhole-realtime-universal-rt-20261107-01
-globalCandidateVersion: "1.13.0"
+globalCandidateVersion: "1.13.12"
 noDevelopOrMasterMerge: true
 noProductionDeployment: true
 allFeatureFlagsDefaultOff: true
-latestStagingReadOnlyAudit: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
+latestStagingReadOnlyAudit: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924
 latestStagingAofEnabled: false
 latestStagingAnonymousHubNegotiationHttpStatus: 404
 latestStagingUniversalRealtimeFlagsOn: 0

@@ -334,3 +334,9 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Añadidos `scripts/realtime/staging_f6_readiness.py`, 7 tests y workflow self-hosted `realtime-f6-staging-preflight.yml`. Ejecuta solo en la rama intermedia al modificar estos archivos; inspecciona Redis/Postgres por etiquetas y volúmenes exactos, no toca producción ni modifica configuración.
 - Prueba que el contenedor Redis de staging efectivamente ejecuta AOF (no solo que el Compose nuevo lo declara) y detecta fallos write/rewrite antes de permitir redeploy. No supone backup restaurado ni F7 14/14.
 - Resultado previo de staging #42508243878 reejecutado: 100/100 health PASS, Redis `aof_enabled=0` y comando AOF OFF. No hacer merge F9 hasta migración segura y gates formales aprobados.
+
+## F6/F9 — ejecución real de auditoría staging y versión global 1.13.12 (2026-11-08)
+
+- [CI staging #42535795924](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924): 7/7 tests de preflight PASS y Docker Redis/Postgres de staging identificados, pero AOF runtime y comando Redis OFF. El job falla intencionalmente sin tocar bases de datos.
+- 17 ramas intermedias incrementan versión PATCH propia y declaran `ecosystemVersion=1.13.12`. El manifiesto central y el catálogo Gateway se sincronizaron a la misma matriz de 17 componentes y 13 servicios.
+- Los 639 candidatos de fuente siguen sin revisión de propietario; F6/F7/F8 formales no se han aprobado. No hay backup/restauración demostrados ni 14/14 ensayos reales F7. No realizar merge/despliegue automático a develop/master.
