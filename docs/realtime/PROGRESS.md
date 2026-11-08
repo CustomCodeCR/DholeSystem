@@ -73,3 +73,11 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - CRM versión candidata `1.4.0` (baseline `1.3.1`) y ecosistema candidato `1.13.0`, CHANGELOG y metadatos de assembly actualizados; sin release ni publicación.
 - CI candidato `.github/workflows/realtime-f2-durability.yml`, PostgreSQL 17 + Redis 7, prueba 1.000 commits/1.000 eventos/Inbox idempotente, rollback, reintentos, DLQ y replay pre-ACK. **No declarar tests verdes hasta verificar ejecución exacta y SHA.**
 - Runbook: `F2-OUTBOX-INBOX-RUNBOOK.md`. Pendiente probar pérdida/restauración real de Redis con AOF, seguridad, retención, backlog, 100% mutaciones y performance. F2 formal **NO APROBADA** por gates F0/F1.
+
+### F2 — evidencia final de implementación candidata (2026-11-07 local)
+
+- `DholeCRMService` SHA **b28ae8278ea28b05624ec30021ada38ad3d8ca21**, versión candidata **1.4.0** (anterior 1.3.1), sin merge. 
+- [CI F2 run 42444994037](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037): **build 0 errores/0 advertencias; 10/10 pruebas aprobadas, 0 omitidas**, incluido lote de 1.000 commits; DLQ, idempotencia, XAUTOCLAIM, recuperación PostgreSQL→Redis tras pérdida del stream, rechazo PII.
+- [CI AOF run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160): configuración staging en rama intermedia y volumen efímero verificados, sobrevive eliminación/recreación de contenedor. **No** equivale a prueba de infraestructura staging/producción real.
+- Gate F2 **NO APROBADO** hasta F0/F1 aprobadas, retención/alertas reales, backups, auditoría de permisos y prueba del conjunto REST/Hub real. No F3, no PR, no merge, no deployment, flags OFF.
+- Evidencia detallada: `test-evidence/F2-CRM-DURABILITY-CI.md`; runbook `F2-OUTBOX-INBOX-RUNBOOK.md`; `stream-registry.f2.yaml`.
