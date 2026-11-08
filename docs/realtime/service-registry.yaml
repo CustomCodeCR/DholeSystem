@@ -128,7 +128,7 @@ additionalComponents:
   - { repo: CustomCodeCR/DholeSystem, role: documentation, inventory: PARCIAL }
 logicalModules:
   SRM: { owner: DholeConfigService, evidence: "src/Dhole.Config.Api/Endpoints/SrmCatalogEndpoints.cs maps /api/config/srm", status: IDENTIFICADA_PENDIENTE_COBERTURA }
-  System: { owner: POR_CONFIRMAR, status: BLOQUEADA }
+  System: { owner: POR_CONFIRMAR, confirmedSubownerForVersions: DholeApiGateway, evidence: "Dhole.ApiGateway/Program.cs maps GET /api/system/versions", status: BLOQUEADA_OTHER_SYSTEM_FEATURES }
 futureServicePolicy:
   requireRegistryEntry: true
   requireRealtimeManifest: true
