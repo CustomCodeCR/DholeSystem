@@ -411,8 +411,8 @@ repositories:
     candidateForPhase: F4
     observedDevelopShaAfterBranching: 0cab26357d56ef34ccee6ea25e936ffd6027b0a9
     observedDevelopVersionAfterBranching: "1.12.9"
-    observedMasterShaAfterBranching: a5743703d1562495dec6324e1ad3957f9d85c1fc
-    observedMasterVersionAfterBranching: "1.12.8"
+    observedMasterShaAfterBranching: d33cd97b1895993a58ddb7bca7455b0d5602f483
+    observedMasterVersionAfterBranching: "1.12.9"
     upstreamMovedSinceBranchCreated: true
     mergeReconciliationPendingF9: true
     migrations: []
