@@ -1,0 +1,33 @@
+{
+  "releaseId": "DH-20261108-CRM-REDIS-OUTBOX-034",
+  "date": "2026-11-08",
+  "ecosystemVersion": "1.12.3",
+  "status": "candidate-pending-staging",
+  "components": [
+    {
+      "component": "DholeCRMService",
+      "previousVersion": "1.3.0",
+      "newVersion": "1.3.1",
+      "change": "Redis publisher dependency fix"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.12.0",
+      "newVersion": "1.12.2",
+      "change": "Manifest synchronization; code already released"
+    },
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.12.0",
+      "newVersion": "1.12.3",
+      "change": "Release manifest update"
+    }
+  ],
+  "tests": [
+    "Dotnet build and integration Redis publisher",
+    "CRM real Redis stream message creation",
+    "Staging outbox and notification worker evidence"
+  ],
+  "productionDeploymentAuthorized": true,
+  "productionDeploymentStatus": "pending staging"
+}
