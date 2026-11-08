@@ -379,6 +379,9 @@ repositories:
     candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42506176745
     candidateF6SnapshotTestedCommit: 6da475c7a67d200cc6cf4bf597fe4b19051af845
     candidateF6SnapshotStatus: ADMIN_SECURITYADMIN_JOB_STATUS_BUILD_PASS
+    candidateF7DynamicsIdempotencyCiRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928
+    candidateF7DynamicsIdempotencySha: 44f2a5e29e0c931003ed799f4066c7c68ce7d070
+    candidateF7DynamicsIdempotencyStatus: POSTGRES_ONLY_EMAIL_AND_STAGING_UNVERIFIED
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -452,6 +455,9 @@ repositories:
     candidateF6TestsPassed: 3
     candidateF6TestedSha: 5732ae52f11b53704063781eba3f2ef4ae3f37f2
     candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAgentService/actions/runs/42496919190
+    candidateF6FrontendBoundView: AgentExecutionDetailView.vue
+    candidateF6FrontendBindingCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702
+    candidateF6FrontendBindingSha: 2a84e044f66f19c93445f1798028a0e9cab679f3
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -559,6 +565,10 @@ repositories:
     releaseComponentVersion: "1.13.0"
     candidateForPhase: F4
     candidateF6FrontendResourceKindsSupported: 21
+    candidateF6FrontendBoundViews: [crm.account, pricing.rate, agent.execution]
+    candidateF6FrontendNewKindsStillUnbound: 18
+    candidateF6FrontendLastFullCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702
+    candidateF6FrontendLastTestedSha: 2a84e044f66f19c93445f1798028a0e9cab679f3
     candidateF7BrowserChaosOnlySimulated: [C01, C02, C03, C06, C07, C09, C10, C12]
     candidateF7BrowserChaosTestedSha: 0582ef29cc8c542e26569a811a39c7dd0c1c61e9
     candidateF7BrowserChaosCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084
@@ -574,7 +584,7 @@ repositories:
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_AGENT_VIEW_CI_GREEN_REST_STAGING_NOT_VERIFIED
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -595,13 +605,22 @@ repositories:
     frozenSha: null
     candidateF7EvidenceGuardCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42505851181
     candidateF7EvidenceGuardStatus: PASS_GUARD_ONLY_NOT_FORMAL_GATE
+    candidateF6SourceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507019304
+    candidateF6SourceReviewRows: 580
+    candidateF6SourceMutableRoutes: 510
+    candidateF6SourceWorkerFiles: 70
+    candidateF6SourceFullyVerified: 0
+    candidateF7RedisCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019
+    candidateAofRdbToAofRehearsalCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+    candidateAofMigrationStagingApplied: false
+    candidateF7StagingPassedCases: 0
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.13.0"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F0_F6_F7_AUDITS_CANDIDATE_ONLY
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
