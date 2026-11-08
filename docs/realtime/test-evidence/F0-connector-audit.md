@@ -14,6 +14,9 @@ Fecha: 2026-11-07. Release: `rt-20261107-01`.
 | Compilación/tests unitarios/integración | **NO_EJECUTADO** |
 | Mediciones p95/p99/E2E/C01–C14 | **NO_EJECUTADO** |
 | Auditoría WSS/Traefik/Redis en servidores | **NO_VERIFICADO** |
+| Verificación posterior create_branch | 16/16 develop y master coinciden con SHAs basales; 15/16 intermedias permanecen en baseline, DholeSystem tiene commits F0 |
+| main DholeSystem | 2703e55149556b7a6582b8eee457aabab75704f7, sin cambio |
+| Versionamiento de documentación | DholeSystem 1.12.3 -> 1.12.4 en rama intermedia, CHANGELOG actualizado; batch version no aplicada |
 | F0 gate | **RECHAZADO** |
 
 El entorno de archivos auxiliar no dispone de resolución DNS a github.com para `git ls-remote`; la inspección remota usó la conexión oficial a GitHub, no un checkout local. Esta limitación NO equivale a falla de CI ni a ejecución de pruebas. Prohibido declarar CIs, branches protegidas, ambiente de staging o métricas como validados.
