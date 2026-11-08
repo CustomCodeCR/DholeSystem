@@ -11,7 +11,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; 2 vistas piloto reconciliadas por REST simulado |
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
-| F6.04–F6.13 | PENDIENTE | NO EVALUADO | 10 servicios adicionales sin F6 validada; 0/13 gates aprobados |
+| F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128. F0 inventario + AOF staging + REST snapshots/vistas + WSS/ACL reales pendientes |
 | F7 | PENDIENTE | NO EVALUADO | 0/14 casos ejecutados |
 | F8 | PENDIENTE | NO EVALUADO | Enforcement servicios futuros |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
@@ -158,3 +158,34 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [GitHub Actions Notifications #42493452879](https://github.com/CustomCodeCR/DholeNotificationsService/actions/runs/42493452879), SHA exacto `687c292d55b904db584935d2f68333413431a6d6`: **SUCCESS**, API y pruebas compilan con cero errores, **3/3 pruebas del nuevo aislamiento** PASS sin skipped y `version:check` PASS. El grafo de tests conserva 30 warnings previos que no representan validación libre de advertencias; no desactivar reglas de seguridad para ocultarlos. Versión componente **1.2.1 → 1.3.0**, global candidata **1.13.0**, flags y targets sin cambios.
 - La protección nueva `resourceRevoked` del Gateway envía únicamente el tipo de recurso y su GUID al cliente anteriormente suscrito cuando propietario REST deniega la lectura. Vue elimina inmediatamente datos previamente mostrados, incluso con WebSocket conectado; no es un evento de negocio ni difunde datos comerciales. Referencias CI: [Gateway #42492902414](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42492902414) y [Vue #42492867135](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42492867135). Son implementaciones candidatas en rama, pendientes de cobertura de staging/Auth real.
 - F6.01–F6.03 no equivalen a F6 integral. Los servicios F6.04–F6.13 se mantienen en intermedias sin cambios funcionales de este batch; gates F0–F5 y F6 siguen fail-closed. Sin deploy, merge ni PR hacia develop/master/main.
+
+## F6.04–F6.13 — Evidencia de cobertura candidata, no aprobación formal (2026-11-08)
+
+- Las 13 subfases tienen productores/eventos o mecanismos de notificación candidatos
+  y los checks unitarios/compilación por repo pasan en su rama intermedia
+  `feature/dhole-realtime-universal-rt-20261107-01`.
+- Reutiliza Outbox para Auth, Config/SRM, Storage, DataExtraction, AI, Agent y Content;
+  agrega Outbox aditivo con migración PostgreSQL para AuditLogs y Reports, y SQL 019
+  checksummed para la cola nativa de Dynamics. No altera contratos REST públicos existentes.
+- El Gateway permite **19** clases nuevas de recursos en 10 streams segregados,
+  pero solo tras `Realtime:UniversalServicesBridgeEnabled` y aprobación estricta
+  del batch. Cada evento se reautoriza mediante GET del propietario y no contiene
+  credenciales, contactos, documentos, precios, prompts ni datos de Dataverse.
+- SRM se separa de Config: evento `srm.supplier.changed.v1` y
+  `srm.supplier.read` sin privilegios genéricos `config.catalog-items.view`.
+  [Config CI #42501309773](https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42501309773)
+  **4/4**, sin errores.
+- [Gateway CI #42501265245](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501265245)
+  **128/128** pruebas, cero omitidas; prueba adicional real Redis+TestServer:
+  usuarios A/B reciben la invalidación Config y C denegado no se suscribe,
+  con revocación en caliente de B. No es WSS HTTPS real por Traefik.
+- Manifiesto central `docs/realtime/release-manifest.yaml`, registro de 13 servicios,
+  19 relaciones de cobertura y el guard `verify-f6-candidate.py` alineados
+  con SemVer individual. Todos los flags OFF y targets intactos.
+- **Gate de F6 NO APROBADO**: 578 candidatos F0 sin auditoría completa,
+  `aof_enabled=0` en Redis staging, falta cobertura de otras mutaciones,
+  snapshots REST por GUID para varias vistas, pruebas de ACL/tokens reales
+  y de resiliencia multiinstancia sobre WSS/TLS de staging. Revisión detallada
+  en `F6-CANDIDATE-COVERAGE-20261108.md`.
+- **F7 NO INICIADA**, sin merges a develop/master/main, sin producción,
+  sin ejecutar migraciones en servidores ni reactivar batch.
