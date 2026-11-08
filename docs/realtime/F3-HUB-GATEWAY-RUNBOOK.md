@@ -74,3 +74,10 @@ Apagar los cuatro flags de release/Gateway; conservar rutas REST antiguas y el H
 La última rama intermedia del Gateway se compiló y probó con éxito en [GitHub Actions #42446789096](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096) al SHA `097890a33ed05f63bf6b3616d7bd7fe17c412b8e`: **99 PASSED / 0 FAILED / 0 SKIPPED**, build sin errores ni advertencias. Artefacto TRX `13603454219`. Incluye WebSockets autenticados en TestServer, dos receptores permitidos/uno denegado, revocación posterior, 30 casos de permiso denegado, tickets un solo uso, `Origin` y rechazo de eventos CRM que intentan suplantar otros dominios.
 
 **No extrapolar** TestServer `ws://` a WSS público por Traefik. Tampoco prueba la revocación real de Auth ni ACL real end-to-end con usuarios comerciales en staging. La migración SQL sigue sin ejecutarse en servidores; los feature flags permanecen OFF. Los gates F0–F3 aún no están aprobados.
+
+
+## Aceptación ampliada (2026-11-08) — dos instancias aisladas
+
+- [CI F3 #42485284958](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42485284958), SHA `9ec7c1a60b21450c04aebca181106cf6ea11c4ce`: **100 PASS / 0 FAIL / 0 SKIP**, build .NET 10 sin errores; TRX artifact `13618808084`.
+- Dos `WebApplicationFactory` independientes inician el Gateway sobre Redis 7 y PostgreSQL 17 reales de CI con dos `Realtime:InstanceId` estables distintos. Ambos consumidores poseen su propio Redis consumer group, reciben un mismo evento `crm.account.updated.v1` para sus conexiones autorizadas; uno se reinicia tras publicar un nuevo evento durante su caída. El grupo mantiene el cursor y el Gateway reiniciado registra el evento pendiente en `realtime.gateway_inbox`.
+- No confundir esta prueba de dos instancias **TestServer sin TLS** con WSS público por Traefik ni con permisos CRM/Auth/Pricing reales. Estos siguen pendientes, junto con el gate F0, validación de Infra real, rollout completo y permisos del release. **Gate F3 formal no aprobado.**
