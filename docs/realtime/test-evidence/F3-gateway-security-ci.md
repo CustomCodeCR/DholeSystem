@@ -15,7 +15,7 @@
 ## Endurecimiento adicional pendiente de evidencia exacta de SHA
 
 - La rama intermedia añadió una comprobación estricta de `aggregateType` y dominio de productor CRM al bridge, admite upstream HTTPS de origen confiable y agrega tres tests de inyección cross-service/PII.
-- [Run F3 posterior 42446789096](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096), SHA `097890a33ed05f63bf6b3616d7bd7fe17c412b8e`: **se debe consultar su estado/conclusión antes de declarar verde el SHA posterior**.
+- [Run F3 final 42446789096](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096), SHA probado `097890a33ed05f63bf6b3616d7bd7fe17c412b8e`: **SUCCESS**, build .NET 10 **0 advertencias y 0 errores**, **99 PASSED / 0 FAILED / 0 SKIPPED**. Incluye las tres nuevas pruebas de rechazo de cross-service stream, metadatos incorrectos y autorización contra upstream HTTPS. TRX subido con artifact ID `13603454219` (`rt-20261107-01-f3-gateway-security`). El gateway sigue sin pruebas WSS reales por Traefik de staging; el gate no está aprobado.
 
 ## Bloqueos explícitos
 
