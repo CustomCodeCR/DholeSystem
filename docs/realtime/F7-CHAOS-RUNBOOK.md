@@ -46,3 +46,10 @@ Por escenario guardar `test-evidence/F7/<run-id>/Cxx.json` y `Cxx.md` sin tokens
 ## Criterio de parada y rollback
 
 Detener escenario ante exposición ACL, escritura duplicada, pérdida de commit, divergencia de negocio o fuga sostenida de conexión/listeners. En entorno autorizado: desactivar flags realtime, mantener REST operativo, asegurar primero integridad Outbox/Inbox y backups, capturar evidencia de recuperación. No reintentar comandos de efectos externos ni POST inciertos sin idempotencyKey y consulta de resultado. **No desplegar a producción** por pasar el runbook; F9/F10 y la autorización separada continúan obligatorios.
+
+## Evidencia candidata nueva (no ejecución formal)
+
+- [F7 Redis aislado CI #42506868019](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019): C04 persistencia AOF de 10 eventos tras 1 reemplazo; C05 diez recuperaciones con `XAUTOCLAIM` e Inbox sintético; C11 backlog de 1.200 eventos drain/ACK. No prueba el grupo Redis/Gateway/Outbox Postgres reales de staging.
+- [Dynamics Postgres CI #42507593928](https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928): C14 parcial, un solo trabajo/Outbox ante dedupeKey repetido con esquema SQL real; **falta** correo y terceros.
+- [Conversión AOF segura #42507199248](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248): los datos existentes de RDB deben convertirse al AOF **mientras Redis está en línea**, esperar fin de rewrite y comprobar persistencia antes de reconfigurar Compose. Ver `F6-REDIS-AOF-STAGING-MIGRATION.md`. La simple recreación perdida en CI #42507114616 está prohibida.
+- Se consideran **12 candidatos con alguna evidencia parcial**, no 12 casos aprobados; C08/C13 no poseen todavía suite F7 dedicada. **14/14 formales continúan pendientes y F8 no está autorizada**.
