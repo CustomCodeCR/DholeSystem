@@ -127,7 +127,7 @@ additionalComponents:
   - { repo: CustomCodeCR/DholeWeb, role: frontend, inventory: PENDIENTE }
   - { repo: CustomCodeCR/DholeSystem, role: documentation, inventory: PARCIAL }
 logicalModules:
-  SRM: { owner: POR_CONFIRMAR, candidateOwner: DholeConfigService, evidence: "DholeWeb/src/modules/srm/services/srmApi.ts uses /api/config/srm", status: BLOQUEADA }
+  SRM: { owner: DholeConfigService, evidence: "src/Dhole.Config.Api/Endpoints/SrmCatalogEndpoints.cs maps /api/config/srm", status: IDENTIFICADA_PENDIENTE_COBERTURA }
   System: { owner: POR_CONFIRMAR, status: BLOQUEADA }
 futureServicePolicy:
   requireRegistryEntry: true
@@ -139,3 +139,13 @@ futureServicePolicy:
   requireCIGate: true
   exemptionRequiresSignedADR: true
   enforced: false # pendiente de F8; nunca afirmar cobertura automática
+
+sharedLibraries:
+  - repo: CustomCodeCR/CustomCodeFramework
+    branch: feature/dhole-realtime-universal-rt-20261107-01
+    introducedDuringPhase: F1_PREPARATION
+    versionBaseline: "0.2.0"
+    versionCandidate: "0.3.0"
+    contractsNamespace: CustomCodeFramework.Messaging.Realtime
+    tests: { passed: 42, failed: 0, skipped: 0 }
+    status: EN_PROGRESO
