@@ -1,7 +1,7 @@
 # F6 — Cobertura candidata de 13 servicios (2026-11-08)
 
 **Release:** `rt-20261107-01` | **Plan:** 2.1.0 | **Versión global propuesta:** 1.13.0.  
-**Estado:** IMPLEMENTACIÓN EN RAMAS INTERMEDIAS / GATE FORMAL NO APROBADO. F7 NO INICIADA.
+**Estado:** IMPLEMENTACIÓN EN RAMAS INTERMEDIAS / GATE FORMAL NO APROBADO. F7: PREPARACIÓN TÉCNICA CANDIDATA (gate NO aprobado).
 
 Este documento distingue *productor + esquema + compilación + CI* de la aprobación real del
 sistema realtime. No se ha fusionado a `develop`, `master` o `main`, no se ejecutó
@@ -48,10 +48,17 @@ reconciliarán con REST, nunca aplicarán mutaciones de negocio desde un evento.
 ## Regla de continuidad
 
 **F6 no se aprueba únicamente porque existan 13 productores y todos los CI sean verdes.**
-`f6FormalApproved=false`; la fase F7 de contingencia permanece **NO INICIADA** hasta
+`f6FormalApproved=false`; la fase F7 de contingencia permanece **NO AUTORIZADA FORMALMENTE** hasta
 que los controles anteriores tengan evidencia verificable y todos los gates
 secuenciales previos resulten aprobados. No desactivar validaciones, inventar
 métricas, simular approvals ni cambiar targets para declarar éxito.
 
 La implementación candidata permite trabajar las faltas restantes dentro de
 las mismas ramas, sin romper APIs REST existentes ni anticipar despliegues.
+
+## Addendum F6/F7 — corrección parcial en la misma rama
+
+- Web: enum de 21 clases sincronizado con el Gateway; manejo de invalidaciones con pistas de versión no globales; purga tras logout/expiración. CI de browser/TypeScript/build 22/22 tests de manager y regresión PASS: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084.
+- DataExtraction: tres endpoints de snapshots REST status-only con scope conservado; CI PASS: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42505716880.
+- AI: snapshot status-only de emailjob; CI PASS: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42505712586.
+- F7 preparatoria: ocho simulaciones de navegador con CI aprobado, C01/C02/C03/C06/C07/C09/C10/C12; **0/14 escenarios formales** ejecutados en staging, seis aún sin escenario F7 siquiera simulado y faltan 10 repeticiones reales C01-C08. No se han resuelto todas las mutaciones F6 ni habilitado flags.
