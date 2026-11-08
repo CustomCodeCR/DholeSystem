@@ -18,15 +18,18 @@ phaseGates:
     realStagingProxyJwtRedisAofVerified: false
     realStagingRestP95P99Measured: false
     # Read-only local health evidence; does NOT satisfy public WSS/TLS or REST business latency.
-    stagingLocalGatewayHealthCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42489552444
+    stagingLocalGatewayHealthCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
     stagingServicesObservedRunning: 27
     stagingInfraServicesObservedRunning: 5
     stagingHealthHttpOnlyRequests: 100
     stagingHealthHttpOnlyResponses200: 100
-    stagingHealthHttpOnlyP95Ms: 2.606
-    stagingHealthHttpOnlyP99Ms: 3.397
+    stagingHealthHttpOnlyP95Ms: 2.52
+    stagingHealthHttpOnlyP99Ms: 3.756
     stagingExternalTlsWssConfirmed: false
-    stagingPersistenceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42490276695
+    stagingPersistenceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
+    stagingAnonymousHubNegotiationHttpStatus: 404
+    stagingRealtimeFeatureFlagsEnabledCount: 0
+    stagingLatestReadOnlyAuditConclusion: FAILED_AS_EXPECTED_AOF_OFF
     stagingRedisAofEnabled: false # real runtime INFO persistence -> aof_enabled=0
     stagingRedisPersistentVolumeMounted: true
     stagingPostgresPersistentVolumeMounted: true
