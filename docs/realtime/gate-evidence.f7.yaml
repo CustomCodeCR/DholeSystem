@@ -40,6 +40,25 @@ dynamicsPartialIdempotencyCi:
   outcome: success
   dynamicsPostgresOnly: true
   emailDuplicateSideEffectsVerified: false
+crmConcurrentEditorsCandidateCi:
+  repo: CustomCodeCR/DholeCRMService
+  testedSha: 3574be4bacf6f93f75abc552da6f2158930445af
+  url: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179
+  outcome: success
+  separateHttpClients: 2
+  sameAuthorizedOwnerIdentity: true
+  distinctStagingUsers: false
+  criticalIterations: 10
+  verifiedHttp409ForStaleEditor: true
+  postgresOutboxDuplicates: 0
+gatewayFailoverCandidateCi:
+  repo: CustomCodeCR/DholeApiGateway
+  testedSha: 151166d257272e31ff12181ef6f020a3ab3c7f8b
+  url: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251
+  outcome: success
+  hostInstances: 2
+  persistsRedisCursorAndInbox: true
+  realTraefikTlsWss: false
 criticalRepetitionsRequired: 10
 formalTargetPassed: 14
 scenarios:
@@ -101,7 +120,7 @@ scenarios:
     stagingEvidence: null
   - id: C08
     description: "Concurrencia de dos editores con 409/412"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: CRM_TWO_CLIENT_CI_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
@@ -141,7 +160,7 @@ scenarios:
     stagingEvidence: null
   - id: C13
     description: "Replica Gateway falla y cambia de nodo"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: GATEWAY_TWO_HOST_CI_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
