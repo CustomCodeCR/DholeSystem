@@ -314,3 +314,9 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - System merged all 6 current develop commits via a two-parent commit, preserving upstream historical release manifest `DH-20261108-PRICING-COMMERCIAL-TERMS-037` and CHANGELOG 1.12.6. Candidate version 1.13.9; Pricing registry and central manifest synchronized, F6 guard updated.
 - Los cambios se hicieron **solo** en las dos ramas intermedias, preservando los fixes de develop; PR #152 Pricing y PR #160 System continúan draft hasta aprobar gates/CI.
 - No se realizaron merges a develop/master ni despliegues. Versión global sigue sin alinearse con los otros 15 repos, y F0/F7 formales continúan bloqueados.
+
+## F9 — versionamiento global sincronizado (2026-11-08)
+
+- Se elevó la versión global **propuesta** a `1.13.10` en los 17 repositorios de la rama intermedia. Cada componente también incrementó su versión PATCH propia, con CHANGELOG, metadata assembly/package y root version.json correspondiente; no se modificaron ramas finales.
+- Se alinearon `release-manifest.json`, `docs/realtime/release-manifest.yaml`, `service-registry.yaml` y el guard candidato F6 con esas versiones independientes. `f9-draft-prs.yaml` informa alineación global, pero mantiene merge no autorizado, SHAs sin congelar, staging sin validar y F0–F8 bloqueados.
+- El check F0 ejecutará auditoría exacta de 17 fuentes; **no** inferir pase de gate de la simple corrección de metadata.

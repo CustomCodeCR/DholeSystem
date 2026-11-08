@@ -30,7 +30,7 @@ def inspect(manifest, roster):
             raise ValueError("A draft is not a release approval")
     if any(roster.get(field) is not False for field in (
         "mergeAuthorized", "formalF9Complete", "sourceGatesF0ToF8Approved",
-        "globalEcosystemVersionAligned", "all17FinalShasFrozen", "stagingValidated"
+        "all17FinalShasFrozen", "stagingValidated"
     )):
         raise ValueError("Draft phase must not claim approvals")
     if manifest["promotion"].get("developPRs") != []:

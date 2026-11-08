@@ -40,6 +40,11 @@ class F9DraftTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             inspect(self.manifest, data)
 
+    def test_version_alignment_alone_does_not_approve_f9(self):
+        data = copy.deepcopy(self.roster)
+        data["globalEcosystemVersionAligned"] = True
+        self.assertEqual(inspect(self.manifest, data), 17)
+
     def test_wrong_base_fails(self):
         data = copy.deepcopy(self.roster)
         data["targetBranch"] = "master"
