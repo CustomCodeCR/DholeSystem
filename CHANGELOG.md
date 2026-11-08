@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.11.3] - 2026-11-07
+
+- Registra el release de traspaso automático de Inland FCL entre Proveedor y Líneas y los componentes participantes.
+- Release `DH-20261107-FCL-HAULAGE-HANDOFF-028`. Integración primero en `develop`, validación staging y promoción del mismo lote a `master`.
+
 ## [1.11.2] - 2026-11-07
 
 - Manifiesto global del release coordinado: Inland automático, Value de moneda, PDF e interfaz de resumen.
