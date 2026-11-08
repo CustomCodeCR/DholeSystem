@@ -80,3 +80,15 @@ Se aplicó estrictamente el gate del plan v2.1.0: F0 sigue rechazada; no se inic
 ### Addendum de drift DholeSystem
 
 `DholeSystem/develop` avanzó 6 commits desde el baseline 9040bb00… hasta ebbbaa031f… mientras se registraba F0, con versión de ecosistema 1.12.6 y cambio de CHANGELOG/release-manifest.json/version.json. Sin escritura directa de este batch, sin merge ni rebase. El propuesto 1.13.0 NO está aprobado; reevaluar al congelar SHA para F9.
+
+## Avance real de F0 / preparación F1 (validación remota y CI aislado)
+
+En la rama intermedia, sin tocar targets de release, se consultaron los árboles de código de los 16 repos iniciales y la dependencia compartida `CustomCodeFramework`. Se generaron dos CSV de **646 archivos fuente, jobs, workflows y clientes candidatos** (cada uno identificado por repo, SHA y path). Se confirmó código existente de SignalR en Notifications y cliente WebSocket de notificaciones en Web. El Gateway incluye `app.UseWebSockets()` y middleware de proxy. `DholeConfigService` aloja realmente SRM en `/api/config/srm`. El Gateway proporciona `GET /api/system/versions`; el dueño de todas las demás funciones System aún debe mapearse.
+
+Se agregó `CustomCodeFramework` como repo de dependencia, tras auditar `master@18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97`, donde faltaba `develop`; se creó desde ese mismo SHA y se creó rama intermedia `feature/dhole-realtime-universal-rt-20261107-01`. Las ramas finales no recibieron commits de esta release.
+
+**GitHub Actions F0 [run 42443461440](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443461440)** ejecutó un escaneo de solo lectura de las **17 intermedias**, verificó la política del manifiesto y generó **928 rutas candidatas, 67 fuentes candidatas de workers y 13 clientes REST potenciales**. No son cobertura 100% de mutaciones: rutas agrupadas, autorización, vistas, endpoints dinámicos y jobs requieren correlación manual. Ver `test-evidence/F0-actions-audit-42443461440.md`. La configuración de staging declara postgres 17-alpine, redis 7-alpine; no se ha comprobado estado real de runtime o métricas p95/p99.
+
+**GitHub Actions F1 [run 42443081145](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145)** reportó compilación de `CustomCodeFramework.Messaging.Realtime` sin errores y **42 pruebas aprobadas, 0 fallidas, 0 omitidas**. Esto se considera avance de implementación de F1 en rama intermedia, no gate F1 aprobado: F0 sigue BLOQUEADA por falta de verificación de runtime y cierre de matriz.
+
+Decisión de versión: `DholeSystem` eleva su versión candidata documental a **1.13.0** (sin release), superior a la versión actual 1.12.6 observada en `develop/master`; `CustomCodeFramework` candidata **0.3.0**. Los componentes restantes conservan versiones originales mientras no cambie su código. El batch global sigue en construcción, sin desplegar ni habilitar flags.
