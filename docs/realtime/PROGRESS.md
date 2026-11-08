@@ -103,7 +103,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [CI F4 final run 42447931191](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191) sobre SHA exacto `ed6271db6b32fb33accc1dec2c106e66672ef923`: **SUCCESS**, 11/11 tests F4, 91/91 regresiones CRM/Pricing, `pnpm --frozen-lockfile`, `version:check`, type-check y build producción **PASS**. Incluye las correcciones de seguridad de permisos revocados. Artefacto CI `13604711151`, evidencia `test-evidence/F4-vue-offline-ci.md`.
 - Ver documentación `docs/realtime/F4-VUE-CLIENT-OFFLINE.md`. Se verificaron ya 200 montajes Vue reales en Chromium con 0 fugas sostenidas de listeners/sockets; siguen pendientes 2 usuarios de staging por WSS, autorización real y cierres F0–F3.
 - **No integrar ni desplegar**. Flags `VITE_DHOLE_REALTIME_ENABLED` y `VITE_DHOLE_REALTIME_BATCH_APPROVED` permanecen ausentes/apagados; las rutas originales REST siguen funcionando.
-- `develop/master` de Web avanzaron desde crear la rama (última observación: develop/master v1.12.9; ambos SHAs auditados en manifiesto). No reescribir nada: conciliar en F9 desde SHAs nuevos y realizar CI de regresión antes de cualquier PR único.
+- `develop/master` de Web avanzaron desde crear la rama (última observación: develop v1.12.10 / master v1.12.9; ambos SHAs auditados en manifiesto). No reescribir nada: conciliar en F9 desde SHAs nuevos y realizar CI de regresión antes de cualquier PR único.
 - **Gate F4 = NO APROBADO**; F5 no iniciado.
 
 ### F4 — cierre de implementación aislada (sin aprobación formal de fase)
