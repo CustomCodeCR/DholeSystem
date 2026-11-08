@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0] - 2026-11-07
+
+- Release DH-20261107-CRM-NOTIFICATIONS-031: coordina DholeCRMService 1.3.0 y DholeWeb 1.12.0 para recurrencia de actividades y recordatorios.
+- Manifiesto 1.12.0: notificación en el inicio, recordatorios periódicos idempotentes y migración de actividades recurrentes.
+- Promoción a develop, pruebas de staging y autorización de producción permanecen pendientes.
+
 ## [1.11.4] - 2026-11-07
 
 - Actualiza el manifiesto global 1.11.4 para la visualización persistida de subQUO en Pantalla 8; DholePricingService conserva su versión y contrato existentes.

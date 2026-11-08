@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029",
+  "releaseId": "DH-20261107-CRM-NOTIFICATIONS-031",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.11.4",
+  "ecosystemVersion": "1.12.0",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.11.4",
+      "version": "1.12.0",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -96,13 +96,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.3.0",
+      "mergeState": "feature-branch-not-merged"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.11.4",
+      "version": "1.12.0",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -114,8 +114,8 @@
   "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Type-check, tests and SemVer CI gates must pass",
-    "Staging validation required before master promotion",
+    "Dotnet integration tests and frontend type checks must pass",
+    "Dhole CRM migration and Redis notifications need staging delivery verification",
     "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
@@ -124,13 +124,15 @@
     "production": "not authorized"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Pantalla 8 MultiQUO: persisted sub-QUO accordion panels match creation layout",
-    "Read route, carrier, haulage, Ocean Freight, line details and totals from Pricing saved snapshots",
-    "Hide single-tariff financial sections and Vite-generated single-lines table in multi-group review",
-    "Preserve existing route selector and screen 9; no Pricing API changes"
+    "CRM persists owner reminders 5/15/30 minutes (selected lead) and at scheduled start, using notifications outbox and SignalR",
+    "Activities support server-side recurrence every 1, 7, 14 or 30 days",
+    "CRM dispatcher retries idempotently and supports configurable recurring reminders while pending",
+    "DholeWeb calendar exposes activity and reminder recurrence frequency; details show saved settings",
+    "Database migration and regression tests required before staging and production"
   ]
 }
