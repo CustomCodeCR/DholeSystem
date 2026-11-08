@@ -21,6 +21,10 @@ VERBS = {"POST", "PUT", "PATCH", "DELETE"}
 METHOD_CALL = re.compile(r'\bMap(Post|Put|Patch|Delete|Methods)\s*\(', re.S)
 ROUTE = re.compile(r'\bMap(Post|Put|Patch|Delete|Methods)\s*\(\s*"([^"]+)"', re.S)
 WORKER = re.compile(r'\bclass\s+\w+[^\{;]*:\s*[^\{;]*(?:BackgroundService|IHostedService)\b', re.S)
+GROUP_CALL = re.compile(r'\bMapGroup\s*\(', re.S)
+GROUP_LITERAL = re.compile(r'\bMapGroup\s*\(\s*"([^"]+)"', re.S)
+CONTROLLER_MUTATION = re.compile(r'\[\s*Http(?:Post|Put|Patch|Delete)\b', re.I)
+UNMAPPED_MUTABLE_TRANSPORT = re.compile(r'\b(?:MapGraphQL|MapGrpcService|AddGraphQLServer)\s*[<(]', re.I)
 SEMVER = re.compile(r'^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$')
 EVENT = re.compile(r'^[a-z][a-z0-9.-]+\.v[1-9][0-9]*$')
 SOURCE = re.compile(r'^(src/)[A-Za-z0-9_./-]+\.cs$')
@@ -56,6 +60,13 @@ def source_inventory(root: Path) -> tuple[set[tuple[str, str, str]], set[str], l
         calls = list(METHOD_CALL.finditer(data))
         if len(calls) != len(matches):
             problems.append(source + ": nonliteral Map* mutation/MapMethods requires explicit review")
+        groups = GROUP_LITERAL.findall(data)
+        if len(GROUP_CALL.findall(data)) != len(groups) or len(set(groups)) > 1:
+            problems.append(source + ": dynamic/multiple MapGroup prefixes need route-level review")
+        if CONTROLLER_MUTATION.search(data):
+            problems.append(source + ": controller HttpPost/Put/Patch/Delete requires separate route analyzer")
+        if UNMAPPED_MUTABLE_TRANSPORT.search(data):
+            problems.append(source + ": unsupported GraphQL/gRPC may mutate; needs dedicated contract gate")
         for hit in matches:
             verb, route = hit.group(1).upper(), hit.group(2)
             if verb == "METHODS":
@@ -171,6 +182,17 @@ def validate(root: Path, *, registry: Path | None = None) -> list[str]:
         declared.add(operation)
         if operation[1] not in VERBS:
             errors.append("invalid HTTP verb: " + str(operation))
+        # A source with one literal MapGroup has an unambiguous absolute prefix.
+        # Never accept an invented path in the manifest as proof of ACL.
+        source_text = path_inside(root, row["source"]).read_text(encoding="utf-8-sig")
+        prefixes = GROUP_LITERAL.findall(source_text)
+        if len(prefixes) == 1:
+            actual = (prefixes[0].rstrip("/") + "/" + operation[2].lstrip("/")).rstrip("/")
+            declared_path = str(row.get("fullRoute", "")).rstrip("/")
+            if actual != declared_path:
+                errors.append("Full route does not match its owner MapGroup: " + str(operation))
+        elif not filled(row.get("fullRoute")):
+            errors.append("Unreviewed absolute route: " + str(operation))
         for k in ("resourceOwner", "resourceKind", "eventType",
                   "audiencePolicy", "restSnapshot", "frontendConsumer",
                   "scope", "transactionalOutbox", "contractTest",
