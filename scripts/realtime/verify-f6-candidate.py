@@ -17,6 +17,16 @@ EXPECTED = {
     "S01": ("CustomCodeCR/DholeCRMService", "1.5.0", 15),
     "S02": ("CustomCodeCR/DholePricingService", "1.6.0", 3),
     "S03": ("CustomCodeCR/DholeNotificationsService", "1.3.0", 3),
+    "S04": ("CustomCodeCR/DholeAuthService", "1.3.0", 3),
+    "S05": ("CustomCodeCR/DholeConfigService", "1.3.0", 3),
+    "S06": ("CustomCodeCR/DholeAuditLogsService", "1.3.0", 3),
+    "S07": ("CustomCodeCR/DholeStorageService", "1.3.0", 3),
+    "S08": ("CustomCodeCR/DholeDataExtractionService", "1.4.0", 3),
+    "S09": ("CustomCodeCR/DholeReportsService", "1.5.0", 3),
+    "S10": ("CustomCodeCR/DholeDynamicsConnectorService", "1.3.0", 3),
+    "S11": ("CustomCodeCR/DholeAIService", "1.4.0", 3),
+    "S12": ("CustomCodeCR/DholeAgentService", "1.3.0", 3),
+    "S13": ("CustomCodeCR/DholeContentService", "1.3.0", 5),
 }
 FLAGS = (
     "DHOLE_REALTIME_BATCH_ENABLED",
@@ -26,6 +36,9 @@ FLAGS = (
     "DHOLE_REALTIME_PRICING_BRIDGE_ENABLED",
     "DHOLE_REALTIME_CRM_OUTBOX_ENABLED",
     "DHOLE_REALTIME_PRICING_OUTBOX_ENABLED",
+    "DHOLE_REALTIME_CONTENT_OUTBOX_ENABLED",
+    "DHOLE_REALTIME_AGENT_OUTBOX_ENABLED",
+    "DHOLE_REALTIME_UNIVERSAL_SERVICES_BRIDGE_ENABLED",
 )
 
 
@@ -65,18 +78,44 @@ def verify() -> None:
         assert component["flags"]["realtime"] is False
         assert component["developBatchPR"] is None and component["masterBatchPR"] is None
         assert "candidateF6" in " ".join(component), ident
+        if ident in ("S01", "S02", "S03"):
+            assert service["coverage"] == "EN_PROGRESO_GATE_BLOQUEADO", ident
+        else:
+            assert component["candidateF6TestsPassed"] >= minimum, ident
+            assert component["candidateF6FormalGateApproved"] is False
+            assert component["candidateF6FullEndpointInventoryVerified"] is False
+            assert component["candidateF6StagingWssE2EPassed"] is False
+            assert component["candidateF6TestedRun"].startswith(
+                "https://github.com/" + name + "/actions/runs/"
+            ), ident
+            assert service["coverage"] == "IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO", ident
+            assert service["stagingWssE2EVerified"] is False, ident
     for ident, service in services.items():
         assert service["branchPrepared"] is True
-        if ident not in EXPECTED:
-            assert service["coverage"] == "BLOQUEADA", ident
+        assert service["f6FormalApproved"] is False, ident
+    gw = repositories["GW"]
+    assert gw["candidateF604ToF613MappedKinds"] == 18
+    assert gw["candidateF604ToF613SecurityTestsPassed"] >= 126
+    assert gw["candidateF604ToF613FormalGateApproved"] is False
+    # The source coverage CSV is granular and honest about missing end-to-end
+    # coverage: no placeholder F0 inventory row may count as a mapped endpoint.
+    import csv
+    with (ROOT / "docs/realtime/coverage-matrix.csv").open(newline="") as f:
+        mapped = list(csv.DictReader(f))
+    assert len([row for row in mapped
+        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"]) >= 18
+    assert len({row["domain_event"] for row in mapped
+        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"}) >= 18
     for name in FLAGS:
         assert ("${" + name + ":-false}") in compose, name
         assert ("${" + name + ":-true}") not in compose, name
+    assert "Realtime__UniversalServicesBridgeEnabled" in compose
+    assert "Gateway__HealthChecks__dynamics:" in compose
     assert "Realtime__PricingBridgeEnabled" in compose
     assert "Realtime__BatchApproved" in compose
     assert "Realtime__Outbox__Enabled" in compose
-    print("PASS F6_CANDIDATE_REGISTRY: 3 partial modules, 17 repositories, "
-          "13 registered services, flags OFF, no promotion, global 1.13.0 candidate")
+    print("PASS F6_CANDIDATE_REGISTRY: 13 partial services, 18 scoped kinds, 10 isolated"
+          " streams, 17 repositories, flags OFF, NO FORMAL GATE, global 1.13.0 candidate")
 
 
 if __name__ == "__main__":
