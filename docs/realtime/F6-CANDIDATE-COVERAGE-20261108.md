@@ -62,3 +62,10 @@ las mismas ramas, sin romper APIs REST existentes ni anticipar despliegues.
 - DataExtraction: tres endpoints de snapshots REST status-only con scope conservado; CI PASS: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42505716880.
 - AI: snapshot status-only de emailjob; CI PASS: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42505712586.
 - F7 preparatoria: ocho simulaciones de navegador con CI aprobado, C01/C02/C03/C06/C07/C09/C10/C12; **0/14 escenarios formales** ejecutados en staging, seis aún sin escenario F7 siquiera simulado y faltan 10 repeticiones reales C01-C08. No se han resuelto todas las mutaciones F6 ni habilitado flags.
+
+## Addendum: estado pendiente al solicitar F8
+
+- `F0Results/F6-source-mutation-review.csv` en CI [#42507019304](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507019304): 580 candidatos con línea/archivo, 510 rutas mutables y 70 worker/handlers. El inventario técnico está materializado, pero **ningún candidato individual está aprobado automáticamente**. El registro formal no puede declararse cerrado.
+- `agent.execution` ahora tiene vista Vue real `AgentExecutionDetailView.vue`, REST de propietario y caché Pinia purgada si hay revocación. [CI Web #42507658702](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702). Restan 18 clases nuevas del Gateway sin binding específico de UI.
+- Redis RDB→AOF: [ensayo inseguro detectado #42507114616](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507114616) demostró pérdida al simplemente reiniciar con AOF activado; [conversión segura #42507199248](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248) requirió activar AOF con dataset cargado y verificar la reescritura antes de cambiar Compose. Runbook operativo `F6-REDIS-AOF-STAGING-MIGRATION.md`. **No se ejecutó en staging** y no equivale a gate F2/F6.
+- F7: 8 casos web simulados, 3 casos Redis probados en Docker efímero, 1 Dynamics SQL parcial. **0/14 escenarios staging validados**. `nextPhaseF8Authorized=false`. No se han lanzado PRs/merges ni deploys del batch.
