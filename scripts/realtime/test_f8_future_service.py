@@ -99,6 +99,27 @@ class FuturePolicyTests(unittest.TestCase):
         self.assertTrue(any("Stale/imaginary route" in v for v in errors))
         self.assertTrue(any("Unmapped mutable route" in v for v in errors))
 
+    def test_negative_mvc_controller_mutation_needs_independent_analyzer(self):
+        file = self.root / "src/Dhole.FutureSample.Api/OrdersController.cs"
+        file.write_text('[HttpPost("private")] public Task Secret() => Task.CompletedTask;')
+        self.assertTrue(any("controller HttpPost" in e for e in self.check()))
+
+    def test_negative_grpc_or_graphql_mutation_transport_fails(self):
+        self.program.write_text(self.program.read_text() +
+            '\napp.MapGraphQL("/graphql");\n')
+        self.assertTrue(any("GraphQL/gRPC" in e for e in self.check()))
+
+    def test_negative_invented_full_rest_route_fails(self):
+        self.change_manifest(lambda d: d["mutations"][0].update(
+            fullRoute="/api/wrong-owner/orders"))
+        self.assertTrue(any("Full route does not match" in e for e in self.check()))
+
+    def test_negative_nonliteral_group_cannot_hide_routes(self):
+        self.program.write_text(self.program.read_text().replace(
+            'app.MapGroup("/api/future/orders")',
+            'app.MapGroup(builder.Configuration["Routes:Orders"]!)'))
+        self.assertTrue(any("dynamic/multiple MapGroup" in e for e in self.check()))
+
     def test_negative_mismatched_registry_fails(self):
         self.change_manifest(lambda d: d["service"].update(repo="CustomCodeCR/UnregisteredOther"))
         self.assertTrue(any("central registry" in v for v in self.check()))
