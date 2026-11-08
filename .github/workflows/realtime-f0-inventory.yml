@@ -32,6 +32,8 @@ jobs:
         run: python scripts/realtime/f0_scan.py --scan --output F0Results
       - name: Build source-linked F6 mutation and worker review queue (no approval)
         run: python scripts/realtime/f6_mutation_source_review.py --workspace F0Results/working --output F0Results
+      - name: Discover additive dynamic/MVC/worker mutation gaps from real source
+        run: python scripts/realtime/f0_deep_coverage.py --workspace F0Results/working --output F0Results
       - name: Upload audit evidence (never deploy)
         if: always()
         uses: actions/upload-artifact@v4
