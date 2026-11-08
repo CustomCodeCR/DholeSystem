@@ -46,29 +46,52 @@ jobs:
               json.dump(report,f,indent=2)
           print("STAGING_TOPOLOGY_READ_ONLY:",[(p["project"],p["count"]) for p in report["projects"]])
           PY
-      - name: Verify authoritative HTTPS staging health baseline
+      - name: Measure verified staging-only local Gateway route (no production)
         shell: bash
         run: |
           set -euo pipefail
-          test -r /opt/dhole/.env.staging || { echo "STAGING_ENV_ACCESS_MISSING"; exit 1; }
-          api_host="$(python3 - <<'PY'
-          from pathlib import Path
-          entries={}
-          for line in Path("/opt/dhole/.env.staging").read_text().splitlines():
-              if "=" not in line or line.strip().startswith("#"): continue
-              key,value=line.split("=",1)
-              entries[key.strip()]=value.strip().strip("'\"")
-          print(entries.get("DHOLE_API_HOST",""))
+          python3 - <<'PY'
+          import json,subprocess,time,urllib.request,urllib.error
+          from datetime import datetime,timezone
+          cmd=["docker","ps","--filter","label=com.docker.compose.project=dhole-staging",
+               "--filter","label=com.docker.compose.service=api-gateway","--format","{{.Ports}}"]
+          check=subprocess.run(cmd,capture_output=True,text=True,check=True,timeout=15)
+          ports=[s.strip() for s in check.stdout.splitlines() if s.strip()]
+          if len(ports)!=1 or "127.0.0.1:18080->8080/tcp" not in ports[0]:
+              raise RuntimeError("Cannot prove loopback 18080 belongs to staging Gateway; refusing probe.")
+          timings,stat=[],{}
+          url="http://127.0.0.1:18080/health"
+          for n in range(100):
+              start=time.monotonic()
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url,headers={
+                      "Accept":"application/json","Cache-Control":"no-store"}),timeout=5) as resp:
+                      code=resp.status
+                      resp.read(256)
+              except urllib.error.HTTPError as exc:
+                  code=exc.code
+              except (urllib.error.URLError,TimeoutError):
+                  code="network_error"
+              timings.append(round((time.monotonic()-start)*1000,3))
+              stat[str(code)]=stat.get(str(code),0)+1
+              time.sleep(.08)
+          timings.sort()
+          result={"releaseId":"rt-20261107-01","environment":"staging",
+                  "verifiedBy":"running Docker Compose staging container + loopback port map",
+                  "transport":"HTTP localhost gateway (NOT HTTPS/WSS)",
+                  "sampleCount":len(timings),"statusCounts":stat,
+                  "p95Ms":timings[94],"p99Ms":timings[98],
+                  "externalTlsProxyVerified":False,"authenticatedUserScopeVerified":False,
+                  "readOnly":True,"productionModified":False,
+                  "observedAtUtc":datetime.now(timezone.utc).isoformat()}
+          with open("F0Results/staging-local-gateway-baseline.json","w") as f:
+              json.dump(result,f,indent=2)
+          print("F0_STAGING_LOCAL_BASELINE:",len(timings),"GETs; HTTP status counts",stat,
+                "p95Ms",result["p95Ms"],"p99Ms",result["p99Ms"],
+                "; TLS/WSS and authenticated user scopes STILL BLOCKED")
+          if stat != {"200":100}:
+              raise RuntimeError("Staging local gateway health is not 100/100 HTTP 200")
           PY
-          )"
-          [[ "$api_host" =~ ^[A-Za-z0-9.-]+$ && "$api_host" == *staging* ]] || {
-            echo "STAGING_PUBLIC_HOST_NOT_CONFIRMED; refusing to call a potentially production endpoint"
-            exit 2
-          }
-          export DHOLE_GATE_ENV=staging
-          export DHOLE_GATE_STAGING_URL="https://$api_host"
-          python3 scripts/realtime/collect-staging-baseline.py \
-            --samples 100 --output F0Results/staging-https-baseline.json
       - name: Retain read-only evidence (not a deployment)
         if: always()
         uses: actions/upload-artifact@v4
