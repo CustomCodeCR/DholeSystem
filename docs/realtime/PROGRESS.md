@@ -21,7 +21,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - 16/16 repositorios accesibles con permiso push; 16 ramas intermedias nuevas desde el SHA exacto de develop.
 - 16/16 comparaciones develop...master diverged; véase release-manifest.yaml para SHA y conteos.
 - Ningún push, merge o PR hacia develop/master/main. Ningún despliegue.
-- VERSIONADO: versiones existentes inspeccionadas en 16 version.json; la versión de batch global 1.13.0 está PROPUESTA y no aplicada a los servicios.
+- VERSIONADO: baselines inspeccionados en 16 version.json; DholeSystem sube 1.12.3 -> 1.12.4 solo en su intermedia por cambios documentales, con CHANGELOG; la versión global del batch 1.13.0 está PROPUESTA y no aplicada a servicios.
 - Código inspeccionado parcialmente; CRM README está desactualizado frente a código de endpoints.
 - tests de compilación, integración, staging, infraestructura y métricas: NO EJECUTADOS.
 - Inventario 100% endpoints/jobs, ownership SRM/System, configuración viva de Redis/Traefik, instancias y permisos de recursos: BLOQUEADOS por falta de inspección/verificación completa.
