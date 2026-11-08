@@ -7,7 +7,7 @@ phase: F0
 phaseStatus: BLOQUEADA
 batchStatus: BUILDING
 batchVersion:
-  currentGlobalMaxObserved: "1.12.9"
+  currentGlobalMaxObserved: "1.12.10"
   proposedGlobalRelease: "1.13.0"
   proposedOnly: true
 branchPolicy:
@@ -409,8 +409,8 @@ repositories:
     ecosystemVersionBaseline: "1.12.4"
     releaseComponentVersion: "1.13.0"
     candidateForPhase: F4
-    observedDevelopShaAfterBranching: 0cab26357d56ef34ccee6ea25e936ffd6027b0a9
-    observedDevelopVersionAfterBranching: "1.12.9"
+    observedDevelopShaAfterBranching: 3f3f0d102dfe89de74a0a25e4e526fb42964dc89
+    observedDevelopVersionAfterBranching: "1.12.10"
     observedMasterShaAfterBranching: d33cd97b1895993a58ddb7bca7455b0d5602f483
     observedMasterVersionAfterBranching: "1.12.9"
     upstreamMovedSinceBranchCreated: true
