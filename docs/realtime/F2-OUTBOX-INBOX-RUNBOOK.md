@@ -74,4 +74,4 @@ Pruebas requeridas: 1.000 commits → 1.000 eventos lógicos, duplicados idempot
 
 - [CRM durabilidad 7/7 — run 42444761702](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444761702): prueba de 1.000 operaciones y simulación de Redis stream perdido, reconstrucción explícita desde Outbox SQL, deduplicación de proyección; sin pruebas omitidas.
 - [AOF persistencia — run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160): configuración declarada válida y entrada XRANGE sobreviviendo contenedor eliminado/recreado con volumen persistente efímero. Esto no es verificación de despliegue real.
-- Recuperación de PEL de otro consumidor por `XAUTOCLAIM`: código añadido, suite de 8 casos en ejecución; **no declarar PASS hasta que el CI del SHA actualizado lo confirme**.
+- Recuperación de PEL de otro consumidor por `XAUTOCLAIM`: código compilado y prueba aprobada; suite final **10/10** en [CI 42444994037](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037) al SHA `b28ae8278ea28b05624ec30021ada38ad3d8ca21`. El guard de payload también rechazó PII y esquema inválido.
