@@ -271,3 +271,9 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - `realtime-f0-inventory.yml` CI #42526130675: SUCCESS, fuente F6 582 candidatos + 57 firmas adicionales = 639 firmas no deduplicadas por operación, **8/8** pruebas de conciliación aprobadas, 0 revisiones formalmente aprobadas.
 - `realtime-f6-release-guard` CI #42526130697 detectó assert estático `global 1.13.1` al subir versión documental. Se reemplazó por comprobación SemVer de versión candidata vs baseline y consistencia completa de manifiesto/componente/CHANGELOG. Debe verificarse con nuevo CI.
 - Versión candidata DholeSystem/global 1.13.3. **Gates F0–F8 sin aprobar; F9/F10 no ejecutadas.** Ningún cambio de target o despliegue.
+
+## F0/F9 — auditoría de versiones de las 17 ramas (2026-11-08)
+
+- Verificación de solo lectura vía GitHub: CRM/Pricing/Notifications/Auth/Config/Audit/Storage/DataExtraction/Reports/Dynamics/AI/Agent/Content/Gateway/Framework declaran `ecosystemVersion=1.13.0`; Web candidata `1.13.2`; System anterior `1.13.3`. **No están alineadas** y no se puede congelar F9.
+- Añadido `f0_release_versions.py` al CI F0 (clon de 17 ramas): auditoría de versión de componente, SemVer, CHANGELOG, releaseId, SHA, y `ecosystemVersion`. Para F9 exige `--require-f9-ready`, 17 SHAs exactos congelados, F0–F8 aprobados y coherencia global; no cambia servicios ni flags.
+- DholeSystem versión candidata `1.13.4`; propuesta global `1.13.4`, todavía **sin aplicarse** a los demás repos. No se hace bump masivo mientras sigan mutaciones y pruebas pendientes. Formal F9 sigue BLOQUEADA.
