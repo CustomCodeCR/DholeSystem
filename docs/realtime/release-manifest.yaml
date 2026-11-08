@@ -450,6 +450,12 @@ branchRevalidation:
   targetBranchesModifiedByThisBatch: 0
   phaseF0Gate: RECHAZADO
   phaseF1State: PENDIENTE
+  newlyObservedVersions:
+    DholePricingServiceDevelop: '1.5.8'
+    DholeWebDevelop: '1.12.5'
+    DholeWebMaster: '1.12.5'
+    maxObservedCurrentComponentVersion: '1.12.5'
+    proposedGlobalReleaseStillUnapproved: '1.13.0'
   drift:
     - repo: CustomCodeCR/DholePricingService
       target: develop
