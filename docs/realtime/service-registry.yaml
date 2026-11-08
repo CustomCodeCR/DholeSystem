@@ -41,7 +41,12 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: EXISTING_NOTIFICATIONS_HUB_RECIPIENT_POLICY_AND_BOUNDED_RELAY
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
   - id: S04
     repo: CustomCodeCR/DholeAuthService
     name: Auth
