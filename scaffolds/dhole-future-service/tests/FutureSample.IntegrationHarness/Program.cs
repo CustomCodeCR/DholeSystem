@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Npgsql;
 using StackExchange.Redis;
 
-var pg = Environment.GetEnvironmentVariable("F8_TEST_POSTGRES")
+var pg = Environment.GetEnvironmentVariable("F8_TEST_POSTGRES_DOTNET")
     ?? throw new InvalidOperationException("F8_TEST_POSTGRES required");
 var command = args.Length == 1 ? args[0] : throw new ArgumentException("seed|publish|redeliver");
 var db = NpgsqlDataSource.Create(pg);
