@@ -56,3 +56,10 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [CI F1 run 42443081145](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145) **PASSED** en framework, compilación sin errores y **42/42** pruebas unitarias. Detalles en `test-evidence/F1-contract-tests-42443081145.md`.
 - F0 permanece `BLOQUEADA` porque el escáner no demuestra rutas/jobs 100% trazados, permisos, dueños System completos, proxy/realtime efectivo ni baseline de carga en servidores. F1 `EN_PROGRESO` de forma preliminar, sin gate F1 formal aprobado; F2 prohibida.
 - Control de versión: DholeSystem `1.13.0` candidato y framework `0.3.0` candidato. Release global **NO PUBLICADO**. No PRs a develop/master, no merges, no staging/prod, flags OFF.
+
+## Última comprobación F0 de guard CI (2026-11-07 local)
+
+- `scripts/realtime/verify-branch-policy.py` agregado y ejecutado: **BRANCH_POLICY_OK** sobre manifiesto de 17 repos, flags OFF y sin PRs prematuros.
+- [CI F0 con guard explícito, run 42443654263](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443654263): **success**, 17/17 intermedias, inventario 928 rutas / 67 handlers / 13 clientes REST candidatos. SHA probado del workflow `9100480d703b1d6a534c7130314fd1b626858a7b`.
+- Auditoría de branch protections nativas: `GET /branches/develop/protection` de DholeSystem y `GET /branches/master/protection` de framework dieron **403** al conector. Evidencia en `test-evidence/F0-branch-protections-access.md`; enforcement nativo NO VERIFICADO. El guard del pipeline **no sustituye reglas de protección reales**.
+- **F0 BLOQUEADA; F1 EN_PROGRESO preliminar con 42 pruebas aprobadas.** No continuar a F2, no merges, no despliegues.
