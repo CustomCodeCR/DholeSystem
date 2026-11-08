@@ -5,6 +5,7 @@ planVersion: "2.1.0"
 phase: F7
 status: PREPARACION_TECNICA_GATE_F6_BLOQUEADO
 formalApproved: false
+nextPhaseF8Authorized: false
 sequentialF6Approved: false
 stagingTestsExecuted: false
 noDevelopOrMasterMerge: true
