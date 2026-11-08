@@ -28,7 +28,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: EN_PROGRESO_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.6.0"
+    candidateReleaseVersion: "1.6.1"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: RATEHEADER_EXISTING_OUTBOX_SEPARATE_STREAM
     fullEndpointAndWorkerMappingVerified: false

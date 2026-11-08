@@ -307,3 +307,10 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - `verify_f9_draft_batch.py` valida que la lista de PR contiene exactamente los 17 repos de manifiesto, fuente/target esperados, URLs correctos y estado DRAFT; la CI no interpreta PR abiertas como gates aprobados.
 - F10 queda preparado con guard `verify_f10_production_preflight.py`, ejecutado como primera operación tras checkout del workflow producción. Usuario autorizó avanzar, pero el guard exige pruebas F0–F8, F9 17 merges, 14/14 caos, copia/restore real, rollback y prueba de misma versión congelada a master. **Todos los campos operativos continúan false**.
 - Ningún merge a develop/master ni despliegue en staging/producción ocurrió. DholeSystem propuesta `1.13.8`; el resto de ecosystemVersion aún desalineado, F9/F10 formales BLOQUEADOS.
+
+## F9 — resolve actual develop divergence via two-parent merge (2026-11-08)
+
+- Pricing merged upstream parent `650bfe0a203cf387d372eec887d2395c132877dd` into its realtime feature branch, SHA `e8386e035d5c99ee6b8137c9c8d04048ed63c4d0`: full 1.5.8–1.5.18 changelog, 8 historical release documents, metadata 1.6.1, functional F6 code retained.
+- System merged all 6 current develop commits via a two-parent commit, preserving upstream historical release manifest `DH-20261108-PRICING-COMMERCIAL-TERMS-037` and CHANGELOG 1.12.6. Candidate version 1.13.9; Pricing registry and central manifest synchronized, F6 guard updated.
+- Los cambios se hicieron **solo** en las dos ramas intermedias, preservando los fixes de develop; PR #152 Pricing y PR #160 System continúan draft hasta aprobar gates/CI.
+- No se realizaron merges a develop/master ni despliegues. Versión global sigue sin alinearse con los otros 15 repos, y F0/F7 formales continúan bloqueados.

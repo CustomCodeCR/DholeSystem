@@ -16,7 +16,7 @@ RELEASE = "rt-20261107-01"
 BRANCH = "feature/dhole-realtime-universal-rt-20261107-01"
 EXPECTED = {
     "S01": ("CustomCodeCR/DholeCRMService", "1.5.0", 15),
-    "S02": ("CustomCodeCR/DholePricingService", "1.6.0", 3),
+    "S02": ("CustomCodeCR/DholePricingService", "1.6.1", 3),
     "S03": ("CustomCodeCR/DholeNotificationsService", "1.3.0", 3),
     "S04": ("CustomCodeCR/DholeAuthService", "1.3.0", 3),
     "S05": ("CustomCodeCR/DholeConfigService", "1.3.0", 4),

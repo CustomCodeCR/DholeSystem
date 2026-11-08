@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.13.1",
+  "ecosystemVersion": "1.13.9",
   "status": "candidate-incomplete",
   "branches": [
     "develop",
@@ -19,7 +19,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.6.0",
+      "version": "1.6.1",
       "branch": "feature/dhole-realtime-universal-rt-20261107-01",
       "mergeState": "candidate-not-merged"
     },
@@ -110,14 +110,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.13.1",
+      "version": "1.13.2",
       "branch": "feature/dhole-realtime-universal-rt-20261107-01",
       "mergeState": "candidate-not-merged"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.13.1",
+      "version": "1.13.9",
       "branch": "feature/dhole-realtime-universal-rt-20261107-01",
       "mergeState": "candidate-not-merged"
     },
@@ -136,5 +136,26 @@
     "webRegression": "628 pass / 34 existing failures",
     "staging": "not executed",
     "formalGates": "not approved"
-  }
+  },
+  "releaseComponents": [
+    "DholeCRMService",
+    "DholePricingService",
+    "DholeNotificationsService",
+    "DholeAuthService",
+    "DholeConfigService",
+    "DholeAuditLogsService",
+    "DholeStorageService",
+    "DholeDataExtractionService",
+    "DholeReportsService",
+    "DholeDynamicsConnectorService",
+    "DholeAIService",
+    "DholeAgentService",
+    "DholeContentService",
+    "DholeApiGateway",
+    "DholeWeb",
+    "DholeSystem",
+    "CustomCodeFramework"
+  ],
+  "previousReleaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037",
+  "previousReleaseManifestArchive": "docs/realtime/history/develop-release-manifest-DH-20261108-PRICING-COMMERCIAL-TERMS-037.json"
 }

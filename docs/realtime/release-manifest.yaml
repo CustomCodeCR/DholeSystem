@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.8"
+  proposedGlobalRelease: "1.13.9"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -95,7 +95,7 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.5.7"
     ecosystemVersionBaseline: "1.12.4"
-    releaseComponentVersion: "1.6.0"
+    releaseComponentVersion: "1.6.1"
     candidateForPhase: F6.02
     candidateF602Status: IMPLEMENTATION_CANDIDATE_CI_PASS_NOT_FORMAL_GATE
     candidateF602TestedSha: 99a855fb588e0169604d43512dd239a4b5546434
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.8"
+    releaseComponentVersion: "1.13.9"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1094,3 +1094,14 @@ f9F10DraftPreparation20261108:
   productionApproval: docs/realtime/f10-production-approval.json
   productionApproved: false
   formalF10Approved: false
+
+f9UpstreamReconciliation20261108:
+  systemDevelopParent: "ebbbaa031f37f10611433b77403da5820ae03345"
+  systemFeatureMergeVersion: "1.13.9"
+  pricingDevelopParent: "650bfe0a203cf387d372eec887d2395c132877dd"
+  pricingFeatureMergeSha: "e8386e035d5c99ee6b8137c9c8d04048ed63c4d0"
+  pricingFeatureMergeVersion: "1.6.1"
+  all17FeatureBranchesIncludeLatestDevelop: true
+  historicalDevelopManifestArchived: true
+  targetBranchesModified: false
+  formalF9Approved: false

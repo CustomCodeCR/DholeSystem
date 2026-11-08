@@ -13,7 +13,7 @@ stagingValidated: false
 notes:
   - "Existing realtime code is candidate-only; all flags remain OFF."
   - "Do not merge any F9 PR while Redis staging AOF OFF or F7 staging 0/14."
-  - "Pricing and System diverged from develop; must reconcile before merge."
+  - "Pricing and System upstream commits merged into feature branches at exact checked SHAs; review CI and remaining release gates."
 pullRequests:
   - repository: CustomCodeCR/DholeCRMService
     number: 48
@@ -26,7 +26,7 @@ pullRequests:
     url: https://github.com/CustomCodeCR/DholePricingService/pull/152
     state: DRAFT
     mergeAuthorized: false
-    upstreamReconciliationNeeded: true
+    upstreamReconciliationNeeded: false
   - repository: CustomCodeCR/DholeNotificationsService
     number: 12
     url: https://github.com/CustomCodeCR/DholeNotificationsService/pull/12
@@ -110,7 +110,7 @@ pullRequests:
     url: https://github.com/CustomCodeCR/DholeSystem/pull/160
     state: DRAFT
     mergeAuthorized: false
-    upstreamReconciliationNeeded: true
+    upstreamReconciliationNeeded: false
   - repository: CustomCodeCR/CustomCodeFramework
     number: 1
     url: https://github.com/CustomCodeCR/CustomCodeFramework/pull/1
