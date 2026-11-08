@@ -407,7 +407,14 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.12.4"
     ecosystemVersionBaseline: "1.12.4"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.13.0"
+    candidateForPhase: F4
+    observedDevelopShaAfterBranching: 0cab26357d56ef34ccee6ea25e936ffd6027b0a9
+    observedDevelopVersionAfterBranching: "1.12.9"
+    observedMasterShaAfterBranching: a5743703d1562495dec6324e1ad3957f9d85c1fc
+    observedMasterVersionAfterBranching: "1.12.8"
+    upstreamMovedSinceBranchCreated: true
+    mergeReconciliationPendingF9: true
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -684,3 +691,58 @@ f3GatewayHubCandidate:
   adr: docs/realtime/ADRs/0002-gateway-hub-authorization.md
   runbook: docs/realtime/F3-HUB-GATEWAY-RUNBOOK.md
   formalAcceptance: BLOQUEADA_POR_GATES_Y_PRUEBAS_OPERATIVAS
+
+f4VueClientCandidate:
+  status: IMPLEMENTACION_PRELIMINAR_EN_RAMA_INTERMEDIA
+  gateF0Approved: false
+  gateF1Approved: false
+  gateF2Approved: false
+  gateF3Approved: false
+  gateF4Approved: false
+  repository: CustomCodeCR/DholeWeb
+  branch: feature/dhole-realtime-universal-rt-20261107-01
+  baselineComponentVersion: "1.12.4"
+  candidateComponentVersion: "1.13.0"
+  proposedGlobalVersion: "1.13.0"
+  singleton: src/core/realtime/universalRealtime.ts
+  coreStateMachine: src/core/realtime/realtimeManager.ts
+  composable: src/core/realtime/useResourceRealtime.ts
+  resourceKinds: [crm.account, pricing.rate]
+  pilotViews:
+    - src/modules/crm/views/CrmRecordDetailView.vue
+    - src/modules/pricing/views/PricingRateReadOnlyView.vue
+  authStateIsolation: logout_and_identity_change_drain
+  statusStates: [connecting, connected, reconnecting, degraded, offline, unauthorized]
+  initialHandshakeTimeoutSeconds: 8
+  reconnectBackoffMs: [0, 2000, 5000, 10000, 30000]
+  reconnectJitterFraction: 0.25
+  pollingFallbackMinMs: 5000
+  pollingFallbackMaxMs: 30000
+  lastAppliedVersionGuard: true
+  duplicateEventCapacity: 2048
+  dirtyDraftMayBeOverwritten: false
+  mutationRetriesByRealtimeClient: false
+  runtimeFlags:
+    VITE_DHOLE_REALTIME_ENABLED: false
+    VITE_DHOLE_REALTIME_BATCH_APPROVED: false
+    VITE_DHOLE_REALTIME_RELEASE: rt-20261107-01
+  frontendFeatureActivated: false
+  ciWorkflow: .github/workflows/realtime-f4-web.yml
+  firstCompleteGreenCi:
+    workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447856745
+    testedSha: 54620a45c116850d6379478786097c81e3521572
+    managerTestsPassed: 11
+    managerTestsFailed: 0
+    legacyCrmAndPricingTestsPassed: 91
+    typecheck: PASSED
+    frontendBuild: PASSED
+  latestSecurityChangeCi:
+    workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191
+    conclusion: PENDIENTE
+  liveStagingWebSocketAuthVerified: false
+  realVueMountUnmount100Validated: false
+  realTwoUserEndToEndVerified: false
+  realApiDegradedFallbackObserved: false
+  batchReady: false
+  runbook: docs/realtime/F4-VUE-CLIENT-OFFLINE.md
+  phaseAcceptance: BLOQUEADA_POR_PREVIOUS_GATES_AND_STAGING
