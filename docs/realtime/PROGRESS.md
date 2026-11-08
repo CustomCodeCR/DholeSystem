@@ -8,7 +8,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | F1 | EN_PROGRESO | NO APROBADO | Contratos preliminares aislados; 42/42 pruebas CI, pero F0 todavía bloqueada y faltan integración/cobertura |
 | F2 | PRELIMINAR | NO APROBADO | Piloto PostgreSQL/Redis en rama CRM, suite de integración en CI; F0/F1 siguen bloqueando el gate |
 | F3 | IMPLEMENTACION_PRELIMINAR | NO APROBADO | Hub/bridge Gateway, 99/99 pruebas CI, pero WSS/Auth staging sin certificar |
-| F4 | IMPLEMENTACION_PRELIMINAR | NO APROBADO | Cliente Vue, REST fallback y piloto CRM/Pricing; CI aislada, no staging |
+| F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; 2 vistas piloto reconciliadas por REST simulado |
 | F5 | PENDIENTE | NO EVALUADO | Piloto vertical |
 | F6.01–F6.13 | PENDIENTE | NO EVALUADO | 0/13 servicios aprobados |
 | F7 | PENDIENTE | NO EVALUADO | 0/14 casos ejecutados |
@@ -101,7 +101,15 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - Reintentos con jitter y control de falla **inicial**; en reconexión vuelve a suscribir y a hacer GET REST autoritativo de recursos activos; polling escalonado mientras WSS no funciona. Tab oculta/offline suspende reconexiones y GET, reanuda al volver.
 - 2 vistas piloto conectadas a REST: CRM account y Pricing rate detail. Versionado/duplicados protegidos, conflictos de formulario detectados sin reemplazar edición; revocación 401/403/404 borra información anteriormente mostrada.
 - [CI F4 final run 42447931191](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191) sobre SHA exacto `ed6271db6b32fb33accc1dec2c106e66672ef923`: **SUCCESS**, 11/11 tests F4, 91/91 regresiones CRM/Pricing, `pnpm --frozen-lockfile`, `version:check`, type-check y build producción **PASS**. Incluye las correcciones de seguridad de permisos revocados. Artefacto CI `13604711151`, evidencia `test-evidence/F4-vue-offline-ci.md`.
-- Ver documentación `docs/realtime/F4-VUE-CLIENT-OFFLINE.md`. Pruebas del gate pendientes: 100 montajes Vue reales (la suite actual hace 100 ciclos de suscripción), 2 usuarios de staging por WSS, simulación navegador offline, autorización real, y cierres F0–F3.
+- Ver documentación `docs/realtime/F4-VUE-CLIENT-OFFLINE.md`. Se verificaron ya 200 montajes Vue reales en Chromium con 0 fugas sostenidas de listeners/sockets; siguen pendientes 2 usuarios de staging por WSS, autorización real y cierres F0–F3.
 - **No integrar ni desplegar**. Flags `VITE_DHOLE_REALTIME_ENABLED` y `VITE_DHOLE_REALTIME_BATCH_APPROVED` permanecen ausentes/apagados; las rutas originales REST siguen funcionando.
 - `develop/master` de Web avanzaron desde crear la rama (última observación: develop/master v1.12.9; ambos SHAs auditados en manifiesto). No reescribir nada: conciliar en F9 desde SHAs nuevos y realizar CI de regresión antes de cualquier PR único.
 - **Gate F4 = NO APROBADO**; F5 no iniciado.
+
+### F4 — cierre de implementación aislada (sin aprobación formal de fase)
+
+- **Evidencia final CI:** [DholeWeb #42448772988](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42448772988), SHA probado exacto `0ac843361b51446967b2f8706a62cf137dce3785`. Workflow **SUCCESS**: 12/12 pruebas del gestor, 91/91 regresiones CRM/Pricing, `version:check`, `type-check`, build con flags apagados.
+- **Chromium real + Vue:** 200 montajes/desmontajes, 0 observadores sobrantes, 0 aumento listeners window/document, 0 aumento sockets, sin crecimiento sostenido de heap en segundo lote (−755188 bytes). Detalles completos en `test-evidence/F4-vue-offline-ci.md`.
+- **Navegador multiusuario simulado:** usuario A en dos pestañas, usuario B en una, usuario C denegado 403; ambas vistas piloto (`crm.account`, `pricing.rate`) reconciliaron los snapshots REST mock por GET sin escribir, y CRM preservó los formularios sucios y detectó conflicto. **Esto no equivale a Auth/CRM/Pricing real en staging**.
+- Caso adicional 12: si llega una nueva invalidación durante GET lento, el cliente programa la segunda lectura tras completar la primera. Se evita perder actualizaciones.
+- **IMPLEMENTACIÓN F4 FINALIZADA EN RAMA, GATE FORMAL NO APROBADO**: F0–F3 siguen pendientes; WSS por Traefik, control multiusuario con permisos efectivos reales y escenarios de reconexión en staging no se han ejecutado. No F5, no merge, no despliegue ni activación.
