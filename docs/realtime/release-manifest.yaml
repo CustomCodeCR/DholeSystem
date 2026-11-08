@@ -540,3 +540,33 @@ sharedContractsF1:
   allServicesIntegrated: false
   catalog: docs/realtime/event-catalog.draft.yaml
   furtherTestingNeeded: [F0_completion, multi_service_contract_integration, authorization_allowlists, schema_evolution_compatibility]
+
+f0StaticAudit:
+  workflowRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443461440
+  workflowCommitSha: d58fb61673ee4b7029619642675e816ac33e92e0
+  policyShape: PASSED
+  reposClonedReadOnly: 17
+  routeCandidates: 928
+  workerFileCandidates: 67
+  frontendApiFileCandidates: 13
+  rawSourceFileCandidates: 646
+  completeMutableEndpointCoverage: false
+  actualInfrastructureVerified: false
+  realLoadBaselineMeasured: false
+  gateF0: RECHAZADO
+  artifacts:
+    inventory: 13601988174
+    policyReport: 13602347144
+    documentation: docs/realtime/test-evidence/F0-actions-audit-42443461440.md
+currentReleaseControl:
+  ecosysVersionBaselineObserved20261107: '1.12.6'
+  proposedBatchVersion: '1.13.0'
+  proposedBatchVersionStatus: CANDIDATE_NOT_PUBLISHED
+  dholeSystemIntermediateVersion: '1.13.0'
+  sharedFrameworkIntermediateVersion: '0.3.0'
+  ecosystemVersionAlignedAcrossAllServices: false
+  serviceReleaseVersionsFrozen: false
+  batchReadyForDevelop: false
+  batchReadyForMaster: false
+  noRealtimeFunctionEnabled: true
+  noMergeOrDeploymentExecuted: true
