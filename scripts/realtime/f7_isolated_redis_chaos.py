@@ -76,7 +76,7 @@ def test_c04(r: redis.Redis, port: int, container: str, volume: str) -> tuple[re
     append_only_ready(r)
     after = {fields["event_id"] for _, fields in r.xrange(name)}
     assert after == before, "C04: lost Redis stream event after restart"
-    return r, {"candidate": "PASS", "iterations": 10, "retained": len(after),
+    return r, {"candidate": "PASS", "restartIterations": 1, "eventsRetained": len(after),
                "fault": "Redis Docker container replaced with same private AOF volume"}
 
 
@@ -168,7 +168,7 @@ def main() -> None:
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    print("F7_CI_EPHEMERAL_PASS C04=10 Redis AOF restarts C05=10 Inbox ACK retries "
+    print("F7_CI_EPHEMERAL_PASS C04=10 persisted events, 1 AOF restart; C05=10 Inbox ACK retries "
           "C11=1200 backlog drained; staging NOT checked; formal F7 0/14")
 
 
