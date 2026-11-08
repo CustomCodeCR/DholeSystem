@@ -37,3 +37,5 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - `DholeWeb/src/modules/srm/services/srmApi.ts` documenta rutas SRM `/api/config/srm` y comenta que son responsabilidad de Config. **Candidato de propietario DholeConfigService**; falta corroborar endpoints e implementación backend.
 - F0 sigue **BLOQUEADA / RECHAZADO**. F1 sigue **PENDIENTE / NO INICIADA** por gate obligatorio (inventario 100%, infra real y baseline de carga no demostrados). No se han creado contratos ni ejecutado sus >=20 pruebas.
 - Sin cambios funcionales, flags activos, merges, PRs a targets ni despliegues. Los cambios de este chequeo son exclusivamente documentos en intermedia DholeSystem.
+
+- Addendum posterior: `DholeSystem/develop` también avanzó **+6 commits** hasta `ebbbaa031f37f10611433b77403da5820ae03345`, versión `1.12.6` (CHANGELOG, `release-manifest.json`, `version.json`). Su rama intermedia no fue movida, y su versión documental 1.12.4 debe reconciliarse con cambios ajenos antes de cualquier release.
