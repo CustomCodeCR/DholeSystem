@@ -6,6 +6,10 @@ on:
       - 'scaffolds/dhole-future-service/**'
       - 'scripts/realtime/verify-f8-future-service.py'
       - 'scripts/realtime/test_f8_future_service.py'
+      - 'scripts/realtime/scaffold-future-service.py'
+      - 'scripts/realtime/test_f8_scaffold.py'
+      - 'scaffolds/realtime-future-enforcement.yml'
+      - 'scaffolds/realtime-future-PR-template.md'
       - 'docs/realtime/service-registry.yaml'
       - '.github/workflows/realtime-f8-future-service.yml'
   pull_request:
@@ -14,6 +18,10 @@ on:
       - 'scaffolds/dhole-future-service/**'
       - 'scripts/realtime/verify-f8-future-service.py'
       - 'scripts/realtime/test_f8_future_service.py'
+      - 'scripts/realtime/scaffold-future-service.py'
+      - 'scripts/realtime/test_f8_scaffold.py'
+      - 'scaffolds/realtime-future-enforcement.yml'
+      - 'scaffolds/realtime-future-PR-template.md'
       - 'docs/realtime/service-registry.yaml'
       - '.github/workflows/realtime-f8-future-service.yml'
   workflow_dispatch:
@@ -32,10 +40,12 @@ jobs:
         run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
       - name: Python compile + validate registered sample
         run: |
-          python -m py_compile scripts/realtime/verify-f8-future-service.py scripts/realtime/test_f8_future_service.py
+          python -m py_compile scripts/realtime/verify-f8-future-service.py scripts/realtime/test_f8_future_service.py scripts/realtime/scaffold-future-service.py scripts/realtime/test_f8_scaffold.py
           python scripts/realtime/verify-f8-future-service.py --service-root scaffolds/dhole-future-service --registry docs/realtime/service-registry.yaml
       - name: Verify new untracked route/worker, invalid ACL, stale mapping, rogue Hub all fail
-        run: python -m unittest scripts/realtime/test_f8_future_service.py -v
+        run: |
+          python -m unittest scripts/realtime/test_f8_future_service.py -v
+          python -m unittest scripts/realtime/test_f8_scaffold.py -v
       - name: Do not authorize formal F8 or F9 through this candidate workflow
         run: |
           python - <<'PY'
