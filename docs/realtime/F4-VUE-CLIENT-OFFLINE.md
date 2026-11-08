@@ -45,7 +45,7 @@
 
 Workflow `DholeWeb/.github/workflows/realtime-f4-web.yml`: Node 24, instalación frozen pnpm, `version:check`, `tests/realtimeF4Manager.test.ts`, regresiones CRM/Pricing, `vue-tsc` y build frontend con flags off. Casos: **100** iteraciones de attach/detach, **30** cierres inesperados y re-suscripciones, **30** fallos iniciales simulados seguidos de recuperación, aislamiento de 1 socket/pestaña, online/offline, pestaña visible, dedupe, versión fuera de orden, conflicto de edición y token expirado. Las pruebas del gestor se complementan con **200 montajes/desmontajes reales de componentes Vue en Chromium** mediante un fixture de navegador y composable real. Se auditaron listeners window/document, sockets y heap entre dos tandas de 100, sin fuga observada; ver evidencia de CI. No se han probado aún navegadores/servidores reales de staging.
 
-**Pendiente** la última conclusión/commit de CI, WSS público y Auth real, pruebas de reconciliación de todas las vistas piloto con 2 usuarios de staging y 0 fugas entre tenants.
+**CI F4 concluido** en el SHA probado del bloque final de este documento. **Pendientes para aprobar gate formal:** WSS público y Auth real, dos usuarios autorizados en staging, permisos/tenants reales, cierre de F0–F3 y despliegue controlado futuro según F9. Los tests aislados no sustituyen esos prerrequisitos.
 
 ## Rollback
 
