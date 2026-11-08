@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.11.3",
-  "ecosystemVersion": "1.11.3",
-  "releaseId": "DH-20261107-FCL-HAULAGE-HANDOFF-028"
+  "version": "1.11.4",
+  "ecosystemVersion": "1.11.4",
+  "releaseId": "DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029"
 }
