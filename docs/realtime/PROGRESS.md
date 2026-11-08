@@ -4,14 +4,14 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 
 | Fase | Estado | Gate | Observación |
 |---|---|---|---|
-| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.52 ms (última reauditoría); 580 candidatos de fuente sin mapeo verificado y WSS/ACL pendientes |
+| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.52 ms (última reauditoría); 582 candidatos fuente (512 rutas/70 workers) sin mapeo verificado y WSS/ACL pendientes |
 | F1 | CRITERIOS_TÉCNICOS_PASS | APROBACIÓN SECUENCIAL BLOQUEADA | 44/44 .NET8, contrato con productor CRM F2, falta aprobación F0 |
 | F2 | DURABILIDAD_Y_REST_CRM_TESTSERVER_PASS | BLOQUEADO | 14/14 en CI; Redis real de staging observado con AOF OFF; requiere migración segura y prueba restauración |
 | F3 | DOS_INSTANCIAS_CI_PASS | BLOQUEADO | 100/100, reinicio cursor durable; falta WSS TLS por Traefik y Auth/ACL staging |
 | F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; CRM/Pricing pilotos y Agent detalle por REST con tests CI (3 vistas, falta E2E staging) |
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
-| F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128; 1 vista Agent agregada. Siguen 580 candidatos fuente sin revisión, AOF staging y WSS/ACL reales pendientes |
+| F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128; 1 vista Agent agregada. Siguen 582 candidatos fuente sin revisión, AOF staging y WSS/ACL reales pendientes |
 | F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 simulaciones web + 3 ensayos Redis CI + 1 SQL Dynamics parcial; 0/14 caos formal staging; F6 bloqueada |
 | F8 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATE FORMAL BLOQUEADO POR F0–F7 | 20/20 pruebas políticas/scaffold, .NET8+PostgreSQL+Redis recuperación CI PASS; sample S14 no desplegable; faltan Gateway/ACL/WSS reales, protección nativa y F7 14/14 |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
@@ -240,4 +240,10 @@ No se han tocado develop/master/main ni desplegado los flags de este batch.
 - `scripts/realtime/scaffold-future-service.py`: generador de nuevos repos sin operaciones Git ni overwrite; crea propuesta central de registry, workflow requerido por PR, plantilla de revisión y tests. [CI #42510886857](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511408397) valida su salida con DholeBillingService v1.14.0 sintético.
 - `scripts/realtime/verify-f8-formal-gate.py` y `gate-evidence.f8.yaml` mantienen `formalApproved=false` y `nextPhaseF9Authorized=false`. [CI #42511053160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511053160) PASS del bloqueo intencional, **no** una aprobación.
 - Intento de verificar protecciones GitHub `develop/master` devolvió **HTTP 403 Resource not accessible by integration** para ambas; endpoint `rulesets` expuso lista vacía. No hay evidencia suficiente de checks requeridos activos. Se definirá la protección con permisos administrativos en el batch F9/F10.
-- **Bloqueos aún absolutos:** F0 580 candidatos fuente por revisar; F2 AOF runtime staging=OFF; F3 WSS/TLS/JWT/ACL reales; F5 multiusuario; F6 vistas y mutaciones sin cobertura total; F7 0/14 staging; F8 ejemplo no integrado a Hub real ni a infraestructura/CI de un servicio efectivamente nuevo.
+- **Bloqueos aún absolutos:** F0 582 candidatos fuente por revisar; F2 AOF runtime staging=OFF; F3 WSS/TLS/JWT/ACL reales; F5 multiusuario; F6 vistas y mutaciones sin cobertura total; F7 0/14 staging; F8 ejemplo no integrado a Hub real ni a infraestructura/CI de un servicio efectivamente nuevo.
+
+## Exploración F0 adicional — 2026-11-08, CI real de 17 branches
+
+- [Inventario #42511529610](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610) **SUCCESS**; la nueva lectura de código fuente (ramas intermedias) registra **512 rutas mutables candidatas y 70 ficheros worker = 582 filas sin validación** (antes 510+70=580). Los cambios entre lecturas prueban que el inventario todavía no está congelado; no asumir que se cerró.
+- Nueva exploración `scripts/realtime/f0_deep_coverage.py` encuentra **57 firmas adicionales a revisar**, clasificadas como 6 rutas dinámicas, 9 tecnologías GraphQL/gRPC y 42 declaraciones de hosted workers; pueden coincidir con las 582 filas ya registradas. `F0-additional-source-gaps.csv` y `F0-additional-source-gaps.json` disponibles en el artifact de CI. **0 aprobadas**, no sumar firmas a total sin deduplicar.
+- El gate de source coverage sigue BLOQUEADO hasta revisión de verb+ruta efectiva+ACL+Outbox/Inbox+audiencia+consumidor+test por cada operación. Último estado staging conocido: Redis AOF OFF, WSS/ACL JWT sin prueba real, F7 0/14.
