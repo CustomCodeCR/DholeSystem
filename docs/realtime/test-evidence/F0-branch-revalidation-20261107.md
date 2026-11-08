@@ -46,3 +46,7 @@ Conector GitHub: `fetch_commit` de las tres referencias por repositorio (`develo
 - F1: contratos compilables y 20 pruebas representativas **NO INICIADAS / NO EJECUTADAS**. No se han aplicado cambios de código F1.
 - F9/F10: no abiertos, no PR, no merges, no staging ni producción.
 - Próxima acción permitida: finalizar F0, revalidar bases cuando corresponda, registrar pruebas y obtener aprobación formal del gate. **No continuar a F1 mientras F0 permanezca bloqueada.**
+
+## Addendum — cambio concurrente detectado tras generar tabla anterior
+
+Una lectura posterior de `DholeSystem/develop` devolvió `ebbbaa031f37f10611433b77403da5820ae03345`, diferente del baseline `9040bb00df39a95bc56cf68f3334d03ce9ac25d4`. La comparación muestra fast-forward **+6 commits**, 0 commits behind, afectando `CHANGELOG.md`, `release-manifest.json` y `version.json`; la versión observada en develop es **1.12.6**. La fila original de DholeSystem refleja la instantánea anterior y NO es el estado más reciente. Ningún commit de este batch fue dirigido a develop. Este nuevo drift se mantiene fuera de la intermedia y debe reconciliarse de forma segura antes de promover.
