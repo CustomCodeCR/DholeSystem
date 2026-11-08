@@ -18,7 +18,7 @@ EXPECTED = {
     "S02": ("CustomCodeCR/DholePricingService", "1.6.0", 3),
     "S03": ("CustomCodeCR/DholeNotificationsService", "1.3.0", 3),
     "S04": ("CustomCodeCR/DholeAuthService", "1.3.0", 3),
-    "S05": ("CustomCodeCR/DholeConfigService", "1.3.0", 3),
+    "S05": ("CustomCodeCR/DholeConfigService", "1.3.0", 4),
     "S06": ("CustomCodeCR/DholeAuditLogsService", "1.3.0", 3),
     "S07": ("CustomCodeCR/DholeStorageService", "1.3.0", 3),
     "S08": ("CustomCodeCR/DholeDataExtractionService", "1.4.0", 3),
@@ -94,8 +94,8 @@ def verify() -> None:
         assert service["branchPrepared"] is True
         assert service["f6FormalApproved"] is False, ident
     gw = repositories["GW"]
-    assert gw["candidateF604ToF613MappedKinds"] == 18
-    assert gw["candidateF604ToF613SecurityTestsPassed"] >= 126
+    assert gw["candidateF604ToF613MappedKinds"] == 19
+    assert gw["candidateF604ToF613SecurityTestsPassed"] >= 128
     assert gw["candidateF604ToF613FormalGateApproved"] is False
     # The source coverage CSV is granular and honest about missing end-to-end
     # coverage: no placeholder F0 inventory row may count as a mapped endpoint.
@@ -103,9 +103,9 @@ def verify() -> None:
     with (ROOT / "docs/realtime/coverage-matrix.csv").open(newline="") as f:
         mapped = list(csv.DictReader(f))
     assert len([row for row in mapped
-        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"]) >= 18
+        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"]) >= 19
     assert len({row["domain_event"] for row in mapped
-        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"}) >= 18
+        if row["status"] == "IMPLEMENTACION_CANDIDATA_GATES_BLOQUEADOS"}) >= 19
     for name in FLAGS:
         assert ("${" + name + ":-false}") in compose, name
         assert ("${" + name + ":-true}") not in compose, name
@@ -114,7 +114,7 @@ def verify() -> None:
     assert "Realtime__PricingBridgeEnabled" in compose
     assert "Realtime__BatchApproved" in compose
     assert "Realtime__Outbox__Enabled" in compose
-    print("PASS F6_CANDIDATE_REGISTRY: 13 partial services, 18 scoped kinds, 10 isolated"
+    print("PASS F6_CANDIDATE_REGISTRY: 13 partial services, 19 scoped kinds, 10 isolated"
           " streams, 17 repositories, flags OFF, NO FORMAL GATE, global 1.13.0 candidate")
 
 
