@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.13.0] — 2026-11-07 (candidato de batch, SIN PUBLICAR)
+
+- Release coordinado `rt-20261107-01`: F0 investigación de árboles de fuente y manifiesto extendido con `CustomCodeFramework` como dependencia adicional.
+- F1 preliminar: contratos `RealtimeEnvelope`, interfaces Outbox/Inbox y resolución de audiencias en el framework, con build y 42 pruebas unitarias aprobadas en Actions (run 42443081145).
+- Documentación de fuentes candidatas, SRM/Config confirmado, catálogo semilla de eventos y riesgo de divergencias entre ramas.
+- **No se integró a develop/master ni se desplegó:** F0 y F1 todavía no cuentan con gate formal aprobado; el resto de servicios mantiene sus versiones actuales hasta release completo.
+
+
 ## [1.12.4] - 2026-11-07 (solo rama intermedia; no publicado)
 
 - F0 del batch `rt-20261107-01`: auditoría remota de ramas y versiones en 16 repositorios, registro de baselines, divergencias y 16 ramas intermedias desde develop.
