@@ -12,7 +12,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
 | F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128. F0 inventario + AOF staging + REST snapshots/vistas + WSS/ACL reales pendientes |
-| F7 | PENDIENTE | NO EVALUADO | 0/14 casos ejecutados |
+| F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 escenarios con pruebas simuladas de navegador; 0/14 caos real de staging verificado; F6 formal bloquea su ejecución |
 | F8 | PENDIENTE | NO EVALUADO | Enforcement servicios futuros |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
 | F10 | PENDIENTE | NO EVALUADO | Requiere autorización expresa master/producción |
@@ -189,3 +189,15 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
   en `F6-CANDIDATE-COVERAGE-20261108.md`.
 - **F7 NO INICIADA**, sin merges a develop/master/main, sin producción,
   sin ejecutar migraciones en servidores ni reactivar batch.
+
+## F6 cierre de brechas acotadas y F7 pruebas candidatas — 2026-11-08
+
+**Release:** `rt-20261107-01` — todas las modificaciones en ramas intermedias, flags OFF.
+**Estado real:** F6 NO COMPLETADA ni formalmente aprobada; F7 empieza solo como preparación técnica y suite aislada, no como gate de caos validado.
+
+- **F6.08 DataExtraction:** se añadieron respuestas REST mínimas para /execution/{id}, /emailjob/{id} y /airequest/{id}, con scope preexistente, 404 cuando no existe, sin mostrar correos, prompts, payloads ni documentos. [CI #42505716880](https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42505716880) **SUCCESS**, SHA `f11affc3a7ca25604266fcda669fea6a885e9f67`, versión candidata 1.4.0.
+- **F6.11 AI:** el endpoint /api/ai/realtime-access/emailjob/{id} ahora entrega estado, versión, intentos y fechas, sin contenido/resultado del modelo; conserva scope de lectura. [CI #42505712586](https://github.com/CustomCodeCR/DholeAIService/actions/runs/42505712586) **SUCCESS**, SHA `a06987eb9a8084ccee97a0a88cce5df56b76e2d0`, versión candidata 1.4.0.
+- **F6 Web transversal:** `RealtimeManager` soporta los **21 tipos** aceptados por el Gateway (CRM/Pricing + 19 restantes). Los eventos se clasifican por combinación de dominio y agregado, y los `eventId` duplicados no disparan doble fetch. Eventos nuevos con `aggregateVersion` local/antigua sí invalidan y consultan GET autoritativo, sin reescribir formularios sucios. Logout y expiración purgan snapshots observados.
+- **F7 navegador simulado:** pruebas automatizadas candidatas C01/C02/C03/C06/C07/C09/C10/C12 con 22 pruebas totales del gestor, **22/22 PASS**; suite CRM/Pricing, type-check, build de producción con flags OFF y Chromium Vue PASS en [Web CI #42505547084](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084), SHA probado `0582ef29cc8c542e26569a811a39c7dd0c1c61e9`. Versión Web candidata 1.13.0. Estas pruebas usan socket/REST simulado y **no** demuestran TLS/WSS, redis real, permisos Auth efectivos ni durabilidad real en staging.
+- **F7 evidencia formal:** `gate-evidence.f7.yaml`, `verify-f7-chaos-gate.py` y workflow `realtime-f7-candidate.yml` exigen 14/14 pruebas reales y >=10 repeticiones críticas C01-C08, con integridad/seguridad y evidencia. [CI guard #42505851181](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42505851181) **SUCCESS del guard fail-closed**, NO aprobación de F7. **Formal F7 = 0/14**.
+- **Pendientes:** 578 candidatos por inventariar de F0, mutaciones restantes de 13 servicios, conectar las 19 nuevas clases a vistas y consultas REST concretas, snapshots Dynamics/Content por GUID, Outbox/Inbox y backup/restore, Redis staging con AOF desactivado, TLS/WSS/ACL multiusuario en staging, E2E 20 operaciones por subfase y controles de 14 escenarios F7 reales. Las SHAs no están congeladas, ninguna fase F0-F6 dispone de aprobación formal de batch. **No merge, no deploy, sin PR a develop/master y sin modificación de main**.
