@@ -73,11 +73,12 @@ def main() -> int:
     evidence, missing = validate()
     if args.assert_candidate_blocked:
         assert missing and evidence["formalApproved"] is False
+        assert evidence["nextPhaseF8Authorized"] is False
         print(f"F7_CANDIDATE_EVIDENCE_OK: 8 browser, 3 isolated Redis, 1 partial "
               f"Dynamics; 0/14 real staging, {len(missing)} formal blockers")
         print("Formal F7 remains BLOCKED. This job does NOT validate staging chaos.")
         return 0
-    if missing:
+    if missing or evidence["nextPhaseF8Authorized"] is not True:
         for item in missing:
             print("BLOCKER:", item, file=sys.stderr)
         return 1
