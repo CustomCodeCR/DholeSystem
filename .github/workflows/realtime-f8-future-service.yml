@@ -67,6 +67,7 @@ jobs:
           --health-interval 5s --health-timeout 5s --health-retries 12
     env:
       F8_TEST_POSTGRES: postgresql://f8_ci:f8_ci_only_not_real@localhost:5432/f8_synthetic
+      F8_TEST_POSTGRES_DOTNET: Host=127.0.0.1;Port=5432;Database=f8_synthetic;Username=f8_ci;Password=f8_ci_only_not_real
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
