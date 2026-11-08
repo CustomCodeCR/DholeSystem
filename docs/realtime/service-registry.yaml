@@ -3,7 +3,7 @@ schemaVersion: 1
 releaseId: rt-20261107-01
 planVersion: 2.1.0
 serviceCountExpected: 13
-serviceCountAuditedCompletely: 0
+serviceCountAuditedCompletely: 0 # full F0 inventory still missing; 13 producers is NOT 100% mutation coverage
 services:
   - id: S01
     repo: CustomCodeCR/DholeCRMService
@@ -55,7 +55,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AUTH_AND_USER_SCOPE_INVALIDATION
+    stream: dhole.auth.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S05
     repo: CustomCodeCR/DholeConfigService
     name: Config
@@ -64,7 +73,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: CONFIG_SRM_CATALOG
+    stream: dhole.config.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S06
     repo: CustomCodeCR/DholeAuditLogsService
     name: AuditLogs
@@ -73,7 +91,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AUDIT_POSTGRES_OUTBOX
+    stream: dhole.auditlogs.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S07
     repo: CustomCodeCR/DholeStorageService
     name: Storage
@@ -82,7 +109,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: STORAGE_FILE_VERSION_REFERENCE
+    stream: dhole.storage.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S08
     repo: CustomCodeCR/DholeDataExtractionService
     name: DataExtraction
@@ -91,7 +127,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.4.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: EXTRACTION_EMAIL_AI_REQUESTS
+    stream: dhole.data-extraction.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S09
     repo: CustomCodeCR/DholeReportsService
     name: Reports
@@ -100,7 +145,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.5.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: REPORT_TEMPLATE_POSTGRES_OUTBOX
+    stream: dhole.reports.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S10
     repo: CustomCodeCR/DholeDynamicsConnectorService
     name: DynamicsConnector
@@ -109,7 +163,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: DYNAMICS_JOB_CHECKSUMMED_SQL_OUTBOX
+    stream: dhole.dynamics.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S11
     repo: CustomCodeCR/DholeAIService
     name: AI
@@ -118,7 +181,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.4.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AI_PROCESSING_JOBS
+    stream: dhole.ai.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S12
     repo: CustomCodeCR/DholeAgentService
     name: Agent
@@ -127,7 +199,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AGENT_EXECUTION_SCHEDULES
+    stream: dhole.agent.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
   - id: S13
     repo: CustomCodeCR/DholeContentService
     name: Content
@@ -136,7 +217,16 @@ services:
     endpointInventory: PENDIENTE
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
-    coverage: BLOQUEADA
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.0"
+    candidateIntegrationTestsPassed: 5
+    candidateImplementation: CMS_CONTENT_NAVIGATION_SETTINGS
+    stream: dhole.content.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
 additionalComponents:
   - { repo: CustomCodeCR/DholeApiGateway, role: gateway, inventory: PENDIENTE }
   - { repo: CustomCodeCR/DholeWeb, role: frontend, inventory: PENDIENTE }
