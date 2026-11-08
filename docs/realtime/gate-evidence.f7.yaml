@@ -16,6 +16,29 @@ browserCandidateCi:
   outcome: success
   tests: 22
   mockedRuntime: true
+isolatedRedisCandidateCi:
+  repo: CustomCodeCR/DholeSystem
+  testedSha: 437e0f26fd16525f989afcab7006121535289c32
+  url: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019
+  outcome: success
+  environment: GITHUB_HOSTED_EPHEMERAL
+  covers: [C04, C05, C11]
+  staging: false
+aofOffToOnMigrationRehearsal:
+  repo: CustomCodeCR/DholeSystem
+  testedSha: d3fc51bc2e235915e16242ab33b76c10c9b987a8
+  url: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+  outcome: success
+  initialUnsafeRestartDetectedDataLoss: true
+  safeInPlaceConversionRehearsed: true
+  stagingChanged: false
+dynamicsPartialIdempotencyCi:
+  repo: CustomCodeCR/DholeDynamicsConnectorService
+  testedSha: 44f2a5e29e0c931003ed799f4066c7c68ce7d070
+  url: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928
+  outcome: success
+  dynamicsPostgresOnly: true
+  emailDuplicateSideEffectsVerified: false
 criticalRepetitionsRequired: 10
 formalTargetPassed: 14
 scenarios:
@@ -45,7 +68,7 @@ scenarios:
     stagingEvidence: null
   - id: C04
     description: "Redis Streams se interrumpe y Outbox recupera"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
@@ -53,7 +76,7 @@ scenarios:
     stagingEvidence: null
   - id: C05
     description: "Bridge cae antes de ACK e Inbox deduplica"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
@@ -101,7 +124,7 @@ scenarios:
     stagingEvidence: null
   - id: C11
     description: "Outbox/Streams acumulan backlog"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
@@ -125,7 +148,7 @@ scenarios:
     stagingEvidence: null
   - id: C14
     description: "Dynamics/email repetidos sin efectos duplicados"
-    candidateStatus: NO_EJECUTADO_F7
+    candidateStatus: DYNAMICS_POSTGRES_PARTIAL_PASS
     formalStatus: PENDIENTE
     realEnvironmentRuns: 0
     verifiedNoDataLoss: false
