@@ -1,0 +1,44 @@
+name: Realtime F0 inventory (isolated, read only)
+on:
+  push:
+    branches:
+      - feature/dhole-realtime-universal-rt-20261107-01
+    paths:
+      - '.github/workflows/realtime-f0-inventory.yml'
+      - 'docs/realtime/**'
+      - 'scripts/realtime/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rt-20261107-01-f0-audit
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Verify manifest and source branches (read-only)
+        run: python scripts/realtime/f0_scan.py --scan --output F0Results
+      - name: Upload audit evidence (never deploy)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f0-inventory
+          path: F0Results/*.csv
+          if-no-files-found: warn
+      - name: Upload gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f0-policy-report
+          path: F0Results/*.json
+          if-no-files-found: warn
