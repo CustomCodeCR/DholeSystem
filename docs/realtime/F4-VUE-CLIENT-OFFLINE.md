@@ -43,10 +43,20 @@
 
 ## Pruebas F4 (CI aislado)
 
-Workflow `DholeWeb/.github/workflows/realtime-f4-web.yml`: Node 24, instalación frozen pnpm, `version:check`, `tests/realtimeF4Manager.test.ts`, regresiones CRM/Pricing, `vue-tsc` y build frontend con flags off. Casos: **100** iteraciones de attach/detach, **30** cierres inesperados y re-suscripciones, **30** fallos iniciales simulados seguidos de recuperación, aislamiento de 1 socket/pestaña, online/offline, pestaña visible, dedupe, versión fuera de orden, conflicto de edición y token expirado. Las 100 iteraciones comprueban observadores/timers, **no sustituyen montar 100 componentes Vue reales**: falta prueba E2E del DOM y memoria en navegador real antes del gate final.
+Workflow `DholeWeb/.github/workflows/realtime-f4-web.yml`: Node 24, instalación frozen pnpm, `version:check`, `tests/realtimeF4Manager.test.ts`, regresiones CRM/Pricing, `vue-tsc` y build frontend con flags off. Casos: **100** iteraciones de attach/detach, **30** cierres inesperados y re-suscripciones, **30** fallos iniciales simulados seguidos de recuperación, aislamiento de 1 socket/pestaña, online/offline, pestaña visible, dedupe, versión fuera de orden, conflicto de edición y token expirado. Las pruebas del gestor se complementan con **200 montajes/desmontajes reales de componentes Vue en Chromium** mediante un fixture de navegador y composable real. Se auditaron listeners window/document, sockets y heap entre dos tandas de 100, sin fuga observada; ver evidencia de CI. No se han probado aún navegadores/servidores reales de staging.
 
 **Pendiente** la última conclusión/commit de CI, WSS público y Auth real, pruebas de reconciliación de todas las vistas piloto con 2 usuarios de staging y 0 fugas entre tenants.
 
 ## Rollback
 
 Mantener flags frontend y Gateway OFF. El frontend original sigue ejecutando REST, la conexión a NotificationHub permanece independiente y el backend no ejecuta migraciones por F4. No hay PRs, merges, publicación de versión ni despliegues en F4.
+
+
+## Evidencia final de F4 (2026-11-07 Costa Rica)
+
+- El flujo de cierre F4 ya cuenta con suite aislada completa: [GitHub Actions 42448772988](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42448772988), SHA exacto `0ac843361b51446967b2f8706a62cf137dce3785`. **SUCCESS**, 12 pruebas de manager + 91 regresiones CRM/Pricing, typecheck/build/versionado PASS.
+- Chromium real: **200 ciclos reales Vue** en 2 cohortes de 100; 0 fugas de `window/document` listeners, 0 sockets extra, 0 observadores tras desmontar. Heap segundo lote disminuyó 755188 bytes después de GC; no crecimiento sostenido detectado.
+- Escenarios browser controlados: 2 identidades, 3 pestañas autorizadas, lector 403 denegado, ambas vistas piloto reconciliadas por GET REST de origen simulado, offline sin POST, conflicto de edición protegido y recuperación sin evento.
+- Se corrigió la posible pérdida de un evento llegado durante GET en vuelo; al completarse el GET anterior, se reconsulta el snapshot. Regresión automática incluida.
+- Reporte completo: `docs/realtime/test-evidence/F4-vue-offline-ci.md`. El test browser usa Playwright instalado fuera del árbol de dependencias del frontend. El production build mantiene todos los flags apagados.
+- **F4 tiene implementación y tests aislados concluidos; el gate formal F4 sigue NO APROBADO** debido a F0–F3 incompletos y falta de autorización real/datos reales/WSS TLS en staging. El plan requiere no iniciar F5 hasta cerrar dichos gates. Sin merges ni despliegues.
