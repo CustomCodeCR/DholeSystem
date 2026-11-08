@@ -193,6 +193,60 @@ def main() -> int:
               ["repo", "file", "kind", "status"])
     write_csv(output / "F0-frontend-api-candidates.csv", frontend,
               ["repo", "file", "kind", "status"])
+
+    # Every potential mutation/worker remains explicitly unapproved until its
+    # absolute route, owner, auth scope, event, UI consumer and test are mapped.
+    # This is a full exception/gap register, NOT a false 100% coverage claim.
+    unresolved: list[dict] = []
+    for route in routes:
+        if route["mutation"] != "true" and route["verb"] != "METHODS":
+            continue
+        unresolved.append({
+            "repository": route["repo"], "sourceFile": route["file"],
+            "kind": "MUTABLE_HTTP_CANDIDATE", "verb": route["verb"],
+            "routeCandidate": route["routeSegment"],
+            "groupCandidates": route["groupCandidates"],
+            "resourceOwner": "PENDING_HUMAN_REVIEW",
+            "authorizationScope": "PENDING_HUMAN_REVIEW",
+            "outboxOrApprovedException": "PENDING_HUMAN_REVIEW",
+            "audiencePolicy": "PENDING_HUMAN_REVIEW",
+            "frontendConsumer": "PENDING_HUMAN_REVIEW",
+            "reconciliationTest": "PENDING_HUMAN_REVIEW",
+            "gate": "BLOCKED"
+        })
+    for job in jobs:
+        unresolved.append({
+            "repository": job["repo"], "sourceFile": job["file"],
+            "kind": "WORKER_HANDLER_CANDIDATE", "verb": "",
+            "routeCandidate": "", "groupCandidates": "",
+            "resourceOwner": "PENDING_HUMAN_REVIEW",
+            "authorizationScope": "PENDING_HUMAN_REVIEW",
+            "outboxOrApprovedException": "PENDING_HUMAN_REVIEW",
+            "audiencePolicy": "PENDING_HUMAN_REVIEW",
+            "frontendConsumer": "PENDING_HUMAN_REVIEW",
+            "reconciliationTest": "PENDING_HUMAN_REVIEW",
+            "gate": "BLOCKED"
+        })
+    coverage_fields = ["repository", "sourceFile", "kind", "verb",
+                       "routeCandidate", "groupCandidates", "resourceOwner",
+                       "authorizationScope", "outboxOrApprovedException",
+                       "audiencePolicy", "frontendConsumer",
+                       "reconciliationTest", "gate"]
+    write_csv(output / "F0-unresolved-gate-items.csv", unresolved, coverage_fields)
+    unresolved_by_repo = {
+        r["name"]: sum(1 for x in unresolved if x["repository"] == r["name"])
+        for r in manifest["repositories"]
+    }
+    report.update({
+        "unresolvedTotal": len(unresolved),
+        "unresolvedMutations": sum(x["kind"] == "MUTABLE_HTTP_CANDIDATE"
+                                   for x in unresolved),
+        "unresolvedWorkers": sum(x["kind"] == "WORKER_HANDLER_CANDIDATE"
+                                 for x in unresolved),
+        "unresolvedByRepository": unresolved_by_repo,
+        "gateF0Approved": False,
+        "gateF0Blocker": "Runtime baseline, ownership, auth scopes and complete route/worker mappings missing"
+    })
     report.update({
         "reposCloned": len(rows), "routeCandidates": len(routes),
         "mutableRouteCandidates": sum(x["mutation"] == "true" for x in routes),
