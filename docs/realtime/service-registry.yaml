@@ -127,7 +127,7 @@ additionalComponents:
   - { repo: CustomCodeCR/DholeWeb, role: frontend, inventory: PENDIENTE }
   - { repo: CustomCodeCR/DholeSystem, role: documentation, inventory: PARCIAL }
 logicalModules:
-  SRM: { owner: POR_CONFIRMAR, status: BLOQUEADA }
+  SRM: { owner: POR_CONFIRMAR, candidateOwner: DholeConfigService, evidence: "DholeWeb/src/modules/srm/services/srmApi.ts uses /api/config/srm", status: BLOQUEADA }
   System: { owner: POR_CONFIRMAR, status: BLOQUEADA }
 futureServicePolicy:
   requireRegistryEntry: true
