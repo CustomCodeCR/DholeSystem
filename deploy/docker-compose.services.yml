@@ -4,6 +4,16 @@ include:
 services:
   api-gateway:
     environment:
+      # F3 candidate ONLY. All independent flags default OFF. Do not enable
+      # without one coordinated F9/F10 batch, approved manifest and auth audit.
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Enabled: "${DHOLE_REALTIME_GATEWAY_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
+      Realtime__BridgeEnabled: "${DHOLE_REALTIME_BRIDGE_ENABLED:-false}"
+      Realtime__RedisConnectionString: "${DHOLE_REALTIME_REDIS_CONNECTION:-}"
+      Realtime__InboxPostgresConnectionString: "${DHOLE_REALTIME_INBOX_PG_CONNECTION:-}"
+      Realtime__InstanceId: "${DHOLE_REALTIME_GATEWAY_INSTANCE_ID:-}"
       # External API storage: compose interpolates source variables directly.
       # Avoid passing a nested ${...} value from .env (Compose does not expand it again).
       ThirdParty__Enabled: "${ThirdParty__Enabled:-false}"
