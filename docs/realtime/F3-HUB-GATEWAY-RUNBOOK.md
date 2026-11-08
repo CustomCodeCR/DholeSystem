@@ -68,3 +68,9 @@ La configuración del batch candidato añade **defaults false** en `DholeSystem/
 ## Rollback F3
 
 Apagar los cuatro flags de release/Gateway; conservar rutas REST antiguas y el Hub Notifications. Websockets activos del futuro release deben desconectarse al retirar su host. El estado Redis y el Inbox PostgreSQL quedan disponibles para auditoría; no destruir tablas automáticas. Para recuperar, volver al último batch aprobado tras verificar invariantes del manifiesto.
+
+## Cierre de pruebas aisladas F3 — sin aprobación de gate
+
+La última rama intermedia del Gateway se compiló y probó con éxito en [GitHub Actions #42446789096](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096) al SHA `097890a33ed05f63bf6b3616d7bd7fe17c412b8e`: **99 PASSED / 0 FAILED / 0 SKIPPED**, build sin errores ni advertencias. Artefacto TRX `13603454219`. Incluye WebSockets autenticados en TestServer, dos receptores permitidos/uno denegado, revocación posterior, 30 casos de permiso denegado, tickets un solo uso, `Origin` y rechazo de eventos CRM que intentan suplantar otros dominios.
+
+**No extrapolar** TestServer `ws://` a WSS público por Traefik. Tampoco prueba la revocación real de Auth ni ACL real end-to-end con usuarios comerciales en staging. La migración SQL sigue sin ejecutarse en servidores; los feature flags permanecen OFF. Los gates F0–F3 aún no están aprobados.
