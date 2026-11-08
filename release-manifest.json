@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.12.2",
-      "mergeState": "already-released-unchanged"
+      "version": "1.12.3",
+      "mergeState": "feature-branch-not-merged"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -132,6 +132,6 @@
     "Repair IConnectionMultiplexer dependency missing in CRM notification Redis publisher",
     "Startup fails fast if the CRM stream publisher cannot be resolved",
     "Add real Redis Stream publishing test to CRM CI",
-    "Align centralized Web entry with existing deployed 1.12.2; no Web source changes"
+    "DholeWeb 1.12.3 adds an always-visible Save activity footer; notification intent begins only after save"
   ]
 }
