@@ -380,8 +380,10 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.3.1"
     ecosystemVersionBaseline: "1.3.12"
-    releaseComponentVersion: PENDIENTE
-    migrations: []
+    releaseComponentVersion: "1.4.0"
+    candidateForPhase: F3
+    gatewayCandidateInitialSha: 2ced27b22809b76e80c9b3d651bb09aa041ac118
+    migrations: [Dhole.ApiGateway/Realtime/Migrations/20261108140000_AddGatewayRealtimeInbox.sql]
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
     tests: NO_EJECUTADO
@@ -625,3 +627,51 @@ f2DurabilityPilot:
   liveRestMutationsWired: false
   batchReady: false
   runbook: docs/realtime/F2-OUTBOX-INBOX-RUNBOOK.md
+
+f3GatewayHubCandidate:
+  status: IMPLEMENTACION_PRELIMINAR_EN_RAMA_INTERMEDIA
+  gateF0Approved: false
+  gateF1Approved: false
+  gateF2Approved: false
+  gateF3Approved: false
+  repository: CustomCodeCR/DholeApiGateway
+  branch: feature/dhole-realtime-universal-rt-20261107-01
+  baselineComponentVersion: "1.3.1"
+  candidateComponentVersion: "1.4.0"
+  proposedGlobalVersion: "1.13.0"
+  hubPath: /hubs/realtime
+  ticketPath: /hubs/realtime/ticket
+  auth: JWT_header_or_single_use_redis_ticket
+  browserRawJwtInQuery: false
+  resourceOwnerReauthorization: ON_SUBSCRIPTION_AND_EVERY_DELIVERY
+  allowedResourceKinds: [crm.account, pricing.rate]
+  unauthorizedGroupBroadcast: false
+  existingNotificationsHubPreserved: true
+  bridge:
+    stream: dhole.crm.realtime.v1
+    durableConsumerGroupPerGatewayInstance: true
+    inboxPostgres: realtime.gateway_inbox
+    deadLetterPostgres: realtime.gateway_deadletter
+    ackAfterInboxPersist: true
+    autoClaimPending: true
+    outgoingPayloadOnlyMinimalInvalidation: true
+  featureFlags:
+    Features__UniversalRealtimeEnabled: false
+    Realtime__Enabled: false
+    Realtime__BatchApproved: false
+    Realtime__BridgeEnabled: false
+  runtimeWebsocketTest: PENDIENTE
+  infraWssThroughRealTraefik: NO_VERIFICADO
+  realTwoInstanceDelivery: NO_VERIFICADO
+  roleRevocationWithActualAuth: NO_VERIFICADO
+  pricingResourceAccessPolicy: PENDIENTE_AUDITORIA
+  publishedOrDeployed: false
+  ci:
+    initialSecurityRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446139059
+    initialSecurityPassed: 80
+    initialSecurityFailed: 0
+    websocketIntegrationCandidateRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446649159
+    websocketIntegrationResult: PENDIENTE
+  adr: docs/realtime/ADRs/0002-gateway-hub-authorization.md
+  runbook: docs/realtime/F3-HUB-GATEWAY-RUNBOOK.md
+  formalAcceptance: BLOQUEADA_POR_GATES_Y_PRUEBAS_OPERATIVAS
