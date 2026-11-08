@@ -615,8 +615,8 @@ repositories:
     candidateAofMigrationStagingApplied: false
     candidateF7StagingPassedCases: 0
     candidateF8Status: FUTURE_SERVICE_ENFORCEMENT_TESTED_CI_NOT_APPROVED
-    candidateF8CiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857
-    candidateF8PositiveNegativeAndScaffoldTestsPassed: 16
+    candidateF8CiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511408397
+    candidateF8PositiveNegativeAndScaffoldTestsPassed: 20
     candidateF8SampleOutboxRealDotnetRedisPostgresRecoveryCiPassed: true
     candidateF8FormalGateGuardRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511053160
     candidateF8FormalGateApproved: false
