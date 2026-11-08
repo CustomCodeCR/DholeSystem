@@ -17,6 +17,15 @@ phaseGates:
     allMutableEndpointsAndWorkersReviewedAndMapped: false
     realStagingProxyJwtRedisAofVerified: false
     realStagingRestP95P99Measured: false
+    # Read-only local health evidence; does NOT satisfy public WSS/TLS or REST business latency.
+    stagingLocalGatewayHealthCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42489552444
+    stagingServicesObservedRunning: 27
+    stagingInfraServicesObservedRunning: 5
+    stagingHealthHttpOnlyRequests: 100
+    stagingHealthHttpOnlyResponses200: 100
+    stagingHealthHttpOnlyP95Ms: 2.606
+    stagingHealthHttpOnlyP99Ms: 3.397
+    stagingExternalTlsWssConfirmed: false
     runtimeInstanceTopologyVerified: false
     targetBranchPolicyVerifiedByCi: true
     nativeProtectedBranchesVerified: false
@@ -46,7 +55,12 @@ phaseGates:
     persistedLogicalEvents: 1000
     duplicateSideEffects: 0
     pilotHttpTestServerMutationSucceedsUnderSimulatedRedisOutage: true
-    realProductionCrmRestHandlersCovered: false
+    realProductionCrmRestHandlersCovered: true # actual account PATCH endpoint in TestServer; not staging
+    realAccountPatchTestServerCiRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42489760621
+    pilotAccountPatchUsesRealPostgresOutbox: true
+    pilotAccountAuthorizationRestTestedInCi: true
+    pilotAccountConflict409TestedInCi: true
+    pilotRealtimeBrowserDeliveryVerified: false
     redisStreamLossRecoverySimulatedWithRealPostgresRedis: true
     deadLetterAndRetryVerified: true
     redisAofVolumeCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
