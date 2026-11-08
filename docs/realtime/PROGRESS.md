@@ -293,3 +293,10 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - El runtime Redis de staging fue observado con AOF OFF en la última auditoría. Configuración en un YAML no significa que esté aplicado; el gate requiere conversión segura con backup y restore verificable.
 - WSS de Notifications existente no equivale a WSS del nuevo Hub universal, ni a ACL extremo a extremo del usuario real. Mantener los gates formales bloqueados mientras falte esa evidencia, sin bloquear desarrollo de código.
 - DholeSystem versión candidata 1.13.6; sin merge ni despliegue.
+
+## F9 — corrección crítica de seguridad en el deploy de staging (2026-11-08)
+
+- El workflow existente `deploy-staging.yml` tenía `up -d --no-deps --force-recreate postgres redis`, aun cuando el Compose candidato declara `appendonly yes` y la última observación del Redis de staging confirmó AOF OFF. Reiniciar un Redis RDB-only directamente en configuración AOF puede perder entradas (ver ensayo CI de F6).
+- Se añadió comprobación obligatoria **antes de pull/up**: `verify_staging_redis_before_compose.py` verifica exclusivamente `dhole-staging-infra/redis` y el volumen `dhole-staging-infra_dhole-staging-redis`, `aof_enabled=1`, estado de escritura/rewrite correcto y tamaño AOF positivo; falla antes de tocar servicios si no se cumple. No consulta producción.
+- Se eliminó el `--force-recreate` innecesario de ambos contenedores. La migración RDB→AOF con respaldo independiente y restore sigue siendo un gate separado; NO se ejecutó ni simuló haberla realizado.
+- CI F0 valida las 7 pruebas del guard y el orden del deployment. DholeSystem `1.13.7` candidata, sin cambios en develop/master.

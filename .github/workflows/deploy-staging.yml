@@ -116,6 +116,11 @@ jobs:
             echo "Found persistent staging volume: $volume"
           done
 
+          # Fail CLOSED before any image pull/recreation: the candidate Compose
+          # uses appendonly=yes, but an old RDB-only staging volume cannot
+          # safely boot with the new command until converted while live.
+          python3 scripts/realtime/verify_staging_redis_before_compose.py
+
           docker compose \
             --env-file "$DHOLE_ENV_FILE" \
             -f deploy/docker-compose.staging-infra.yml \
@@ -126,7 +131,7 @@ jobs:
             --env-file "$DHOLE_ENV_FILE" \
             -f deploy/docker-compose.staging-infra.yml \
             -p dhole-staging-infra \
-            up -d --no-deps --force-recreate postgres redis
+            up -d --no-deps postgres redis
 
           POSTGRES_ID="$(docker compose \
             --env-file "$DHOLE_ENV_FILE" \

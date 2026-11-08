@@ -46,6 +46,20 @@ jobs:
         run: python -m unittest discover -s scripts/realtime -p 'test_f0_existing_ws_compose_guard.py' -v
       - name: Audit existing SignalR WSS/proxy/Compose source across 17 checkouts
         run: python scripts/realtime/f0_existing_ws_compose_guard.py --workspace F0Results/working --output F0Results/F0-existing-ws-compose.json
+      - name: Test F9 staging Redis no-data-loss deployment guard
+        run: python -m unittest discover -s scripts/realtime -p 'test_verify_staging_redis_before_compose.py' -v
+      - name: Prove staging deploy invokes Redis guard before Compose
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path(".github/workflows/deploy-staging.yml").read_text()
+          guard=p.index("python3 scripts/realtime/verify_staging_redis_before_compose.py")
+          pull=p.index("pull postgres redis")
+          start=p.index("up -d --no-deps postgres redis")
+          assert guard < pull < start
+          assert "--force-recreate postgres redis" not in p
+          print("F9_STAGING_DEPLOY_POLICY_PASS: unsafe Redis force-recreate forbidden")
+          PY
       - name: Upload audit evidence (never deploy)
         if: always()
         uses: actions/upload-artifact@v4
