@@ -255,6 +255,12 @@ def main() -> int:
         "status": "SOURCE_DISCOVERY_COMPLETED_GATES_PENDING"
     })
     (output / "F0-policy-report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print(f"F0_UNRESOLVED: repos={len(rows)} route_candidates={len(routes)} "
+          f"workers={len(jobs)} frontend_files={len(frontend)} "
+          f"mutable_http_candidates={report['unresolvedMutations']} "
+          f"worker_handler_candidates={report['unresolvedWorkers']} "
+          f"total_pending_review={len(unresolved)} "
+          "GATE_F0=BLOCKED")
     return 0
 
 
