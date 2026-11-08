@@ -4,7 +4,7 @@
 
 - Release DH-20261108-CRM-REDIS-OUTBOX-034: corrige la causa en producción de avisos CRM sin entrega: falta de registro del publicador Redis en DholeCRMService 1.3.0.
 - Incrementa CRM a 1.3.1 e integra prueba de publicación real en Redis, recuperando el outbox persistente.
-- Sincroniza el manifiesto central con DholeWeb 1.12.2 ya publicado, sin cambios de código Web.
+- DholeWeb 1.12.3 hace visible siempre el botón Guardar actividad y muestra el estado de programación de los avisos, evitando formularios sin guardar.
 - Mantiene CI, staging y validación de entrega como condiciones obligatorias previas a producción.
 
 ## [1.12.0] - 2026-11-07

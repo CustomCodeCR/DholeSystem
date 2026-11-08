@@ -12,9 +12,9 @@
     },
     {
       "component": "DholeWeb",
-      "previousVersion": "1.12.0",
-      "newVersion": "1.12.2",
-      "change": "Manifest synchronization; code already released"
+      "previousVersion": "1.12.2",
+      "newVersion": "1.12.3",
+      "change": "Persistent activity save footer and delivery confirmation"
     },
     {
       "component": "DholeSystem",
@@ -26,7 +26,8 @@
   "tests": [
     "Dotnet build and integration Redis publisher",
     "CRM real Redis stream message creation",
-    "Staging outbox and notification worker evidence"
+    "Staging outbox and notification worker evidence",
+    "CRM agenda sticky footer and submit binding regression"
   ],
   "productionDeploymentAuthorized": true,
   "productionDeploymentStatus": "pending staging"
