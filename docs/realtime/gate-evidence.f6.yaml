@@ -35,7 +35,6 @@ acceptance:
   twoRealUsersPlusDeniedAndRevocationTested: false
   fullFrontendViewRestReconciliationTested: false
   streamOutboxInboxRetryIdempotencyStagingTested: false
-  allComponentCiAtFrozenShas: false
   13ServicesFormalApproval: false
 blockers:
   - "F0: 578 candidates not yet mapped and fully audited for ownership/security."
@@ -43,6 +42,8 @@ blockers:
   - "WSS through Traefik and real token/ACL isolation not demonstrated."
   - "Resource snapshot REST by GUID and frontend bindings missing for several owners."
   - "No frozen 17-repo SHA batch or successful global integration/regression suite."
+futureF9:
+  allComponentCiAtFrozenShas: false
 policy:
   allowF7OnlyIfAllAcceptanceTrue: true
   allowF9OnlyAfterF0ToF8GatesTrue: true
