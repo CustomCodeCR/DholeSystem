@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.8",
+      "version": "1.5.3",
       "mergeState": "previous-release-unchanged"
     },
     {
