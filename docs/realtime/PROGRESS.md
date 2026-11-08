@@ -4,16 +4,16 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 
 | Fase | Estado | Gate | Observación |
 |---|---|---|---|
-| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.606 ms; 580 candidatos de fuente sin mapeo verificado y WSS/ACL pendientes |
+| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.52 ms (última reauditoría); 580 candidatos de fuente sin mapeo verificado y WSS/ACL pendientes |
 | F1 | CRITERIOS_TÉCNICOS_PASS | APROBACIÓN SECUENCIAL BLOQUEADA | 44/44 .NET8, contrato con productor CRM F2, falta aprobación F0 |
 | F2 | DURABILIDAD_Y_REST_CRM_TESTSERVER_PASS | BLOQUEADO | 14/14 en CI; Redis real de staging observado con AOF OFF; requiere migración segura y prueba restauración |
 | F3 | DOS_INSTANCIAS_CI_PASS | BLOQUEADO | 100/100, reinicio cursor durable; falta WSS TLS por Traefik y Auth/ACL staging |
-| F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; 2 vistas piloto reconciliadas por REST simulado |
+| F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; CRM/Pricing pilotos y Agent detalle por REST con tests CI (3 vistas, falta E2E staging) |
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
 | F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128; 1 vista Agent agregada. Siguen 580 candidatos fuente sin revisión, AOF staging y WSS/ACL reales pendientes |
 | F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 simulaciones web + 3 ensayos Redis CI + 1 SQL Dynamics parcial; 0/14 caos formal staging; F6 bloqueada |
-| F8 | PENDIENTE | NO EVALUADO | Enforcement servicios futuros |
+| F8 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATE FORMAL BLOQUEADO POR F0–F7 | 16/16 pruebas políticas/scaffold, .NET8+PostgreSQL+Redis recuperación CI PASS; sample S14 no desplegable; faltan Gateway/ACL/WSS reales, protección nativa y F7 14/14 |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
 | F10 | PENDIENTE | NO EVALUADO | Requiere autorización expresa master/producción |
 
@@ -228,3 +228,16 @@ No se han tocado develop/master/main ni desplegado los flags de este batch.
 - POST anónimo de negociación al **Gateway de staging local verificado** `/hubs/realtime/negotiate?negotiateVersion=1` respondió **HTTP 404**, cero flags realtime del batch activos. Solo demuestra que no hay endpoint disponible en el runtime consultado; no certifica WSS/TLS por Traefik ni JWT/ACL reales.
 - Redis existente en proyecto exacto `dhole-staging-infra`: comando **sin appendonly yes**, `aof_enabled=0`, `aof_last_write_status=ok`, volúmenes `/data` y PostgreSQL presentes. Backup/restore y replay staging **NO EJECUTADOS**. AOF en staging NO CORREGIDO; prohibida recreación directa AOF sobre volumen RDB sin conversión, por el fallo real del ensayo #42507114616.
 - Con esas pruebas no se aprueban F0/F2/F3/F5/F6 ni F7; `nextPhaseF8Authorized=false`. Sigue pendiente integración multiusuario, inventario 580 a revisar, otras 18 vistas, AOF del batch y 14 caos reales de staging.
+
+## F8 — enforcement de servicios futuros, candidato verificable (2026-11-08)
+
+**Status: implementación técnica candidata CI PASS, gate formal F8 NO APROBADO, F9 NO AUTORIZADA.**
+
+- [CI #42510886857](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857) sobre SHA `fd2d472f4eada8130ba30ee1dc76ff81c8aeb3a8`: 12 pruebas de política (1 positiva, 11 negativas) + 4 de generación/versión = **16/16**, todas PASS. El verificador falla ante ruta o worker nuevo sin contrato, sin tests, sin ACL, con manifest obsoleto, exención sin firma y Hub ajeno.
+- [CI #42510425833](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510425833) y #42510886857: compilación .NET 8 de muestra, PostgreSQL 17, Redis 7 AOF; dos commits atómicos de negocios/Outbox (uno con Redis apagado) publicados tras recuperación; reentrega de cuatro entradas de Streams con **dos EventId lógicos** procesados solo dos veces por Inbox. Es evidencia de un backend sintético, no del Gateway/Hub real.
+- Nuevo `scaffolds/dhole-future-service/`: API .NET 8 con control por scope+propietario y versionado optimista, Outbox PostgreSQL, publisher Redis, Inbox SQL, manifiesto `realtime.manifest.yaml`, tests contractuales/integración/recovery y registro **S14 solo de CI/no desplegable** en `service-registry.yaml`. Los 13 servicios reales siguen inalterados.
+- `scripts/realtime/verify-f8-future-service.py`: puerta fail-closed para MapPost/Put/Patch/Delete literales, workers y MapMethods no auditables; valida owner, audiencia, scope, evento, REST, test paths, central Hub e inscripción. **No sustituye Roslyn, pruebas auténticas de JWT ni análisis de rutas dinámicas.**
+- `scripts/realtime/scaffold-future-service.py`: generador de nuevos repos sin operaciones Git ni overwrite; crea propuesta central de registry, workflow requerido por PR, plantilla de revisión y tests. [CI #42510886857](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857) valida su salida con DholeBillingService v1.14.0 sintético.
+- `scripts/realtime/verify-f8-formal-gate.py` y `gate-evidence.f8.yaml` mantienen `formalApproved=false` y `nextPhaseF9Authorized=false`. [CI #42511053160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511053160) PASS del bloqueo intencional, **no** una aprobación.
+- Intento de verificar protecciones GitHub `develop/master` devolvió **HTTP 403 Resource not accessible by integration** para ambas; endpoint `rulesets` expuso lista vacía. No hay evidencia suficiente de checks requeridos activos. Se definirá la protección con permisos administrativos en el batch F9/F10.
+- **Bloqueos aún absolutos:** F0 580 candidatos fuente por revisar; F2 AOF runtime staging=OFF; F3 WSS/TLS/JWT/ACL reales; F5 multiusuario; F6 vistas y mutaciones sin cobertura total; F7 0/14 staging; F8 ejemplo no integrado a Hub real ni a infraestructura/CI de un servicio efectivamente nuevo.
