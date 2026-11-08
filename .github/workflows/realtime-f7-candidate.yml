@@ -1,0 +1,41 @@
+name: Realtime F7 chaos evidence and formal gate (isolated)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'docs/realtime/gate-evidence.f7.yaml'
+      - 'docs/realtime/gate-evidence.f6.yaml'
+      - 'docs/realtime/release-manifest.yaml'
+      - 'scripts/realtime/verify-f7-chaos-gate.py'
+      - '.github/workflows/realtime-f7-candidate.yml'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'docs/realtime/**'
+      - 'scripts/realtime/**'
+      - '.github/workflows/realtime-f7-candidate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-f7-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned YAML parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Compile F7 evidence verifier
+        run: python -m py_compile scripts/realtime/verify-f7-chaos-gate.py
+      - name: Fail closed unless 14 real chaos scenarios are validated
+        env:
+          EVENT_KIND: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_KIND" = pull_request ]; then
+            python scripts/realtime/verify-f7-chaos-gate.py --require-all
+          else
+            python scripts/realtime/verify-f7-chaos-gate.py --assert-candidate-blocked
+          fi
