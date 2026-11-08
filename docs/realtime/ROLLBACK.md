@@ -1,6 +1,6 @@
 # Rollback y política de flags — Release rt-20261107-01
 
-Estado actual: **F0/BLOQUEADA, sin cambios runtime**. Los únicos cambios de esta tarea están confinados a ramas intermedias. No existe todavía feature flag nuevo, migración ni release desplegada que deba revertirse.
+Estado actual: **F0–F7 SIN APROBACIÓN FORMAL, sin despliegue del batch**. Hay flags, migraciones y código candidatos solo en ramas intermedias; todos los flags del release permanecen OFF y no requieren revertirse en servidores porque no se han desplegado.
 
 ## Invariantes
 
@@ -13,3 +13,12 @@ Estado actual: **F0/BLOQUEADA, sin cambios runtime**. Los únicos cambios de est
 ## Evidencia
 
 F0: no hay test operativo de rollback; `NO_EJECUTADO`. Plan de rollback de infraestructura y flags detallado y probado: pendiente de F7/F9.
+
+## Riesgo RDB→AOF detectado por el batch
+
+No restaurar el mismo volumen Redis reiniciando simplemente con `appendonly=yes`.
+El ensayo [#42507114616](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507114616) perdió entradas RDB existentes. La ruta de migración ensayada
+[#42507199248](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248)
+usa `CONFIG SET appendonly yes` sobre el proceso activo, espera el rewrite, respalda
+y luego recrea con Compose. Ver `F6-REDIS-AOF-STAGING-MIGRATION.md`.
+La conversión real y su rollback no están aprobados ni ejecutados en staging.
