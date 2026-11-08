@@ -77,8 +77,24 @@ def main() -> None:
             pipe.execute()
         assert r.save() is True, "RDB baseline must be created before migration"
         assert r.info("persistence")["rdb_last_bgsave_status"] == "ok"
-        # This test deliberately reproduces redeploying a stopped Redis with a
-        # persistent pre-existing RDB but an AOF-enabled command.
+        # Redis 7 MUST convert the *running* dataset into a multi-part AOF
+        # BEFORE restarting with appendonly=yes. Switching the compose command
+        # directly on an RDB-only volume can start from an empty AOF and lose
+        # the existing Streams; the initial red test caught this.
+        assert r.config_set("appendonly", "yes"), "AOF runtime transition rejected"
+        for retry in range(120):
+            state = r.info("persistence")
+            if (int(state["aof_enabled"]) == 1
+                    and int(state["aof_rewrite_in_progress"]) == 0
+                    and state["aof_last_bgrewrite_status"] == "ok"
+                    and int(state["aof_current_size"]) > 0
+                    and state["aof_last_write_status"] == "ok"):
+                break
+            time.sleep(0.25)
+        else:
+            raise RuntimeError("AOF initial rewrite never became durable; refuse restart")
+        verify(r, ids)
+        # Only now can the Compose command be switched to appendonly=yes.
         r = restart(name, volume, True)
         verify(r, ids)
         # Verify newly appended changes survive a second container replacement.
@@ -91,6 +107,7 @@ def main() -> None:
             "environment": "GITHUB_HOSTED_EPHEMERAL",
             "preMigrationAofEnabled": False,
             "postMigrationAofEnabled": True,
+            "onlineAofConversionBeforeContainerReplacement": True,
             "persistentEventsBefore": 100,
             "persistentEventsAfter": 101,
             "containerReplacements": 2,
