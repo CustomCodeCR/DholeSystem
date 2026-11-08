@@ -479,3 +479,14 @@ branchRevalidation:
       baselineRelation: fast_forward
       intermediateUnchanged: true
   action: "Preservar cambios ajenos. No adelantar merges, no sobrescribir baselines ni declarar F1 validada."
+
+  supplementalDriftObservedAfterInitialRecheck:
+    - repo: CustomCodeCR/DholeSystem
+      target: develop
+      previousSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+      currentSha: ebbbaa031f37f10611433b77403da5820ae03345
+      commitsAhead: 6
+      baselineRelation: fast_forward
+      observedVersion: '1.12.6'
+      files: [CHANGELOG.md, release-manifest.json, version.json]
+      action: "NO tocar target; preservar releases concurrentes y reevaluar batch SemVer."
