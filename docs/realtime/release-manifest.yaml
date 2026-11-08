@@ -51,7 +51,11 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.3.1"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.4.0"
+    candidateForPhase: F2
+    outboxMigration: "20261108130000_AddRealtimeDurabilityPilot"
+    candidateFeatureFlags: [Features__UniversalRealtimeEnabled, Realtime__Outbox__Enabled]
+    flagsDefaultOffUntilBatchComplete: true
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -570,3 +574,32 @@ currentReleaseControl:
   batchReadyForMaster: false
   noRealtimeFunctionEnabled: true
   noMergeOrDeploymentExecuted: true
+
+f2DurabilityPilot:
+  status: PRELIMINARY_IN_INTERMEDIATE_BRANCH
+  formalGateApproved: false
+  blockedByF0F1Gates: true
+  repository: CustomCodeCR/DholeCRMService
+  intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+  componentVersionBaseline: "1.3.1"
+  candidateVersion: "1.4.0"
+  ecosystemReleaseCandidate: "1.13.0"
+  migration: src/Dhole.Crm.Infrastructure/Persistence/Migrations/20261108130000_AddRealtimeDurabilityPilot.cs
+  outboxTable: crm.crm_realtime_outbox
+  inboxTable: crm.crm_realtime_inbox
+  existingReminderOutboxUnaffected: true
+  writer: CrmRealtimeOutboxWriter
+  worker: CrmRealtimeOutboxWorker
+  enabled: false
+  stream: dhole.crm.realtime.v1
+  retries: exponential_with_jitter
+  deadLetter: PostgreSQL_DeadLetter_status_after_5_attempts
+  inbox: idempotent_atomic_effect_then_ack
+  ciWorkflow: .github/workflows/realtime-f2-durability.yml
+  tests: PENDIENTE_RESULTADO_CI
+  postgresAndRedisStagingVerified: false
+  redisAofRetentionVerified: false
+  redisRestartRecoveryVerified: false
+  liveRestMutationsWired: false
+  batchReady: false
+  runbook: docs/realtime/F2-OUTBOX-INBOX-RUNBOOK.md
