@@ -59,6 +59,10 @@ repositories:
     candidateF5TestedRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42489760621
     candidateF5UnitAndIntegrationTestsPassed: 14
     candidateF5FormalGateApproved: false
+    candidateF7C08TwoClientPostgresCi: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179
+    candidateF7C08TestedSha: 3574be4bacf6f93f75abc552da6f2158930445af
+    candidateF7C08TenRacesPassed: true
+    candidateF7C08TwoDistinctStagingUsers: false
     outboxMigration: "20261108130000_AddRealtimeDurabilityPilot"
     candidateFeatureFlags: [Features__UniversalRealtimeEnabled, Realtime__Outbox__Enabled]
     flagsDefaultOffUntilBatchComplete: true
@@ -520,6 +524,9 @@ repositories:
     baseSha: ad57459a6fc9a102863144bacc25b9b55e1ba805
     intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
     intermediateCreated: true
+    candidateF7C13TwoGatewayInstancesCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251
+    candidateF7C13TestedSha: 151166d257272e31ff12181ef6f020a3ab3c7f8b
+    candidateF7C13RealTraefikWssVerified: false
     initialIntermediateSha: ad57459a6fc9a102863144bacc25b9b55e1ba805
     frozenSha: null
     currentComponentVersionBaseline: "1.3.1"
