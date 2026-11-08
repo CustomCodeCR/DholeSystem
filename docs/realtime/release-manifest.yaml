@@ -738,7 +738,17 @@ f4VueClientCandidate:
     frontendBuild: PASSED
   latestSecurityChangeCi:
     workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191
-    conclusion: PENDIENTE
+    conclusion: SUCCESS_ISOLATED_CI_ONLY
+    testedSha: ed6271db6b32fb33accc1dec2c106e66672ef923
+    testManagerPassed: 11
+    testManagerFailed: 0
+    legacyRegressionsPassed: 91
+    typecheck: PASSED
+    frontendBuild: PASSED
+    frozenInstall: PASSED
+    featureFlagsOffVerified: true
+    artifactId: 13604711151
+    evidence: docs/realtime/test-evidence/F4-vue-offline-ci.md
   liveStagingWebSocketAuthVerified: false
   realVueMountUnmount100Validated: false
   realTwoUserEndToEndVerified: false
