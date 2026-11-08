@@ -605,10 +605,16 @@ repositories:
     frozenSha: null
     candidateF7EvidenceGuardCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42505851181
     candidateF7EvidenceGuardStatus: PASS_GUARD_ONLY_NOT_FORMAL_GATE
-    candidateF6SourceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507019304
-    candidateF6SourceReviewRows: 580
-    candidateF6SourceMutableRoutes: 510
+    candidateF6SourceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610
+    candidateF6SourceReviewRows: 582
+    candidateF6SourceMutableRoutes: 512
     candidateF6SourceWorkerFiles: 70
+    candidateF0AdditionalSignatureAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610
+    candidateF0AdditionalSignatures: 57
+    candidateF0AdditionalDynamicRouteSignatures: 6
+    candidateF0AdditionalGrpcGraphqlSignatures: 9
+    candidateF0AdditionalHostedWorkerSignatures: 42
+    candidateF0AdditionalSignaturesAreDeduplicated: false
     candidateF6SourceFullyVerified: 0
     candidateF7RedisCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019
     candidateAofRdbToAofRehearsalCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
