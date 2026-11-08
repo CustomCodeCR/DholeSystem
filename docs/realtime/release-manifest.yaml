@@ -5,6 +5,7 @@ planVersion: 2.1.0
 createdOn: "2026-11-07"
 phase: F0
 phaseStatus: BLOQUEADA
+technicalPreparationPhase: F7_CHAOS_CANDIDATE_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
@@ -302,6 +303,9 @@ repositories:
     candidateF6TestsPassed: 3
     candidateF6TestedSha: a19fcef845346dfc3cadf51b5d7c7ad45e5806c8
     candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42499963178
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42505716880
+    candidateF6SnapshotTestedCommit: f11affc3a7ca25604266fcda669fea6a885e9f67
+    candidateF6SnapshotStatus: MINIMAL_REST_STATUS_SNAPSHOTS_API_BUILD_PASS
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -407,6 +411,9 @@ repositories:
     candidateF6TestsPassed: 3
     candidateF6TestedSha: ac5f6dc08d3a575894be2446f8104b3dd5a908a3
     candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42499975894
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42505712586
+    candidateF6SnapshotTestedCommit: a06987eb9a8084ccee97a0a88cce5df56b76e2d0
+    candidateF6SnapshotStatus: MINIMAL_REST_STATUS_SNAPSHOT_API_BUILD_PASS
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -545,6 +552,11 @@ repositories:
     ecosystemVersionBaseline: "1.12.4"
     releaseComponentVersion: "1.13.0"
     candidateForPhase: F4
+    candidateF6FrontendResourceKindsSupported: 21
+    candidateF7BrowserChaosOnlySimulated: [C01, C02, C03, C06, C07, C09, C10, C12]
+    candidateF7BrowserChaosTestedSha: 0582ef29cc8c542e26569a811a39c7dd0c1c61e9
+    candidateF7BrowserChaosCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084
+    candidateF7FormalGateApproved: false
     candidateF602RestReconciliation: pricing.rate (returns authoritative snapshot without assuming revision increments)
     candidateF602WebCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42492212712
     observedDevelopShaAfterBranching: 42b9933d598de69480b77990814773c84426191b
@@ -575,6 +587,8 @@ repositories:
     intermediateCreated: true
     initialIntermediateSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
     frozenSha: null
+    candidateF7EvidenceGuardCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42505851181
+    candidateF7EvidenceGuardStatus: PASS_GUARD_ONLY_NOT_FORMAL_GATE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
     releaseComponentVersion: PENDIENTE
