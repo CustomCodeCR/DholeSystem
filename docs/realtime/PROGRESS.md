@@ -4,10 +4,10 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 
 | Fase | Estado | Gate | Observación |
 |---|---|---|---|
-| F0 | BLOQUEADA | RECHAZADO | 16 ramas intermedias creadas; endpoints y ambiente no verificados completamente |
-| F1 | EN_PROGRESO | NO APROBADO | Contratos preliminares aislados; 42/42 pruebas CI, pero F0 todavía bloqueada y faltan integración/cobertura |
-| F2 | PRELIMINAR | NO APROBADO | Piloto PostgreSQL/Redis en rama CRM, suite de integración en CI; F0/F1 siguen bloqueando el gate |
-| F3 | IMPLEMENTACION_PRELIMINAR | NO APROBADO | Hub/bridge Gateway, 99/99 pruebas CI, pero WSS/Auth staging sin certificar |
+| F0 | INVENTARIO_ESTÁTICO_17_REPOS | BLOQUEADO | 929 rutas candidatas, 510 mutables + 68 workers pendientes revisión; baseline real sin medir |
+| F1 | CRITERIOS_TÉCNICOS_PASS | APROBACIÓN SECUENCIAL BLOQUEADA | 44/44 .NET8, contrato con productor CRM F2, falta aprobación F0 |
+| F2 | PILOTO_TÉCNICO_PASS | BLOQUEADO | 11/11 con 1.000 commits e HTTP aislado; falta REST comercial real y caída staging |
+| F3 | DOS_INSTANCIAS_CI_PASS | BLOQUEADO | 100/100, reinicio cursor durable; falta WSS TLS por Traefik y Auth/ACL staging |
 | F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; 2 vistas piloto reconciliadas por REST simulado |
 | F5 | PENDIENTE | NO EVALUADO | Piloto vertical |
 | F6.01–F6.13 | PENDIENTE | NO EVALUADO | 0/13 servicios aprobados |
@@ -113,3 +113,14 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - **Navegador multiusuario simulado:** usuario A en dos pestañas, usuario B en una, usuario C denegado 403; ambas vistas piloto (`crm.account`, `pricing.rate`) reconciliaron los snapshots REST mock por GET sin escribir, y CRM preservó los formularios sucios y detectó conflicto. **Esto no equivale a Auth/CRM/Pricing real en staging**.
 - Caso adicional 12: si llega una nueva invalidación durante GET lento, el cliente programa la segunda lectura tras completar la primera. Se evita perder actualizaciones.
 - **IMPLEMENTACIÓN F4 FINALIZADA EN RAMA, GATE FORMAL NO APROBADO**: F0–F3 siguen pendientes; WSS por Traefik, control multiusuario con permisos efectivos reales y escenarios de reconexión en staging no se han ejecutado. No F5, no merge, no despliegue ni activación.
+
+## Intento de cierre formal F0–F4 (2026-11-08)
+
+- [Auditoría de fuentes actualizada, run #42485543924](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485543924): 17/17 ramas inspeccionadas en lectura; 929 candidatos HTTP, 510 candidatos mutables, 68 archivos workers/handlers y 15 archivos frontend API. Generado `F0-unresolved-gate-items.csv` con **578 candidatos pendientes de revisión** de ruta absoluta, dueño, scope, audiencia, evento, vista y prueba. No afirmar cobertura completa hasta confirmar casos no identificados por heurísticas. La auditoría de entorno real sigue faltando.
+- [F1 .NET8 #42485214061](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42485214061), SHA `86645d36403869ccd791debb384bc298a6b2328a`: **44/44** tests, build verde, 0 errores, compatible con formato de eventos F2. Muestra advertencias XML preexistentes. Criterios técnicos F1 satisfechos; gate secuencial dependiente de F0.
+- [F2 .NET10 #42485087251](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42485087251), SHA `ec4bf2c01b4d4a84eff4a1358187b6ac37c4ec78`: **11/11** tests, 0 errores/advertencias. Prueba adicional HTTP TestServer con POST 201 + Outbox PostgreSQL + publisher Redis fallido y GET 200 posterior. **No demuestra aún los endpoints REST CRM reales integrados**.
+- [F3 .NET10 #42485284958](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42485284958), SHA `9ec7c1a60b21450c04aebca181106cf6ea11c4ce`: **100/100** tests, dos hosts Gateway reales de TestServer compartiendo Redis/PostgreSQL en CI, entrega autorizada por instancia y cursor persistente después de reiniciar. **No demuestra WSS TLS real a través de Traefik ni ACL de usuario de staging**.
+- [F4 Vue/Chromium #42448772988](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42448772988), SHA `0ac843361b51446967b2f8706a62cf137dce3785`: **12/12** manager, **91/91** regresiones, **200 ciclos Vue** sin crecimiento de listeners/sockets, 2 vistas piloto por REST simulado y build PASS. No equivalente a integración de datos reales Auth/CRM/Pricing en staging.
+- [Gate de evidencia #42485710957](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485710957): **SUCCESS de auditoría**, NO de aprobación funcional. `scripts/realtime/verify-f0-f4-gates.py` bloquea explícitamente los cinco gates mientras falten pruebas. Reporta pendientes `F0=6, F1=1 (depende F0), F2=4, F3=5, F4=3`. `--require-all` debe fallar hasta que existan evidencias y aprobaciones verificadas. Estado fuente `docs/realtime/gate-evidence.f0-f4.yaml`.
+- Ejecutable de baseline seguro `scripts/realtime/collect-staging-baseline.py` añadido. **No se ejecutó contra servidor real**: esta conexión sólo dispone de GitHub, no de sesión SSH ni métricas operativas de `dhole-staging`. Su uso exige ambiente explícito `DHOLE_GATE_ENV=staging` y URL HTTPS autorizada.
+- **Resultado:** F1/F2/F3/F4 técnicamente más validadas en CI; cinco gates secuenciales **BLOQUEADOS**, F5 prohibido por el plan. Versiones del batch siguen candidatas y flags OFF. No se modificaron `develop`, `master` ni `main` de este release; no merge ni deploy.
