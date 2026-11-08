@@ -1,0 +1,133 @@
+# This is candidate test evidence, NOT F7 approval or a staging execution.
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: "2.1.0"
+phase: F7
+status: PREPARACION_TECNICA_GATE_F6_BLOQUEADO
+formalApproved: false
+sequentialF6Approved: false
+stagingTestsExecuted: false
+noDevelopOrMasterMerge: true
+noProductionDeployment: true
+browserCandidateCi:
+  repo: CustomCodeCR/DholeWeb
+  testedSha: 0582ef29cc8c542e26569a811a39c7dd0c1c61e9
+  url: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084
+  outcome: success
+  tests: 22
+  mockedRuntime: true
+criticalRepetitionsRequired: 10
+formalTargetPassed: 14
+scenarios:
+  - id: C01
+    description: "Navegador desconectado y reconciliacion REST"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C02
+    description: "SignalR falla al inicio y usa retry/fallback"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C03
+    description: "Socket de Hub reinicia y resuscribe"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C04
+    description: "Redis Streams se interrumpe y Outbox recupera"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C05
+    description: "Bridge cae antes de ACK e Inbox deduplica"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C06
+    description: "Duplicados y eventos desordenados"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C07
+    description: "JWT expira/revocacion de permisos"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C08
+    description: "Concurrencia de dos editores con 409/412"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C09
+    description: "Tab suspendida despierta y refresca"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C10
+    description: "REST cae con WS conectado"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C11
+    description: "Outbox/Streams acumulan backlog"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C12
+    description: "Logout/cambio de identidad limpia datos"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C13
+    description: "Replica Gateway falla y cambia de nodo"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C14
+    description: "Dynamics/email repetidos sin efectos duplicados"
+    candidateStatus: NO_EJECUTADO_F7
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
