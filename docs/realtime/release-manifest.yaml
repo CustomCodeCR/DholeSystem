@@ -194,9 +194,9 @@ repositories:
     candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
     candidateF6Scope: CONFIG_AND_SRM_CATALOG
     candidateF6Outbox: EXISTING_CONFIG_EF_OUTBOX
-    candidateF6TestsPassed: 3
-    candidateF6TestedSha: a498616e09ec66979cf3e9487f9c99619cf790f7
-    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42496953424
+    candidateF6TestsPassed: 4
+    candidateF6TestedSha: bf27ef7844ff952699b4c75bf07e7c600bef32dc
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42501309773
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -511,10 +511,10 @@ repositories:
     candidateF602BridgeTestsRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42492026596
     candidateF602GatewayTestsPassed: 106
     candidateF604ToF613Bridge: TEN_ISOLATED_STREAMS_REST_OWNER_AUTHORIZATION
-    candidateF604ToF613MappedKinds: 18
+    candidateF604ToF613MappedKinds: 19
     candidateF604ToF613BridgeFlagDefaultOff: true
-    candidateF604ToF613SecurityCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42499913276
-    candidateF604ToF613SecurityTestsPassed: 126
+    candidateF604ToF613SecurityCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501265245
+    candidateF604ToF613SecurityTestsPassed: 128
     candidateF604ToF613StagingWssE2EPassed: false
     candidateF604ToF613FormalGateApproved: false
     candidateF602AclRevocationControlCi: PENDING_RECHECK
