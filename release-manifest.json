@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261108-CRM-REDIS-OUTBOX-034",
+  "releaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.12.3",
-  "status": "candidate-pending-staging",
+  "ecosystemVersion": "1.12.6",
+  "status": "candidate-pending-ci-staging",
   "branches": [
     "develop",
     "master"
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.12.3",
+      "version": "1.12.6",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -49,7 +49,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.5.3",
-      "mergeState": "feature-branch-not-merged"
+      "mergeState": "previous-release-unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.12.3",
+      "version": "1.12.6",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -114,24 +114,22 @@
   "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CRM real Redis publisher test must pass",
-    "Staging CRM outbox must reach Notifications without DI failure",
-    "Production requires release validation and existing explicit authorization"
+    "CI and regression tests for commercial terms parsing must pass",
+    "Staging must validate compiled Pricing wizard and previously saved terms",
+    "Promotion to master is gated by staging verification"
   ],
   "validationEvidence": {
     "semver": "Pending CI",
     "staging": "Pending staging",
-    "production": "pending release gate"
+    "production": "master release requires staging validation"
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Repair IConnectionMultiplexer dependency missing in CRM notification Redis publisher",
-    "Startup fails fast if the CRM stream publisher cannot be resolved",
-    "Add real Redis Stream publishing test to CRM CI",
-    "DholeWeb 1.12.3 adds an always-visible Save activity footer; notification intent begins only after save"
+    "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
+    "Use shared normalization for catalog, selected terms, manual input and wizard persistence",
+    "DholePricingService 1.5.8 REST contract unchanged"
   ]
 }
