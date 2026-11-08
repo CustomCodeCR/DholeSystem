@@ -1,0 +1,56 @@
+# F8 candidate only: 16 policy/scaffold tests and isolated backend evidence.
+# This file MUST NOT be used to claim F8 approval or authorize F9.
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: "2.1.0"
+phase: F8
+status: IMPLEMENTACION_TECNICA_CANDIDATA_CI_PASS
+releaseBranch: feature/dhole-realtime-universal-rt-20261107-01
+hub: DholeApiGateway
+formalApproved: false
+nextPhaseF9Authorized: false
+sampleIsDeployable: false
+targetBranchProtectionVerified: false
+allFeatureFlagsOff: true
+noDevelopOrMasterMerge: true
+noProductionDeployment: true
+ciEvidence:
+  candidateRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857
+  testedSha: fd2d472f4eada8130ba30ee1dc76ff81c8aeb3a8
+  outcome: success
+  positivePolicyTests: 1
+  negativePolicyTests: 11
+  generatorTests: 4
+  scaffoldAndNegativeTestCount: 16
+  realPostgresRedisDotNetHarnessCi: true
+  environment: GITHUB_HOSTED_EPHEMERAL
+  authenticHubWssJwtAclsVerified: false
+  productionOrStagingContact: false
+sample:
+  name: DholeFutureSample
+  serviceId: S14
+  repository: CustomCodeCR/DholeFutureSample
+  existsAsRealRegisteredRepo: false
+  sourcePath: scaffolds/dhole-future-service
+  workflow: .github/workflows/realtime-f8-future-service.yml
+  localManifest: scaffolds/dhole-future-service/realtime.manifest.yaml
+  centralRegistryEntry: CI_SAMPLE_NOT_DEPLOYABLE
+  sampleHttpMutations: 2
+  sampleOutboxWorkers: 1
+  newHubCreated: false
+acceptance:
+  positiveNegativeCiPassed: true
+  sampleDotNetPostgresRedisRecoveryCiPassed: true
+  sourceEndpointJobManifestCoverageVerified: false # scanner cannot prove all dynamic endpoints
+  futureServiceRegisteredCentral: false # synthetic sample entry is NOT a real repo enrollment
+  futureServiceGatewayStreamRoutingVerified: false
+  futureServiceAuthorizedRestAclTested: false # source SQL tests only, not real JWT
+  futureServiceWssAndRestRecoveryVerified: false
+  futurePRRequiredChecksProtected: false
+blockers:
+  - F0-F7 gates not sequentially approved, F7 staging 0/14.
+  - 580 existing F0 source candidates remain unreviewed; F8 not a replacement for F6.
+  - Real service has no deployed OAuth/JWT scope test, central Gateway route or bound frontend.
+  - Cross-repo required check needs the exact reviewed registry in protected develop/master branches.
+  - FutureService F8 source regex is fail-closed for recognized patterns, not a Roslyn endpoint inventory attestation.
+  - Staging Redis AOF OFF; WSS/TLS/ACL real not approved.
