@@ -1,0 +1,141 @@
+# Inventario inicial, NO equivale a cobertura verificada
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: 2.1.0
+serviceCountExpected: 13
+serviceCountAuditedCompletely: 0
+services:
+  - id: S01
+    repo: CustomCodeCR/DholeCRMService
+    name: CRM
+    subphase: F6.01
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S02
+    repo: CustomCodeCR/DholePricingService
+    name: Pricing
+    subphase: F6.02
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S03
+    repo: CustomCodeCR/DholeNotificationsService
+    name: Notifications
+    subphase: F6.03
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S04
+    repo: CustomCodeCR/DholeAuthService
+    name: Auth
+    subphase: F6.04
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S05
+    repo: CustomCodeCR/DholeConfigService
+    name: Config
+    subphase: F6.05
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S06
+    repo: CustomCodeCR/DholeAuditLogsService
+    name: AuditLogs
+    subphase: F6.06
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S07
+    repo: CustomCodeCR/DholeStorageService
+    name: Storage
+    subphase: F6.07
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S08
+    repo: CustomCodeCR/DholeDataExtractionService
+    name: DataExtraction
+    subphase: F6.08
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S09
+    repo: CustomCodeCR/DholeReportsService
+    name: Reports
+    subphase: F6.09
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S10
+    repo: CustomCodeCR/DholeDynamicsConnectorService
+    name: DynamicsConnector
+    subphase: F6.10
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S11
+    repo: CustomCodeCR/DholeAIService
+    name: AI
+    subphase: F6.11
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S12
+    repo: CustomCodeCR/DholeAgentService
+    name: Agent
+    subphase: F6.12
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+  - id: S13
+    repo: CustomCodeCR/DholeContentService
+    name: Content
+    subphase: F6.13
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: BLOQUEADA
+additionalComponents:
+  - { repo: CustomCodeCR/DholeApiGateway, role: gateway, inventory: PENDIENTE }
+  - { repo: CustomCodeCR/DholeWeb, role: frontend, inventory: PENDIENTE }
+  - { repo: CustomCodeCR/DholeSystem, role: documentation, inventory: PARCIAL }
+logicalModules:
+  SRM: { owner: POR_CONFIRMAR, status: BLOQUEADA }
+  System: { owner: POR_CONFIRMAR, status: BLOQUEADA }
+futureServicePolicy:
+  requireRegistryEntry: true
+  requireRealtimeManifest: true
+  requireOutboxInboxOrApprovedEquivalent: true
+  requireResourceScopedAuthorization: true
+  requireRestReconciliation: true
+  requireContractIntegrationAndRecoveryTests: true
+  requireCIGate: true
+  exemptionRequiresSignedADR: true
+  enforced: false # pendiente de F8; nunca afirmar cobertura automática
