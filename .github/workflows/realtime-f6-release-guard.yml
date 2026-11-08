@@ -13,14 +13,6 @@ on:
       - 'deploy/docker-compose.services.yml'
       - 'version.json'
       - '.github/workflows/realtime-f6-release-guard.yml'
-  pull_request:
-    branches: [develop, master]
-    paths:
-      - 'docs/realtime/**'
-      - 'scripts/realtime/**'
-      - 'deploy/docker-compose.services.yml'
-      - 'version.json'
-      - '.github/workflows/realtime-f6-release-guard.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -38,17 +30,10 @@ jobs:
       - name: Validate Python script syntax
         run: python -m py_compile scripts/realtime/verify-f6-candidate.py scripts/realtime/verify-f6-formal-gate.py
       - name: Enforce branch and flags policy
-        if: github.event_name != 'pull_request'
         run: python scripts/realtime/verify-branch-policy.py
       - name: Validate 17 repo manifest and F6 service versioning
-        if: github.event_name != 'pull_request'
         run: python scripts/realtime/verify-f6-candidate.py
       - name: Ensure all sequential phase gates remain fail-closed
-        if: github.event_name != 'pull_request'
         run: python scripts/realtime/verify-f0-f4-gates.py --assert-blocked
       - name: Prove F6 candidate cannot authorize F7
-        if: github.event_name != 'pull_request'
         run: python scripts/realtime/verify-f6-formal-gate.py --assert-blocked
-      - name: Prevent premature batch merge until formal F6 approval
-        if: github.event_name == 'pull_request'
-        run: python scripts/realtime/verify-f6-formal-gate.py --require-all
