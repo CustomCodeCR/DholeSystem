@@ -75,3 +75,10 @@ Pruebas requeridas: 1.000 commits → 1.000 eventos lógicos, duplicados idempot
 - [CRM durabilidad 7/7 — run 42444761702](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444761702): prueba de 1.000 operaciones y simulación de Redis stream perdido, reconstrucción explícita desde Outbox SQL, deduplicación de proyección; sin pruebas omitidas.
 - [AOF persistencia — run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160): configuración declarada válida y entrada XRANGE sobreviviendo contenedor eliminado/recreado con volumen persistente efímero. Esto no es verificación de despliegue real.
 - Recuperación de PEL de otro consumidor por `XAUTOCLAIM`: código compilado y prueba aprobada; suite final **10/10** en [CI 42444994037](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037) al SHA `b28ae8278ea28b05624ec30021ada38ad3d8ca21`. El guard de payload también rechazó PII y esquema inválido.
+
+
+## Aceptación ampliada (2026-11-08) — aislada, no staging
+
+- [CI F2 #42485087251](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42485087251), SHA `ec4bf2c01b4d4a84eff4a1358187b6ac37c4ec78`: **11 PASS / 0 FAIL / 0 SKIP**, .NET 10 build 0 warnings/0 errors. TRX artifact `13619366230`.
+- Se añadió un `WebApplication` con `TestServer` .NET 10, usando PostgreSQL real; `POST /f2/commit` confirma la operación y crea un evento Outbox en **la misma transacción**. El publicador Redis falla intencionadamente tras la confirmación; `GET /f2/read` sigue retornando 200, persiste el registro de negocio y el Outbox sigue `Pending` para retry.
+- Esto valida el **patrón HTTP de aislamiento** del piloto; los handlers REST de negocio originales CRM no están aún conectados al productor, por lo que la prueba NO demuestra que el 100 % de mutaciones comerciales reales sean independientes de Redis. Tampoco sustituye un fallo/reinicio de Redis de `dhole-staging`, la revisión de AOF/backup/retención o los gates anteriores. **Gate F2 formal no aprobado.**
