@@ -265,3 +265,9 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - El registro `docs/realtime/F0-approved-source-decisions.csv` inicia solo con cabecera, **cero aprobaciones**. Para cada revisión exige ACL, audiencia, evento, dueño, consumidor, GET REST, test enlazado y evidencia de aprobación, o exención firmada.
 - El workflow F0 de la rama intermedia ejecuta pruebas sintéticas de rechazo/aceptación y publica `F0-unified-source-review.csv` y `F0-unified-source-summary.json` como artefactos de CI.
 - Versión candidata documental DholeSystem 1.13.1 → 1.13.2; propuesta global 1.13.2. F0/F6 y promoción F9/F10 siguen **BLOQUEADAS** por cobertura real no revisada, infraestructura, JWT/WSS/ACL y contingencia. Sin cambios en targets ni despliegues.
+
+## F6 — corrección de guard SemVer tras ejecución real de CI (2026-11-08)
+
+- `realtime-f0-inventory.yml` CI #42526130675: SUCCESS, fuente F6 582 candidatos + 57 firmas adicionales = 639 firmas no deduplicadas por operación, **8/8** pruebas de conciliación aprobadas, 0 revisiones formalmente aprobadas.
+- `realtime-f6-release-guard` CI #42526130697 detectó assert estático `global 1.13.1` al subir versión documental. Se reemplazó por comprobación SemVer de versión candidata vs baseline y consistencia completa de manifiesto/componente/CHANGELOG. Debe verificarse con nuevo CI.
+- Versión candidata DholeSystem/global 1.13.3. **Gates F0–F8 sin aprobar; F9/F10 no ejecutadas.** Ningún cambio de target o despliegue.

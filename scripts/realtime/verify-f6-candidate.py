@@ -6,6 +6,7 @@ Does not run migrations, change Git refs, approve gates, or deploy.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import yaml
@@ -49,7 +50,17 @@ def verify() -> None:
     compose = (ROOT / "deploy/docker-compose.services.yml").read_text()
     assert manifest["releaseId"] == registry["releaseId"] == metadata["releaseId"] == RELEASE
     assert manifest["planVersion"] == registry["planVersion"] == "2.1.0"
-    assert manifest["batchVersion"]["proposedGlobalRelease"] == metadata["version"] == "1.13.1"
+    # Validate current *candidate* SemVer, not an outdated hard-coded patch.
+    version = metadata["version"]
+    baseline = manifest["batchVersion"]["currentGlobalMaxObserved"]
+    semver = re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
+    assert semver.fullmatch(version) and semver.fullmatch(baseline)
+    assert tuple(map(int, version.split("."))) > tuple(map(int, baseline.split(".")))
+    assert manifest["batchVersion"]["proposedGlobalRelease"] == version
+    assert metadata["ecosystemVersion"] == version
+    doc = next(item for item in manifest["repositories"] if item["id"] == "DOC")
+    assert doc["releaseComponentVersion"] == version
+    assert ("## [" + version + "]") in (ROOT / "CHANGELOG.md").read_text()
     assert manifest["batchVersion"]["proposedOnly"] is True
     assert manifest["batchStatus"] == "BUILDING"
     policy = manifest["branchPolicy"]
@@ -115,7 +126,7 @@ def verify() -> None:
     assert "Realtime__BatchApproved" in compose
     assert "Realtime__Outbox__Enabled" in compose
     print("PASS F6_CANDIDATE_REGISTRY: 13 partial services, 19 scoped kinds, 10 isolated"
-          " streams, 17 repositories, flags OFF, NO FORMAL GATE, global 1.13.1 candidate")
+          f" streams, 17 repositories, flags OFF, NO FORMAL GATE, global {version} candidate")
 
 
 if __name__ == "__main__":

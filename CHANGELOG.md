@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.13.3] - 2026-11-08 (candidato aislado, sin publicación)
+
+- F6: reparado CI de revisión del release que rechazaba incrementos legítimos al exigir la versión estática 1.13.1. Ahora valida Semantic Versioning creciente, versión de DholeSystem, candidata global, manifiesto y CHANGELOG de forma coherente, manteniendo flags OFF y gate bloqueado.
+
+
 ## [1.13.2] - 2026-11-08 (candidato aislado, sin publicación)
 
 - F0/F6: conciliación automatizada de firmas HTTP, workers y protocolos adicionales de 17 repos con decisiones revisadas ancladas al SHA inspeccionado. Evita aceptación de evidencias obsoletas, rutas sin ACL/GET/consumidor y excepciones sin aprobación; casos positivos/negativos de CI.

@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.2"
+  proposedGlobalRelease: "1.13.3"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.2"
+    releaseComponentVersion: "1.13.3"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1032,3 +1032,11 @@ f0SourceReviewConsolidation20261108:
   sourceCandidatesApprovedAutomatically: 0
   formalGatesApproved: false
   promotionPermitted: false
+
+f6CandidateVersionGuard20261108:
+  componentVersion: "1.13.3"
+  checksCandidateSemverAgainstObservedBaseline: true
+  checksManifestComponentChangelogAlignment: true
+  hardcodedVersionRemoved: true
+  baselineProductionUnchanged: true
+  formalF6Approved: false
