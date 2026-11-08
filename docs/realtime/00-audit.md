@@ -35,6 +35,8 @@ Los SHAs del manifiesto son **baseline de F0**, no snapshot congelado ni promoci
 | DholeWeb | 1.12.4 | 1.12.4 |
 | DholeSystem | 1.12.3 | 1.12.3 |
 
+**Cambio documental en F0:** `DholeSystem` elevó `version.json` de 1.12.3 a 1.12.4 en esta rama intermedia y actualizó `CHANGELOG.md`. Las cifras de la tabla son **baselines anteriores**; ningún otro componente ni rama final recibió incremento en esta fase. La versión del batch completo no ha sido aplicada.
+
 **Inconsistencia existente:** `ecosystemVersion` no es globalmente uniforme. Propuesta pendiente: versión funcional de batch `1.13.0` (MINOR desde máximo observado 1.12.4), sin aplicar ni declarar release. La numeración final debe reevaluarse contra cambios concurrentes antes de F9. Bumps por componente y CHANGELOG obligatorios.
 
 ## Evidencia de lectura de código (parcial, NO inventario completo)
