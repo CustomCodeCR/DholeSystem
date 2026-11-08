@@ -35,6 +35,9 @@ services:
   redis:
     image: redis:7-alpine
     restart: unless-stopped
+    # F2 candidate: durable Redis Streams journal; staging only, no deployment
+    # until coordinated F9. Requires existing persistent /data volume.
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
     volumes:
       - dhole-staging-redis:/data
     networks:
