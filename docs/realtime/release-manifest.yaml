@@ -5,7 +5,7 @@ planVersion: 2.1.0
 createdOn: "2026-11-07"
 phase: F0
 phaseStatus: BLOQUEADA
-technicalPreparationPhase: F7_CHAOS_CANDIDATE_ONLY
+technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
@@ -614,6 +614,16 @@ repositories:
     candidateAofRdbToAofRehearsalCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
     candidateAofMigrationStagingApplied: false
     candidateF7StagingPassedCases: 0
+    candidateF8Status: FUTURE_SERVICE_ENFORCEMENT_TESTED_CI_NOT_APPROVED
+    candidateF8CiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857
+    candidateF8PositiveNegativeAndScaffoldTestsPassed: 16
+    candidateF8SampleOutboxRealDotnetRedisPostgresRecoveryCiPassed: true
+    candidateF8FormalGateGuardRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511053160
+    candidateF8FormalGateApproved: false
+    candidateF8NextPhaseF9Authorized: false
+    candidateF8FutureServiceRealRepoRegistered: false
+    candidateF8BranchProtectionVerified: false
+    candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
     releaseComponentVersion: "1.13.0"
