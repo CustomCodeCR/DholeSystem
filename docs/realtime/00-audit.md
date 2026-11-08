@@ -76,3 +76,7 @@ Se volvieron a consultar 48 referencias (`develop`, `master`, `feature/dhole-rea
 Evidencia adicional de propiedad SRM: `DholeWeb/src/modules/srm/services/srmApi.ts` en la rama intermedia usa `/api/config/srm` y define Config como anfitrión de rutas de proveedores SRM; **hipótesis fuerte de propiedad Config, pendiente de verificar backend y permisos**. No contar como inventario resuelto sin inspección de Config.
 
 Se aplicó estrictamente el gate del plan v2.1.0: F0 sigue rechazada; no se inició F1 ni se alteró código productivo o ramas objetivo.
+
+### Addendum de drift DholeSystem
+
+`DholeSystem/develop` avanzó 6 commits desde el baseline 9040bb00… hasta ebbbaa031f… mientras se registraba F0, con versión de ecosistema 1.12.6 y cambio de CHANGELOG/release-manifest.json/version.json. Sin escritura directa de este batch, sin merge ni rebase. El propuesto 1.13.0 NO está aprobado; reevaluar al congelar SHA para F9.
