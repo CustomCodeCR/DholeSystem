@@ -671,7 +671,16 @@ f3GatewayHubCandidate:
     initialSecurityPassed: 80
     initialSecurityFailed: 0
     websocketIntegrationCandidateRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446649159
-    websocketIntegrationResult: PENDIENTE
+    websocketIntegrationResult: PASSED_IN_ISOLATED_CI_ONLY
+    finalTestedSha: 097890a33ed05f63bf6b3616d7bd7fe17c412b8e
+    finalWorkflowRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096
+    finalBuildWarnings: 0
+    finalBuildErrors: 0
+    finalUnitIntegrationTestsPassed: 99
+    finalUnitIntegrationTestsFailed: 0
+    finalUnitIntegrationTestsSkipped: 0
+    finalTrxArtifactId: 13603454219
+    testedRealStagingWss: false
   adr: docs/realtime/ADRs/0002-gateway-hub-authorization.md
   runbook: docs/realtime/F3-HUB-GATEWAY-RUNBOOK.md
   formalAcceptance: BLOQUEADA_POR_GATES_Y_PRUEBAS_OPERATIVAS
