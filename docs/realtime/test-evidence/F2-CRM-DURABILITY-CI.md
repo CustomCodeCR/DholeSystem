@@ -19,9 +19,13 @@
 - Resultado **SUCCESS**: AOF en staging Compose (rama intermedia solamente) verificado estáticamente; entrada Redis Streams visible tras eliminar/recrear un contenedor con mismo volumen temporal.
 - **NO** prueba Redis en servidores reales ni RPO/RTO, backups, fallos de energía abruptos ni lag de consumidores.
 
-## Iteración posterior de seguridad
+## Ejecución final de la variante F2 con seguridad ampliada
 
-Se añadieron pruebas de rechazo PII y schemaVersion en el productor CRM y validaciones de payload. Último SHA candidato con 10 pruebas: `b28ae8278ea28b05624ec30021ada38ad3d8ca21`. **Estado de CI de ese SHA pendiente de confirmar**. No atribuir los resultados de la ejecución 8/8 al código posterior.
+- [CI CRM run 42444994037](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037), SHA probado: `b28ae8278ea28b05624ec30021ada38ad3d8ca21`.
+- Resultado **SUCCESS**: .NET 10 `0 warnings / 0 errors`, **10 PASSED / 0 FAILED / 0 SKIPPED** (MSTest).
+- Incluye la suite anterior de 8 pruebas, más 2 casos de rechazo de campos PII y `schemaVersion` inválida sin insertar eventos en PostgreSQL.
+- Archivo TRX: `rt-20261107-01-f2-crm-durability`, artifact ID `13603795163`.
+- Este SHA fue comprobado **solo en rama intermedia**; no debe llamarse release, staging o producción.
 
 ## Bloqueos
 
