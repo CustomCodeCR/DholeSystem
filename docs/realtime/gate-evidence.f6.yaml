@@ -44,7 +44,7 @@ acceptance:
   streamOutboxInboxRetryIdempotencyStagingTested: false
   13ServicesFormalApproval: false
 blockers:
-  - "F0: 578 candidates not yet mapped and fully audited for ownership/security."
+  - "F0: 580 source candidates not yet fully mapped and fully audited for ownership/security."
   - "Redis stage aof_enabled=0; persistence, restore and replay not demonstrated."
   - "WSS through Traefik and real token/ACL isolation not demonstrated."
   - "Resource snapshot REST by GUID and frontend bindings missing for several owners."
