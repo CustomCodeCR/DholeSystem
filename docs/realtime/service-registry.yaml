@@ -234,6 +234,18 @@ additionalComponents:
 logicalModules:
   SRM: { owner: DholeConfigService, evidence: "src/Dhole.Config.Api/Endpoints/SrmCatalogEndpoints.cs maps /api/config/srm", status: IDENTIFICADA_PENDIENTE_COBERTURA }
   System: { owner: POR_CONFIRMAR, confirmedSubownerForVersions: DholeApiGateway, evidence: "Dhole.ApiGateway/Program.cs maps GET /api/system/versions", status: BLOQUEADA_OTHER_SYSTEM_FEATURES }
+futureServices:
+  # CI/sample registration only; NO CustomCodeCR/DholeFutureSample repo is
+  # created, deployed, or treated as 14th production service in this release.
+  - id: S14
+    repo: CustomCodeCR/DholeFutureSample
+    name: DholeFutureSample
+    stream: dhole.future-sample.realtime.v1
+    hub: DholeApiGateway
+    manifest: scaffolds/dhole-future-service/realtime.manifest.yaml
+    status: CI_SAMPLE_NOT_DEPLOYABLE
+    candidateOnly: true
+    deploymentApproved: false
 futureServicePolicy:
   requireRegistryEntry: true
   requireRealtimeManifest: true
@@ -243,7 +255,10 @@ futureServicePolicy:
   requireContractIntegrationAndRecoveryTests: true
   requireCIGate: true
   exemptionRequiresSignedADR: true
-  enforced: false # pendiente de F8; nunca afirmar cobertura automática
+  enforced: false # runtime branch/PR protection awaits F9/F10; cannot be activated in targets now
+  candidateCIEnforced: true # F8 sample-positive/negative checks on feature branch only
+  gateF8FormalApproved: false
+  requiredStatusCheck: Realtime F8 future-service manifest and negative PR enforcement
 
 sharedLibraries:
   - repo: CustomCodeCR/CustomCodeFramework
