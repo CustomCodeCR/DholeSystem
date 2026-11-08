@@ -49,3 +49,10 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - F1: [Actions run 42443081145](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145), commit `a81447dd00d004d6a32eb28001a379ee89ddb552`: **build OK; 42 tests passed, 0 failed, 0 skipped**, archivo TRX subido. Hay avisos CS1591 sobre comentarios XML y advertencias del runner Node, pero cero errores de compilación.
 - F1: catálogo semilla `docs/realtime/event-catalog.draft.yaml`, 13 eventos propuestos, aún no cotejados con permisos/contratos reales.
 - Gate formal F0: **BLOQUEADO** por endpoints/jobs todavía pendientes de completar, infra viva y cargas no medidas. Gate formal F1: **NO APROBADO** porque falta cerrar F0 y probar integración multi-servicio. No ejecutar F2, PRs finales ni despliegues.
+
+## F0 — escaneo automatizado completado, gate NO APROBADO
+
+- [CI F0 run 42443461440](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443461440) **PASSED**, clonación de solo lectura 17/17 intermedias; manifiesto validado. **928** rutas fuente candidatas, **67** workers/handlers candidatos, **13** frontend REST clientes candidatos. Dos artefactos subidos; detalles en `test-evidence/F0-actions-audit-42443461440.md`.
+- [CI F1 run 42443081145](https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145) **PASSED** en framework, compilación sin errores y **42/42** pruebas unitarias. Detalles en `test-evidence/F1-contract-tests-42443081145.md`.
+- F0 permanece `BLOQUEADA` porque el escáner no demuestra rutas/jobs 100% trazados, permisos, dueños System completos, proxy/realtime efectivo ni baseline de carga en servidores. F1 `EN_PROGRESO` de forma preliminar, sin gate F1 formal aprobado; F2 prohibida.
+- Control de versión: DholeSystem `1.13.0` candidato y framework `0.3.0` candidato. Release global **NO PUBLICADO**. No PRs a develop/master, no merges, no staging/prod, flags OFF.
