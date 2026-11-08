@@ -26,6 +26,11 @@ phaseGates:
     stagingHealthHttpOnlyP95Ms: 2.606
     stagingHealthHttpOnlyP99Ms: 3.397
     stagingExternalTlsWssConfirmed: false
+    stagingPersistenceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42490276695
+    stagingRedisAofEnabled: false # real runtime INFO persistence -> aof_enabled=0
+    stagingRedisPersistentVolumeMounted: true
+    stagingPostgresPersistentVolumeMounted: true
+    stagingRedisAofMigrationRequiredAtF9: true
     runtimeInstanceTopologyVerified: false
     targetBranchPolicyVerifiedByCi: true
     nativeProtectedBranchesVerified: false
@@ -65,6 +70,7 @@ phaseGates:
     deadLetterAndRetryVerified: true
     redisAofVolumeCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
     realStagingRedisOutageAndRestoreVerified: false
+    realStagingRedisAofCurrentlyDisabled: true # observed in read-only staging CI; blocks durability
     realStagingBackupRetentionAndAlertsVerified: false
     requiresF1Approved: true
     approval: false
