@@ -63,7 +63,7 @@ REQUIREMENTS: dict[str, list[tuple[str, object]]] = {
         ("restartedGatewayConsumesDurableRedisCursorCi", True),
         ("wssTlsThroughRealStagingProxyVerified", True),
         ("ownerRestAuthorizationRealStagingVerified", True),
-        ("productionJwtRevocationVerified", True),
+        ("actualStagingJwtRevocationVerified", True),
         ("realStagingInstanceTopologyVerified", True)
     ],
     "F4": [
