@@ -92,6 +92,53 @@ jobs:
           if stat != {"200":100}:
               raise RuntimeError("Staging local gateway health is not 100/100 HTTP 200")
           PY
+      - name: Inspect staging-only realtime flags and anonymous Hub negotiation (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,urllib.request,urllib.error
+          from datetime import datetime,timezone
+          cmd=["docker","ps","-q","--filter","label=com.docker.compose.project=dhole-staging",
+            "--filter","label=com.docker.compose.service=api-gateway"]
+          ids=subprocess.run(cmd,capture_output=True,text=True,check=True,timeout=15).stdout.splitlines()
+          if len(ids)!=1: raise RuntimeError("Cannot uniquely identify staging Gateway")
+          cid=ids[0].strip()
+          inspect=subprocess.run(["docker","inspect","--format","{{json .Config.Env}}",cid],
+            capture_output=True,text=True,check=True,timeout=15)
+          # Read only known boolean feature flags; never print entire env or secrets.
+          raw=dict(x.split("=",1) for x in json.loads(inspect.stdout) if "=" in x)
+          names=("Features__UniversalRealtimeEnabled","Realtime__Enabled",
+                 "Realtime__BatchApproved","Realtime__BridgeEnabled",
+                 "Realtime__UniversalServicesBridgeEnabled")
+          state={name:raw.get(name,"false").lower()=="true" for name in names}
+          outcome="NO_RESPONSE"
+          try:
+              request=urllib.request.Request(
+                "http://127.0.0.1:18080/hubs/realtime/negotiate?negotiateVersion=1",
+                method="POST",headers={"Content-Type":"text/plain;charset=UTF-8"})
+              with urllib.request.urlopen(request,timeout=4) as response:
+                  outcome=str(response.status)
+          except urllib.error.HTTPError as exc:
+              outcome=str(exc.code)
+          except (urllib.error.URLError,TimeoutError):
+              outcome="NETWORK_ERROR"
+          report={"releaseId":"rt-20261107-01","project":"dhole-staging",
+            "probe":"unauthenticated loopback HTTP negotiation; NOT WSS/TLS or ACL test",
+            "anonymousNegotiateHttpStatus":outcome,"realtimeFlagsBooleanOnly":state,
+            "tlsWssVerified":False,"realJwtScopeVerified":False,
+            "readOnly":True,"prodModified":False,
+            "collectedAtUtc":datetime.now(timezone.utc).isoformat()}
+          with open("F0Results/staging-realtime-authorization-probe.json","w") as f:
+              json.dump(report,f,indent=2)
+          print("STAGING_HUB_ANONYMOUS_PROBE:",outcome,
+                "realtime enabled flags count:",sum(state.values()),
+                "WSS/TLS/JWT still unverified")
+          if any(state.values()):
+              raise RuntimeError("Unapproved staging batch feature flag unexpectedly ON")
+          if outcome=="200":
+              raise RuntimeError("Anonymous Hub negotiate responded 200 unexpectedly")
+          PY
       - name: Inspect live staging Redis AOF and Postgres persistent volumes (read-only)
         shell: bash
         run: |
