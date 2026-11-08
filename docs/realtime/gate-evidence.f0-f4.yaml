@@ -69,7 +69,7 @@ phaseGates:
     restartedGatewayConsumesDurableRedisCursorCi: true
     wssTlsThroughRealStagingProxyVerified: false
     ownerRestAuthorizationRealStagingVerified: false
-    productionJwtRevocationVerified: false
+    actualStagingJwtRevocationVerified: false
     realStagingInstanceTopologyVerified: false
     requiresF2Approved: true
     approval: false
