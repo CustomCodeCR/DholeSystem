@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.11.4",
-  "ecosystemVersion": "1.11.4",
-  "releaseId": "DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029"
+  "version": "1.12.0",
+  "ecosystemVersion": "1.12.0",
+  "releaseId": "DH-20261107-CRM-NOTIFICATIONS-031"
 }
