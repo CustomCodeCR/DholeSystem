@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261107-FCL-HAULAGE-HANDOFF-028",
+  "releaseId": "DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.11.3",
+  "ecosystemVersion": "1.11.4",
   "status": "candidate-pending-staging",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.11.3",
+      "version": "1.11.4",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.11.3",
+      "version": "1.11.4",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -125,13 +125,12 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
-    "FCL Step 6 Carrier/Merchant choice saved per POE and carrier on selection",
-    "Step 6 route hydration never clears restored Carrier choice while entering step 7",
-    "Step 7 displays chosen haulage read-only, with no duplicate Carrier/Merchant toggle",
-    "Step 7 includes priced Inland CostIds from the same contextual costs used in Step 6, with no duplicates"
+    "Pantalla 8 MultiQUO: persisted sub-QUO accordion panels match creation layout",
+    "Read route, carrier, haulage, Ocean Freight, line details and totals from Pricing saved snapshots",
+    "Hide single-tariff financial sections and Vite-generated single-lines table in multi-group review",
+    "Preserve existing route selector and screen 9; no Pricing API changes"
   ]
 }
