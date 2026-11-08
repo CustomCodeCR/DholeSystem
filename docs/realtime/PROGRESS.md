@@ -4,15 +4,15 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 
 | Fase | Estado | Gate | Observación |
 |---|---|---|---|
-| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.606 ms; 578 candidatos sin mapping y WSS/ACL pendientes |
+| F0 | INVENTARIO_17_REPOS_Y_SALUD_STAGING_LOCAL | BLOQUEADO | 27+5 contenedores; 100/100 GET health local, p95 2.606 ms; 580 candidatos de fuente sin mapeo verificado y WSS/ACL pendientes |
 | F1 | CRITERIOS_TÉCNICOS_PASS | APROBACIÓN SECUENCIAL BLOQUEADA | 44/44 .NET8, contrato con productor CRM F2, falta aprobación F0 |
 | F2 | DURABILIDAD_Y_REST_CRM_TESTSERVER_PASS | BLOQUEADO | 14/14 en CI; Redis real de staging observado con AOF OFF; requiere migración segura y prueba restauración |
 | F3 | DOS_INSTANCIAS_CI_PASS | BLOQUEADO | 100/100, reinicio cursor durable; falta WSS TLS por Traefik y Auth/ACL staging |
 | F4 | IMPLEMENTACION_AISLADA_COMPLETA | BLOQUEADA POR F0–F3 Y STAGING | 12/12 gestor, 91/91 regresión, Chromium 200 ciclos Vue sin fuga; 2 vistas piloto reconciliadas por REST simulado |
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
-| F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128. F0 inventario + AOF staging + REST snapshots/vistas + WSS/ACL reales pendientes |
-| F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 escenarios con pruebas simuladas de navegador; 0/14 caos real de staging verificado; F6 formal bloquea su ejecución |
+| F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128; 1 vista Agent agregada. Siguen 580 candidatos fuente sin revisión, AOF staging y WSS/ACL reales pendientes |
+| F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 simulaciones web + 3 ensayos Redis CI + 1 SQL Dynamics parcial; 0/14 caos formal staging; F6 bloqueada |
 | F8 | PENDIENTE | NO EVALUADO | Enforcement servicios futuros |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
 | F10 | PENDIENTE | NO EVALUADO | Requiere autorización expresa master/producción |
@@ -208,3 +208,16 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - `DholeContentService` F6.13: GET autorizado para menú/configuración expone `Id/IsActive` e `Id/IsPublic`, sin valor ni siteKey. [CI #42506192534](https://github.com/CustomCodeCR/DholeContentService/actions/runs/42506192534) **SUCCESS**, SHA `1c999c1cac338a71d45d482700789a4c03b6520c`, versión candidata 1.3.0.
 - F7 preparado con runbook `docs/realtime/F7-CHAOS-RUNBOOK.md` (14 casos, umbrales, aserciones y rollback); no se ejecutaron inyecciones de fallo en staging. Algunas pruebas CI preexistentes ejercitan casos análogos C04/C05/C08/C13 con datos de TestServer, pero no se cuentan como F7 formal. **Formal F7: 0/14**.
 - F6 se mantiene **BLOQUEADA**: 578 candidatos de F0 sin mapa completo, resto de mutaciones/vistas sin cobertura, AOF staging apagado, falta WSS/ACL real y restauraciones. 17 ramas no congeladas, flags OFF, sin merges, PR de batch ni despliegue.
+
+## Revisión F6/F7 ampliada — 2026-11-08
+
+**Resultado actual comprobado: F6 NO APROBADA, F7 NO APROBADA, F8 NO AUTORIZADA.**
+No se han tocado develop/master/main ni desplegado los flags de este batch.
+
+- **Inventario por archivo/línea:** [F0 CI #42507019304](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507019304) **SUCCESS**; 17 repos fuente, 510 rutas HTTP mutables candidatas + 70 workers/handlers candidatos = **580 revisiones pendientes**, todas `UNVERIFIED`. Aporta fuente/ubicación y pistas de scope pero NO certifica audiencia, Outbox, REST ni cobertura universal. Archivo `F6-source-mutation-review.csv` como artefacto del workflow.
+- **Frontend F6.12 Agent:** `AgentExecutionDetailView.vue` escucha `agent.execution`, reconsulta GET real de propietario, conserva polling de respaldo y purga vista/cache Pinia ante revocación. Previene aplicación de GET/resultados lentos después de pérdida de permisos o cambio de recurso. [DholeWeb CI #42507658702](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702) **SUCCESS** sobre SHA `2a84e044f66f19c93445f1798028a0e9cab679f3`, suite Vue/Agent, compilación y regresiones. **3 vistas** realtime enlazadas (CRM account, Pricing rate, Agent execution), **18 recursos nuevos** todavía sin vista vinculada. Web versión `1.13.0` candidata.
+- **F7 C04/C05/C11 candidatos:** [CI Redis aislado #42506868019](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019) **SUCCESS** con 10 eventos conservados tras 1 restart AOF, 10 mensajes recuperados de ACK y 1.200 eventos de backlog drenados. Incluye componentes sintéticos Inbox Redis; no hay pérdida en este conjunto CI, pero no prueba PostgreSQL/Gateway/usuarios reales en staging.
+- **F7 C14 candidato parcial:** [Dynamics CI #42507593928](https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928) **SUCCESS**, Postgres 17 usando `sql/010`+`sql/019`: repetir dedupeKey no crea trabajo ni Outbox duplicado. **No prueba** envío de correos, otros productores ni entorno real.
+- **Riesgo crítico AOF detectado:** [CI inicial #42507114616](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507114616) **FAILED** de forma correcta al recrear Redis con AOF ON sobre un RDB sin conversión previa: perdió entradas de Streams. [CI corregido #42507199248](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248) **SUCCESS**, activa AOF online, espera escritura completa, retiene 100 eventos previos + 1 posterior y soporta dos recreaciones. Runbook `F6-REDIS-AOF-STAGING-MIGRATION.md` bloquea redeploy inseguro. **Redis real de staging sigue con su último estado observado `aof_enabled=0` y sin backup/restore certificado.**
+- **F7 formal:** `gate-evidence.f7.yaml` documenta 8 casos browser simulados, 3 Redis CI reales solo dentro de Docker aislado y un Dynamics SQL parcial. C08/C13 no tienen suite F7 dedicada aunque sus fundamentos se ensayaron previamente. Formal **0/14** escenarios en staging, y 0 aprobaciones de fases anteriores. `verify-f7-chaos-gate.py --require-all` exige 14/14 con evidencia y `nextPhaseF8Authorized=true`, por defecto `false`.
+- **Pendientes reales:** completar revisión y cobertura por mutación de 580 candidatos, agregar resto de vistas y GET autorizados completos, WSS TLS/Traefik con JWT/ACL y 2 instancias/usuarios reales, backup y restauración AOF/Postgres, probar idempotencia de los eventos de correo y ejecutar los 14 escenarios F7 reales en entorno autorizado. Sin estos no es correcto iniciar F8 formalmente.
