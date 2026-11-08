@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.12.3",
-  "ecosystemVersion": "1.12.3",
-  "releaseId": "DH-20261108-CRM-REDIS-OUTBOX-034"
+  "version": "1.12.6",
+  "ecosystemVersion": "1.12.6",
+  "releaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037"
 }
