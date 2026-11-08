@@ -49,7 +49,7 @@ acceptance:
   futurePRRequiredChecksProtected: false
 blockers:
   - F0-F7 gates not sequentially approved, F7 staging 0/14.
-  - 580 existing F0 source candidates remain unreviewed; F8 not a replacement for F6.
+  - 582 source candidates at latest F0 scan (512 mutable routes and 70 worker files) remain unreviewed; F8 not a replacement for F6.
   - Real service has no deployed OAuth/JWT scope test, central Gateway route or bound frontend.
   - Cross-repo required check needs the exact reviewed registry in protected develop/master branches.
   - FutureService F8 source regex is fail-closed for recognized patterns, not a Roslyn endpoint inventory attestation.
