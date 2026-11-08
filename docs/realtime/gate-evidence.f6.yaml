@@ -11,6 +11,13 @@ globalCandidateVersion: "1.13.0"
 noDevelopOrMasterMerge: true
 noProductionDeployment: true
 allFeatureFlagsDefaultOff: true
+latestStagingReadOnlyAudit: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
+latestStagingAofEnabled: false
+latestStagingAnonymousHubNegotiationHttpStatus: 404
+latestStagingUniversalRealtimeFlagsOn: 0
+latestStagingWssTlsJwtAclVerified: false
+aofMigrationSafeCiRehearsal: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+aofMigrationAppliedInStaging: false
 candidateProducerOrDeliveryMechanisms: 13
 candidateAdditionalStreams: 10
 candidateResourceKinds: 19
