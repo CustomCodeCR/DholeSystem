@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261107-MULTIQUO-SAVED-ACCORDIONS-029",
+  "ecosystemVersion": "1.11.4",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-07",
+  "components": [
+    {
+      "component": "DholeWeb",
+      "from": "1.11.3",
+      "to": "1.11.4"
+    },
+    {
+      "component": "DholeSystem",
+      "from": "1.11.3",
+      "to": "1.11.4"
+    },
+    {
+      "component": "DholePricingService",
+      "from": "1.5.3",
+      "to": "1.5.3",
+      "status": "unchanged"
+    }
+  ],
+  "changes": [
+    "Persisted FCL MultiQUO subquote accordion parity between creation and read-only screen 8",
+    "Independent archived values loaded from Pricing getRateGroup and individual RateDto details",
+    "No duplicate single-rate summary or Vite-generated single-rate detail table",
+    "Read-only route/carrier/mode/Ocean Freight/amounts/line breakdown"
+  ],
+  "validation": "pending-ci-staging",
+  "productionDeploymentAuthorized": false
+}
