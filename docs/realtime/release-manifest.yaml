@@ -1,0 +1,442 @@
+# F0 baseline (no release frozen, no staging/production release)
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: 2.1.0
+createdOn: "2026-11-07"
+phase: F0
+phaseStatus: BLOQUEADA
+batchStatus: BUILDING
+batchVersion:
+  currentGlobalMaxObserved: "1.12.4"
+  proposedGlobalRelease: "1.13.0"
+  proposedOnly: true
+branchPolicy:
+  intermediate: feature/dhole-realtime-universal-rt-20261107-01
+  intermediateBase: develop
+  developMergeEarliestPhase: F9
+  masterMergeEarliestPhase: F10
+  masterRequiresExplicitAuthorization: true
+  forbidDirectTargetWrites: true
+  forbidMainChanges: true
+  forbidForcePush: true
+  oneBatchPRPerRepositoryPerTarget: true
+  featureFlagsDefaultOff: true
+  productionDeploymentAuthorized: false
+promotion:
+  frozen: false
+  frozenShaCount: 0
+  developPRs: []
+  masterPRs: []
+  stagingDeployed: false
+  productionDeployed: false
+  testsAtFrozenSha: NO_EJECUTADO
+  rollbackVerified: false
+  approvalF0: false
+  approvalF1ToF8: false
+  approvalF9: false
+repositories:
+  - id: S01
+    name: CustomCodeCR/DholeCRMService
+    developBaselineSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    masterBaselineSha: 85059c0be40ed18e24e6332cd307716edf92c250
+    mergeBaseSha: 58a1a68e960d6b5cea50904542c5d2d587859e00
+    developToMasterStatus: diverged
+    masterOnlyCommits: 196
+    developOnlyCommits: 193
+    baseBranch: develop
+    baseSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.1"
+    ecosystemVersionBaseline: "1.12.3"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S02
+    name: CustomCodeCR/DholePricingService
+    developBaselineSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    masterBaselineSha: a005de6b85bbfb9b5844672098f05b921f7507fd
+    mergeBaseSha: d38043d7920d17c168284b9bb64db21dc9b79216
+    developToMasterStatus: diverged
+    masterOnlyCommits: 1330
+    developOnlyCommits: 1444
+    baseBranch: develop
+    baseSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    frozenSha: null
+    currentComponentVersionBaseline: "1.5.7"
+    ecosystemVersionBaseline: "1.12.4"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S03
+    name: CustomCodeCR/DholeNotificationsService
+    developBaselineSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    masterBaselineSha: 7fedeff9b67f5d6ca0a1831b1908f11b2349d3f4
+    mergeBaseSha: bfb23100e79a5506a398bb18e0f4828e7c3c4659
+    developToMasterStatus: diverged
+    masterOnlyCommits: 27
+    developOnlyCommits: 36
+    baseBranch: develop
+    baseSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S04
+    name: CustomCodeCR/DholeAuthService
+    developBaselineSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    masterBaselineSha: 936f00a697262aeafbe279234c0cadfed843630c
+    mergeBaseSha: 00e6b0af4362eec05f9ec8471ae3a34af3746f94
+    developToMasterStatus: diverged
+    masterOnlyCommits: 84
+    developOnlyCommits: 106
+    baseBranch: develop
+    baseSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S05
+    name: CustomCodeCR/DholeConfigService
+    developBaselineSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    masterBaselineSha: 7ffe4bfe4b4f7eba893d6df801d545d15bf3334e
+    mergeBaseSha: a4a69b4a7b8c0ee5efdd49eba5211e9f15e6f19b
+    developToMasterStatus: diverged
+    masterOnlyCommits: 48
+    developOnlyCommits: 51
+    baseBranch: develop
+    baseSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S06
+    name: CustomCodeCR/DholeAuditLogsService
+    developBaselineSha: ac12000302f52b4792b681e38e1a493501432835
+    masterBaselineSha: 4dcfb7608627de8adce12ef4479f8fc45f39a433
+    mergeBaseSha: d3d4f7a7a790d260485406832b34aaae7476e6a5
+    developToMasterStatus: diverged
+    masterOnlyCommits: 11
+    developOnlyCommits: 8
+    baseBranch: develop
+    baseSha: ac12000302f52b4792b681e38e1a493501432835
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: ac12000302f52b4792b681e38e1a493501432835
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S07
+    name: CustomCodeCR/DholeStorageService
+    developBaselineSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    masterBaselineSha: 5ddc37d1644f1eea988d564b1d6214c4cd7aa5f2
+    mergeBaseSha: d94631a7ebe7c691de8eff336e87c714d4dcf801
+    developToMasterStatus: diverged
+    masterOnlyCommits: 16
+    developOnlyCommits: 32
+    baseBranch: develop
+    baseSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.2"
+    ecosystemVersionBaseline: "1.3.2"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S08
+    name: CustomCodeCR/DholeDataExtractionService
+    developBaselineSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    masterBaselineSha: 21b6bbf748cb44fccc0210bcdb2d7700b4c5b33f
+    mergeBaseSha: 7068d59afb44cc4730449a734d6333abe6ae3ff1
+    developToMasterStatus: diverged
+    masterOnlyCommits: 269
+    developOnlyCommits: 269
+    baseBranch: develop
+    baseSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.5"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S09
+    name: CustomCodeCR/DholeReportsService
+    developBaselineSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    masterBaselineSha: b586596631fb0bfc84b6787ef980a4c039f789bf
+    mergeBaseSha: 5673bac362b69b5f0357c322d6d0b4a7ad868e35
+    developToMasterStatus: diverged
+    masterOnlyCommits: 66
+    developOnlyCommits: 70
+    baseBranch: develop
+    baseSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    frozenSha: null
+    currentComponentVersionBaseline: "1.4.2"
+    ecosystemVersionBaseline: "1.11.2"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S10
+    name: CustomCodeCR/DholeDynamicsConnectorService
+    developBaselineSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    masterBaselineSha: 2883e903b2b4b2ee7f02614b8648ff6ad7dfe6f6
+    mergeBaseSha: e3510e02bc64a98c8f14c84dc63e7ea1cb03bb86
+    developToMasterStatus: diverged
+    masterOnlyCommits: 289
+    developOnlyCommits: 293
+    baseBranch: develop
+    baseSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S11
+    name: CustomCodeCR/DholeAIService
+    developBaselineSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    masterBaselineSha: 3ace8314a33710418156bb41470c33b39ead097c
+    mergeBaseSha: f6cde23bd761df032993e32e7ac50715fdcf9ae2
+    developToMasterStatus: diverged
+    masterOnlyCommits: 107
+    developOnlyCommits: 115
+    baseBranch: develop
+    baseSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.9"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S12
+    name: CustomCodeCR/DholeAgentService
+    developBaselineSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    masterBaselineSha: d9192c97fc07611825fbea14709ee41171e06cdd
+    mergeBaseSha: 92912f22f2c7e73c347c4f02da5be2c7baa5f82a
+    developToMasterStatus: diverged
+    masterOnlyCommits: 763
+    developOnlyCommits: 705
+    baseBranch: develop
+    baseSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.2"
+    ecosystemVersionBaseline: "1.3.2"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S13
+    name: CustomCodeCR/DholeContentService
+    developBaselineSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    masterBaselineSha: 3f6365730e4e86fb54621816d781693cb5d34878
+    mergeBaseSha: fd1ad0aa7b4529d1d9dd652e110c5e8cba99d275
+    developToMasterStatus: diverged
+    masterOnlyCommits: 15
+    developOnlyCommits: 330
+    baseBranch: develop
+    baseSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: GW
+    name: CustomCodeCR/DholeApiGateway
+    developBaselineSha: ad57459a6fc9a102863144bacc25b9b55e1ba805
+    masterBaselineSha: 2f3e0d2b00a0afd63884ee7f6870fdec54c26d2a
+    mergeBaseSha: 0ab9ef4eb5ec331ff48fad79c691111cbf21d63f
+    developToMasterStatus: diverged
+    masterOnlyCommits: 47
+    developOnlyCommits: 49
+    baseBranch: develop
+    baseSha: ad57459a6fc9a102863144bacc25b9b55e1ba805
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: ad57459a6fc9a102863144bacc25b9b55e1ba805
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.1"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: WEB
+    name: CustomCodeCR/DholeWeb
+    developBaselineSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    masterBaselineSha: a74a87a0f9e68a017a44bc543ca4f7de16abb52d
+    mergeBaseSha: 646fd8e04a22b3265f7417aeb000439bafb330d8
+    developToMasterStatus: diverged
+    masterOnlyCommits: 3089
+    developOnlyCommits: 3457
+    baseBranch: develop
+    baseSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    frozenSha: null
+    currentComponentVersionBaseline: "1.12.4"
+    ecosystemVersionBaseline: "1.12.4"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: DOC
+    name: CustomCodeCR/DholeSystem
+    developBaselineSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    masterBaselineSha: baeb014da206c0125f5863a49c576d58e6206409
+    mergeBaseSha: af4db48a8f12edbc772bf6c014aa44804af8b5a6
+    developToMasterStatus: diverged
+    masterOnlyCommits: 149
+    developOnlyCommits: 197
+    baseBranch: develop
+    baseSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    frozenSha: null
+    currentComponentVersionBaseline: "1.12.3"
+    ecosystemVersionBaseline: "1.12.3"
+    releaseComponentVersion: PENDIENTE
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+notes:
+  - "SHAs basales son los comprobados antes de crear las ramas intermedias; no son SHAs finales ni congelados."
+  - "Los conteos de ahead/behind provienen de comparación base develop ... head master en GitHub."
+  - "No se ha auditado la infraestructura en vivo ni los endpoints mutables al 100%."
+  - "El manifest NO autoriza habilitar funciones, merges ni despliegues."
