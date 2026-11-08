@@ -49,7 +49,7 @@ def verify() -> None:
     compose = (ROOT / "deploy/docker-compose.services.yml").read_text()
     assert manifest["releaseId"] == registry["releaseId"] == metadata["releaseId"] == RELEASE
     assert manifest["planVersion"] == registry["planVersion"] == "2.1.0"
-    assert manifest["batchVersion"]["proposedGlobalRelease"] == metadata["version"] == "1.13.0"
+    assert manifest["batchVersion"]["proposedGlobalRelease"] == metadata["version"] == "1.13.1"
     assert manifest["batchVersion"]["proposedOnly"] is True
     assert manifest["batchStatus"] == "BUILDING"
     policy = manifest["branchPolicy"]
@@ -115,7 +115,7 @@ def verify() -> None:
     assert "Realtime__BatchApproved" in compose
     assert "Realtime__Outbox__Enabled" in compose
     print("PASS F6_CANDIDATE_REGISTRY: 13 partial services, 19 scoped kinds, 10 isolated"
-          " streams, 17 repositories, flags OFF, NO FORMAL GATE, global 1.13.0 candidate")
+          " streams, 17 repositories, flags OFF, NO FORMAL GATE, global 1.13.1 candidate")
 
 
 if __name__ == "__main__":
