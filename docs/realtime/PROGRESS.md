@@ -7,8 +7,8 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | F0 | BLOQUEADA | RECHAZADO | 16 ramas intermedias creadas; endpoints y ambiente no verificados completamente |
 | F1 | EN_PROGRESO | NO APROBADO | Contratos preliminares aislados; 42/42 pruebas CI, pero F0 todavía bloqueada y faltan integración/cobertura |
 | F2 | PRELIMINAR | NO APROBADO | Piloto PostgreSQL/Redis en rama CRM, suite de integración en CI; F0/F1 siguen bloqueando el gate |
-| F3 | PENDIENTE | NO EVALUADO | Gateway/Hub y grupos |
-| F4 | PENDIENTE | NO EVALUADO | Frontend + fallback |
+| F3 | IMPLEMENTACION_PRELIMINAR | NO APROBADO | Hub/bridge Gateway, 99/99 pruebas CI, pero WSS/Auth staging sin certificar |
+| F4 | IMPLEMENTACION_PRELIMINAR | NO APROBADO | Cliente Vue, REST fallback y piloto CRM/Pricing; CI aislada, no staging |
 | F5 | PENDIENTE | NO EVALUADO | Piloto vertical |
 | F6.01–F6.13 | PENDIENTE | NO EVALUADO | 0/13 servicios aprobados |
 | F7 | PENDIENTE | NO EVALUADO | 0/14 casos ejecutados |
@@ -92,4 +92,16 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [CI F3 seguridad base 42446139059](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446139059) compiló y aprobó **80/80** pruebas, con 30 casos de lectores denegados; repositorio versionado únicamente en rama intermedia. 
 - CI extendida de WebSocket TestServer, dos usuarios autorizados/uno denegado y revocación de permisos **validada**: [run 42446789096](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446789096), SHA exacto `097890a33ed05f63bf6b3616d7bd7fe17c412b8e`, **99/99 pruebas PASS**, 0 omitidas, 0 errores/advertencias de compilación. Incluye tres casos nuevos de aislamiento de dominio/eventos y metadata.
 - ADR `ADRs/0002-gateway-hub-authorization.md`, runbook `F3-HUB-GATEWAY-RUNBOOK.md`, migración SQL de Gateway solo como candidata.
-- **F0/F1/F2 siguen sin gate aprobado; F3 formal también NO APROBADA** hasta WSS/TLS real con Traefik, dos instancias reales, JWT/Auth y scopes reales, y validación de ambiente. Ningún merge, despliegue, PR por fase ni flags activados. **F4 bloqueada.**
+- **F0/F1/F2 siguen sin gate aprobado; F3 formal también NO APROBADA** hasta WSS/TLS real con Traefik, dos instancias reales, JWT/Auth y scopes reales, y validación de ambiente. Ningún merge, despliegue, PR por fase ni flags activados. **El gate formal de F4 estaba bloqueado; su implementación candidata está aislada.**
+
+## F4 — Vue singleton y contingencia offline (2026-11-07, Costa Rica)
+
+- `DholeWeb` rama `feature/dhole-realtime-universal-rt-20261107-01`, versión candidata **1.13.0** (baseline 1.12.4) y ecosistema 1.13.0. Changelog, package-lock, package.json y versión global alineados. **No release**.
+- Se conserva NotificationsHub actual. Manager universal singleton `/hubs/realtime` con conexión WSS mediante ticket opaco, estados `connecting/connected/reconnecting/degraded/offline/unauthorized`, token JWT en header de POST (nunca en query).
+- Reintentos con jitter y control de falla **inicial**; en reconexión vuelve a suscribir y a hacer GET REST autoritativo de recursos activos; polling escalonado mientras WSS no funciona. Tab oculta/offline suspende reconexiones y GET, reanuda al volver.
+- 2 vistas piloto conectadas a REST: CRM account y Pricing rate detail. Versionado/duplicados protegidos, conflictos de formulario detectados sin reemplazar edición; revocación 401/403/404 borra información anteriormente mostrada.
+- [CI inicialmente verde F4 run 42447856745](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447856745) sobre SHA `54620a45c116850d6379478786097c81e3521572`: **11/11 tests F4, 91/91 regresiones CRM/Pricing, typecheck y build producción PASS**, gates de versión PASS. Una posterior corrección contra cachés en permisos revocados está en [CI run 42447931191](https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191), conclusión pendiente de confirmar antes de atribuirle resultado final.
+- Ver documentación `docs/realtime/F4-VUE-CLIENT-OFFLINE.md`. Pruebas del gate pendientes: 100 montajes Vue reales (la suite actual hace 100 ciclos de suscripción), 2 usuarios de staging por WSS, simulación navegador offline, autorización real, y cierres F0–F3.
+- **No integrar ni desplegar**. Flags `VITE_DHOLE_REALTIME_ENABLED` y `VITE_DHOLE_REALTIME_BATCH_APPROVED` permanecen ausentes/apagados; las rutas originales REST siguen funcionando.
+- `develop/master` de Web avanzaron desde crear la rama (observado develop v1.12.9, master v1.12.8). No reescribir nada: conciliar en F9 desde SHAs nuevos y realizar CI de regresión antes de cualquier PR único.
+- **Gate F4 = NO APROBADO**; F5 no iniciado.
