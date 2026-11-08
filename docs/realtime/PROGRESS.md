@@ -277,3 +277,10 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Verificación de solo lectura vía GitHub: CRM/Pricing/Notifications/Auth/Config/Audit/Storage/DataExtraction/Reports/Dynamics/AI/Agent/Content/Gateway/Framework declaran `ecosystemVersion=1.13.0`; Web candidata `1.13.2`; System anterior `1.13.3`. **No están alineadas** y no se puede congelar F9.
 - Añadido `f0_release_versions.py` al CI F0 (clon de 17 ramas): auditoría de versión de componente, SemVer, CHANGELOG, releaseId, SHA, y `ecosystemVersion`. Para F9 exige `--require-f9-ready`, 17 SHAs exactos congelados, F0–F8 aprobados y coherencia global; no cambia servicios ni flags.
 - DholeSystem versión candidata `1.13.4`; propuesta global `1.13.4`, todavía **sin aplicarse** a los demás repos. No se hace bump masivo mientras sigan mutaciones y pruebas pendientes. Formal F9 sigue BLOQUEADA.
+
+## F3 — test staging WSS/ACL preparado (2026-11-08)
+
+- Se implementó `f3_staging_wss_verify.mjs` y workflow `realtime-f3-staging-wss.yml` con tres pruebas de seguridad offline y ejecución real solo tras opt-in.
+- Comprobará GET owner REST 200/403 o 404, TLS/WSS, handshake, ticket SignalR y suscripción permitida/rechazada con dos usuarios QA reales. Los resultados no almacenan tokens ni payloads.
+- Antes de ejecutarlo, configurar variables de staging y secretos QA en Actions, desplegar una preview aislada del código candidato al Gateway de staging y mantener producción intacta. El Hub de staging observado anteriormente (404) aún no permite aprobar F3.
+- Versión DholeSystem candidata 1.13.5; F0–F8 pendientes de gate, F9 prohibido mientras no existan evidencias.
