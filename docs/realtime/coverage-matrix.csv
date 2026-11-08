@@ -14,3 +14,4 @@ DholeAgentService,S12,INVENTARIO_PENDIENTE,NO_VERIFICADO,NO_DEFINIDO,NO_VERIFICA
 DholeContentService,S13,INVENTARIO_PENDIENTE,NO_VERIFICADO,NO_DEFINIDO,NO_VERIFICADA,NO_VERIFICADAS,NO_VERIFICADO,NO_EJECUTADO,BLOQUEADA,F0 requiere descubrir 100 por ciento de rutas y jobs
 POR_CONFIRMAR,SRM,INVENTARIO_PENDIENTE,NO_VERIFICADO,NO_DEFINIDO,NO_VERIFICADA,NO_VERIFICADAS,NO_VERIFICADO,NO_EJECUTADO,BLOQUEADA,Propietario aun no confirmado
 POR_CONFIRMAR,System,INVENTARIO_PENDIENTE,NO_VERIFICADO,NO_DEFINIDO,NO_VERIFICADA,NO_VERIFICADAS,NO_VERIFICADO,NO_EJECUTADO,BLOQUEADA,Propietario aun no confirmado
+DholeCRMService,S01,PATCH /api/crm/accounts/{id},PATCH,crm.account.updated.v1,OwnerRestRealtimeResourceAuthorizer account ACL per delivery,CrmRecordDetailView.vue,GET /api/crm/accounts/{id},CrmRealtimeF5HttpIntegrationTests Real_authenticated_account_PATCH,EN_PROGRESO,Real HTTP and Outbox validated with 2 authorized roles in CI but full WSS Vue E2E still missing
