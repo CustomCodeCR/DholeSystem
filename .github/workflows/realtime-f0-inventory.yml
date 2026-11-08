@@ -34,6 +34,10 @@ jobs:
         run: python scripts/realtime/f6_mutation_source_review.py --workspace F0Results/working --output F0Results
       - name: Discover additive dynamic/MVC/worker mutation gaps from real source
         run: python scripts/realtime/f0_deep_coverage.py --workspace F0Results/working --output F0Results
+      - name: Verify source reconciliation negative/positive cases
+        run: python -m unittest discover -s scripts/realtime -p 'test_f0_consolidate_review.py' -v
+      - name: Consolidate SHA-pinned source review queue (no automatic approval)
+        run: python scripts/realtime/f0_consolidate_review.py --input F0Results --output F0Results
       - name: Upload audit evidence (never deploy)
         if: always()
         uses: actions/upload-artifact@v4

@@ -257,3 +257,11 @@ No se han tocado develop/master/main ni desplegado los flags de este batch.
 ## F4/F7 — conflict snapshot and lifecycle correction (2026-11-08)
 
 Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions reproduced before correction; 28/28 realtime checks pass afterward, type-check and production build pass locally. Full Web suite has the same 33 failures before and after (626→632 passes). Full evidence and failure names: `test-evidence/F4-F7-conflict-revocation-20261108.md`. No formal gate approval, target-branch merge or deployment. Current manifests now identify this realtime release instead of the unrelated historical CRM release.
+
+## F0/F6 — conciliación verificable de firmas y evidencias (2026-11-08)
+
+- Se añadió `scripts/realtime/f0_consolidate_review.py`: une las filas de inventario F6 con las firmas adicionales F0, asigna identidad reproducible por archivo/línea/ruta y bloquea cualquier revisión cuyo SHA no sea el checkout exacto del repositorio.
+- Las firmas adicionales potencialmente coincidentes con un worker/ruta existente se mantienen como firmas a revisar; no se cuentan como operaciones de negocio distintas ni se aprueban automáticamente.
+- El registro `docs/realtime/F0-approved-source-decisions.csv` inicia solo con cabecera, **cero aprobaciones**. Para cada revisión exige ACL, audiencia, evento, dueño, consumidor, GET REST, test enlazado y evidencia de aprobación, o exención firmada.
+- El workflow F0 de la rama intermedia ejecuta pruebas sintéticas de rechazo/aceptación y publica `F0-unified-source-review.csv` y `F0-unified-source-summary.json` como artefactos de CI.
+- Versión candidata documental DholeSystem 1.13.1 → 1.13.2; propuesta global 1.13.2. F0/F6 y promoción F9/F10 siguen **BLOQUEADAS** por cobertura real no revisada, infraestructura, JWT/WSS/ACL y contingencia. Sin cambios en targets ni despliegues.

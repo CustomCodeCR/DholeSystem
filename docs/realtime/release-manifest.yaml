@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.1"
+  proposedGlobalRelease: "1.13.2"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.1"
+    releaseComponentVersion: "1.13.2"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1020,3 +1020,15 @@ currentSessionValidation20261108:
   evidence: docs/realtime/test-evidence/F4-F7-conflict-revocation-20261108.md
   webTestedCommit: "8ac693125c3be20ea23f5bab757fff4b449908e4"
   frameworkContractTests: {passed: 44, failed: 0, skipped: 0}
+
+f0SourceReviewConsolidation20261108:
+  phase: F0_F6
+  componentVersion: "1.13.2"
+  reviewRegistry: docs/realtime/F0-approved-source-decisions.csv
+  sourceShaBindingRequired: true
+  sourceSignatureOverlapIsNotAutomaticallyDeduplicated: true
+  integratedInventoryOutput: F0Results/F0-unified-source-review.csv
+  evidenceSummaryOutput: F0Results/F0-unified-source-summary.json
+  sourceCandidatesApprovedAutomatically: 0
+  formalGatesApproved: false
+  promotionPermitted: false
