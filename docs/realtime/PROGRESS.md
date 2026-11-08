@@ -12,7 +12,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 | F5 | PREPARACION_TECNICA_CRM_EN_RAMA | BLOQUEADO | PATCH cuenta→Outbox v1→Redis worker candidato; TestServer Auth/ACL y 20 versiones PASS; falta E2E real de 2 navegadores + gates F0-F4 |
 | F6.01–F6.03 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATES NO APROBADOS | CRM 15/15, Pricing 3/3, Notifications 3/3, Gateway 106+ seguridad, Web F4+seguridad; sin cobertura 100% ni deploy |
 | F6.04–F6.13 | 10 IMPLEMENTACIONES CANDIDATAS CI PASS | NO APROBADO | 13/13 productores/mecanismos preparados; 19 nuevas audiencias; Gateway 128/128; 1 vista Agent agregada. Siguen 582 candidatos fuente sin revisión, AOF staging y WSS/ACL reales pendientes |
-| F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 8 simulaciones web + 3 ensayos Redis CI + 1 SQL Dynamics parcial; 0/14 caos formal staging; F6 bloqueada |
+| F7 | PREPARACION_TECNICA_CANDIDATA | NO APROBADO | 14/14 escenarios con alguna evidencia CI (8 web simulados, 3 Redis, 1 CRM concurrency, 1 Gateway failover, 1 Dynamics parcial); 0/14 formales staging, F6 bloqueada |
 | F8 | IMPLEMENTACION_CANDIDATA_CI_PASS | GATE FORMAL BLOQUEADO POR F0–F7 | 20/20 pruebas políticas/scaffold, .NET8+PostgreSQL+Redis recuperación CI PASS; sample S14 no desplegable; faltan Gateway/ACL/WSS reales, protección nativa y F7 14/14 |
 | F9 | PENDIENTE | NO EVALUADO | Prohibido merge a develop |
 | F10 | PENDIENTE | NO EVALUADO | Requiere autorización expresa master/producción |
@@ -247,3 +247,9 @@ No se han tocado develop/master/main ni desplegado los flags de este batch.
 - [Inventario #42511529610](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610) **SUCCESS**; la nueva lectura de código fuente (ramas intermedias) registra **512 rutas mutables candidatas y 70 ficheros worker = 582 filas sin validación** (antes 510+70=580). Los cambios entre lecturas prueban que el inventario todavía no está congelado; no asumir que se cerró.
 - Nueva exploración `scripts/realtime/f0_deep_coverage.py` encuentra **57 firmas adicionales a revisar**, clasificadas como 6 rutas dinámicas, 9 tecnologías GraphQL/gRPC y 42 declaraciones de hosted workers; pueden coincidir con las 582 filas ya registradas. `F0-additional-source-gaps.csv` y `F0-additional-source-gaps.json` disponibles en el artifact de CI. **0 aprobadas**, no sumar firmas a total sin deduplicar.
 - El gate de source coverage sigue BLOQUEADO hasta revisión de verb+ruta efectiva+ACL+Outbox/Inbox+audiencia+consumidor+test por cada operación. Último estado staging conocido: Redis AOF OFF, WSS/ACL JWT sin prueba real, F7 0/14.
+
+## F7 C08/C13 — candidatos adicionales, no staging
+
+- [CRM CI #42511869179](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179), SHA `3574be4bacf6f93f75abc552da6f2158930445af`, PASS: dos clientes HTTP simultáneos en TestServer representan dos pestañas del mismo actor; 10 iteraciones sobre cuenta CRM real PostgreSQL, un ganador con 200 y otro 409 en cada ronda, Outbox por versión = 1, lector no autorizado = 403. **NO son dos usuarios distintos ni un navegador staging real**.
+- [Gateway CI #42501705251](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251), SHA `151166d257272e31ff12181ef6f020a3ab3c7f8b`, PASS F3: dos Gateway TestServer, Redis/Postgres CI, instancia A reiniciada con cursor durable y B recibe durante indisponibilidad. **NO equivale a Traefik TLS/WSS ni instancia real de staging**.
+- F7 ahora tiene **14 escenarios con algún ensayo/candidato parcial** documentado: C01–C03/C06/C07/C09/C10/C12 simulados Web, C04/C05/C11 Redis CI, C08 CRM CI, C13 Gateway CI, C14 Dynamics SQL parcial. **Gate formal 0/14 en staging**, no sumar esos candidatos a `realEnvironmentRuns` ni aprobar F8.
