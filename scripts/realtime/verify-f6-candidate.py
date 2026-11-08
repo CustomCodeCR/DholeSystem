@@ -70,8 +70,8 @@ def verify() -> None:
         if ident not in EXPECTED:
             assert service["coverage"] == "BLOQUEADA", ident
     for name in FLAGS:
-        assert f"${{{name}:-false}}" in compose, name
-        assert f"${{{name}:-true}}" not in compose, name
+        assert ("${" + name + ":-false}") in compose, name
+        assert ("${" + name + ":-true}") not in compose, name
     assert "Realtime__PricingBridgeEnabled" in compose
     assert "Realtime__BatchApproved" in compose
     assert "Realtime__Outbox__Enabled" in compose
