@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0] - 2026-11-07
+
+- Release DH-20261107-CRM-NOTIFICATIONS-031: coordina DholeCRMService 1.3.0 y DholeWeb 1.12.0 para recurrencia de actividades y recordatorios.
+- Manifiesto 1.12.0: notificación en el inicio, recordatorios periódicos idempotentes y migración de actividades recurrentes.
+- Promoción a develop, pruebas de staging y autorización de producción permanecen pendientes.
+
 ## [1.11.4] - 2026-11-07
 
 - Actualiza el manifiesto global 1.11.4 para la visualización persistida de subQUO en Pantalla 8; DholePricingService conserva su versión y contrato existentes.
@@ -22,10 +28,8 @@
 
 ## [1.10.1] - 2026-11-07
 
-- Coordina el parche FCL de DholeWeb 1.10.1: selección visible, navegación sticky por POE y naviera, cargos Merchant/Carrier y pantalla 8 con acordeones.
-- Restringe subtarifas multi-POE a FCL y conserva el contrato existente para LCL, terrestre y aéreo.
-- Mantiene pendiente la API de guardado transaccional de sub-QUO; requiere validación CI/staging y autorización expresa antes de despliegue a producción.
-
+- Coordina el parche de DholeWeb con navegación sticky, acordeones de subtarifas y cargos Merchant/Carrier.
+- Mantiene el guardado agrupado pendiente y exige validación staging antes de master y autorización expresa para despliegue de producción.
 ## [1.10.0] - 2026-11-07
 
 - Coordina el release de interfaz DholeWeb 1.10.0: persistencia visible de POE y POD, navegación anterior/siguiente por ruta, recarga segura de costos y vista detallada de cada subtarifa.
@@ -70,12 +74,6 @@
 - Registra DholeWeb 1.5.0, DholePricingService 1.4.0 y DholeReportsService 1.4.0 en ramas de implementación, sin integrar a staging o producción.
 - Bloquea formalmente la promoción mientras no exista API transaccional, wizard completo, PDF integrado y pruebas de CI/staging.
 
-
-## [1.4.0] - 2026-11-06
-
-- Registra DH-20261106-CARRIER-ROUTE-COMMENTS-017 con ruta y comentarios de naviera en DholeWeb, DholePricingService y PDF de DholeReportsService.
-- Versiones coordinadas: Web 1.4.0, Pricing 1.3.0, Reports 1.3.0, System 1.4.0; otros servicios sin cambios.
-- Requiere validación CI y staging antes de promover el mismo release a producción.
 
 ## [1.3.14] - 2026-11-06
 

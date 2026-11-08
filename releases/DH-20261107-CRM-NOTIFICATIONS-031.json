@@ -1,0 +1,31 @@
+{
+  "releaseId": "DH-20261107-CRM-NOTIFICATIONS-031",
+  "ecosystemVersion": "1.12.0",
+  "date": "2026-11-07",
+  "status": "candidate-pending-staging",
+  "components": [
+    {
+      "component": "DholeCRMService",
+      "version": "1.3.0"
+    },
+    {
+      "component": "DholeWeb",
+      "version": "1.12.0"
+    },
+    {
+      "component": "DholeSystem",
+      "version": "1.12.0"
+    }
+  ],
+  "validation": {
+    "ci": "pending",
+    "postgresMigration": "pending",
+    "staging": "pending",
+    "productionAuthorization": false
+  },
+  "features": [
+    "CRM repeat activity schedule",
+    "CRM repeat reminders while pending",
+    "Exact-start notification delivery intent and idempotent Redis events"
+  ]
+}
