@@ -596,7 +596,29 @@ f2DurabilityPilot:
   deadLetter: PostgreSQL_DeadLetter_status_after_5_attempts
   inbox: idempotent_atomic_effect_then_ack
   ciWorkflow: .github/workflows/realtime-f2-durability.yml
-  tests: PENDIENTE_RESULTADO_CI
+  candidateTestedSha: b28ae8278ea28b05624ec30021ada38ad3d8ca21
+  tests:
+    workflowRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444994037
+    compiled: true
+    warnings: 0
+    errors: 0
+    passed: 10
+    failed: 0
+    skipped: 0
+    includesOneThousandCommittedOperations: true
+    includesRedisStreamLossReplay: true
+    includesAbandonedConsumerXAUTOCLAIM: true
+    includesPayloadSafety: true
+    trxArtifactId: 13603795163
+  redisAofCandidate:
+    branchConfig: deploy/docker-compose.staging-infra.yml
+    runtimeDeployed: false
+    ciRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
+    verifiedContainerReplacementWithPersistentVolume: true
+    stagingHostVerified: false
+    productionHostVerified: false
+  phaseAcceptance: RECHAZADO_PENDING_F0_F1_AND_RUNTIME
+
   postgresAndRedisStagingVerified: false
   redisAofRetentionVerified: false
   redisRestartRecoveryVerified: false
