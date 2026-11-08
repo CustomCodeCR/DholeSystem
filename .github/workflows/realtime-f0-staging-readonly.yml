@@ -92,6 +92,59 @@ jobs:
           if stat != {"200":100}:
               raise RuntimeError("Staging local gateway health is not 100/100 HTTP 200")
           PY
+      - name: Inspect live staging Redis AOF and Postgres persistent volumes (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess
+          def cmd(argv):
+              p=subprocess.run(argv,capture_output=True,text=True,timeout=20,check=True)
+              return p.stdout.strip()
+          def find(service):
+              matches=cmd(["docker","ps","-q",
+                  "--filter","label=com.docker.compose.project=dhole-staging-infra",
+                  "--filter",f"label=com.docker.compose.service={service}"]).splitlines()
+              if len(matches)!=1: raise RuntimeError("Expected one running staging "+service+" container")
+              return matches[0]
+          def inspect(cid,expression):
+              return json.loads(cmd(["docker","inspect","--format","{{json "+expression+"}}",cid]))
+          redis=find("redis")
+          pg=find("postgres")
+          redis_cmd=inspect(redis,".Config.Cmd")
+          mounts_redis=inspect(redis,".Mounts")
+          mounts_pg=inspect(pg,".Mounts")
+          aof_command=bool(redis_cmd and "--appendonly" in redis_cmd and
+                           redis_cmd[redis_cmd.index("--appendonly")+1]=="yes")
+          aof_volume=any(v.get("Type")=="volume" and v.get("Destination")=="/data" for v in mounts_redis)
+          postgres_volume=any(v.get("Type")=="volume" and v.get("Destination")=="/var/lib/postgresql/data" for v in mounts_pg)
+          # INFO persistence is read-only. Do not print full Redis payload, secrets or host paths.
+          p=subprocess.run(["docker","exec",redis,"redis-cli","--raw","INFO","persistence"],
+              capture_output=True,text=True,timeout=15,check=False)
+          props={}
+          if p.returncode==0:
+              for line in p.stdout.splitlines():
+                  if ":" in line and not line.startswith("#"):
+                      k,v=line.strip().split(":",1)
+                      if k in ("aof_enabled","aof_last_write_status","aof_last_bgrewrite_status"):
+                          props[k]=v
+          result={"releaseId":"rt-20261107-01","environment":"staging",
+             "readOnly":True,"productionModified":False,
+             "redisCommandAofEnabled":aof_command,
+             "redisRuntimeAofEnabled":props.get("aof_enabled")=="1",
+             "redisAofLastWriteOk":props.get("aof_last_write_status")=="ok",
+             "redisAofPersistentVolumePresent":aof_volume,
+             "postgresPersistentVolumePresent":postgres_volume,
+             "backupRestoreTestExecuted":False,
+             "streamLossReplayWithRealStagingExecuted":False}
+          with open("F0Results/staging-persistence-safety.json","w") as f:
+              json.dump(result,f,indent=2)
+          print("STAGING_PERSISTENCE_READ_ONLY:",
+                {k:v for k,v in result.items() if isinstance(v,bool)})
+          if not all((aof_command,aof_volume,postgres_volume,
+                      result["redisRuntimeAofEnabled"],result["redisAofLastWriteOk"])):
+              raise RuntimeError("Read-only staging persistence requirements not confirmed")
+          PY
       - name: Retain read-only evidence (not a deployment)
         if: always()
         uses: actions/upload-artifact@v4
