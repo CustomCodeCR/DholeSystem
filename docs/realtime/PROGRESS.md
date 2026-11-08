@@ -300,3 +300,10 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Se añadió comprobación obligatoria **antes de pull/up**: `verify_staging_redis_before_compose.py` verifica exclusivamente `dhole-staging-infra/redis` y el volumen `dhole-staging-infra_dhole-staging-redis`, `aof_enabled=1`, estado de escritura/rewrite correcto y tamaño AOF positivo; falla antes de tocar servicios si no se cumple. No consulta producción.
 - Se eliminó el `--force-recreate` innecesario de ambos contenedores. La migración RDB→AOF con respaldo independiente y restore sigue siendo un gate separado; NO se ejecutó ni simuló haberla realizado.
 - CI F0 valida las 7 pruebas del guard y el orden del deployment. DholeSystem `1.13.7` candidata, sin cambios en develop/master.
+
+## F9/F10 — PR coordinadas preparadas, deploy master protegido (2026-11-08)
+
+- Creadas **17 PR draft hacia develop**, una por cada repositorio del batch, registradas en `docs/realtime/f9-draft-prs.yaml`; **ninguna integrada**. Pricing (21 commits develop no integrados) y System (6) divergen y requieren reconciliación antes de desbloquear.
+- `verify_f9_draft_batch.py` valida que la lista de PR contiene exactamente los 17 repos de manifiesto, fuente/target esperados, URLs correctos y estado DRAFT; la CI no interpreta PR abiertas como gates aprobados.
+- F10 queda preparado con guard `verify_f10_production_preflight.py`, ejecutado como primera operación tras checkout del workflow producción. Usuario autorizó avanzar, pero el guard exige pruebas F0–F8, F9 17 merges, 14/14 caos, copia/restore real, rollback y prueba de misma versión congelada a master. **Todos los campos operativos continúan false**.
+- Ningún merge a develop/master ni despliegue en staging/producción ocurrió. DholeSystem propuesta `1.13.8`; el resto de ecosystemVersion aún desalineado, F9/F10 formales BLOQUEADOS.

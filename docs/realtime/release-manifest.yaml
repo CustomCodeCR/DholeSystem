@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.7"
+  proposedGlobalRelease: "1.13.8"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.7"
+    releaseComponentVersion: "1.13.8"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1081,3 +1081,16 @@ f9StagingRedisNoLossGuard20261108:
   backupRestoreStagingConfirmed: false
   stagingDeployAllowedNow: false
   formalPromotionApproved: false
+
+f9F10DraftPreparation20261108:
+  componentVersion: "1.13.8"
+  draftDevelopPrRoster: docs/realtime/f9-draft-prs.yaml
+  totalDraftPrs: 17
+  targetBranchesModified: false
+  upstreamDivergedRepositories: [DholePricingService, DholeSystem]
+  all17DevelopPrsMerged: false
+  formalF9Approved: false
+  productionGuard: scripts/realtime/verify_f10_production_preflight.py
+  productionApproval: docs/realtime/f10-production-approval.json
+  productionApproved: false
+  formalF10Approved: false

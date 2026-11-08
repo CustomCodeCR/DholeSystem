@@ -25,6 +25,12 @@ jobs:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
 
+      - name: F10 universal realtime promotion gate (fail closed before any production mutation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/realtime/verify_f10_production_preflight.py
+
       - name: Prepare runtime environments
         shell: bash
         run: |

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.13.7",
-  "ecosystemVersion": "1.13.7",
+  "version": "1.13.8",
+  "ecosystemVersion": "1.13.8",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-isolated-no-deployment"
 }
