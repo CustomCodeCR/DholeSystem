@@ -53,13 +53,18 @@ repositories:
     ecosystemVersionBaseline: "1.12.3"
     releaseComponentVersion: "1.4.0"
     candidateForPhase: F2
+    candidateF5PilotFlow: CRM_ACCOUNT_PATCH
+    candidateF5TestedCommitSha: 12ea9f72cb7aee930c7a6e5b4b82538eb618a492
+    candidateF5TestedRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42489760621
+    candidateF5UnitAndIntegrationTestsPassed: 14
+    candidateF5FormalGateApproved: false
     outboxMigration: "20261108130000_AddRealtimeDurabilityPilot"
     candidateFeatureFlags: [Features__UniversalRealtimeEnabled, Realtime__Outbox__Enabled]
     flagsDefaultOffUntilBatchComplete: true
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F2_F5_CANDIDATE_CI_14_PASS_NOT_FORMAL_GATES
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
