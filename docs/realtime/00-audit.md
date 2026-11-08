@@ -68,3 +68,11 @@ Los SHAs del manifiesto son **baseline de F0**, no snapshot congelado ni promoci
 ## Criterio para reabrir el gate F0
 
 Verificar 100% endpoints/jobs por repo y vistas/audiencias, ownership SRM/System, infraestructura real y baseline con mediciones reproducibles; guardar evidencia anonimizada. Antes de F1, registrar status de branches, protecciones, CI, dependencias y divergencias contra SHAs iniciales. Hasta entonces, **detenerse en F0**.
+
+## Revalidación posterior a F0 (solicitud de F1, 2026-11-07)
+
+Se volvieron a consultar 48 referencias (`develop`, `master`, `feature/dhole-realtime-universal-rt-20261107-01` por 16 repos). Todas las intermedias existen. Se detectó drift externo fast-forward de Pricing develop (+2 commits), DholeWeb develop (+3) y DholeWeb master (+2); evidencia y SHAs exactos en `test-evidence/F0-branch-revalidation-20261107.md`. Los baselines originales se mantienen inmutables como registro histórico.
+
+Evidencia adicional de propiedad SRM: `DholeWeb/src/modules/srm/services/srmApi.ts` en la rama intermedia usa `/api/config/srm` y define Config como anfitrión de rutas de proveedores SRM; **hipótesis fuerte de propiedad Config, pendiente de verificar backend y permisos**. No contar como inventario resuelto sin inspección de Config.
+
+Se aplicó estrictamente el gate del plan v2.1.0: F0 sigue rechazada; no se inició F1 ni se alteró código productivo o ramas objetivo.
