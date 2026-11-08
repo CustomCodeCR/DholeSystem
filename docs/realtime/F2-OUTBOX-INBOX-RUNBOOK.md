@@ -11,7 +11,7 @@
 - `CrmRealtimeOutboxWriter.AppendAsync`: exige una transacción EF Core explícita existente, valida un envelope mínimo CRM y realiza INSERT dentro de la misma transacción. No publica Redis desde REST ni hace commit propio. Integración de mutaciones REST reales a F6.01 (NO implementada en F2).
 - `CrmRealtimeOutboxProcessor`: selecciona hasta 100 filas mediante `FOR UPDATE SKIP LOCKED`, emite un lease por lote con token y 60s, envía XADD tras commit, guarda stream ID, reintenta con exponencial + jitter, y pasa a `DeadLetter` tras 5 intentos. Si falla PostgreSQL antes del marcado como publicado, la fila con lease caducado es reprocesable; puede haber redelivery sin efectos de negocio debido a Inbox.
 - `CrmRealtimeInboxStore`: usa PK `(event_id, consumer_name)` en la misma transacción que el efecto de proyección. En duplicado retorna false, nunca aplica dos veces. ACK Redis posterior al commit de base de datos.
-- `CrmRealtimeInboxConsumer`: consumidor **solo para pruebas de F2**, no registrado como worker de producción. Relee pending del mismo consumer ID, luego `>`. Reclamación de PEL de otros IDs/instancias y DLQ de mensajes malformados pendientes de completar y probar.
+- `CrmRealtimeInboxConsumer`: consumidor **solo para pruebas de F2**, no registrado como worker de producción. Relee pending del mismo consumer ID, utiliza `XAUTOCLAIM` para entries abandonadas por otros consumers con umbral por defecto 30s, luego `>`. Mensajes malformados quedan pending y requieren cuarentena/DLQ antes del gate final.
 - `CrmRealtimeOutboxWorker`: registrado, inactivo salvo que **ambos** flags estén activos: `Features:UniversalRealtimeEnabled=true` y `Realtime:Outbox:Enabled=true`. Sin flags añadidos a configuración desplegada, por lo que ambos son `false`. Ninguna ruta REST fue conectada al nuevo writer todavía.
 
 ## Identidad y particionamiento
@@ -24,7 +24,7 @@
 
 - **No activar** en producción ni staging hasta batch completo de 17 repos. No abrir PR por fase ni promover paquetes NuGet aislados.
 - Retención PostgreSQL: mantener Outbox Published y Inbox al menos el horizonte máximo de reconciliación (a definir con p95/p99, volumen y offline real). No purgar sin copia y evidencia de consumidores al día.
-- Redis infraestructura en staging/producción: confirmar `appendonly yes`, `appendfsync everysec` (y alternativa de mayor durabilidad según RPO acordado), volumen persistente y restauración probada. El Compose existente y la configuración runtime deben auditarse antes de cambiarse; **no se ha verificado AOF real**.
+- Redis staging: `deploy/docker-compose.staging-infra.yml` ahora declara `appendonly yes` y `appendfsync everysec` **solo en la rama intermedia**. CI [run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160) verificó la declaración de volumen y la recuperación AOF tras reemplazar el contenedor usando el mismo volumen efímero. El runtime real de dhole-staging/producción y las copias de seguridad siguen **NO VERIFICADOS**; no desplegar esta configuración hasta F9.
 - **No usar XTRIM MAXLEN arbitrario**: definir MINID/retención temporal + margen mayor a offline/PELs/lag. Alarmar si oldest pending supera SLO; definir umbrales contra medición real.
 - Métricas publicadas en `Meter("Dhole.Crm.Realtime.Outbox")`: `realtime_outbox_published`, `realtime_outbox_retried`, `realtime_outbox_deadletter`. Exportador de observabilidad pendiente.
 - Seguridad: no loggear envelope/secretos, limitar payload a mínimos; `AudienceRef` requiere resolución posterior de grupos autorizados en F3.
@@ -69,3 +69,9 @@ ROLLBACK;
 Pruebas requeridas: 1.000 commits → 1.000 eventos lógicos, duplicados idempotentes, caídas post-commit/pre-XADD/post-XADD/pre-ACK, Redis detenido/restaurado, verificación de AOF/backup, saturación y DLQ; ninguna escritura REST falla por websocket/redis. El workflow candidato `.github/workflows/realtime-f2-durability.yml` crea PostgreSQL 17/Redis 7 efímeros e incluye integración base. Una simulación de Redis indisponible **no equivale** a un reinicio real validado. Las pruebas pendientes NO se cuentan como aprobadas.
 
 **Rollback:** flags OFF, mantener REST y datos de Outbox/Inbox; revertir binarios solo con imagen versionada de batch. La migración es aditiva y no permite `Down` destructivo automático. No eliminar tablas para retroceder la funcionalidad.
+
+## Evidencia agregada (CI aislada)
+
+- [CRM durabilidad 7/7 — run 42444761702](https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42444761702): prueba de 1.000 operaciones y simulación de Redis stream perdido, reconstrucción explícita desde Outbox SQL, deduplicación de proyección; sin pruebas omitidas.
+- [AOF persistencia — run 42444816160](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160): configuración declarada válida y entrada XRANGE sobreviviendo contenedor eliminado/recreado con volumen persistente efímero. Esto no es verificación de despliegue real.
+- Recuperación de PEL de otro consumidor por `XAUTOCLAIM`: código añadido, suite de 8 casos en ejecución; **no declarar PASS hasta que el CI del SHA actualizado lo confirme**.
