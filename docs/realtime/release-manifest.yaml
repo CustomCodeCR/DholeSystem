@@ -9,7 +9,7 @@ technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
 batchStatus: BUILDING
 batchVersion:
   currentGlobalMaxObserved: "1.12.11"
-  proposedGlobalRelease: "1.13.5"
+  proposedGlobalRelease: "1.13.6"
   proposedOnly: true
 branchPolicy:
   intermediate: feature/dhole-realtime-universal-rt-20261107-01
@@ -639,7 +639,7 @@ repositories:
     candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
     currentComponentVersionBaseline: "1.12.3"
     ecosystemVersionBaseline: "1.12.3"
-    releaseComponentVersion: "1.13.5"
+    releaseComponentVersion: "1.13.6"
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
@@ -1059,3 +1059,14 @@ f3StagingWssSmoke20261108:
   serviceWriteOperations: 0
   actualWssStagingValidated: false
   formalGateApproved: false
+
+f0ExistingSignalrCompose20261108:
+  componentVersion: "1.13.6"
+  guard: scripts/realtime/f0_existing_ws_compose_guard.py
+  notificationHubExistsInSource: true
+  websocketProxyExistsInSource: true
+  redisAofComposeDeclared: true
+  additionalQaUsersNecessaryForOfflineValidation: false
+  universalStagingHubTlsWssVerified: false
+  redisRuntimeDurabilityVerified: false
+  formalF9Approved: false

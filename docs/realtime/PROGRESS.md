@@ -284,3 +284,12 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - Comprobará GET owner REST 200/403 o 404, TLS/WSS, handshake, ticket SignalR y suscripción permitida/rechazada con dos usuarios QA reales. Los resultados no almacenan tokens ni payloads.
 - Antes de ejecutarlo, configurar variables de staging y secretos QA en Actions, desplegar una preview aislada del código candidato al Gateway de staging y mantener producción intacta. El Hub de staging observado anteriormente (404) aún no permite aprobar F3.
 - Versión DholeSystem candidata 1.13.5; F0–F8 pendientes de gate, F9 prohibido mientras no existan evidencias.
+
+## F0/F3 — evidencia existente, sin duplicar WSS (2026-11-08)
+
+- Notifications ya implementa `NotificationsHub` y DholeWeb su cliente SignalR WebSocket/ticket. ApiGateway ya tiene `UseWebSockets` y proxy WS. Se reutilizan; **no se necesita crear otro WebSocket**.
+- La rama intermedia ya define Redis AOF y volúmenes Redis/PostgreSQL en Docker Compose. Estos checks de código/Compose pueden validarse sin dos usuarios QA ni configurar secretos manuales.
+- Guard `f0_existing_ws_compose_guard.py` y pruebas automatizadas integrados en CI del inventario de 17 ramas. El Hub universal `/hubs/realtime` continúa detrás de flags OFF.
+- El runtime Redis de staging fue observado con AOF OFF en la última auditoría. Configuración en un YAML no significa que esté aplicado; el gate requiere conversión segura con backup y restore verificable.
+- WSS de Notifications existente no equivale a WSS del nuevo Hub universal, ni a ACL extremo a extremo del usuario real. Mantener los gates formales bloqueados mientras falte esa evidencia, sin bloquear desarrollo de código.
+- DholeSystem versión candidata 1.13.6; sin merge ni despliegue.
