@@ -376,6 +376,9 @@ repositories:
     candidateF6TestsPassed: 3
     candidateF6TestedSha: b6accc39490d13f6c60093fb40a380823463e075
     candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42499971169
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42506176745
+    candidateF6SnapshotTestedCommit: 6da475c7a67d200cc6cf4bf597fe4b19051af845
+    candidateF6SnapshotStatus: ADMIN_SECURITYADMIN_JOB_STATUS_BUILD_PASS
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
@@ -484,6 +487,9 @@ repositories:
     candidateF6TestsPassed: 5
     candidateF6TestedSha: b79dc99c142497531e8a79df0387c955f91d69ce
     candidateF6TestedRun: https://github.com/CustomCodeCR/DholeContentService/actions/runs/42499966816
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeContentService/actions/runs/42506158867
+    candidateF6SnapshotTestedCommit: c7243951e75ed9a8de045f3ab705abcda75054b6
+    candidateF6SnapshotStatus: AUTHORIZED_MENU_SETTING_STATUS_BUILD_PASS
     candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
     candidateF6FullEndpointInventoryVerified: false
     candidateF6StagingWssE2EPassed: false
