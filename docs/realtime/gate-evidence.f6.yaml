@@ -1,0 +1,49 @@
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: "2.1.0"
+phase: F6
+observedAt: "2026-11-08"
+status: IMPLEMENTACION_CANDIDATA_13_SERVICIOS
+formalApproved: false
+nextPhaseF7Authorized: false
+branch: feature/dhole-realtime-universal-rt-20261107-01
+globalCandidateVersion: "1.13.0"
+noDevelopOrMasterMerge: true
+noProductionDeployment: true
+allFeatureFlagsDefaultOff: true
+candidateProducerOrDeliveryMechanisms: 13
+candidateAdditionalStreams: 10
+candidateResourceKinds: 19
+gatewayCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501265245
+gatewayCiPassed: true
+gatewayCiTestCount: 128
+configSrmCi: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42501309773
+configSrmTestCount: 4
+sequentialGates:
+  F0: false
+  F1: false
+  F2: false
+  F3: false
+  F4: false
+  F5: false
+acceptance:
+  inventoryAllMutationsValidated: false
+  ownerResourceAclStagingVerified: false
+  redisStagingAofDurableAndRestoreTested: false
+  postgresStagingBackupRestoreTested: false
+  tlsWebsocketTwoGatewayInstancesTested: false
+  twoRealUsersPlusDeniedAndRevocationTested: false
+  fullFrontendViewRestReconciliationTested: false
+  streamOutboxInboxRetryIdempotencyStagingTested: false
+  allComponentCiAtFrozenShas: false
+  13ServicesFormalApproval: false
+blockers:
+  - "F0: 578 candidates not yet mapped and fully audited for ownership/security."
+  - "Redis stage aof_enabled=0; persistence, restore and replay not demonstrated."
+  - "WSS through Traefik and real token/ACL isolation not demonstrated."
+  - "Resource snapshot REST by GUID and frontend bindings missing for several owners."
+  - "No frozen 17-repo SHA batch or successful global integration/regression suite."
+policy:
+  allowF7OnlyIfAllAcceptanceTrue: true
+  allowF9OnlyAfterF0ToF8GatesTrue: true
+  requireExplicitAuthorizationForMasterAndProduction: true
