@@ -1,0 +1,67 @@
+name: Realtime F7 isolated Redis AOF/Inbox/backlog chaos (no staging)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'scripts/realtime/f7_isolated_redis_chaos.py'
+      - '.github/workflows/realtime-f7-isolated-redis-chaos.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  f7-redis-chaos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      F7_ISOLATED_CHAOS: 'true'
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert GitHub-hosted runner and candidate release branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          test "$GITHUB_REF_NAME" = feature/dhole-realtime-universal-rt-20261107-01
+          python -m py_compile scripts/realtime/f7_isolated_redis_chaos.py
+      - name: Install pinned Redis Python client
+        run: python -m pip install --disable-pip-version-check redis==5.2.1
+      - name: Test AOF/consumer/inbox on disposable private volume (NEVER staging)
+        shell: bash
+        run: |
+          set -euo pipefail
+          container="dhole-f7-ephemeral-$GITHUB_RUN_ID"
+          volume="dhole-f7-ephemeral-volume-$GITHUB_RUN_ID"
+          cleanup() {
+            docker rm -f "$container" >/dev/null 2>&1 || true
+            docker volume rm "$volume" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+          docker volume create "$volume"
+          docker run -d --name "$container" -p 127.0.0.1:16389:6379 -v "$volume:/data" redis:7-alpine \
+            redis-server --appendonly yes --appendfsync everysec
+          python scripts/realtime/f7_isolated_redis_chaos.py \
+            --container "$container" --volume "$volume" --port 16389 \
+            --output F7Results/isolated-redis-chaos.json
+      - name: Upload machine-readable candidate test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f7-isolated-chaos
+          path: F7Results/*.json
+          if-no-files-found: warn
+      - name: Reassert F6/F7 cannot be approved by this workflow
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("F7Results/isolated-redis-chaos.json").read_text())
+          assert r["formalStagingEvidence"] is False
+          assert r["f6FormalGatePassed"] is False
+          assert r["f7FormalGatePassed"] is False
+          assert set(r["scenarios"]) == {"C04", "C05", "C11"}
+          print("PASS: isolated CI only, formal F7 stays BLOCKED")
+          PY
