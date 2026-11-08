@@ -123,11 +123,18 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateForPhase: F6.03
+    candidateF603Status: EXISTING_NOTIFICATIONS_HUB_SECURITY_HARDENED
+    candidateF603TestedSha: 687c292d55b904db584935d2f68333413431a6d6
+    candidateF603Run: https://github.com/CustomCodeCR/DholeNotificationsService/actions/runs/42493452879
+    candidateF603TestsPassed: 3
+    candidateF603Architecture: EXISTING_SIGNALR_HUB_AND_PERSISTENT_REST_INBOX
+    fullEndpointAndWorkerMappingVerified: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_NOTIFICATIONS_3_PASS_NOT_FORMAL_GATE
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
