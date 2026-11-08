@@ -15,13 +15,13 @@ allFeatureFlagsOff: true
 noDevelopOrMasterMerge: true
 noProductionDeployment: true
 ciEvidence:
-  candidateRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42510886857
-  testedSha: fd2d472f4eada8130ba30ee1dc76ff81c8aeb3a8
+  candidateRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511408397
+  testedSha: 3da0f064c7922a4caecb74db10acd1ca0822c6ca
   outcome: success
   positivePolicyTests: 1
-  negativePolicyTests: 11
+  negativePolicyTests: 15
   generatorTests: 4
-  scaffoldAndNegativeTestCount: 16
+  scaffoldAndNegativeTestCount: 20
   realPostgresRedisDotNetHarnessCi: true
   environment: GITHUB_HOSTED_EPHEMERAL
   authenticHubWssJwtAclsVerified: false
