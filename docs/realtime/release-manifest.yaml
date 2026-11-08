@@ -155,11 +155,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AUTH_USER_ROLES_SCOPES
+    candidateF6Outbox: EXISTING_AUTH_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 1bbaf1cc908c7629b5fac3c2891a87b24f84fe3b
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAuthService/actions/runs/42500120665
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -180,11 +190,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: CONFIG_AND_SRM_CATALOG
+    candidateF6Outbox: EXISTING_CONFIG_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: a498616e09ec66979cf3e9487f9c99619cf790f7
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42496953424
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -205,11 +225,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
-    migrations: []
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AUDIT_EVENT
+    candidateF6Outbox: NEW_AUDIT_POSTGRES_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 35b0a7e13da00cdf220516495b0e0234fdb7c28a
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAuditLogsService/actions/runs/42497034373
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [AddRealtimeOutbox_EF_PostgreSQL]
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -230,11 +260,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.2"
     ecosystemVersionBaseline: "1.3.2"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: STORAGE_FILES_VERSIONS_REFERENCES
+    candidateF6Outbox: EXISTING_STORAGE_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: ebf6c05aaeddf7d32245d5c0b1bd31b93eb25c3b
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeStorageService/actions/runs/42496897714
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -255,11 +295,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.3.5"
     ecosystemVersionBaseline: "1.3.12"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.4.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: EXTRACTION_EMAIL_JOBS
+    candidateF6Outbox: EXISTING_EXTRACTION_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: a19fcef845346dfc3cadf51b5d7c7ad45e5806c8
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42499963178
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -280,11 +330,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.4.2"
     ecosystemVersionBaseline: "1.11.2"
-    releaseComponentVersion: PENDIENTE
-    migrations: []
+    releaseComponentVersion: "1.5.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: REPORT_TEMPLATES
+    candidateF6Outbox: NEW_REPORTS_POSTGRES_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 5ecb531afa17e9c91bc070b0ff5e2dc1483e1324
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeReportsService/actions/runs/42497281919
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [AddRealtimeOutbox_EF_PostgreSQL]
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -305,11 +365,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
-    migrations: []
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: DYNAMICS_JOB_QUEUE_CREATE_REPLAY
+    candidateF6Outbox: NEW_DYNAMICS_SQL_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: b6accc39490d13f6c60093fb40a380823463e075
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42499971169
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [sql/019_realtime_job_outbox.sql]
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -330,11 +400,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.3.9"
     ecosystemVersionBaseline: "1.3.12"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.4.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AI_EXECUTION_EMAIL_JOBS
+    candidateF6Outbox: EXISTING_AI_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: ac5f6dc08d3a575894be2446f8104b3dd5a908a3
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42499975894
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -355,11 +435,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.2"
     ecosystemVersionBaseline: "1.3.2"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AGENT_EXECUTION_DEFINITION_SCHEDULE
+    candidateF6Outbox: EXISTING_AGENT_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 5732ae52f11b53704063781eba3f2ef4ae3f37f2
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAgentService/actions/runs/42496919190
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -380,11 +470,21 @@ repositories:
     frozenSha: null
     currentComponentVersionBaseline: "1.2.1"
     ecosystemVersionBaseline: "1.3.1"
-    releaseComponentVersion: PENDIENTE
+    releaseComponentVersion: "1.3.0"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: CMS_CONTENT_MENU_SETTING
+    candidateF6Outbox: EXISTING_CONTENT_EF_OUTBOX
+    candidateF6TestsPassed: 5
+    candidateF6TestedSha: b79dc99c142497531e8a79df0387c955f91d69ce
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeContentService/actions/runs/42499966816
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
     migrations: []
     dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
     flags: { realtime: false }
-    tests: NO_EJECUTADO
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
     developBatchPR: null
     masterBatchPR: null
     developFinalSha: null
@@ -410,6 +510,13 @@ repositories:
     candidateF602PricingBridge: GATED_INDEPENDENT_STREAM
     candidateF602BridgeTestsRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42492026596
     candidateF602GatewayTestsPassed: 106
+    candidateF604ToF613Bridge: TEN_ISOLATED_STREAMS_REST_OWNER_AUTHORIZATION
+    candidateF604ToF613MappedKinds: 18
+    candidateF604ToF613BridgeFlagDefaultOff: true
+    candidateF604ToF613SecurityCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42499913276
+    candidateF604ToF613SecurityTestsPassed: 126
+    candidateF604ToF613StagingWssE2EPassed: false
+    candidateF604ToF613FormalGateApproved: false
     candidateF602AclRevocationControlCi: PENDING_RECHECK
     gatewayCandidateInitialSha: 2ced27b22809b76e80c9b3d651bb09aa041ac118
     migrations: [Dhole.ApiGateway/Realtime/Migrations/20261108140000_AddGatewayRealtimeInbox.sql]
