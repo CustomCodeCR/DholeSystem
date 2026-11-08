@@ -6,7 +6,7 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 |---|---|---|---|
 | F0 | BLOQUEADA | RECHAZADO | 16 ramas intermedias creadas; endpoints y ambiente no verificados completamente |
 | F1 | EN_PROGRESO | NO APROBADO | Contratos preliminares aislados; 42/42 pruebas CI, pero F0 todavía bloqueada y faltan integración/cobertura |
-| F2 | PENDIENTE | NO EVALUADO | Contratos y durabilidad |
+| F2 | PRELIMINAR | NO APROBADO | Piloto PostgreSQL/Redis en rama CRM, suite de integración en CI; F0/F1 siguen bloqueando el gate |
 | F3 | PENDIENTE | NO EVALUADO | Gateway/Hub y grupos |
 | F4 | PENDIENTE | NO EVALUADO | Frontend + fallback |
 | F5 | PENDIENTE | NO EVALUADO | Piloto vertical |
@@ -63,3 +63,13 @@ Plan **2.1.0**, release **rt-20261107-01**. No habilitar funcionalidades ni publ
 - [CI F0 con guard explícito, run 42443654263](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42443654263): **success**, 17/17 intermedias, inventario 928 rutas / 67 handlers / 13 clientes REST candidatos. SHA probado del workflow `9100480d703b1d6a534c7130314fd1b626858a7b`.
 - Auditoría de branch protections nativas: `GET /branches/develop/protection` de DholeSystem y `GET /branches/master/protection` de framework dieron **403** al conector. Evidencia en `test-evidence/F0-branch-protections-access.md`; enforcement nativo NO VERIFICADO. El guard del pipeline **no sustituye reglas de protección reales**.
 - **F0 BLOQUEADA; F1 EN_PROGRESO preliminar con 42 pruebas aprobadas.** No continuar a F2, no merges, no despliegues.
+
+## F2 — implementación candidata aislada (2026-11-07 Costa Rica)
+
+- Reutiliza rama intermedia existente de `DholeCRMService` (`rt-20261107-01`), sin escribir en targets.
+- Añade migración `20261108130000_AddRealtimeDurabilityPilot` y tablas `crm_realtime_outbox/inbox`, separadas de recordatorios existentes.
+- Añade `CrmRealtimeOutboxWriter` con transacción de negocio obligatoria, `CrmRealtimeOutboxProcessor` con `SKIP LOCKED`, lease/retry exponencial con jitter y DLQ, `CrmRealtimeInboxStore` que hace efecto + insert en misma transacción, ACK posterior al commit.
+- Worker `CrmRealtimeOutboxWorker` registrado y desactivado: requiere simultáneamente `Features:UniversalRealtimeEnabled` y `Realtime:Outbox:Enabled`. No se han activado flags.
+- CRM versión candidata `1.4.0` (baseline `1.3.1`) y ecosistema candidato `1.13.0`, CHANGELOG y metadatos de assembly actualizados; sin release ni publicación.
+- CI candidato `.github/workflows/realtime-f2-durability.yml`, PostgreSQL 17 + Redis 7, prueba 1.000 commits/1.000 eventos/Inbox idempotente, rollback, reintentos, DLQ y replay pre-ACK. **No declarar tests verdes hasta verificar ejecución exacta y SHA.**
+- Runbook: `F2-OUTBOX-INBOX-RUNBOOK.md`. Pendiente probar pérdida/restauración real de Redis con AOF, seguridad, retención, backlog, 100% mutaciones y performance. F2 formal **NO APROBADA** por gates F0/F1.
