@@ -435,6 +435,41 @@ repositories:
     masterBatchPR: null
     developFinalSha: null
     masterFinalSha: null
+  - id: LIB
+    name: CustomCodeCR/CustomCodeFramework
+    role: shared-realtime-contract-library
+    addedToScopeAfterF0: true
+    targetBranchCreatedInF0: develop
+    targetCreatedFromSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    developBaselineSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    masterBaselineSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    mergeBaseSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    developToMasterStatus: identical_at_branch_creation
+    baseBranch: develop
+    baseSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    candidateF1HeadSha: a81447dd00d004d6a32eb28001a379ee89ddb552
+    frozenSha: null
+    currentComponentVersionBaseline: "0.2.0"
+    releaseComponentVersion: "0.3.0"
+    ecosystemVersionCandidate: "1.13.0"
+    migrations: []
+    dependencies: [DholeApiGateway, DholeCRMService, DholePricingService, DholeWeb]
+    flags: { realtime: false }
+    tests:
+      build: PASSED
+      unit: PASSED
+      passed: 42
+      failed: 0
+      skipped: 0
+      workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145
+      workflowCommitSha: a81447dd00d004d6a32eb28001a379ee89ddb552
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
 notes:
   - "SHAs basales son los comprobados antes de crear las ramas intermedias; no son SHAs finales ni congelados."
   - "Los conteos de ahead/behind provienen de comparación base develop ... head master en GitHub."
@@ -449,7 +484,7 @@ branchRevalidation:
   intermediateBranchesPresent: 16
   targetBranchesModifiedByThisBatch: 0
   phaseF0Gate: RECHAZADO
-  phaseF1State: PENDIENTE
+  phaseF1State: EN_PROGRESO
   newlyObservedVersions:
     DholePricingServiceDevelop: '1.5.8'
     DholeWebDevelop: '1.12.5'
@@ -490,3 +525,18 @@ branchRevalidation:
       observedVersion: '1.12.6'
       files: [CHANGELOG.md, release-manifest.json, version.json]
       action: "NO tocar target; preservar releases concurrentes y reevaluar batch SemVer."
+
+sharedContractsF1:
+  status: EN_PROGRESO
+  formalGateApproved: false
+  blockedByF0Gate: true
+  packageRepository: CustomCodeCR/CustomCodeFramework
+  namespace: CustomCodeFramework.Messaging.Realtime
+  contractsImplemented: [RealtimeEnvelope, IOutboxWriter, IEventPublisher, IInboxStore, IRealtimeAudienceResolver]
+  workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145
+  unitTests: { passed: 42, failed: 0, skipped: 0 }
+  deployed: false
+  exportedNugetPackage: false
+  allServicesIntegrated: false
+  catalog: docs/realtime/event-catalog.draft.yaml
+  furtherTestingNeeded: [F0_completion, multi_service_contract_integration, authorization_allowlists, schema_evolution_compatibility]
