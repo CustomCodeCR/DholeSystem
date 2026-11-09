@@ -24,3 +24,10 @@
 - Redis AOF/backup/restauración real de staging.
 
 Esta evidencia mejora la prueba F3 sin atribuirle el alcance de una certificación de staging ni autorizar F9/F10.
+
+## Confirmación de CI en el HEAD de versión Gateway 1.4.5
+
+- [Run 42538863927](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538863927): **success**, `f3-real-traefik-wss-no-external-qa` y `gateway-security` aprobados.
+- SHA de ejecución `de1b57e987ddb6be83f58f53152ce3ee72ce46f2`, versión Gateway `1.4.5`, ecosistema candidato `1.13.13`.
+- La prueba es de Gateway real sobre Traefik Docker en runner efímero y ACL de owner REST sintética. No equivale a pruebas del entorno real de staging.
+- Esta evidencia puede respaldar el **review-only** F9 de `docs/realtime/f9-f3-staging-deferral.json`; ninguna aprobación formal de F3/F9/F10 se deriva de ella.
