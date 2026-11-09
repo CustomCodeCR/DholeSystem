@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.14.0] - 2026-11-09 (NotificationsHub universal realtime pilot; candidate)
+
+- MINOR: Stage-first NotificationsHub pilot deployment plan and 16-repository release scope; removed Gateway realtime-host override. No deployment, staging audit or production activation yet.
+- Ecosystem candidate 1.14.0 / 16 Dhole repositories; CustomCodeFramework excluded. Release `rt-20261107-01`, isolated branch `feature/rt-notificationshub-20261109-01`.
+- Staging compile, deployment and post-deploy security audit pending; `develop`, `master` and production not changed by this candidate.
+
 ## [1.13.15] - 2026-11-08 (F2/F6/F10 safety hardening, isolated)
 
 - F10: removed destructive production deploy step that deleted all non-target remote branches; deployed workflows now preserve release branches and use read-only GitHub contents permission.
