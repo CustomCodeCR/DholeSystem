@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.12.17",
+  "releaseId": "DH-20261109-EMAIL-AI-STALE-048",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-09",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeDataExtractionService",
+      "component": "DholeDataExtractionService",
+      "from": "1.3.5",
+      "to": "1.3.6",
+      "branch": "fix/DH-20261109-EMAIL-AI-STALE-048",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "scope": "Reconcile terminal email statuses and orphaned AI request handoffs, without changing the AI model, framework, or pricing import contracts",
+  "validation": {
+    "unitTests": "pending",
+    "build": "pending",
+    "versionGate": "pending",
+    "developCI": "pending",
+    "staging": "pending",
+    "production": "not_authorized"
+  },
+  "productionDeploymentAuthorized": false,
+  "componentsNotModified": "Other services retain their existing component versions because their code was not changed",
+  "rollBack": "Revert the DataExtractionService patch release; do not delete EmailMessages, EmailExtractionJobs, EmailAiAnalysisRequests or Pricing batches. Recover status by existing reconciliation only after validating source states."
+}
