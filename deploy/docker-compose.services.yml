@@ -4,18 +4,7 @@ include:
 services:
   api-gateway:
     environment:
-      # F3 candidate ONLY. All independent flags default OFF. Do not enable
-      # without one coordinated F9/F10 batch, approved manifest and auth audit.
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Enabled: "${DHOLE_REALTIME_GATEWAY_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
-      Realtime__BridgeEnabled: "${DHOLE_REALTIME_BRIDGE_ENABLED:-false}"
-      Realtime__PricingBridgeEnabled: "${DHOLE_REALTIME_PRICING_BRIDGE_ENABLED:-false}"
-      Realtime__UniversalServicesBridgeEnabled: "${DHOLE_REALTIME_UNIVERSAL_SERVICES_BRIDGE_ENABLED:-false}"
-      Realtime__RedisConnectionString: "${DHOLE_REALTIME_REDIS_CONNECTION:-}"
-      Realtime__InboxPostgresConnectionString: "${DHOLE_REALTIME_INBOX_PG_CONNECTION:-}"
-      Realtime__InstanceId: "${DHOLE_REALTIME_GATEWAY_INSTANCE_ID:-}"
+      # Existing Notifications WebSocket proxy retained; no Gateway Hub.
       # External API storage: compose interpolates source variables directly.
       # Avoid passing a nested ${...} value from .env (Compose does not expand it again).
       ThirdParty__Enabled: "${ThirdParty__Enabled:-false}"
@@ -60,6 +49,20 @@ services:
       Gateway__Routes__14__TimeoutSeconds: "120"
     networks:
       - dhole-runtime
+
+  # The existing Notifications Hub hosts optional universal realtime.
+  # All flags default OFF in production. The isolated staging pilot opts in
+  # only after its full image batch is present.
+  notifications-api:
+    environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
+      Realtime__NotificationsHostEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
+      Realtime__DeploymentTarget: "${DHOLE_REALTIME_NOTIFICATIONS_TARGET:-disabled}"
+      Realtime__ProductionApproved: "false"
+      Realtime__ReleaseId: "rt-20261107-01"
+      Realtime__RedisConnectionString: "${REDIS_CONNECTION_STRING:-redis:6379}"
+      Realtime__GatewayBaseUrl: "http://api-gateway:8080"
+      Realtime__MaxSubscriptionsPerConnection: "25"
 
   # F6.02 Pricing API and worker use the same fail-closed release gate.
   # All overrides remain false until the entire batch is approved.
