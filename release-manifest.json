@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037",
+  "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.12.6",
-  "status": "candidate-pending-ci-staging",
+  "ecosystemVersion": "1.12.21",
+  "status": "master-candidate-staging-validation-pending",
   "branches": [
     "develop",
     "master"
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.12.6",
+      "version": "1.12.21",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.3",
+      "version": "1.5.21",
       "mergeState": "previous-release-unchanged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.12.6",
+      "version": "1.12.21",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -124,12 +124,23 @@
     "production": "master release requires staging validation"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService",
+    "DholeWeb"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
     "Use shared normalization for catalog, selected terms, manual input and wizard persistence",
-    "DholePricingService 1.5.8 REST contract unchanged"
-  ]
+    "DholePricingService 1.5.8 REST contract unchanged",
+    "Seller Pricing status backport: distinct active Pricing modification vs unpublished revision, delivered as isolated master candidate."
+  ],
+  "businessPatchRelease": {
+    "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
+    "sourceStagingVersion": "1.14.3",
+    "components": {
+      "DholeWeb": "1.12.21",
+      "DholePricingService": "1.5.21"
+    },
+    "status": "master-pr-not-merged"
+  }
 }
