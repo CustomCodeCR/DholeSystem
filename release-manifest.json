@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.14.3",
+  "ecosystemVersion": "1.14.4",
   "status": "f9-http403-staging-hotfix-candidate",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.14.3",
+      "version": "1.14.4",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": "8b0b3dc5503a853cad98d1c27777e8af778ebe35"
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.14.3",
+      "version": "1.14.4",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": "929539d1f8626a81551d00f16177822e70f7d5d7"
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": "1472fd622e1136136f4981bf6fbb27ecc4d082c4"
@@ -163,12 +163,13 @@
     "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35.",
     "f9Hotfix": "Gateway F9 curl probe candidate, staged deploy not yet verified; DholeSystem prior curl /health returned 200, urllib F9 returned 403",
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
-    "sellerPricingStatus": "Source patch in isolated branch; build, regression and postdeploy staging require CI proof."
+    "sellerPricingStatus": "Source patch in isolated branch; build, regression and postdeploy staging require CI proof.",
+    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -178,7 +179,8 @@
     "Retain 16 repositories, excluding CustomCodeFramework",
     "F9 staging smoke transports via curl matching successful DholeSystem staging HTTPS health checks; 1.14.1 patch; no auth or production change",
     "1.14.2: Preserve downstream WS handshake 401/403 via ClientWebSocket.CollectHttpResponseDetails; retain 502 for transport errors.",
-    "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates."
+    "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates.",
+    "QUO-269 develop: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly."
   ],
   "stagingValidation": "pending-f9-ws-handshake-hotfix",
   "f6F7F8": {
@@ -187,13 +189,13 @@
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
   },
   "businessPatchRelease": {
-    "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
-    "candidateBranch": "fix/DH-20261109-SELLER-PRICING-STATUS-052-develop",
+    "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
     "components": {
-      "DholeWeb": "1.14.3",
-      "DholePricingService": "1.7.1"
+      "DholeWeb": "1.14.4",
+      "DholePricingService": "1.7.2"
     },
-    "status": "staging-ci-pending"
+    "status": "develop-quo269-ci-pending",
+    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage"
   },
   "realtimeReleaseComponents": [
     "DholeSystem",
