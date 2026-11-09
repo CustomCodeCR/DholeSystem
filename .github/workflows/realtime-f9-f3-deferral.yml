@@ -8,6 +8,8 @@ on:
       - 'docs/realtime/gate-evidence.f0-f4.yaml'
       - 'scripts/realtime/verify-f9-f3-deferral.py'
       - 'scripts/realtime/test_f9_f3_deferral.py'
+      - 'scripts/realtime/f9_postdeploy_signalr_smoke.py'
+      - 'scripts/realtime/test_f9_postdeploy_signalr_smoke.py'
       - '.github/workflows/realtime-f9-f3-deferral.yml'
   pull_request:
     branches: [develop, master]
@@ -31,6 +33,10 @@ jobs:
         run: python -m py_compile scripts/realtime/verify-f9-f3-deferral.py scripts/realtime/test_f9_f3_deferral.py
       - name: F3 exemption must fail if broadened to merges, prod, staging or disabled JWT/ACL
         run: python -m unittest discover -s scripts/realtime -p test_f9_f3_deferral.py -v
+      - name: Verify F9 postdeploy staging smoke fails on missing hub or open access
+        run: |
+          python -m py_compile scripts/realtime/f9_postdeploy_signalr_smoke.py scripts/realtime/test_f9_postdeploy_signalr_smoke.py
+          python -m unittest discover -s scripts/realtime -p test_f9_postdeploy_signalr_smoke.py -v
       - name: Permit F9 code review against proven isolated WSS CI, not runtime approval
         run: python scripts/realtime/verify-f9-f3-deferral.py --review-only
       - name: Prevent false approval of sequential release checks
