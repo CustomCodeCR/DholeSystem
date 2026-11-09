@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "rt-20261107-01",
+  "exceptionId": "F9-F3-TRANSPORT-REVIEW-20261108",
+  "scope": "F9_CODE_REVIEW_ONLY",
+  "expiresOn": "2026-11-22",
+  "reason": "Existing SignalR Notifications works; universal Gateway passed real TLS/WSS through isolated Traefik CI, but staging Universal Hub and live owner authorization remain unverified.",
+  "proof": {
+    "gatewayRepo": "CustomCodeCR/DholeApiGateway",
+    "gatewayCiRun": "https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538863927",
+    "gatewayTestedCommit": "de1b57e987ddb6be83f58f53152ce3ee72ce46f2",
+    "isolatedTraefikTlsWssPassed": true,
+    "syntheticAuthorizedUsers": 2,
+    "syntheticDeniedUsers": 1,
+    "ownerRestAclSyntheticPassed": true,
+    "realStagingGatewayUniversalWssVerified": false,
+    "realStagingOwnerAclVerified": false
+  },
+  "compensatingControls": {
+    "runtimeUniversalRealtimeEnabled": false,
+    "f9ReviewMayProceed": true,
+    "f9MergeAuthorized": false,
+    "f10ProductionAuthorized": false,
+    "f3FormalApprovalUnchanged": false,
+    "requireRealStagingBeforeFeatureActivation": true,
+    "requireAllOtherReleaseGates": true,
+    "preserveRedisAofAndBackupChecks": true,
+    "preserveOriginAndJwtChecks": true,
+    "preserveBranchProtection": true
+  },
+  "signoff": {
+    "requestedByUser": true,
+    "reason": "Allow F9 review without manual QA secrets; no release/activation waiver.",
+    "formalAcceptance": false
+  }
+}
