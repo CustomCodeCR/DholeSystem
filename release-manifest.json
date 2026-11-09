@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.14.3",
-  "status": "seller-pricing-status-staging-candidate",
+  "status": "f9-http403-staging-hotfix-candidate",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261109-SELLER-PRICING-STATUS-052-develop",
+  "candidateBranch": "feature/rt-f9-websocket-status-20261109-02",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -167,8 +167,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeApiGateway"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -180,10 +179,19 @@
     "1.14.2: Preserve downstream WS handshake 401/403 via ClientWebSocket.CollectHttpResponseDetails; retain 502 for transport errors.",
     "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates."
   ],
-  "stagingValidation": "pricing-seller-status-pending-validation; prior realtime F9/F6/F7/F8 gates unchanged",
+  "stagingValidation": "pending-f9-ws-handshake-hotfix",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
+  },
+  "businessPatchRelease": {
+    "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
+    "candidateBranch": "fix/DH-20261109-SELLER-PRICING-STATUS-052-develop",
+    "components": {
+      "DholeWeb": "1.14.3",
+      "DholePricingService": "1.7.1"
+    },
+    "status": "staging-ci-pending"
   }
 }
