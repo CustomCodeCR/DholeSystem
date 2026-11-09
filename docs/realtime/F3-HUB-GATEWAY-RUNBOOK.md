@@ -99,3 +99,8 @@ La ruta de CI ahora prueba el **Gateway real tras Traefik TLS/WSS** de forma aut
 - El antiguo workflow opcional `realtime-f3-staging-wss.yml` no es necesario para ejecutar estas comprobaciones aisladas. No obliga al usuario a crear JWT QA o modificar servidores.
 
 **Límite de aceptación:** la prueba usa GitHub-hosted + propietario REST sintético, por lo tanto **no sustituye** certificación sobre `dhole-staging`/Traefik real de Dhole, usuarios/roles reales y 2 instancias reales allí. `formalF3Approved=false` hasta verificaciones operativas; ningún check se falsifica. Los feature flags del runtime de producción no se eliminan ni activan por esta prueba.
+
+
+### Retiro de configuración QA manual del workflow principal
+
+El workflow de `DholeSystem/.github/workflows/realtime-f3-staging-wss.yml` ya NO utiliza `DHOLE_RT_VALIDATE_STAGING_ENABLED`, `DHOLE_RT_STAGING_ORIGIN`, IDs externos ni JWT QA: solo ejecuta las pruebas de contrato sin secretos. El ensayo real TLS/WSS/ACL de Gateway se ejecuta en su propio workflow aislado [#42538238853](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538238853), sin intervención humana. Ninguna prueba dentro de DholeSystem afirma haber certificado el entorno de staging.

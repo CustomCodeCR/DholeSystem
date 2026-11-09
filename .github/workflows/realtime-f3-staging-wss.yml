@@ -1,7 +1,13 @@
-name: Realtime F3 QA TLS WSS JWT and owner ACL (opt-in; no deployment)
+name: Realtime F3 CI contract (no external QA secrets or server access)
 on:
   push:
     branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - scripts/realtime/f3_staging_wss_verify.mjs
+      - scripts/realtime/test_f3_staging_wss_verify.mjs
+      - .github/workflows/realtime-f3-staging-wss.yml
+  pull_request:
+    branches: [develop, master]
     paths:
       - scripts/realtime/f3_staging_wss_verify.mjs
       - scripts/realtime/test_f3_staging_wss_verify.mjs
@@ -17,33 +23,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.12.0'
-      - name: Non-production safety regression
+      - name: Validate non-production F3 transport and ACL contract
         run: node --test scripts/realtime/test_f3_staging_wss_verify.mjs
-  staging-qa:
-    if: ${{ vars.DHOLE_RT_VALIDATE_STAGING_ENABLED == 'true' }}
-    runs-on: [self-hosted, linux, x64, dhole]
-    environment: staging-realtime-validation
-    timeout-minutes: 10
-    env:
-      DHOLE_RT_STAGING_ORIGIN: ${{ vars.DHOLE_RT_STAGING_ORIGIN }}
-      DHOLE_RT_RESOURCE_KIND: ${{ vars.DHOLE_RT_RESOURCE_KIND }}
-      DHOLE_RT_RESOURCE_ID: ${{ vars.DHOLE_RT_RESOURCE_ID }}
-      DHOLE_RT_OWNER_GET_PATH: ${{ vars.DHOLE_RT_OWNER_GET_PATH }}
-      DHOLE_RT_ALLOWED_JWT: ${{ secrets.DHOLE_RT_ALLOWED_JWT }}
-      DHOLE_RT_DENIED_JWT: ${{ secrets.DHOLE_RT_DENIED_JWT }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24.12.0'
-      - name: Only the authorized release branch
-        run: test "$GITHUB_REF_NAME" = "feature/dhole-realtime-universal-rt-20261107-01"
-      - name: Authenticated HTTPS/WSS with two real staging QA users (read only)
-        run: node scripts/realtime/f3_staging_wss_verify.mjs
-      - name: Upload sanitized candidate evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: rt-20261107-01-f3-staging-wss
-          path: F3Results/staging-wss-evidence.json
-          if-no-files-found: ignore
+      - name: Check that real WSS/Traefik CI executes in the Gateway repository
+        run: |
+          test -f docs/realtime/test-evidence/F3-TRAEFIK-WSS-CI-42538238853.md
+          grep -q '42538238853' docs/realtime/test-evidence/F3-TRAEFIK-WSS-CI-42538238853.md
+          echo 'Contract PASS. Real WSS CI is in DholeApiGateway; no staging claim.'
