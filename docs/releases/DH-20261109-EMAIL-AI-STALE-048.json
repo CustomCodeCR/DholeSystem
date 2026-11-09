@@ -13,18 +13,20 @@
       "to": "1.3.6",
       "branch": "fix/DH-20261109-EMAIL-AI-STALE-048",
       "developPr": null,
-      "masterPr": null
+      "masterPr": null,
+      "draftPr": 42,
+      "headCommit": "8dbfcdf8f1afe65bd7b2b7203d808d061cfaf06d"
     }
   ],
-  "scope": "Reconcile terminal email statuses and orphaned AI request handoffs, without changing the AI model, framework, or pricing import contracts",
+  "scope": "Reconcile DataExtraction email status Processing versus Queued, prevent artificial AI capacity saturation from orphaned requests, and preserve manual-review/AI/Pricing idempotency",
   "validation": {
-    "unitTests": "success (GitHub Actions run 42639019628)",
-    "build": "success (GitHub Actions run 42639019628)",
-    "versionGate": "success (GitHub Actions run 42639019657)",
-    "developCI": "pending branch reconciliation",
+    "unitTests": "success (GitHub Actions #42650733943)",
+    "build": "success (GitHub Actions #42650733943)",
+    "versionGate": "success (GitHub Actions #42650733956)",
+    "regressionChecks": "success (GitHub Actions #42650733993, #42650733923)",
+    "developCI": "pending - divergent develop branch",
     "staging": "pending",
-    "production": "not_authorized",
-    "regressionChecks": "success (GitHub Actions runs 42639019517, 42639019357)"
+    "production": "not_authorized"
   },
   "productionDeploymentAuthorized": false,
   "componentsNotModified": "Other services retain their existing component versions because their code was not changed",
