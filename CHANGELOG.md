@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.15.1] - 2026-11-09 (Seller Open decision)
+
+- PATCH DH-20261109-SELLER-OPEN-DECISION-054: Web 1.15.1 y PricingService 1.8.1 habilitan Aceptar/Rechazar sobre cotizaciones Abiertas con revisión publicada, validando permisos, aprobación y ausencia de trabajo activo en Pricing.
+- No se publican borradores ni PDFs no enviados. Realtime y sus gates permanecen sin cambios.
+
 ## [1.15.0] - 2026-11-09
 
 - Release coordinado de selección CRM y conciliación manual de QUO anteriores.
