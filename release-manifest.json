@@ -3,7 +3,7 @@
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.14.0",
-  "status": "candidate-staging-not-deployed",
+  "status": "develop-integration-staging-audit-pending",
   "branches": [
     "develop",
     "master"
@@ -16,133 +16,150 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.14.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "develop-integration-via-pr-161",
+      "candidateSha": null,
+      "developPr": 161
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.5.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "72c3cd12b38315a6ec6f0b6dc52012773bc76cce"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "415196b0465368b70f8b832f8323477219aafd12"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.14.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "929539d1f8626a81551d00f16177822e70f7d5d7"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "b7972edc1861f440e42acd28e49cdc1cea241f87"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "d20b62c1a016952c60f76a1937101d45a820eccf"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.5.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "6250e20558a484fd0b802b46e81274afddd24a04"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.7.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "1472fd622e1136136f4981bf6fbb27ecc4d082c4"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.5.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "fb912c1ab25d9d05a76100dbecb35d75b9572384"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "4cdc209412306c3062484d3159519dbac0904bbc"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.6.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "465a02fb2c8f92ef0725255e2e6668a9db6f0890"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "ac5987be5f3f3a7884729fbce7786eefe657709b"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "342bf141c92520c5e1699131c74ba8a2b45bf84c"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "76ef881d80b14c71f6aa8cae90e792647e9cb987"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.4.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "0a1484e29740d251c033e7c16db8c1c08733b708"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.6.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null
+      "mergeState": "merged-into-develop",
+      "candidateSha": null,
+      "developMergeSha": "4f30b2107490e59038d86d4b04841a071b078d46"
     }
   ],
   "policyCheck": {
-    "status": "pending-staging-build",
+    "status": "formal-staging-evidence-deferred-for-develop",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "develop-15-merged-system-pr-161-ready",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Build and compile staging images from pinned SHAs",
-    "Deploy isolated NotificationsHub pilot to staging; no predeploy F6-F8 exhaustive audit",
-    "Run post-deploy owner ACL/WSS/reconnect and rollback checks",
-    "Resolve staging findings and verify CI/version/compatibility before coordinated develop/master PRs"
+    "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
+    "F7: 14 real resilience/chaos scenarios pending on staging",
+    "F8: Future-service registry/ACL/WSS enforcement evidence pending",
+    "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master"
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
-    "semver": "Version and CHANGELOG bumped; final build validation pending",
-    "staging": "Not deployed",
-    "production": "Feature flags OFF; no promotion"
+    "semver": "All 16 candidate versions and CHANGELOGs updated for ecosystem 1.14.0; PR compile/version checks successful aside from explicitly deferred DholeSystem F6-F8 formal gates",
+    "staging": "Develop integration authorized; staging runtime verification pending",
+    "production": "No master merge authorized; production flags remain OFF",
+    "develop": "15 component PR merges confirmed; DholeSystem PR #161 is included in this coordinated batch"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -168,5 +185,11 @@
     "Add server-authorized resource subscribe/unsubscribe and minimal resourceChanged",
     "Use existing producer streams and REST reconciliation",
     "Retain 16 repositories, excluding CustomCodeFramework"
-  ]
+  ],
+  "stagingValidation": "pending",
+  "f6F7F8": {
+    "status": "deferred-to-staging-by-explicit-user-authorization",
+    "formalGatesPassed": false,
+    "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
+  }
 }
