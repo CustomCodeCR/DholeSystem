@@ -2,8 +2,12 @@
 
 ## [1.15.0] - 2026-11-09
 
-- Release CRM/Pricing: búsqueda unificada de cuentas y prospectos, asignación automática del vendedor y conciliación explícita de cotizaciones antiguas.
-- Se conservan montos, revisiones y estados; asociación por UUID y validación manual del histórico.
+- Release coordinado de selección CRM y conciliación manual de QUO anteriores.
+
+## [1.14.4] - 2026-11-09 (QUO-269 seller workflow status)
+
+- Coordinated PATCH DH-20261109-QUO269-SELLER-STATUS-053 (develop): PricingService 1.7.2 and Web 1.14.4 display the current Open workflow state in Sales for already-completed QUO-269 without exposing unpublished quote data. The last published commercial snapshot remains unchanged.
+- Manifest and global ecosystem version 1.14.4; existing NotificationsHub, F6-F9, ACL and production safety boundaries are preserved.
 
 ## [1.14.3] - 2026-11-09 (Seller Pricing status reconciliation)
 
