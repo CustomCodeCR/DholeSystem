@@ -2,6 +2,31 @@ include:
   - path: /opt/dhole/docker-compose.services.yml
 
 services:
+  notifications-api:
+    environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
+      Realtime__NotificationsHostEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
+      Realtime__DeploymentTarget: "${DHOLE_REALTIME_NOTIFICATIONS_TARGET:-disabled}"
+      Realtime__ProductionApproved: "false"
+      Realtime__ReleaseId: "rt-20261107-01"
+      Realtime__RedisConnectionString: "${REDIS_CONNECTION_STRING:-redis:6379}"
+      Realtime__GatewayBaseUrl: "http://api-gateway:8080"
+      Realtime__MaxSubscriptionsPerConnection: "25"
+
+  pricing-api:
+    environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_PRICING_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
+
+  pricing-workers:
+    environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_PRICING_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
+
   api-gateway:
     environment:
       # External API storage: compose interpolates source variables directly.
@@ -54,6 +79,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CONTENT_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ASPNETCORE_URLS: http://+:8080
       ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION}
@@ -69,6 +98,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CONTENT_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION}
       Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-redis:6379}
@@ -83,6 +116,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_AGENT_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ASPNETCORE_URLS: http://+:8080
       Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
@@ -109,6 +146,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_AGENT_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
       Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
@@ -145,6 +186,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CRM_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       TZ: ${TZ:-America/Costa_Rica}
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
@@ -182,6 +227,10 @@ services:
     env_file:
       - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
     environment:
+      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
+      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CRM_OUTBOX_ENABLED:-false}"
+      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
+      Realtime__ReleaseId: "rt-20261107-01"
       TZ: ${TZ:-America/Costa_Rica}
       Features__CrmBackgroundTasksEnabled: "${CRM_BACKGROUND_TASKS_ENABLED:-true}"
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
