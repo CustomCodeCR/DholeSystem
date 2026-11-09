@@ -348,3 +348,12 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - No se requieren los secretos `DHOLE_RT_ALLOWED_JWT`/`DHOLE_RT_DENIED_JWT`, variables de staging, acceso SSH ni configuraciones manuales para esta prueba. Las flags solo se activan en el proceso efímero del CI, no en staging/producción.
 - Versión global candidata `1.13.13`; Gateway `1.4.5`, System `1.13.13`, componentes restantes actualizados al PATCH correspondiente en las 17 ramas intermedias; release todavía NO promovido.
 - **F3 técnico (WSS/TLS aislado) PASA; F3 formal BLOQUEADO**: ninguna prueba WSS de Gateway universal se ha realizado sobre `dhole-staging`, ni se verificaron ACL comerciales reales y revocación operativa allí. F0/F2 tampoco están cerradas. No declarar F9 autorizado por esta evidencia ni alterar `develop`/`master`.
+
+## F9 — orden confirmado: validación staging POST DEPLOY (2026-11-08)
+
+- Secuencia adoptada: preparación de las 17 PR -> gate de seguridad predeploy (persistencia, migraciones/volúmenes, CI) -> merge batch a develop -> despliegue automático a staging -> smoke HTTPS/Hub + comprobaciones F7/ACL y recuperación -> promoción idéntica a master.
+- El paso de staging no requiere definir JWT QA manuales ni compartir SSH; sólo puede probar reachability/autenticación anónima, **no** demostrar permiso comercial de una identidad real. Se exige evidencia separada antes de F10.
+- Nuevo script `scripts/realtime/f9_postdeploy_signalr_smoke.py` ejecutado al final de `deploy-staging.yml`; si el Hub universal devuelve 404 por flags apagados, **falla** y registra estado bloqueado, sin tocar datos.
+- Se preserva `verify_staging_redis_before_compose.py` ANTES de reiniciar infraestructura; el cambio de orden de pruebas no permite crear volúmenes nuevos ni perder AOF.
+- Global candidato `1.13.14`; las 17 ramas intermedias actualizadas; no hay merges ni desplegados ejecutados mediante esta revisión.
+

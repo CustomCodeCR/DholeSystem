@@ -15,19 +15,19 @@ ROOT = Path(__file__).resolve().parents[2]
 RELEASE = "rt-20261107-01"
 BRANCH = "feature/dhole-realtime-universal-rt-20261107-01"
 EXPECTED = {
-    "S01": ("CustomCodeCR/DholeCRMService", "1.5.4", 15),
-    "S02": ("CustomCodeCR/DholePricingService", "1.6.5", 3),
-    "S03": ("CustomCodeCR/DholeNotificationsService", "1.3.4", 3),
-    "S04": ("CustomCodeCR/DholeAuthService", "1.3.4", 3),
-    "S05": ("CustomCodeCR/DholeConfigService", "1.3.4", 4),
-    "S06": ("CustomCodeCR/DholeAuditLogsService", "1.3.4", 3),
-    "S07": ("CustomCodeCR/DholeStorageService", "1.3.4", 3),
-    "S08": ("CustomCodeCR/DholeDataExtractionService", "1.4.4", 3),
-    "S09": ("CustomCodeCR/DholeReportsService", "1.5.4", 3),
-    "S10": ("CustomCodeCR/DholeDynamicsConnectorService", "1.3.4", 3),
-    "S11": ("CustomCodeCR/DholeAIService", "1.4.4", 3),
-    "S12": ("CustomCodeCR/DholeAgentService", "1.3.4", 3),
-    "S13": ("CustomCodeCR/DholeContentService", "1.3.4", 5),
+    "S01": ("CustomCodeCR/DholeCRMService", "1.5.5", 15),
+    "S02": ("CustomCodeCR/DholePricingService", "1.6.6", 3),
+    "S03": ("CustomCodeCR/DholeNotificationsService", "1.3.5", 3),
+    "S04": ("CustomCodeCR/DholeAuthService", "1.3.5", 3),
+    "S05": ("CustomCodeCR/DholeConfigService", "1.3.5", 4),
+    "S06": ("CustomCodeCR/DholeAuditLogsService", "1.3.5", 3),
+    "S07": ("CustomCodeCR/DholeStorageService", "1.3.5", 3),
+    "S08": ("CustomCodeCR/DholeDataExtractionService", "1.4.5", 3),
+    "S09": ("CustomCodeCR/DholeReportsService", "1.5.5", 3),
+    "S10": ("CustomCodeCR/DholeDynamicsConnectorService", "1.3.5", 3),
+    "S11": ("CustomCodeCR/DholeAIService", "1.4.5", 3),
+    "S12": ("CustomCodeCR/DholeAgentService", "1.3.5", 3),
+    "S13": ("CustomCodeCR/DholeContentService", "1.3.5", 5),
 }
 FLAGS = (
     "DHOLE_REALTIME_BATCH_ENABLED",

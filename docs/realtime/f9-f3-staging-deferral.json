@@ -32,5 +32,15 @@
     "requestedByUser": true,
     "reason": "Allow F9 review without manual QA secrets; no release/activation waiver.",
     "formalAcceptance": false
+  },
+  "stagingVerificationOrder": "AFTER_DEPLOY_TO_STAGING_BEFORE_F10",
+  "stagingVerification": {
+    "technicalReviewUsesEphemeralCI": true,
+    "preStagingDeployRequiresSafeRedisPostgresState": true,
+    "verificationF3RealStagingAfterDeploy": true,
+    "postDeployAnonymousHttpsAndHubRouteCheck": "scripts/realtime/f9_postdeploy_signalr_smoke.py",
+    "realOwnerAuthorizationStillRequiresActualProof": true,
+    "postDeployF7ChaosTestingRequired": true,
+    "f10ReleaseNotAuthorizedWithoutEvidence": true
   }
 }

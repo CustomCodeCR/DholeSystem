@@ -7,7 +7,7 @@ status: IMPLEMENTACION_CANDIDATA_13_SERVICIOS
 formalApproved: false
 nextPhaseF7Authorized: false
 branch: feature/dhole-realtime-universal-rt-20261107-01
-globalCandidateVersion: "1.13.12"
+globalCandidateVersion: "1.13.14"
 noDevelopOrMasterMerge: true
 noProductionDeployment: true
 allFeatureFlagsDefaultOff: true
