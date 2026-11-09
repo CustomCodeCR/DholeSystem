@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.12.22",
-  "status": "master-candidate-staging-validation-pending",
+  "ecosystemVersion": "1.15.0",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.12.22",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.15.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -48,8 +49,9 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.22",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.6.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -96,14 +98,16 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.3.1",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.4.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.12.22",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.15.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "candidateSha": null
     }
   ],
   "policyCheck": {
@@ -127,6 +131,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
+    "DholeCRMService",
     "DholePricingService"
   ],
   "changes": [
@@ -137,12 +142,14 @@
     "QUO-269 master: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly."
   ],
   "businessPatchRelease": {
-    "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
+    "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
     "components": {
       "DholeWeb": "1.12.22",
       "DholePricingService": "1.5.22"
     },
     "status": "master-quo269-ci-pending",
-    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage"
-  }
+    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
+    "description": "CRM account/lead pricing clients and legacy quote linking"
+  },
+  "candidateBranch": "feature/crm-quote-identity-master-20261109"
 }

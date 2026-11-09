@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.15.0] - 2026-11-09
+
+- CRM/Pricing: identidad de cuentas/prospectos y conciliación confirmada del historial de cotizaciones.
+
 ## [1.12.22] - 2026-11-09 (QUO-269 seller workflow status)
 
 - Coordinated PATCH DH-20261109-QUO269-SELLER-STATUS-053 (master): PricingService 1.5.22 and Web 1.12.22 display the current Open workflow state in Sales for already-completed QUO-269 without exposing unpublished quote data. The last published commercial snapshot remains unchanged.
