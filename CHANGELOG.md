@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.2] - 2026-11-09 (F9 Gateway WebSocket auth status recovery)
+
+- PATCH: coordinated Gateway 1.5.2 / global 1.14.2 for F9 staging; ClientWebSocket upstream handshake 401/403 now propagated rather than incorrectly converted to 502. Genuine destination failures remain 502.
+- Gateway 1.5.1 staging smoke confirmed public HTTPS health but failed on unauthenticated WebSocket 502; 1.5.2 must be proven by the same live negative test. Formal authenticated WSS/ACL and F6–F8 remain pending.
+- Scope Gateway and System only, no production/master changes or feature-flag approvals.
+
+
 ## [1.14.1] - 2026-11-09 (F9 Gateway postdeploy smoke recovery)
 
 - PATCH: coordinated Gateway 1.5.1 / System 1.14.1 version registry for staging-only F9 health 403 recovery; existing notifications Hub route preserved.
