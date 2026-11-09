@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.12.22",
-  "ecosystemVersion": "1.12.22",
-  "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
+  "version": "1.12.23",
+  "ecosystemVersion": "1.12.23",
+  "releaseId": "DH-20261109-SELLER-OPEN-DECISION-054",
   "releaseStatus": "master-candidate-staging-validation-pending"
 }

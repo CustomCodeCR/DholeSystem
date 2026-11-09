@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.12.23] - 2026-11-09 (Open seller quotation decision)
+
+- Coordinated PATCH DH-20261109-SELLER-OPEN-DECISION-054 (master): PricingService 1.5.23 and DholeWeb 1.12.23 allow seller Accept/Reject on previously issued quotes with an Open current rate. Pending approval and actively modified requests remain protected, as do unpublished quote data and PDFs.
+- Global version 1.12.23, unchanged NotificationsHub/ACL/F6-F9 gates; build/staging verification required before release promotion.
+
 ## [1.12.22] - 2026-11-09 (QUO-269 seller workflow status)
 
 - Coordinated PATCH DH-20261109-QUO269-SELLER-STATUS-053 (master): PricingService 1.5.22 and Web 1.12.22 display the current Open workflow state in Sales for already-completed QUO-269 without exposing unpublished quote data. The last published commercial snapshot remains unchanged.
