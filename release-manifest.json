@@ -167,7 +167,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeApiGateway"
+    "DholePricingService",
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -193,5 +194,9 @@
       "DholePricingService": "1.7.1"
     },
     "status": "staging-ci-pending"
-  }
+  },
+  "realtimeReleaseComponents": [
+    "DholeSystem",
+    "DholeApiGateway"
+  ]
 }
