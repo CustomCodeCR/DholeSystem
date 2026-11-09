@@ -32,7 +32,7 @@ jobs:
           assert len(set(x['repository'] for x in manifest['components']))==expected
           assert len(set(x['component'] for x in manifest['components']))==expected
           assert manifest['ecosystemVersion']==version['ecosystemVersion']
-          assert re.fullmatch(r'[0-9]+\\.[0-9]+\\.[0-9]+', manifest['ecosystemVersion'])
+          assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', manifest['ecosystemVersion'])
           assert manifest['releaseId']==version['releaseId']
           assert manifest['candidateBranch'].startswith('feature/')
           assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
