@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.15.0] - 2026-11-09
+
+- Release coordinado de selección CRM y conciliación manual de QUO anteriores.
+
 ## [1.14.4] - 2026-11-09 (QUO-269 seller workflow status)
 
 - Coordinated PATCH DH-20261109-QUO269-SELLER-STATUS-053 (develop): PricingService 1.7.2 and Web 1.14.4 display the current Open workflow state in Sales for already-completed QUO-269 without exposing unpublished quote data. The last published commercial snapshot remains unchanged.
