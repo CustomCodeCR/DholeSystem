@@ -1,0 +1,47 @@
+name: Realtime F9 F3 staging deferral for code review only (never release approval)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'docs/realtime/f9-f3-staging-deferral.json'
+      - 'docs/realtime/test-evidence/F3-TRAEFIK-WSS-CI-42538238853.md'
+      - 'docs/realtime/gate-evidence.f0-f4.yaml'
+      - 'scripts/realtime/verify-f9-f3-deferral.py'
+      - 'scripts/realtime/test_f9_f3_deferral.py'
+      - '.github/workflows/realtime-f9-f3-deferral.yml'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'docs/realtime/**'
+      - 'scripts/realtime/**'
+      - '.github/workflows/realtime-f9-f3-deferral.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  f9-f3-review-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile waiver and negative-test scripts
+        run: python -m py_compile scripts/realtime/verify-f9-f3-deferral.py scripts/realtime/test_f9_f3_deferral.py
+      - name: F3 exemption must fail if broadened to merges, prod, staging or disabled JWT/ACL
+        run: python -m unittest discover -s scripts/realtime -p test_f9_f3_deferral.py -v
+      - name: Permit F9 code review against proven isolated WSS CI, not runtime approval
+        run: python scripts/realtime/verify-f9-f3-deferral.py --review-only
+      - name: Prevent false approval of sequential release checks
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('docs/realtime/f9-f3-staging-deferral.json'))
+          assert p['scope']=='F9_CODE_REVIEW_ONLY'
+          assert p['compensatingControls']['f9MergeAuthorized'] is False
+          assert p['compensatingControls']['f10ProductionAuthorized'] is False
+          assert p['proof']['realStagingGatewayUniversalWssVerified'] is False
+          assert p['proof']['realStagingOwnerAclVerified'] is False
+          print('F9 review only; remaining formal gates are untouched')
+          PY
