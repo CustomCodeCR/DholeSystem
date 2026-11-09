@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.15.0",
+  "ecosystemVersion": "1.15.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.15.0",
+      "version": "1.15.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.15.0",
+      "version": "1.15.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -169,8 +169,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -191,7 +190,8 @@
         "DholePricingService",
         "DholeCRMService"
       ]
-    }
+    },
+    "Seller Open DH-20261109-SELLER-OPEN-DECISION-054: published revision decision with deferred PDF when rate header contains unpublished update."
   ],
   "stagingValidation": "pending-f9-ws-handshake-hotfix",
   "f6F7F8": {
@@ -200,14 +200,13 @@
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
   },
   "businessPatchRelease": {
-    "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
+    "releaseId": "DH-20261109-SELLER-OPEN-DECISION-054",
     "components": {
-      "DholeWeb": "1.14.4",
-      "DholePricingService": "1.7.2"
+      "DholeWeb": "1.15.1",
+      "DholePricingService": "1.8.1"
     },
-    "status": "develop-quo269-ci-pending",
-    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
-    "description": "CRM customer/lead quotation identity and manual historical reconciliation"
+    "status": "develop-ci-pending",
+    "scope": "Open seller decisions with published history and margin/work guards"
   },
   "realtimeReleaseComponents": [
     "DholeSystem",
