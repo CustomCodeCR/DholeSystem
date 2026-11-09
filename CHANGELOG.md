@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.21] - 2026-11-09 (Seller Pricing status master candidate)
+
+- PATCH coordinado: DholeWeb 1.12.21 y DholePricingService 1.5.21 distinguen solicitudes abiertas en Pricing de revisiones comerciales sin publicar; sincronización periódica del panel vendedor.
+- Backport aislado del release DH-20261109-SELLER-PRICING-STATUS-052 desde develop, sin fusionar los cambios del piloto realtime.
+- Staging y controles de producción requeridos antes de promocionar; `master` y la producción no se despliegan desde esta rama de trabajo.
+
 ## [1.12.6] - 2026-11-08
 
 - Release `DH-20261108-PRICING-COMMERCIAL-TERMS-037` coordina DholeWeb 1.12.6 para mostrar los términos comerciales guardados como ítems independientes, incluyendo saltos de línea literales de cotizaciones antiguas.
