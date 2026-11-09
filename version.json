@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.14.2",
-  "ecosystemVersion": "1.14.2",
-  "releaseId": "rt-20261107-01",
-  "releaseStatus": "f9-websocket-handshake-fix-staging-validation-pending"
+  "version": "1.14.3",
+  "ecosystemVersion": "1.14.3",
+  "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
+  "releaseStatus": "candidate-pricing-seller-status-staging-validation"
 }
