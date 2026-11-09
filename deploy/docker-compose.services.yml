@@ -4,7 +4,6 @@ include:
 services:
   api-gateway:
     environment:
-      # Existing Notifications WebSocket proxy retained; no Gateway Hub.
       # External API storage: compose interpolates source variables directly.
       # Avoid passing a nested ${...} value from .env (Compose does not expand it again).
       ThirdParty__Enabled: "${ThirdParty__Enabled:-false}"
@@ -41,7 +40,6 @@ services:
       Gateway__Routes__13__StripPrefix: "true"
       Gateway__Routes__13__TimeoutSeconds: "120"
       Gateway__HealthChecks__dynamics-connector: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}"
-      Gateway__HealthChecks__dynamics: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}"
       # DholeAuth user-only administrative connection configuration.
       Gateway__Routes__14__Prefix: "/api/dynamics-admin"
       Gateway__Routes__14__Destination: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}/api/admin/v1"
@@ -49,35 +47,6 @@ services:
       Gateway__Routes__14__TimeoutSeconds: "120"
     networks:
       - dhole-runtime
-
-  # The existing Notifications Hub hosts optional universal realtime.
-  # All flags default OFF in production. The isolated staging pilot opts in
-  # only after its full image batch is present.
-  notifications-api:
-    environment:
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
-      Realtime__NotificationsHostEnabled: "${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}"
-      Realtime__DeploymentTarget: "${DHOLE_REALTIME_NOTIFICATIONS_TARGET:-disabled}"
-      Realtime__ProductionApproved: "false"
-      Realtime__ReleaseId: "rt-20261107-01"
-      Realtime__RedisConnectionString: "${REDIS_CONNECTION_STRING:-redis:6379}"
-      Realtime__GatewayBaseUrl: "http://api-gateway:8080"
-      Realtime__MaxSubscriptionsPerConnection: "25"
-
-  # F6.02 Pricing API and worker use the same fail-closed release gate.
-  # All overrides remain false until the entire batch is approved.
-  pricing-api:
-    environment:
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_PRICING_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
-  pricing-workers:
-    environment:
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_PRICING_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
 
   content-api:
     image: dhole/content-api:${DHOLE_IMAGE_TAG:-latest}
@@ -91,10 +60,6 @@ services:
       Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-redis:6379}
       Auth__Jwt__SecretKey: ${AUTH_JWT_SECRET}
       ServiceUrls__Storage: ${STORAGE_BASE_URL:-http://192.168.1.12:5207/}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CONTENT_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
     networks:
       - dhole-runtime
 
@@ -107,10 +72,6 @@ services:
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ConnectionStrings__Postgres: ${CONTENT_POSTGRES_CONNECTION}
       Redis__ConnectionString: ${CONTENT_REDIS_CONNECTION:-redis:6379}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CONTENT_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
     depends_on:
       - content-api
     networks:
@@ -128,10 +89,6 @@ services:
       Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
       Auth__Authority: ${AUTH_HTTP_URL:-http://auth-api:8080}
       Auth__Audience: ${AUTH_AUDIENCE:-dhole}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_AGENT_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
       Hermes__BaseUrl: ${HERMES_GATEWAY_URL:-http://hermes-agent:8642}
       Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
       Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
@@ -155,10 +112,6 @@ services:
       DOTNET_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       Postgres__ConnectionString: ${AGENT_POSTGRES_CONNECTION_STRING}
       Redis__ConnectionString: ${AGENT_REDIS_CONNECTION_STRING:-redis:6379}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_AGENT_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
       Hermes__BaseUrl: ${HERMES_GATEWAY_URL:-http://hermes-agent:8642}
       Hermes__ApiKey: ${HERMES_API_SERVER_KEY}
       Hermes__Model: ${HERMES_API_SERVER_MODEL_NAME:-hermes-agent}
@@ -193,10 +146,6 @@ services:
       - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
     environment:
       TZ: ${TZ:-America/Costa_Rica}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CRM_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
       Features__CrmEnabled: "true"
@@ -234,10 +183,6 @@ services:
       - ${DHOLE_ENV_FILE:-/opt/dhole/.env}
     environment:
       TZ: ${TZ:-America/Costa_Rica}
-      Features__UniversalRealtimeEnabled: "${DHOLE_REALTIME_BATCH_ENABLED:-false}"
-      Realtime__Outbox__Enabled: "${DHOLE_REALTIME_CRM_OUTBOX_ENABLED:-false}"
-      Realtime__BatchApproved: "${DHOLE_REALTIME_BATCH_APPROVED:-false}"
-      Realtime__ReleaseId: "rt-20261107-01"
       Features__CrmBackgroundTasksEnabled: "${CRM_BACKGROUND_TASKS_ENABLED:-true}"
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
