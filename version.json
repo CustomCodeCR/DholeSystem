@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.14.0",
-  "ecosystemVersion": "1.14.0",
-  "releaseId": "rt-20261107-01",
-  "releaseStatus": "develop-integrated-staging-f6-f8-validation-pending"
+  "version": "1.14.1",
+  "ecosystemVersion": "1.14.1",
+  "releaseId": "rt-20261109-f9-hotfix-01",
+  "releaseStatus": "f9-public-route-hotfix-staging-validation-pending"
 }
