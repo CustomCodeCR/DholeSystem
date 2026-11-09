@@ -1,0 +1,123 @@
+# Evidence registry only. A completed GitHub CI does NOT automatically
+# constitute operational approval or permission to merge/deploy.
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: 2.1.0
+releaseBranch: feature/dhole-realtime-universal-rt-20261107-01
+promotionApproved: false
+productionDeploymentAuthorized: false
+phaseGates:
+  F0:
+    technicalAuditRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42484593348
+    repositoryCountInspected: 17
+    sourceDiscoveryExecuted: true
+    missingEndpointsOrJobsExplicitlyRegistered: true
+    srMOwnerConfirmed: true
+    systemFullOwnershipConfirmed: false
+    allMutableEndpointsAndWorkersReviewedAndMapped: false
+    realStagingProxyJwtRedisAofVerified: false
+    realStagingRestP95P99Measured: false
+    # Read-only local health evidence; does NOT satisfy public WSS/TLS or REST business latency.
+    stagingLocalGatewayHealthCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
+    stagingServicesObservedRunning: 27
+    stagingInfraServicesObservedRunning: 5
+    stagingHealthHttpOnlyRequests: 100
+    stagingHealthHttpOnlyResponses200: 100
+    stagingHealthHttpOnlyP95Ms: 2.52
+    stagingHealthHttpOnlyP99Ms: 3.756
+    stagingExternalTlsWssConfirmed: false
+    stagingPersistenceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42508243878
+    stagingAnonymousHubNegotiationHttpStatus: 404
+    stagingRealtimeFeatureFlagsEnabledCount: 0
+    stagingLatestReadOnlyAuditConclusion: FAILED_AS_EXPECTED_AOF_OFF
+    stagingRedisAofEnabled: false # historical CI snapshot; operator later reported enabled; CI re-check pending
+    stagingAofOperatorReportedEnabledAfterHistoricalAudit: true
+    stagingRedisPersistentVolumeMounted: true
+    stagingPostgresPersistentVolumeMounted: true
+    stagingRedisAofMigrationRequiredAtF9: true
+    runtimeInstanceTopologyVerified: false
+    targetBranchPolicyVerifiedByCi: true
+    nativeProtectedBranchesVerified: false
+    approval: false
+  F1:
+    implementationRepo: CustomCodeCR/CustomCodeFramework
+    implementationSha: 86645d36403869ccd791debb384bc298a6b2328a
+    testedRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42485214061
+    buildSuccess: true
+    unitTestsPassed: 44
+    unitTestsFailed: 0
+    unitTestsSkipped: 0
+    crmF2WireCompatibilityTested: true
+    contractSchemaEvolutionTested: true
+    namespaceAdditiveNoBreakingChange: true
+    requiresF0Approved: true
+    approval: false
+  F2:
+    implementationRepo: CustomCodeCR/DholeCRMService
+    implementationSha: ec4bf2c01b4d4a84eff4a1358187b6ac37c4ec78
+    testedRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42485087251
+    buildSuccess: true
+    integrationTestsPassed: 11
+    integrationTestsFailed: 0
+    integrationTestsSkipped: 0
+    committedBusinessOperations: 1000
+    persistedLogicalEvents: 1000
+    duplicateSideEffects: 0
+    pilotHttpTestServerMutationSucceedsUnderSimulatedRedisOutage: true
+    realProductionCrmRestHandlersCovered: true # actual account PATCH endpoint in TestServer; not staging
+    realAccountPatchTestServerCiRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42489760621
+    pilotAccountPatchUsesRealPostgresOutbox: true
+    pilotAccountAuthorizationRestTestedInCi: true
+    pilotAccountConflict409TestedInCi: true
+    pilotRealtimeBrowserDeliveryVerified: false
+    redisStreamLossRecoverySimulatedWithRealPostgresRedis: true
+    deadLetterAndRetryVerified: true
+    redisAofVolumeCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
+    realStagingRedisOutageAndRestoreVerified: false
+    realStagingRedisAofCurrentlyDisabled: true # historical CI reading only; operator reports AOF ON; fresh attestation pending
+    realStagingRedisAofOperatorReportedEnabled: true
+    realStagingBackupRetentionAndAlertsVerified: false
+    requiresF1Approved: true
+    approval: false
+  F3:
+    implementationRepo: CustomCodeCR/DholeApiGateway
+    implementationSha: 9ec7c1a60b21450c04aebca181106cf6ea11c4ce
+    testedRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42485284958
+    buildSuccess: true
+    gatewayTestsPassed: 100
+    gatewayTestsFailed: 0
+    gatewayTestsSkipped: 0
+    negativeAuthorizationScenarios: 30
+    twoAuthorizedUsersReceive: true
+    deniedUserDoesNotReceive: true
+    twoIsolatedGatewayInstancesCi: true
+    restartedGatewayConsumesDurableRedisCursorCi: true
+    wssTlsThroughRealStagingProxyVerified: false
+    ownerRestAuthorizationRealStagingVerified: false
+    actualStagingJwtRevocationVerified: false
+    realStagingInstanceTopologyVerified: false
+    requiresF2Approved: true
+    approval: false
+  F4:
+    implementationRepo: CustomCodeCR/DholeWeb
+    implementationSha: 0ac843361b51446967b2f8706a62cf137dce3785
+    testedRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42448772988
+    buildSuccess: true
+    managerTestsPassed: 12
+    managerTestsFailed: 0
+    frontendRegressionTestsPassed: 91
+    frontendTypecheckPass: true
+    chromiumRealVueCycles: 200
+    chromiumListenerGrowth: 0
+    chromiumSocketGrowth: 0
+    simulatedReconnects: 30
+    simulatedInitialConnectionFailures: 30
+    crmPricingPilotRestReconciledInBrowserFixture: true
+    dirtyFormsProtected: true
+    offlineAutoMutations: 0
+    expiredTokenIsolated: true
+    browserBackendAuthFixtureNotRealStaging: true
+    realStagingTwoUsersTwoTabsReconcileVerified: false
+    realStagingOfflineWssRestRecoveryVerified: false
+    requiresF3Approved: true
+    approval: false

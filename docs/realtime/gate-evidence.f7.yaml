@@ -1,0 +1,176 @@
+# This is candidate test evidence, NOT F7 approval or a staging execution.
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: "2.1.0"
+phase: F7
+status: PREPARACION_TECNICA_GATE_F6_BLOQUEADO
+formalApproved: false
+nextPhaseF8Authorized: false
+sequentialF6Approved: false
+stagingTestsExecuted: false
+noDevelopOrMasterMerge: true
+noProductionDeployment: true
+browserCandidateCi:
+  repo: CustomCodeCR/DholeWeb
+  testedSha: 0582ef29cc8c542e26569a811a39c7dd0c1c61e9
+  url: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084
+  outcome: success
+  tests: 22
+  mockedRuntime: true
+isolatedRedisCandidateCi:
+  repo: CustomCodeCR/DholeSystem
+  testedSha: 437e0f26fd16525f989afcab7006121535289c32
+  url: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019
+  outcome: success
+  environment: GITHUB_HOSTED_EPHEMERAL
+  covers: [C04, C05, C11]
+  staging: false
+aofOffToOnMigrationRehearsal:
+  repo: CustomCodeCR/DholeSystem
+  testedSha: d3fc51bc2e235915e16242ab33b76c10c9b987a8
+  url: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+  outcome: success
+  initialUnsafeRestartDetectedDataLoss: true
+  safeInPlaceConversionRehearsed: true
+  stagingChanged: false
+dynamicsPartialIdempotencyCi:
+  repo: CustomCodeCR/DholeDynamicsConnectorService
+  testedSha: 44f2a5e29e0c931003ed799f4066c7c68ce7d070
+  url: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928
+  outcome: success
+  dynamicsPostgresOnly: true
+  emailDuplicateSideEffectsVerified: false
+crmConcurrentEditorsCandidateCi:
+  repo: CustomCodeCR/DholeCRMService
+  testedSha: 3574be4bacf6f93f75abc552da6f2158930445af
+  url: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179
+  outcome: success
+  separateHttpClients: 2
+  sameAuthorizedOwnerIdentity: true
+  distinctStagingUsers: false
+  criticalIterations: 10
+  verifiedHttp409ForStaleEditor: true
+  postgresOutboxDuplicates: 0
+gatewayFailoverCandidateCi:
+  repo: CustomCodeCR/DholeApiGateway
+  testedSha: 151166d257272e31ff12181ef6f020a3ab3c7f8b
+  url: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251
+  outcome: success
+  hostInstances: 2
+  persistsRedisCursorAndInbox: true
+  realTraefikTlsWss: false
+criticalRepetitionsRequired: 10
+formalTargetPassed: 14
+scenarios:
+  - id: C01
+    description: "Navegador desconectado y reconciliacion REST"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C02
+    description: "SignalR falla al inicio y usa retry/fallback"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C03
+    description: "Socket de Hub reinicia y resuscribe"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C04
+    description: "Redis Streams se interrumpe y Outbox recupera"
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C05
+    description: "Bridge cae antes de ACK e Inbox deduplica"
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C06
+    description: "Duplicados y eventos desordenados"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C07
+    description: "JWT expira/revocacion de permisos"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C08
+    description: "Concurrencia de dos editores con 409/412"
+    candidateStatus: CRM_TWO_CLIENT_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C09
+    description: "Tab suspendida despierta y refresca"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C10
+    description: "REST cae con WS conectado"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C11
+    description: "Outbox/Streams acumulan backlog"
+    candidateStatus: REDIS_EPHEMERAL_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C12
+    description: "Logout/cambio de identidad limpia datos"
+    candidateStatus: WEB_SIMULADO_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C13
+    description: "Replica Gateway falla y cambia de nodo"
+    candidateStatus: GATEWAY_TWO_HOST_CI_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null
+  - id: C14
+    description: "Dynamics/email repetidos sin efectos duplicados"
+    candidateStatus: DYNAMICS_POSTGRES_PARTIAL_PASS
+    formalStatus: PENDIENTE
+    realEnvironmentRuns: 0
+    verifiedNoDataLoss: false
+    verifiedNoAuthorizationLeak: false
+    stagingEvidence: null

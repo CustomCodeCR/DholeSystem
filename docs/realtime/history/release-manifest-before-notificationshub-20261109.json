@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.12.6",
+  "status": "candidate-pending-ci-staging",
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeApiGateway",
+      "component": "DholeApiGateway",
+      "version": "1.3.0",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAuthService",
+      "component": "DholeAuthService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "version": "1.12.6",
+      "mergeState": "feature-branch-not-merged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeConfigService",
+      "component": "DholeConfigService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAuditLogsService",
+      "component": "DholeAuditLogsService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeDataExtractionService",
+      "component": "DholeDataExtractionService",
+      "version": "1.3.3",
+      "mergeState": "candidate-pending-staging"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "component": "DholePricingService",
+      "version": "1.5.3",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAIService",
+      "component": "DholeAIService",
+      "version": "1.3.6",
+      "mergeState": "candidate-pending-staging"
+    },
+    {
+      "repository": "CustomCodeCR/DholeStorageService",
+      "component": "DholeStorageService",
+      "version": "1.2.2",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeReportsService",
+      "component": "DholeReportsService",
+      "version": "1.4.2",
+      "mergeState": "feature-branch-not-merged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeNotificationsService",
+      "component": "DholeNotificationsService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeContentService",
+      "component": "DholeContentService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAgentService",
+      "component": "DholeAgentService",
+      "version": "1.2.2",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+      "component": "DholeDynamicsConnectorService",
+      "version": "1.2.1",
+      "mergeState": "previous-release-unchanged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "component": "DholeCRMService",
+      "version": "1.3.1",
+      "mergeState": "feature-branch-not-merged"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "version": "1.12.6",
+      "mergeState": "feature-branch-not-merged"
+    }
+  ],
+  "policyCheck": {
+    "status": "pending-ci",
+    "checks": 0,
+    "total": 0
+  },
+  "mergeState": "feature-branch-not-merged",
+  "productionDeploymentAuthorized": false,
+  "blockers": [
+    "CI and regression tests for commercial terms parsing must pass",
+    "Staging must validate compiled Pricing wizard and previously saved terms",
+    "Promotion to master is gated by staging verification"
+  ],
+  "validationEvidence": {
+    "semver": "Pending CI",
+    "staging": "Pending staging",
+    "production": "master release requires staging validation"
+  },
+  "releaseComponents": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "changes": [
+    "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
+    "Use shared normalization for catalog, selected terms, manual input and wizard persistence",
+    "DholePricingService 1.5.8 REST contract unchanged"
+  ]
+}

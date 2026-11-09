@@ -1,0 +1,1170 @@
+# F0 baseline (no release frozen, no staging/production release)
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: 2.1.0
+createdOn: "2026-11-07"
+phase: F0
+phaseStatus: BLOQUEADA
+technicalPreparationPhase: F8_FUTURE_SERVICE_CANDIDATE_CI_ONLY
+batchStatus: BUILDING
+batchVersion:
+  currentGlobalMaxObserved: "1.12.11"
+  proposedGlobalRelease: "1.13.15"
+  proposedOnly: true
+branchPolicy:
+  intermediate: feature/dhole-realtime-universal-rt-20261107-01
+  intermediateBase: develop
+  developMergeEarliestPhase: F9
+  masterMergeEarliestPhase: F10
+  masterRequiresExplicitAuthorization: true
+  forbidDirectTargetWrites: true
+  forbidMainChanges: true
+  forbidForcePush: true
+  oneBatchPRPerRepositoryPerTarget: true
+  featureFlagsDefaultOff: true
+  productionDeploymentAuthorized: false
+promotion:
+  frozen: false
+  frozenShaCount: 0
+  developPRs: []
+  masterPRs: []
+  stagingDeployed: false
+  productionDeployed: false
+  testsAtFrozenSha: NO_EJECUTADO
+  rollbackVerified: false
+  approvalF0: false
+  approvalF1ToF8: false
+  approvalF9: false
+repositories:
+  - id: S01
+    name: CustomCodeCR/DholeCRMService
+    developBaselineSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    masterBaselineSha: 85059c0be40ed18e24e6332cd307716edf92c250
+    mergeBaseSha: 58a1a68e960d6b5cea50904542c5d2d587859e00
+    developToMasterStatus: diverged
+    masterOnlyCommits: 196
+    developOnlyCommits: 193
+    baseBranch: develop
+    baseSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 9d92b831442e3cb5427246e5756ba7e49e487b5c
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.1"
+    ecosystemVersionBaseline: "1.12.3"
+    releaseComponentVersion: "1.5.6"
+    candidateForPhase: F2
+    candidateF5PilotFlow: CRM_ACCOUNT_PATCH
+    candidateF5TestedCommitSha: 12ea9f72cb7aee930c7a6e5b4b82538eb618a492
+    candidateF5TestedRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42489760621
+    candidateF5UnitAndIntegrationTestsPassed: 14
+    candidateF5FormalGateApproved: false
+    candidateF7C08TwoClientPostgresCi: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42511869179
+    candidateF7C08TestedSha: 3574be4bacf6f93f75abc552da6f2158930445af
+    candidateF7C08TenRacesPassed: true
+    candidateF7C08TwoDistinctStagingUsers: false
+    outboxMigration: "20261108130000_AddRealtimeDurabilityPilot"
+    candidateFeatureFlags: [Features__UniversalRealtimeEnabled, Realtime__Outbox__Enabled]
+    flagsDefaultOffUntilBatchComplete: true
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    candidateF601Status: IMPLEMENTATION_CANDIDATE_CI_PASS_NOT_FORMAL_GATE
+    candidateF601TestedSha: b73d6393cae0781869e78379cd682ff673b749e6
+    candidateF601Run: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42491355430
+    candidateF601TestsPassed: 15
+    candidateF601EndpointScope: [account-create, account-patch, account-archive, account-assign, account-logo, account-activity]
+    tests: F6_CRM_15_PASS_NOT_FORMAL_GATE
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S02
+    name: CustomCodeCR/DholePricingService
+    developBaselineSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    masterBaselineSha: a005de6b85bbfb9b5844672098f05b921f7507fd
+    mergeBaseSha: d38043d7920d17c168284b9bb64db21dc9b79216
+    developToMasterStatus: diverged
+    masterOnlyCommits: 1330
+    developOnlyCommits: 1444
+    baseBranch: develop
+    baseSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+    frozenSha: null
+    currentComponentVersionBaseline: "1.5.7"
+    ecosystemVersionBaseline: "1.12.4"
+    releaseComponentVersion: "1.6.7"
+    candidateForPhase: F6.02
+    candidateF602Status: IMPLEMENTATION_CANDIDATE_CI_PASS_NOT_FORMAL_GATE
+    candidateF602TestedSha: 99a855fb588e0169604d43512dd239a4b5546434
+    candidateF602Run: https://github.com/CustomCodeCR/DholePricingService/actions/runs/42492328018
+    candidateF602TestsPassed: 3
+    candidateF602Stream: dhole.pricing.realtime.v1
+    candidateF602Outbox: EXISTING_PRICING_EF_OUTBOX
+    candidateFeatureFlags: [Features__UniversalRealtimeEnabled, Realtime__Outbox__Enabled, Realtime__BatchApproved, Realtime__ReleaseId]
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_PRICING_3_PASS_NOT_FORMAL_GATE
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S03
+    name: CustomCodeCR/DholeNotificationsService
+    developBaselineSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    masterBaselineSha: 7fedeff9b67f5d6ca0a1831b1908f11b2349d3f4
+    mergeBaseSha: bfb23100e79a5506a398bb18e0f4828e7c3c4659
+    developToMasterStatus: diverged
+    masterOnlyCommits: 27
+    developOnlyCommits: 36
+    baseBranch: develop
+    baseSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: ab6b683ab802b3dca6201ab6b2b31b5868c1e105
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateForPhase: F6.03
+    candidateF603Status: EXISTING_NOTIFICATIONS_HUB_SECURITY_HARDENED
+    candidateF603TestedSha: 687c292d55b904db584935d2f68333413431a6d6
+    candidateF603Run: https://github.com/CustomCodeCR/DholeNotificationsService/actions/runs/42493452879
+    candidateF603TestsPassed: 3
+    candidateF603Architecture: EXISTING_SIGNALR_HUB_AND_PERSISTENT_REST_INBOX
+    fullEndpointAndWorkerMappingVerified: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_NOTIFICATIONS_3_PASS_NOT_FORMAL_GATE
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S04
+    name: CustomCodeCR/DholeAuthService
+    developBaselineSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    masterBaselineSha: 936f00a697262aeafbe279234c0cadfed843630c
+    mergeBaseSha: 00e6b0af4362eec05f9ec8471ae3a34af3746f94
+    developToMasterStatus: diverged
+    masterOnlyCommits: 84
+    developOnlyCommits: 106
+    baseBranch: develop
+    baseSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: da0beaee40891a8fb045f6a3501fbb6dcc312d1c
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AUTH_USER_ROLES_SCOPES
+    candidateF6Outbox: EXISTING_AUTH_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 1bbaf1cc908c7629b5fac3c2891a87b24f84fe3b
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAuthService/actions/runs/42500120665
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S05
+    name: CustomCodeCR/DholeConfigService
+    developBaselineSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    masterBaselineSha: 7ffe4bfe4b4f7eba893d6df801d545d15bf3334e
+    mergeBaseSha: a4a69b4a7b8c0ee5efdd49eba5211e9f15e6f19b
+    developToMasterStatus: diverged
+    masterOnlyCommits: 48
+    developOnlyCommits: 51
+    baseBranch: develop
+    baseSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: c8ff28a47dfd53f018d8a7faf00448b436c9d18d
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: CONFIG_AND_SRM_CATALOG
+    candidateF6Outbox: EXISTING_CONFIG_EF_OUTBOX
+    candidateF6TestsPassed: 4
+    candidateF6TestedSha: bf27ef7844ff952699b4c75bf07e7c600bef32dc
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42501309773
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S06
+    name: CustomCodeCR/DholeAuditLogsService
+    developBaselineSha: ac12000302f52b4792b681e38e1a493501432835
+    masterBaselineSha: 4dcfb7608627de8adce12ef4479f8fc45f39a433
+    mergeBaseSha: d3d4f7a7a790d260485406832b34aaae7476e6a5
+    developToMasterStatus: diverged
+    masterOnlyCommits: 11
+    developOnlyCommits: 8
+    baseBranch: develop
+    baseSha: ac12000302f52b4792b681e38e1a493501432835
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: ac12000302f52b4792b681e38e1a493501432835
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AUDIT_EVENT
+    candidateF6Outbox: NEW_AUDIT_POSTGRES_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 35b0a7e13da00cdf220516495b0e0234fdb7c28a
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAuditLogsService/actions/runs/42497034373
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [AddRealtimeOutbox_EF_PostgreSQL]
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S07
+    name: CustomCodeCR/DholeStorageService
+    developBaselineSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    masterBaselineSha: 5ddc37d1644f1eea988d564b1d6214c4cd7aa5f2
+    mergeBaseSha: d94632a7ebe7c691de8eff336e87c714d4dcf801
+    developToMasterStatus: diverged
+    masterOnlyCommits: 16
+    developOnlyCommits: 32
+    baseBranch: develop
+    baseSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 6c0937c5baac96c7684660309b73d08b348c79ee
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.2"
+    ecosystemVersionBaseline: "1.3.2"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: STORAGE_FILES_VERSIONS_REFERENCES
+    candidateF6Outbox: EXISTING_STORAGE_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: ebf6c05aaeddf7d32245d5c0b1bd31b93eb25c3b
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeStorageService/actions/runs/42496897714
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S08
+    name: CustomCodeCR/DholeDataExtractionService
+    developBaselineSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    masterBaselineSha: 21b6bbf748cb44fccc0210bcdb2d7700b4c5b33f
+    mergeBaseSha: 7068d59afb44cc4730449a734d6333abe6ae3ff1
+    developToMasterStatus: diverged
+    masterOnlyCommits: 269
+    developOnlyCommits: 269
+    baseBranch: develop
+    baseSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 8bd641a8a71a009b3427b554d2a369c53234eeff
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.5"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: "1.4.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: EXTRACTION_EMAIL_JOBS
+    candidateF6Outbox: EXISTING_EXTRACTION_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: a19fcef845346dfc3cadf51b5d7c7ad45e5806c8
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42499963278
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeDataExtractionService/actions/runs/42505716880
+    candidateF6SnapshotTestedCommit: f11affc3a7ca25604266fcda669fea6a885e9f67
+    candidateF6SnapshotStatus: MINIMAL_REST_STATUS_SNAPSHOTS_API_BUILD_PASS
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S09
+    name: CustomCodeCR/DholeReportsService
+    developBaselineSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    masterBaselineSha: b586596632fb0bfc84b6787ef980a4c039f789bf
+    mergeBaseSha: 5673bac362b69b5f0357c322d6d0b4a7ad868e35
+    developToMasterStatus: diverged
+    masterOnlyCommits: 66
+    developOnlyCommits: 70
+    baseBranch: develop
+    baseSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 50bdd2642ebf364550b6a980165bffa0a57d55a7
+    frozenSha: null
+    currentComponentVersionBaseline: "1.4.2"
+    ecosystemVersionBaseline: "1.11.2"
+    releaseComponentVersion: "1.5.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: REPORT_TEMPLATES
+    candidateF6Outbox: NEW_REPORTS_POSTGRES_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 5ecb531afa17e9c91bc070b0ff5e2dc1483e1324
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeReportsService/actions/runs/42497281919
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [AddRealtimeOutbox_EF_PostgreSQL]
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S10
+    name: CustomCodeCR/DholeDynamicsConnectorService
+    developBaselineSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    masterBaselineSha: 2883e903b2b4b2ee7f02614b8648ff6ad7dfe6f6
+    mergeBaseSha: e3510e02bc64a98c8f14c84dc63e7ea1cb03bb86
+    developToMasterStatus: diverged
+    masterOnlyCommits: 289
+    developOnlyCommits: 293
+    baseBranch: develop
+    baseSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: e09ba5db60f133875fdddccc3c8d2b6ef84b9925
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: DYNAMICS_JOB_QUEUE_CREATE_REPLAY
+    candidateF6Outbox: NEW_DYNAMICS_SQL_OUTBOX_MIGRATION
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: b6accc39490d13f6c60093fb40a380823463e075
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42499971169
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42506176745
+    candidateF6SnapshotTestedCommit: 6da475c7a67d200cc6cf4bf597fe4b19051af845
+    candidateF6SnapshotStatus: ADMIN_SECURITYADMIN_JOB_STATUS_BUILD_PASS
+    candidateF7DynamicsIdempotencyCiRun: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/actions/runs/42507593928
+    candidateF7DynamicsIdempotencySha: 44f2a5e29e0c931003ed799f4066c7c68ce7d070
+    candidateF7DynamicsIdempotencyStatus: POSTGRES_ONLY_EMAIL_AND_STAGING_UNVERIFIED
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: [sql/019_realtime_job_outbox.sql]
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S11
+    name: CustomCodeCR/DholeAIService
+    developBaselineSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    masterBaselineSha: 3ace8314a33710418156bb41470c33b39ead097c
+    mergeBaseSha: f6cde23bd761df032993e32e7ac50715fdcf9ae2
+    developToMasterStatus: diverged
+    masterOnlyCommits: 107
+    developOnlyCommits: 115
+    baseBranch: develop
+    baseSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: e4f39ef9537eb13fedac6d3bc8e9f8543d4c7cd8
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.9"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: "1.4.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AI_EXECUTION_EMAIL_JOBS
+    candidateF6Outbox: EXISTING_AI_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: ac5f6dc08d3a575894be2446f8104b3dd5a908a3
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42499975894
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeAIService/actions/runs/42505712586
+    candidateF6SnapshotTestedCommit: a06987eb9a8084ccee97a0a88cce5df56b76e2d0
+    candidateF6SnapshotStatus: MINIMAL_REST_STATUS_SNAPSHOT_API_BUILD_PASS
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S12
+    name: CustomCodeCR/DholeAgentService
+    developBaselineSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    masterBaselineSha: d9192c97fc07611825fbea14709ee41171e06cdd
+    mergeBaseSha: 92912f22f2c7e73c347c4f02da5be2c7baa5f82a
+    developToMasterStatus: diverged
+    masterOnlyCommits: 763
+    developOnlyCommits: 705
+    baseBranch: develop
+    baseSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 4618d954cc4aa2b8e2e30ea040f4cc92fa3ceea0
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.2"
+    ecosystemVersionBaseline: "1.3.2"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: AGENT_EXECUTION_DEFINITION_SCHEDULE
+    candidateF6Outbox: EXISTING_AGENT_EF_OUTBOX
+    candidateF6TestsPassed: 3
+    candidateF6TestedSha: 5732ae52f11b53704063781eba3f2ef4ae3f37f2
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeAgentService/actions/runs/42496919190
+    candidateF6FrontendBoundView: AgentExecutionDetailView.vue
+    candidateF6FrontendBindingCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702
+    candidateF6FrontendBindingSha: 2a84e044f66f19c93445f1798028a0e9cab679f3
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: S13
+    name: CustomCodeCR/DholeContentService
+    developBaselineSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    masterBaselineSha: 3f6365730e4e86fb54621816d781693cb5d34878
+    mergeBaseSha: fd1ad0aa7b4529d1d9dd652e110c5e8cba99d275
+    developToMasterStatus: diverged
+    masterOnlyCommits: 15
+    developOnlyCommits: 330
+    baseBranch: develop
+    baseSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: adcc9ff99243d32eb29912e62a21db8a819d5011
+    frozenSha: null
+    currentComponentVersionBaseline: "1.2.1"
+    ecosystemVersionBaseline: "1.3.1"
+    releaseComponentVersion: "1.3.6"
+    candidateF6Status: PRODUCER_OWNER_ACL_AND_CI_PASS_FORMAL_GATE_BLOCKED
+    candidateF6Scope: CMS_CONTENT_MENU_SETTING
+    candidateF6Outbox: EXISTING_CONTENT_EF_OUTBOX
+    candidateF6TestsPassed: 5
+    candidateF6TestedSha: b79dc99c142497531e8a79df0387c955f91d69ce
+    candidateF6TestedRun: https://github.com/CustomCodeCR/DholeContentService/actions/runs/42499966816
+    candidateF6SnapshotCiRun: https://github.com/CustomCodeCR/DholeContentService/actions/runs/42506158867
+    candidateF6SnapshotTestedCommit: c7243951e75ed9a8de045f3ab705abcda75054b6
+    candidateF6SnapshotStatus: AUTHORIZED_MENU_SETTING_STATUS_BUILD_PASS
+    candidateF6GatewayStream: GATED_BY_UNIVERSAL_SERVICES_BRIDGE
+    candidateF6FullEndpointInventoryVerified: false
+    candidateF6StagingWssE2EPassed: false
+    candidateF6FormalGateApproved: false
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_CONTRACT_CI_PASS_NOT_STAGING
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: GW
+    name: CustomCodeCR/DholeApiGateway
+    developBaselineSha: ad57459a6fc9a102863244bacc25b9b55e1ba805
+    masterBaselineSha: 2f3e0d2b00a0afd63884ee7f6870fdec54c26d2a
+    mergeBaseSha: 0ab9ef4eb5ec331ff48fad79c691111cbf21d63f
+    developToMasterStatus: diverged
+    masterOnlyCommits: 47
+    developOnlyCommits: 49
+    baseBranch: develop
+    baseSha: ad57459a6fc9a102863244bacc25b9b55e1ba805
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    candidateF7C13TwoGatewayInstancesCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501705251
+    candidateF7C13TestedSha: 151166d257272e31ff12181ef6f020a3ab3c7f8b
+    candidateF7C13RealTraefikWssVerified: false
+    initialIntermediateSha: ad57459a6fc9a102863244bacc25b9b55e1ba805
+    frozenSha: null
+    currentComponentVersionBaseline: "1.3.1"
+    ecosystemVersionBaseline: "1.3.12"
+    releaseComponentVersion: "1.4.7"
+    candidateForPhase: F3
+    candidateF602PricingBridge: GATED_INDEPENDENT_STREAM
+    candidateF602BridgeTestsRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42492026596
+    candidateF602GatewayTestsPassed: 106
+    candidateF604ToF613Bridge: TEN_ISOLATED_STREAMS_REST_OWNER_AUTHORIZATION
+    candidateF604ToF613MappedKinds: 19
+    candidateF604ToF613BridgeFlagDefaultOff: true
+    candidateF604ToF613SecurityCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501265245
+    candidateF604ToF613SecurityTestsPassed: 128
+    candidateF604ToF613StagingWssE2EPassed: false
+    candidateF604ToF613FormalGateApproved: false
+    candidateF602AclRevocationControlCi: PENDING_RECHECK
+    gatewayCandidateInitialSha: 2ced27b22809b76e80c9b3d651bb09aa041ac118
+    migrations: [Dhole.ApiGateway/Realtime/Migrations/20261108140000_AddGatewayRealtimeInbox.sql]
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: NO_EJECUTADO
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: WEB
+    name: CustomCodeCR/DholeWeb
+    developBaselineSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    masterBaselineSha: a74a87a0f9e68a017a44bc543ca4f7de16abb52d
+    mergeBaseSha: 646fd8e04a22b3265f7417aeb000439bafb330d8
+    developToMasterStatus: diverged
+    masterOnlyCommits: 3089
+    developOnlyCommits: 3457
+    baseBranch: develop
+    baseSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+    frozenSha: null
+    currentComponentVersionBaseline: "1.12.4"
+    ecosystemVersionBaseline: "1.12.4"
+    releaseComponentVersion: "1.13.8"
+    candidateForPhase: F4
+    candidateF6FrontendResourceKindsSupported: 21
+    candidateF6FrontendBoundViews: [crm.account, pricing.rate, agent.execution]
+    candidateF6FrontendNewKindsStillUnbound: 18
+    candidateF6FrontendLastFullCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42507658702
+    candidateF6FrontendLastTestedSha: 2a84e044f66f19c93445f1798028a0e9cab679f3
+    candidateF7BrowserChaosOnlySimulated: [C01, C02, C03, C06, C07, C09, C10, C12]
+    candidateF7BrowserChaosTestedSha: 0582ef29cc8c542e26569a811a39c7dd0c1c61e9
+    candidateF7BrowserChaosCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42505547084
+    candidateF7FormalGateApproved: false
+    candidateF602RestReconciliation: pricing.rate (returns authoritative snapshot without assuming revision increments)
+    candidateF602WebCiRun: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42492212712
+    observedDevelopShaAfterBranching: 42b9933d598de69480b77990814773c84426191b
+    observedDevelopVersionAfterBranching: "1.12.11"
+    observedMasterShaAfterBranching: 9500624d9d0bab78218f8baba479a5b15ab7b411
+    observedMasterVersionAfterBranching: "1.12.11"
+    upstreamMovedSinceBranchCreated: true
+    mergeReconciliationPendingF9: true
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F6_AGENT_VIEW_CI_GREEN_REST_STAGING_NOT_VERIFIED
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: DOC
+    name: CustomCodeCR/DholeSystem
+    developBaselineSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    masterBaselineSha: baeb014da206c0125f5863a49c576d58e6206409
+    mergeBaseSha: af4db48a8f12edbc772bf6c014aa44804af8b5a6
+    developToMasterStatus: diverged
+    masterOnlyCommits: 149
+    developOnlyCommits: 197
+    baseBranch: develop
+    baseSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+    frozenSha: null
+    candidateF7EvidenceGuardCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42505851181
+    candidateF7EvidenceGuardStatus: PASS_GUARD_ONLY_NOT_FORMAL_GATE
+    candidateF6SourceAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610
+    candidateF6SourceReviewRows: 582
+    candidateF6SourceMutableRoutes: 512
+    candidateF6SourceWorkerFiles: 70
+    candidateF0AdditionalSignatureAuditCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511529610
+    candidateF0AdditionalSignatures: 57
+    candidateF0AdditionalDynamicRouteSignatures: 6
+    candidateF0AdditionalGrpcGraphqlSignatures: 9
+    candidateF0AdditionalHostedWorkerSignatures: 42
+    candidateF0AdditionalSignaturesAreDeduplicated: false
+    candidateF6SourceFullyVerified: 0
+    candidateF7RedisCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42506868019
+    candidateAofRdbToAofRehearsalCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+    candidateAofMigrationStagingApplied: false
+    candidateF7StagingPassedCases: 0
+    candidateF8Status: FUTURE_SERVICE_ENFORCEMENT_TESTED_CI_NOT_APPROVED
+    candidateF8CiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511408397
+    candidateF8PositiveNegativeAndScaffoldTestsPassed: 20
+    candidateF8SampleOutboxRealDotnetRedisPostgresRecoveryCiPassed: true
+    candidateF8FormalGateGuardRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42511053160
+    candidateF8FormalGateApproved: false
+    candidateF8NextPhaseF9Authorized: false
+    candidateF8FutureServiceRealRepoRegistered: false
+    candidateF8BranchProtectionVerified: false
+    candidateF8Scope: SYNTHETIC_SAMPLE_S14_NOT_DEPLOYABLE
+    currentComponentVersionBaseline: "1.12.3"
+    ecosystemVersionBaseline: "1.12.3"
+    releaseComponentVersion: "1.13.15"
+    migrations: []
+    dependencies: [redis-streams, gateway-realtime, authorized-audience, rest-reconcile]
+    flags: { realtime: false }
+    tests: F0_F6_F7_AUDITS_CANDIDATE_ONLY
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+  - id: LIB
+    name: CustomCodeCR/CustomCodeFramework
+    role: shared-realtime-contract-library
+    addedToScopeAfterF0: true
+    targetBranchCreatedInF0: develop
+    targetCreatedFromSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    developBaselineSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    masterBaselineSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    mergeBaseSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    developToMasterStatus: identical_at_branch_creation
+    baseBranch: develop
+    baseSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+    intermediateCreated: true
+    initialIntermediateSha: 18e98bcc1913a7aadfea2b1d3cd8b3cf179bfa97
+    candidateF1HeadSha: a81447dd00d004d6a32eb28001a379ee89ddb552
+    frozenSha: null
+    currentComponentVersionBaseline: "0.2.0"
+    releaseComponentVersion: "0.3.6"
+    ecosystemVersionCandidate: "1.13.0"
+    migrations: []
+    dependencies: [DholeApiGateway, DholeCRMService, DholePricingService, DholeWeb]
+    flags: { realtime: false }
+    tests:
+      build: PASSED
+      unit: PASSED
+      passed: 42
+      failed: 0
+      skipped: 0
+      workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42443081145
+      workflowCommitSha: a81447dd00d004d6a32eb28001a379ee89ddb552
+    developBatchPR: null
+    masterBatchPR: null
+    developFinalSha: null
+    masterFinalSha: null
+notes:
+  - "SHAs basales son los comprobados antes de crear las ramas intermedias; no son SHAs finales ni congelados."
+  - "Los conteos de ahead/behind provienen de comparación base develop ... head master en GitHub."
+  - "No se ha auditado la infraestructura en vivo ni los endpoints mutables al 100%."
+  - "El manifest NO autoriza habilitar funciones, merges ni despliegues."
+
+# Revalidación posterior a baseline, sin reemplazar SHAs iniciales
+branchRevalidation:
+  checkedOn: "2026-11-07"
+  evidence: docs/realtime/test-evidence/F0-branch-revalidation-20261107.md
+  reposChecked: 16
+  intermediateBranchesPresent: 16
+  targetBranchesModifiedByThisBatch: 0
+  phaseF0Gate: RECHAZADO
+  phaseF1State: EN_PROGRESO
+  newlyObservedVersions:
+    DholePricingServiceDevelop: '1.5.8'
+    DholeWebDevelop: '1.12.5'
+    DholeWebMaster: '1.12.5'
+    maxObservedCurrentComponentVersion: '1.12.5'
+    proposedGlobalReleaseStillUnapproved: '1.13.0'
+  drift:
+    - repo: CustomCodeCR/DholePricingService
+      target: develop
+      previousSha: b163fbc77291998ad182c9a7b809f329c1138bb0
+      currentSha: 3777ac1441ed2a1d14b4b59223945065f4259fff
+      commitsAhead: 2
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+    - repo: CustomCodeCR/DholeWeb
+      target: develop
+      previousSha: 72fa663cc0c328d956bbe510eafe563d4dffe51b
+      currentSha: 9bce4d835c95cc0c34868674578a9a9f190b1764
+      commitsAhead: 3
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+    - repo: CustomCodeCR/DholeWeb
+      target: master
+      previousSha: a74a87a0f9e68a017a44bc543ca4f7de16abb52d
+      currentSha: 0e86a8e35a24e04c2864e4074c2bc747c44564ca
+      commitsAhead: 2
+      baselineRelation: fast_forward
+      intermediateUnchanged: true
+  action: "Preservar cambios ajenos. No adelantar merges, no sobrescribir baselines ni declarar F1 validada."
+
+  supplementalDriftObservedAfterInitialRecheck:
+    - repo: CustomCodeCR/DholeSystem
+      target: develop
+      previousSha: 9040bb00df39a95bc56cf68f3334d03ce9ac25d4
+      currentSha: ebbbaa031f37f10611433b77403da5820ae03345
+      commitsAhead: 6
+      baselineRelation: fast_forward
+      observedVersion: '1.12.6'
+      files: [CHANGELOG.md, release-manifest.json, version.json]
+      action: "NO tocar target; preservar releases concurrentes y reevaluar batch SemVer."
+
+sharedContractsF1:
+  status: TECHNICAL_F1_GATE_CI_PASS_SEQUENTIAL_APPROVAL_BLOCKED
+  formalGateApproved: false
+  blockedByF0Gate: true
+  packageRepository: CustomCodeCR/CustomCodeFramework
+  namespace: CustomCodeFramework.Messaging.Realtime
+  contractsImplemented: [RealtimeEnvelope, IOutboxWriter, IEventPublisher, IInboxStore, IRealtimeAudienceResolver]
+  workflowRun: https://github.com/CustomCodeCR/CustomCodeFramework/actions/runs/42485214061
+  testedSha: 86645d36403869ccd791debb384bc298a6b2328a
+  evidenceArtifactId: 13619555610
+  unitTests: { passed: 44, failed: 0, skipped: 0 }
+  deployed: false
+  exportedNugetPackage: false
+  allServicesIntegrated: false
+  catalog: docs/realtime/event-catalog.draft.yaml
+  furtherTestingNeeded: [F0_completion, multi_service_contract_integration, authorization_allowlists, schema_evolution_compatibility]
+
+f0StaticAudit:
+  workflowRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485543924
+  workflowCommitSha: 85b6eb20d10d52c454c48679a7feca622d4fd0b9
+  policyShape: PASSED
+  reposClonedReadOnly: 17
+  routeCandidates: 929
+  workerFileCandidates: 68
+  frontendApiFileCandidates: 15
+  mutableRouteCandidatesRequiringReview: 510
+  workerHandlerCandidatesRequiringReview: 68
+  unresolvedTotalCandidates: 578
+  unresolvedInventoryArtifactId: 13619425949
+  unresolvedStatus: GATE_BLOCKED_MISSING_RESOURCE_OWNERSHIP_AUTH_AND_RUNTIME
+  rawSourceFileCandidates: 646
+  completeMutableEndpointCoverage: false
+  actualInfrastructureVerified: false
+  realLoadBaselineMeasured: false
+  gateF0: RECHAZADO
+  artifacts:
+    inventory: 13601988174
+    policyReport: 13602347144
+    documentation: docs/realtime/test-evidence/F0-actions-audit-42443461440.md
+currentReleaseControl:
+  ecosysVersionBaselineObserved20261107: '1.12.6'
+  proposedBatchVersion: '1.13.1'
+  proposedBatchVersionStatus: CANDIDATE_NOT_PUBLISHED
+  dholeSystemIntermediateVersion: '1.13.1'
+  sharedFrameworkIntermediateVersion: '0.3.0'
+  ecosystemVersionAlignedAcrossAllServices: false
+  serviceReleaseVersionsFrozen: false
+  batchReadyForDevelop: false
+  batchReadyForMaster: false
+  noRealtimeFunctionEnabled: true
+  noMergeOrDeploymentExecuted: true
+
+f2DurabilityPilot:
+  status: PRELIMINARY_IN_INTERMEDIATE_BRANCH
+  formalGateApproved: false
+  blockedByF0F1Gates: true
+  repository: CustomCodeCR/DholeCRMService
+  intermediateBranch: feature/dhole-realtime-universal-rt-20261107-01
+  componentVersionBaseline: "1.3.1"
+  candidateVersion: "1.4.0"
+  ecosystemReleaseCandidate: "1.13.0"
+  migration: src/Dhole.Crm.Infrastructure/Persistence/Migrations/20261108130000_AddRealtimeDurabilityPilot.cs
+  outboxTable: crm.crm_realtime_outbox
+  inboxTable: crm.crm_realtime_inbox
+  existingReminderOutboxUnaffected: true
+  writer: CrmRealtimeOutboxWriter
+  worker: CrmRealtimeOutboxWorker
+  enabled: false
+  stream: dhole.crm.realtime.v1
+  retries: exponential_with_jitter
+  deadLetter: PostgreSQL_DeadLetter_status_after_5_attempts
+  inbox: idempotent_atomic_effect_then_ack
+  ciWorkflow: .github/workflows/realtime-f2-durability.yml
+  candidateTestedSha: ec4bf2c01b4d4a84eff4a1358187b6ac37c4ec78
+  isolatedHttpTestServerRestSurvivesRedisPublisherOutage: true
+  realCrmRestHandlersUnderOutageVerified: false
+  tests:
+    workflowRun: https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42485087251
+    compiled: true
+    warnings: 0
+    errors: 0
+    passed: 11
+    failed: 0
+    skipped: 0
+    includesOneThousandCommittedOperations: true
+    includesRedisStreamLossReplay: true
+    includesAbandonedConsumerXAUTOCLAIM: true
+    includesPayloadSafety: true
+    trxArtifactId: 13619366230
+  redisAofCandidate:
+    branchConfig: deploy/docker-compose.staging-infra.yml
+    runtimeDeployed: false
+    ciRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
+    verifiedContainerReplacementWithPersistentVolume: true
+    stagingHostVerified: false
+    productionHostVerified: false
+  phaseAcceptance: RECHAZADO_PENDING_F0_F1_AND_RUNTIME
+
+  postgresAndRedisStagingVerified: false
+  redisAofRetentionVerified: false
+  redisRestartRecoveryVerified: false
+  liveRestMutationsWired: false
+  batchReady: false
+  runbook: docs/realtime/F2-OUTBOX-INBOX-RUNBOOK.md
+
+f3GatewayHubCandidate:
+  status: IMPLEMENTACION_PRELIMINAR_EN_RAMA_INTERMEDIA
+  gateF0Approved: false
+  gateF1Approved: false
+  gateF2Approved: false
+  gateF3Approved: false
+  repository: CustomCodeCR/DholeApiGateway
+  branch: feature/dhole-realtime-universal-rt-20261107-01
+  baselineComponentVersion: "1.3.1"
+  candidateComponentVersion: "1.4.0"
+  proposedGlobalVersion: "1.13.0"
+  hubPath: /hubs/realtime
+  ticketPath: /hubs/realtime/ticket
+  auth: JWT_header_or_single_use_redis_ticket
+  browserRawJwtInQuery: false
+  resourceOwnerReauthorization: ON_SUBSCRIPTION_AND_EVERY_DELIVERY
+  allowedResourceKinds: [crm.account, pricing.rate]
+  unauthorizedGroupBroadcast: false
+  existingNotificationsHubPreserved: true
+  bridge:
+    stream: dhole.crm.realtime.v1
+    durableConsumerGroupPerGatewayInstance: true
+    inboxPostgres: realtime.gateway_inbox
+    deadLetterPostgres: realtime.gateway_deadletter
+    ackAfterInboxPersist: true
+    autoClaimPending: true
+    outgoingPayloadOnlyMinimalInvalidation: true
+  featureFlags:
+    Features__UniversalRealtimeEnabled: false
+    Realtime__Enabled: false
+    Realtime__BatchApproved: false
+    Realtime__BridgeEnabled: false
+  runtimeWebsocketTest: PASSED_ISOLATED_TESTSERVER_ONLY
+  infraWssThroughRealTraefik: NO_VERIFICADO
+  isolatedTwoGatewayInstancesDeliveryCi: PASSED
+  isolatedHostRestartDurableCursorCi: PASSED
+  realTwoInstanceDelivery: NO_VERIFICADO
+  roleRevocationWithActualAuth: NO_VERIFICADO
+  pricingResourceAccessPolicy: PENDIENTE_AUDITORIA
+  publishedOrDeployed: false
+  ci:
+    initialSecurityRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446139059
+    initialSecurityPassed: 80
+    initialSecurityFailed: 0
+    websocketIntegrationCandidateRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42446649159
+    websocketIntegrationResult: PASSED_IN_ISOLATED_CI_ONLY
+    finalTestedSha: 9ec7c1a60b21450c04aebca181106cf6ea11c4ce
+    finalWorkflowRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42485284958
+    finalBuildWarnings: 0
+    finalBuildErrors: 0
+    finalUnitIntegrationTestsPassed: 100
+    finalUnitIntegrationTestsFailed: 0
+    finalUnitIntegrationTestsSkipped: 0
+    finalTrxArtifactId: 13618808084
+    testedRealStagingWss: false
+  adr: docs/realtime/ADRs/0002-gateway-hub-authorization.md
+  runbook: docs/realtime/F3-HUB-GATEWAY-RUNBOOK.md
+  formalAcceptance: BLOQUEADA_POR_GATES_Y_PRUEBAS_OPERATIVAS
+
+f4VueClientCandidate:
+  status: IMPLEMENTACION_AISLADA_COMPLETA_CI_PASS_FORMAL_GATE_BLOQUEADO
+  gateF0Approved: false
+  gateF1Approved: false
+  gateF2Approved: false
+  gateF3Approved: false
+  gateF4Approved: false
+  repository: CustomCodeCR/DholeWeb
+  branch: feature/dhole-realtime-universal-rt-20261107-01
+  baselineComponentVersion: "1.12.4"
+  candidateComponentVersion: "1.13.0"
+  proposedGlobalVersion: "1.13.0"
+  singleton: src/core/realtime/universalRealtime.ts
+  coreStateMachine: src/core/realtime/realtimeManager.ts
+  composable: src/core/realtime/useResourceRealtime.ts
+  resourceKinds: [crm.account, pricing.rate]
+  pilotViews:
+    - src/modules/crm/views/CrmRecordDetailView.vue
+    - src/modules/pricing/views/PricingRateReadOnlyView.vue
+  authStateIsolation: logout_and_identity_change_drain
+  statusStates: [connecting, connected, reconnecting, degraded, offline, unauthorized]
+  initialHandshakeTimeoutSeconds: 8
+  reconnectBackoffMs: [0, 2000, 5000, 10000, 30000]
+  reconnectJitterFraction: 0.25
+  pollingFallbackMinMs: 5000
+  pollingFallbackMaxMs: 30000
+  lastAppliedVersionGuard: true
+  duplicateEventCapacity: 2048
+  dirtyDraftMayBeOverwritten: false
+  mutationRetriesByRealtimeClient: false
+  runtimeFlags:
+    VITE_DHOLE_REALTIME_ENABLED: false
+    VITE_DHOLE_REALTIME_BATCH_APPROVED: false
+    VITE_DHOLE_REALTIME_RELEASE: rt-20261107-01
+  frontendFeatureActivated: false
+  ciWorkflow: .github/workflows/realtime-f4-web.yml
+  firstCompleteGreenCi:
+    workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447856745
+    testedSha: 54620a45c116850d6379478786097c81e3521572
+    managerTestsPassed: 11
+    managerTestsFailed: 0
+    legacyCrmAndPricingTestsPassed: 91
+    typecheck: PASSED
+    frontendBuild: PASSED
+  latestSecurityChangeCi:
+    workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42447931191
+    conclusion: SUCCESS_ISOLATED_CI_ONLY
+    testedSha: ed6271db6b32fb33accc1dec2c106e66672ef923
+    testManagerPassed: 11
+    testManagerFailed: 0
+    legacyRegressionsPassed: 91
+    typecheck: PASSED
+    frontendBuild: PASSED
+    frozenInstall: PASSED
+    featureFlagsOffVerified: true
+    artifactId: 13604711151
+    evidence: docs/realtime/test-evidence/F4-vue-offline-ci.md
+  finalIsolatedAcceptance:
+    workflow: https://github.com/CustomCodeCR/DholeWeb/actions/runs/42448772988
+    exactWebCommitSha: 0ac843361b51446967b2f8706a62cf137dce3785
+    conclusion: SUCCESS
+    managerUnitTestsPassed: 12
+    managerUnitTestsFailed: 0
+    regressionsCrmPricingPassed: 91
+    typecheck: PASS
+    frontendBuildFlagsOff: PASS
+    realChromiumVueMountUnmountCycles: 200
+    realChromiumRestReconciledPilots: [crm.account, pricing.rate]
+    chromiumWebsocketTransport: FAKE_AUTHENTICATION_NO_STAGING
+    playwrightInstalledOutOfTree: true
+    ciArtifactId: 13605140347
+    evidence: docs/realtime/test-evidence/F4-vue-offline-ci.md
+  liveStagingWebSocketAuthVerified: false
+  realVueMountUnmount100Validated: true
+  actualVueCyclesInChromium: 200
+  listenerGrowthAfterCycles: 0
+  socketGrowthAfterCycles: 0
+  browserHeapDeltaBytesSecondHundred: -755188
+  browserUncaughtErrors: 0
+  simulatedOwnerRestReads: 218
+  clientSideMutationRequests: 0
+  browserAuthzFixture: TWO_USERS_THREE_AUTHORIZED_TABS_ONE_DENIED_403
+  realTwoUserEndToEndVerified: false
+  realApiDegradedFallbackObserved: false
+  batchReady: false
+  runbook: docs/realtime/F4-VUE-CLIENT-OFFLINE.md
+  phaseAcceptance: BLOQUEADA_POR_PREVIOUS_GATES_AND_STAGING
+
+gatesF0F4Verified20261108:
+  state: FAIL_CLOSED_UNTIL_REAL_STAGING_AND_PREVIOUS_PHASES_PASSED
+  sourceOfTruth: docs/realtime/gate-evidence.f0-f4.yaml
+  policyScript: scripts/realtime/verify-f0-f4-gates.py
+  policyCi: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42485710957
+  policyCiPassedWhileCorrectlyBlockingPrematureRelease: true
+  F0: {approved: false, blockers: 6}
+  F1: {approved: false, blockers: 1, technicalTestsPassed: 44}
+  F2: {approved: false, blockers: 4, technicalTestsPassed: 11}
+  F3: {approved: false, blockers: 5, technicalTestsPassed: 100}
+  F4: {approved: false, blockers: 3, managerTestsPassed: 12, regressionsPassed: 91}
+  promotionF9: BLOCKED
+  productionF10: NOT_AUTHORIZED
+
+currentSessionValidation20261108:
+  webCandidateVersion: "1.13.1"
+  systemCandidateVersion: "1.13.1"
+  globalCandidateVersion: "1.13.1"
+  webRealtimeTests: {passed: 28, failed: 0, skipped: 0}
+  webFullSuite: {passed: 632, failed: 33, skipped: 0}
+  webOriginalHeadSuite: {passed: 626, failed: 33, skipped: 0}
+  newFailuresComparedToOriginalHead: 0
+  typecheck: PASS
+  productionBuildFlagsOff: PASS
+  stagingValidation: NOT_EXECUTED
+  formalGatesApproved: false
+  evidence: docs/realtime/test-evidence/F4-F7-conflict-revocation-20261108.md
+  webTestedCommit: "8ac693125c3be20ea23f5bab757fff4b449908e4"
+  frameworkContractTests: {passed: 44, failed: 0, skipped: 0}
+
+f0SourceReviewConsolidation20261108:
+  phase: F0_F6
+  componentVersion: "1.13.2"
+  reviewRegistry: docs/realtime/F0-approved-source-decisions.csv
+  sourceShaBindingRequired: true
+  sourceSignatureOverlapIsNotAutomaticallyDeduplicated: true
+  integratedInventoryOutput: F0Results/F0-unified-source-review.csv
+  evidenceSummaryOutput: F0Results/F0-unified-source-summary.json
+  sourceCandidatesApprovedAutomatically: 0
+  formalGatesApproved: false
+  promotionPermitted: false
+
+f6CandidateVersionGuard20261108:
+  componentVersion: "1.13.3"
+  checksCandidateSemverAgainstObservedBaseline: true
+  checksManifestComponentChangelogAlignment: true
+  hardcodedVersionRemoved: true
+  baselineProductionUnchanged: true
+  formalF6Approved: false
+
+f0VersionPreflight20261108:
+  componentVersion: "1.13.4"
+  auditScript: scripts/realtime/f0_release_versions.py
+  checkedOutRepositories: 17
+  candidateModeDoesNotApproveF9: true
+  formalModeRequires17FrozenShas: true
+  formalModeRequiresSequentialApprovals: true
+  all17GlobalVersionsAligned: false
+  releasePromotionAuthorized: false
+
+f3StagingWssSmoke20261108:
+  componentVersion: "1.13.5"
+  workflow: .github/workflows/realtime-f3-staging-wss.yml
+  manualQaOptInRequired: true
+  distinctJwtQaIdentitiesRequired: true
+  serviceWriteOperations: 0
+  actualWssStagingValidated: false
+  formalGateApproved: false
+
+f0ExistingSignalrCompose20261108:
+  componentVersion: "1.13.6"
+  guard: scripts/realtime/f0_existing_ws_compose_guard.py
+  notificationHubExistsInSource: true
+  websocketProxyExistsInSource: true
+  redisAofComposeDeclared: true
+  additionalQaUsersNecessaryForOfflineValidation: false
+  universalStagingHubTlsWssVerified: false
+  redisRuntimeDurabilityVerified: false
+  formalF9Approved: false
+
+f9StagingRedisNoLossGuard20261108:
+  componentVersion: "1.13.7"
+  guardScript: scripts/realtime/verify_staging_redis_before_compose.py
+  oldUnconditionalForceRecreateRemoved: true
+  checksRuntimeProjectAndVolume: true
+  checksLiveAofRewriteComplete: true
+  observedLastRuntimeAofEnabled: false
+  backupRestoreStagingConfirmed: false
+  stagingDeployAllowedNow: false
+  formalPromotionApproved: false
+
+f9F10DraftPreparation20261108:
+  componentVersion: "1.13.8"
+  draftDevelopPrRoster: docs/realtime/f9-draft-prs.yaml
+  totalDraftPrs: 17
+  targetBranchesModified: false
+  upstreamDivergedRepositories: [DholePricingService, DholeSystem]
+  all17DevelopPrsMerged: false
+  formalF9Approved: false
+  productionGuard: scripts/realtime/verify_f10_production_preflight.py
+  productionApproval: docs/realtime/f10-production-approval.json
+  productionApproved: false
+  formalF10Approved: false
+
+f9UpstreamReconciliation20261108:
+  systemDevelopParent: "ebbbaa031f37f10611433b77403da5820ae03345"
+  systemFeatureMergeVersion: "1.13.9"
+  pricingDevelopParent: "650bfe0a203cf387d372eec887d2395c132877dd"
+  pricingFeatureMergeSha: "e8386e035d5c99ee6b8137c9c8d04048ed63c4d0"
+  pricingFeatureMergeVersion: "1.6.1"
+  all17FeatureBranchesIncludeLatestDevelop: true
+  historicalDevelopManifestArchived: true
+  targetBranchesModified: false
+  formalF9Approved: false
+
+f9GlobalVersionAlignment20261108:
+  ecosystemVersion: "1.13.10"
+  componentsExpected: 17
+  componentPatchVersionsUpdated: 17
+  allBranchVersionJsonExpectGlobal: true
+  actualShaPinnedCiRun: PENDIENTE
+  formalF9Approved: false
+  targetsModified: false
+
+f9ReleaseCandidateAfterCiRemediation:
+  globalVersion: "1.13.11"
+  releaseId: rt-20261107-01
+  mappedComponents: 17
+  configCiRemediationVersion: "1.3.2"
+  reportsPostgresCiRemediationVersion: "1.5.2"
+  gatewayServiceRegistryFinalVersion: "1.4.3"
+  allComponentVersionsAlignedInFeatureBranches: true
+  sourceMapping639SignaturesApproved: false
+  redisStagingAofAndRestoreApproved: false
+  f7FormalStagingScenariosPassed: 0
+  f9IntegrationsMerged: 0
+  f10ProductionDeployed: false
+
+f6StagingLiveReadOnlyPreflight20261108:
+  script: scripts/realtime/staging_f6_readiness.py
+  workflow: .github/workflows/realtime-f6-staging-preflight.yml
+  verifiesExactStagingDockerLabels: true
+  verifiesAofReadyBeforeCompose: true
+  neverMutatesData: true
+  currentF9GateStatus: BLOCKED
+
+f6LiveStagingPreflightExecuted20261108:
+  componentVersion: "1.13.12"
+  liveReadOnlyRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924
+  testsPassed: 7
+  redisContainerVerifiedStagingOnly: true
+  redisAofEnabledObserved: false
+  redisContainerCommandHasAppendonlyYes: false
+  redisSafeForComposeRedeploy: false
+  realBackupRestoreVerified: false
+  productionTouched: false
+  formalF9Approved: false
+
+f3RealTraefikWssWithoutExternalQa20261108:
+  componentVersion: "1.13.13"
+  globalCandidateVersion: "1.13.13"
+  gatewayComponentVersion: "1.4.5"
+  githubActionsRun: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538238853
+  testedGatewaySha: "09fc6435e4df93bce05fc5a4c4c3de6a375f1a6b"
+  gatewayLatestCandidateSha: "de1b57e987ddb6be83f58f53152ce3ee72ce46f2"
+  genuineTraefikHttpsWssInEphemeralCI: true
+  ephemeralJwtAndTlsAutoGenerated: true
+  twoAuthorizedSyntheticUsersValidated: true
+  oneDeniedSyntheticUserValidated: true
+  ownerRestAclOnSubscribeValidated: true
+  manualGithubQaVariablesOrSecretsNeeded: false
+  userServerSshNeeded: false
+  stagingInfrastructureTested: false
+  stagingRealPermissionsVerified: false
+  productionRealtimeEnabled: false
+  formalF3Approved: false
+  formalF9Approved: false

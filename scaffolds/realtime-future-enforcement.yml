@@ -1,0 +1,75 @@
+name: Dhole future-service mandatory realtime PR checks
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+  pull_request:
+    branches: [develop, master]
+permissions:
+  contents: read
+jobs:
+  required-realtime-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DHOLE_REGISTRY_READ_TOKEN: ${{ secrets.DHOLE_REGISTRY_READ_TOKEN }}
+      F8_TEST_POSTGRES: postgresql://f8_ci:f8_ci_only_not_real@localhost:5432/f8_synthetic
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: f8_synthetic
+          POSTGRES_USER: f8_ci
+          POSTGRES_PASSWORD: f8_ci_only_not_real
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U f8_ci -d f8_synthetic"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pinned policy and isolated database drivers
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2 "psycopg[binary]==3.2.4" redis==5.2.1
+      - name: Require actual reviewed central registry (never accept local proposal)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$DHOLE_REGISTRY_READ_TOKEN" ]; then
+            echo "BLOCKED: missing DHOLE_REGISTRY_READ_TOKEN for central registry"
+            exit 1
+          fi
+          curl --fail --silent --show-error --retry 2 \
+            -H "Authorization: Bearer $DHOLE_REGISTRY_READ_TOKEN" \
+            -H 'Accept: application/vnd.github.raw+json' \
+            'https://api.github.com/repos/CustomCodeCR/DholeSystem/contents/docs/realtime/service-registry.yaml?ref=develop' \
+            > /tmp/dhole-central-registry.yaml
+          python scripts/realtime/verify-f8-future-service.py \
+            --service-root . --registry /tmp/dhole-central-registry.yaml
+      - name: Build new .NET8 microservice and Outbox publisher
+        shell: bash
+        run: |
+          set -euo pipefail
+          project="$(find tests -name '*.IntegrationHarness.csproj' -type f | head -n 1)"
+          test -n "$project"
+          dotnet build "$project" -c Release
+      - name: Test transactional Postgres and Redis Inbox on isolated CI services
+        shell: bash
+        run: |
+          set -euo pipefail
+          PGPASSWORD=f8_ci_only_not_real psql -h 127.0.0.1 -U f8_ci \
+            -d f8_synthetic -v ON_ERROR_STOP=1 -f sql/001_initial.sql
+          name="dhole-f8-generated-$GITHUB_RUN_ID"
+          docker run -d --name "$name" -p 127.0.0.1:16391:6379 \
+            redis:7-alpine redis-server --appendonly yes --appendfsync everysec
+          trap 'docker rm -f "$name" || true' EXIT
+          for i in $(seq 1 30); do
+            if [ "$(docker exec "$name" redis-cli ping 2>/dev/null)" = PONG ]; then break; fi
+            sleep 1
+          done
+          test "$(docker exec "$name" redis-cli ping)" = PONG
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          echo "Candidate sample tests pass. No real staging/ACL/Hub approval implied."

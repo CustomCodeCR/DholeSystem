@@ -1,0 +1,120 @@
+# F9 review preparation only; no PR is approved for merge.
+schemaVersion: 1
+releaseId: rt-20261107-01
+sourceBranch: feature/dhole-realtime-universal-rt-20261107-01
+targetBranch: develop
+batchType: coordinated-draft-review
+mergeAuthorized: false
+formalF9Complete: false
+sourceGatesF0ToF8Approved: false
+globalEcosystemVersionAligned: true
+all17FinalShasFrozen: false
+stagingValidated: false
+notes:
+  - "Existing realtime code is candidate-only; all flags remain OFF."
+  - "All 17 feature branches declare ecosystemVersion=1.13.14; frozen SHA/CI and formal gates still pending."
+  - "Do not merge any F9 PR while Redis staging AOF OFF or F7 staging 0/14."
+  - "Pricing and System upstream commits merged into feature branches at exact checked SHAs; review CI and remaining release gates."
+pullRequests:
+  - repository: CustomCodeCR/DholeCRMService
+    number: 48
+    url: https://github.com/CustomCodeCR/DholeCRMService/pull/48
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholePricingService
+    number: 152
+    url: https://github.com/CustomCodeCR/DholePricingService/pull/152
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeNotificationsService
+    number: 12
+    url: https://github.com/CustomCodeCR/DholeNotificationsService/pull/12
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeAuthService
+    number: 26
+    url: https://github.com/CustomCodeCR/DholeAuthService/pull/26
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeConfigService
+    number: 21
+    url: https://github.com/CustomCodeCR/DholeConfigService/pull/21
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeAuditLogsService
+    number: 10
+    url: https://github.com/CustomCodeCR/DholeAuditLogsService/pull/10
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeStorageService
+    number: 13
+    url: https://github.com/CustomCodeCR/DholeStorageService/pull/13
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeDataExtractionService
+    number: 41
+    url: https://github.com/CustomCodeCR/DholeDataExtractionService/pull/41
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeReportsService
+    number: 27
+    url: https://github.com/CustomCodeCR/DholeReportsService/pull/27
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeDynamicsConnectorService
+    number: 27
+    url: https://github.com/CustomCodeCR/DholeDynamicsConnectorService/pull/27
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeAIService
+    number: 29
+    url: https://github.com/CustomCodeCR/DholeAIService/pull/29
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeAgentService
+    number: 175
+    url: https://github.com/CustomCodeCR/DholeAgentService/pull/175
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeContentService
+    number: 39
+    url: https://github.com/CustomCodeCR/DholeContentService/pull/39
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeApiGateway
+    number: 17
+    url: https://github.com/CustomCodeCR/DholeApiGateway/pull/17
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeWeb
+    number: 354
+    url: https://github.com/CustomCodeCR/DholeWeb/pull/354
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/DholeSystem
+    number: 160
+    url: https://github.com/CustomCodeCR/DholeSystem/pull/160
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false
+  - repository: CustomCodeCR/CustomCodeFramework
+    number: 1
+    url: https://github.com/CustomCodeCR/CustomCodeFramework/pull/1
+    state: DRAFT
+    mergeAuthorized: false
+    upstreamReconciliationNeeded: false

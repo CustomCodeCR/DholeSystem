@@ -1,0 +1,271 @@
+# Inventario inicial, NO equivale a cobertura verificada
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: 2.1.0
+serviceCountExpected: 13
+serviceCountAuditedCompletely: 0 # full F0 inventory still missing; 13 producers is NOT 100% mutation coverage
+services:
+  - id: S01
+    repo: CustomCodeCR/DholeCRMService
+    name: CRM
+    subphase: F6.01
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.5.6"
+    candidateIntegrationTestsPassed: 15
+    candidateImplementation: ACCOUNT_LIFECYCLE_OUTBOX
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
+  - id: S02
+    repo: CustomCodeCR/DholePricingService
+    name: Pricing
+    subphase: F6.02
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.6.7"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: RATEHEADER_EXISTING_OUTBOX_SEPARATE_STREAM
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
+  - id: S03
+    repo: CustomCodeCR/DholeNotificationsService
+    name: Notifications
+    subphase: F6.03
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: EN_PROGRESO_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: EXISTING_NOTIFICATIONS_HUB_RECIPIENT_POLICY_AND_BOUNDED_RELAY
+    fullEndpointAndWorkerMappingVerified: false
+    f6FormalApproved: false
+  - id: S04
+    repo: CustomCodeCR/DholeAuthService
+    name: Auth
+    subphase: F6.04
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AUTH_AND_USER_SCOPE_INVALIDATION
+    stream: dhole.auth.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S05
+    repo: CustomCodeCR/DholeConfigService
+    name: Config
+    subphase: F6.05
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 4
+    candidateImplementation: CONFIG_AND_SRM_SUPPLIER_SCOPED_AUDIENCE
+    stream: dhole.config.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S06
+    repo: CustomCodeCR/DholeAuditLogsService
+    name: AuditLogs
+    subphase: F6.06
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AUDIT_POSTGRES_OUTBOX
+    stream: dhole.auditlogs.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S07
+    repo: CustomCodeCR/DholeStorageService
+    name: Storage
+    subphase: F6.07
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: STORAGE_FILE_VERSION_REFERENCE
+    stream: dhole.storage.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S08
+    repo: CustomCodeCR/DholeDataExtractionService
+    name: DataExtraction
+    subphase: F6.08
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.4.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: EXTRACTION_EMAIL_AI_REQUESTS
+    stream: dhole.data-extraction.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S09
+    repo: CustomCodeCR/DholeReportsService
+    name: Reports
+    subphase: F6.09
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.5.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: REPORT_TEMPLATE_POSTGRES_OUTBOX
+    stream: dhole.reports.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S10
+    repo: CustomCodeCR/DholeDynamicsConnectorService
+    name: DynamicsConnector
+    subphase: F6.10
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: DYNAMICS_JOB_CHECKSUMMED_SQL_OUTBOX
+    stream: dhole.dynamics.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S11
+    repo: CustomCodeCR/DholeAIService
+    name: AI
+    subphase: F6.11
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.4.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AI_PROCESSING_JOBS
+    stream: dhole.ai.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S12
+    repo: CustomCodeCR/DholeAgentService
+    name: Agent
+    subphase: F6.12
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 3
+    candidateImplementation: AGENT_EXECUTION_SCHEDULES
+    stream: dhole.agent.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+  - id: S13
+    repo: CustomCodeCR/DholeContentService
+    name: Content
+    subphase: F6.13
+    branchPrepared: true
+    endpointInventory: PENDIENTE
+    workersAndJobsInventory: PENDIENTE
+    actualRuntimeVerified: false
+    coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
+    candidateReleaseVersion: "1.3.6"
+    candidateIntegrationTestsPassed: 5
+    candidateImplementation: CMS_CONTENT_NAVIGATION_SETTINGS
+    stream: dhole.content.realtime.v1
+    ownerRestAclDeclared: true
+    universalGatewayBridgeOptIn: true
+    fullEndpointAndWorkerMappingVerified: false
+    stagingWssE2EVerified: false
+    f6FormalApproved: false
+additionalComponents:
+  - { repo: CustomCodeCR/DholeApiGateway, role: gateway, inventory: PENDIENTE }
+  - { repo: CustomCodeCR/DholeWeb, role: frontend, inventory: PENDIENTE }
+  - { repo: CustomCodeCR/DholeSystem, role: documentation, inventory: PARCIAL }
+logicalModules:
+  SRM: { owner: DholeConfigService, evidence: "src/Dhole.Config.Api/Endpoints/SrmCatalogEndpoints.cs maps /api/config/srm", status: IDENTIFICADA_PENDIENTE_COBERTURA }
+  System: { owner: POR_CONFIRMAR, confirmedSubownerForVersions: DholeApiGateway, evidence: "Dhole.ApiGateway/Program.cs maps GET /api/system/versions", status: BLOQUEADA_OTHER_SYSTEM_FEATURES }
+futureServices:
+  # CI/sample registration only; NO CustomCodeCR/DholeFutureSample repo is
+  # created, deployed, or treated as 14th production service in this release.
+  - id: S14
+    repo: CustomCodeCR/DholeFutureSample
+    name: DholeFutureSample
+    stream: dhole.future-sample.realtime.v1
+    hub: DholeApiGateway
+    manifest: scaffolds/dhole-future-service/realtime.manifest.yaml
+    status: CI_SAMPLE_NOT_DEPLOYABLE
+    candidateOnly: true
+    deploymentApproved: false
+futureServicePolicy:
+  requireRegistryEntry: true
+  requireRealtimeManifest: true
+  requireOutboxInboxOrApprovedEquivalent: true
+  requireResourceScopedAuthorization: true
+  requireRestReconciliation: true
+  requireContractIntegrationAndRecoveryTests: true
+  requireCIGate: true
+  exemptionRequiresSignedADR: true
+  enforced: false # runtime branch/PR protection awaits F9/F10; cannot be activated in targets now
+  candidateCIEnforced: true # F8 sample-positive/negative checks on feature branch only
+  gateF8FormalApproved: false
+  requiredStatusCheck: Realtime F8 future-service manifest and negative PR enforcement
+
+sharedLibraries:
+  - repo: CustomCodeCR/CustomCodeFramework
+    branch: feature/dhole-realtime-universal-rt-20261107-01
+    introducedDuringPhase: F1_PREPARATION
+    versionBaseline: "0.2.0"
+    versionCandidate: "0.3.0"
+    contractsNamespace: CustomCodeFramework.Messaging.Realtime
+    tests: { passed: 42, failed: 0, skipped: 0 }
+    status: EN_PROGRESO

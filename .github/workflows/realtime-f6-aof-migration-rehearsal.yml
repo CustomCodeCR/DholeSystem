@@ -1,0 +1,52 @@
+name: Realtime F6 AOF disabled-to-enabled rehearsal (isolated CI)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'scripts/realtime/f6_aof_migration_rehearsal.py'
+      - '.github/workflows/realtime-f6-aof-migration-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      F6_AOF_REHEARSAL: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify isolated GH runner and compile
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          test "$GITHUB_REF_NAME" = feature/dhole-realtime-universal-rt-20261107-01
+          python -m py_compile scripts/realtime/f6_aof_migration_rehearsal.py
+      - name: Install pinned Redis client
+        run: python -m pip install --disable-pip-version-check redis==5.2.1
+      - name: Rehearse existing RDB to AOF migration and second recovery
+        run: python scripts/realtime/f6_aof_migration_rehearsal.py
+      - name: Record evidence of isolation and retention
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("F6Results/aof-off-to-on-rehearsal.json").read_text())
+          assert x["environment"] == "GITHUB_HOSTED_EPHEMERAL"
+          assert x["persistentEventsBefore"] == 100
+          assert x["persistentEventsAfter"] == 101
+          assert x["realStagingRedisTouched"] is False
+          assert x["formalF6Approved"] is False
+          print("PASS: AOF transition rehearsed in CI; staging unchanged")
+          PY
+      - name: Upload synthetic evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f6-aof-rehearsal
+          path: F6Results/*.json
+          if-no-files-found: warn

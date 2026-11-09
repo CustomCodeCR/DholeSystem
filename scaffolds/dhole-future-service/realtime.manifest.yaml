@@ -1,0 +1,75 @@
+# F8 synthetically registered example; not a deployed/new real Dhole repository.
+schemaVersion: 1
+releaseId: rt-20261107-01
+service:
+  id: S14
+  name: DholeFutureSample
+  repo: CustomCodeCR/DholeFutureSample
+  owner: FuturePlatformTeam
+  version: "1.13.0"
+hub: DholeApiGateway
+stream: dhole.future-sample.realtime.v1
+eventTransport: redis-streams
+sourceOfTruth: REST
+outbox:
+  store: PostgreSQL.future.outbox
+  sameTransactionAsMutation: true
+  publisher: src/Dhole.FutureSample.Api/OutboxWorker.cs
+  retry: bounded-exponential
+  dlq: future.outbox.deadletter
+inbox:
+  store: PostgreSQL.future.inbox
+  idempotencyKey: eventId
+  ackAfterCommit: true
+authorization:
+  scopeEnforcedOnOwner: true
+  resourceAclViaRest: true
+  revalidateOnDelivery: true
+observability:
+  metrics: dhole.realtime.events.sent/failed
+  structuredLogs: ILogger
+  correlationId: eventId
+recovery:
+  onReconnectRestRefresh: true
+  offlineRestFallback: true
+mutations:
+  - source: src/Dhole.FutureSample.Api/Program.cs
+    verb: POST
+    routeLiteral: /
+    fullRoute: /api/future/orders/
+    resourceOwner: DholeFutureSample
+    resourceKind: future.order
+    eventType: future.order.changed.v1
+    audiencePolicy: scope:future.orders.view+owner_id:subject
+    restSnapshot: GET:/api/future/orders/{id}
+    frontendConsumer: DholeWeb.future.order.detail
+    scope: future.orders.write
+    transactionalOutbox: future.outbox
+    contractTest: tests/test_contract.py
+    integrationTest: tests/test_integration.py
+    recoveryTest: tests/test_recovery.py
+  - source: src/Dhole.FutureSample.Api/Program.cs
+    verb: PATCH
+    routeLiteral: /{id:guid}
+    fullRoute: /api/future/orders/{id:guid}
+    resourceOwner: DholeFutureSample
+    resourceKind: future.order
+    eventType: future.order.changed.v1
+    audiencePolicy: scope:future.orders.view+owner_id:subject
+    restSnapshot: GET:/api/future/orders/{id}
+    frontendConsumer: DholeWeb.future.order.detail
+    scope: future.orders.write
+    transactionalOutbox: future.outbox
+    contractTest: tests/test_contract.py
+    integrationTest: tests/test_integration.py
+    recoveryTest: tests/test_recovery.py
+jobs:
+  - source: src/Dhole.FutureSample.Api/OutboxWorker.cs
+    eventType: future.order.changed.v1
+    scope: future.orders.view
+    audiencePolicy: scope:future.orders.view+owner_id:subject
+    outbox: future.outbox
+    inbox: future.inbox
+    contractTest: tests/test_contract.py
+    recoveryTest: tests/test_recovery.py
+exceptions: []

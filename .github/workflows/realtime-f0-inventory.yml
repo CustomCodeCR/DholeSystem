@@ -1,0 +1,92 @@
+name: Realtime F0 inventory (isolated, read only)
+on:
+  push:
+    branches:
+      - feature/dhole-realtime-universal-rt-20261107-01
+    paths:
+      - '.github/workflows/realtime-f0-inventory.yml'
+      - 'docs/realtime/release-manifest.yaml'
+      - 'scripts/realtime/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rt-20261107-01-f0-audit
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Enforce F0-F8 branch policy (read-only)
+        run: python scripts/realtime/verify-branch-policy.py
+      - name: Verify manifest and source branches (read-only)
+        run: python scripts/realtime/f0_scan.py --scan --output F0Results
+      - name: Build source-linked F6 mutation and worker review queue (no approval)
+        run: python scripts/realtime/f6_mutation_source_review.py --workspace F0Results/working --output F0Results
+      - name: Discover additive dynamic/MVC/worker mutation gaps from real source
+        run: python scripts/realtime/f0_deep_coverage.py --workspace F0Results/working --output F0Results
+      - name: Verify source reconciliation negative/positive cases
+        run: python -m unittest discover -s scripts/realtime -p 'test_f0_consolidate_review.py' -v
+      - name: Consolidate SHA-pinned source review queue (no automatic approval)
+        run: python scripts/realtime/f0_consolidate_review.py --input F0Results --output F0Results
+      - name: Test candidate/frozen release SemVer preflight
+        run: python -m unittest discover -s scripts/realtime -p 'test_f0_release_versions.py' -v
+      - name: Audit release candidate version skew across all 17 source heads
+        run: python scripts/realtime/f0_release_versions.py --workspace F0Results/working --output F0Results/F0-release-version-audit.json
+      - name: Verify WS/Compose audit policy unit tests
+        run: python -m unittest discover -s scripts/realtime -p 'test_f0_existing_ws_compose_guard.py' -v
+      - name: Audit existing SignalR WSS/proxy/Compose source across 17 checkouts
+        run: python scripts/realtime/f0_existing_ws_compose_guard.py --workspace F0Results/working --output F0Results/F0-existing-ws-compose.json
+      - name: Test F9 staging Redis no-data-loss deployment guard
+        run: python -m unittest discover -s scripts/realtime -p 'test_verify_staging_redis_before_compose.py' -v
+      - name: Prove staging deploy invokes Redis guard before Compose
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path(".github/workflows/deploy-staging.yml").read_text()
+          guard=p.index("python3 scripts/realtime/verify_staging_redis_before_compose.py")
+          pull=p.index("pull postgres redis")
+          start=p.index("up -d --no-deps postgres redis")
+          assert guard < pull < start
+          assert "--force-recreate postgres redis" not in p
+          print("F9_STAGING_DEPLOY_POLICY_PASS: unsafe Redis force-recreate forbidden")
+          PY
+      - name: Verify all 17 coordinated F9 draft PRs exist in roster
+        run: python scripts/realtime/verify_f9_draft_batch.py
+      - name: Test F9 coordinated draft batch (fail closed)
+        run: python -m unittest discover -s scripts/realtime -p 'test_verify_f9_draft_batch.py' -v
+      - name: Test production F10 approval gate (fail closed)
+        run: python -m unittest discover -s scripts/realtime -p 'test_verify_f10_production_preflight.py' -v
+      - name: Verify production auto-deploy invokes F10 guard first
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path(".github/workflows/deploy-production.yml").read_text()
+          assert p.index("scripts/realtime/verify_f10_production_preflight.py") < p.index("Prepare runtime environments")
+          print("F10_PROD_DEPLOY_POLICY_PASS: approval guard precedes all runtime mutation")
+          PY
+      - name: Test staging Redis read-only F6 preflight policy
+        run: python -m unittest discover -s scripts/realtime -p 'test_staging_f6_readiness.py' -v
+      - name: Upload audit evidence (never deploy)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f0-inventory
+          path: F0Results/*.csv
+          if-no-files-found: warn
+      - name: Upload gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f0-policy-report
+          path: F0Results/*.json
+          if-no-files-found: warn

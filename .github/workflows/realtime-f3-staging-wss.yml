@@ -1,0 +1,32 @@
+name: Realtime F3 CI contract (no external QA secrets or server access)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - scripts/realtime/f3_staging_wss_verify.mjs
+      - scripts/realtime/test_f3_staging_wss_verify.mjs
+      - .github/workflows/realtime-f3-staging-wss.yml
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - scripts/realtime/f3_staging_wss_verify.mjs
+      - scripts/realtime/test_f3_staging_wss_verify.mjs
+      - .github/workflows/realtime-f3-staging-wss.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.12.0'
+      - name: Validate non-production F3 transport and ACL contract
+        run: node --test scripts/realtime/test_f3_staging_wss_verify.mjs
+      - name: Check that real WSS/Traefik CI executes in the Gateway repository
+        run: |
+          test -f docs/realtime/test-evidence/F3-TRAEFIK-WSS-CI-42538238853.md
+          grep -q '42538238853' docs/realtime/test-evidence/F3-TRAEFIK-WSS-CI-42538238853.md
+          echo 'Contract PASS. Real WSS CI is in DholeApiGateway; no staging claim.'

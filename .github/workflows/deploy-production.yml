@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: dhole-infrastructure-production
@@ -24,6 +24,12 @@ jobs:
     steps:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
+
+      - name: F10 universal realtime promotion gate (fail closed before any production mutation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/realtime/verify_f10_production_preflight.py
 
       - name: Prepare runtime environments
         shell: bash
@@ -204,19 +210,7 @@ jobs:
         shell: bash
         run: curl -fsS --max-time 10 http://127.0.0.1:8642/health >/dev/null
 
-      - name: Keep DholeSystem feature branches clean
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
-          while IFS= read -r branch; do
-            case "$branch" in
-              master|develop|main) continue ;;
-            esac
-            echo "Deleting obsolete branch: $branch"
-            git push origin --delete "$branch"
-          done < <(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | grep -v '^HEAD$' || true)
-
+      # Branch lifecycle is handled by reviewed PRs; production deployment MUST NOT delete Git refs.
       - name: Show environment routing
         shell: bash
         run: |

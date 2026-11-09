@@ -1,0 +1,69 @@
+schemaVersion: 1
+releaseId: rt-20261107-01
+planVersion: "2.1.0"
+phase: F6
+observedAt: "2026-11-08"
+status: IMPLEMENTACION_CANDIDATA_13_SERVICIOS
+formalApproved: false
+nextPhaseF7Authorized: false
+branch: feature/dhole-realtime-universal-rt-20261107-01
+globalCandidateVersion: "1.13.15"
+noDevelopOrMasterMerge: true
+noProductionDeployment: true
+allFeatureFlagsDefaultOff: true
+latestStagingReadOnlyAudit: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924
+latestStagingAofEnabled: false # historical CI snapshot, not current operator observation
+operatorReportedRedisAof:
+  source: USER_PROVIDED_DOCKER_INFO_PERSISTENCE_OUTPUT
+  observedLocalDate: "2026-11-08"
+  stagingContainer: dhole-staging-infra-redis-1
+  productionContainer: redis
+  bothAofEnabled: true
+  bothAofWriteStatusOk: true
+  bothRewriteStatusOk: true
+  bothRewriteIdle: true
+  independentlyReverifiedByWorkflow: false
+  composeStartupPersistenceVerified: false
+  offHostBackupRestorationEvidenceReviewed: false
+latestStagingAnonymousHubNegotiationHttpStatus: 404
+latestStagingUniversalRealtimeFlagsOn: 0
+latestStagingWssTlsJwtAclVerified: false
+aofMigrationSafeCiRehearsal: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42507199248
+aofMigrationAppliedInStaging: false
+candidateProducerOrDeliveryMechanisms: 13
+candidateAdditionalStreams: 10
+candidateResourceKinds: 19
+gatewayCi: https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42501265245
+gatewayCiPassed: true
+gatewayCiTestCount: 128
+configSrmCi: https://github.com/CustomCodeCR/DholeConfigService/actions/runs/42501309773
+configSrmTestCount: 4
+sequentialGates:
+  F0: false
+  F1: false
+  F2: false
+  F3: false
+  F4: false
+  F5: false
+acceptance:
+  inventoryAllMutationsValidated: false
+  ownerResourceAclStagingVerified: false
+  redisStagingAofDurableAndRestoreTested: false
+  postgresStagingBackupRestoreTested: false
+  tlsWebsocketTwoGatewayInstancesTested: false
+  twoRealUsersPlusDeniedAndRevocationTested: false
+  fullFrontendViewRestReconciliationTested: false
+  streamOutboxInboxRetryIdempotencyStagingTested: false
+  13ServicesFormalApproval: false
+blockers:
+  - "F0: 582 source candidates at latest F0 scan (512 mutable routes plus 70 worker files), not yet fully mapped and fully audited for ownership/security."
+  - "Historical CI observed staging AOF OFF; user now reports both Redis instances AOF healthy. Independent CI re-verification, startup persistence, restoration and replay remain pending."
+  - "WSS through Traefik and real token/ACL isolation not demonstrated."
+  - "Resource snapshot REST by GUID and frontend bindings missing for several owners."
+  - "No frozen 17-repo SHA batch or successful global integration/regression suite."
+futureF9:
+  allComponentCiAtFrozenShas: false
+policy:
+  allowF7OnlyIfAllAcceptanceTrue: true
+  allowF9OnlyAfterF0ToF8GatesTrue: true
+  requireExplicitAuthorizationForMasterAndProduction: true

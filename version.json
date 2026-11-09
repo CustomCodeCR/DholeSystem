@@ -2,7 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.12.6",
-  "ecosystemVersion": "1.12.6",
-  "releaseId": "DH-20261108-PRICING-COMMERCIAL-TERMS-037"
+  "version": "1.14.0",
+  "ecosystemVersion": "1.14.0",
+  "releaseId": "rt-20261107-01",
+  "releaseStatus": "develop-integration-authorized-staging-f6-f8-pending"
 }

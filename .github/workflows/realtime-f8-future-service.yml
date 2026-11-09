@@ -1,0 +1,158 @@
+name: Realtime F8 future-service manifest and negative PR enforcement
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'scaffolds/dhole-future-service/**'
+      - 'scripts/realtime/verify-f8-future-service.py'
+      - 'scripts/realtime/test_f8_future_service.py'
+      - 'scripts/realtime/scaffold-future-service.py'
+      - 'scripts/realtime/test_f8_scaffold.py'
+      - 'scaffolds/realtime-future-enforcement.yml'
+      - 'scaffolds/realtime-future-PR-template.md'
+      - 'docs/realtime/service-registry.yaml'
+      - '.github/workflows/realtime-f8-future-service.yml'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'scaffolds/dhole-future-service/**'
+      - 'scripts/realtime/verify-f8-future-service.py'
+      - 'scripts/realtime/test_f8_future_service.py'
+      - 'scripts/realtime/scaffold-future-service.py'
+      - 'scripts/realtime/test_f8_scaffold.py'
+      - 'scaffolds/realtime-future-enforcement.yml'
+      - 'scaffolds/realtime-future-PR-template.md'
+      - 'docs/realtime/service-registry.yaml'
+      - '.github/workflows/realtime-f8-future-service.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  f8-static-positive-negative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install locked manifest parser
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Python compile + validate registered sample
+        run: |
+          python -m py_compile scripts/realtime/verify-f8-future-service.py scripts/realtime/test_f8_future_service.py scripts/realtime/scaffold-future-service.py scripts/realtime/test_f8_scaffold.py
+          python scripts/realtime/verify-f8-future-service.py --service-root scaffolds/dhole-future-service --registry docs/realtime/service-registry.yaml
+      - name: Verify new untracked route/worker, invalid ACL, stale mapping, rogue Hub all fail
+        run: |
+          python -m unittest scripts/realtime/test_f8_future_service.py -v
+          python -m unittest scripts/realtime/test_f8_scaffold.py -v
+      - name: Do not authorize formal F8 or F9 through this candidate workflow
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          f6=yaml.safe_load(Path("docs/realtime/gate-evidence.f6.yaml").read_text())
+          f7=yaml.safe_load(Path("docs/realtime/gate-evidence.f7.yaml").read_text())
+          registry=yaml.safe_load(Path("docs/realtime/service-registry.yaml").read_text())
+          assert f6["formalApproved"] is False
+          assert f7["formalApproved"] is False
+          assert f7["nextPhaseF8Authorized"] is False
+          assert registry["futureServicePolicy"]["enforced"] is False
+          assert registry["futureServices"][0]["deploymentApproved"] is False
+          print("F8 candidate only, not a deploy or gate approval")
+          PY
+  f8-postgres-redis-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: f8_ci
+          POSTGRES_PASSWORD: f8_ci_only_not_real
+          POSTGRES_DB: f8_synthetic
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U f8_ci -d f8_synthetic"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      F8_TEST_POSTGRES: postgresql://f8_ci:f8_ci_only_not_real@localhost:5432/f8_synthetic
+      F8_TEST_POSTGRES_DOTNET: Host=127.0.0.1;Port=5432;Database=f8_synthetic;Username=f8_ci;Password=f8_ci_only_not_real
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned Python clients
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2 "psycopg[binary]==3.2.4" redis==5.2.1
+      - name: Start ephemeral Redis AOF and PostgreSQL schema (not staging)
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          name="dhole-f8-sample-$GITHUB_RUN_ID"
+          volume="dhole-f8-sample-data-$GITHUB_RUN_ID"
+          PGPASSWORD=f8_ci_only_not_real psql -h 127.0.0.1 -U f8_ci -d f8_synthetic -v ON_ERROR_STOP=1 -f scaffolds/dhole-future-service/sql/001_initial.sql
+          docker volume create "$volume"
+          docker run -d --name "$name" -p 127.0.0.1:16391:6379 -v "$volume:/data" redis:7-alpine redis-server --appendonly yes --appendfsync everysec
+          for n in $(seq 1 30); do
+            if [ "$(docker exec "$name" redis-cli ping 2>/dev/null)" = "PONG" ]; then break; fi
+            sleep 1
+          done
+          test "$(docker exec "$name" redis-cli ping)" = PONG
+          echo "F8_CI_REDIS_NAME=$name" >> "$GITHUB_ENV"
+          echo "F8_CI_REDIS_VOLUME=$volume" >> "$GITHUB_ENV"
+      - name: Compile .NET8 future service, owner Outbox and integration harness
+        run: dotnet build scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness/FutureSample.IntegrationHarness.csproj -c Release
+      - name: Run real SQL/Redis ACL, atomic transaction and Inbox contract tests
+        run: python -m unittest discover -s scaffolds/dhole-future-service/tests -p "test_*.py" -v
+      - name: Confirm .NET owner committed during Redis interruption and worker recovered
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --project scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness -c Release --no-build -- seed
+          docker stop "$F8_CI_REDIS_NAME"
+          dotnet run --project scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness -c Release --no-build -- seed
+          docker start "$F8_CI_REDIS_NAME"
+          test "$(docker exec "$F8_CI_REDIS_NAME" redis-cli ping)" = PONG
+          dotnet run --project scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness -c Release --no-build -- publish
+          python - <<'PY'
+          import os,psycopg,redis
+          with psycopg.connect(os.environ["F8_TEST_POSTGRES"]) as db:
+              outbox=db.execute("SELECT count(*) FROM future.outbox WHERE owner_id='f8-owner' AND processed_at IS NOT NULL").fetchone()[0]
+              pending=db.execute("SELECT count(*) FROM future.outbox WHERE owner_id='f8-owner' AND processed_at IS NULL").fetchone()[0]
+          events=redis.Redis(host='localhost',port=16391,decode_responses=True).xrange('dhole.future-sample.realtime.v1')
+          assert outbox==2 and pending==0 and len(events)==2,(outbox,pending,len(events))
+          print("PASS: .NET Outbox persisted through Redis outage, then published two events")
+          PY
+      - name: Re-deliver after simulated crash-before-ACK and dedupe via SQL Inbox
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --project scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness -c Release --no-build -- redeliver
+          dotnet run --project scaffolds/dhole-future-service/tests/FutureSample.IntegrationHarness -c Release --no-build -- publish
+          python - <<'PY'
+          import os,uuid,psycopg,redis
+          items=redis.Redis(host='localhost',port=16391,decode_responses=True).xrange('dhole.future-sample.realtime.v1')
+          ids=[str(uuid.UUID(x['eventId'])) for _,x in items]
+          assert len(ids)==4 and len(set(ids))==2,(len(ids),len(set(ids)))
+          applied=0
+          with psycopg.connect(os.environ["F8_TEST_POSTGRES"]) as db:
+              for event_id in ids:
+                  with db.transaction():
+                      result=db.execute("INSERT INTO future.inbox(event_id) VALUES(%s) ON CONFLICT DO NOTHING RETURNING event_id",(event_id,)).fetchone()
+                      applied+=int(result is not None)
+              count=db.execute("SELECT count(*) FROM future.inbox WHERE event_id=ANY(%s::uuid[])",(ids,)).fetchone()[0]
+          assert applied==2 and count==2,(applied,count)
+          print("PASS: 4 real .NET worker stream entries, 2 event IDs, 2 logical SQL Inbox applications")
+          PY
+      - name: Destroy isolated Redis/volume even after failure
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [ -n "$F8_CI_REDIS_NAME" ]; then docker rm -f "$F8_CI_REDIS_NAME"; fi
+          if [ -n "$F8_CI_REDIS_VOLUME" ]; then docker volume rm "$F8_CI_REDIS_VOLUME"; fi

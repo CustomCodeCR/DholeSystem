@@ -1,0 +1,45 @@
+name: Realtime F8 future-service formal gate (fail closed)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'docs/realtime/gate-evidence.f8.yaml'
+      - 'docs/realtime/gate-evidence.f7.yaml'
+      - 'docs/realtime/gate-evidence.f6.yaml'
+      - 'docs/realtime/gate-evidence.f0-f4.yaml'
+      - 'docs/realtime/service-registry.yaml'
+      - 'docs/realtime/release-manifest.yaml'
+      - 'scripts/realtime/verify-f8-formal-gate.py'
+      - '.github/workflows/realtime-f8-formal-gate.yml'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - 'docs/realtime/**'
+      - 'scripts/realtime/**'
+      - '.github/workflows/realtime-f8-formal-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  f8-enforcement-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned YAML reader
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+      - name: Compile formal gate guard
+        run: python -m py_compile scripts/realtime/verify-f8-formal-gate.py
+      - name: Enforce all F0-F8 gates before real F9 promotion
+        env:
+          GH_EVENT: ${{ github.event_name }}
+        shell: bash
+        run: |
+          if [ "$GH_EVENT" = "pull_request" ]; then
+            python scripts/realtime/verify-f8-formal-gate.py --require-all
+          else
+            python scripts/realtime/verify-f8-formal-gate.py --assert-candidate-blocked
+          fi

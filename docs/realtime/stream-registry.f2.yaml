@@ -1,0 +1,48 @@
+# F2 candidato: catálogo de Streams. NO desplegado.
+schemaVersion: 1
+releaseId: rt-20261107-01
+stage: F2_PRELIMINAR
+gateF0Approved: false
+gateF1Approved: false
+gateF2Approved: false
+sourceOfTruth: PostgreSQL_REST
+durableNotificationTransport: redis_streams
+deliveryGuarantee: at_least_once
+deduplicationKey: [event_id, consumer_name]
+ackPolicy: AFTER_INBOX_AND_EFFECT_COMMIT
+streams:
+  - key: dhole.crm.realtime.v1
+    producerService: DholeCRMService
+    eventDomain: crm
+    schemaVersion: 1
+    outboxTable: crm.crm_realtime_outbox
+    inboxTable: crm.crm_realtime_inbox
+    messageFields: [event_id, event_type, payload_json]
+    clientFacing: false
+    producerFlag: Features__UniversalRealtimeEnabled_AND_Realtime__Outbox__Enabled
+    consumerGroup: TO_BE_DEFINED_IN_F3_BRIDGE
+    streamPartitions: 1
+    partitionPolicy: SPLIT_BY_DOMAIN_WHEN_LOAD_MEASUREMENTS_JUSTIFY
+    retentionPolicy: PENDING_P95_P99_OFFLINE_AND_PEL_MEASUREMENTS
+    trimEnabled: false
+    streamBackplaneNotDurableQueue: true
+    postgresDeadLetterStatus: DeadLetter
+    pendingRecovery: XAUTOCLAIM_AFTER_IDLE_30S
+    publishedRecovery: APPROVED_WINDOW_REQUEUE_FROM_POSTGRES
+    f2Candidate: true
+futureServices:
+  mandatoryRegistryEntry: true
+  cannotEnableRealtimeWithout:
+    - PostgreSQL_outbox_in_same_transaction
+    - Redis_Streams_durable_transport
+    - atomic_inbox_dedup_and_projection
+    - authorized_audience_resolution
+    - REST_reconciliation
+    - failure_and_recovery_tests
+retentionAndPersistence:
+  stagingAofConfiguredInIntermediateBranch: true
+  stagingRealRuntimeVerified: false
+  productionAofVerified: false
+  persistentVolumeRequired: true
+  doNotTrimUntilConsumersCaughtUp: true
+  archiveAndRecoveryProcedure: docs/realtime/F2-OUTBOX-INBOX-RUNBOOK.md

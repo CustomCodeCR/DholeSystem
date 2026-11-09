@@ -1,0 +1,201 @@
+name: Realtime F0 live staging audit (read-only)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - '.github/workflows/realtime-f0-staging-readonly.yml'
+      - 'scripts/realtime/collect-staging-baseline.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rt-20261107-01-f0-staging-audit
+  cancel-in-progress: false
+jobs:
+  read-only-staging:
+    # Existing staging infrastructure runner; never deploy or write to production.
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert fixed release branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_REF_NAME" == "feature/dhole-realtime-universal-rt-20261107-01" ]]
+          mkdir -p F0Results
+      - name: Inspect staging topology without secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, subprocess
+          from datetime import datetime, timezone
+          def query(project):
+              p = subprocess.run(
+                  ["docker","ps","--filter",f"label=com.docker.compose.project={project}",
+                   "--format",'{{.Label "com.docker.compose.service"}}'],
+                  capture_output=True,text=True,check=True,timeout=15)
+              names = sorted(set(v.strip() for v in p.stdout.splitlines() if v.strip()))
+              return {"project":project,"runningServiceNames":names,"count":len(names)}
+          report={"releaseId":"rt-20261107-01","environment":"staging",
+                  "collectedAtUtc":datetime.now(timezone.utc).isoformat(),
+                  "readOnly":True,"prodDeployment":False,
+                  "projects":[query("dhole-staging"),query("dhole-staging-infra")]}
+          with open("F0Results/staging-topology.json","w") as f:
+              json.dump(report,f,indent=2)
+          print("STAGING_TOPOLOGY_READ_ONLY:",[(p["project"],p["count"]) for p in report["projects"]])
+          PY
+      - name: Measure verified staging-only local Gateway route (no production)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,time,urllib.request,urllib.error
+          from datetime import datetime,timezone
+          cmd=["docker","ps","--filter","label=com.docker.compose.project=dhole-staging",
+               "--filter","label=com.docker.compose.service=api-gateway","--format","{{.Ports}}"]
+          check=subprocess.run(cmd,capture_output=True,text=True,check=True,timeout=15)
+          ports=[s.strip() for s in check.stdout.splitlines() if s.strip()]
+          if len(ports)!=1 or "127.0.0.1:18080->8080/tcp" not in ports[0]:
+              raise RuntimeError("Cannot prove loopback 18080 belongs to staging Gateway; refusing probe.")
+          timings,stat=[],{}
+          url="http://127.0.0.1:18080/health"
+          for n in range(100):
+              start=time.monotonic()
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url,headers={
+                      "Accept":"application/json","Cache-Control":"no-store"}),timeout=5) as resp:
+                      code=resp.status
+                      resp.read(256)
+              except urllib.error.HTTPError as exc:
+                  code=exc.code
+              except (urllib.error.URLError,TimeoutError):
+                  code="network_error"
+              timings.append(round((time.monotonic()-start)*1000,3))
+              stat[str(code)]=stat.get(str(code),0)+1
+              time.sleep(.08)
+          timings.sort()
+          result={"releaseId":"rt-20261107-01","environment":"staging",
+                  "verifiedBy":"running Docker Compose staging container + loopback port map",
+                  "transport":"HTTP localhost gateway (NOT HTTPS/WSS)",
+                  "sampleCount":len(timings),"statusCounts":stat,
+                  "p95Ms":timings[94],"p99Ms":timings[98],
+                  "externalTlsProxyVerified":False,"authenticatedUserScopeVerified":False,
+                  "readOnly":True,"productionModified":False,
+                  "observedAtUtc":datetime.now(timezone.utc).isoformat()}
+          with open("F0Results/staging-local-gateway-baseline.json","w") as f:
+              json.dump(result,f,indent=2)
+          print("F0_STAGING_LOCAL_BASELINE:",len(timings),"GETs; HTTP status counts",stat,
+                "p95Ms",result["p95Ms"],"p99Ms",result["p99Ms"],
+                "; TLS/WSS and authenticated user scopes STILL BLOCKED")
+          if stat != {"200":100}:
+              raise RuntimeError("Staging local gateway health is not 100/100 HTTP 200")
+          PY
+      - name: Inspect staging-only realtime flags and anonymous Hub negotiation (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,urllib.request,urllib.error
+          from datetime import datetime,timezone
+          cmd=["docker","ps","-q","--filter","label=com.docker.compose.project=dhole-staging",
+            "--filter","label=com.docker.compose.service=api-gateway"]
+          ids=subprocess.run(cmd,capture_output=True,text=True,check=True,timeout=15).stdout.splitlines()
+          if len(ids)!=1: raise RuntimeError("Cannot uniquely identify staging Gateway")
+          cid=ids[0].strip()
+          inspect=subprocess.run(["docker","inspect","--format","{{json .Config.Env}}",cid],
+            capture_output=True,text=True,check=True,timeout=15)
+          # Read only known boolean feature flags; never print entire env or secrets.
+          raw=dict(x.split("=",1) for x in json.loads(inspect.stdout) if "=" in x)
+          names=("Features__UniversalRealtimeEnabled","Realtime__Enabled",
+                 "Realtime__BatchApproved","Realtime__BridgeEnabled",
+                 "Realtime__UniversalServicesBridgeEnabled")
+          state={name:raw.get(name,"false").lower()=="true" for name in names}
+          outcome="NO_RESPONSE"
+          try:
+              request=urllib.request.Request(
+                "http://127.0.0.1:18080/hubs/realtime/negotiate?negotiateVersion=1",
+                method="POST",headers={"Content-Type":"text/plain;charset=UTF-8"})
+              with urllib.request.urlopen(request,timeout=4) as response:
+                  outcome=str(response.status)
+          except urllib.error.HTTPError as exc:
+              outcome=str(exc.code)
+          except (urllib.error.URLError,TimeoutError):
+              outcome="NETWORK_ERROR"
+          report={"releaseId":"rt-20261107-01","project":"dhole-staging",
+            "probe":"unauthenticated loopback HTTP negotiation; NOT WSS/TLS or ACL test",
+            "anonymousNegotiateHttpStatus":outcome,"realtimeFlagsBooleanOnly":state,
+            "tlsWssVerified":False,"realJwtScopeVerified":False,
+            "readOnly":True,"prodModified":False,
+            "collectedAtUtc":datetime.now(timezone.utc).isoformat()}
+          with open("F0Results/staging-realtime-authorization-probe.json","w") as f:
+              json.dump(report,f,indent=2)
+          print("STAGING_HUB_ANONYMOUS_PROBE:",outcome,
+                "realtime enabled flags count:",sum(state.values()),
+                "WSS/TLS/JWT still unverified")
+          if any(state.values()):
+              raise RuntimeError("Unapproved staging batch feature flag unexpectedly ON")
+          if outcome=="200":
+              raise RuntimeError("Anonymous Hub negotiate responded 200 unexpectedly")
+          PY
+      - name: Inspect live staging Redis AOF and Postgres persistent volumes (read-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess
+          def cmd(argv):
+              p=subprocess.run(argv,capture_output=True,text=True,timeout=20,check=True)
+              return p.stdout.strip()
+          def find(service):
+              matches=cmd(["docker","ps","-q",
+                  "--filter","label=com.docker.compose.project=dhole-staging-infra",
+                  "--filter",f"label=com.docker.compose.service={service}"]).splitlines()
+              if len(matches)!=1: raise RuntimeError("Expected one running staging "+service+" container")
+              return matches[0]
+          def inspect(cid,expression):
+              return json.loads(cmd(["docker","inspect","--format","{{json "+expression+"}}",cid]))
+          redis=find("redis")
+          pg=find("postgres")
+          redis_cmd=inspect(redis,".Config.Cmd")
+          mounts_redis=inspect(redis,".Mounts")
+          mounts_pg=inspect(pg,".Mounts")
+          aof_command=bool(redis_cmd and "--appendonly" in redis_cmd and
+                           redis_cmd[redis_cmd.index("--appendonly")+1]=="yes")
+          aof_volume=any(v.get("Type")=="volume" and v.get("Destination")=="/data" for v in mounts_redis)
+          postgres_volume=any(v.get("Type")=="volume" and v.get("Destination")=="/var/lib/postgresql/data" for v in mounts_pg)
+          # INFO persistence is read-only. Do not print full Redis payload, secrets or host paths.
+          p=subprocess.run(["docker","exec",redis,"redis-cli","--raw","INFO","persistence"],
+              capture_output=True,text=True,timeout=15,check=False)
+          props={}
+          if p.returncode==0:
+              for line in p.stdout.splitlines():
+                  if ":" in line and not line.startswith("#"):
+                      k,v=line.strip().split(":",1)
+                      if k in ("aof_enabled","aof_last_write_status","aof_last_bgrewrite_status"):
+                          props[k]=v
+          result={"releaseId":"rt-20261107-01","environment":"staging",
+             "readOnly":True,"productionModified":False,
+             "redisCommandAofEnabled":aof_command,
+             "redisRuntimeAofEnabled":props.get("aof_enabled")=="1",
+             "redisAofLastWriteOk":props.get("aof_last_write_status")=="ok",
+             "redisAofPersistentVolumePresent":aof_volume,
+             "postgresPersistentVolumePresent":postgres_volume,
+             "backupRestoreTestExecuted":False,
+             "streamLossReplayWithRealStagingExecuted":False}
+          with open("F0Results/staging-persistence-safety.json","w") as f:
+              json.dump(result,f,indent=2)
+          print("STAGING_PERSISTENCE_READ_ONLY:",
+                {k:v for k,v in result.items() if isinstance(v,bool)})
+          if not all((aof_command,aof_volume,postgres_volume,
+                      result["redisRuntimeAofEnabled"],result["redisAofLastWriteOk"])):
+              raise RuntimeError("Read-only staging persistence requirements not confirmed")
+          PY
+      - name: Retain read-only evidence (not a deployment)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f0-runtime-readonly
+          path: F0Results/*.json
+          if-no-files-found: warn

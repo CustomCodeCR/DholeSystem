@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "rt-20261107-01",
+  "targetBranch": "master",
+  "productionRequestedByUser": true,
+  "f0ToF8FormalApproved": false,
+  "all17DevelopPrsMerged": false,
+  "all17ComponentVersionsVerified": false,
+  "finalShasFrozenAndCiGreen": false,
+  "f9StagingAll14ChaosPassed": false,
+  "f9StagingRedisAofAndRestorationVerified": false,
+  "f9RollbackDrillVerified": false,
+  "f9ApprovalGranted": false,
+  "f10SameReleaseShaProven": false,
+  "f10ProductionDeploymentAuthorized": false,
+  "productionDeploymentExecuted": false,
+  "note": "False until exact same 17-repo F9 release passes staging and rollback. No work on master is authorized by this file."
+}

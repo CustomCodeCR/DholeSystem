@@ -1,0 +1,51 @@
+name: Realtime F6 actual staging Redis durability preflight (read only)
+on:
+  push:
+    branches: [feature/dhole-realtime-universal-rt-20261107-01]
+    paths:
+      - 'scripts/realtime/staging_f6_readiness.py'
+      - 'scripts/realtime/test_staging_f6_readiness.py'
+      - 'scripts/realtime/verify_prod_redis_aof.py'
+      - 'scripts/realtime/test_verify_prod_redis_aof.py'
+      - 'scripts/realtime/test_f10_branch_retention.py'
+      - '.github/workflows/deploy-production.yml'
+      - '.github/workflows/realtime-f6-staging-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dhole-realtime-staging-readonly-f6
+  cancel-in-progress: false
+jobs:
+  readonly-preflight:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm exact isolated candidate branch and staging host
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feature/dhole-realtime-universal-rt-20261107-01
+          test "$GITHUB_REPOSITORY" = CustomCodeCR/DholeSystem
+          test "$RUNNER_ENVIRONMENT" = self-hosted
+      - name: Check audit code on synthetic positive/negative cases
+        run: python3 -m unittest discover -s scripts/realtime -p 'test_staging_f6_readiness.py' -v
+      - name: Verify production Redis AOF checker and F10 branch retention regression
+        run: |
+          python3 -m unittest discover -s scripts/realtime -p 'test_verify_prod_redis_aof.py' -v
+          python3 -m unittest discover -s scripts/realtime -p 'test_f10_branch_retention.py' -v
+      - name: Inspect running staging Redis AOF and Docker volumes (NO WRITES)
+        run: python3 scripts/realtime/staging_f6_readiness.py
+      - name: Inspect running production Redis AOF (read-only, no deploy, no restart)
+        if: always()
+        run: python3 scripts/realtime/verify_prod_redis_aof.py
+      - name: Preserve sanitized readiness evidence, including on blocked gate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt-20261107-01-f6-staging-readonly
+          path: |
+            F6Results/staging-live-readonly-preflight.json
+            F6Results/production-live-readonly-aof.json
+          if-no-files-found: warn
