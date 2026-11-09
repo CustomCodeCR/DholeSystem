@@ -14,7 +14,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: EN_PROGRESO_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.5.3"
+    candidateReleaseVersion: "1.5.4"
     candidateIntegrationTestsPassed: 15
     candidateImplementation: ACCOUNT_LIFECYCLE_OUTBOX
     fullEndpointAndWorkerMappingVerified: false
@@ -28,7 +28,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: EN_PROGRESO_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.6.4"
+    candidateReleaseVersion: "1.6.5"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: RATEHEADER_EXISTING_OUTBOX_SEPARATE_STREAM
     fullEndpointAndWorkerMappingVerified: false
@@ -42,7 +42,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: EN_PROGRESO_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: EXISTING_NOTIFICATIONS_HUB_RECIPIENT_POLICY_AND_BOUNDED_RELAY
     fullEndpointAndWorkerMappingVerified: false
@@ -56,7 +56,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: AUTH_AND_USER_SCOPE_INVALIDATION
     stream: dhole.auth.realtime.v1
@@ -74,7 +74,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 4
     candidateImplementation: CONFIG_AND_SRM_SUPPLIER_SCOPED_AUDIENCE
     stream: dhole.config.realtime.v1
@@ -92,7 +92,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: AUDIT_POSTGRES_OUTBOX
     stream: dhole.auditlogs.realtime.v1
@@ -110,7 +110,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: STORAGE_FILE_VERSION_REFERENCE
     stream: dhole.storage.realtime.v1
@@ -128,7 +128,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.4.3"
+    candidateReleaseVersion: "1.4.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: EXTRACTION_EMAIL_AI_REQUESTS
     stream: dhole.data-extraction.realtime.v1
@@ -146,7 +146,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.5.3"
+    candidateReleaseVersion: "1.5.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: REPORT_TEMPLATE_POSTGRES_OUTBOX
     stream: dhole.reports.realtime.v1
@@ -164,7 +164,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: DYNAMICS_JOB_CHECKSUMMED_SQL_OUTBOX
     stream: dhole.dynamics.realtime.v1
@@ -182,7 +182,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.4.3"
+    candidateReleaseVersion: "1.4.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: AI_PROCESSING_JOBS
     stream: dhole.ai.realtime.v1
@@ -200,7 +200,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 3
     candidateImplementation: AGENT_EXECUTION_SCHEDULES
     stream: dhole.agent.realtime.v1
@@ -218,7 +218,7 @@ services:
     workersAndJobsInventory: PENDIENTE
     actualRuntimeVerified: false
     coverage: IMPLEMENTACION_CANDIDATA_CI_PASS_GATE_BLOQUEADO
-    candidateReleaseVersion: "1.3.3"
+    candidateReleaseVersion: "1.3.4"
     candidateIntegrationTestsPassed: 5
     candidateImplementation: CMS_CONTENT_NAVIGATION_SETTINGS
     stream: dhole.content.realtime.v1
