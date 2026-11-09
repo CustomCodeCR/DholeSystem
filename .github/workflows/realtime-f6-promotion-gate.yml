@@ -13,6 +13,9 @@ permissions:
   contents: read
 jobs:
   f6-formal-promotion:
+    # F6 formal evidence is required for production promotion. The authorized
+    # develop/staging pilot collects this evidence after deployment.
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.base.ref == 'master'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
