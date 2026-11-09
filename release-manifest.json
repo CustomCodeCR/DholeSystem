@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.15.0",
   "status": "feature-candidate-staging-pending",
@@ -200,13 +200,14 @@
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
   },
   "businessPatchRelease": {
-    "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
+    "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
     "components": {
       "DholeWeb": "1.14.4",
       "DholePricingService": "1.7.2"
     },
     "status": "develop-quo269-ci-pending",
-    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage"
+    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
+    "description": "CRM customer/lead quotation identity and manual historical reconciliation"
   },
   "realtimeReleaseComponents": [
     "DholeSystem",
