@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.14.3",
-  "ecosystemVersion": "1.14.3",
-  "releaseId": "rt-20261107-01",
-  "releaseStatus": "f9-websocket-handshake-fix-staging-validation-pending"
+  "version": "1.15.0",
+  "ecosystemVersion": "1.15.0",
+  "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
+  "releaseStatus": "candidate-develop-staging-pending"
 }

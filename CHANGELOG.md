@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.15.0] - 2026-11-09
+
+- Release CRM/Pricing: búsqueda unificada de cuentas y prospectos, asignación automática del vendedor y conciliación explícita de cotizaciones antiguas.
+- Se conservan montos, revisiones y estados; asociación por UUID y validación manual del histórico.
+
 ## [1.14.3] - 2026-11-09 (Seller Pricing status reconciliation)
 
 - PATCH coordinado: DholePricingService 1.7.1 y DholeWeb 1.14.3 separan modificaciones abiertas de revisiones todavía sin publicar, y reconcilian el panel comercial con el estado de la API.

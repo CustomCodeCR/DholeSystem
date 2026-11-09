@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.14.3",
-  "status": "f9-http403-staging-hotfix-candidate",
+  "ecosystemVersion": "1.15.0",
+  "status": "feature-candidate-awaiting-validation",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/rt-f9-websocket-status-20261109-02",
+  "candidateBranch": "feature/crm-quote-identity-20261109",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.14.3",
-      "mergeState": "merged-into-develop",
+      "version": "1.15.0",
+      "mergeState": "candidate-branch-unmerged",
       "candidateSha": null,
-      "developMergeSha": "8b0b3dc5503a853cad98d1c27777e8af778ebe35"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,10 +39,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.14.3",
-      "mergeState": "merged-into-develop",
+      "version": "1.15.0",
+      "mergeState": "candidate-branch-unmerged",
       "candidateSha": null,
-      "developMergeSha": "929539d1f8626a81551d00f16177822e70f7d5d7"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -71,10 +71,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.7.1",
-      "mergeState": "merged-into-develop",
+      "version": "1.8.0",
+      "mergeState": "candidate-branch-unmerged",
       "candidateSha": null,
-      "developMergeSha": "1472fd622e1136136f4981bf6fbb27ecc4d082c4"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -135,10 +135,10 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.6.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.7.0",
+      "mergeState": "candidate-branch-unmerged",
       "candidateSha": null,
-      "developMergeSha": "4f30b2107490e59038d86d4b04841a071b078d46"
+      "developMergeSha": null
     }
   ],
   "policyCheck": {
@@ -178,7 +178,17 @@
     "Retain 16 repositories, excluding CustomCodeFramework",
     "F9 staging smoke transports via curl matching successful DholeSystem staging HTTPS health checks; 1.14.1 patch; no auth or production change",
     "1.14.2: Preserve downstream WS handshake 401/403 via ClientWebSocket.CollectHttpResponseDetails; retain 502 for transport errors.",
-    "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates."
+    "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates.",
+    {
+      "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
+      "components": [
+        "DholeWeb",
+        "DholeCRMService",
+        "DholePricingService",
+        "DholeSystem"
+      ],
+      "summary": "Identidad CRM en cotizaciones y conciliación manual de historial de QUO."
+    }
   ],
   "stagingValidation": "pending-f9-ws-handshake-hotfix",
   "f6F7F8": {
