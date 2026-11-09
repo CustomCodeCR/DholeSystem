@@ -353,7 +353,7 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 
 - Secuencia adoptada: preparación de las 17 PR -> gate de seguridad predeploy (persistencia, migraciones/volúmenes, CI) -> merge batch a develop -> despliegue automático a staging -> smoke HTTPS/Hub + comprobaciones F7/ACL y recuperación -> promoción idéntica a master.
 - El paso de staging no requiere definir JWT QA manuales ni compartir SSH; sólo puede probar reachability/autenticación anónima, **no** demostrar permiso comercial de una identidad real. Se exige evidencia separada antes de F10.
-- Nuevo script `scripts/realtime/f9_postdeploy_signalr_smoke.py` ejecutado al final de `deploy-staging.yml`; si el Hub universal devuelve 404 por flags apagados, **falla** y registra estado bloqueado, sin tocar datos.
+- Script `scripts/realtime/f9_postdeploy_signalr_smoke.py` empaquetado en el Gateway, ejecutado al final del `DholeApiGateway/.github/workflows/deploy-staging.yml`; si el Hub universal devuelve 404 por flags apagados, **falla** y registra estado bloqueado, sin tocar datos.
 - Se preserva `verify_staging_redis_before_compose.py` ANTES de reiniciar infraestructura; el cambio de orden de pruebas no permite crear volúmenes nuevos ni perder AOF.
 - Global candidato `1.13.14`; las 17 ramas intermedias actualizadas; no hay merges ni desplegados ejecutados mediante esta revisión.
 

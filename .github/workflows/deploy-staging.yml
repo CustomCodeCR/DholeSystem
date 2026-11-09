@@ -336,16 +336,3 @@ jobs:
               exit 1
             fi
           done
-
-      - name: Validate universal SignalR route AFTER staging deploy (no JWT, read-only)
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 scripts/realtime/f9_postdeploy_signalr_smoke.py
-      - name: Publish sanitized F9 postdeploy SignalR evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: rt-20261107-01-f9-staging-postdeploy
-          path: F9Results/f9-staging-signalr-postdeploy.json
-          if-no-files-found: warn
