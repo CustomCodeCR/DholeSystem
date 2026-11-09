@@ -1,0 +1,59 @@
+name: Realtime 1.14.0 manifest and staging configuration gate
+on:
+  push:
+    branches:
+      - feature/rt-notificationshub-20261109-01
+  pull_request:
+    branches: [develop, master]
+permissions:
+  contents: read
+jobs:
+  manifest-policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install YAML parser
+        run: python -m pip install PyYAML==6.0.3
+      - name: Validate release contract and compose fail-closed flags
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,re,pathlib,yaml
+          root=pathlib.Path('.')
+          manifest=json.loads((root/'release-manifest.json').read_text())
+          version=json.loads((root/'version.json').read_text())
+          expected=16
+          assert manifest['expectedRepositories']==expected
+          assert len(manifest['components'])==expected
+          assert len(set(x['repository'] for x in manifest['components']))==expected
+          assert len(set(x['component'] for x in manifest['components']))==expected
+          assert manifest['ecosystemVersion']==version['ecosystemVersion']=='1.14.0'
+          assert manifest['releaseId']==version['releaseId']=='rt-20261107-01'
+          assert manifest['candidateBranch']=='feature/rt-notificationshub-20261109-01'
+          assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
+          assert manifest['productionDeploymentAuthorized'] is False
+          assert manifest['status']=='candidate-staging-not-deployed'
+          assert manifest['mergeState']=='intermediate-only'
+          assert next(x for x in manifest['components'] if x['component']=='DholeSystem')['version']==version['version']
+          for component in manifest['components']:
+              assert component['repository'].startswith('CustomCodeCR/Dhole')
+              assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', component['version'])
+              assert component['mergeState']=='candidate-synced-with-develop-and-master-no-target-merge'
+          assert (root/'CHANGELOG.md').is_file()
+          doc=yaml.safe_load((root/'deploy/docker-compose.services.yml').read_text())
+          assert 'notifications-api' in doc['services']
+          ns=doc['services']['notifications-api']['environment']
+          assert ns['Realtime__ReleaseId']==manifest['releaseId']
+          assert ns['Features__UniversalRealtimeEnabled']=='${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}'
+          assert ns['Realtime__ProductionApproved']=='false'
+          assert ns['Realtime__DeploymentTarget']=='${DHOLE_REALTIME_NOTIFICATIONS_TARGET:-disabled}'
+          for name,definition in doc['services'].items():
+              env=definition.get('environment') or {}
+              if 'Realtime__ReleaseId' in env:
+                  assert env['Realtime__ReleaseId']==manifest['releaseId'], name
+          print(f"PASS: {expected} versioned components, staging feature flags fail closed, release {version['version']}")
+          PY
