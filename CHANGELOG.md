@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.12.22] - 2026-11-09 (QUO-269 seller workflow status)
+
+- Coordinated PATCH DH-20261109-QUO269-SELLER-STATUS-053 (master): PricingService 1.5.22 and Web 1.12.22 display the current Open workflow state in Sales for already-completed QUO-269 without exposing unpublished quote data. The last published commercial snapshot remains unchanged.
+- Manifest and global ecosystem version 1.12.22; existing NotificationsHub, F6-F9, ACL and production safety boundaries are preserved.
+
 ## [1.12.21] - 2026-11-09 (Seller Pricing status master candidate)
 
 - PATCH coordinado: DholeWeb 1.12.21 y DholePricingService 1.5.21 distinguen solicitudes abiertas en Pricing de revisiones comerciales sin publicar; sincronización periódica del panel vendedor.
