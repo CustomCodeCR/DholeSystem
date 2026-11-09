@@ -87,3 +87,15 @@ La última rama intermedia del Gateway se compiló y probó con éxito en [GitHu
 Ya existen Notifications SignalR (`/api/notifications/hub`), cliente WSS y ticket de DholeWeb y proxy WebSocket de Gateway. Las comprobaciones de implementación se realizan con el código y Docker Compose existente, sin nuevos usuarios QA ni nuevos secretos. El workflow de pruebas con dos usuarios sigue opcional para una validación operativa específica; no es necesario para compilar o seguir desarrollando. El Hub universal `/hubs/realtime` es otra ruta y está deshabilitado por flags; su puesta en funcionamiento no debe darse por probada a partir del Hub Notifications existente.
 
 Redis AOF `appendonly yes` y volumen persistente están declarados en Compose de la rama, pero staging todavía reportaba AOF OFF. La conversión RDB→AOF deberá preservar y restaurar los datos existentes antes de aprobar durabilidad. No hacer `docker compose up` directamente sobre el volumen previo sin conversión.
+
+## Alternativa F3 sin secretos manuales ni QA externa (2026-11-08)
+
+La ruta de CI ahora prueba el **Gateway real tras Traefik TLS/WSS** de forma automática y aislada, sin configurar `DHOLE_RT_VALIDATE_STAGING_ENABLED`, URL de QA, ID de recurso, JWT reales, SSH ni variables privadas de la organización. Se usan tres identidades sintéticas, un secreto JWT aleatorio efímero, certificado localhost efímero, stub de propietario REST que discrimina permitido/denegado, Gateway Kestrel y Traefik Docker real.
+
+- Código: `CustomCodeCR/DholeApiGateway/tests/f3-e2e/live-wss.mjs`.
+- Acción: `CustomCodeCR/DholeApiGateway/.github/workflows/realtime-f3-gateway.yml`, job `f3-real-traefik-wss-no-external-qa`.
+- [Ejecución aprobada](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538238853), SHA `09fc6435e4df93bce05fc5a4c4c3de6a375f1a6b`.
+- Scope validado: HTTPS, `POST /hubs/realtime/negotiate`, ticket efímero, upgrade WSS, SignalR Subscribe, owner REST GET y rechazo de un usuario sin permiso.
+- El antiguo workflow opcional `realtime-f3-staging-wss.yml` no es necesario para ejecutar estas comprobaciones aisladas. No obliga al usuario a crear JWT QA o modificar servidores.
+
+**Límite de aceptación:** la prueba usa GitHub-hosted + propietario REST sintético, por lo tanto **no sustituye** certificación sobre `dhole-staging`/Traefik real de Dhole, usuarios/roles reales y 2 instancias reales allí. `formalF3Approved=false` hasta verificaciones operativas; ningún check se falsifica. Los feature flags del runtime de producción no se eliminan ni activan por esta prueba.

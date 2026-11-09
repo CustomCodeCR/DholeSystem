@@ -340,3 +340,11 @@ Web/System/global candidate 1.13.1. Three actual Vue behavioral regressions repr
 - [CI staging #42535795924](https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924): 7/7 tests de preflight PASS y Docker Redis/Postgres de staging identificados, pero AOF runtime y comando Redis OFF. El job falla intencionalmente sin tocar bases de datos.
 - 17 ramas intermedias incrementan versión PATCH propia y declaran `ecosystemVersion=1.13.12`. El manifiesto central y el catálogo Gateway se sincronizaron a la misma matriz de 17 componentes y 13 servicios.
 - Los 639 candidatos de fuente siguen sin revisión de propietario; F6/F7/F8 formales no se han aprobado. No hay backup/restauración demostrados ni 14/14 ensayos reales F7. No realizar merge/despliegue automático a develop/master.
+
+## F3 — TLS/WSS real por Traefik sin configuración de QA manual (2026-11-08)
+
+- Rama Gateway: `feature/dhole-realtime-universal-rt-20261107-01`. Se agregó `tests/f3-e2e/live-wss.mjs` y el job `f3-real-traefik-wss-no-external-qa` al workflow `.github/workflows/realtime-f3-gateway.yml`.
+- [CI Gateway F3 #42538238853](https://github.com/CustomCodeCR/DholeApiGateway/actions/runs/42538238853) **SUCCESS**: Gateway real con Traefik, TLS certificado temporal, WebSocket WSS, JWT efímeros generados por workflow, 2 usuarios autorizados y 1 denegado, owner GET ACL, además de la suite Gateway existente en PostgreSQL/Redis aislados. SHA de ejecución: `09fc6435e4df93bce05fc5a4c4c3de6a375f1a6b`.
+- No se requieren los secretos `DHOLE_RT_ALLOWED_JWT`/`DHOLE_RT_DENIED_JWT`, variables de staging, acceso SSH ni configuraciones manuales para esta prueba. Las flags solo se activan en el proceso efímero del CI, no en staging/producción.
+- Versión global candidata `1.13.13`; Gateway `1.4.5`, System `1.13.13`, componentes restantes actualizados al PATCH correspondiente en las 17 ramas intermedias; release todavía NO promovido.
+- **F3 técnico (WSS/TLS aislado) PASA; F3 formal BLOQUEADO**: ninguna prueba WSS de Gateway universal se ha realizado sobre `dhole-staging`, ni se verificaron ACL comerciales reales y revocación operativa allí. F0/F2 tampoco están cerradas. No declarar F9 autorizado por esta evidencia ni alterar `develop`/`master`.
