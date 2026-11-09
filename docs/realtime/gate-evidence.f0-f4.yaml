@@ -30,7 +30,8 @@ phaseGates:
     stagingAnonymousHubNegotiationHttpStatus: 404
     stagingRealtimeFeatureFlagsEnabledCount: 0
     stagingLatestReadOnlyAuditConclusion: FAILED_AS_EXPECTED_AOF_OFF
-    stagingRedisAofEnabled: false # real runtime INFO persistence -> aof_enabled=0
+    stagingRedisAofEnabled: false # historical CI snapshot; operator later reported enabled; CI re-check pending
+    stagingAofOperatorReportedEnabledAfterHistoricalAudit: true
     stagingRedisPersistentVolumeMounted: true
     stagingPostgresPersistentVolumeMounted: true
     stagingRedisAofMigrationRequiredAtF9: true
@@ -73,7 +74,8 @@ phaseGates:
     deadLetterAndRetryVerified: true
     redisAofVolumeCiRun: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42444816160
     realStagingRedisOutageAndRestoreVerified: false
-    realStagingRedisAofCurrentlyDisabled: true # observed in read-only staging CI; blocks durability
+    realStagingRedisAofCurrentlyDisabled: true # historical CI reading only; operator reports AOF ON; fresh attestation pending
+    realStagingRedisAofOperatorReportedEnabled: true
     realStagingBackupRetentionAndAlertsVerified: false
     requiresF1Approved: true
     approval: false

@@ -53,4 +53,4 @@ blockers:
   - Real service has no deployed OAuth/JWT scope test, central Gateway route or bound frontend.
   - Cross-repo required check needs the exact reviewed registry in protected develop/master branches.
   - FutureService F8 source regex is fail-closed for recognized patterns, not a Roslyn endpoint inventory attestation.
-  - Staging Redis AOF OFF; WSS/TLS/ACL real not approved.
+  - Historical CI recorded staging Redis AOF OFF; user now reports healthy AOF in staging and production. Fresh runner evidence, backup restoration, WSS/TLS/ACL and formal approvals remain pending.

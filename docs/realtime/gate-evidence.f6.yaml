@@ -7,12 +7,24 @@ status: IMPLEMENTACION_CANDIDATA_13_SERVICIOS
 formalApproved: false
 nextPhaseF7Authorized: false
 branch: feature/dhole-realtime-universal-rt-20261107-01
-globalCandidateVersion: "1.13.14"
+globalCandidateVersion: "1.13.15"
 noDevelopOrMasterMerge: true
 noProductionDeployment: true
 allFeatureFlagsDefaultOff: true
 latestStagingReadOnlyAudit: https://github.com/CustomCodeCR/DholeSystem/actions/runs/42535795924
-latestStagingAofEnabled: false
+latestStagingAofEnabled: false # historical CI snapshot, not current operator observation
+operatorReportedRedisAof:
+  source: USER_PROVIDED_DOCKER_INFO_PERSISTENCE_OUTPUT
+  observedLocalDate: "2026-11-08"
+  stagingContainer: dhole-staging-infra-redis-1
+  productionContainer: redis
+  bothAofEnabled: true
+  bothAofWriteStatusOk: true
+  bothRewriteStatusOk: true
+  bothRewriteIdle: true
+  independentlyReverifiedByWorkflow: false
+  composeStartupPersistenceVerified: false
+  offHostBackupRestorationEvidenceReviewed: false
 latestStagingAnonymousHubNegotiationHttpStatus: 404
 latestStagingUniversalRealtimeFlagsOn: 0
 latestStagingWssTlsJwtAclVerified: false
@@ -45,7 +57,7 @@ acceptance:
   13ServicesFormalApproval: false
 blockers:
   - "F0: 582 source candidates at latest F0 scan (512 mutable routes plus 70 worker files), not yet fully mapped and fully audited for ownership/security."
-  - "Redis stage aof_enabled=0; persistence, restore and replay not demonstrated."
+  - "Historical CI observed staging AOF OFF; user now reports both Redis instances AOF healthy. Independent CI re-verification, startup persistence, restoration and replay remain pending."
   - "WSS through Traefik and real token/ACL isolation not demonstrated."
   - "Resource snapshot REST by GUID and frontend bindings missing for several owners."
   - "No frozen 17-repo SHA batch or successful global integration/regression suite."

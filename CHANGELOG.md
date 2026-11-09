@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.13.15] - 2026-11-08 (F2/F6/F10 safety hardening, isolated)
+
+- F10: removed destructive production deploy step that deleted all non-target remote branches; deployed workflows now preserve release branches and use read-only GitHub contents permission.
+- F2/F6: added independent read-only production Redis AOF inspection and synthetic tests alongside the existing staging preflight. Artifacts report runtime AOF separately from unverified startup persistence and backup restoration; no restart or mutation.
+- Recorded the user's Redis AOF runtime observations for both containers as operator-supplied evidence, not a CI attestation. Formal F6/F7/F8 gates and feature flags remain blocked/off; no merge or deployment is authorized by this change.
+- Coordinated PATCH SemVer bump for the 17-repository candidate release to ecosystem 1.13.15.
+
+
 ## [1.13.14] - 2026-11-08 (F9 staging-first review sequence)
 
 - Tras auditar el orden de despliegues, el smoke se ubica al final de `DholeApiGateway/.github/workflows/deploy-staging.yml` y se empaqueta en el repo de Gateway; el workflow de infraestructura no lo ejecuta antes de que el Gateway termine de desplegar.
