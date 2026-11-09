@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.15.0] - 2026-11-09
+
+- Backport coordinado a master de selección CRM de cuentas/prospectos y conciliación de QUO antiguas.
+
 ## [1.12.21] - 2026-11-09 (Seller Pricing status master candidate)
 
 - PATCH coordinado: DholeWeb 1.12.21 y DholePricingService 1.5.21 distinguen solicitudes abiertas en Pricing de revisiones comerciales sin publicar; sincronización periódica del panel vendedor.
