@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.14.3] - 2026-11-09 (Seller Pricing status reconciliation)
+
+- PATCH coordinado: DholePricingService 1.7.1 y DholeWeb 1.14.3 separan modificaciones abiertas de revisiones todavía sin publicar, y reconcilian el panel comercial con el estado de la API.
+- Manifest 1.14.3 / release DH-20261109-SELLER-PRICING-STATUS-052. Se conservan las restricciones de exposición comercial y los gates realtime pendientes F6–F9.
+- Staging y compilación pendientes de CI; ninguna autorización adicional de producción implícita.
+
 ## [1.14.2] - 2026-11-09 (F9 Gateway WebSocket auth status recovery)
 
 - PATCH: coordinated Gateway 1.5.2 / global 1.14.2 for F9 staging; ClientWebSocket upstream handshake 401/403 now propagated rather than incorrectly converted to 502. Genuine destination failures remain 502.
