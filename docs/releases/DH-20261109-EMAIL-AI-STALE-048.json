@@ -18,12 +18,13 @@
   ],
   "scope": "Reconcile terminal email statuses and orphaned AI request handoffs, without changing the AI model, framework, or pricing import contracts",
   "validation": {
-    "unitTests": "pending",
-    "build": "pending",
-    "versionGate": "pending",
-    "developCI": "pending",
+    "unitTests": "success (GitHub Actions run 42639019628)",
+    "build": "success (GitHub Actions run 42639019628)",
+    "versionGate": "success (GitHub Actions run 42639019657)",
+    "developCI": "pending branch reconciliation",
     "staging": "pending",
-    "production": "not_authorized"
+    "production": "not_authorized",
+    "regressionChecks": "success (GitHub Actions runs 42639019517, 42639019357)"
   },
   "productionDeploymentAuthorized": false,
   "componentsNotModified": "Other services retain their existing component versions because their code was not changed",
