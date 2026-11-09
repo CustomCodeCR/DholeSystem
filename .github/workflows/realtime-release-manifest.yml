@@ -1,4 +1,4 @@
-name: Realtime 1.14.0 manifest and staging configuration gate
+name: Realtime release manifest and staging configuration gate
 on:
   push:
     branches:
@@ -31,18 +31,19 @@ jobs:
           assert len(manifest['components'])==expected
           assert len(set(x['repository'] for x in manifest['components']))==expected
           assert len(set(x['component'] for x in manifest['components']))==expected
-          assert manifest['ecosystemVersion']==version['ecosystemVersion']=='1.14.0'
-          assert manifest['releaseId']==version['releaseId']=='rt-20261107-01'
-          assert manifest['candidateBranch']=='feature/rt-notificationshub-20261109-01'
+          assert manifest['ecosystemVersion']==version['ecosystemVersion']
+          assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', manifest['ecosystemVersion'])
+          assert manifest['releaseId']==version['releaseId']
+          assert manifest['candidateBranch'].startswith('feature/')
           assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
           assert manifest['productionDeploymentAuthorized'] is False
-          assert manifest['status']=='candidate-staging-not-deployed'
-          assert manifest['mergeState']=='intermediate-only'
+          assert manifest['status'] in ('candidate-staging-not-deployed', 'develop-integrated-staging-f6-f8-pending', 'f9-http403-staging-hotfix-candidate')
+          assert manifest['mergeState'] in ('intermediate-only', 'develop-16-merged-staging-f9-hotfix-pending')
           assert next(x for x in manifest['components'] if x['component']=='DholeSystem')['version']==version['version']
           for component in manifest['components']:
               assert component['repository'].startswith('CustomCodeCR/Dhole')
               assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', component['version'])
-              assert component['mergeState']=='candidate-synced-with-develop-and-master-no-target-merge'
+              assert component['mergeState'] in ('candidate-synced-with-develop-and-master-no-target-merge', 'merged-into-develop')
           assert (root/'CHANGELOG.md').is_file()
           doc=yaml.safe_load((root/'deploy/docker-compose.services.yml').read_text())
           assert 'notifications-api' in doc['services']

@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.14.0",
-  "status": "develop-integrated-staging-f6-f8-pending",
+  "ecosystemVersion": "1.14.1",
+  "status": "f9-http403-staging-hotfix-candidate",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/rt-notificationshub-20261109-01",
+  "candidateBranch": "feature/rt-f9-staging-http403-fix-20261109-01",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.14.0",
+      "version": "1.14.1",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": "8b0b3dc5503a853cad98d1c27777e8af778ebe35"
@@ -23,7 +23,7 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": "72c3cd12b38315a6ec6f0b6dc52012773bc76cce"
@@ -146,47 +146,36 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "develop-16-merged-staging-validation-pending",
+  "mergeState": "develop-16-merged-staging-f9-hotfix-pending",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
     "F8: Future-service registry/ACL/WSS enforcement evidence pending",
-    "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master"
+    "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master",
+    "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven"
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
     "semver": "All 16 candidate versions and CHANGELOGs updated for ecosystem 1.14.0; PR compile/version checks successful aside from explicitly deferred DholeSystem F6-F8 formal gates",
     "staging": "Develop code merged; successful staging deployment and runtime audit not yet verified",
     "production": "No master merge authorized; production flags remain OFF",
-    "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35."
+    "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35.",
+    "f9Hotfix": "Gateway F9 curl probe candidate, staged deploy not yet verified; DholeSystem prior curl /health returned 200, urllib F9 returned 403"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeApiGateway",
-    "DholeAuthService",
-    "DholeWeb",
-    "DholeConfigService",
-    "DholeAuditLogsService",
-    "DholeDataExtractionService",
-    "DholePricingService",
-    "DholeAIService",
-    "DholeStorageService",
-    "DholeReportsService",
-    "DholeNotificationsService",
-    "DholeContentService",
-    "DholeAgentService",
-    "DholeDynamicsConnectorService",
-    "DholeCRMService"
+    "DholeApiGateway"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
     "Use existing notificationReceived, Notifications ticket and WebSocket route",
     "Add server-authorized resource subscribe/unsubscribe and minimal resourceChanged",
     "Use existing producer streams and REST reconciliation",
-    "Retain 16 repositories, excluding CustomCodeFramework"
+    "Retain 16 repositories, excluding CustomCodeFramework",
+    "F9 staging smoke transports via curl matching successful DholeSystem staging HTTPS health checks; 1.14.1 patch; no auth or production change"
   ],
-  "stagingValidation": "pending",
+  "stagingValidation": "pending-f9-hotfix",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
