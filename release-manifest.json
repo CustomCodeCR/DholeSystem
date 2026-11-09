@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
+  "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.12.21",
+  "ecosystemVersion": "1.12.22",
   "status": "master-candidate-staging-validation-pending",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.12.21",
+      "version": "1.12.22",
       "mergeState": "feature-branch-not-merged"
     },
     {
@@ -48,7 +48,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.5.21",
+      "version": "1.5.22",
       "mergeState": "previous-release-unchanged"
     },
     {
@@ -102,7 +102,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.12.21",
+      "version": "1.12.22",
       "mergeState": "feature-branch-not-merged"
     }
   ],
@@ -121,26 +121,28 @@
   "validationEvidence": {
     "semver": "Pending CI",
     "staging": "Pending staging",
-    "production": "master release requires staging validation"
+    "production": "master release requires staging validation",
+    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
     "Use shared normalization for catalog, selected terms, manual input and wizard persistence",
     "DholePricingService 1.5.8 REST contract unchanged",
-    "Seller Pricing status backport: distinct active Pricing modification vs unpublished revision, delivered as isolated master candidate."
+    "Seller Pricing status backport: distinct active Pricing modification vs unpublished revision, delivered as isolated master candidate.",
+    "QUO-269 master: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly."
   ],
   "businessPatchRelease": {
-    "releaseId": "DH-20261109-SELLER-PRICING-STATUS-052",
-    "sourceStagingVersion": "1.14.3",
+    "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
     "components": {
-      "DholeWeb": "1.12.21",
-      "DholePricingService": "1.5.21"
+      "DholeWeb": "1.12.22",
+      "DholePricingService": "1.5.22"
     },
-    "status": "master-pr-not-merged"
+    "status": "master-quo269-ci-pending",
+    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage"
   }
 }
