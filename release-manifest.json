@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.14",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.17.17",
+  "status": "candidate-staging-awaiting-verification",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.14",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.17.17",
+      "mergeState": "candidate-master-ci-pending",
       "candidateSha": null
     },
     {
@@ -105,8 +105,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.14",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.17.17",
+      "mergeState": "candidate-master-ci-pending",
       "candidateSha": null
     }
   ],
@@ -116,7 +116,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -125,19 +125,20 @@
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
     "Production approval required; master auto-deploys on push.",
     "CRM account tax ID search: CI and staging proof required before master / production.",
-    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion."
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
+    "Verificar CI y staging de la corrección de solicitudes de modificación LCL antes de promocionar producción."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
     "staging": "Pending staging",
     "production": "master release requires staging validation",
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
-    "historicalQuoteCatalog": "PR CI and staging validation pending"
+    "historicalQuoteCatalog": "PR CI and staging validation pending",
+    "pricingModificationCrmOwner": "CI pendiente de comprobar; staging aún sin evidencia directa"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholeSystem"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -155,7 +156,8 @@
     "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: CRM agenda shows client and commercial executive via server-authorized calendar labels; frontend only.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
     "Filtrar tarifas históricas cuyo nombre de cliente contenga TARIFARIO de la lista de vinculación pendiente CRM, sin eliminar datos.",
-    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix)."
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix).",
+    "Backport DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: revalidar ejecutivo vigente CRM en solicitudes de modificación desde pantalla 5; DholeWeb 1.17.17 y DholeSystem 1.17.17."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -167,8 +169,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-hide-tarifario-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
+  "candidateBranch": "hotfix/pricing-modification-crm-owner-master-20261110",
+  "businessReleaseId": "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
