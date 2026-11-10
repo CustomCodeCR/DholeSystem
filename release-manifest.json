@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.17.13",
   "status": "candidate-staging-not-deployed",
@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "chore/crm-hide-tarifario-20261110-develop",
+  "candidateBranch": "fix/crm-hide-tarifario-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.13",
-      "mergeState": "candidate-pending-staging",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -72,7 +72,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.9.11",
-      "mergeState": "candidate-pr-186-develop",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": "21f0835f25b436e4cd2c6eccb6238c22ca5957ee",
       "developMergeSha": null
     },
