@@ -1,0 +1,25 @@
+{
+  "releaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.17.10",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.17.9",
+      "next": "1.17.10"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.17.9",
+      "next": "1.17.10",
+      "changes": "manifest metadata"
+    }
+  ],
+  "scope": "Show CRM agenda client and executive without changing backend contracts.",
+  "validation": {
+    "ci": "pending",
+    "staging": "pending live verification",
+    "production": "user authorized master integration"
+  }
+}
