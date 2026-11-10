@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "hotfix/pricing-crm-lead-request-owner-develop-20261110",
+  "candidateBranch": "fix/pricing-crm-lead-request-owner-develop-20261110",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
