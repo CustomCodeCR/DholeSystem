@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.1] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-070: manifiesto global y DholeSystem a 1.18.1 para la corrección del ejecutivo comercial en solicitudes de modificación de Pricing. DholeWeb 1.18.1; versiones del resto de servicios sin cambios.
+- Candidato en ramas intermedias, validación CI y staging pendiente. Sin migraciones, cambio de contratos REST o SignalR, y sin despliegue a producción.
+
 ## [1.18.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ADMIN-CALENDAR-069: administradores autorizados por Auth acceden a agendas de todos los vendedores y ven los seguimientos creados por políticas, con asunto, fechas, política e historial. Versiones Auth 1.6.0, CRM 1.8.0 y Web/System 1.18.0.
