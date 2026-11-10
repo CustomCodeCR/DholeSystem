@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.15.0",
+  "ecosystemVersion": "1.16.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.15.0",
+      "version": "1.16.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -49,7 +49,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.6.0",
+      "version": "1.9.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.15.0",
+      "version": "1.16.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
@@ -120,18 +120,19 @@
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
-    "Promotion to master is gated by staging verification"
+    "Promotion to master is gated by staging verification",
+    "Verify historical quote listing, CRM account authorization and linking in staging before production."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
     "staging": "Pending staging",
     "production": "master release requires staging validation",
-    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation"
+    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
+    "historicalQuoteCatalog": "PR CI and staging validation pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService",
     "DholePricingService"
   ],
   "changes": [
@@ -139,7 +140,8 @@
     "Use shared normalization for catalog, selected terms, manual input and wizard persistence",
     "DholePricingService 1.5.8 REST contract unchanged",
     "Seller Pricing status backport: distinct active Pricing modification vs unpublished revision, delivered as isolated master candidate.",
-    "QUO-269 master: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly."
+    "QUO-269 master: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly.",
+    "Full historical QUO catalog in CRM; verified manual account linkage without changing commercial snapshots or stealing existing links."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -151,5 +153,15 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-quote-identity-master-20261109"
+  "candidateBranch": "feature/crm-quo-historical-catalog-20261109-master",
+  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "historicalQuoteCatalogRelease": {
+    "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+    "components": {
+      "DholeWeb": "1.16.0",
+      "DholePricingService": "1.9.0",
+      "DholeSystem": "1.16.0"
+    },
+    "status": "candidate-master-staging-pending"
+  }
 }

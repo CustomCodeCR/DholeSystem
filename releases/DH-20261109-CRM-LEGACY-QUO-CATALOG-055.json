@@ -1,0 +1,34 @@
+{
+  "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "date": "2026-11-09",
+  "ecosystemVersion": "1.16.0",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousDevelop": "1.15.3",
+      "next": "1.16.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previousDevelop": "1.8.1",
+      "next": "1.9.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousDevelop": "1.15.4",
+      "next": "1.16.0"
+    }
+  ],
+  "changes": [
+    "All historical QUO are queryable from CRM with server-side filtering and pagination, including linked records and quotes without a historical name.",
+    "A human must select, review and confirm the quote IDs before binding them to the current CRM account.",
+    "Already-linked CRM accounts and converted leads are never overwritten; amount, status, revision and historical client-name snapshots remain unchanged.",
+    "Existing REST endpoints and notifications framework are preserved."
+  ],
+  "validation": {
+    "code": "Changes staged in intermediate branches; CI must prove build and regression suite.",
+    "staging": "Pending validation with actual pricing quote data and CRM account authorization.",
+    "production": "No production deployment until authorized."
+  },
+  "rollback": "Revert the coordinated release commits in DholeWeb and DholePricingService; no database schema migration is required."
+}
