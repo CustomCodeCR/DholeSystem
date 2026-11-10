@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.15.3",
+  "ecosystemVersion": "1.15.4",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/rt-staging-public-routing-audit-20261109",
+  "candidateBranch": "fix/rt-connected-reconciliation-manifest-20261109",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.15.3",
+      "version": "1.15.4",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.15.2",
+      "version": "1.15.3",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -167,7 +167,8 @@
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation"
   },
   "releaseComponents": [
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -226,7 +227,9 @@
       "Config/Notifications runtime feature flags on staging only",
       "Notifications Config consumer group exists in staging Redis"
     ],
-    "status": "candidate-unverified",
-    "productionDeploymentAuthorized": false
+    "status": "initial-runtime-audit-pass-2026-11-10-readonly",
+    "productionDeploymentAuthorized": false,
+    "authenticatedCrossUserDeliveryVerified": false,
+    "streamConsumerLagPendingVerification": true
   }
 }

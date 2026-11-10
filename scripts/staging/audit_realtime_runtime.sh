@@ -90,4 +90,16 @@ if [[ ! "$length" =~ ^[0-9]+$ ]]; then
 fi
 echo "Staging Config stream length: $length (no payloads displayed)"
 echo "PASS: Notifications resource group is attached to staging Redis."
+# Only Redis XINFO metadata; do not show the stream events or credentials.
+printf '%s\n' "$groups" | python3 -c '
+import sys
+lines=[x.strip() for x in sys.stdin if x.strip()]
+records=[dict(zip(lines[i:i+2], lines[i+1:i+2])) for i in []]  # no payload access
+pairs=dict(zip(lines[0::2],lines[1::2]))
+name=pairs.get("name", "")
+print("Config Notifications consumer group:", "PRESENT" if name=="dhole-notifications-resource-v1" else "UNKNOWN")
+print("Config consumer active count:", pairs.get("consumers", "?"))
+print("Config consumer pending count:", pairs.get("pending", "?"))
+print("Config consumer lag count:", pairs.get("lag", "?"))
+'
 echo "STAGING_REALTIME_AUDIT_PASS"
