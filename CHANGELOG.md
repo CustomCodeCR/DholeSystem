@@ -1,8 +1,8 @@
 # Changelog
 
-## [1.17.18] - 2026-11-10
+## [1.17.19] - 2026-11-10
 
-- PATCH DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: coordina DholeWeb 1.17.18, DholeCRMService 1.4.6 y DholeSystem 1.17.18 para crear actividades CRM con fechas pasadas. Las ya finalizadas quedan completadas y no generan notificaciones retroactivas; sus minutas, acuerdos y fechas originales permanecen guardados.
+- PATCH DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: coordina DholeWeb 1.17.19, DholeCRMService 1.4.6 y DholeSystem 1.17.19 para crear actividades CRM con fechas pasadas. Las ya finalizadas quedan completadas y no generan notificaciones retroactivas; sus minutas, acuerdos y fechas originales permanecen guardados.
 - Sin migraciones, sin cambios en SignalR ni Auth. CI y staging requeridos antes de promover a producción.
 
 ## [1.17.14] - 2026-11-10
