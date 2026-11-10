@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.17.10",
-  "ecosystemVersion": "1.17.10",
-  "releaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
-  "releaseStatus": "candidate-master-merge-pending",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065"
+  "version": "1.18.0",
+  "ecosystemVersion": "1.18.0",
+  "releaseId": "DH-20261110-CRM-AGENDA-COLLABORATION-066",
+  "releaseStatus": "candidate-master-staging-pending",
+  "businessReleaseId": "DH-20261110-CRM-AGENDA-COLLABORATION-066"
 }
