@@ -2,7 +2,7 @@
 
 ## [1.17.17] - 2026-11-10
 
-- PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: backport aislado desde develop de la corrección al cargar el ejecutivo comercial CRM durante solicitudes de modificación de Pricing LCL (pantalla 5). Metadatos de DholeSystem 1.17.17, DholeWeb 1.17.17 y manifiesto central actualizados; los otros 14 servicios conservan sus versiones.
+- PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: backport aislado desde develop de la corrección al cargar el ejecutivo comercial de cuentas y prospectos CRM durante solicitudes normales y modificaciones de Pricing (incluida pantalla 5 LCL). Metadatos de DholeSystem 1.17.17, DholeWeb 1.17.17 y manifiesto central actualizados; los otros 14 servicios conservan sus versiones.
 - Sin migraciones, cambios REST ni infraestructura SignalR. Integración master condicionada a validaciones CI/staging; cambio solicitado explícitamente para master.
 
 ## [1.17.14] - 2026-11-10
