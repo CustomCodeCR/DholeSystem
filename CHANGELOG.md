@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.16.2] - 2026-11-09
+
+- PATCH DH-20261109-CRM-QUO-LINK-SYNC-056: sincronización de identidad de cuentas y ejecutivos CRM en las tarifas QUO y exclusión de cotizaciones ya vinculadas del listado de migración.
+- Coordinación DholeWeb 1.16.1 / DholePricingService 1.9.2 / DholeSystem 1.16.2; sin cambios de esquema o framework. CI y staging obligatorios antes de master.
+
 ## [1.16.1] - 2026-11-09
 
 - PATCH: coordinated CRM 1.7.2 and Pricing 1.9.1 owner ACL endpoints for collection-level realtime subscriptions to accounts, leads, rates and costs through existing NotificationsHub.
