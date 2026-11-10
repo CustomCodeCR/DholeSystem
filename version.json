@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.17.12",
-  "ecosystemVersion": "1.17.12",
+  "version": "1.17.13",
+  "ecosystemVersion": "1.17.13",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-master-ci-staging-pending",
-  "businessReleaseId": "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067"
+  "businessReleaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067"
 }

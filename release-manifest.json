@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.12",
+  "ecosystemVersion": "1.17.13",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -49,9 +49,9 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.10",
+      "version": "1.9.11",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null
+      "candidateSha": "3caf84c173ed542d125255b9b5b89bd40da8c035"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.12",
+      "version": "1.17.13",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     }
@@ -136,9 +136,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -154,7 +152,8 @@
     "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
     "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID.",
     "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: CRM agenda shows client and commercial executive via server-authorized calendar labels; frontend only.",
-    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable."
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
+    "Filtrar tarifas históricas cuyo nombre de cliente contenga TARIFARIO de la lista de vinculación pendiente CRM, sin eliminar datos."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -166,8 +165,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/modification-crm-identity-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "candidateBranch": "fix/crm-hide-tarifario-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -264,5 +263,14 @@
     },
     "status": "candidate-master-staging-pending",
     "productionAuthorized": false
+  },
+  "pricingLegacyTariffVisibilityRelease": {
+    "releaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067",
+    "pricingFrom": "1.9.10",
+    "pricingTo": "1.9.11",
+    "scope": "CRM > Cuentas > Cotizaciones > históricas por vincular",
+    "behavior": "Excluye cliente histórico que contiene TARIFARIO; filtro previo a Count/Skip/Take",
+    "productionPatchAuthorizedByUser": true,
+    "staging": "pending"
   }
 }
