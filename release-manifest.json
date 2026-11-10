@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.19",
-  "status": "candidate-staging-awaiting-verification",
+  "ecosystemVersion": "1.17.20",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.19",
-      "mergeState": "candidate-master-ci-pending",
+      "version": "1.17.20",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     },
     {
@@ -98,25 +98,25 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.3",
+      "version": "1.4.6",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.19",
-      "mergeState": "candidate-master-ci-pending",
+      "version": "1.17.20",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
+    "status": "pending-ci-for-DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -137,8 +137,9 @@
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -157,7 +158,8 @@
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
     "Filtrar tarifas históricas cuyo nombre de cliente contenga TARIFARIO de la lista de vinculación pendiente CRM, sin eliminar datos.",
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix).",
-    "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos."
+    "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
+    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -170,7 +172,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "fix/pricing-crm-prospect-requests-master-20261110-v2",
-  "businessReleaseId": "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076",
+  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -287,5 +289,16 @@
     },
     "status": "develop-staging-validated-master-ci-pending",
     "migration": false
+  },
+  "crmHistoricalActivityRelease": {
+    "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+    "version": "1.17.20",
+    "components": {
+      "DholeWeb": "1.17.20",
+      "DholeSystem": "1.17.20",
+      "DholeCRMService": "1.4.6"
+    },
+    "schemaMigration": false,
+    "status": "candidate-staging-verified-pending-master"
   }
 }
