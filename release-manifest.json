@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.17.3",
   "status": "candidate-staging-not-deployed",
@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-legacy-link-superadmins-058-develop",
+  "candidateBranch": "fix/pricing-crm-executive-guid-059-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.3",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -40,7 +40,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.3",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -72,7 +72,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.9.5",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
