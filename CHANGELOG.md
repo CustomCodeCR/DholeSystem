@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.11] - 2026-11-10
+
+- PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: DholeWeb 1.17.11, DholeCRMService 1.4.2 y DholeSystem 1.17.11 muestran el detalle completo de actividades, sus notas, compromisos y actividad principal vinculada. API únicamente de lectura, sin migración y con controles de acceso existentes.
+- Mantiene el manifiesto de los demás servicios sin cambios; CI y staging pendientes, sin despliegue a producción.
+
 ## [1.17.10] - 2026-11-10
 
 - PATCH DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: manifiesto central y versiones DholeWeb/DholeSystem a 1.17.10 para Cliente y Ejecutivo comercial en Agenda y seguimientos.
