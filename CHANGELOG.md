@@ -1,3 +1,9 @@
+## [1.18.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-COLLABORATION-066: manifiesto central coordinado para DholeWeb y DholeCRMService, con versiones individuales por rama y DholeSystem 1.18.0.
+- Agenda CRM: participantes de contactos, minuta ampliada, agenda de vendedores autorizados, compromisos con estado reversible y vínculo a actividad principal. Sin alterar versiones de microservicios no afectados ni framework.
+- Candidato sujeto a CI y pruebas de staging; no se autoriza producción.
+
 # Changelog
 
 ## [1.17.10] - 2026-11-10
