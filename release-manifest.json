@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
+  "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.17.9",
-  "status": "candidate-ci-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -25,7 +25,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.9",
-      "mergeState": "feature-branch-pending-ci-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
@@ -99,14 +99,14 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.4.1",
-      "mergeState": "feature-branch-pending-ci-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.9",
-      "mergeState": "feature-branch-pending-ci-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
   ],
@@ -115,7 +115,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-release-not-merged",
+  "mergeState": "feature-branch-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
