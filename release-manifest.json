@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.16.0",
-  "status": "candidate-develop-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.16.0",
-      "mergeState": "candidate-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -40,7 +40,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.16.0",
-      "mergeState": "candidate-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -72,7 +72,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.9.0",
-      "mergeState": "candidate-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -146,7 +146,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "feature-branch-not-merged",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
@@ -244,5 +244,6 @@
       "DholeSystem": "1.16.0"
     },
     "status": "candidate-develop-staging-pending"
-  }
+  },
+  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055"
 }
