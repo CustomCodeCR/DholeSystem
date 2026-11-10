@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.15.3] - 2026-11-09
+
+- PATCH: read-only staging audit checks public Dhole domain against actual staging frontend bundle, both HTTP SignalR negotiate routes, container realtime flags and Notifications consumer group in the staging Redis stream. Exposes configuration and route mismatches without printing credentials, tokens, payloads or database rows.
+- No framework, production/master, live data or feature-flag changes. Full two-user functional realtime acceptance still required.
+
+
 ## [1.15.2] - 2026-11-09
 
 - PATCH: staging-only NotificationsHub catalog-list realtime pilot. Enable Config transactional outbox, Notifications resource host and browser catalog refresh in staging Compose; preserve production fail-closed feature flags.
