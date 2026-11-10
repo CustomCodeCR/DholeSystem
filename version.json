@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.18.2",
-  "ecosystemVersion": "1.18.2",
+  "version": "1.19.0",
+  "ecosystemVersion": "1.19.0",
   "releaseId": "rt-20261107-01",
-  "releaseStatus": "candidate-intermediate-ci-pending",
-  "businessReleaseId": "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072"
+  "releaseStatus": "candidate-develop-ci-staging-pending",
+  "businessReleaseId": "DH-20261110-CRM-AGENDA-RECONCILED-070"
 }

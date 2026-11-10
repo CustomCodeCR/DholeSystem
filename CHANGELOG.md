@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-RECONCILED-070: manifiesto centralizado de agenda comercial y compromisos vinculados. Versiones coordinadas DholeWeb 1.19.0, DholeCRMService 1.9.0 y DholeSystem 1.19.0.
+- Conserva todos los cambios de Pricing y CRM de 1.18.2 y la infraestructura de realtime sin activar producción. CI/staging pendientes.
+
 ## [1.18.2] - 2026-11-10
 
 - PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: manifiesto del ecosistema Dhole y DholeSystem 1.18.2 para la corrección del ejecutivo comercial CRM en modificaciones de Pricing. DholeWeb 1.18.2; los otros 14 componentes no modificados conservan su versión.
