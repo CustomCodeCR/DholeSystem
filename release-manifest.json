@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.5",
+  "ecosystemVersion": "1.17.9",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.5",
+      "version": "1.17.9",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -98,20 +98,20 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.5",
+      "version": "1.17.9",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci",
+    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-SEARCH-064",
     "checks": 0,
     "total": 0
   },
@@ -123,7 +123,8 @@
     "Promotion to master is gated by staging verification",
     "Verify historical quote listing, CRM account authorization and linking in staging before production.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
-    "Production approval required; master auto-deploys on push."
+    "Production approval required; master auto-deploys on push.",
+    "CRM account tax ID search: CI and staging proof required before master / production."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -133,6 +134,7 @@
     "historicalQuoteCatalog": "PR CI and staging validation pending"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -147,7 +149,8 @@
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
     "Historical QUO migration hidden in lazy superadministrator accordion and protected by server-side privileged role claims.",
     "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
-    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes."
+    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
+    "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -159,8 +162,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-quo-status-labels-061-master",
-  "businessReleaseId": "DH-20261110-CRM-QUO-STATUS-061",
+  "candidateBranch": "fix/crm-account-taxid-search-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -221,5 +224,31 @@
     },
     "status": "candidate-staging-pending",
     "scope": "CRM-linked quote status label localization, no backend changes"
+  },
+  "crmAccountTaxIdSearchRelease": {
+    "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
+    "ecosystemVersion": "1.17.9",
+    "changes": [
+      "Search CRM accounts by commercial name, legal name, tax identifier (TaxId/NormalizedTaxId)",
+      "Normalized and formatted partial Cédula search for legacy accounts",
+      "Existing ACL, filtering, pagination, REST and realtime untouched"
+    ],
+    "versions": {
+      "DholeSystem": {
+        "previous": "1.17.5",
+        "new": "1.17.9"
+      },
+      "DholeWeb": {
+        "previous": "1.17.8",
+        "new": "1.17.9"
+      },
+      "DholeCRMService": {
+        "previous": "1.4.0",
+        "new": "1.4.1"
+      }
+    },
+    "mergeState": "intermediate-only",
+    "testStatus": "pending-CI-and-staging",
+    "productionDeploymentAuthorized": false
   }
 }
