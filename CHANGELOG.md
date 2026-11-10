@@ -1,9 +1,9 @@
 # Changelog
 
-## [1.17.4] - 2026-11-10
+## [1.17.5] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-STATUS-061: traducción de estados comerciales de las QUO vinculadas en las vistas CRM, reutilizando la presentación estándar de Pricing sin cambiar enum, datos históricos ni cálculos.
-- Versión del ecosistema 1.17.5: DholeWeb 1.17.5, DholeSystem 1.17.4; restantes 14 componentes sin cambios. Regresión de traducciones y preservación de estados.
+- Versión del ecosistema 1.17.5: DholeWeb 1.17.5, DholeSystem 1.17.5; restantes 14 componentes sin cambios. Regresión de traducciones y preservación de estados.
 
 ## [1.17.3] - 2026-11-10
 
