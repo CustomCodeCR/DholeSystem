@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-AGENDA-COLLABORATION-066",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.10",
+  "ecosystemVersion": "1.18.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,8 +15,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.18.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,8 +39,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.18.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,8 +135,8 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.7.3",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.8.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -174,8 +174,9 @@
     "historicalQuoteCatalog": "CI and staging verification pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService",
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
