@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-RECONCILED-070: release coordinado de agenda CRM con contactos, minuta, compromisos reversibles y vínculo a actividad principal. Componentes DholeWeb 1.19.0 y DholeCRMService 1.9.0.
+- Se preserva el release CRM-ADMIN-CALENDAR-069. CI y staging pendientes; sin despliegue a producción.
+
 ## [1.18.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ADMIN-CALENDAR-NAV-071: actualiza navegación de DholeWeb a 1.18.1 para mostrar Actividades y Seguimientos a todos los administradores de Auth. Respeta la autorización servidor de agenda completa del release 1.18.0, los permisos de lectura/escritura, Auth y CRM existentes.
