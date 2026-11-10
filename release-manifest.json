@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.3",
+  "ecosystemVersion": "1.17.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-crm-executive-guid-059-develop",
+  "candidateBranch": "fix/crm-quo-status-labels-061-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.3",
+      "version": "1.17.4",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.3",
+      "version": "1.17.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -174,7 +174,6 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -202,7 +201,8 @@
     "CRM-linked historical QUO updates RateHeader client/executive names, and disappears from the unlinked-only migration list after saving.",
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
     "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization.",
-    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas."
+    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
+    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -253,7 +253,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+  "businessReleaseId": "DH-20261110-CRM-QUO-STATUS-061",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -343,5 +343,14 @@
       "No regression Castro Fallas / REST / realtime"
     ],
     "rollback": "Revert release PRs; no database migration."
+  },
+  "crmQuoteStatusLocalizationRelease": {
+    "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
+    "components": {
+      "DholeWeb": "1.17.5",
+      "DholeSystem": "1.17.4"
+    },
+    "status": "candidate-staging-pending",
+    "scope": "CRM-linked quote status label localization, no backend changes"
   }
 }
