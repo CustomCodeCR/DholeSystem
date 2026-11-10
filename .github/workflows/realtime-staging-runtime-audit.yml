@@ -4,7 +4,7 @@ on:
   push:
     branches: [develop]
     paths:
-      - 'scripts/realtime/audit_staging_runtime.sh'
+      - 'scripts/staging/audit_realtime_runtime.sh'
       - '.github/workflows/realtime-staging-runtime-audit.yml'
   workflow_dispatch:
 
@@ -23,4 +23,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Audit public staging frontend, SignalR and Redis stream
         shell: bash
-        run: bash scripts/realtime/audit_staging_runtime.sh
+        run: bash scripts/staging/audit_realtime_runtime.sh
