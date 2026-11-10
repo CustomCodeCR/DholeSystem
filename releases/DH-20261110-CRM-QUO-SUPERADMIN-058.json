@@ -1,0 +1,37 @@
+{
+  "releaseId": "DH-20261110-CRM-QUO-SUPERADMIN-058",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.17.2",
+  "date": "2026-11-10",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "from": "1.17.1",
+      "to": "1.17.2"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "from": "1.9.3",
+      "to": "1.9.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "from": "1.17.1",
+      "to": "1.17.2"
+    }
+  ],
+  "functionalChanges": [
+    "Only SuperAdmin/SuperAdministrador/SuperUsuario/SuperUser see the historical QUO migration panel.",
+    "Migration panel uses lazy-loaded native collapsed details accordion in both account quote and route tabs.",
+    "Pricing legacy catalog, candidate search, reconciliation and client name synchronization also enforce superadministrator claims server-side.",
+    "Ordinary linked quote history, routes and Pricing indicators remain accessible under existing scopes."
+  ],
+  "tests": [
+    "Pricing integration tests for privileged role variants and denial of Admin, Administrador and seller roles.",
+    "CRM Vue regression tests for administrator-only lazy accordion.",
+    "Preserve universal version checks, build and existing API contracts."
+  ],
+  "staging": "Pending develop CI and staging.",
+  "production": "No master merge until develop validation and user authorization.",
+  "rollback": "Coordinated revert of release commits; no data schema change."
+}
