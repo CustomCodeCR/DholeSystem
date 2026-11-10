@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.16.2] - 2026-11-09
+
+- PATCH DH-20261109-CRM-QUO-LINK-SYNC-056: sincronización de QUO históricas con identidad CRM y exclusión de las ya vinculadas del listado de pendientes.
+- Versionamiento coordinado DholeWeb 1.16.1, DholePricingService 1.9.2, DholeSystem 1.16.2. Sin cambios de esquema ni framework.
+
 ## [1.16.0] - 2026-11-09
 
 - MINOR: manifest global para el catálogo de QUO históricas en CRM y su vinculación humana confirmada a cuentas. No se modifican otros componentes.
