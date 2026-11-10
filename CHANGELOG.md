@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.1] - 2026-11-10
+
+- PATCH DH-20261110-CRM-QUO-LIVE-057: indicadores y rutas del CRM toman las QUO asociadas por ID a Pricing, la lista muestra pendientes reales y permite selección múltiple en filtros paginados.
+- Release coordinado DholeWeb 1.17.1, DholePricingService 1.9.3, DholeSystem 1.17.1; preserva infraestructura realtime y no modifica CustomCodeFramework.
+
 ## [1.17.0] - 2026-11-09 (candidate, RT crítico Auth/Notifications)
 
 - MINOR: release candidato DH-20261109-RT-CRITICAL-056. El NotificationsHub existente recibe eventos de seguridad del Auth Outbox para expulsión de sesión individual o usuario bloqueado y refresco de permisos en el navegador; sin nuevo hub ni cambio de framework.
