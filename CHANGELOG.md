@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.13] - 2026-11-10
+
+- PATCH DH-20261110-CRM-HIDE-TARIFARIO-067: DholeSystem 1.17.13 y Pricing 1.9.11 excluyen nombres de cliente histórico que contienen «TARIFARIO» de las QUO pendientes de vinculación del CRM, antes del conteo y la paginación; conservan datos e historial ya vinculado.
+- Sin cambios de Framework ni de infraestructura realtime; manifestación del release coordinado con Pricing, autorizado para promoción a master tras staging.
+
 ## [1.17.12] - 2026-11-10
 
 - PATCH DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: versión de ecosistema 1.17.12. Las solicitudes normales y de modificación recuperan identidad comercial CRM desde sus cuentas, mantienen vendedor y compatibilidad histórica. Componentes Web 1.17.12, Pricing 1.9.10, CRM 1.4.2.
