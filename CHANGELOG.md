@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.20] - 2026-11-10
+
+- PATCH DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: coordina DholeWeb 1.17.20 y DholeCRMService 1.4.6 para crear actividades comerciales históricas sin reprogramarlas ni enviar recordatorios retroactivos. Las actividades ya terminadas se guardan completadas.
+- Mantiene los releases de master hasta 1.17.19 y no modifica framework, Auth, SignalR ni esquemas.
+
 ## [1.17.19] - 2026-11-10
 
 - PATCH DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport coordinado del hotfix para recuperar en CRM el ejecutivo de cuentas y prospectos al enviar solicitudes normales, editar solicitudes de Ventas, solicitar modificaciones y guardar modificaciones LCL en Pricing. DholeWeb y DholeSystem 1.17.19; resto de servicios conservan sus versiones.
