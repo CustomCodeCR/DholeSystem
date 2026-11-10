@@ -2,17 +2,17 @@
   "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
   "date": "2026-11-10",
   "kind": "PATCH",
-  "ecosystemVersion": "1.17.5",
+  "ecosystemVersion": "1.17.8",
   "components": [
     {
       "repository": "CustomCodeCR/DholeWeb",
-      "previous": "1.17.4",
-      "next": "1.17.5"
+      "previous": "1.17.7",
+      "next": "1.17.8"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
-      "previous": "1.17.3",
-      "next": "1.17.5"
+      "previous": "1.17.5",
+      "next": "1.17.8"
     }
   ],
   "scope": [
@@ -21,9 +21,9 @@
     "Preserve original status enums in API, stored data, filters, KPI aggregation and all backend services."
   ],
   "validation": {
-    "ci": "Pending",
-    "staging": "Pending",
-    "production": "Master merge triggers automatic deployment after checks"
+    "ci": "Pending updated branch CI",
+    "staging": "Pending coordinated validation",
+    "production": "Requires master merge authorization"
   },
   "rollback": "Revert the Web and System release commits; no database changes."
 }
