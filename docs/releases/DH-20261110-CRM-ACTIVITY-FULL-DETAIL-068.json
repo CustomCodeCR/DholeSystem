@@ -1,0 +1,34 @@
+{
+  "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.17.14",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.17.13",
+      "next": "1.17.14"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.17.12",
+      "next": "1.17.14"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.4.2",
+      "next": "1.4.3"
+    }
+  ],
+  "scope": [
+    "Promote authenticated activity notes and followup relations to master",
+    "Keep existing Pricing/CRM identity update 1.17.12 and realtime release identity",
+    "Preserve the concurrently merged DholeSystem 1.17.13 / Pricing 1.9.11 TARIFARIO filtering release."
+  ],
+  "validation": {
+    "developCI": "passed",
+    "developStagingDeploy": "success",
+    "masterCI": "pending"
+  },
+  "schemaMigration": "none"
+}

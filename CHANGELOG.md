@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.14] - 2026-11-10
+
+- PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: integra a master la vista completa de actividades CRM, minutas y compromisos con enlace a actividad principal. Web 1.17.14, CRM 1.4.3 y DholeSystem 1.17.14. Preserva el release Pricing 1.9.11 / TARIFARIO de DholeSystem 1.17.13.
+- Sin migraciones de datos, framework ni infraestructura SignalR; versión desarrollada y verificada en staging sobre develop.
+
 ## [1.17.13] - 2026-11-10
 
 - PATCH DH-20261110-CRM-HIDE-TARIFARIO-067: DholeSystem 1.17.13 y Pricing 1.9.11 excluyen nombres de cliente histórico que contienen «TARIFARIO» de las QUO pendientes de vinculación del CRM, antes del conteo y la paginación; conservan datos e historial ya vinculado.
