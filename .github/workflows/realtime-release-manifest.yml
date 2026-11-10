@@ -34,7 +34,7 @@ jobs:
           assert manifest['ecosystemVersion']==version['ecosystemVersion']
           assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', manifest['ecosystemVersion'])
           assert manifest['releaseId']==version['releaseId']
-          assert manifest['candidateBranch'].startswith('feature/')
+          assert manifest['candidateBranch'].startswith(('feature/', 'fix/'))
           assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
           assert manifest['productionDeploymentAuthorized'] is False
           assert manifest['status'] in ('candidate-staging-not-deployed', 'develop-integrated-staging-f6-f8-pending', 'f9-http403-staging-hotfix-candidate')

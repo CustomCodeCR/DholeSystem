@@ -1,0 +1,26 @@
+name: Audit public staging realtime routing and stream
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'scripts/staging/audit_realtime_runtime.sh'
+      - '.github/workflows/realtime-staging-runtime-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-staging-realtime
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit public staging frontend, SignalR and Redis stream
+        shell: bash
+        run: bash scripts/staging/audit_realtime_runtime.sh
