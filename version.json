@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.19.2",
-  "ecosystemVersion": "1.19.2",
+  "version": "1.19.4",
+  "ecosystemVersion": "1.19.4",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-develop-ci-staging-pending",
-  "businessReleaseId": "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075"
+  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075"
 }
