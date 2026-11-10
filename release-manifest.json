@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-AGENDA-RECONCILED-070",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.19.0",
   "status": "candidate-staging-not-deployed",
@@ -177,6 +177,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -212,7 +213,11 @@
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: show full CRM activity details, saved notes and linked agreement followups without a database migration.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
     "Ocultar TARIFARIO en cotizaciones históricas pendientes de vincular; backend Pricing 1.9.11, total/paginación/selección coherentes.",
-    "DH-20261110-CRM-ADMIN-CALENDAR-069: Auth-verified administrator access to all CRM agendas and full policy-generated followup detail."
+    "DH-20261110-CRM-ADMIN-CALENDAR-069: Auth-verified administrator access to all CRM agendas and full policy-generated followup detail.",
+    {
+      "id": "DH-20261110-CRM-AGENDA-RECONCILED-070",
+      "summary": "CRM agenda collaboration: contacts, minutes, seller assignment, reversible commitments and origin activity"
+    }
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
