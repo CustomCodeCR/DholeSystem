@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.2] - 2026-11-10
+
+- PATCH DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: coordina DholeWeb 1.19.2, DholeCRMService 1.9.1 y DholeSystem 1.19.2 para crear actividades CRM con fechas pasadas. Las ya finalizadas quedan completadas y no generan notificaciones retroactivas; sus minutas, acuerdos y fechas originales permanecen guardados.
+- Sin migraciones, sin cambios en SignalR ni Auth. CI y staging requeridos antes de promover a producción.
+
 ## [1.19.1] - 2026-11-10
 
 - PATCH DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: corrección coordinada del ejecutivo comercial CRM para solicitudes normales/editadas y modificaciones de QUO con cuentas y prospectos. Versiona DholeWeb y DholeSystem 1.19.1; mantiene los demás servicios. Incluye validación por ID de CRM antes del envío para registros de prospectos históricos.
