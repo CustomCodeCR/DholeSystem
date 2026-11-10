@@ -12,7 +12,7 @@ on:
     branches: [develop, master]
     paths:
       - 'docs/realtime/**'
-      - 'scripts/realtime/**'
+      - 'scripts/realtime/verify-f7-chaos-gate.py'
       - '.github/workflows/realtime-f7-candidate.yml'
   workflow_dispatch:
 permissions:

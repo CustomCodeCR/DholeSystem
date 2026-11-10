@@ -15,7 +15,7 @@ on:
     branches: [develop, master]
     paths:
       - 'docs/realtime/**'
-      - 'scripts/realtime/**'
+      - 'scripts/realtime/verify-f8-formal-gate.py'
       - '.github/workflows/realtime-f8-formal-gate.yml'
   workflow_dispatch:
 permissions:
