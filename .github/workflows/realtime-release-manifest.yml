@@ -43,7 +43,7 @@ jobs:
           for component in manifest['components']:
               assert component['repository'].startswith('CustomCodeCR/Dhole')
               assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', component['version'])
-              assert component['mergeState'] in ('candidate-synced-with-develop-and-master-no-target-merge', 'merged-into-develop')
+              assert component['mergeState'] in ('candidate-synced-with-develop-and-master-no-target-merge', 'candidate-intermediate-only', 'merged-into-develop')
           assert (root/'CHANGELOG.md').is_file()
           doc=yaml.safe_load((root/'deploy/docker-compose.services.yml').read_text())
           assert 'notifications-api' in doc['services']

@@ -2,21 +2,21 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.11",
+  "ecosystemVersion": "1.17.12",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-agenda-client-executive-20261110-v2-develop",
+  "candidateBranch": "fix/modification-crm-identity-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.11",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.12",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,8 +39,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.11",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.12",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -71,8 +71,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.5",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.9.10",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.7.4",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.7.5",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
+    "status": "pending-ci-for-DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067",
     "checks": 0,
     "total": 0
   },
@@ -160,7 +160,8 @@
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
     "Production approval required; master auto-deploys on push.",
     "CRM account tax ID search: CI and staging proof required before master / production.",
-    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: compile, regression and staging tests required before master promotion; no direct production deploy."
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: compile, regression and staging tests required before master promotion; no direct production deploy.",
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -177,6 +178,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
+    "DholePricingService",
     "DholeCRMService"
   ],
   "changes": [
@@ -209,7 +211,8 @@
     "Reconciled status labels release 061 with Web 1.17.6/1.17.7 POE changes; global 1.17.8.",
     "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID.",
     "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: Client and commercial executive columns in CRM agenda via authorized calendar/labels resolver; no API, database or realtime changes.",
-    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: show full CRM activity details, saved notes and linked agreement followups without a database migration."
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: show full CRM activity details, saved notes and linked agreement followups without a database migration.",
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
