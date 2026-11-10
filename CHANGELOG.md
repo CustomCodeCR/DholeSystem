@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.16.0] - 2026-11-09
+
+- MINOR: manifest global para el catálogo de QUO históricas en CRM y su vinculación humana confirmada a cuentas. No se modifican otros componentes.
+- Release DH-20261109-CRM-LEGACY-QUO-CATALOG-055: DholeWeb 1.16.0, DholePricingService 1.9.0, DholeSystem 1.16.0. No desplegar en producción hasta validar staging.
+
 ## [1.15.0] - 2026-11-09
 
 - CRM/Pricing: identidad de cuentas/prospectos y conciliación confirmada del historial de cotizaciones.
