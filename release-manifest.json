@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.16.0",
+  "ecosystemVersion": "1.16.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.16.0",
+      "version": "1.16.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -49,7 +49,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.0",
+      "version": "1.9.2",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.16.0",
+      "version": "1.16.2",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
@@ -141,7 +141,8 @@
     "DholePricingService 1.5.8 REST contract unchanged",
     "Seller Pricing status backport: distinct active Pricing modification vs unpublished revision, delivered as isolated master candidate.",
     "QUO-269 master: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly.",
-    "Full historical QUO catalog in CRM; verified manual account linkage without changing commercial snapshots or stealing existing links."
+    "Full historical QUO catalog in CRM; verified manual account linkage without changing commercial snapshots or stealing existing links.",
+    "CRM-linked historical QUO updates current Pricing display name/executive; linked quotes removed from the unlinked-only migration listing."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -153,8 +154,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-quo-historical-catalog-20261109-master",
-  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "candidateBranch": "fix/crm-quo-link-sync-056-master",
+  "businessReleaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -162,6 +163,13 @@
       "DholePricingService": "1.9.0",
       "DholeSystem": "1.16.0"
     },
+    "status": "candidate-master-staging-pending"
+  },
+  "historicalQuoteLinkSyncRelease": {
+    "releaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
+    "web": "1.16.1",
+    "pricing": "1.9.2",
+    "ecosystem": "1.16.2",
     "status": "candidate-master-staging-pending"
   }
 }
