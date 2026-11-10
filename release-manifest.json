@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.8",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.17.9",
+  "status": "candidate-ci-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-quo-status-061-align-178-develop",
+  "candidateBranch": "fix/crm-account-taxid-search-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.8",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.9",
+      "mergeState": "feature-branch-pending-ci-staging",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,8 +39,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.8",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.9",
+      "mergeState": "feature-branch-pending-ci-staging",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,18 +135,18 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.7.2",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.7.3",
+      "mergeState": "feature-branch-pending-ci-staging",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "F6-F8-formal-staging-gates-not-passed-develop-user-exception",
+    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-SEARCH-064",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "intermediate-release-not-merged",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
@@ -158,7 +158,8 @@
     "Release 056: compile and test Auth, Notifications, Web, CI and full staging two-user WSS validation before develop/master.",
     "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
-    "Production approval required; master auto-deploys on push."
+    "Production approval required; master auto-deploys on push.",
+    "CRM account tax ID search: CI and staging proof required before master / production."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -173,6 +174,7 @@
     "historicalQuoteCatalog": "CI and staging verification pending"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -203,7 +205,8 @@
     "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization.",
     "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
     "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
-    "Reconciled status labels release 061 with Web 1.17.6/1.17.7 POE changes; global 1.17.8."
+    "Reconciled status labels release 061 with Web 1.17.6/1.17.7 POE changes; global 1.17.8.",
+    "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -254,7 +257,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-QUO-STATUS-061",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -353,5 +356,31 @@
     },
     "status": "candidate-staging-pending",
     "scope": "Display status enum translations in CRM without changing Pricing server state"
+  },
+  "crmAccountTaxIdSearchRelease": {
+    "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
+    "ecosystemVersion": "1.17.9",
+    "changes": [
+      "Search CRM accounts by commercial name, legal name, tax identifier (TaxId/NormalizedTaxId)",
+      "Normalized and formatted partial Cédula search for legacy accounts",
+      "Existing ACL, filtering, pagination, REST and realtime untouched"
+    ],
+    "versions": {
+      "DholeSystem": {
+        "previous": "1.17.8",
+        "new": "1.17.9"
+      },
+      "DholeWeb": {
+        "previous": "1.17.8",
+        "new": "1.17.9"
+      },
+      "DholeCRMService": {
+        "previous": "1.7.2",
+        "new": "1.7.3"
+      }
+    },
+    "mergeState": "intermediate-only",
+    "testStatus": "pending-CI-and-staging",
+    "productionDeploymentAuthorized": false
   }
 }

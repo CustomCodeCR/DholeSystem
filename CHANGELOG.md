@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.17.9] - 2026-11-10
+
+- PATCH DH-20261110-CRM-ACCOUNT-SEARCH-064: incorpora búsqueda por cédula en el listado de cuentas CRM, conservando alcance por usuario, filtros y paginación. Identificación normalizada o histórica, con o sin formato.
+- Versión global DholeSystem 1.17.9; DholeWeb 1.17.9; DholeCRMService 1.7.3. Release en ramas intermedias con CI y staging pendientes; no autoriza producción.
+
+
 ## [1.17.8] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-STATUS-061: actualización coordinada del manifiesto global a 1.17.8 tras integrar los releases 1.17.6 y 1.17.7 del frontend. Se conserva su funcionalidad de solicitudes FCL con múltiples POE y se incorporan las etiquetas de estado de QUO en CRM.
