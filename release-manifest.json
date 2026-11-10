@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.10",
+  "ecosystemVersion": "1.17.11",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.11",
+      "mergeState": "intermediate-branch-ci-staging-pending",
       "candidateSha": null
     },
     {
@@ -98,20 +98,20 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.1",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.4.2",
+      "mergeState": "intermediate-branch-ci-staging-pending",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.11",
+      "mergeState": "intermediate-branch-ci-staging-pending",
       "candidateSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+    "status": "pending-ci-for-DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
     "checks": 0,
     "total": 0
   },
@@ -124,7 +124,8 @@
     "Verify historical quote listing, CRM account authorization and linking in staging before production.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
     "Production approval required; master auto-deploys on push.",
-    "CRM account tax ID search: CI and staging proof required before master / production."
+    "CRM account tax ID search: CI and staging proof required before master / production.",
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: compile, regression and staging tests required before master promotion; no direct production deploy."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -134,8 +135,9 @@
     "historicalQuoteCatalog": "PR CI and staging validation pending"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -150,7 +152,8 @@
     "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
     "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
     "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID.",
-    "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: CRM agenda shows client and commercial executive via server-authorized calendar labels; frontend only."
+    "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: CRM agenda shows client and commercial executive via server-authorized calendar labels; frontend only.",
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: show full CRM activity details, saved notes and linked agreement followups without a database migration."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -163,7 +166,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "chore/crm-agenda-client-executive-065-master-refresh",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "businessReleaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -260,5 +263,20 @@
     },
     "status": "candidate-master-staging-pending",
     "productionAuthorized": false
+  },
+  "crmActivityFullDetailRelease": {
+    "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
+    "version": "1.17.11",
+    "components": {
+      "DholeWeb": "1.17.11",
+      "DholeCRMService": "1.4.2",
+      "DholeSystem": "1.17.11"
+    },
+    "schemaMigration": false,
+    "restEndpoints": [
+      "/api/crm/activities/{id}/commitments",
+      "/api/crm/followups/{id}/parent-activity"
+    ],
+    "status": "candidate-ci-staging-pending"
   }
 }
