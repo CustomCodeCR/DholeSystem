@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.2] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: manifiesto del ecosistema Dhole y DholeSystem 1.18.2 para la corrección del ejecutivo comercial CRM en modificaciones de Pricing. DholeWeb 1.18.2; los otros 14 componentes no modificados conservan su versión.
+- Candidato intermedio para develop, validación CI/staging pendiente y posterior promoción coordinada. Sin modificaciones de datos, contratos REST o SignalR, y sin desplegar producción.
+
 ## [1.18.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ADMIN-CALENDAR-NAV-071: actualiza navegación de DholeWeb a 1.18.1 para mostrar Actividades y Seguimientos a todos los administradores de Auth. Respeta la autorización servidor de agenda completa del release 1.18.0, los permisos de lectura/escritura, Auth y CRM existentes.
