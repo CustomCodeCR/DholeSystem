@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ADMIN-CALENDAR-069: administradores autorizados por Auth acceden a agendas de todos los vendedores y ven los seguimientos creados por políticas, con asunto, fechas, política e historial. Versiones Auth 1.6.0, CRM 1.8.0 y Web/System 1.18.0.
+- Sin migraciones ni cambios de infraestructura SignalR; CI y staging pendientes; no hay despliegue a producción.
+
 ## [1.17.13] - 2026-11-10
 
 - PATCH DH-20261110-CRM-HIDE-TARIFARIO-067: manifiesto global preparado para DholePricingService 1.9.11 y DholeSystem 1.17.13. Las cotizaciones pendientes en CRM no muestran nombres históricos con «TARIFARIO»; conteo, paginación y selección masiva se filtran desde Pricing antes de paginar.
