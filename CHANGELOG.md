@@ -1,10 +1,10 @@
 # Changelog
 
-## [1.15.5] - 2026-11-09
+## [1.16.1] - 2026-11-09
 
-- PATCH: coordinated CRM 1.7.1 and Pricing 1.8.2 owner ACL endpoints for collection-level realtime subscriptions to accounts, leads, rates and costs through existing NotificationsHub.
+- PATCH: coordinated CRM 1.7.1 and Pricing 1.9.1 owner ACL endpoints for collection-level realtime subscriptions to accounts, leads, rates and costs through existing NotificationsHub.
 - Publish sanitized list invalidations in transactional Outbox on CRM account/lead and Pricing rate/cost writes. Staging deploy workflows now load the current DholeSystem/develop Compose to avoid stale or production flags; no changes to CustomCodeFramework.
-- Version manifest covers all 16 components; client cross-user acceptance and module-wide coverage remain pending. Master/production untouched.
+- Preserves concurrent release 1.16.0. Version manifest covers all 16 components; client cross-user acceptance and module-wide coverage remain pending. Master/production untouched.
 
 
 ## [1.16.0] - 2026-11-09
