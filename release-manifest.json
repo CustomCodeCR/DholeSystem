@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.15.4",
+  "ecosystemVersion": "1.16.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/rt-connected-reconciliation-manifest-20261109",
+  "candidateBranch": "feature/crm-quo-historical-catalog-20261109-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.15.4",
+      "version": "1.16.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.15.3",
+      "version": "1.16.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.8.2",
+      "version": "1.9.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -146,29 +146,32 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "develop-16-merged-staging-f9-hotfix-pending",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
     "F8: Future-service registry/ACL/WSS enforcement evidence pending",
     "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master",
-    "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven"
+    "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven",
+    "CRM-LEGACY-QUO-CATALOG: verify full catalog, account access, link integrity and post-link CRM route history in staging before master"
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
     "semver": "All 16 candidate versions and CHANGELOGs updated for ecosystem 1.14.0; PR compile/version checks successful aside from explicitly deferred DholeSystem F6-F8 formal gates",
     "staging": "Develop code merged; successful staging deployment and runtime audit not yet verified",
-    "production": "No master merge authorized; production flags remain OFF",
+    "production": "Production not authorized until staging validation",
     "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35.",
     "f9Hotfix": "Gateway F9 curl probe candidate, staged deploy not yet verified; DholeSystem prior curl /health returned 200, urllib F9 returned 403",
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
     "sellerPricingStatus": "Source patch in isolated branch; build, regression and postdeploy staging require CI proof.",
-    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation"
+    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
+    "historicalQuoteCatalog": "CI and staging verification pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -190,7 +193,8 @@
         "DholeCRMService"
       ]
     },
-    "Seller Open DH-20261109-SELLER-OPEN-DECISION-054: published revision decision with deferred PDF when rate header contains unpublished update."
+    "Seller Open DH-20261109-SELLER-OPEN-DECISION-054: published revision decision with deferred PDF when rate header contains unpublished update.",
+    "CRM quote migration: server-paginated full QUO historical catalog with explicit account ownership confirmation and no commercial data mutation"
   ],
   "stagingValidation": "pending-f9-ws-handshake-hotfix",
   "f6F7F8": {
@@ -231,5 +235,15 @@
     "productionDeploymentAuthorized": false,
     "authenticatedCrossUserDeliveryVerified": false,
     "streamConsumerLagPendingVerification": true
-  }
+  },
+  "historicalQuoteCatalogRelease": {
+    "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+    "components": {
+      "DholeWeb": "1.16.0",
+      "DholePricingService": "1.9.0",
+      "DholeSystem": "1.16.0"
+    },
+    "status": "candidate-develop-staging-pending"
+  },
+  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055"
 }

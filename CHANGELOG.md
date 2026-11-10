@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.16.0] - 2026-11-09
+
+- MINOR: catálogo completo de QUO históricas consultable desde el CRM, con vinculación verificada a cuentas existentes y separación estricta de clientes ya asociados.
+- Release coordinado DH-20261109-CRM-LEGACY-QUO-CATALOG-055: DholeWeb 1.16.0, DholePricingService 1.9.0; demás componentes sin cambios. Staging y pruebas obligatorios antes de promoción a master.
+
 ## [1.15.4] - 2026-11-09
 
 - PATCH: paired with DholeWeb 1.15.3 to restore bounded owner REST reconciliation while the NotificationsHub WebSocket is connected, covering missed/reordered catalog, costs, rate and CRM invalidations without overwriting dirty forms.
