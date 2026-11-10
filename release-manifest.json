@@ -25,7 +25,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.5",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
@@ -99,14 +99,14 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.4.1",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.5",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
   ],
@@ -135,10 +135,9 @@
     "crmAccountIdentitySearch": "CI and staging pending; account visibility remains scoped; no schema or realtime contract changes"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
-    "DholePricingService",
-    "DholeSystem",
-    "DholeCRMService"
+    "DholeSystem"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
