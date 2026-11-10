@@ -25,7 +25,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.11",
-      "mergeState": "intermediate-branch-ci-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
@@ -99,14 +99,14 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.4.2",
-      "mergeState": "intermediate-branch-ci-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.11",
-      "mergeState": "intermediate-branch-ci-staging-pending",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
   ],
