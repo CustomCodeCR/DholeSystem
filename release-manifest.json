@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "releaseId": "DH-20261110-CRM-AGENDA-COLLABORATION-066",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.10",
+  "ecosystemVersion": "1.18.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,8 +24,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.18.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null
     },
     {
@@ -98,15 +98,15 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.1",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.5.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.10",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.18.0",
+      "mergeState": "feature-branch-not-merged",
       "candidateSha": null
     }
   ],
@@ -135,6 +135,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -162,7 +163,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "chore/crm-agenda-client-executive-065-master-refresh",
+  "candidateBranch": "feature/crm-agenda-collaboration-20261110-master",
   "businessReleaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -260,5 +261,6 @@
     },
     "status": "candidate-master-staging-pending",
     "productionAuthorized": false
-  }
+  },
+  "realtimeReleaseId": "rt-20261107-01"
 }
