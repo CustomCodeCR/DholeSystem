@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.17] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: backport aislado desde develop de la corrección al cargar el ejecutivo comercial CRM durante solicitudes de modificación de Pricing LCL (pantalla 5). Metadatos de DholeSystem 1.17.17, DholeWeb 1.17.17 y manifiesto central actualizados; los otros 14 servicios conservan sus versiones.
+- Sin migraciones, cambios REST ni infraestructura SignalR. Integración master condicionada a validaciones CI/staging; cambio solicitado explícitamente para master.
+
 ## [1.17.14] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: integra a master la vista completa de actividades CRM, minutas y compromisos con enlace a actividad principal. Web 1.17.14, CRM 1.4.3 y DholeSystem 1.17.14. Preserva el release Pricing 1.9.11 / TARIFARIO de DholeSystem 1.17.13.
