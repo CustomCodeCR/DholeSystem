@@ -180,9 +180,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService",
-    "DholeAuthService"
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
