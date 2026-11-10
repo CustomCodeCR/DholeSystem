@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.15.4",
-  "ecosystemVersion": "1.15.4",
-  "releaseId": "rt-20261107-01",
-  "releaseStatus": "staging-connected-realtime-rest-recovery"
+  "version": "1.16.0",
+  "ecosystemVersion": "1.16.0",
+  "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "releaseStatus": "candidate-develop-staging-pending"
 }
