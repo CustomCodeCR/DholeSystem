@@ -1,0 +1,21 @@
+{
+  "releaseId": "DH-20261110-CRM-QUO-LIVE-057",
+  "version": "1.17.1",
+  "components": {
+    "DholeWeb": "1.17.1",
+    "DholePricingService": "1.9.3",
+    "DholeSystem": "1.17.1"
+  },
+  "changes": [
+    "Use official Pricing RateHeaders for CRM quote indicators and account route previews; CRM opportunities no longer determine these displays.",
+    "Show linked QUO in the account quote history; fetch each quote route only for the current authorized account.",
+    "Select all current-page items or all search-filtered unlinked quotes across pages (up to 1000) with confirmation.",
+    "CRM link persists current account name and assigned executive to Pricing header through the preceding 056 change retained in the master promotion."
+  ],
+  "validation": {
+    "CI": "Must pass before develop merge",
+    "staging": "Automatic after develop merge; inspect run status",
+    "production": "Master push automatically deploys. Requires explicit production authorization."
+  },
+  "rollback": "Revert coordinated release commits; no database schema migration; existing account links remain unchanged."
+}

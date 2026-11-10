@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.17.1] - 2026-11-10
+
+- PATCH DH-20261110-CRM-QUO-LIVE-057: indicadores y rutas del CRM toman las QUO asociadas por ID a Pricing, la lista muestra pendientes reales y permite selección múltiple en filtros paginados.
+- Release coordinado DholeWeb 1.17.1, DholePricingService 1.9.3, DholeSystem 1.17.1; preserva infraestructura realtime y no modifica CustomCodeFramework.
+
+## [1.16.2] - 2026-11-09
+
+- PATCH DH-20261109-CRM-QUO-LINK-SYNC-056: sincronización de QUO históricas con identidad CRM y exclusión de las ya vinculadas del listado de pendientes.
+- Versionamiento coordinado DholeWeb 1.16.1, DholePricingService 1.9.2, DholeSystem 1.16.2. Sin cambios de esquema ni framework.
+
 ## [1.16.0] - 2026-11-09
 
 - MINOR: manifest global para el catálogo de QUO históricas en CRM y su vinculación humana confirmada a cuentas. No se modifican otros componentes.

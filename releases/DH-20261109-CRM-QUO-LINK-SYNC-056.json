@@ -1,0 +1,34 @@
+{
+  "releaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
+  "ecosystemVersion": "1.16.2",
+  "date": "2026-11-09",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.16.0",
+      "new": "1.16.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previous": "1.9.1",
+      "new": "1.9.2"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.16.1",
+      "new": "1.16.2"
+    }
+  ],
+  "scope": [
+    "Show only unlinked historic QUO in migration list, keeping assigned quotes in CRM account history.",
+    "Persist CRM account display name, executive and regenerated RateName on human-confirmed historical quote association.",
+    "Offer explicit synchronization for quotes already associated before this release.",
+    "Preserve commercial prices, statuses, revisions and immutable published quote snapshots; no schema change."
+  ],
+  "validation": {
+    "ci": "Pending",
+    "staging": "Pending",
+    "production": "Requires authorization and passing staging checks"
+  },
+  "rollback": "Revert coordinated release commits in Pricing, Web, and System; existing CRM account links are not removed automatically."
+}
