@@ -116,7 +116,7 @@
     "total": 0
   },
   "mergeState": "feature-branch-not-merged",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -259,6 +259,6 @@
       "DholeSystem": "1.17.10"
     },
     "status": "candidate-master-staging-pending",
-    "productionAuthorized": true
+    "productionAuthorized": false
   }
 }
