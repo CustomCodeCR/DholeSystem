@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.2] - 2026-11-10
+
+- PATCH DH-20261110-CRM-QUO-SUPERADMIN-058: formulario de vinculación de QUO históricas colapsable, oculto a perfiles ordinarios y protegido por autorización de superadministración en Pricing.
+- Release coordinado DholeWeb 1.17.2, DholePricingService 1.9.4 y DholeSystem 1.17.2. No se cambia el framework ni se introducen migraciones de datos.
+
 ## [1.17.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-LIVE-057: indicadores y rutas del CRM toman las QUO asociadas por ID a Pricing, la lista muestra pendientes reales y permite selección múltiple en filtros paginados.
