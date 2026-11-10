@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.14] - 2026-11-10
+
+- PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: integra a master la vista completa de actividades CRM, minutas y compromisos con enlace a actividad principal. Web 1.17.14 y CRM 1.4.3. Conserva las correcciones 1.17.12 de Pricing/CRM y respeta la versión 1.17.13 ya existente en develop.
+- Release sin cambios de base de datos, framework ni SignalR. Despliegues de staging de la implementación original completados y pruebas de release master requeridas.
+
 ## [1.17.12] - 2026-11-10
 
 - PATCH DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: versión de ecosistema 1.17.12. Las solicitudes normales y de modificación recuperan identidad comercial CRM desde sus cuentas, mantienen vendedor y compatibilidad histórica. Componentes Web 1.17.12, Pricing 1.9.10, CRM 1.4.2.
