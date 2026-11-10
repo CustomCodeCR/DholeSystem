@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.17.5",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.17.4",
+      "next": "1.17.5"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.17.3",
+      "next": "1.17.5"
+    }
+  ],
+  "scope": [
+    "Translate commercialStatusSnapshot in CRM account quotation history, recent quote summary, and both administrative legacy link tables.",
+    "Use same labels as Pricing for known statuses; localize ES/EN and normalize historical plural statuses.",
+    "Preserve original status enums in API, stored data, filters, KPI aggregation and all backend services."
+  ],
+  "validation": {
+    "ci": "Pending",
+    "staging": "Pending",
+    "production": "Master merge triggers automatic deployment after checks"
+  },
+  "rollback": "Revert the Web and System release commits; no database changes."
+}
