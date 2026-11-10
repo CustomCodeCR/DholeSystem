@@ -1,4 +1,27 @@
 services:
+  # Catalog realtime pilot enabled in staging ONLY; production stays fail-closed.
+  notifications-api:
+    environment:
+      Features__UniversalRealtimeEnabled: "true"
+      Realtime__NotificationsHostEnabled: "true"
+      Realtime__DeploymentTarget: "staging"
+      Realtime__ProductionApproved: "false"
+      Realtime__ReleaseId: "rt-20261107-01"
+
+  config-api:
+    environment:
+      Features__UniversalRealtimeEnabled: "true"
+      Realtime__Outbox__Enabled: "true"
+      Realtime__BatchApproved: "true"
+      Realtime__ReleaseId: "rt-20261107-01"
+
+  config-workers:
+    environment:
+      Features__UniversalRealtimeEnabled: "true"
+      Realtime__Outbox__Enabled: "true"
+      Realtime__BatchApproved: "true"
+      Realtime__ReleaseId: "rt-20261107-01"
+
   api-gateway:
     environment:
       CONTENT_HTTP_URL: http://content-api:8080

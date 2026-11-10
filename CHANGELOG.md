@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.15.2] - 2026-11-09
+
+- PATCH: staging-only NotificationsHub catalog-list realtime pilot. Enable Config transactional outbox, Notifications resource host and browser catalog refresh in staging Compose; preserve production fail-closed feature flags.
+- Coordinated DholeConfigService 1.4.1, DholeNotificationsService 1.4.1, DholeWeb 1.15.2, DholeSystem 1.15.2; no framework changes. Two-user WSS functional validation remains pending.
+
+
 ## [1.15.1] - 2026-11-09 (Seller Open decision)
 
 - PATCH DH-20261109-SELLER-OPEN-DECISION-054: Web 1.15.1 y PricingService 1.8.1 habilitan Aceptar/Rechazar sobre cotizaciones Abiertas con revisión publicada, validando permisos, aprobación y ausencia de trabajo activo en Pricing.
