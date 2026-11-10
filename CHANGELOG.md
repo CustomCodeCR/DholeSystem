@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.19] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport coordinado del hotfix para recuperar en CRM el ejecutivo de cuentas y prospectos al enviar solicitudes normales, editar solicitudes de Ventas, solicitar modificaciones y guardar modificaciones LCL en Pricing. DholeWeb y DholeSystem 1.17.19; resto de servicios conservan sus versiones.
+- Aislado del resto de develop 1.19.x; sin cambios REST, SignalR o migraciones. CI y staging antes de la integración en master; autorización del usuario para promocionar a master.
+
 ## [1.17.14] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: integra a master la vista completa de actividades CRM, minutas y compromisos con enlace a actividad principal. Web 1.17.14, CRM 1.4.3 y DholeSystem 1.17.14. Preserva el release Pricing 1.9.11 / TARIFARIO de DholeSystem 1.17.13.
