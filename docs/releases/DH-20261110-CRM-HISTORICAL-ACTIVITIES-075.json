@@ -1,0 +1,30 @@
+{
+  "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.19.4",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.19.2",
+      "next": "1.19.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.19.3",
+      "next": "1.19.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.9.0",
+      "next": "1.9.1"
+    }
+  ],
+  "scope": "Backdated activities with correct Completed status, original occurredAt and no retroactive notifications.",
+  "schemaMigration": false,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "production": "not deployed"
+}

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.19.2",
+  "ecosystemVersion": "1.19.4",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.19.2",
+      "version": "1.19.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.19.2",
+      "version": "1.19.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.9.0",
+      "version": "1.9.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-ADMIN-CALENDAR-069",
+    "status": "pending-ci-for-DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
     "checks": 0,
     "total": 0
   },
@@ -183,7 +183,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -221,7 +222,8 @@
     "DH-20261110-CRM-ADMIN-CALENDAR-069: Auth-verified administrator access to all CRM agendas and full policy-generated followup detail.",
     "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: cargar ejecutivo vigente de CRM al guardar solicitudes de modificación, sin depender del selector en pantalla 3.",
     "DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: validar ejecutivo CRM de prospectos y cuentas en nuevas solicitudes, ediciones de solicitud y modificaciones antes de guardar.",
-    "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075: prospectos CRM con ejecutivo asignado en solicitudes de modificación iniciadas por vendedor reciben validación antes de submitSellerModification, sin cambiar permisos."
+    "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075: prospectos CRM con ejecutivo asignado en solicitudes de modificación iniciadas por vendedor reciben validación antes de submitSellerModification, sin cambiar permisos.",
+    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -272,7 +274,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075",
+  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -456,5 +458,16 @@
     "baseRelease": "DH-20261110-CRM-ADMIN-CALENDAR-069",
     "description": "Admin CRM activity and followup navigation, retaining Auth/CRM API permissions",
     "status": "candidate-ci-staging-pending"
+  },
+  "crmHistoricalActivityRelease": {
+    "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+    "version": "1.19.4",
+    "components": {
+      "DholeWeb": "1.19.4",
+      "DholeSystem": "1.19.4",
+      "DholeCRMService": "1.9.1"
+    },
+    "schemaMigration": false,
+    "status": "candidate-staging-queue"
   }
 }
