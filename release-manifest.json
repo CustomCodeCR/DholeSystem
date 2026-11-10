@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
+  "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.3",
+  "ecosystemVersion": "1.17.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.3",
+      "version": "1.17.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -98,14 +98,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.3",
+      "version": "1.17.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
@@ -123,18 +123,20 @@
     "Promotion to master is gated by staging verification",
     "Verify historical quote listing, CRM account authorization and linking in staging before production.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
-    "Production approval required; master auto-deploys on push."
+    "Production approval required; master auto-deploys on push.",
+    "CRM account identity search: run CRM API integration / Web regression CI and verify permitted accounts in staging before promotion."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
     "staging": "Pending staging",
     "production": "master release requires staging validation",
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
-    "historicalQuoteCatalog": "PR CI and staging validation pending"
+    "historicalQuoteCatalog": "PR CI and staging validation pending",
+    "crmAccountIdentitySearch": "CI and staging pending; account visibility remains scoped; no schema or realtime contract changes"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -147,7 +149,8 @@
     "CRM-linked historical QUO updates current Pricing display name/executive; linked quotes removed from the unlinked-only migration listing.",
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
     "Historical QUO migration hidden in lazy superadministrator accordion and protected by server-side privileged role claims.",
-    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas."
+    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
+    "CRM accounts name, legal name and formatted/partial TaxId search on authorized SQL query before count/pagination (DH-20261110-CRM-ACCOUNT-SEARCH-061)."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -159,8 +162,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/pricing-crm-executive-guid-059-master",
-  "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+  "candidateBranch": "feature/crm-account-identity-search-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -212,5 +215,18 @@
       "No regression Castro Fallas / REST / realtime"
     ],
     "rollback": "Revert release PRs; no database migration."
+  },
+  "crmAccountIdentitySearchRelease": {
+    "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
+    "components": {
+      "DholeSystem": "1.17.5",
+      "DholeWeb": "1.17.5",
+      "DholeCRMService": "1.4.1"
+    },
+    "ecosystemVersion": "1.17.5",
+    "status": "candidate-staging-pending",
+    "branch": "feature/crm-account-identity-search-20261110-master",
+    "productionDeploymentAuthorized": false,
+    "rollback": "Revert isolated PRs; no data migration"
   }
 }
