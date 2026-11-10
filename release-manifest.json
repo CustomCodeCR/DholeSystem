@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.8.1",
+      "version": "1.8.2",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.7.0",
+      "version": "1.7.1",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -170,7 +170,9 @@
     "DholeSystem",
     "DholeWeb",
     "DholeConfigService",
-    "DholeNotificationsService"
+    "DholeNotificationsService",
+    "DholePricingService",
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -215,11 +217,11 @@
   ],
   "stagingCatalogPilot": {
     "enabledOnlyInStaging": true,
-    "scope": "config.catalog-list",
+    "scope": "config.catalog-list,pricing.cost-list,pricing.rate-list,crm.accountlist,crm.leadlist",
     "hub": "/api/notifications/hub",
     "catalogSignalGuid": "00000000-0000-4000-8000-000000000042",
     "authorizedWsEndToEndValidated": false,
     "productionApproved": false,
-    "notes": "E2E two-user test pending: User A creates port; User B options refresh without reload"
+    "notes": "Read-only owner ACL per collection; CRM visibility filtered by user. Two-session E2E for Config, Pricing and CRM pending; other entities require additional producer/list bindings."
   }
 }
