@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.17.13",
-  "ecosystemVersion": "1.17.13",
+  "version": "1.18.0",
+  "ecosystemVersion": "1.18.0",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-develop-ci-staging-pending",
-  "businessReleaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067"
+  "businessReleaseId": "DH-20261110-CRM-ADMIN-CALENDAR-069"
 }
