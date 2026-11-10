@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+  "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.17.3",
   "status": "candidate-staging-not-deployed",
@@ -25,7 +25,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.3",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
@@ -50,7 +50,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.9.5",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
     {
@@ -106,7 +106,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.3",
-      "mergeState": "candidate-pending-ci-and-staging",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
   ],
@@ -159,7 +159,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-legacy-link-superadmins-058-master",
+  "candidateBranch": "fix/pricing-crm-executive-guid-059-master",
   "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
