@@ -1,0 +1,35 @@
+{
+  "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.17.11",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.17.10",
+      "next": "1.17.11"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.17.10",
+      "next": "1.17.11"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.7.3",
+      "next": "1.7.4"
+    }
+  ],
+  "scope": [
+    "Show all persisted activity details and history including note text.",
+    "Link generated agreements to their original activity via authorized read-only endpoints.",
+    "Preserve SignalR/Redis, active reminders, account security and existing REST endpoints."
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending",
+    "production": "not authorized"
+  },
+  "status": "candidate",
+  "migration": "none"
+}
