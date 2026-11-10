@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.18",
+  "ecosystemVersion": "1.17.19",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.18",
+      "version": "1.17.19",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     },
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.18",
+      "version": "1.17.19",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     }
@@ -289,10 +289,10 @@
   },
   "crmHistoricalActivityRelease": {
     "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
-    "version": "1.17.18",
+    "version": "1.17.19",
     "components": {
-      "DholeSystem": "1.17.18",
-      "DholeWeb": "1.17.18",
+      "DholeSystem": "1.17.19",
+      "DholeWeb": "1.17.19",
       "DholeCRMService": "1.4.6"
     },
     "dbMigration": false,
