@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-agenda-client-executive-20261110-v2-develop",
+  "candidateBranch": "feature/crm-agenda-collaboration-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -394,5 +394,6 @@
     "status": "candidate-develop-staging-pending",
     "scope": "Agenda and followups client and commercial executive names; frontend only",
     "productionAuthorized": false
-  }
+  },
+  "realtimeReleaseId": "rt-20261107-01"
 }
