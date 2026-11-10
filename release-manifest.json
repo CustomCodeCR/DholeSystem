@@ -161,7 +161,9 @@
     "Production approval required; master auto-deploys on push.",
     "CRM account tax ID search: CI and staging proof required before master / production.",
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: compile, regression and staging tests required before master promotion; no direct production deploy.",
-    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion."
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
+    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: probar modificación LCL vinculada a CRM por ID, test y build antes de promoción a master.",
+    "No desplegar producción sin autorización expresa."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -173,12 +175,13 @@
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
     "sellerPricingStatus": "Source patch in isolated branch; build, regression and postdeploy staging require CI proof.",
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
-    "historicalQuoteCatalog": "CI and staging verification pending"
+    "historicalQuoteCatalog": "CI and staging verification pending",
+    "pricingModificationCrmOwner": "CI y staging pendientes"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeCRMService",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -214,10 +217,7 @@
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
     "Ocultar TARIFARIO en cotizaciones históricas pendientes de vincular; backend Pricing 1.9.11, total/paginación/selección coherentes.",
     "DH-20261110-CRM-ADMIN-CALENDAR-069: Auth-verified administrator access to all CRM agendas and full policy-generated followup detail.",
-    {
-      "id": "DH-20261110-CRM-AGENDA-RECONCILED-070",
-      "summary": "CRM agenda collaboration: contacts, minutes, seller assignment, reversible commitments and origin activity"
-    }
+    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: cargar ejecutivo vigente de CRM al guardar solicitudes de modificación, sin depender del selector en pantalla 3."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
