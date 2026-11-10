@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ADMIN-CALENDAR-069: administradores verificados en Auth ven agendas de todos los usuarios, incluyendo detalle de políticas, tareas y minutas registradas. Versiones Auth 1.3.0, CRM 1.5.0 y Web/System 1.18.0.
+- Sin migraciones ni modificaciones de infraestructura realtime; CI y staging pendientes, producción no autorizada para este release.
+
 ## [1.17.14] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: integra a master la vista completa de actividades CRM, minutas y compromisos con enlace a actividad principal. Web 1.17.14, CRM 1.4.3 y DholeSystem 1.17.14. Preserva el release Pricing 1.9.11 / TARIFARIO de DholeSystem 1.17.13.
