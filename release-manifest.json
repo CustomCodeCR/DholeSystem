@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.12",
+  "ecosystemVersion": "1.17.14",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.12",
+      "version": "1.17.14",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     },
@@ -98,20 +98,20 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.12",
+      "version": "1.17.14",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067",
+    "status": "pending-ci-for-DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
     "checks": 0,
     "total": 0
   },
@@ -137,7 +137,6 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService",
     "DholeCRMService"
   ],
   "changes": [
@@ -154,7 +153,8 @@
     "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
     "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID.",
     "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: CRM agenda shows client and commercial executive via server-authorized calendar labels; frontend only.",
-    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable."
+    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: CRM complete activity details and linked commitments; latest master releases preserved."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -167,7 +167,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "fix/modification-crm-identity-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065",
+  "businessReleaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -264,5 +264,16 @@
     },
     "status": "candidate-master-staging-pending",
     "productionAuthorized": false
+  },
+  "crmActivityFullDetailRelease": {
+    "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
+    "version": "1.17.14",
+    "components": {
+      "DholeWeb": "1.17.14",
+      "DholeCRMService": "1.4.3",
+      "DholeSystem": "1.17.14"
+    },
+    "status": "validated-develop-staging-master-ci-pending",
+    "migration": false
   }
 }
