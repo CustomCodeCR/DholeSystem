@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.2] - 2026-11-10
+
+- PATCH DH-20261110-CRM-QUO-SUPERADMIN-058: interfaz de vinculación QUO histórica colapsable y visible solo a superadministración; Pricing protege las acciones de migración a nivel servidor.
+- Release coordinado DholeWeb 1.17.2, DholePricingService 1.9.4 y DholeSystem 1.17.2. Ningún cambio en framework, migraciones o servicios ajenos.
+
 ## [1.17.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-LIVE-057: indicadores y rutas del CRM toman las QUO asociadas por ID a Pricing, la lista muestra pendientes reales y permite selección múltiple en filtros paginados.
