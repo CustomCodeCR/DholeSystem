@@ -1,0 +1,28 @@
+{
+  "releaseId": "DH-20261110-CRM-ADMIN-CALENDAR-NAV-071",
+  "date": "2026-11-10",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.18.1",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.18.0",
+      "next": "1.18.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.18.0",
+      "next": "1.18.1"
+    }
+  ],
+  "unchanged": [
+    "DholeAuthService",
+    "DholeCRMService"
+  ],
+  "scope": "Surface the full CRM calendar and activity detail navigation for all verified administrators; only read access is expanded by base release 069.",
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
+  }
+}

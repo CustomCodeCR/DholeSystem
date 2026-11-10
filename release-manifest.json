@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.18.0",
+  "ecosystemVersion": "1.18.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.18.0",
+      "version": "1.18.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.18.0",
+      "version": "1.18.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -176,10 +176,8 @@
     "historicalQuoteCatalog": "CI and staging verification pending"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholeCRMService",
-    "DholeAuthService"
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -265,7 +263,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-ADMIN-CALENDAR-069",
+  "businessReleaseId": "DH-20261110-CRM-ADMIN-CALENDAR-NAV-071",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -438,5 +436,16 @@
     },
     "status": "candidate-ci-staging-pending",
     "productionDeploymentAuthorized": false
+  },
+  "crmAdminCalendarNavigationRelease": {
+    "releaseId": "DH-20261110-CRM-ADMIN-CALENDAR-NAV-071",
+    "version": "1.18.1",
+    "components": {
+      "DholeWeb": "1.18.1",
+      "DholeSystem": "1.18.1"
+    },
+    "baseRelease": "DH-20261110-CRM-ADMIN-CALENDAR-069",
+    "description": "Admin CRM activity and followup navigation, retaining Auth/CRM API permissions",
+    "status": "candidate-ci-staging-pending"
   }
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.18.1] - 2026-11-10
+
+- PATCH DH-20261110-CRM-ADMIN-CALENDAR-NAV-071: actualiza navegación de DholeWeb a 1.18.1 para mostrar Actividades y Seguimientos a todos los administradores de Auth. Respeta la autorización servidor de agenda completa del release 1.18.0, los permisos de lectura/escritura, Auth y CRM existentes.
+- DholeSystem 1.18.1, resto de servicios sin cambio de versión; CI y staging pendientes.
+
 ## [1.18.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ADMIN-CALENDAR-069: administradores autorizados por Auth acceden a agendas de todos los vendedores y ven los seguimientos creados por políticas, con asunto, fechas, política e historial. Versiones Auth 1.6.0, CRM 1.8.0 y Web/System 1.18.0.
