@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.2",
+  "ecosystemVersion": "1.17.3",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-legacy-link-superadmins-058-develop",
+  "candidateBranch": "fix/pricing-crm-executive-guid-059-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.4",
+      "version": "1.9.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -156,7 +156,9 @@
     "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven",
     "CRM-LEGACY-QUO-CATALOG: verify full catalog, account access, link integrity and post-link CRM route history in staging before master",
     "Release 056: compile and test Auth, Notifications, Web, CI and full staging two-user WSS validation before develop/master.",
-    "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit."
+    "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit.",
+    "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
+    "Production approval required; master auto-deploys on push."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -199,7 +201,8 @@
     "CRM quote migration: server-paginated full QUO historical catalog with explicit account ownership confirmation and no commercial data mutation",
     "CRM-linked historical QUO updates RateHeader client/executive names, and disappears from the unlinked-only migration list after saving.",
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
-    "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization."
+    "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization.",
+    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -250,7 +253,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-QUO-SUPERADMIN-058",
+  "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -322,5 +325,23 @@
       "DholeSystem": "1.17.2"
     },
     "status": "candidate-staging-pending"
+  },
+  "crmExecutivePayloadFixRelease": {
+    "releaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+    "components": {
+      "DholeWeb": "1.17.3",
+      "DholePricingService": "1.9.5",
+      "DholeSystem": "1.17.3"
+    },
+    "status": "candidate-ci-staging-pending",
+    "productionDeploymentAuthorized": false,
+    "branch": "develop",
+    "requiresStaging": [
+      "Pricing save SPOT with CRM account + Auth Vendedor owner",
+      "Pricing edit existing quote with selected CRM account owner",
+      "Request payload includes executiveUserId and executiveName",
+      "No regression Castro Fallas / REST / realtime"
+    ],
+    "rollback": "Revert release PRs; no database migration."
   }
 }
