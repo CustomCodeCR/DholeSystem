@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.8] - 2026-11-10
+
+- PATCH DH-20261110-CRM-QUO-STATUS-061: actualización coordinada del manifiesto global a 1.17.8 tras integrar los releases 1.17.6 y 1.17.7 del frontend. Se conserva su funcionalidad de solicitudes FCL con múltiples POE y se incorporan las etiquetas de estado de QUO en CRM.
+- DholeWeb 1.17.8 y DholeSystem 1.17.8; los demás componentes mantienen sus versiones actuales, sin cambios de datos, APIs o framework.
+
 ## [1.17.5] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-STATUS-061: traducción de estados comerciales de las QUO vinculadas en las vistas CRM, reutilizando la presentación estándar de Pricing sin cambiar enum, datos históricos ni cálculos.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.5",
+  "ecosystemVersion": "1.17.8",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.5",
+      "version": "1.17.8",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.5",
+      "version": "1.17.8",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
@@ -115,7 +115,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "feature-branch-not-merged",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -147,7 +147,8 @@
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
     "Historical QUO migration hidden in lazy superadministrator accordion and protected by server-side privileged role claims.",
     "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
-    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes."
+    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
+    "Reconciled status labels release 061 with Web 1.17.6/1.17.7 POE changes; global 1.17.8."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -159,7 +160,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-quo-status-labels-061-master",
+  "candidateBranch": "fix/crm-quo-status-061-align-178-master",
   "businessReleaseId": "DH-20261110-CRM-QUO-STATUS-061",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -216,10 +217,10 @@
   "crmQuoteStatusLocalizationRelease": {
     "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
     "components": {
-      "DholeWeb": "1.17.5",
-      "DholeSystem": "1.17.5"
+      "DholeWeb": "1.17.8",
+      "DholeSystem": "1.17.8"
     },
     "status": "candidate-staging-pending",
-    "scope": "CRM-linked quote status label localization, no backend changes"
+    "scope": "Display status enum translations in CRM without changing Pricing server state"
   }
 }
