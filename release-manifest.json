@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.17.5",
   "status": "candidate-staging-not-deployed",
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.17.5",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -40,7 +40,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.17.5",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -136,7 +136,7 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.7.3",
-      "mergeState": "candidate-feature-branch-unmerged",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -175,10 +175,9 @@
     "crmAccountIdentitySearch": "CI and staging pending; account visibility remains scoped; no schema or realtime contract changes"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeWeb",
-    "DholePricingService",
-    "DholeSystem",
-    "DholeCRMService"
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
