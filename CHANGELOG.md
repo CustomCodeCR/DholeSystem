@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.9] - 2026-11-10
+
+- PATCH DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-064: actualización del manifiesto global de Dhole a 1.17.9, coordinada con DholeWeb 1.17.9 para mostrar el Cliente y el Ejecutivo comercial en Agenda y seguimientos.
+- DholeSystem actualiza únicamente metadatos de release; no se alteran endpoints, esquemas, framework, SignalR ni código de negocio. Los otros servicios conservan sus versiones registradas.
+
 ## [1.17.5] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-STATUS-061: traducción de estados comerciales de las QUO vinculadas en las vistas CRM, reutilizando la presentación estándar de Pricing sin cambiar enum, datos históricos ni cálculos.
