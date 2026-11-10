@@ -127,7 +127,8 @@
     "CRM account tax ID search: CI and staging proof required before master / production.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "Verificar CI y staging de la corrección de solicitudes de modificación LCL antes de promocionar producción.",
-    "Validar en staging solicitudes de tarifas normales y modificaciones con prospectos asignados a vendedores, además de cuentas CRM."
+    "Validar en staging solicitudes de tarifas normales y modificaciones con prospectos asignados a vendedores, además de cuentas CRM.",
+    "Validar el envío de modificaciones por vendedores con prospectos CRM en staging."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -159,7 +160,8 @@
     "Filtrar tarifas históricas cuyo nombre de cliente contenga TARIFARIO de la lista de vinculación pendiente CRM, sin eliminar datos.",
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix).",
     "Backport DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: revalidar ejecutivo vigente CRM en solicitudes de modificación desde pantalla 5; DholeWeb 1.17.17 y DholeSystem 1.17.17.",
-    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: solicitudes normales/editadas y modificaciones de QUO con prospectos CRM revalidan la identidad comercial antes del envío; ninguna migración ni cambios en permisos."
+    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-MASTER-073: solicitudes normales/editadas y modificaciones de QUO con prospectos CRM revalidan la identidad comercial antes del envío; ninguna migración ni cambios en permisos.",
+    "Validación del ejecutivo de prospectos CRM también en submitSellerModification de Ventas, en el mismo hotfix master 1.17.17."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
