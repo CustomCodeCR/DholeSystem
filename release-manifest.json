@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.16.2",
+  "ecosystemVersion": "1.17.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-quo-link-sync-056-develop",
+  "candidateBranch": "feature/rt-critical-modules-20261109-01",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.16.2",
+      "version": "1.17.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -31,15 +31,15 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
-      "developMergeSha": "415196b0465368b70f8b832f8323477219aafd12"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.16.1",
+      "version": "1.17.0",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -103,10 +103,10 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.4.1",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
-      "developMergeSha": "ac5987be5f3f3a7884729fbce7786eefe657709b"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -154,7 +154,9 @@
     "F8: Future-service registry/ACL/WSS enforcement evidence pending",
     "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master",
     "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven",
-    "CRM-LEGACY-QUO-CATALOG: verify full catalog, account access, link integrity and post-link CRM route history in staging before master"
+    "CRM-LEGACY-QUO-CATALOG: verify full catalog, account access, link integrity and post-link CRM route history in staging before master",
+    "Release 056: compile and test Auth, Notifications, Web, CI and full staging two-user WSS validation before develop/master.",
+    "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -170,8 +172,9 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeAuthService",
+    "DholeNotificationsService",
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -246,7 +249,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
+  "businessReleaseId": "DH-20261109-RT-CRITICAL-056",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -269,5 +272,36 @@
     "pricing": "1.9.2",
     "ecosystem": "1.16.2",
     "status": "candidate-staging-pending"
+  },
+  "criticalRealtime": {
+    "releaseId": "DH-20261109-RT-CRITICAL-056",
+    "scope": [
+      "CRM",
+      "Pricing",
+      "Auth",
+      "Config",
+      "Notifications"
+    ],
+    "hub": "/api/notifications/hub",
+    "changedComponents": [
+      "DholeAuthService",
+      "DholeNotificationsService",
+      "DholeWeb"
+    ],
+    "existingComponentsReused": [
+      "DholeCRMService",
+      "DholePricingService",
+      "DholeConfigService",
+      "DholeApiGateway"
+    ],
+    "authSecurityEvents": "auth.security.changed.v1",
+    "authSessionRevocationTargeting": true,
+    "authImmediateLogoutBrowserImplemented": true,
+    "authenticatedWssVerified": false,
+    "endToEndTwoUsersVerified": false,
+    "crmPricingAllScreensVerified": false,
+    "notificationRecoveryVerified": false,
+    "testsPassed": false,
+    "productionDeploymentAuthorized": false
   }
 }

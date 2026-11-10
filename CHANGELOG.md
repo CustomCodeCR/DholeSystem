@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0] - 2026-11-09 (candidate, RT crítico Auth/Notifications)
+
+- MINOR: release candidato DH-20261109-RT-CRITICAL-056. El NotificationsHub existente recibe eventos de seguridad del Auth Outbox para expulsión de sesión individual o usuario bloqueado y refresco de permisos en el navegador; sin nuevo hub ni cambio de framework.
+- Manifest y componentes: DholeSystem 1.17.0, DholeAuthService 1.5.0, DholeNotificationsService 1.5.0, DholeWeb 1.17.0. CRM, Pricing, Config y Gateway siguen sin cambio de código; su realtime existente debe verificarse funcionalmente por pantalla.
+- Pendiente CI, pruebas WSS autenticado con dos sesiones, cobertura funcional de CRM/Pricing/Config, reconciliación y auditoría staging. develop/master y producción no integrados por este candidato.
+
+
 ## [1.16.2] - 2026-11-09
 
 - PATCH DH-20261109-CRM-QUO-LINK-SYNC-056: sincronización de identidad de cuentas y ejecutivos CRM en las tarifas QUO y exclusión de cotizaciones ya vinculadas del listado de migración.
