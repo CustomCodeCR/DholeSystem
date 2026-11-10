@@ -1,3 +1,7 @@
+## [1.17.5] - 2026-11-10
+- PATCH DH-20261110-CRM-ACCOUNT-SEARCH-061: coordina búsqueda de cuentas por nombre comercial, razón social y cédula desde DholeWeb con DholeCRMService, respetando permisos y filtros existentes. Release preparado para staging.
+- Versiones: Web 1.17.5; CRM 1.7.3; System 1.17.5. Manifiesto del ecosistema 1.17.5, sin autorización de producción.
+
 # Changelog
 
 ## [1.17.3] - 2026-11-10

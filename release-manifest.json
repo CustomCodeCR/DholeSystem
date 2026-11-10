@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.3",
+  "ecosystemVersion": "1.17.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-crm-executive-guid-059-develop",
+  "candidateBranch": "feature/crm-account-identity-search-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.3",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.5",
+      "mergeState": "candidate-feature-branch-unmerged",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,8 +39,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.3",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.17.5",
+      "mergeState": "candidate-feature-branch-unmerged",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,8 +135,8 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.7.2",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.7.3",
+      "mergeState": "candidate-feature-branch-unmerged",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -158,7 +158,8 @@
     "Release 056: compile and test Auth, Notifications, Web, CI and full staging two-user WSS validation before develop/master.",
     "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
-    "Production approval required; master auto-deploys on push."
+    "Production approval required; master auto-deploys on push.",
+    "CRM account identity search: run CRM API integration / Web regression CI and verify permitted accounts in staging before promotion."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -170,12 +171,14 @@
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
     "sellerPricingStatus": "Source patch in isolated branch; build, regression and postdeploy staging require CI proof.",
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
-    "historicalQuoteCatalog": "CI and staging verification pending"
+    "historicalQuoteCatalog": "CI and staging verification pending",
+    "crmAccountIdentitySearch": "CI and staging pending; account visibility remains scoped; no schema or realtime contract changes"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholePricingService",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -202,7 +205,8 @@
     "CRM-linked historical QUO updates RateHeader client/executive names, and disappears from the unlinked-only migration list after saving.",
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
     "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization.",
-    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas."
+    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
+    "CRM accounts name, legal name and formatted/partial TaxId search on authorized SQL query before count/pagination (DH-20261110-CRM-ACCOUNT-SEARCH-061)."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -253,7 +257,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -343,5 +347,18 @@
       "No regression Castro Fallas / REST / realtime"
     ],
     "rollback": "Revert release PRs; no database migration."
+  },
+  "crmAccountIdentitySearchRelease": {
+    "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-061",
+    "components": {
+      "DholeSystem": "1.17.5",
+      "DholeWeb": "1.17.5",
+      "DholeCRMService": "1.7.3"
+    },
+    "ecosystemVersion": "1.17.5",
+    "status": "candidate-staging-pending",
+    "branch": "feature/crm-account-identity-search-20261110-develop",
+    "productionDeploymentAuthorized": false,
+    "rollback": "Revert isolated PRs; no data migration"
   }
 }
