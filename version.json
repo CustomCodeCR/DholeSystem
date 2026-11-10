@@ -2,8 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.15.0",
-  "ecosystemVersion": "1.15.0",
+  "version": "1.16.0",
+  "ecosystemVersion": "1.16.0",
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
-  "releaseStatus": "candidate-master-awaiting-staging"
+  "releaseStatus": "candidate-master-staging-pending",
+  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055"
 }
