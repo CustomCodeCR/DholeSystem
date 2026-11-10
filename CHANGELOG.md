@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.3] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-CRM-EXECUTIVE-059: release global sincronizado para corregir el guardado de cotizaciones SPOT/tarifarios cuando la cuenta CRM ya tiene ejecutivo comercial asignado. DholeWeb 1.17.3 envía el Auth userId que DholePricingService 1.9.5 exige junto al nombre.
+- Registro coordinado de versiones, pruebas y revisión en staging; no se modifica framework, infraestructura realtime ni esquema. La promoción a master ejecutaría despliegue a producción y requiere autorización separada.
+
 ## [1.17.2] - 2026-11-10
 
 - PATCH DH-20261110-CRM-QUO-SUPERADMIN-058: interfaz de vinculación QUO histórica colapsable y visible solo a superadministración; Pricing protege las acciones de migración a nivel servidor.

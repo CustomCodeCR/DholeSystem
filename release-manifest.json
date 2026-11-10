@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261109-QUO269-SELLER-STATUS-053",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.17.2",
+  "ecosystemVersion": "1.17.3",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -49,7 +49,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.4",
+      "version": "1.9.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     },
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null
     }
@@ -121,7 +121,9 @@
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
     "Promotion to master is gated by staging verification",
-    "Verify historical quote listing, CRM account authorization and linking in staging before production."
+    "Verify historical quote listing, CRM account authorization and linking in staging before production.",
+    "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
+    "Production approval required; master auto-deploys on push."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -144,7 +146,8 @@
     "Full historical QUO catalog in CRM; verified manual account linkage without changing commercial snapshots or stealing existing links.",
     "CRM-linked historical QUO updates current Pricing display name/executive; linked quotes removed from the unlinked-only migration listing.",
     "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
-    "Historical QUO migration hidden in lazy superadministrator accordion and protected by server-side privileged role claims."
+    "Historical QUO migration hidden in lazy superadministrator accordion and protected by server-side privileged role claims.",
+    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -156,8 +159,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-legacy-link-superadmins-058-master",
-  "businessReleaseId": "DH-20261110-CRM-QUO-SUPERADMIN-058",
+  "candidateBranch": "fix/pricing-crm-executive-guid-059-master",
+  "businessReleaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -191,5 +194,23 @@
       "DholeSystem": "1.17.2"
     },
     "status": "candidate-master-staging-pending"
+  },
+  "crmExecutivePayloadFixRelease": {
+    "releaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
+    "components": {
+      "DholeWeb": "1.17.3",
+      "DholePricingService": "1.9.5",
+      "DholeSystem": "1.17.3"
+    },
+    "status": "candidate-ci-staging-pending",
+    "productionDeploymentAuthorized": false,
+    "branch": "master",
+    "requiresStaging": [
+      "Pricing save SPOT with CRM account + Auth Vendedor owner",
+      "Pricing edit existing quote with selected CRM account owner",
+      "Request payload includes executiveUserId and executiveName",
+      "No regression Castro Fallas / REST / realtime"
+    ],
+    "rollback": "Revert release PRs; no database migration."
   }
 }
