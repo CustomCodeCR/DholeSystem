@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+  "date": "2026-11-10",
+  "ecosystemVersion": "1.17.20",
+  "kind": "PATCH",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.17.19",
+      "next": "1.17.20"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.17.19",
+      "next": "1.17.20"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.4.5",
+      "next": "1.4.6"
+    }
+  ],
+  "scope": "Past commercial activities can be completed at original date without retroactive reminders.",
+  "migrations": [],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending"
+  }
+}
