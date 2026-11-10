@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.1] - 2026-11-10
+
+- PATCH DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: corrección coordinada del ejecutivo comercial CRM para solicitudes normales/editadas y modificaciones de QUO con cuentas y prospectos. Versiona DholeWeb y DholeSystem 1.19.1; mantiene los demás servicios. Incluye validación por ID de CRM antes del envío para registros de prospectos históricos.
+- Ramas intermedias y CI/staging pendientes, sin cambio de contratos REST, infraestructura SignalR ni migraciones; no desplegar producción sin autorización.
+
 ## [1.19.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-AGENDA-RECONCILED-070: manifiesto centralizado de agenda comercial y compromisos vinculados. Versiones coordinadas DholeWeb 1.19.0, DholeCRMService 1.9.0 y DholeSystem 1.19.0.
