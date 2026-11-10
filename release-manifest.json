@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.16.0",
+  "ecosystemVersion": "1.15.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-quo-historical-catalog-20261109-develop",
+  "candidateBranch": "feature/rt-collection-owner-acl-20261109-01",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.16.0",
+      "version": "1.15.5",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.0",
+      "version": "1.8.2",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -170,7 +170,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
+    "DholeCRMService",
     "DholePricingService"
   ],
   "changes": [
@@ -196,7 +196,7 @@
     "Seller Open DH-20261109-SELLER-OPEN-DECISION-054: published revision decision with deferred PDF when rate header contains unpublished update.",
     "CRM quote migration: server-paginated full QUO historical catalog with explicit account ownership confirmation and no commercial data mutation"
   ],
-  "stagingValidation": "pending-f9-ws-handshake-hotfix",
+  "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -245,5 +245,21 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055"
+  "businessReleaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
+  "stagingCollectionRealtime": {
+    "scope": "crm account/lead and pricing rate/cost",
+    "hub": "/api/notifications/hub",
+    "ownerAclRoutes": [
+      "/api/crm/accounts/realtime-access",
+      "/api/crm/leads/realtime-access",
+      "/api/pricing/rates/realtime-access",
+      "/api/pricing/costs/realtime-access"
+    ],
+    "metadataOnly": true,
+    "durableOutbox": true,
+    "featureFlags": "staging only",
+    "browserTwoUsersVerified": false,
+    "productionDeploymentAuthorized": false,
+    "notes": "Owner ACL 404 corrected. Additional domain resources require per-module realtime producer and screen bindings; user-data ACL and dirty-form protection remain mandatory."
+  }
 }
