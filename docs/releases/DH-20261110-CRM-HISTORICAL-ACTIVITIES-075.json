@@ -2,17 +2,17 @@
   "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
   "date": "2026-11-10",
   "kind": "PATCH",
-  "ecosystemVersion": "1.17.18",
+  "ecosystemVersion": "1.17.19",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "previous": "1.17.14",
-      "next": "1.17.18"
+      "next": "1.17.19"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
-      "previous": "1.17.17",
-      "next": "1.17.18"
+      "previous": "1.17.18",
+      "next": "1.17.19"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
