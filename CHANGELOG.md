@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.17.10] - 2026-11-10
+
+- PATCH DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: manifiesto global sincronizado con DholeWeb 1.17.10 para las columnas Cliente y Ejecutivo comercial en Agenda y seguimientos.
+- Se preserva el release CRM de búsqueda por cédula 1.17.9, las versiones de los 14 servicios restantes y la identidad `rt-20261107-01` usada por el control realtime de staging. Sin cambios de infraestructura ni código de negocio.
+
 ## [1.17.9] - 2026-11-10
 
 - PATCH DH-20261110-CRM-ACCOUNT-SEARCH-064: incorpora búsqueda por cédula en el listado de cuentas CRM, conservando alcance por usuario, filtros y paginación. Identificación normalizada o histórica, con o sin formato.
