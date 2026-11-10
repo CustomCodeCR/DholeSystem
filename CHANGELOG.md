@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.4] - 2026-11-09
+
+- PATCH: paired with DholeWeb 1.15.3 to restore bounded owner REST reconciliation while the NotificationsHub WebSocket is connected, covering missed/reordered catalog, costs, rate and CRM invalidations without overwriting dirty forms.
+- The read-only staging runtime audit now records sanitized Redis Config consumer-group pending/lag counters. The previous audit confirmed the public JS bundle and staging bundle match, both anonymous negotiate paths return 401, all required Config/Notifications feature flags are active, and the Notifications consumer group exists.
+- Production/master unchanged. Connected cross-user realtime delivery requires authenticated browser acceptance, not inferred from infrastructure checks.
+
+
 ## [1.15.3] - 2026-11-09
 
 - PATCH: read-only staging audit checks public Dhole domain against actual staging frontend bundle, both HTTP SignalR negotiate routes, container realtime flags and Notifications consumer group in the staging Redis stream. Exposes configuration and route mismatches without printing credentials, tokens, payloads or database rows.

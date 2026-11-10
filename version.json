@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.15.3",
-  "ecosystemVersion": "1.15.3",
+  "version": "1.15.4",
+  "ecosystemVersion": "1.15.4",
   "releaseId": "rt-20261107-01",
-  "releaseStatus": "staging-realtime-public-route-audit-pending"
+  "releaseStatus": "staging-connected-realtime-rest-recovery"
 }
