@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.19.5",
   "status": "candidate-staging-not-deployed",
@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-crm-prospect-seller-modification-20261110",
+  "candidateBranch": "fix/crm-global-agendas-scopes-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -184,6 +184,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeAuthService",
     "DholeWeb",
     "DholeCRMService"
   ],
