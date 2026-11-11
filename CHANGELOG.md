@@ -1,3 +1,8 @@
+## [1.29.0] - 2026-11-11
+
+- MINOR DH-20261111-CRM-LEAD-INSTITUTIONAL-087: manifiesto global y backport a master para vendedor institucional Castro Fallas en Prospectos, CRM 1.17.0, Web 1.29.0.
+- Se preservan demás servicios, versionado SemVer, API REST/SignalR y validaciones obligatorias CI/staging. Producción no autorizada.
+
 ## [1.27.1] - 2026-11-11
 
 - PATCH DH-20261111-CRM-AGREEMENT-LIST-085: coordina DholeWeb 1.27.1 y DholeSystem 1.27.1 para quitar/restaurar compromisos programables sin alterar «Acuerdos alcanzados».
