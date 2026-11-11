@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261111-CRM-QUOTE-SELLER-ACCESS-090",
+  "date": "2026-11-11",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.31.1",
+  "sourceBranch": "feature/crm-quote-recipient-choice-20261111-master",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previous": "1.11.0",
+      "next": "1.11.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.31.0",
+      "next": "1.31.1"
+    }
+  ],
+  "changes": [
+    "Evitar 403 de visibilidad de Pricing al enviar una QUO desde una cuenta CRM autorizada, con verificación del vínculo y destinatarios en backend",
+    "Mantener REST/Outbox/SignalR existentes, sin desplegar a producción"
+  ],
+  "validation": {
+    "developCI": "pending",
+    "developStaging": "pending",
+    "masterCI": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
