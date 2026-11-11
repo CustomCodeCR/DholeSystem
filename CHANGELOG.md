@@ -1,3 +1,8 @@
+## [1.27.0] - 2026-11-11
+
+- MINOR DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: coordina DholeSystem 1.27.0, DholeCRMService 1.15.0 y DholeWeb 1.27.0 para documentos adjuntos a procedimientos específicos de cuentas.
+- Backport aislado hacia master desde release 085 validado en develop/staging. Se mantienen flags realtime deshabilitadas; no es autorización global para activar realtime ni modificar otros 13 componentes.
+
 ## [1.25.3] - 2026-11-11
 
 - PATCH DH-20261111-CRM-WORKSPACE-TABS-084: sincroniza el manifiesto global con la corrección de pestañas de Prospectos, Actividades y Seguimientos ya integrada en DholeWeb master 1.25.1 (commit 7396cb4e). Respeta las publicaciones anteriores y mantiene versiones independientes de los 16 componentes.
