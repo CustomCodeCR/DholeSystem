@@ -1,3 +1,8 @@
+## [1.22.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ACCOUNT-PROCEDURES-080: manifiesto coordinado de CRM 1.11.0 y Web 1.22.0 para múltiples procedimientos específicos en cuentas.
+- Incluye esquema aditivo, CRUD autorizado, interfaz expandible y reutilización de realtime CRM. CI y staging pendientes; producción no autorizada.
+
 ## [1.21.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: coordina Web 1.21.0, Auth 1.7.0, CRM 1.10.0 con multiselección de contactos y roles comerciales.
