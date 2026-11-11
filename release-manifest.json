@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.26.1",
+  "ecosystemVersion": "1.27.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,9 +26,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.26.1",
+      "version": "1.27.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "2e4fe5656ec575ff39cf25a69db7c7e614056d78",
+      "candidateSha": "627e97f55f9e0b223b90f5d25afd9b40e3129bde",
       "developMergeSha": null
     },
     {
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.13.0",
+      "version": "1.15.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,14 +112,14 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.26.1",
+      "version": "1.27.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-WORKSPACE-TABS-084",
+    "status": "pending-master-backport-CI",
     "checks": 0,
     "total": 0
   },
@@ -138,8 +138,7 @@
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
     "CRM category-scope release DH-082: validate authorized/unauthorized category writes and lead conversion in staging.",
-    "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
-    "DH-20261111-CRM-AGREEMENT-LIST-085: ejecutar test:crm, build, gate SemVer, verificar interfaz/recordatorios en staging antes de promover a master."
+    "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -151,7 +150,8 @@
     "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending.",
     "openingAttachments": "CI and staging pending for master backport",
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
-    "crmAgreementList": "Web PR #462 refresh en master 1.26.1; CI/staging pending; production not authorized"
+    "crmProcedureAttachments": "Develop CI/staging deployment passed CRM, Web and System. Master backport CI pending.",
+    "crmAgreementList": "DholeWeb staging 43039352093 passed for develop, master 1.27.1 CI pending; production promotion requested by user."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -182,7 +182,8 @@
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Auth scope crm.account.category.manage; CRM and Web block unauthorized category changes including lead conversion; preserve REST/SignalR.",
     "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening email documents on master with Storage support, dedupe and outbox snapshot",
     "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
-    "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar compromisos generados de los acuerdos sin borrar el texto; restaura los excluidos antes de guardar y programa solo compromisos seleccionados."
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: attachments for account-specific CRM procedures, preview and access control. Only scoped business release 085 authorized; realtime remains disabled.",
+    "DH-20261111-CRM-AGREEMENT-LIST-085: quitar y restaurar compromisos detectados en acuerdos en Nueva actividad comercial sin borrar el texto; no se generan seguimientos para acuerdos quitados."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -194,7 +195,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/pricing-opening-attachments-20261111-master",
+  "candidateBranch": "fix/crm-agreement-removal-20261111-master",
   "businessReleaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -432,25 +433,38 @@
     "productionDeploymentAuthorized": false,
     "rollback": "Revert PRs; no migration"
   },
+  "crmSpecificProcedureAttachmentsRelease": {
+    "releaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
+    "ecosystemVersion": "1.27.0",
+    "components": {
+      "DholeSystem": "1.27.0",
+      "DholeCRMService": "1.15.0",
+      "DholeWeb": "1.27.0"
+    },
+    "source": "isolated-master-backport",
+    "staging": "develop-deploys-passed",
+    "businessProductionDeploymentAuthorized": true
+  },
   "crmAgreementListRelease": {
     "releaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
-    "ecosystemVersion": "1.26.1",
+    "ecosystemVersion": "1.27.1",
     "components": {
       "DholeWeb": {
-        "previous": "1.26.0",
-        "new": "1.26.1",
-        "commit": "2e4fe5656ec575ff39cf25a69db7c7e614056d78"
+        "previous": "1.27.0",
+        "new": "1.27.1",
+        "commit": "627e97f55f9e0b223b90f5d25afd9b40e3129bde"
       },
       "DholeSystem": {
-        "previous": "1.25.3",
-        "new": "1.26.1"
+        "previous": "1.27.0",
+        "new": "1.27.1"
       }
     },
-    "scope": "Exclusión/restauración de compromisos sugeridos sin alterar Acuerdos alcanzados",
-    "status": "candidate-ci-and-staging-pending",
+    "scope": "Excluir compromisos detectados individualmente conservando el texto íntegro de acuerdos",
+    "status": "candidate-master-ci-pending",
     "schemaMigration": false,
     "restCompatibility": true,
     "signalRCompatibility": true,
-    "productionDeploymentAuthorized": false
+    "productionAuthorizedForThisPatchByUser": true,
+    "stagingWebWorkflow": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/43039352093"
   }
 }

@@ -1,7 +1,12 @@
-## [1.26.1] - 2026-11-11
+## [1.27.1] - 2026-11-11
 
-- PATCH DH-20261111-CRM-AGREEMENT-LIST-085: coordina DholeWeb 1.25.2 y DholeSystem 1.26.1 para quitar y restaurar compromisos derivados de acuerdos, manteniendo el texto original y evitando agendar compromisos descartados.
-- Manifiesto central de 16 componentes actualizado sin cambios en CRM backend, REST, SignalR ni esquemas. CI y staging pendientes; `master` auto-despliega y necesita autorización expresa antes de fusionar.
+- PATCH DH-20261111-CRM-AGREEMENT-LIST-085: coordina DholeWeb 1.27.1 y DholeSystem 1.27.1 para quitar/restaurar compromisos programables sin alterar «Acuerdos alcanzados».
+- Conserva 14 servicios sin modificaciones; REST, SignalR y esquema sin cambios. Staging Web aprobado en develop; promoción de master autorizada para este parche.
+
+## [1.27.0] - 2026-11-11
+
+- MINOR DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: coordina DholeSystem 1.27.0, DholeCRMService 1.15.0 y DholeWeb 1.27.0 para documentos adjuntos a procedimientos específicos de cuentas.
+- Backport aislado hacia master desde release 085 validado en develop/staging. Se mantienen flags realtime deshabilitadas; no es autorización global para activar realtime ni modificar otros 13 componentes.
 
 ## [1.25.3] - 2026-11-11
 
