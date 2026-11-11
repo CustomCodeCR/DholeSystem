@@ -1,3 +1,8 @@
+## [1.29.0] - 2026-11-11
+
+- MINOR DH-20261111-CRM-LEAD-INSTITUTIONAL-087: sincroniza versión global del ecosistema para habilitar Castro Fallas como vendedor institucional de prospectos con CRM 1.17.0 y Web 1.29.0.
+- Manifiesto conserva las versiones de los demás microservicios, las políticas de permisos, contratos REST/SignalR y gates de CI/staging. Producción no autorizada.
+
 ## [1.27.1] - 2026-11-11
 
 - PATCH DH-20261111-CRM-AGREEMENT-LIST-085: registra la exclusión y restauración de compromisos derivados de acuerdos en DholeWeb 1.27.1 con versión global DholeSystem 1.27.1.

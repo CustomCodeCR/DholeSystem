@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.27.1",
+  "ecosystemVersion": "1.29.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-procedure-attachments-20261111-085",
+  "candidateBranch": "feature/crm-lead-institutional-20261111-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.27.1",
+      "version": "1.29.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,9 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.27.1",
+      "version": "1.29.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "d380fdefa7c9f35105d9ae4948cbb06d1cabf38e",
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.15.0",
+      "version": "1.17.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
+    "status": "pending-ci-for-DH-20261111-CRM-LEAD-INSTITUTIONAL-087",
     "checks": 0,
     "total": 0
   },
@@ -172,7 +172,8 @@
     "DH-20261111-CRM-WORKSPACE-TABS-084: CI, prueba funcional en staging y autorización expresa de producción antes de integrar a master.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required.",
-    "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master."
+    "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master.",
+    "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: verify migration, Auth scope denial, institutional seller label and lead-to-account conversion in staging before promotion"
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -193,10 +194,12 @@
     "openingAttachments": "Pricing and Notifications CI passed, staging mail send pending",
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
     "crmProcedureAttachments": "Candidate in coordinated branches. CRM/Web version gates, build, tests and staging account-access/Storage preview must pass before master.",
-    "crmAgreementList": "DholeWeb PR #461 updated on develop 1.27.1; CI/staging pending; production not authorized"
+    "crmAgreementList": "DholeWeb PR #461 updated on develop 1.27.1; CI/staging pending; production not authorized",
+    "crmLeadInstitutionalSeller": "Pending CRM+Web compilation, integration tests and staging create/reassign/convert/duplicate verification; master auto-deployment not authorized."
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeCRMService",
     "DholeWeb"
   ],
   "changes": [
@@ -297,7 +300,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
+  "businessReleaseId": "DH-20261111-CRM-LEAD-INSTITUTIONAL-087",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
