@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.26.1",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
