@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-LEAD-DUPLICATE-083",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.24.0",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.25.0",
+  "status": "candidate-staging-validation",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-category-scope-083-develop-v3",
+  "candidateBranch": "feature/crm-lead-duplicate-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.24.0",
+      "version": "1.25.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,10 +39,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.24.0",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.25.0",
+      "mergeState": "merged-into-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "bc6c9db80bde89c160bd380e75d517a9ba39ec5e"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -103,10 +103,10 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.5.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
+      "version": "1.6.0",
+      "mergeState": "merged-into-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "b1f15813745e764b91b15ccdb53f533bc48a0474"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -135,10 +135,10 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.12.0",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.13.0",
+      "mergeState": "merged-into-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "48fa507d7e123671e731bf1058f834cc2ce60e10"
     }
   ],
   "policyCheck": {
@@ -188,9 +188,9 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAuthService",
     "DholeCRMService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeNotificationsService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
