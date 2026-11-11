@@ -1,3 +1,8 @@
+## [1.23.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-LEAD-QUO-PARITY-082: coordina Web 1.23.0 / Pricing 1.10.0 / System 1.23.0 para QUO reales de prospectos, indicadores y reconciliación administrativa de QUO históricas.
+- Preserva el release de procedimientos de cuentas 1.22.0, sin cambios de esquema, Framework, API Gateway ni SignalR.
+
 ## [1.22.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ACCOUNT-PROCEDURES-080: manifiesto coordinado de CRM 1.11.0 y Web 1.22.0 para múltiples procedimientos específicos en cuentas.
