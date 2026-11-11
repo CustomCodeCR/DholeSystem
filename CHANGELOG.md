@@ -1,4 +1,4 @@
-## [1.22.0] - 2026-11-10
+## [1.23.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Release global coordinado de CRM, Auth y Web para proteger la asignación de categorías comerciales, conservando REST y realtime.
 - Pruebas CI, staging y autorización de producción pendientes.
