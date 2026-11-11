@@ -1,3 +1,8 @@
+## [1.20.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: la actividad principal permite completar los compromisos vinculados desde el calendario. Mantiene la implementación consolidada 076 de agendas globales CRM, participantes, minutas, permisos y sincronización.
+- Coordinado con DholeWeb 1.20.0; DholeCRMService 1.9.2 y DholeAuthService 1.6.3 sin cambios adicionales. Compilación y staging pendientes.
+
 ## [1.19.5] - 2026-11-10
 
 - PATCH DH-20261110-CRM-GLOBAL-AGENDAS-076: coordina DholeAuthService, DholeCRMService y DholeWeb para consultar agendas de otros vendedores y crear actividades con crm.activity.read-all o ambos permisos crm.account.read-all y crm.lead.read-all.
