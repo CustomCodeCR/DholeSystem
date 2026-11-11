@@ -1,3 +1,8 @@
+## [1.25.2] - 2026-11-11
+
+- PATCH DH-20261111-PRICING-OPENING-ATTACHMENTS-084: agrega al manifiesto global Pricing 1.10.1, Notifications 1.6.1 y System 1.25.2, conservando el release paralelo CRM Workspace 1.25.1 y demás componentes.
+- La apertura adjunta PDF comercial, soportes de todas las solicitudes vinculadas y documentos finales de la QUO, sin duplicados; CI de Pricing/Notifications y gates de versión aprobados. Validación de correo real en staging pendiente; producción no autorizada.
+
 ## [1.25.1] - 2026-11-11
 
 - PATCH DH-20261111-CRM-WORKSPACE-TABS-084: registra DholeWeb 1.25.1 (pestañas unificadas de Prospectos, Actividades y Seguimientos) y DholeSystem 1.25.1 en el manifiesto del ecosistema; mantiene sin incrementos los otros 14 componentes.
