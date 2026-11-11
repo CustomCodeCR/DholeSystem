@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.19.4",
+  "ecosystemVersion": "1.19.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.19.4",
+      "version": "1.19.5",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -31,17 +31,17 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.6.0",
-      "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
-      "candidateSha": null,
+      "version": "1.6.3",
+      "mergeState": "candidate-intermediate-only",
+      "candidateSha": "44c5c6cda8f1acc5eaddf700913457b6a33554c0",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.19.4",
+      "version": "1.19.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "a776868484287d86c3c1bfa79e360265900ad084",
       "developMergeSha": null
     },
     {
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.9.1",
+      "version": "1.9.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "0c83509de46710a98faec1a02060f695b6e2340d",
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+    "status": "pending-ci-for-DH-20261110-CRM-GLOBAL-AGENDAS-076",
     "checks": 0,
     "total": 0
   },
@@ -164,7 +164,8 @@
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: probar modificación LCL vinculada a CRM por ID, test y build antes de promoción a master.",
     "No desplegar producción sin autorización expresa.",
-    "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master."
+    "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master.",
+    "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -274,7 +275,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+  "businessReleaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -469,5 +470,6 @@
     },
     "schemaMigration": false,
     "status": "candidate-staging-queue"
-  }
+  },
+  "previousRealtimeReleaseId": "rt-20261107-01"
 }
