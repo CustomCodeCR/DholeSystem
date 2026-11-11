@@ -1,0 +1,26 @@
+{
+  "releaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
+  "ecosystemVersion": "1.19.5",
+  "releaseType": "PATCH",
+  "date": "2026-11-10",
+  "status": "candidate",
+  "branch": "master",
+  "components": [
+    {
+      "component": "DholeAuthService",
+      "version": "1.2.5",
+      "candidateSha": "0b59b61dd0433e1277cb846c54a1f05a6d4bf74a"
+    },
+    {
+      "component": "DholeCRMService",
+      "version": "1.4.7",
+      "candidateSha": "20618c789dc79c3e29aa517b8e6a7176699658ad"
+    },
+    {
+      "component": "DholeWeb",
+      "version": "1.19.5",
+      "candidateSha": "62248bb3f9071fc588a94c38dd2e45b7015ceedd"
+    }
+  ],
+  "productionDeploymentAuthorized": false
+}
