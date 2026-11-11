@@ -1,3 +1,8 @@
+## [1.21.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: coordina Web 1.21.0, Auth 1.7.0, CRM 1.10.0 con multiselección de contactos y roles comerciales.
+- Preserva el release de prospectos 079 y funcionalidades anteriores. Sin cambios de esquema.
+
 ## [1.20.2] - 2026-11-10
 
 - PATCH DH-20261110-CRM-LEAD-PARITY-079: versiona el manifiesto DholeWeb y DholeSystem 1.20.2 para la vista de Prospectos (Ficha, Historial de rutas, KPI cotizaciones vinculadas), preservando el release 078 de CRM.
