@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.20.0",
+  "ecosystemVersion": "1.20.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.20.0",
+      "version": "1.20.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.20.0",
+      "version": "1.20.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -132,7 +132,8 @@
     "CRM account tax ID search: CI and staging proof required before master / production.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "Verificar CI y staging del release 1.19.2 antes de fusionar producción.",
-    "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization."
+    "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
+    "DH-20261110-CRM-LEAD-PARITY-079: validar Web typecheck, regresiones de Prospectos, estados de cotización CRM y staging antes de promoción a master."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -144,7 +145,6 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -166,7 +166,9 @@
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix).",
     "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
-    "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos."
+    "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
+    "DH-20261110-CRM-LEAD-PARITY-079: vista de Prospectos con ficha, histogramas de cotizaciones vinculadas y rutas documentadas; cuentas mantienen dashboard Pricing en tiempo real.",
+    "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -178,8 +180,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-agenda-unified-20261110-master-v2",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
+  "candidateBranch": "fix/crm-lead-account-parity-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-LEAD-PARITY-079",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -323,5 +325,28 @@
     "status": "candidate-master-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
+  },
+  "crmLeadParityRelease": {
+    "releaseId": "DH-20261110-CRM-LEAD-PARITY-079",
+    "ecosystemVersion": "1.20.2",
+    "components": {
+      "DholeWeb": {
+        "from": "1.20.0",
+        "to": "1.20.2"
+      },
+      "DholeSystem": {
+        "from": "1.20.0",
+        "to": "1.20.2"
+      }
+    },
+    "servicesUnchanged": [
+      "DholeCRMService",
+      "DholePricingService",
+      "DholeAuthService"
+    ],
+    "status": "candidate-ci-staging-pending",
+    "productionDeploymentAuthorized": false,
+    "schemaMigration": false,
+    "realtimeContractChange": false
   }
 }

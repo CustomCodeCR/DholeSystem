@@ -1,3 +1,8 @@
+## [1.20.2] - 2026-11-10
+
+- PATCH DH-20261110-CRM-LEAD-PARITY-079: manifiesto coordinado DholeWeb y DholeSystem 1.20.2 para homogeneizar Prospectos con Cuentas. Ficha de prospecto, historial de rutas documentadas y gráficos de cotizaciones vinculadas. Se conservan versiones de CRM, Pricing y otros componentes sin cambios funcionales.
+- Sin migraciones, cambios de framework ni contratos REST/SignalR. CI y staging pendientes; no desplegar producción sin autorización expresa.
+
 ## [1.20.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: manifiesto coordinado del CRM con Nueva actividad, participantes/contactos, minuta, agendas globales y compromisos marcables. Integra DholeWeb 1.20.0 y DholeCRMService 1.5.0, reutilizando DholeAuthService 1.2.5.
