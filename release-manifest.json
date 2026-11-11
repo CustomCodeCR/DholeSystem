@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.25.2",
+  "ecosystemVersion": "1.25.3",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.25.0",
+      "version": "1.25.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,14 +112,14 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.25.2",
+      "version": "1.25.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "candidate-master-ci-pending-for-procedures-080",
+    "status": "pending-ci-for-DH-20261111-CRM-WORKSPACE-TABS-084",
     "checks": 0,
     "total": 0
   },
@@ -137,7 +137,8 @@
     "Verificar CI y staging del release 1.19.2 antes de fusionar producción.",
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
-    "CRM category-scope release DH-082: validate authorized/unauthorized category writes and lead conversion in staging."
+    "CRM category-scope release DH-082: validate authorized/unauthorized category writes and lead conversion in staging.",
+    "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -147,12 +148,12 @@
     "historicalQuoteCatalog": "PR CI and staging validation pending",
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes",
     "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending.",
-    "openingAttachments": "CI and staging pending for master backport"
+    "openingAttachments": "CI and staging pending for master backport",
+    "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeNotificationsService"
+    "DholeWeb"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -177,7 +178,8 @@
     "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth.",
     "DH-20261110-CRM-LEAD-QUO-PARITY-082: Prospectos muestra QUO desde Pricing, dashboard de cotizaciones y rutas; vinculación histórica superadministrada con confirmación.",
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Auth scope crm.account.category.manage; CRM and Web block unauthorized category changes including lead conversion; preserve REST/SignalR.",
-    "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening email documents on master with Storage support, dedupe and outbox snapshot"
+    "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening email documents on master with Storage support, dedupe and outbox snapshot",
+    "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -190,7 +192,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "fix/pricing-opening-attachments-20261111-master",
-  "businessReleaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
+  "businessReleaseId": "DH-20261111-CRM-WORKSPACE-TABS-084",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
