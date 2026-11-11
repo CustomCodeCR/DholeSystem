@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.26.0",
+      "version": "1.25.1",
       "mergeState": "merged-into-develop",
       "candidateSha": null,
       "developMergeSha": null
@@ -192,8 +192,7 @@
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending."
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
