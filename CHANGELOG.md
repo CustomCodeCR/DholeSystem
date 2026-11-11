@@ -1,3 +1,8 @@
+## [1.21.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: registra versiones coordinadas de DholeWeb, DholeCRMService y DholeAuthService; contactos de cuenta en DhMultiSelect al crear/gestionar actividades y listado de vendedores/superusuarios derivado de roles activos.
+- Conserva el hub SignalR, política de permisos y compatibilidad REST. CI, staging y verificación de despliegue pendientes.
+
 ## [1.20.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: manifiesto coordinado del CRM con Nueva actividad, participantes/contactos, minuta, agendas globales y compromisos marcables. Integra DholeWeb 1.20.0 y DholeCRMService 1.5.0, reutilizando DholeAuthService 1.2.5.
