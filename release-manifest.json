@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.36.0",
+      "version": "1.37.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -202,7 +202,6 @@
     "quoVinculada": "DH-20261111-PRICING-QUO-LINKED-104: intermediate implementation Pricing/Web/System, no CI or staging evidence yet."
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholePricingService",
     "DholeWeb",
     "DholeSystem"
