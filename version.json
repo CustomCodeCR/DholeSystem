@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.31.0",
-  "ecosystemVersion": "1.31.0",
+  "version": "1.31.1",
+  "ecosystemVersion": "1.31.1",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261111-CRM-QUOTE-DELIVERY-089"
+  "businessReleaseId": "DH-20261111-CRM-QUOTE-SELLER-ACCESS-090"
 }
