@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.35.0",
+  "ecosystemVersion": "1.37.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/quote-multi-contacts-20261111-develop",
+  "candidateBranch": "feature/quo-vinculada-20261111",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.35.0",
+      "version": "1.37.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.35.0",
+      "version": "1.37.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.13.0",
+      "version": "1.14.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -142,7 +142,7 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088",
+    "status": "pending-ci-for-DH-20261111-PRICING-QUO-LINKED-104",
     "checks": 0,
     "total": 0
   },
@@ -174,7 +174,8 @@
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required.",
     "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master.",
     "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: verify migration, Auth scope denial, institutional seller label and lead-to-account conversion in staging before promotion",
-    "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088: validar en staging visibilidad por defecto y selección de Castro Fallas en Cuentas, Prospectos y reasignación; comprobar persistencia, migración y permisos antes de producción."
+    "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088: validar en staging visibilidad por defecto y selección de Castro Fallas en Cuentas, Prospectos y reasignación; comprobar persistencia, migración y permisos antes de producción.",
+    "DH-20261111-PRICING-QUO-LINKED-104: build, unit/regression tests, version gate, PostgreSQL migration and staging verification pending; do not merge master before production authorization."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -197,10 +198,10 @@
     "crmProcedureAttachments": "Candidate in coordinated branches. CRM/Web version gates, build, tests and staging account-access/Storage preview must pass before master.",
     "crmAgreementList": "DholeWeb PR #461 updated on develop 1.27.1; CI/staging pending; production not authorized",
     "crmLeadInstitutionalSeller": "Pending CRM+Web compilation, integration tests and staging create/reassign/convert/duplicate verification; master auto-deployment not authorized.",
-    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent."
+    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
+    "quoVinculada": "DH-20261111-PRICING-QUO-LINKED-104: intermediate implementation Pricing/Web/System, no CI or staging evidence yet."
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholePricingService",
     "DholeWeb",
     "DholeSystem"
