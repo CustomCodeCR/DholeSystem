@@ -1,3 +1,8 @@
+## [1.20.2] - 2026-11-10
+
+- PATCH DH-20261110-CRM-LEAD-PARITY-079: versiona el manifiesto DholeWeb y DholeSystem 1.20.2 para la vista de Prospectos (Ficha, Historial de rutas, KPI cotizaciones vinculadas), preservando el release 078 de CRM.
+- Contratos REST y SignalR intactos; pruebas CI y staging obligatorias antes de master. Sin despliegue autorizado.
+
 ## [1.20.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-SELLERS-COMMITMENTS-078: coordina DholeAuthService (filtro de vendedores activos), DholeCRMService (asignación y cierre seguro de compromisos) y DholeWeb (selector y checkboxes).
