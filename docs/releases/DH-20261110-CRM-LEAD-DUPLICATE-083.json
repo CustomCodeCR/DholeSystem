@@ -1,0 +1,39 @@
+{
+  "releaseId": "DH-20261110-CRM-LEAD-DUPLICATE-083",
+  "date": "2026-11-10",
+  "kind": "MINOR",
+  "ecosystemVersion": "1.25.0",
+  "branch": "feature/crm-lead-duplicate-20261110-develop",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.12.0",
+      "next": "1.13.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.24.0",
+      "next": "1.25.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeNotificationsService",
+      "previous": "1.5.0",
+      "next": "1.6.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.24.0",
+      "next": "1.25.0"
+    }
+  ],
+  "changes": [
+    "Prevent duplicate CRM leads for all sellers by fiscal identity or normalized company name",
+    "Show assigned seller in 409 response and DholeWeb warning, with durable Notifications event",
+    "Update centralized 16-component version registry without altering unrelated services"
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
