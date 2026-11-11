@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.31.1",
+  "ecosystemVersion": "1.32.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.31.0",
+      "version": "1.31.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.31.1",
+      "version": "1.32.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -159,7 +159,6 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -200,8 +199,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-quote-recipient-choice-20261111-master",
-  "businessReleaseId": "DH-20261111-CRM-QUOTE-SELLER-ACCESS-090",
+  "candidateBranch": "fix/crm-account-quote-send-visible-092-master",
+  "businessReleaseId": "DH-20261111-CRM-QUOTE-SEND-VISIBLE-092",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
