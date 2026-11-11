@@ -1,3 +1,8 @@
+## [1.20.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: manifiesto coordinado del CRM con Nueva actividad, participantes/contactos, minuta, agendas globales y compromisos marcables. Integra DholeWeb 1.20.0 y DholeCRMService 1.5.0, reutilizando DholeAuthService 1.2.5.
+- Validación CI/staging y promoción del mismo release, preservando las políticas de SignalR.
+
 ## [1.19.5] - 2026-11-10
 
 - PATCH DH-20261110-CRM-GLOBAL-AGENDAS-076: coordina DholeAuthService, DholeCRMService y DholeWeb para consultar agendas de otros vendedores y crear actividades con crm.activity.read-all o ambos permisos crm.account.read-all y crm.lead.read-all.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.19.5",
+  "ecosystemVersion": "1.20.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,9 +26,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.19.5",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "62248bb3f9071fc588a94c38dd2e45b7015ceedd",
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
@@ -101,22 +101,22 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.4.7",
+      "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "20618c789dc79c3e29aa517b8e6a7176699658ad",
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.19.5",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-GLOBAL-AGENDAS-076",
+    "status": "pending-ci-for-DH-20261110-CRM-AGENDA-UNIFIED-077",
     "checks": 0,
     "total": 0
   },
@@ -143,10 +143,9 @@
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeAuthService",
     "DholeWeb",
-    "DholeCRMService"
+    "DholeCRMService",
+    "DholeSystem"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -166,7 +165,8 @@
     "Filtrar tarifas históricas cuyo nombre de cliente contenga TARIFARIO de la lista de vinculación pendiente CRM, sin eliminar datos.",
     "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068: complete CRM activity detail and linked commitment visibility (preserves previous TARIFARIO Pricing fix).",
     "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
-    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders."
+    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
+    "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -178,8 +178,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/crm-global-agendas-scopes-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
+  "candidateBranch": "feature/crm-agenda-unified-20261110-master-v2",
+  "businessReleaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -310,5 +310,18 @@
   },
   "previousRealtimeReleaseId": "rt-20261107-01",
   "expectedRepositories": 16,
-  "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework"
+  "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
+  "crmUnifiedAgendaRelease": {
+    "releaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
+    "ecosystemVersion": "1.20.0",
+    "components": {
+      "DholeWeb": "1.20.0",
+      "DholeCRMService": "1.5.0",
+      "DholeSystem": "1.20.0",
+      "DholeAuthService": "1.2.5"
+    },
+    "status": "candidate-master-ci-staging-pending",
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false
+  }
 }
