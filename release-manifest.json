@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.36.0",
+  "ecosystemVersion": "1.37.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.36.0",
+      "version": "1.37.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -52,7 +52,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.13.0",
+      "version": "1.14.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.36.0",
+      "version": "1.37.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -155,10 +155,10 @@
     "crmProcedureAttachments": "Develop CI/staging deployment passed CRM, Web and System. Master backport CI pending.",
     "crmAgreementList": "DholeWeb staging 43039352093 passed for develop, master 1.27.1 CI pending; production promotion requested by user.",
     "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization.",
-    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent."
+    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
+    "quoVinculada": "Staging develop succeeded. Targeted master backport PR CI pending. Release DH-20261111-PRICING-QUO-LINKED-104"
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholePricingService",
     "DholeWeb",
     "DholeSystem"
@@ -201,8 +201,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/quote-multi-contacts-20261111-master",
-  "businessReleaseId": "DH-20261111-CRM-QUOTE-MULTI-CONTACTS-102",
+  "candidateBranch": "release/quo-vinculada-20261111-master",
+  "businessReleaseId": "DH-20261111-PRICING-QUO-LINKED-104",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
