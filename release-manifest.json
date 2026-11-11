@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.27.0",
+  "ecosystemVersion": "1.27.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.27.0",
+      "version": "1.27.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,9 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.27.0",
+      "version": "1.27.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "d380fdefa7c9f35105d9ae4948cbb06d1cabf38e",
       "developMergeSha": null
     },
     {
@@ -171,7 +171,8 @@
     "Production deployment requires express authorization (master auto-deploys).",
     "DH-20261111-CRM-WORKSPACE-TABS-084: CI, prueba funcional en staging y autorización expresa de producción antes de integrar a master.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
-    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required."
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required.",
+    "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -191,12 +192,12 @@
     "crmWorkspaceTabs": "Pendiente: ejecutar test:workspace-tabs, build, version:check y prueba de navegación/refresh en staging; el merge a master lanza deploy de producción.",
     "openingAttachments": "Pricing and Notifications CI passed, staging mail send pending",
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
-    "crmProcedureAttachments": "Candidate in coordinated branches. CRM/Web version gates, build, tests and staging account-access/Storage preview must pass before master."
+    "crmProcedureAttachments": "Candidate in coordinated branches. CRM/Web version gates, build, tests and staging account-access/Storage preview must pass before master.",
+    "crmAgreementList": "DholeWeb PR #461 updated on develop 1.27.1; CI/staging pending; production not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -244,7 +245,8 @@
     "DH-20261111-CRM-WORKSPACE-TABS-084: reunifica /crm/leads lista/detalle y el espacio Agenda/Seguimientos (/crm/followups, /crm/activities y sus detalles) en una sola pestaña de trabajo por módulo; no cambia APIs.",
     "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: attach quote PDF, linked seller-request supportDocuments and final rate backup storage files to opening emails.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
-    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads."
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads.",
+    "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar/restaurar compromisos sugeridos sin borrar el campo Acuerdos alcanzados; la agenda solo guarda compromisos seleccionados."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -295,7 +297,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
+  "businessReleaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -628,6 +630,27 @@
       "DholeWeb": "1.27.0"
     },
     "approval": "ci-and-staging-pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmAgreementListRelease": {
+    "releaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
+    "ecosystemVersion": "1.27.1",
+    "components": {
+      "DholeWeb": {
+        "previous": "1.27.0",
+        "new": "1.27.1",
+        "commit": "d380fdefa7c9f35105d9ae4948cbb06d1cabf38e"
+      },
+      "DholeSystem": {
+        "previous": "1.27.0",
+        "new": "1.27.1"
+      }
+    },
+    "scope": "Omisión/restauración de compromisos sugeridos sin alterar texto Acuerdos alcanzados",
+    "status": "candidate-ci-staging-pending",
+    "schemaMigration": false,
+    "restCompatibility": true,
+    "signalRCompatibility": true,
     "productionDeploymentAuthorized": false
   }
 }
