@@ -14,12 +14,12 @@
     {
       "component": "DholeCRMService",
       "version": "1.9.2",
-      "candidateSha": "3f04d802afa6b981abbabaac50bbe4a43c5e1bdd"
+      "candidateSha": "d20f15d4ee4ded2ae23380fad6d21bb5be2b1c6d"
     },
     {
       "component": "DholeWeb",
       "version": "1.19.5",
-      "candidateSha": "8153da798c7b1f55cce5878483cb32eb092498b0"
+      "candidateSha": "d489f5c265110f06521297bdbcc7c8b5cab80651"
     }
   ],
   "productionDeploymentAuthorized": false
