@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.29.0",
+  "ecosystemVersion": "1.29.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.29.0",
+      "version": "1.29.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.17.0",
+      "version": "1.17.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,14 +112,14 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.29.0",
+      "version": "1.29.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-LEAD-INSTITUTIONAL-087",
+    "status": "pending-ci-for-DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088",
     "checks": 0,
     "total": 0
   },
@@ -139,7 +139,8 @@
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
     "CRM category-scope release DH-082: validate authorized/unauthorized category writes and lead conversion in staging.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
-    "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: confirm staging migration, institutional seller access and account conversion before master deploy"
+    "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: confirm staging migration, institutional seller access and account conversion before master deploy",
+    "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088: validar en staging visibilidad por defecto y selección de Castro Fallas en Cuentas, Prospectos y reasignación; comprobar persistencia, migración y permisos antes de producción."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -153,12 +154,13 @@
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
     "crmProcedureAttachments": "Develop CI/staging deployment passed CRM, Web and System. Master backport CI pending.",
     "crmAgreementList": "DholeWeb staging 43039352093 passed for develop, master 1.27.1 CI pending; production promotion requested by user.",
-    "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization."
+    "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization.",
+    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeCRMService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -198,8 +200,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-lead-institutional-20261111-master-v2",
-  "businessReleaseId": "DH-20261111-CRM-LEAD-INSTITUTIONAL-087",
+  "candidateBranch": "fix/crm-institutional-seller-20261111-master",
+  "businessReleaseId": "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
