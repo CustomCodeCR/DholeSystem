@@ -3,7 +3,7 @@
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.29.0",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -199,6 +199,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeCRMService",
     "DholeWeb"
   ],
   "changes": [
