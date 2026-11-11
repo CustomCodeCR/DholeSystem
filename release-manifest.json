@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.33.0",
+  "ecosystemVersion": "1.33.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.20.0",
+      "version": "1.20.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.33.0",
+      "version": "1.33.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -202,7 +202,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "feature/account-quote-delivery-default-093-master",
-  "businessReleaseId": "DH-20261111-CRM-ACCOUNT-QUOTE-DELIVERY-093",
+  "businessReleaseId": "DH-20261111-CRM-QUOTE-PREFERENCE-REALTIME-094",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
