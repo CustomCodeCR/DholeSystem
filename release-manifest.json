@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261111-CRM-WORKSPACE-TABS-084",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.25.1",
   "status": "candidate-staging-not-deployed",
@@ -188,7 +188,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "chore/crm-workspace-tabs-20261111-master",
+  "candidateBranch": "fix/crm-workspace-tabs-20261111-develop",
   "businessReleaseId": "DH-20261111-CRM-WORKSPACE-TABS-084",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
