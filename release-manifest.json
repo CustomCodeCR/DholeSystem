@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.37.0",
+  "ecosystemVersion": "1.37.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.37.0",
+      "version": "1.37.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,14 +112,14 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.37.0",
+      "version": "1.37.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
@@ -156,10 +156,10 @@
     "crmAgreementList": "DholeWeb staging 43039352093 passed for develop, master 1.27.1 CI pending; production promotion requested by user.",
     "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization.",
     "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
-    "quoVinculada": "Staging develop succeeded. Targeted master backport PR CI pending. Release DH-20261111-PRICING-QUO-LINKED-104"
+    "quoVinculada": "Staging develop succeeded. Targeted master backport PR CI pending. Release DH-20261111-PRICING-QUO-LINKED-104",
+    "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: Crystal button on screen 9 and FCL duplicate source, backed by existing Pricing 1.14.0"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -201,8 +201,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "release/quo-vinculada-20261111-master",
-  "businessReleaseId": "DH-20261111-PRICING-QUO-LINKED-104",
+  "candidateBranch": "fix/quo-vinculada-crystal-master-20261111",
+  "businessReleaseId": "DH-20261111-PRICING-QUO-LINK-ACTION-106",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
