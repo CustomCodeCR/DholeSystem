@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.25.2",
-  "ecosystemVersion": "1.25.2",
+  "version": "1.25.3",
+  "ecosystemVersion": "1.25.3",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084"
+  "businessReleaseId": "DH-20261111-CRM-WORKSPACE-TABS-084"
 }
