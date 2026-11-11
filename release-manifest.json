@@ -33,7 +33,7 @@
       "component": "DholeAuthService",
       "version": "1.6.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "44c5c6cda8f1acc5eaddf700913457b6a33554c0",
+      "candidateSha": "4cf9d6febf25279dac1c07bd9828dec01748a71d",
       "developMergeSha": null
     },
     {
@@ -41,7 +41,7 @@
       "component": "DholeWeb",
       "version": "1.19.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "a776868484287d86c3c1bfa79e360265900ad084",
+      "candidateSha": "8153da798c7b1f55cce5878483cb32eb092498b0",
       "developMergeSha": null
     },
     {
@@ -137,7 +137,7 @@
       "component": "DholeCRMService",
       "version": "1.9.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "0c83509de46710a98faec1a02060f695b6e2340d",
+      "candidateSha": "3f04d802afa6b981abbabaac50bbe4a43c5e1bdd",
       "developMergeSha": null
     }
   ],
