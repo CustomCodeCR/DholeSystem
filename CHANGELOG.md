@@ -1,3 +1,8 @@
+## [1.23.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Manifestación global del permiso de categoría en Auth, CRM y Web, conservando cambios previos de cotizaciones, procedimientos y realtime.
+- CI y validación en staging pendientes; sin despliegue de producción autorizado.
+
 ## [1.22.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ACCOUNT-PROCEDURES-080: manifiesto coordinado de CRM 1.11.0 y Web 1.22.0 para múltiples procedimientos específicos en cuentas.
