@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.25.0",
+  "ecosystemVersion": "1.25.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -52,9 +52,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "3caf84c173ed542d125255b9b5b89bd40da8c035"
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -77,7 +78,7 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "mergeState": "candidate-intermediate-only",
       "developMergeSha": null,
       "candidateSha": null
@@ -111,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.25.0",
+      "version": "1.25.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -145,12 +146,12 @@
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
     "historicalQuoteCatalog": "PR CI and staging validation pending",
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes",
-    "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending."
+    "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending.",
+    "openingAttachments": "CI and staging pending for master backport"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeCRMService",
-    "DholeWeb",
+    "DholePricingService",
     "DholeNotificationsService"
   ],
   "changes": [
@@ -175,7 +176,8 @@
     "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
     "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth.",
     "DH-20261110-CRM-LEAD-QUO-PARITY-082: Prospectos muestra QUO desde Pricing, dashboard de cotizaciones y rutas; vinculación histórica superadministrada con confirmación.",
-    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Auth scope crm.account.category.manage; CRM and Web block unauthorized category changes including lead conversion; preserve REST/SignalR."
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Auth scope crm.account.category.manage; CRM and Web block unauthorized category changes including lead conversion; preserve REST/SignalR.",
+    "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening email documents on master with Storage support, dedupe and outbox snapshot"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -187,8 +189,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-lead-duplicate-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
+  "candidateBranch": "fix/pricing-opening-attachments-20261111-master",
+  "businessReleaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -410,5 +412,19 @@
     "realtimeCompatible": true,
     "stagingDeploymentValidated": true,
     "productionDeploymentAuthorized": true
+  },
+  "openingAttachmentsRelease": {
+    "releaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
+    "ecosystemVersion": "1.25.2",
+    "versions": {
+      "DholeSystem": "1.25.2",
+      "DholePricingService": "1.10.1",
+      "DholeNotificationsService": "1.3.1"
+    },
+    "scope": "Opening emails with commercial PDF, linked seller request supports and final quotation Storage files, deduplicated",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false,
+    "rollback": "Revert PRs; no migration"
   }
 }
