@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.25.0",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.25.1",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.25.0",
+      "version": "1.25.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,9 +71,9 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "21f0835f25b436e4cd2c6eccb6238c22ca5957ee",
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
@@ -103,10 +103,10 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.6.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.6.1",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "b1f15813745e764b91b15ccdb53f533bc48a0474"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -142,7 +142,7 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
+    "status": "candidate-pricing-opening-attachments-ci-pending",
     "checks": 0,
     "total": 0
   },
@@ -168,7 +168,8 @@
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: CI + staging negative authorization and Web rendering tests must pass before master merge.",
-    "Production deployment requires express authorization (master auto-deploys)."
+    "Production deployment requires express authorization (master auto-deploys).",
+    "Opening attachments DH-084: verify Pricing/Notifications .NET test suites and mail with Storage files on staging before promotion."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -184,13 +185,13 @@
     "pricingModificationCrmOwner": "CI y staging pendientes",
     "pricingProspectRequests": "CI y staging pendientes",
     "pricingSellerModificationProspects": "CI/staging pendiente",
-    "crmAccountCategoryScope": "Candidate Auth, CRM, Web and System changes; CI/staging pending."
+    "crmAccountCategoryScope": "Candidate Auth, CRM, Web and System changes; CI/staging pending.",
+    "openingAttachments": "CI and staging pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeCRMService",
-    "DholeWeb",
-    "DholeNotificationsService"
+    "DholePricingService",
+    "DholeNotificationsService",
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -234,7 +235,8 @@
     "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos",
     "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth.",
     "DH-20261110-CRM-LEAD-QUO-PARITY-082: QUO del prospecto directamente en Pricing, dashboard oficial, rutas cotizadas y vinculación histórica con confirmación de superadministradores.",
-    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: only crm.account.category.manage can assign/reclassify account categories; CRM enforces default for unprivileged account and prospect conversion, no REST/SignalR contract change."
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: only crm.account.category.manage can assign/reclassify account categories; CRM enforces default for unprivileged account and prospect conversion, no REST/SignalR contract change.",
+    "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening mail attaches commercial PDF, request supports from linked rate requests and final quote Storage documents, deduplicated."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -285,7 +287,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
+  "businessReleaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -590,5 +592,25 @@
     "schemaMigration": false,
     "realtimeCompatible": true,
     "productionAuthorized": false
+  },
+  "openingAttachmentsRelease": {
+    "releaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
+    "ecosystemVersion": "1.25.1",
+    "versions": {
+      "DholePricingService": "1.10.1",
+      "DholeNotificationsService": "1.6.1",
+      "DholeSystem": "1.25.1"
+    },
+    "documents": [
+      "Generated commercial quote PDF",
+      "Seller rate request supportDocuments across all linked requests",
+      "Final quotation FinalBackupStorageIds"
+    ],
+    "behavior": "Read immutable storage content before creating notification outbox payload; deduplicate Storage GUIDs; list unavailable documents in email",
+    "emailLimits": "At most 30 attachments, at most 14 MiB binary content including generated PDF",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false,
+    "rollback": "Revert release PRs; no database migration"
   }
 }
