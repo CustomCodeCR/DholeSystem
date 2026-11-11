@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.20.0",
+  "ecosystemVersion": "1.21.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-agenda-unified-20261110-develop-v2",
+  "candidateBranch": "feature/crm-contact-multiselect-seller-roles-078-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.20.0",
+      "version": "1.21.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -31,15 +31,15 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.6.3",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "4cf9d6febf25279dac1c07bd9828dec01748a71d",
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.20.0",
+      "version": "1.21.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.9.2",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "d20f15d4ee4ded2ae23380fad6d21bb5be2b1c6d",
+      "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-AGENDA-UNIFIED-077",
+    "status": "pending-ci-for-DH-20261110-CRM-CONTACTS-SELLERS-078",
     "checks": 0,
     "total": 0
   },
@@ -184,7 +184,9 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService",
+    "DholeAuthService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -224,7 +226,8 @@
     "DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: validar ejecutivo CRM de prospectos y cuentas en nuevas solicitudes, ediciones de solicitud y modificaciones antes de guardar.",
     "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075: prospectos CRM con ejecutivo asignado en solicitudes de modificación iniciadas por vendedor reciben validación antes de submitSellerModification, sin cambiar permisos.",
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders.",
-    "DH-20261110-CRM-AGENDA-UNIFIED-077: cerrar compromisos secundarios desde la actividad padre con checkbox y conservar la agenda CRM global, contactos y minutas implementados en 076."
+    "DH-20261110-CRM-AGENDA-UNIFIED-077: cerrar compromisos secundarios desde la actividad padre con checkbox y conservar la agenda CRM global, contactos y minutas implementados en 076.",
+    "DH-20261110-CRM-CONTACTS-SELLERS-078: contactos de cuentas via DhMultiSelect en formulario y participantes de actividad, directorio de vendedores y superusuarios filtrado por Auth, verificación de roles en CRM."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -275,7 +278,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
+  "businessReleaseId": "DH-20261110-CRM-CONTACTS-SELLERS-078",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -484,5 +487,24 @@
     "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
+  },
+  "crmContactsSellersRelease": {
+    "releaseId": "DH-20261110-CRM-CONTACTS-SELLERS-078",
+    "ecosystemVersion": "1.21.0",
+    "versions": {
+      "DholeWeb": "1.21.0",
+      "DholeCRMService": "1.10.0",
+      "DholeAuthService": "1.7.0",
+      "DholeSystem": "1.21.0"
+    },
+    "status": "candidate-ci-staging-pending",
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false,
+    "scope": [
+      "CRM activity creation",
+      "CRM activity participants",
+      "Auth seller directory",
+      "CRM assignee authorization"
+    ]
   }
 }
