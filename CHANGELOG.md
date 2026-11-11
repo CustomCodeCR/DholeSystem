@@ -1,3 +1,8 @@
+## [1.26.1] - 2026-11-11
+
+- PATCH DH-20261111-CRM-AGREEMENT-LIST-085: coordina DholeWeb 1.25.2 y DholeSystem 1.26.1 para quitar y restaurar compromisos derivados de acuerdos, manteniendo el texto original y evitando agendar compromisos descartados.
+- Manifiesto central de 16 componentes actualizado sin cambios en CRM backend, REST, SignalR ni esquemas. CI y staging pendientes; `master` auto-despliega y necesita autorización expresa antes de fusionar.
+
 ## [1.25.3] - 2026-11-11
 
 - PATCH DH-20261111-CRM-WORKSPACE-TABS-084: sincroniza el manifiesto global con la corrección de pestañas de Prospectos, Actividades y Seguimientos ya integrada en DholeWeb master 1.25.1 (commit 7396cb4e). Respeta las publicaciones anteriores y mantiene versiones independientes de los 16 componentes.
