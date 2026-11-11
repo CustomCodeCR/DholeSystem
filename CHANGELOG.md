@@ -1,3 +1,8 @@
+## [1.25.1] - 2026-11-11
+
+- PATCH DH-20261111-PRICING-OPENING-ATTACHMENTS-084: coordina Pricing 1.10.1, Notifications 1.6.1 y manifiesto global 1.25.1. Correos de apertura incluyen PDF comercial, documentos originales de solicitudes vinculadas y respaldos de cotización desde Storage, sin duplicados.
+- Candidato en ramas intermedias, CI y staging pendientes; sin despliegue autorizado de producción ni cambios al framework, REST o SignalR.
+
 ## [1.25.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-LEAD-DUPLICATE-083: actualiza manifiesto global de los 16 componentes y versiones individuales de CRM 1.13.0, Web 1.25.0, Notifications 1.6.0 y System 1.25.0, preservando los demás servicios.
