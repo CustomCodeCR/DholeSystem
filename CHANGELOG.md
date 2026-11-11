@@ -1,3 +1,8 @@
+## [1.21.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: sincroniza Web 1.21.0, Auth 1.7.0, CRM 1.10.0; contacto multiselección y vendedor elegible desde Auth.
+- Preserva el release 078 de vendedores/compromisos anterior. CI y staging pendientes.
+
 ## [1.20.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-SELLERS-COMMITMENTS-078: coordina DholeAuthService (filtro de vendedores activos), DholeCRMService (asignación y cierre seguro de compromisos) y DholeWeb (selector y checkboxes).
