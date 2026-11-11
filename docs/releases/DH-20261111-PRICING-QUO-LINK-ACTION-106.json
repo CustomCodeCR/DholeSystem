@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261111-PRICING-QUO-LINK-ACTION-106",
+  "ecosystem": "Dhole",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.37.2",
+  "date": "2026-11-11",
+  "sourceBranch": "fix/quo-vinculada-crystal-20261111",
+  "components": [
+    {
+      "component": "DholeWeb",
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.37.1",
+      "next": "1.37.2"
+    },
+    {
+      "component": "DholeSystem",
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.37.0",
+      "next": "1.37.2"
+    }
+  ],
+  "unchangedComponents": [
+    {
+      "component": "DholePricingService",
+      "version": "1.14.0"
+    }
+  ],
+  "change": "Display Cliente aceptó otra QUO in actual Crystal wizard step 9 and FCL duplicate step 8, link existing source QUO to an accepted QUO for the same client without creating draft quotation.",
+  "tests": [
+    "pricingQuoVinculadaCrystal.test.mjs",
+    "existing web CI/browser-smoke",
+    "staging before master"
+  ],
+  "restCompatible": true,
+  "realtimeCompatible": true,
+  "schemaMigration": false,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
