@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261111-CRM-QUOTE-SEND-VISIBLE-092",
+  "date": "2026-11-11",
+  "kind": "MINOR",
+  "ecosystemVersion": "1.32.1",
+  "sourceBranch": "fix/crm-account-quote-send-visible-092-master",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.31.0",
+      "next": "1.31.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.31.1",
+      "next": "1.32.1"
+    }
+  ],
+  "changes": [
+    "El botón Enviar cotización se muestra en la cabecera de todas las cuentas sin depender de QUO vinculadas",
+    "El panel permite seleccionar QUO y enviar solo al vendedor o al contacto con CC, con mensajes para cuentas sin QUO/contactos",
+    "Se conservan Pricing 1.11.1 y el release realtime existente, sin cambios de backend"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
