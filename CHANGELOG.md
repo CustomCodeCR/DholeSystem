@@ -1,3 +1,8 @@
+## [1.33.0] - 2026-11-11
+
+- MINOR DH-20261111-CRM-ACCOUNT-FUTURE-QUOTE-DELIVERY-093: reglas persistentes por cuenta para destinatarios de las cotizaciones futuras, aplicadas por Pricing una vez elegida la alternativa definitiva y al cerrar solicitudes. Notificaciones por Outbox/SignalR permanecen idempotentes.
+- Versiones coordinadas CRM 1.19.0, Pricing 1.12.0, Web 1.32.0, System/global 1.33.0. CI/staging pendientes; no despliegue de producción autorizado antes de validaciones.
+
 ## [1.32.1] - 2026-11-11
 
 - MINOR DH-20261111-CRM-QUOTE-SEND-VISIBLE-092: sincroniza la versión global con el frontend que muestra el botón «Enviar cotización» en la cabecera de todas las cuentas, incluso sin tarifas vinculadas; mantiene los controles de destinatario, contacto y copia al vendedor.
