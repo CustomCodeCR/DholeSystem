@@ -1,3 +1,8 @@
+## [1.25.1] - 2026-11-11
+
+- PATCH DH-20261111-CRM-WORKSPACE-TABS-084: registra DholeWeb 1.25.1 (pestañas unificadas de Prospectos, Actividades y Seguimientos) y DholeSystem 1.25.1 en el manifiesto del ecosistema; mantiene sin incrementos los otros 14 componentes.
+- Corrección exclusivamente frontend, sin cambios en contratos REST/SignalR. Compilación, CI y staging pendientes; producción no autorizada.
+
 ## [1.25.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-LEAD-DUPLICATE-083: actualiza manifiesto global de los 16 componentes y versiones individuales de CRM 1.13.0, Web 1.25.0, Notifications 1.6.0 y System 1.25.0, preservando los demás servicios.
