@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.19.4",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.20.0",
+  "status": "candidate-intermediate-validation-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-crm-prospect-seller-modification-20261110",
+  "candidateBranch": "feature/crm-agenda-unified-20261110-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.19.4",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -31,7 +31,7 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.6.0",
+      "version": "1.6.2",
       "mergeState": "candidate-synced-with-develop-and-master-no-target-merge",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.19.4",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.9.1",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+    "status": "pending-ci-for-DH-20261110-CRM-AGENDA-UNIFIED-077",
     "checks": 0,
     "total": 0
   },
@@ -164,7 +164,8 @@
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: probar modificación LCL vinculada a CRM por ID, test y build antes de promoción a master.",
     "No desplegar producción sin autorización expresa.",
-    "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master."
+    "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master.",
+    "DH-20261110-CRM-AGENDA-UNIFIED-077: TypeScript typecheck, .NET builds, regression and ACL staging verification required before master integration."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -223,7 +224,8 @@
     "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: cargar ejecutivo vigente de CRM al guardar solicitudes de modificación, sin depender del selector en pantalla 3.",
     "DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: validar ejecutivo CRM de prospectos y cuentas en nuevas solicitudes, ediciones de solicitud y modificaciones antes de guardar.",
     "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075: prospectos CRM con ejecutivo asignado en solicitudes de modificación iniciadas por vendedor reciben validación antes de submitSellerModification, sin cambiar permisos.",
-    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders."
+    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders.",
+    "DH-20261110-CRM-AGENDA-UNIFIED-077: Nueva actividad CRM, contactos involucrados, minuta redimensionable, compromisos completables y agendas de vendedores autorizados."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -274,7 +276,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
+  "businessReleaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -469,5 +471,25 @@
     },
     "schemaMigration": false,
     "status": "candidate-staging-queue"
+  },
+  "crmUnifiedAgendaRelease": {
+    "releaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
+    "ecosystemVersion": "1.20.0",
+    "components": {
+      "DholeWeb": "1.20.0",
+      "DholeCRMService": "1.10.0",
+      "DholeAuthService": "1.6.2",
+      "DholeSystem": "1.20.0"
+    },
+    "scope": [
+      "accounts",
+      "leads",
+      "activities",
+      "followups",
+      "calendar-users"
+    ],
+    "status": "candidate-ci-staging-pending",
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false
   }
 }
