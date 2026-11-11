@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.22.0",
-  "ecosystemVersion": "1.22.0",
+  "version": "1.23.0",
+  "ecosystemVersion": "1.23.0",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-master-CI-staging-pending",
-  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-080"
+  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082"
 }
