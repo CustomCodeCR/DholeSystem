@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.20.0",
+  "ecosystemVersion": "1.20.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -18,17 +18,17 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.2.5",
+      "version": "1.2.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "0b59b61dd0433e1277cb846c54a1f05a6d4bf74a",
+      "candidateSha": "b15a8625772716bca8facd6c4654625e939101c9",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.20.0",
+      "version": "1.20.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "258131a9016f1c779b939eafab1afdc3a45165e8",
       "developMergeSha": null
     },
     {
@@ -101,22 +101,22 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "34551ed76e6828e16d03cb32f3b58dadc1763ff0",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.20.0",
+      "version": "1.20.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-AGENDA-UNIFIED-077",
+    "status": "pending-ci-for-DH-20261110-CRM-SELLERS-COMMITMENTS-078",
     "checks": 0,
     "total": 0
   },
@@ -132,7 +132,8 @@
     "CRM account tax ID search: CI and staging proof required before master / production.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "Verificar CI y staging del release 1.19.2 antes de fusionar producción.",
-    "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization."
+    "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
+    "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending"
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -143,9 +144,10 @@
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeSystem",
+    "DholeAuthService",
     "DholeCRMService",
-    "DholeSystem"
+    "DholeWeb"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -178,8 +180,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-agenda-unified-20261110-master-v2",
-  "businessReleaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
+  "candidateBranch": "fix/crm-seller-roles-commitments-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-SELLERS-COMMITMENTS-078",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -323,5 +325,20 @@
     "status": "candidate-master-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
+  },
+  "crmSellerCommitmentRelease": {
+    "releaseId": "DH-20261110-CRM-SELLERS-COMMITMENTS-078",
+    "date": "2026-11-10",
+    "components": [
+      "DholeSystem",
+      "DholeAuthService",
+      "DholeCRMService",
+      "DholeWeb"
+    ],
+    "changes": [
+      "Only role Vendedor in agenda",
+      "Commitment checkbox authorized by parent activity"
+    ],
+    "status": "candidate"
   }
 }
