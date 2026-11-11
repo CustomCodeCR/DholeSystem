@@ -1,3 +1,8 @@
+## [1.25.3] - 2026-11-11
+
+- PATCH DH-20261111-CRM-WORKSPACE-TABS-084: sincroniza el manifiesto global con la corrección de pestañas de Prospectos, Actividades y Seguimientos ya integrada en DholeWeb master 1.25.1 (commit 7396cb4e). Respeta las publicaciones anteriores y mantiene versiones independientes de los 16 componentes.
+- Infraestructura realtime y contratos REST sin cambios. La integración master de Web está autorizada; pruebas de staging del flujo completo por verificar.
+
 ## [1.25.2] - 2026-11-11
 
 - PATCH DH-20261111-PRICING-OPENING-ATTACHMENTS-084: candidato aislado de master para Pricing 1.10.1 y Notifications 1.3.1, registrando versión global System 1.25.2 en manifiesto de los 16 componentes.
