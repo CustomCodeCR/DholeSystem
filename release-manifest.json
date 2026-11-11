@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.19.5",
   "status": "candidate-staging-not-deployed",
@@ -144,6 +144,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeAuthService",
     "DholeWeb",
     "DholeCRMService"
   ],
@@ -177,7 +178,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/pricing-crm-prospect-requests-master-20261110-v2",
+  "candidateBranch": "fix/crm-global-agendas-scopes-20261110-master",
   "businessReleaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -307,5 +308,7 @@
     "schemaMigration": false,
     "status": "candidate-staging-verified-pending-master"
   },
-  "previousRealtimeReleaseId": "rt-20261107-01"
+  "previousRealtimeReleaseId": "rt-20261107-01",
+  "expectedRepositories": 16,
+  "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework"
 }
