@@ -1,0 +1,35 @@
+{
+  "releaseId": "DH-20261111-CRM-QUOTE-DELIVERY-089",
+  "date": "2026-11-11",
+  "kind": "MINOR",
+  "ecosystemVersion": "1.31.0",
+  "sourceBranch": "feature/crm-quote-recipient-choice-20261111-master",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.30.0",
+      "next": "1.31.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previous": "1.10.1",
+      "next": "1.11.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.29.2",
+      "next": "1.31.0"
+    }
+  ],
+  "changes": [
+    "Selección del destinatario de QUO en la cuenta CRM",
+    "Validación en Pricing de cuenta, contacto y vendedor asignado antes del envío de correo",
+    "PDF adjunto y Outbox/Redis Streams/Notifications existentes, manteniendo REST compatible"
+  ],
+  "validation": {
+    "developCI": "pending",
+    "developStaging": "pending",
+    "masterCI": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
