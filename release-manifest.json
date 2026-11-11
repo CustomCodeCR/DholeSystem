@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.22.0",
+  "ecosystemVersion": "1.23.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -183,7 +183,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "fix/crm-lead-pricing-parity-20261110-master",
-  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-080",
+  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -356,13 +356,12 @@
     "productionDeploymentAuthorized": false
   },
   "crmLeadQuoParityRelease": {
-    "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-080",
-    "ecosystemVersion": "1.22.0",
-    "type": "MINOR",
+    "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
+    "ecosystemVersion": "1.23.0",
     "components": {
       "DholeWeb": {
         "from": "1.21.0",
-        "to": "1.22.0"
+        "to": "1.23.0"
       },
       "DholePricingService": {
         "from": "1.9.11",
@@ -370,12 +369,9 @@
       },
       "DholeSystem": {
         "from": "1.21.0",
-        "to": "1.22.0"
+        "to": "1.23.0"
       }
     },
-    "crmServiceVersionUnchanged": true,
-    "authServiceVersionUnchanged": true,
-    "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "realtimeCompatible": true,
     "productionAuthorized": false
