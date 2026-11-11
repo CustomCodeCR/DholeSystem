@@ -3,7 +3,7 @@
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.22.0",
-  "status": "candidate-intermediate-ci-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
@@ -142,7 +142,7 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-CONTACTS-SELLERS-078",
+    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
     "checks": 0,
     "total": 0
   },
@@ -185,7 +185,6 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAuthService",
     "DholeCRMService",
     "DholeWeb"
   ],
