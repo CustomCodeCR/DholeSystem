@@ -1,0 +1,39 @@
+{
+  "releaseId": "DH-20261110-CRM-CONTACTS-SELLERS-078",
+  "date": "2026-11-10",
+  "kind": "MINOR",
+  "ecosystemVersion": "1.21.0",
+  "target": "develop",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.20.2",
+      "next": "1.21.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAuthService",
+      "previous": "1.6.4",
+      "next": "1.7.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.9.3",
+      "next": "1.10.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.20.2",
+      "next": "1.21.0"
+    }
+  ],
+  "features": [
+    "DhMultiSelect para contactos de cuenta al crear actividad y agregar participantes",
+    "Filtrado vendedor y superusuario Auth y CRM",
+    "Preserva releases 078 sellers y 079 prospectos"
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
