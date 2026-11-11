@@ -1,3 +1,8 @@
+## [1.22.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-LEAD-QUO-PARITY-080: versión global coordinada con DholeWeb 1.22.0 y DholePricingService 1.10.0. Prospectos muestra QUO directas de Pricing, indicadores oficiales y rutas cotizadas; vinculación histórica autorizada por superadministración y confirmación expresa.
+- No se modifican CRM/Auth, Framework, infraestructura SignalR ni las APIs existentes. CI, staging y permisos se verifican antes de promover a master.
+
 ## [1.21.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: coordina Web 1.21.0, Auth 1.7.0, CRM 1.10.0 con multiselección de contactos y roles comerciales.
