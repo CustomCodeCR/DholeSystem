@@ -1,3 +1,8 @@
+## [1.23.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-LEAD-QUO-PARITY-082: coordina DholeWeb 1.23.0 y DholePricingService 1.10.0 para usar QUO reales de Prospectos, indicadores y asignación histórica segura, manteniendo Cuentas, Auth/CRM y el release 1.22.0 sin cambios incompatibles.
+- CI aprobado y staging del batch completo verificado antes de promover a master. Autorización explícita del usuario para master.
+
 ## [1.22.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-ACCOUNT-PROCEDURES-080: release de procedimientos específicos por cuenta; backend CRM 1.11.0, Web 1.22.0 y DholeSystem 1.22.0.
