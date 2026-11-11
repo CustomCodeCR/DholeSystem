@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.22.0",
+  "ecosystemVersion": "1.23.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-account-specific-procedures-20261110",
+  "candidateBranch": "feature/crm-category-scope-082-develop-v2",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -31,7 +31,7 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.11.0",
+      "version": "1.12.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+    "status": "pending-ci-for-DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
     "checks": 0,
     "total": 0
   },
@@ -166,7 +166,9 @@
     "No desplegar producción sin autorización expresa.",
     "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master.",
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
-    "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending"
+    "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: validate Auth scope seeding, negative CRM API authorization, Web tests and staging before merging master",
+    "Production deployment requires express authorization; master auto-deploys"
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -181,10 +183,12 @@
     "historicalQuoteCatalog": "CI and staging verification pending",
     "pricingModificationCrmOwner": "CI y staging pendientes",
     "pricingProspectRequests": "CI y staging pendientes",
-    "pricingSellerModificationProspects": "CI/staging pendiente"
+    "pricingSellerModificationProspects": "CI/staging pendiente",
+    "crmAccountCategoryScope": "Candidate changes coordinated in Auth, CRM and Web. CI/staging pending."
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeAuthService",
     "DholeCRMService",
     "DholeWeb"
   ],
@@ -228,7 +232,8 @@
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: cerrar compromisos secundarios desde la actividad padre con checkbox y conservar la agenda CRM global, contactos y minutas implementados en 076.",
     "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos",
-    "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth."
+    "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth.",
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: accounts and lead conversion assign category only with crm.account.category.manage. Default lowest type tier for unprivileged creation. Prevent unauthorized reclassification."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -279,7 +284,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
