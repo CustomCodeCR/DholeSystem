@@ -1,0 +1,34 @@
+{
+  "releaseId": "DH-20261110-CRM-SELLERS-COMMITMENTS-078",
+  "date": "2026-11-10",
+  "releaseType": "PATCH",
+  "component": "DholeSystem",
+  "from": "1.20.0",
+  "to": "1.20.1",
+  "ecosystemVersion": "1.20.1",
+  "realtimeReleaseId": "rt-20261107-01",
+  "status": "candidate",
+  "productionDeploymentAuthorized": false,
+  "components": [
+    {
+      "name": "DholeSystem",
+      "version": "1.20.1",
+      "candidateSha": null
+    },
+    {
+      "name": "DholeAuthService",
+      "version": "1.6.4",
+      "candidateSha": "50ff297ff74faefd13c13959a9b89d5313cee9cb"
+    },
+    {
+      "name": "DholeWeb",
+      "version": "1.20.1",
+      "candidateSha": "f4a5d6bd5ae49248af1e117d6a89e4f99020c231"
+    },
+    {
+      "name": "DholeCRMService",
+      "version": "1.9.3",
+      "candidateSha": "b2d282f81c4154280d74e07b5d8657da164fb018"
+    }
+  ]
+}
