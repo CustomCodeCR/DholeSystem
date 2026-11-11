@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.22.0",
+  "ecosystemVersion": "1.23.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -101,7 +101,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.11.0",
+      "version": "1.12.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,9 @@
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: validate permission seeding, negative API authorization, Web typecheck and lead conversion in staging before master",
-    "Production deploy requires express authorization; master auto-deploys"
+    "Production deploy requires express authorization; master auto-deploys",
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: validate Auth scope seeding, negative CRM API authorization, Web tests and staging before merging master",
+    "Production deployment requires express authorization; master auto-deploys"
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -144,7 +146,7 @@
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
     "historicalQuoteCatalog": "PR CI and staging validation pending",
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes",
-    "crmAccountCategoryScope": "Candidate branches contain Auth scope, CRM API policy and Web selector guards. CI, negative authorization tests and staging pending."
+    "crmAccountCategoryScope": "Candidate changes coordinated in Auth, CRM and Web. CI/staging pending."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -173,7 +175,7 @@
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
     "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth.",
-    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: permit category assignment only with crm.account.category.manage; default server category for new accounts/prospect conversions; prevent unauthorized PATCH."
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: accounts and lead conversion assign category only with crm.account.category.manage. Default lowest type tier for unprivileged creation. Prevent unauthorized reclassification."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
