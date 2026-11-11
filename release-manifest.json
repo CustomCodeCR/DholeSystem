@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.25.3",
+  "ecosystemVersion": "1.27.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-opening-attachments-manifest-20261111",
+  "candidateBranch": "feature/crm-procedure-attachments-20261111-085",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.25.3",
+      "version": "1.27.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,8 +39,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.25.1",
-      "mergeState": "merged-into-develop",
+      "version": "1.27.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,14 +135,14 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.13.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.15.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "48fa507d7e123671e731bf1058f834cc2ce60e10"
+      "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-CRM-WORKSPACE-TABS-084",
+    "status": "pending-ci-for-DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
     "checks": 0,
     "total": 0
   },
@@ -170,7 +170,8 @@
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: CI + staging negative authorization and Web rendering tests must pass before master merge.",
     "Production deployment requires express authorization (master auto-deploys).",
     "DH-20261111-CRM-WORKSPACE-TABS-084: CI, prueba funcional en staging y autorización expresa de producción antes de integrar a master.",
-    "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente."
+    "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -189,10 +190,13 @@
     "crmAccountCategoryScope": "Candidate Auth, CRM, Web and System changes; CI/staging pending.",
     "crmWorkspaceTabs": "Pendiente: ejecutar test:workspace-tabs, build, version:check y prueba de navegación/refresh en staging; el merge a master lanza deploy de producción.",
     "openingAttachments": "Pricing and Notifications CI passed, staging mail send pending",
-    "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending."
+    "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
+    "crmProcedureAttachments": "Candidate in coordinated branches. CRM/Web version gates, build, tests and staging account-access/Storage preview must pass before master."
   },
   "releaseComponents": [
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -239,7 +243,8 @@
     "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: only crm.account.category.manage can assign/reclassify account categories; CRM enforces default for unprivileged account and prospect conversion, no REST/SignalR contract change.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: reunifica /crm/leads lista/detalle y el espacio Agenda/Seguimientos (/crm/followups, /crm/activities y sus detalles) en una sola pestaña de trabajo por módulo; no cambia APIs.",
     "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: attach quote PDF, linked seller-request supportDocuments and final rate backup storage files to opening emails.",
-    "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend."
+    "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -290,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-WORKSPACE-TABS-084",
+  "businessReleaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -613,5 +618,16 @@
     },
     "productionDeploymentAuthorized": false,
     "rollback": "Revert coordinated pull requests; no database migration"
+  },
+  "crmSpecificProcedureAttachmentsRelease": {
+    "releaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
+    "ecosystemVersion": "1.27.0",
+    "components": {
+      "DholeSystem": "1.27.0",
+      "DholeCRMService": "1.15.0",
+      "DholeWeb": "1.27.0"
+    },
+    "approval": "ci-and-staging-pending",
+    "productionDeploymentAuthorized": false
   }
 }
