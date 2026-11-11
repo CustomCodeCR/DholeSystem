@@ -1,3 +1,8 @@
+## [1.18.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: manifiesto coordinado de agenda CRM unificada, permisos de asignación de vendedor, contactos, minutas, compromisos y actividad principal.
+- Pendiente validación CI y staging, sin despliegue de producción.
+
 # Changelog
 
 ## [1.17.20] - 2026-11-10
