@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.35.0",
-  "ecosystemVersion": "1.35.0",
+  "version": "1.36.0",
+  "ecosystemVersion": "1.36.0",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
   "businessReleaseId": "DH-20261111-CRM-QUOTE-MULTI-CONTACTS-102"
