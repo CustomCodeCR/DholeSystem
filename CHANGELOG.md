@@ -1,3 +1,9 @@
+## [1.22.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ACCOUNT-PROCEDURES-080: release de procedimientos específicos por cuenta; backend CRM 1.11.0, Web 1.22.0 y DholeSystem 1.22.0.
+- Promoción master aislada de un release verificado en staging, conservando el estado de producción y los componentes no involucrados; registro explícito de diferencia realtime entre master/develop.
+- Versión universal y gates de CI; producción autorizada para este release por solicitud expresa.
+
 ## [1.21.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: Release global coordinado de CRM para multiselección de contactos y restricción de roles de responsables.
