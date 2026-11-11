@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.21.0",
+  "ecosystemVersion": "1.22.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.21.0",
+      "version": "1.22.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -101,7 +101,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.6.0",
+      "version": "1.11.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -109,14 +109,14 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.21.0",
+      "version": "1.22.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079",
+    "status": "candidate-master-ci-pending-for-procedures-080",
     "checks": 0,
     "total": 0
   },
@@ -146,7 +146,6 @@
   "releaseComponents": [
     "DholeWeb",
     "DholeCRMService",
-    "DholeAuthService",
     "DholeSystem"
   ],
   "changes": [
@@ -181,8 +180,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-multiselect-roles-079-master",
-  "businessReleaseId": "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079",
+  "candidateBranch": "feature/crm-account-specific-procedures-20261110",
+  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -353,5 +352,34 @@
     "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
+  },
+  "crmSpecificProceduresRelease": {
+    "releaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+    "ecosystemVersion": "1.22.0",
+    "components": {
+      "DholeCRMService": {
+        "previous": "1.6.0",
+        "new": "1.11.0"
+      },
+      "DholeWeb": {
+        "previous": "1.21.1",
+        "new": "1.22.0"
+      },
+      "DholeSystem": {
+        "previous": "1.21.0",
+        "new": "1.22.0"
+      }
+    },
+    "staging": {
+      "CRM": "https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42952863981",
+      "Web": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/42952869368",
+      "System": "https://github.com/CustomCodeCR/DholeSystem/actions/runs/42952877352",
+      "status": "passed"
+    },
+    "schemaMigration": "20261111030000_AddAccountSpecificProcedures",
+    "scope": "Multiple CRM account-specific procedures; name, detail and team; isolated master backport",
+    "realtime": "CRM master still lacks the universal realtime Outbox producer; isolated REST backport pending coordinated realtime master integration",
+    "status": "candidate-master-ci-pending",
+    "productionDeploymentAuthorized": true
   }
 }
