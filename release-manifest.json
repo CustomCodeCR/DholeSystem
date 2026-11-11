@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.33.0",
+  "ecosystemVersion": "1.33.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/account-quote-delivery-default-093-develop",
+  "candidateBranch": "fix/account-quote-delivery-realtime-094-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.33.0",
+      "version": "1.33.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.20.0",
+      "version": "1.20.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -201,8 +201,6 @@
   },
   "releaseComponents": [
     "DholeCRMService",
-    "DholePricingService",
-    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
@@ -303,7 +301,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-ACCOUNT-QUOTE-DELIVERY-093",
+  "businessReleaseId": "DH-20261111-CRM-QUOTE-PREFERENCE-REALTIME-094",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
