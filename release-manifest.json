@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.37.0",
+  "ecosystemVersion": "1.37.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/quo-vinculada-20261111",
+  "candidateBranch": "fix/quo-vinculada-crystal-20261111",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.37.0",
+      "version": "1.37.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.37.0",
+      "version": "1.37.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -142,7 +142,7 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-DH-20261111-PRICING-QUO-LINKED-104",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
@@ -199,10 +199,10 @@
     "crmAgreementList": "DholeWeb PR #461 updated on develop 1.27.1; CI/staging pending; production not authorized",
     "crmLeadInstitutionalSeller": "Pending CRM+Web compilation, integration tests and staging create/reassign/convert/duplicate verification; master auto-deployment not authorized.",
     "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
-    "quoVinculada": "DH-20261111-PRICING-QUO-LINKED-104: intermediate implementation Pricing/Web/System, no CI or staging evidence yet."
+    "quoVinculada": "DH-20261111-PRICING-QUO-LINKED-104: intermediate implementation Pricing/Web/System, no CI or staging evidence yet.",
+    "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: show commercial link action on active Crystal wizard and duplicated FCL source, CI/staging pending"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -304,7 +304,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-QUOTE-MULTI-CONTACTS-102",
+  "businessReleaseId": "DH-20261111-PRICING-QUO-LINK-ACTION-106",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
