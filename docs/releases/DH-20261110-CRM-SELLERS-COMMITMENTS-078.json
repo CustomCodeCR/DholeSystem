@@ -18,12 +18,12 @@
     {
       "name": "DholeWeb",
       "version": "1.20.1",
-      "candidateSha": "237504904e3a53e9d55348c4717e79f2782a465c"
+      "candidateSha": "258131a9016f1c779b939eafab1afdc3a45165e8"
     },
     {
       "name": "DholeCRMService",
       "version": "1.5.1",
-      "candidateSha": "63df6e873a1517593124da1de475d2357b112242"
+      "candidateSha": "34551ed76e6828e16d03cb32f3b58dadc1763ff0"
     },
     {
       "name": "DholeSystem",
