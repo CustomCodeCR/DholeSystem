@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.17.20",
-  "ecosystemVersion": "1.17.20",
-  "releaseId": "rt-20261107-01",
+  "version": "1.19.5",
+  "ecosystemVersion": "1.19.5",
+  "releaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076",
   "releaseStatus": "candidate-master-ci-staging-pending",
-  "businessReleaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075"
+  "businessReleaseId": "DH-20261110-CRM-GLOBAL-AGENDAS-076"
 }
