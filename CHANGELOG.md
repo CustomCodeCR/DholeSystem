@@ -1,3 +1,8 @@
+## [1.25.2] - 2026-11-11
+
+- PATCH DH-20261111-PRICING-OPENING-ATTACHMENTS-084: candidato aislado de master para Pricing 1.10.1 y Notifications 1.3.1, registrando versión global System 1.25.2 en manifiesto de los 16 componentes.
+- Conserva los cambios anteriores de master; soportes de solicitudes y archivos de QUO en correos de apertura. CI/staging pendientes, producción no autorizada.
+
 ## [1.25.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-LEAD-DUPLICATE-083: actualiza manifiesto global de los 16 componentes y versiones individuales de CRM 1.13.0, Web 1.25.0, Notifications 1.3.0 y System 1.25.0, preservando los demás servicios.
