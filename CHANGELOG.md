@@ -1,3 +1,8 @@
+## [1.24.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Release global coordinado de Auth 1.8.0, CRM 1.12.0, Web 1.24.0 y System 1.24.0, preservando todos los demás servicios.
+- CI y staging pendientes; no se autorizó despliegue a producción.
+
 ## [1.23.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-LEAD-QUO-PARITY-082: coordina Web 1.23.0 / Pricing 1.10.0 / System 1.23.0 para QUO reales de prospectos, indicadores y reconciliación administrativa de QUO históricas.
