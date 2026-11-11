@@ -1,3 +1,8 @@
+## [1.24.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: Actualiza versión global y manifiesto de 16 componentes para Auth, CRM y Web; conserva realtime y configuraciones previas.
+- Tests CI obligatorios y staging por validar. Merge a master autorizado expresamente.
+
 ## [1.23.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-LEAD-QUO-PARITY-082: coordina DholeWeb 1.23.0 y DholePricingService 1.10.0 para usar QUO reales de Prospectos, indicadores y asignación histórica segura, manteniendo Cuentas, Auth/CRM y el release 1.22.0 sin cambios incompatibles.
