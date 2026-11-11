@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.22.0",
+  "ecosystemVersion": "1.23.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-account-specific-procedures-20261110",
+  "candidateBranch": "fix/crm-lead-pricing-parity-20261110-develop-v3",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.11",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": "21f0835f25b436e4cd2c6eccb6238c22ca5957ee",
       "developMergeSha": null
@@ -184,9 +184,9 @@
     "pricingSellerModificationProspects": "CI/staging pendiente"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeCRMService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService",
+    "DholeSystem"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -228,7 +228,8 @@
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: cerrar compromisos secundarios desde la actividad padre con checkbox y conservar la agenda CRM global, contactos y minutas implementados en 076.",
     "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos",
-    "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth."
+    "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth.",
+    "DH-20261110-CRM-LEAD-QUO-PARITY-082: QUO del prospecto directamente en Pricing, dashboard oficial, rutas cotizadas y vinculación histórica con confirmación de superadministradores."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -279,7 +280,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -562,5 +563,27 @@
     "realtime": "Reuse crm.account.updated.v1 with existing transactional Outbox/SignalR when enabled",
     "status": "candidate-intermediate-ci-staging-pending",
     "productionDeploymentAuthorized": false
+  },
+  "crmLeadQuoParityRelease": {
+    "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
+    "ecosystemVersion": "1.23.0",
+    "components": {
+      "DholeWeb": {
+        "from": "1.22.0",
+        "to": "1.23.0"
+      },
+      "DholePricingService": {
+        "from": "1.9.12",
+        "to": "1.10.0"
+      },
+      "DholeSystem": {
+        "from": "1.22.0",
+        "to": "1.23.0"
+      }
+    },
+    "preservesConcurrentRelease": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+    "schemaMigration": false,
+    "realtimeCompatible": true,
+    "productionAuthorized": false
   }
 }
