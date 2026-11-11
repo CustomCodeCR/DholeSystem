@@ -1,3 +1,8 @@
+## [1.21.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: Release global coordinado de CRM para multiselección de contactos y restricción de roles de responsables.
+- Se mantienen API REST y realtime existentes. Validación por CI y staging antes de confirmar despliegue.
+
 ## [1.20.1] - 2026-11-10
 
 - PATCH DH-20261110-CRM-SELLERS-COMMITMENTS-078: coordina DholeAuthService (filtro de vendedores activos), DholeCRMService (asignación y cierre seguro de compromisos) y DholeWeb (selector y checkboxes).
