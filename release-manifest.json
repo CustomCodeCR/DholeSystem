@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.20.1",
+  "ecosystemVersion": "1.20.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.20.1",
+      "version": "1.20.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.20.1",
+      "version": "1.20.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -167,7 +167,8 @@
     "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
-    "DH-20261110-CRM-LEAD-PARITY-079: vista de Prospectos con ficha, histogramas de cotizaciones vinculadas y rutas documentadas; cuentas mantienen dashboard Pricing en tiempo real."
+    "DH-20261110-CRM-LEAD-PARITY-079: vista de Prospectos con ficha, histogramas de cotizaciones vinculadas y rutas documentadas; cuentas mantienen dashboard Pricing en tiempo real.",
+    "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -327,15 +328,15 @@
   },
   "crmLeadParityRelease": {
     "releaseId": "DH-20261110-CRM-LEAD-PARITY-079",
-    "ecosystemVersion": "1.20.1",
+    "ecosystemVersion": "1.20.2",
     "components": {
       "DholeWeb": {
         "from": "1.20.0",
-        "to": "1.20.1"
+        "to": "1.20.2"
       },
       "DholeSystem": {
         "from": "1.20.0",
-        "to": "1.20.1"
+        "to": "1.20.2"
       }
     },
     "servicesUnchanged": [
@@ -343,7 +344,7 @@
       "DholePricingService",
       "DholeAuthService"
     ],
-    "status": "candidate-master-ci-staging-pending",
+    "status": "candidate-ci-staging-pending",
     "productionDeploymentAuthorized": false,
     "schemaMigration": false,
     "realtimeContractChange": false
