@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.32.1",
+  "ecosystemVersion": "1.33.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-account-quote-send-visible-092-develop",
+  "candidateBranch": "feature/account-quote-delivery-default-093-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.32.1",
+      "version": "1.33.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.32.1",
+      "version": "1.33.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.11.1",
+      "version": "1.12.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.17.0",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -200,6 +200,8 @@
     "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent."
   },
   "releaseComponents": [
+    "DholeCRMService",
+    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -301,7 +303,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-QUOTE-SEND-VISIBLE-092",
+  "businessReleaseId": "DH-20261111-CRM-ACCOUNT-QUOTE-DELIVERY-093",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
