@@ -1,0 +1,39 @@
+{
+  "releaseId": "DH-20261111-CRM-ACCOUNT-FUTURE-QUOTE-DELIVERY-093",
+  "date": "2026-11-11",
+  "kind": "MINOR",
+  "ecosystemVersion": "1.33.0",
+  "sourceBranch": "feature/crm-account-future-quote-delivery-093-develop",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previous": "1.19.0",
+      "next": "1.20.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previous": "1.11.3",
+      "next": "1.12.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.32.2",
+      "next": "1.33.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.32.1",
+      "next": "1.33.0"
+    }
+  ],
+  "changes": [
+    "La preferencia de envío pertenece a la cuenta CRM y se conserva para QUO futuras",
+    "Las alternativas FCL requieren selección antes del correo; los envíos y reintentos respetan la regla con copia al vendedor asignado",
+    "Utiliza infraestructura existente REST/Outbox/SignalR y clave interna de servicio"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
