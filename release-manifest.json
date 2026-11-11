@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.25.1",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-lead-duplicate-20261110-develop",
+  "candidateBranch": "feature/pricing-opening-attachments-20261111",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
