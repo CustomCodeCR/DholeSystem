@@ -1,7 +1,7 @@
-## [1.35.0] - 2026-11-11
+## [1.36.0] - 2026-11-11
 
 - MINOR DH-20261111-CRM-QUOTE-MULTI-CONTACTS-102: múltiples destinatarios para todas las futuras cotizaciones por cuenta CRM. Web utiliza DhMultiSelect y elimina el selector de cotización individual; CRM guarda la lista de contactos con migración compatible; Pricing valida y envía el PDF a cada contacto con copia al vendedor.
-- Componentes del release: CRM 1.22.0, Pricing 1.13.0, Web 1.35.0 y System/global 1.35.0. Compatibilidad REST, SignalR y Outbox mantenida. CI/staging pendientes y producción sin autorización.
+- Componentes del release: CRM 1.22.0, Pricing 1.13.0, Web 1.36.0 y System/global 1.35.0. Compatibilidad REST, SignalR y Outbox mantenida. CI/staging pendientes y producción sin autorización.
 
 ## [1.33.1] - 2026-11-11
 
