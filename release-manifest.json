@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.22.0",
+  "ecosystemVersion": "1.23.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -52,7 +52,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.11",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": "3caf84c173ed542d125255b9b5b89bd40da8c035"
     },
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.22.0",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -121,7 +121,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -145,7 +145,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeCRMService",
+    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -168,7 +168,8 @@
     "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
-    "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth."
+    "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth.",
+    "DH-20261110-CRM-LEAD-QUO-PARITY-082: Prospectos muestra QUO desde Pricing, dashboard de cotizaciones y rutas; vinculación histórica superadministrada con confirmación."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -180,8 +181,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-account-specific-procedures-20261110",
-  "businessReleaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
+  "candidateBranch": "fix/crm-lead-pricing-parity-20261110-master-final",
+  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -380,6 +381,28 @@
     "scope": "Multiple CRM account-specific procedures; name, detail and team; isolated master backport",
     "realtime": "Includes opt-in CRM durable Outbox/Redis Streams producer and worker matching staging; realtime flags remain gated until coordinated activation",
     "status": "candidate-master-ci-pending",
+    "productionDeploymentAuthorized": true
+  },
+  "crmLeadQuoParityRelease": {
+    "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
+    "ecosystemVersion": "1.23.0",
+    "components": {
+      "DholeWeb": {
+        "from": "1.22.0",
+        "to": "1.23.0"
+      },
+      "DholePricingService": {
+        "from": "1.9.12",
+        "to": "1.10.0"
+      },
+      "DholeSystem": {
+        "from": "1.22.0",
+        "to": "1.23.0"
+      }
+    },
+    "schemaMigration": false,
+    "realtimeCompatible": true,
+    "stagingDeploymentValidated": true,
     "productionDeploymentAuthorized": true
   }
 }
