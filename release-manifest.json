@@ -26,9 +26,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.25.2",
+      "version": "1.26.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "a51dc28517513ecbc18b6493453a87a0b1499882",
+      "candidateSha": "2e4fe5656ec575ff39cf25a69db7c7e614056d78",
       "developMergeSha": null
     },
     {
@@ -151,7 +151,7 @@
     "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending.",
     "openingAttachments": "CI and staging pending for master backport",
     "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
-    "crmAgreementList": "DholeWeb candidate PR #461 develop / #462 master; CI y pruebas de staging pendientes; no producción."
+    "crmAgreementList": "Web PR #462 refresh en master 1.26.1; CI/staging pending; production not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -437,9 +437,9 @@
     "ecosystemVersion": "1.26.1",
     "components": {
       "DholeWeb": {
-        "previous": "1.25.1",
-        "new": "1.25.2",
-        "commit": "a51dc28517513ecbc18b6493453a87a0b1499882"
+        "previous": "1.26.0",
+        "new": "1.26.1",
+        "commit": "2e4fe5656ec575ff39cf25a69db7c7e614056d78"
       },
       "DholeSystem": {
         "previous": "1.25.3",
