@@ -1,3 +1,8 @@
+## [1.22.0] - 2026-11-10
+
+- MINOR DH-20261110-CRM-LEAD-QUO-PARITY-080: manifiesto coordinado Web 1.22.0 / Pricing 1.10.0 / System 1.22.0; Prospectos usa QUO reales y permite reconciliación histórica segura. Conserva release 081 (tarifas vencidas).
+- No cambian los servicios Auth/CRM ni la infraestructura SignalR. CI y staging requeridos.
+
 ## [1.21.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-CONTACTS-SELLERS-078: coordina Web 1.21.0, Auth 1.7.0, CRM 1.10.0 con multiselección de contactos y roles comerciales.
