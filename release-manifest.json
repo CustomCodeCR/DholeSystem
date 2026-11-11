@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.21.0",
+  "ecosystemVersion": "1.22.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.21.0",
+      "version": "1.22.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -52,7 +52,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.9.11",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": "3caf84c173ed542d125255b9b5b89bd40da8c035"
     },
@@ -109,7 +109,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.21.0",
+      "version": "1.22.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -133,7 +133,8 @@
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
     "Verificar CI y staging del release 1.19.2 antes de fusionar producción.",
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
-    "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending"
+    "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
+    "DH-20261110-CRM-LEAD-QUO-PARITY-080: validar CI y staging de Pricing/Web, acceso superadministrador, conflictos de propiedad y QUO reales antes de producción."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -145,8 +146,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeCRMService",
-    "DholeAuthService",
+    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -169,7 +169,8 @@
     "DH-20261110-PRICING-CRM-PROSPECT-REQUESTS-MASTER-076: backport de la validación por ID del ejecutivo comercial de CRM para solicitudes normales, ediciones, solicitudes de modificación del vendedor y modificaciones LCL en pantalla 5, tanto cuentas como prospectos.",
     "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: permit backdated CRM activities, archive completed, suppress past reminders.",
     "DH-20261110-CRM-AGENDA-UNIFIED-077: CRM master — Nueva actividad, contactos y minuta, filtrado de agendas por vendedor y checkbox de compromisos.",
-    "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth."
+    "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079: DhMultiSelect para contactos en creación y detalle de actividad, vendedores y superusuarios activos únicamente en selector; validación CRM/Auth.",
+    "DH-20261110-CRM-LEAD-QUO-PARITY-080: cotizaciones CRM de prospectos por ClientLeadId, rutas en análisis y reconciliación manual superadministrada de QUO históricas."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -181,8 +182,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-multiselect-roles-079-master",
-  "businessReleaseId": "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079",
+  "candidateBranch": "fix/crm-lead-pricing-parity-20261110-master",
+  "businessReleaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-080",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -353,5 +354,30 @@
     "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
+  },
+  "crmLeadQuoParityRelease": {
+    "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-080",
+    "ecosystemVersion": "1.22.0",
+    "type": "MINOR",
+    "components": {
+      "DholeWeb": {
+        "from": "1.21.0",
+        "to": "1.22.0"
+      },
+      "DholePricingService": {
+        "from": "1.9.11",
+        "to": "1.10.0"
+      },
+      "DholeSystem": {
+        "from": "1.21.0",
+        "to": "1.22.0"
+      }
+    },
+    "crmServiceVersionUnchanged": true,
+    "authServiceVersionUnchanged": true,
+    "status": "candidate-ci-staging-pending",
+    "schemaMigration": false,
+    "realtimeCompatible": true,
+    "productionAuthorized": false
   }
 }
