@@ -1,3 +1,8 @@
+## [1.20.1] - 2026-11-10
+
+- PATCH DH-20261110-CRM-SELLERS-COMMITMENTS-078: coordina DholeAuthService (filtro de vendedores activos), DholeCRMService (asignación y cierre seguro de compromisos) y DholeWeb (selector y checkboxes).
+- Registra versiones de cada componente y mantiene infraestructura realtime REST/SignalR, sin modificar los contratos existentes. CI, staging y producción pendientes.
+
 ## [1.20.0] - 2026-11-10
 
 - MINOR DH-20261110-CRM-AGENDA-UNIFIED-077: manifiesto coordinado del CRM con Nueva actividad, participantes/contactos, minuta, agendas globales y compromisos marcables. Integra DholeWeb 1.20.0 y DholeCRMService 1.5.0, reutilizando DholeAuthService 1.2.5.
