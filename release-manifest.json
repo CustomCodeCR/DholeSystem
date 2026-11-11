@@ -378,7 +378,7 @@
     },
     "schemaMigration": "20261111030000_AddAccountSpecificProcedures",
     "scope": "Multiple CRM account-specific procedures; name, detail and team; isolated master backport",
-    "realtime": "CRM master still lacks the universal realtime Outbox producer; isolated REST backport pending coordinated realtime master integration",
+    "realtime": "Includes opt-in CRM durable Outbox/Redis Streams producer and worker matching staging; realtime flags remain gated until coordinated activation",
     "status": "candidate-master-ci-pending",
     "productionDeploymentAuthorized": true
   }
