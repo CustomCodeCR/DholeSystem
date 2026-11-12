@@ -1,3 +1,9 @@
+## [1.39.1] - 2026-11-12
+
+- PATCH DH-20261112-CRM-DRAFT-DHMODAL-111: metadatos del release aislado de master para recuperación de borradores CRM por DhModal, sin confirmaciones nativas.
+- DholeWeb 1.39.0 → 1.39.1; DholeCRMService 1.24.0 → 1.24.1; DholeSystem 1.39.0 → 1.39.1. Conserva SignalR/REST y evita fusionar cambios ajenos de develop.
+- CI y staging requeridos antes de producción.
+
 ## [1.39.0] - 2026-11-11
 
 - MINOR DH-20261111-CRM-DRAFT-RECOVERY-109: registra release coordinado de autoguardado CRM Web 1.39.0 y CRMService 1.24.0, con recuperación local por formulario/usuario/registro sin mutar registros de CRM hasta confirmar guardar.

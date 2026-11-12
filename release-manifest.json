@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.39.0",
+  "ecosystemVersion": "1.39.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.39.0",
+      "version": "1.39.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.24.0",
+      "version": "1.24.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.39.0",
+      "version": "1.39.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -193,7 +193,8 @@
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: attachments for account-specific CRM procedures, preview and access control. Only scoped business release 085 authorized; realtime remains disabled.",
     "DH-20261111-CRM-AGREEMENT-LIST-085: quitar y restaurar compromisos detectados en acuerdos en Nueva actividad comercial sin borrar el texto; no se generan seguimientos para acuerdos quitados.",
     "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
-    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM local autosave recovery 1.39.0/1.24.0 and unchanged realtime"
+    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM local autosave recovery 1.39.0/1.24.0 and unchanged realtime",
+    "DH-20261112-CRM-DRAFT-DHMODAL-111: master isolated CRM DhModal recovery; deferred drafts preserved; no native CRM dialogs"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -205,8 +206,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "feature/crm-autosave-recovery-20261111",
-  "businessReleaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
+  "candidateBranch": "fix/crm-draft-dhmodal-master-20261112",
+  "businessReleaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -499,5 +500,16 @@
     "schemaMigration": false,
     "productionDeploymentAuthorized": false,
     "status": "candidate-ci-staging-pending"
+  },
+  "crmDraftModalRelease": {
+    "releaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
+    "version": "1.39.1",
+    "frontendVersion": "1.39.1",
+    "crmVersion": "1.24.1",
+    "component": "CrmDraftRecoveryModal",
+    "scope": "CRM drafts",
+    "preservesDeferredDrafts": true,
+    "noNativeDialogs": true,
+    "productionDeploymentAuthorized": false
   }
 }
