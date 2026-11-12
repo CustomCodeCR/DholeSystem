@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.6",
-  "status": "candidate-master-backport-ci-pending",
+  "ecosystemVersion": "1.43.7",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -26,8 +26,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.5",
-      "mergeState": "candidate-master-backport",
+      "version": "1.43.6",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -113,8 +113,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.6",
-      "mergeState": "candidate-master-backport",
+      "version": "1.43.7",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -125,7 +125,7 @@
     "total": 0
   },
   "mergeState": "intermediate-master-backport",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -146,7 +146,9 @@
     "DH-113: Web CI, typecheck/build and staging linked accepted-QUO number smoke before production.",
     "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production.",
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: stage and verify Dynamics schema plus read-only QUO record reconciliation before any retry; no production deployment approved.",
-    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: SMTP delivery and live Outbox/Notifications business verification of QUO-00000-000609 still pending after deployment; release to master explicitly authorized by user."
+    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: SMTP delivery and live Outbox/Notifications business verification of QUO-00000-000609 still pending after deployment; release to master explicitly authorized by user.",
+    "DH-20261112-PRICING-CRM-TARIFF-119: verificar que el prospecto TARIFARIO pertenezca a Castro Fallas en pricing-client-options, probar restauración de borradores y creación de maestro en staging antes de integrar master.",
+    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -234,7 +236,7 @@
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
   "candidateBranch": "hotfix/quo-613-619-master-20261112",
-  "businessReleaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
+  "businessReleaseId": "DH-20261112-PRICING-CRM-TARIFF-119",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
