@@ -124,7 +124,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -145,7 +145,7 @@
     "DH-113: Web CI, typecheck/build and staging linked accepted-QUO number smoke before production.",
     "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production.",
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: stage and verify Dynamics schema plus read-only QUO record reconciliation before any retry; no production deployment approved.",
-    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: CI, staging Outbox persistence and SMTP delivery verification of QUO-00000-000609 pending. Production deployment requires explicit user authorization."
+    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: SMTP delivery and live Outbox/Notifications business verification of QUO-00000-000609 still pending after deployment; release to master explicitly authorized by user."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -171,7 +171,10 @@
     "pricingResendChoiceStaging": "Not independently verified",
     "pricingResendChoiceSmtp": "Not independently verified",
     "dynamicsIdtraFirstTen": "Pricing .NET regression and version policy passed in PR #218; staging and Dynamics read-only verification pending.",
-    "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending."
+    "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending.",
+    "pricingOutboxCorrelationCi": "Passed: Pricing PR #220, Web PR #539, System PR #314; master candidate checks passed before authorization",
+    "pricingOutboxCorrelationStaging": "Passed staging deployments: Pricing run 43275871187, Web run 43275887702, System run 43275906024",
+    "pricingOutboxCorrelationSmtp": "Not verified: no direct QUO-00000-000609 test email has been dispatched from this chat"
   },
   "releaseComponents": [
     "DholePricingService",
@@ -531,5 +534,5 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Explicit user request to promote this release to master in the current conversation on 2026-11-12"
+  "productionDeploymentAuthorization": "User explicitly requested integration to master for the Outbox correlation fix, 2026-11-12"
 }
