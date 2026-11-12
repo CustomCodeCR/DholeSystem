@@ -1,3 +1,8 @@
+## [1.43.5] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: versión global del ajuste de moneda en Pantalla 5 LTL de DholeWeb, donde venta, costo y mínimo usan Config.currencies.Value en lugar de códigos CUR-*.
+- DholeSystem/ecosistema 1.43.4 → 1.43.5; DholeWeb 1.43.3 → 1.43.4; PricingService 1.16.2 sin cambios. Se preserva la corrección de Outbox y el historial; REST/SignalR intactos. CI/staging pendientes, producción no autorizada.
+
 ## [1.43.4] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-OUTBOX-CORRELATION-115: corrige el error de persistencia Outbox por correlation_id mayor de varchar(100) al reenviar aceptación de QUO-00000-000609.
