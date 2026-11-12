@@ -124,7 +124,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -164,7 +164,10 @@
     "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge.",
     "quoLinkClientSentList": "Master candidate reconciled with latest master Web 1.41.0; staging functional verification and production authorization pending.",
     "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only.",
-    "pricingAcceptanceEmail": "CI for develop passed, pending production-side SMTP confirmation for QUO-00000-000609"
+    "pricingAcceptanceEmail": "CI for develop passed, pending production-side SMTP confirmation for QUO-00000-000609",
+    "pricingResendChoiceCi": "Pricing .NET tests, Web CI and System CI passed on develop/master candidates",
+    "pricingResendChoiceStaging": "Not independently verified",
+    "pricingResendChoiceSmtp": "Not independently verified"
   },
   "releaseComponents": [
     "DholePricingService",
@@ -521,5 +524,6 @@
     "preservesDeferredDrafts": true,
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
-  }
+  },
+  "productionDeploymentAuthorization": "Explicit user request to promote this release to master in the current conversation on 2026-11-12"
 }
