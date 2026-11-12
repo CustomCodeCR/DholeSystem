@@ -1,3 +1,9 @@
+## [1.43.5] - 2026-11-12
+
+- PATCH DH-20261112-DYNAMICS-QUO-613-619-118: corrige la recuperación idempotente de QUO-00000-000613 (única línea Dhole existente, con venta USD 10 395) por cotejo de solo lectura y QUO-00000-000619 (header reservado/ambiguo) mediante conciliación de no efecto autorizada expresamente, nunca por ausencia de recordId.
+- Versiones coordinadas: DholeDynamicsConnectorService 1.4.0 → 1.4.1; DholePricingService 1.16.2 → 1.16.3; DholeWeb 1.43.3 → 1.43.4; DholeSystem/ecosistema 1.43.4 → 1.43.5.
+- Identidad RateId, revisión, no duplicación de quotedetail, REST, SignalR, idempotencia y Outbox preservados. CI y staging pendientes; no desplegar producción antes de autorización.
+
 ## [1.43.4] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-OUTBOX-CORRELATION-115: corrige el error de persistencia Outbox por correlation_id mayor de varchar(100) al reenviar aceptación de QUO-00000-000609.
