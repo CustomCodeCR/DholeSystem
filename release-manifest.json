@@ -182,8 +182,6 @@
     "dynamicsQuote613619": "Develop CI and staging workflows succeeded; master targeted backport CI and live Dataverse reconciliation to be confirmed"
   },
   "releaseComponents": [
-    "DholeDynamicsConnectorService",
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -235,7 +233,7 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "hotfix/quo-613-619-master-20261112",
+  "candidateBranch": "fix/crm-tariff-master-executive-20261112-master",
   "businessReleaseId": "DH-20261112-PRICING-CRM-TARIFF-119",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
