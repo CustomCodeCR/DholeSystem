@@ -1,3 +1,9 @@
+## [1.40.0] - 2026-11-11 (Dhole API Manager)
+
+- MINOR: Aprovisionamiento por entorno de identidad técnica única de lectura para los ocho catálogos de Config.
+- Sin credenciales comprometidas; se conserva ThirdParty deshabilitado hasta la configuración segura del entorno.
+- Release coordinado Gateway 1.6.0 / Web 1.40.0, pendiente de staging.
+
 ## [1.39.0] - 2026-11-11
 
 - MINOR DH-20261111-CRM-DRAFT-RECOVERY-109: registra release coordinado de autoguardado CRM Web 1.39.0 y CRMService 1.24.0, con recuperación local por formulario/usuario/registro sin mutar registros de CRM hasta confirmar guardar.
