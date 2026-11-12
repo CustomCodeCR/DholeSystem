@@ -1,3 +1,8 @@
+## [1.44.1] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-TRANSIT-LABEL-122: en la pantalla 6 de terrestre, aéreo y marítimo el campo de días se muestra como «Días de tránsito» en todas las modalidades; mantiene intactos datos y contratos.
+- DholeWeb 1.44.0 → 1.44.1, DholeSystem/ecosistema 1.44.0 → 1.44.1; se actualiza el manifiesto centralizado. CI, compilación y staging requeridos antes de promover a master.
+
 ## [1.44.0] - 2026-11-12
 
 - MINOR DH-20261112-PRICING-TARIFF-CRM-121: release coordinado de «Aplicar tarifario a cliente» con selector CRM y vinculación de cuentas/prospectos al duplicar tarifarios maestros. El ejecutivo se obtiene de CRM y el servicio Pricing valida ID, permisos y nombre canónico.
