@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.5",
-  "status": "staging-validated-production-authorized",
+  "ecosystemVersion": "1.43.6",
+  "status": "candidate-master-backport-ci-pending",
   "branches": [
     "develop",
     "master"
@@ -26,8 +26,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.4",
-      "mergeState": "master-promotion-authorized",
+      "version": "1.43.5",
+      "mergeState": "candidate-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -52,8 +52,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.16.2",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.16.3",
+      "mergeState": "candidate-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -98,8 +98,9 @@
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.4.1",
+      "mergeState": "candidate-master-backport",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -112,8 +113,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.5",
-      "mergeState": "master-promotion-authorized",
+      "version": "1.43.6",
+      "mergeState": "candidate-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -123,7 +124,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -175,9 +176,12 @@
     "pricingOutboxCorrelationCi": "Passed: Pricing PR #220, Web PR #539, System PR #314; master candidate checks passed before authorization",
     "pricingOutboxCorrelationStaging": "Passed staging deployments: Pricing run 43275871187, Web run 43275887702, System run 43275906024",
     "pricingOutboxCorrelationSmtp": "Not verified: no direct QUO-00000-000609 test email has been dispatched from this chat",
-    "ltlCurrencyValue": "Web and System staging deployments successful, CI and versioning successful; explicit master promotion requested 2026-11-12"
+    "ltlCurrencyValue": "Web and System staging deployments successful, CI and versioning successful; explicit master promotion requested 2026-11-12",
+    "dynamicsQuote613619": "Develop CI and staging workflows succeeded; master targeted backport CI and live Dataverse reconciliation to be confirmed"
   },
   "releaseComponents": [
+    "DholeDynamicsConnectorService",
+    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -229,8 +233,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/ltl-currency-config-value-20261112-master",
-  "businessReleaseId": "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118",
+  "candidateBranch": "hotfix/quo-613-619-master-20261112",
+  "businessReleaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -535,5 +539,32 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "User explicitly requested integration to master for the Outbox correlation fix, 2026-11-12"
+  "productionDeploymentAuthorization": "User explicitly requested integration to master for the Outbox correlation fix, 2026-11-12",
+  "dynamicsQuote613619Release": {
+    "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
+    "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
+    "components": {
+      "DholeDynamicsConnectorService": {
+        "from": "1.2.1",
+        "to": "1.4.1"
+      },
+      "DholePricingService": {
+        "from": "1.16.2",
+        "to": "1.16.3"
+      },
+      "DholeWeb": {
+        "from": "1.43.4",
+        "to": "1.43.5"
+      },
+      "DholeSystem": {
+        "from": "1.43.5",
+        "to": "1.43.6"
+      }
+    },
+    "branch": "hotfix/quo-613-619-master-20261112",
+    "stagingCI": "passed-on-develop; master-backport-ci-pending",
+    "safeReconciliationOnly": true,
+    "noAutomaticRetry": true,
+    "productionReleaseRequested": true
+  }
 }
