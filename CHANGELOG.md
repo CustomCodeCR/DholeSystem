@@ -1,3 +1,9 @@
+## [1.43.6] - 2026-11-12
+
+- PATCH DH-20261112-DYNAMICS-QUO-613-619-119: versión global coordinada para recuperación estricta de QUO-00000-000613 y diagnóstico de cabecera pendiente de QUO-00000-000619.
+- DholeDynamicsConnectorService 1.4.0 → 1.4.1, DholeSystem/ecosistema 1.43.5 → 1.43.6; las demás versiones permanecen iguales. No crea cotizaciones o líneas nuevas cuando el ledger es incierto.
+- Conserva REST, SignalR y controles de idempotencia; validar compilación, pruebas y staging antes de master. Producción no autorizada.
+
 ## [1.43.5] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: versión global del ajuste de moneda en Pantalla 5 LTL de DholeWeb, donde venta, costo y mínimo usan Config.currencies.Value en lugar de códigos CUR-*.
