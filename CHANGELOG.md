@@ -1,3 +1,9 @@
+## [1.43.3] - 2026-11-12
+
+- PATCH DH-20261112-DYNAMICS-IDTRA-FIRST10-117: versionado coordinado con DholePricingService 1.16.1 para admitir más de diez IDTRA en una QUO y mapear los primeros diez distintos y ordenados a Dynamics sin alterar la lista completa en Pricing.
+- DholeSystem/ecosistema 1.43.2 → 1.43.3; el resto de componentes mantiene su versión; conector Dynamics, RateId, importes, revisiones, idempotencia, REST y SignalR no cambian.
+- Release candidato en ramas intermedias; pendiente CI, staging, comprobación de cabecera/línea y autorización de producción.
+
 ## [1.43.2] - 2026-11-12
 
 - PATCH DH-20261112-LTL-CFZ-ROUTE-116: LTL propio CFZ Panamá → San José Costa Rica vuelve a ser seleccionable sin requerir una fila maestra previamente creada; genera la ruta dinámicamente con los cuatro cargos activos de Costos y recargos, por peso y tramo configurado.
