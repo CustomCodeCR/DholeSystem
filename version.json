@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.44.1",
-  "ecosystemVersion": "1.44.1",
+  "version": "1.44.2",
+  "ecosystemVersion": "1.44.2",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261112-PRICING-TRANSIT-LABEL-122"
+  "businessReleaseId": "DH-20261112-PRICING-TARIFF-MODAL-123"
 }
