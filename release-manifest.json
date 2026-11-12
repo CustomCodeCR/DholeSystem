@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.0",
+  "ecosystemVersion": "1.43.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-linked-quo-number-20261112-develop",
+  "candidateBranch": "fix/ltl-cfz-san-jose-panama-costs-20261112-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.0",
+      "version": "1.43.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,10 +39,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.0",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.43.1",
+      "mergeState": "merged-into-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "8e725c525fefe4ac79098f3a2da0705c34221231"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -210,7 +210,6 @@
     "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only."
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -319,7 +318,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-PRICING-LINKED-QUO-NUMBER-113",
+  "businessReleaseId": "DH-20261112-LTL-PANAMA-COSTS-115",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
