@@ -1,3 +1,9 @@
+## [1.44.2] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-TARIFF-MODAL-123: DholeWeb rediseña el modal «Aplicar tarifario a cliente», con superficie opaca, mayor tamaño y selector CRM sin recortes. Misma lógica de cuentas, prospectos, ejecutivo y QUO derivadas.
+- Versiones DholeWeb 1.44.1 → 1.44.2, DholeSystem/ecosistema 1.44.1 → 1.44.2; PricingService 1.17.0 y CRMService 1.25.2 sin modificaciones. Compatibles REST, realtime/SignalR y Outbox.
+- Pruebas y staging pendientes; manifiesto actualizado. No habilitar producción antes de autorización.
+
 ## [1.44.1] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-TRANSIT-LABEL-122: en la pantalla 6 de terrestre, aéreo y marítimo el campo de días se muestra como «Días de tránsito» en todas las modalidades; mantiene intactos datos y contratos.
