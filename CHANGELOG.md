@@ -1,3 +1,8 @@
+## [1.43.5] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: release global coordinado con DholeWeb para mostrar Config.currencies.Value en precio, costo y mínimo de las tarifas LTL propias y coloaders, evitando CUR-*.
+- DholeSystem/global 1.43.4 → 1.43.5, Web 1.43.3 → 1.43.4, PricingService 1.16.2 sin cambio. CI/staging exitosos y master expresamente autorizado; REST/SignalR compatibles.
+
 ## [1.43.4] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-OUTBOX-CORRELATION-115: corrige el error de persistencia Outbox por correlation_id mayor de varchar(100) al reenviar aceptación de QUO-00000-000609.

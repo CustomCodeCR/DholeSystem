@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.4",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.43.5",
+  "status": "staging-validated-production-authorized",
   "branches": [
     "develop",
     "master"
@@ -26,8 +26,8 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.3",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.43.4",
+      "mergeState": "master-promotion-authorized",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -112,8 +112,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.4",
-      "mergeState": "candidate-intermediate-only",
+      "version": "1.43.5",
+      "mergeState": "master-promotion-authorized",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -174,10 +174,10 @@
     "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending.",
     "pricingOutboxCorrelationCi": "Passed: Pricing PR #220, Web PR #539, System PR #314; master candidate checks passed before authorization",
     "pricingOutboxCorrelationStaging": "Passed staging deployments: Pricing run 43275871187, Web run 43275887702, System run 43275906024",
-    "pricingOutboxCorrelationSmtp": "Not verified: no direct QUO-00000-000609 test email has been dispatched from this chat"
+    "pricingOutboxCorrelationSmtp": "Not verified: no direct QUO-00000-000609 test email has been dispatched from this chat",
+    "ltlCurrencyValue": "Web and System staging deployments successful, CI and versioning successful; explicit master promotion requested 2026-11-12"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -216,7 +216,8 @@
     "DH-20261112-PRICING-ACCEPTANCE-MAIL-113: fix accepted quotation email; manual idempotent resend DhModal/Outbox",
     "DH-20261112-PRICING-RESEND-CHOICE-114: choose opening/quote/notice resend types; explicit Reports vs Outbox error details and no-PDF emergency fallback",
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map first ten distinct IDTRA in Dynamics; Pricing retains complete snapshot, RateId and idempotency.",
-    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal"
+    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
+    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: LTL own and coloader amount currency displays Config currencies Value instead of generated technical code"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -228,8 +229,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/dynamics-idtra-first10-20261112-master-rebased",
-  "businessReleaseId": "DH-20261112-DYNAMICS-IDTRA-FIRST10-117",
+  "candidateBranch": "fix/ltl-currency-config-value-20261112-master",
+  "businessReleaseId": "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
