@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.40.1",
+  "ecosystemVersion": "1.40.2",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-draft-recovery-dhmodal-20261112",
+  "candidateBranch": "fix/quo-link-client-sent-list-20261112-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.40.1",
+      "version": "1.40.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.40.1",
+      "version": "1.40.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -175,7 +175,8 @@
     "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master.",
     "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: verify migration, Auth scope denial, institutional seller label and lead-to-account conversion in staging before promotion",
     "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088: validar en staging visibilidad por defecto y selección de Castro Fallas en Cuentas, Prospectos y reasignación; comprobar persistencia, migración y permisos antes de producción.",
-    "DH-20261111-PRICING-QUO-LINKED-104: build, unit/regression tests, version gate, PostgreSQL migration and staging verification pending; do not merge master before production authorization."
+    "DH-20261111-PRICING-QUO-LINKED-104: build, unit/regression tests, version gate, PostgreSQL migration and staging verification pending; do not merge master before production authorization.",
+    "DH-20261112-PRICING-CLIENT-QUO-PICKER-112: CI/version gate, Web build, account/lead quote list and staging end-to-end required before master."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -201,12 +202,12 @@
     "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
     "quoVinculada": "DH-20261111-PRICING-QUO-LINKED-104: intermediate implementation Pricing/Web/System, no CI or staging evidence yet.",
     "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: show commercial link action on active Crystal wizard and duplicated FCL source, CI/staging pending",
-    "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge."
+    "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge.",
+    "quoLinkClientSentList": "Candidate Web/System branches. UI regression, typecheck, versioning and staging pending."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -258,7 +259,8 @@
     "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar/restaurar compromisos sugeridos sin borrar el campo Acuerdos alcanzados; la agenda solo guarda compromisos seleccionados.",
     "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
     "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM autosave and local draft recovery (Web 1.39.0, CRMService 1.24.0, System 1.39.0)",
-    "DH-20261112-CRM-DRAFT-DHMODAL-111: recovery confirmation exclusively through DhModal; pending choices preserve browser drafts; no REST or SignalR change"
+    "DH-20261112-CRM-DRAFT-DHMODAL-111: recovery confirmation exclusively through DhModal; pending choices preserve browser drafts; no REST or SignalR change",
+    "DH-112: Auto-list sent/accepted same-client quotations; only accepted target can be linked; Pricing REST/SignalR unchanged."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -309,7 +311,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
+  "businessReleaseId": "DH-20261112-PRICING-CLIENT-QUO-PICKER-112",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
