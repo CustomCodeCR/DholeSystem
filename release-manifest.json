@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.4",
+  "ecosystemVersion": "1.43.5",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.4",
+      "version": "1.43.5",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,10 +39,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.3",
+      "version": "1.43.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "8e725c525fefe4ac79098f3a2da0705c34221231"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.16.2",
+      "version": "1.16.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -127,10 +127,10 @@
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.4.1",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "0a1484e29740d251c033e7c16db8c1c08733b708"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -325,7 +325,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-DYNAMICS-IDTRA-FIRST10-117",
+  "businessReleaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
