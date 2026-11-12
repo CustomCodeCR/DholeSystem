@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.38.1",
+  "ecosystemVersion": "1.39.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/geoapify-csp-search-20261111-develop",
+  "candidateBranch": "feature/crm-autosave-recovery-20261111",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.38.1",
+      "version": "1.39.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.38.1",
+      "version": "1.39.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.22.0",
+      "version": "1.24.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -204,8 +204,9 @@
     "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge."
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -255,7 +256,8 @@
     "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads.",
     "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar/restaurar compromisos sugeridos sin borrar el campo Acuerdos alcanzados; la agenda solo guarda compromisos seleccionados.",
-    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes."
+    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
+    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM autosave and local draft recovery (Web 1.39.0, CRMService 1.24.0, System 1.39.0)"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -306,7 +308,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-GEOAPIFY-CSP-108",
+  "businessReleaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -661,5 +663,28 @@
     "restCompatibility": true,
     "signalRCompatibility": true,
     "productionDeploymentAuthorized": false
+  },
+  "crmDraftRecoveryRelease": {
+    "releaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
+    "ecosystemVersion": "1.39.0",
+    "components": {
+      "DholeSystem": {
+        "from": "1.38.1",
+        "to": "1.39.0"
+      },
+      "DholeWeb": {
+        "from": "1.38.1",
+        "to": "1.39.0"
+      },
+      "DholeCRMService": {
+        "from": "1.23.0",
+        "to": "1.24.0"
+      }
+    },
+    "storage": "browser-local, tenant-user-form scoped; retained on failed save",
+    "realtimeCompatible": true,
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false,
+    "status": "candidate-ci-staging-pending"
   }
 }
