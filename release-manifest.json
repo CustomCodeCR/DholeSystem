@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.5",
+  "ecosystemVersion": "1.43.6",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/ltl-currency-config-value-20261112-develop",
+  "candidateBranch": "fix/quote-recovery-613-619-20261112",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.5",
+      "version": "1.43.6",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -127,10 +127,10 @@
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.4.1",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "0a1484e29740d251c033e7c16db8c1c08733b708"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -216,7 +216,7 @@
     "ltlCurrencyValue": "CI staging candidate pending, no deployment to production"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeDynamicsConnectorService",
     "DholeSystem"
   ],
   "changes": [
@@ -716,5 +716,16 @@
     "preservesDeferredDrafts": true,
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
+  },
+  "dynamicsQuoteRecoveryRelease": {
+    "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-119",
+    "connectorFrom": "1.4.0",
+    "connectorTo": "1.4.1",
+    "ecosystemFrom": "1.43.5",
+    "ecosystemTo": "1.43.6",
+    "quo613": "only matching linked existing Dhole total line can resume by ETag",
+    "quo619": "pending header requires ledger and Dataverse reconciliation before retry",
+    "productionDeploymentAuthorized": false,
+    "staging": "pending"
   }
 }
