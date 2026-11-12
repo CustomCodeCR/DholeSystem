@@ -187,7 +187,7 @@
     "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada.",
     "DH-20261112-PRICING-CRM-LEAD-OWNER-120: verificar en staging que el prospecto TARIFARIO devuelve isCastroFallasExecutive=true y executiveName=Castro Fallas en GET /pricing-client-options; prueba con borrador creado antes del arreglo.",
     "CRM 1.25.2: pruebas y compilación .NET10, smoke ACL institucional y maestro Pricing antes de promover a producción.",
-    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: ejecutar tests del wizard, version gates y compilación; comprobar UI para FTL/LTL en staging antes de promover a master. Producción no autorizada."
+    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: verificar el texto en pantalla 6 para terrestre, aéreo y marítimo; ejecutar regresiones, compilación y CI de versionamiento. Validar en staging antes de promover a master; producción no autorizada."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -282,7 +282,7 @@
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map only first 10 distinct IDTRA to Dynamics, preserving full Pricing snapshot and idempotency.",
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
     "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: render Config.currencies.Value instead of technical CUR-* codes in LTL own and coloader amounts",
-    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: mostrar «Días de tránsito normal» en pantalla 6 del wizard terrestre FTL/LTL sin modificar transitDays ni el contrato API. Web 1.43.6 → 1.43.7, ecosistema/System 1.43.8 → 1.43.9."
+    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: mostrar «Días de tránsito normal» en pantalla 6 del wizard de tarifas terrestres FTL/LTL, aéreas y marítimas, sin modificar transitDays ni el contrato API. DholeWeb 1.43.6 → 1.43.7; ecosistema/System 1.43.8 → 1.43.9."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {

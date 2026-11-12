@@ -1,6 +1,6 @@
 ## [1.43.9] - 2026-11-12
 
-- PATCH DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: DholeWeb 1.43.6 → 1.43.7 cambia en la pantalla 6 FTL/LTL la etiqueta «Días de tránsito para la entrega» por «Días de tránsito normal» sin alterar el contrato transitDays ni los cálculos.
+- PATCH DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: DholeWeb 1.43.6 → 1.43.7 cambia en la pantalla 6 de tarifas terrestres, aéreas y marítimas la etiqueta de tránsito por «Días de tránsito normal» sin alterar el contrato transitDays ni los cálculos.
 - DholeSystem y versión global 1.43.8 → 1.43.9. Actualiza el manifiesto central y conserva el resto de servicios sin cambios. Compilación, CI y staging pendientes; no se autoriza producción.
 
 ## [1.43.8] - 2026-11-12
