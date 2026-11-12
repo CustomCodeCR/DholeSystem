@@ -1,3 +1,10 @@
+## [1.43.4] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-OUTBOX-CORRELATION-115: corrige el error de persistencia Outbox por correlation_id mayor de varchar(100) al reenviar aceptación de QUO-00000-000609.
+- DholePricingService 1.16.1 → 1.16.2 y DholeWeb 1.43.2 → 1.43.3. DholeSystem/ecosistema 1.43.3 → 1.43.4. No se modifican el framework ni el esquema de PostgreSQL.
+- Identificadores compactos deterministas más SHA-256 de respaldo garantizan la idempotencia por operación. DhModal presenta la razón real de fallos sin inventar relación con Reports.
+- Mantiene REST, Redis Streams, SignalR y Outbox existentes. CI/staging/SMTP pendientes antes de confirmar entrega de QUO-609.
+
 ## [1.43.3] - 2026-11-12
 
 - PATCH DH-20261112-DYNAMICS-IDTRA-FIRST10-117: coordinado con DholePricingService 1.16.1, Dynamics mapea los primeros diez IDTRA normalizados y distintos de cada QUO aunque Pricing conserve más referencias.
