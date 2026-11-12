@@ -1,3 +1,8 @@
+## [1.43.9] - 2026-11-12
+
+- PATCH DH-20261112-PRICING-TRANSIT-LABEL-122: en la pantalla 6 de terrestre, aéreo y marítimo el campo de días se muestra como «Días de tránsito» en todas las modalidades; mantiene intactos datos y contratos.
+- DholeWeb 1.43.6 → 1.43.7, DholeSystem/ecosistema 1.43.8 → 1.43.9; se actualiza el manifiesto centralizado. CI, compilación y staging requeridos antes de promover a master.
+
 ## [1.43.8] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-CRM-LEAD-OWNER-120: DholeCRMService 1.25.1 → 1.25.2 corrige GET /pricing-client-options para proyectar IsCastroFallasExecutive real en prospectos y evitar presentar Maurice Lang cuando el CRM indica Castro Fallas.
