@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.44.0",
+  "ecosystemVersion": "1.44.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.44.0",
+      "version": "1.44.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -113,7 +113,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.44.0",
+      "version": "1.44.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -152,7 +152,8 @@
     "DH-20261112-PRICING-CRM-LEAD-OWNER-120: verificar en staging que el prospecto TARIFARIO devuelve isCastroFallasExecutive=true y executiveName=Castro Fallas en GET /pricing-client-options; prueba con borrador creado antes del arreglo.",
     "CRM 1.25.2: pruebas y compilación .NET10, smoke ACL institucional y maestro Pricing antes de promover a producción.",
     "DH-20261112-PRICING-TARIFF-CRM-121: staging debe validar aplicación de tarifario maestro a cuenta y prospecto CRM, ejecutivo institucional Castro Fallas, ClientAccountId/ClientLeadId en la QUO y visibilidad en historial CRM.",
-    "Web 1.44.0 + Pricing 1.17.0: ejecutar CI y build, prueba de autorización backend, Outbox/realtime sin regresiones; staging debe pasar antes de producción."
+    "Web 1.44.0 + Pricing 1.17.0: ejecutar CI y build, prueba de autorización backend, Outbox/realtime sin regresiones; staging debe pasar antes de producción.",
+    "DH-20261112-PRICING-TRANSIT-LABEL-122: CI, regresión y smoke en staging antes de promover a master; producción auto-despliega en master."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -187,7 +188,6 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -226,11 +226,12 @@
     "DH-20261112-PRICING-RESEND-CHOICE-114: choose opening/quote/notice resend types; explicit Reports vs Outbox error details and no-PDF emergency fallback",
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map first ten distinct IDTRA in Dynamics; Pricing retains complete snapshot, RateId and idempotency.",
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
-    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: LTL own and coloader amount currency displays Config currencies Value instead of generated technical code"
+    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: LTL own and coloader amount currency displays Config currencies Value instead of generated technical code",
+    "DH-20261112-PRICING-TRANSIT-LABEL-122: campo de pantalla 6 «Días de tránsito» para terrestre, marítimo y aéreo, sin cambio de transitDays ni API; Web, System y versión global 1.44.0 → 1.44.1."
   ],
-  "businessPatchRelease": "DH-20261112-PRICING-TARIFF-CRM-121",
-  "candidateBranch": "fix/tariff-apply-crm-client-20261112-master",
-  "businessReleaseId": "DH-20261112-PRICING-TARIFF-CRM-121",
+  "businessPatchRelease": "DH-20261112-PRICING-TRANSIT-LABEL-122",
+  "candidateBranch": "fix/pricing-transit-label-122-master-v2",
+  "businessReleaseId": "DH-20261112-PRICING-TRANSIT-LABEL-122",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
