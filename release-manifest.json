@@ -282,7 +282,7 @@
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map only first 10 distinct IDTRA to Dynamics, preserving full Pricing snapshot and idempotency.",
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
     "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: render Config.currencies.Value instead of technical CUR-* codes in LTL own and coloader amounts",
-    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: mostrar «Días de tránsito normal» en pantalla 6 del wizard de tarifas terrestres FTL/LTL, aéreas y marítimas, sin modificar transitDays ni el contrato API. DholeWeb 1.43.6 → 1.43.7; ecosistema/System 1.43.8 → 1.43.9."
+    "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121: mostrar «Días de tránsito» en pantalla 6 del wizard de tarifas terrestres FTL/LTL, aéreas y marítimas, sin modificar transitDays ni el contrato API. DholeWeb 1.43.6 → 1.43.7; ecosistema/System 1.43.8 → 1.43.9."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
