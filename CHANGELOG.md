@@ -1,3 +1,9 @@
+## [1.42.0] - 2026-11-12
+
+- MINOR DH-20261112-PRICING-ACCEPTANCE-MAIL-113: notificaciones de aceptación de QUO con copias a Pricing y vendedor, reenvío manual desde DhModal y errores explícitos de Outbox; incidente QUO-00000-000609.
+- Release coordinado: DholePricingService 1.14.0 → 1.15.0, DholeWeb 1.41.2 → 1.42.0 y DholeSystem 1.41.2 → 1.42.0; versión global 1.42.0. Sin cambios en esquema, REST o SignalR.
+- CI y staging antes del despliegue de producción; verificar la cola de Notifications y la entrega SMTP, no marcar el mensaje como entregado antes de confirmación.
+
 ## [1.41.2] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-LINKED-QUO-NUMBER-113: Pricing Crystal y wizard legado muestran el QUO Number de la cotización aceptada vinculada en vez del UUID interno. El ID persiste exclusivamente para navegación y enlace comercial.
