@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.7",
+  "ecosystemVersion": "1.43.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.24.1",
+      "version": "1.25.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -113,7 +113,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.7",
+      "version": "1.43.8",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -148,7 +148,9 @@
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: stage and verify Dynamics schema plus read-only QUO record reconciliation before any retry; no production deployment approved.",
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: SMTP delivery and live Outbox/Notifications business verification of QUO-00000-000609 still pending after deployment; release to master explicitly authorized by user.",
     "DH-20261112-PRICING-CRM-TARIFF-119: verificar que el prospecto TARIFARIO pertenezca a Castro Fallas en pricing-client-options, probar restauración de borradores y creación de maestro en staging antes de integrar master.",
-    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada."
+    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada.",
+    "DH-20261112-PRICING-CRM-LEAD-OWNER-120: verificar en staging que el prospecto TARIFARIO devuelve isCastroFallasExecutive=true y executiveName=Castro Fallas en GET /pricing-client-options; prueba con borrador creado antes del arreglo.",
+    "CRM 1.25.2: pruebas y compilación .NET10, smoke ACL institucional y maestro Pricing antes de promover a producción."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -182,7 +184,7 @@
     "dynamicsQuote613619": "Develop CI and staging workflows succeeded; master targeted backport CI and live Dataverse reconciliation to be confirmed"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -223,18 +225,9 @@
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
     "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: LTL own and coloader amount currency displays Config currencies Value instead of generated technical code"
   ],
-  "businessPatchRelease": {
-    "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
-    "components": {
-      "DholeWeb": "1.12.22",
-      "DholePricingService": "1.5.22"
-    },
-    "status": "master-quo269-ci-pending",
-    "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
-    "description": "CRM account/lead pricing clients and legacy quote linking"
-  },
-  "candidateBranch": "fix/crm-tariff-master-executive-20261112-master",
-  "businessReleaseId": "DH-20261112-PRICING-CRM-TARIFF-119",
+  "businessPatchRelease": "DH-20261112-PRICING-CRM-LEAD-OWNER-120",
+  "candidateBranch": "fix/pricing-lead-institutional-owner-20261112-master",
+  "businessReleaseId": "DH-20261112-PRICING-CRM-LEAD-OWNER-120",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
