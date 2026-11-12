@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.43.8",
-  "ecosystemVersion": "1.43.8",
+  "version": "1.43.9",
+  "ecosystemVersion": "1.43.9",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261112-PRICING-CRM-LEAD-OWNER-120"
+  "businessReleaseId": "DH-20261112-PRICING-LAND-TRANSIT-LABEL-121"
 }
