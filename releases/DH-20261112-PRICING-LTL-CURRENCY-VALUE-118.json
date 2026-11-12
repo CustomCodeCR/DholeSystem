@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118",
+  "ecosystemVersion": "1.43.5",
+  "releaseType": "PATCH",
+  "components": [
+    {
+      "component": "DholeWeb",
+      "from": "1.43.3",
+      "to": "1.43.4"
+    },
+    {
+      "component": "DholeSystem",
+      "from": "1.43.4",
+      "to": "1.43.5"
+    },
+    {
+      "component": "DholePricingService",
+      "from": "1.16.2",
+      "to": "1.16.2",
+      "unchanged": true
+    }
+  ],
+  "changes": [
+    "Config currencies Value is authoritative for LTL tariff source display",
+    "No technical CUR-* codes in own/coloader source amount labels"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "productionAuthorized": false
+  },
+  "releasedAt": null
+}
