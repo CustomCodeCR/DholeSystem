@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.6",
+  "ecosystemVersion": "1.43.7",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/ltl-currency-config-value-20261112-develop",
+  "candidateBranch": "fix/crm-tariff-master-executive-20261112-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.6",
+      "version": "1.43.7",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.43.5",
+      "version": "1.43.6",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -182,7 +182,9 @@
     "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production.",
     "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: dotnet tests, CI version gate, staging Dynamics schema and existing QUO reconciliation before retry of QUO-00000-000552; production requires explicit authorization.",
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: CI, staging Outbox persistence and SMTP delivery verification of QUO-00000-000609 pending. Production deployment requires explicit user authorization.",
-    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: Web regression/build CI and staging LTL currency check before production"
+    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: Web regression/build CI and staging LTL currency check before production",
+    "DH-20261112-PRICING-CRM-TARIFF-119: verificar que el prospecto TARIFARIO pertenezca a Castro Fallas en pricing-client-options, probar restauración de borradores y creación de maestro en staging antes de integrar master.",
+    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -216,8 +218,6 @@
     "ltlCurrencyValue": "CI staging candidate pending, no deployment to production"
   },
   "releaseComponents": [
-    "DholeDynamicsConnectorService",
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -329,7 +329,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
+  "businessReleaseId": "DH-20261112-PRICING-CRM-TARIFF-119",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
