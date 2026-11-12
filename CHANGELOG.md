@@ -1,7 +1,8 @@
-## [1.41.2] - 2026-11-12
+## [1.42.0] - 2026-11-12
 
-- PATCH DH-20261112-PRICING-ACCEPTANCE-MAIL-113: release coordinado para notificaciones de aceptación de QUO (incidente QUO-00000-000609), con copia a Pricing y vendedor, errores de Outbox explícitos y reintento idempotente para una aceptación persistida.
-- DholePricingService 1.14.0 → 1.14.1; DholeSystem 1.41.1 → 1.41.2. Versión global Dhole 1.41.2; servicios no modificados conservan su versión en el manifiesto central.
+- MINOR DH-20261112-PRICING-ACCEPTANCE-MAIL-113: release coordinado para notificaciones de aceptación de QUO (incidente QUO-00000-000609), con copia a Pricing y vendedor, errores de Outbox explícitos y reintento idempotente para una aceptación persistida.
+- DholePricingService 1.14.0 → 1.15.0; DholeWeb 1.41.1 → 1.42.0; DholeSystem 1.41.1 → 1.42.0. Versión global Dhole 1.42.0; servicios no modificados conservan su versión en el manifiesto central.
+- Incluye botón manual de reenvío en Pantalla 9 con DhModal, endpoint autenticado e idempotencia por operación.
 - Mantiene REST, SignalR y arquitectura Outbox/Notifications existente; verificar CI, staging y SMTP antes de integración a master. Producción no autorizada.
 
 ## [1.41.1] - 2026-11-12
