@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261112-DYNAMICS-IDTRA-FIRST10-117",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.2",
+  "ecosystemVersion": "1.43.3",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.2",
+      "version": "1.43.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -71,7 +71,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.16.0",
+      "version": "1.16.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -179,7 +179,8 @@
     "DH-20261112-PRICING-CLIENT-QUO-PICKER-112: CI/version gate, Web build, account/lead quote list and staging end-to-end required before master.",
     "DH-113: Web CI, typecheck/build and staging linked accepted-QUO number smoke before production.",
     "DH-20261112-PRICING-ACCEPTANCE-MAIL-113: staging/SMTP verification of QUO-609, confirmation of business email delivery, and production authorization pending.",
-    "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production."
+    "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production.",
+    "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: dotnet tests, CI version gate, staging Dynamics schema and existing QUO reconciliation before retry of QUO-00000-000552; production requires explicit authorization."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -207,10 +208,11 @@
     "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: show commercial link action on active Crystal wizard and duplicated FCL source, CI/staging pending",
     "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge.",
     "quoLinkClientSentList": "Web 1.41.1 rebased atop CRM account group Web 1.41.0; CI/staging pending.",
-    "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only."
+    "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only.",
+    "dynamicsIdtraFirstTen": "Pending dotnet tests and Dynamics read-only validation; no quote written or retried."
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -267,7 +269,8 @@
     "DH-112: Auto-list sent/accepted same-client quotations; only accepted target can be linked; Pricing REST/SignalR unchanged.",
     "DH-113: Pricing linked accepted QUO displays its commercial number, never the UUID; no change to status, REST or realtime.",
     "DH-20261112-PRICING-ACCEPTANCE-MAIL-113: notify Pricing and seller on accepted quote; manual idempotent resend via DhModal on Screen 9",
-    "DH-20261112-PRICING-RESEND-CHOICE-114: choose opening/quote/notice resend types; explicit Reports vs Outbox error details and no-PDF emergency fallback"
+    "DH-20261112-PRICING-RESEND-CHOICE-114: choose opening/quote/notice resend types; explicit Reports vs Outbox error details and no-PDF emergency fallback",
+    "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map only first 10 distinct IDTRA to Dynamics, preserving full Pricing snapshot and idempotency."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -318,7 +321,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-LTL-CFZ-ROUTE-116",
+  "businessReleaseId": "DH-20261112-DYNAMICS-IDTRA-FIRST10-117",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
