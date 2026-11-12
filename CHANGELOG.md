@@ -1,3 +1,9 @@
+## [1.40.1] - 2026-11-12
+
+- PATCH DH-20261112-CRM-DRAFT-DHMODAL-111: release global coordinado de DhModal para recuperación de borradores de CRM; confirma recuperar, descartar o posponer desde componentes internos Dhole. Evita diálogos nativos y elimina prompts de formularios cerrados.
+- DholeWeb 1.40.0 → 1.40.1; CRMService 1.24.0 → 1.24.1; DholeSystem 1.40.0 → 1.40.1; mantiene intacta la infraestructura realtime y API Manager previos.
+- CI y staging pendientes, sin despliegue manual autorizado.
+
 ## [1.40.0] - 2026-11-11 (Dhole API Manager)
 
 - MINOR: Aprovisionamiento por entorno de identidad técnica única de lectura para los ocho catálogos de Config.

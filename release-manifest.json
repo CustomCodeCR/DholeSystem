@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.40.0",
+  "ecosystemVersion": "1.40.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-autosave-recovery-20261111",
+  "candidateBranch": "fix/crm-draft-recovery-dhmodal-20261112",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.40.0",
+      "version": "1.40.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.40.0",
+      "version": "1.40.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.24.0",
+      "version": "1.24.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -205,8 +205,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeApiGateway",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
@@ -257,7 +257,8 @@
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads.",
     "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar/restaurar compromisos sugeridos sin borrar el campo Acuerdos alcanzados; la agenda solo guarda compromisos seleccionados.",
     "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
-    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM autosave and local draft recovery (Web 1.39.0, CRMService 1.24.0, System 1.39.0)"
+    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM autosave and local draft recovery (Web 1.39.0, CRMService 1.24.0, System 1.39.0)",
+    "DH-20261112-CRM-DRAFT-DHMODAL-111: recovery confirmation exclusively through DhModal; pending choices preserve browser drafts; no REST or SignalR change"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -308,7 +309,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
+  "businessReleaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -686,5 +687,16 @@
     "schemaMigration": false,
     "productionDeploymentAuthorized": false,
     "status": "candidate-ci-staging-pending"
+  },
+  "crmDraftModalRelease": {
+    "releaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
+    "version": "1.40.1",
+    "frontendVersion": "1.40.1",
+    "crmVersion": "1.24.1",
+    "component": "CrmDraftRecoveryModal",
+    "scope": "CRM drafts",
+    "preservesDeferredDrafts": true,
+    "noNativeDialogs": true,
+    "productionDeploymentAuthorized": false
   }
 }
