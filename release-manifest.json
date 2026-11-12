@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.37.2",
+  "ecosystemVersion": "1.38.1",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.37.2",
+      "version": "1.38.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.37.2",
+      "version": "1.38.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -157,7 +157,8 @@
     "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization.",
     "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
     "quoVinculada": "Staging develop succeeded. Targeted master backport PR CI pending. Release DH-20261111-PRICING-QUO-LINKED-104",
-    "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: Crystal button on screen 9 and FCL duplicate source, backed by existing Pricing 1.14.0"
+    "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: Crystal button on screen 9 and FCL duplicate source, backed by existing Pricing 1.14.0",
+    "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge."
   },
   "releaseComponents": [
     "DholeWeb",
@@ -189,7 +190,8 @@
     "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: opening email documents on master with Storage support, dedupe and outbox snapshot",
     "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: attachments for account-specific CRM procedures, preview and access control. Only scoped business release 085 authorized; realtime remains disabled.",
-    "DH-20261111-CRM-AGREEMENT-LIST-085: quitar y restaurar compromisos detectados en acuerdos en Nueva actividad comercial sin borrar el texto; no se generan seguimientos para acuerdos quitados."
+    "DH-20261111-CRM-AGREEMENT-LIST-085: quitar y restaurar compromisos detectados en acuerdos en Nueva actividad comercial sin borrar el texto; no se generan seguimientos para acuerdos quitados.",
+    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -201,8 +203,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/quo-vinculada-crystal-master-20261111",
-  "businessReleaseId": "DH-20261111-PRICING-QUO-LINK-ACTION-106",
+  "candidateBranch": "fix/geoapify-csp-search-20261111-master",
+  "businessReleaseId": "DH-20261111-CRM-GEOAPIFY-CSP-108",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
