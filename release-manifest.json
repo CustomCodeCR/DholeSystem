@@ -216,7 +216,8 @@
   "releaseComponents": [
     "DholePricingService",
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeDynamicsConnectorService"
   ],
   "changes": [
     "Extend existing NotificationsHub; do not add another Gateway Hub",
