@@ -2,20 +2,20 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.43.7",
+  "ecosystemVersion": "1.43.8",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-tariff-master-executive-20261112-develop",
+  "candidateBranch": "fix/pricing-lead-institutional-owner-20261112-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.43.7",
+      "version": "1.43.8",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.24.1",
+      "version": "1.25.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -184,7 +184,9 @@
     "DH-20261112-PRICING-OUTBOX-CORRELATION-115: CI, staging Outbox persistence and SMTP delivery verification of QUO-00000-000609 pending. Production deployment requires explicit user authorization.",
     "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: Web regression/build CI and staging LTL currency check before production",
     "DH-20261112-PRICING-CRM-TARIFF-119: verificar que el prospecto TARIFARIO pertenezca a Castro Fallas en pricing-client-options, probar restauración de borradores y creación de maestro en staging antes de integrar master.",
-    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada."
+    "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada.",
+    "DH-20261112-PRICING-CRM-LEAD-OWNER-120: verificar en staging que el prospecto TARIFARIO devuelve isCastroFallasExecutive=true y executiveName=Castro Fallas en GET /pricing-client-options; prueba con borrador creado antes del arreglo.",
+    "CRM 1.25.2: pruebas y compilación .NET10, smoke ACL institucional y maestro Pricing antes de promover a producción."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -218,7 +220,7 @@
     "ltlCurrencyValue": "CI staging candidate pending, no deployment to production"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -286,15 +288,7 @@
     "formalGatesPassed": false,
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
   },
-  "businessPatchRelease": {
-    "releaseId": "DH-20261109-SELLER-OPEN-DECISION-054",
-    "components": {
-      "DholeWeb": "1.15.1",
-      "DholePricingService": "1.8.1"
-    },
-    "status": "develop-ci-pending",
-    "scope": "Open seller decisions with published history and margin/work guards"
-  },
+  "businessPatchRelease": "DH-20261112-PRICING-CRM-LEAD-OWNER-120",
   "realtimeReleaseComponents": [
     "DholeSystem",
     "DholeApiGateway"
@@ -329,7 +323,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-PRICING-CRM-TARIFF-119",
+  "businessReleaseId": "DH-20261112-PRICING-CRM-LEAD-OWNER-120",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
