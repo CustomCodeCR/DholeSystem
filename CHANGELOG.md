@@ -1,3 +1,9 @@
+## [1.42.0] - 2026-11-12
+
+- MINOR DH-20261112-PRICING-ACCEPTANCE-MAIL-113: notificación de aceptación de QUO con copia a Pricing y vendedor, aviso de fallos en Outbox y reenvío manual desde DhModal para cotizaciones aceptadas.
+- Pricing 1.14.0 → 1.15.0, Web 1.41.2 → 1.42.0, System/global 1.41.2 → 1.42.0. No altera estado comercial, IDTRA ni esquemas; compatibilidad REST/SignalR/Outbox conservada.
+- CI y staging antes de producción. QUO-00000-000609 pendiente de verificación SMTP y reenvío real.
+
 ## [1.41.2] - 2026-11-12
 
 - PATCH DH-20261112-PRICING-LINKED-QUO-NUMBER-113: Pricing Crystal y wizard legado muestran el QUO Number de la cotización aceptada vinculada en vez del UUID interno. El ID persiste exclusivamente para navegación y enlace comercial.
