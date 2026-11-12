@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.38.1",
+  "ecosystemVersion": "1.39.0",
   "status": "candidate-staging-not-deployed",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.38.1",
+      "version": "1.39.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.22.0",
+      "version": "1.24.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -112,7 +112,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.38.1",
+      "version": "1.39.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -161,8 +161,9 @@
     "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge."
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Split legacy escaped line-break Pricing terms into individual items while keeping all database values intact",
@@ -191,7 +192,8 @@
     "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
     "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: attachments for account-specific CRM procedures, preview and access control. Only scoped business release 085 authorized; realtime remains disabled.",
     "DH-20261111-CRM-AGREEMENT-LIST-085: quitar y restaurar compromisos detectados en acuerdos en Nueva actividad comercial sin borrar el texto; no se generan seguimientos para acuerdos quitados.",
-    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes."
+    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
+    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM local autosave recovery 1.39.0/1.24.0 and unchanged realtime"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
@@ -203,8 +205,8 @@
     "scope": "Live Pricing workflow status in commercial seller projection; no draft leakage",
     "description": "CRM account/lead pricing clients and legacy quote linking"
   },
-  "candidateBranch": "fix/geoapify-csp-search-20261111-master",
-  "businessReleaseId": "DH-20261111-CRM-GEOAPIFY-CSP-108",
+  "candidateBranch": "feature/crm-autosave-recovery-20261111",
+  "businessReleaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -474,5 +476,28 @@
     "signalRCompatibility": true,
     "productionAuthorizedForThisPatchByUser": true,
     "stagingWebWorkflow": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/43039352093"
+  },
+  "crmDraftRecoveryRelease": {
+    "releaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
+    "ecosystemVersion": "1.39.0",
+    "components": {
+      "DholeSystem": {
+        "from": "1.38.1",
+        "to": "1.39.0"
+      },
+      "DholeWeb": {
+        "from": "1.38.1",
+        "to": "1.39.0"
+      },
+      "DholeCRMService": {
+        "from": "1.23.0",
+        "to": "1.24.0"
+      }
+    },
+    "storage": "browser-local, tenant-user-form scoped; retained on failed save",
+    "realtimeCompatible": true,
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false,
+    "status": "candidate-ci-staging-pending"
   }
 }
