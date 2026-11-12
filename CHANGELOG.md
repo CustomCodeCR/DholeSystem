@@ -1,3 +1,10 @@
+## [1.43.0] - 2026-11-12
+
+- MINOR DH-20261112-PRICING-RESEND-CHOICE-114: selección de notificación para reenvíos en QUO aceptadas, desde DhModal. Opciones: apertura con PDF y respaldos, cotización enviada según CRM y aviso preliminar SIN PDF.
+- Pricing distingue errores de generación de PDF, descarga de adjuntos y persistencia Outbox. En caso de fallos de Reports, se permite aviso SIN PDF claramente identificado como incompleto, sin cambiar aceptación ni IDTRA.
+- Componentes: DholePricingService 1.15.0 → 1.16.0, DholeWeb 1.42.0 → 1.43.0, DholeSystem/global 1.42.0 → 1.43.0. Otros servicios conservan su versión; REST/SignalR/Outbox existentes.
+- CI, staging y confirmación SMTP pendientes.
+
 ## [1.42.0] - 2026-11-12
 
 - MINOR DH-20261112-PRICING-ACCEPTANCE-MAIL-113: notificaciones de aceptación de QUO con copias a Pricing y vendedor, reenvío manual desde DhModal y errores explícitos de Outbox; incidente QUO-00000-000609.
