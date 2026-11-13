@@ -1,3 +1,9 @@
+## [1.48.1] - 2026-11-13
+
+- PATCH DH-20261113-CRM-AGENDA-RETURN-132: manifiesto global del retorno desde detalle de actividades a Agenda y seguimientos (`/crm/followups`) en DholeWeb.
+- Ecosistema y DholeSystem 1.47.4 → 1.48.1, alineados con DholeWeb 1.48.0 → 1.48.1 y la nueva Bitácora comercial. Otros microservicios sin cambios; REST/SignalR intactos.
+- CI y staging pendientes; master auto-despliega y requiere autorización expresa antes de fusionar.
+
 ## [1.47.4] - 2026-11-13
 
 - PATCH DH-20261113-CRM-DRAFT-RECOVERY-130: manifiesto del release coordinado de recuperación de borradores CRM; mantiene compatibilidad REST, SignalR, Outbox y servicios sin cambios.
