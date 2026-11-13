@@ -1,8 +1,8 @@
 ## [1.47.5] - 2026-11-13
 
-- PATCH DH-20261113-CRM-AGENDA-RETURN-131: registra la corrección de navegación de DholeWeb: «Volver al listado» desde detalle de actividad regresa a Agenda y seguimientos (`/crm/followups`), no al listado legado.
+- PATCH DH-20261113-CRM-AGENDA-RETURN-132 (backport master): registro global de la corrección «Volver al listado» desde actividades CRM hacia `/crm/followups`, validada previamente en develop Web 1.48.1.
 - DholeSystem/ecosistema 1.47.4 → 1.47.5; DholeWeb 1.47.4 → 1.47.5; demás componentes conservan sus versiones. Manifiesto actualizado; sin cambios backend, REST ni SignalR.
-- Tests de regresión y compilación Web en CI, smoke en staging y autorización expresa para promoción a master pendientes.
+- Pruebas de regresión, TypeScript y build Web superaron CI; despliegues de Web e infraestructura en staging exitosos. Promoción a master autorizada expresamente por usuario el 2026-11-13; master aplica este backport aislado sin Bitácora comercial 1.48.0.
 
 ## [1.47.4] - 2026-11-13
 
