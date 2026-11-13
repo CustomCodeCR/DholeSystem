@@ -1,3 +1,8 @@
+## [1.51.1] - 2026-11-13
+
+- PATCH DH-20261113-PRICING-OWN-LCL-139: backport coordinado en master del fix LCL propio, con CFS por CBM cobrable y Manejos persistidos; se evita introducir cargos automáticos fuera del consolidado. Pricing 1.18.1, Web 1.51.1, DholeSystem/ecosistema 1.51.1.
+- Sin cambios en main ni degradación de versiones; CI, manifiesto y validación staging obligatorios.
+
 ## [1.51.0] - 2026-11-13
 
 - MINOR DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: release coordinado de bitácoras editables con tareas opcionales desde acuerdos, recordatorios de seguimientos vinculados, historial de origen y regresión específica en Web y CRM. Web 1.51.0, CRM 1.30.0, sistema/ecosistema 1.51.0; demás componentes conservan versiones vigentes.
