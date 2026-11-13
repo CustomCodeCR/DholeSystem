@@ -8,8 +8,8 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-reminder-context-link-20261112-124-develop",
-  "expectedRepositories": 16,
+  "candidateBranch": "feature/operations-bootstrap-20261112-develop",
+  "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {

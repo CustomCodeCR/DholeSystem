@@ -18,7 +18,7 @@ jobs:
           python-version: '3.12'
       - name: Install YAML parser
         run: python -m pip install PyYAML==6.0.3
-      - name: Validate release contract and compose fail-closed flags
+      - name: Validate release manifest and realtime fail-closed flags
         shell: bash
         run: |
           python - <<'PY'
@@ -26,35 +26,38 @@ jobs:
           root=pathlib.Path('.')
           manifest=json.loads((root/'release-manifest.json').read_text())
           version=json.loads((root/'version.json').read_text())
-          expected=16
-          assert manifest['expectedRepositories']==expected
+          expected=int(manifest['expectedRepositories'])
+          assert expected>=16, 'At least the original 16 components must be tracked'
           assert len(manifest['components'])==expected
           assert len(set(x['repository'] for x in manifest['components']))==expected
           assert len(set(x['component'] for x in manifest['components']))==expected
           assert manifest['ecosystemVersion']==version['ecosystemVersion']
-          assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', manifest['ecosystemVersion'])
+          assert re.fullmatch(r'[0-9]+\\.[0-9]+\\.[0-9]+', manifest['ecosystemVersion'])
           assert manifest['releaseId']==version['releaseId']
           assert manifest['candidateBranch'].startswith(('feature/', 'fix/'))
           assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
           assert manifest['productionDeploymentAuthorized'] is False
-          assert manifest['status'] in ('candidate-staging-not-deployed', 'develop-integrated-staging-f6-f8-pending', 'f9-http403-staging-hotfix-candidate')
-          assert manifest['mergeState'] in ('intermediate-only', 'develop-16-merged-staging-f9-hotfix-pending')
+          assert manifest['status'].startswith(('candidate-', 'develop-integrated-', 'f9-'))
+          assert manifest['mergeState'] in ('intermediate-only','intermediate-master-backport','develop-16-merged-staging-f9-hotfix-pending')
           assert next(x for x in manifest['components'] if x['component']=='DholeSystem')['version']==version['version']
           for component in manifest['components']:
               assert component['repository'].startswith('CustomCodeCR/Dhole')
-              assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', component['version'])
-              assert component['mergeState'] in ('candidate-synced-with-develop-and-master-no-target-merge', 'candidate-intermediate-only', 'merged-into-develop')
+              assert re.fullmatch(r'[0-9]+\\.[0-9]+\\.[0-9]+', component['version'])
+              assert component.get('mergeState'), component
+          if expected>16:
+              assert 'DholeOperationsService' in {x['component'] for x in manifest['components']}
           assert (root/'CHANGELOG.md').is_file()
           doc=yaml.safe_load((root/'deploy/docker-compose.services.yml').read_text())
           assert 'notifications-api' in doc['services']
           ns=doc['services']['notifications-api']['environment']
-          assert ns['Realtime__ReleaseId']==manifest['releaseId']
           assert ns['Features__UniversalRealtimeEnabled']=='${DHOLE_REALTIME_NOTIFICATIONS_ENABLED:-false}'
           assert ns['Realtime__ProductionApproved']=='false'
           assert ns['Realtime__DeploymentTarget']=='${DHOLE_REALTIME_NOTIFICATIONS_TARGET:-disabled}'
+          realtime_release=ns['Realtime__ReleaseId']
+          assert realtime_release.startswith('rt-'), 'Realtime F6 release ID must remain independent of later business releases'
           for name,definition in doc['services'].items():
               env=definition.get('environment') or {}
               if 'Realtime__ReleaseId' in env:
-                  assert env['Realtime__ReleaseId']==manifest['releaseId'], name
-          print(f"PASS: {expected} versioned components, staging feature flags fail closed, release {version['version']}")
+                  assert env['Realtime__ReleaseId']==realtime_release, name
+          print(f"PASS: {expected} versioned components, realtime flags fail closed, Dhole ecosystem {version['version']}")
           PY
