@@ -1,3 +1,9 @@
+## [1.46.2] - 2026-11-12
+
+- PATCH DH-20261112-OPERATIONS-STAGING-127: OperationsService 0.1.0 → 0.1.1 habilita deploy automático en staging al integrar `develop`, igual que ConfigService.
+- DholeSystem y ecosistema 1.46.1 → 1.46.2; manifiesto registra 17 repositorios y conserva las versiones de los demás servicios.
+- CI y staging pendientes; promoción a master condicionada a validación. Producción permanece protegida.
+
 ## [1.46.1] - 2026-11-12
 
 - MINOR DH-20261112-OPERATIONS-BOOTSTRAP-126: registra DholeOperationsService v0.1.0 en el manifiesto global del ecosistema Dhole.

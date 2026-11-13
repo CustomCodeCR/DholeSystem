@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
+  "releaseId": "DH-20261112-OPERATIONS-STAGING-127",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.46.1",
+  "ecosystemVersion": "1.46.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/operations-bootstrap-20261112-develop",
+  "candidateBranch": "fix/operations-staging-auto-20261112",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.1",
+      "version": "1.46.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -143,9 +143,9 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/operations-bootstrap-20261112-develop",
+      "candidateBranch": "fix/operations-staging-auto-20261112",
       "developMergeSha": null
     }
   ],
@@ -201,7 +201,8 @@
     "DH-20261112-PRICING-TARIFF-MODAL-123: validar en staging que el DhModal Aplicar tarifario sea opaco, lg, responsive, dropdown CRM sin recortes y QUO hija funcional.",
     "Ejecutar CI build TypeScript y regresión del selector CRM; no promover a master antes de pasar staging y aprobación de producción.",
     "DH-124: probar CRM unit/build y SMTP link en staging antes de master y producción.",
-    "DH-126 Operations: require CI build/tests, PostgreSQL dhole_operations provisioning, staging deployment/health, Redis consumer replay and explicit production authorization before master integration."
+    "DH-126 Operations: require CI build/tests, PostgreSQL dhole_operations provisioning, staging deployment/health, Redis consumer replay and explicit production authorization before master integration.",
+    "DH-127: Operations staging deployment, DB readiness, Redis/SignalR recovery verification must pass before master."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -234,7 +235,8 @@
     "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending.",
     "ltlCurrencyValue": "CI staging candidate pending, no deployment to production",
     "crmReminderContextLink": "CI and staging pending; no production authorization",
-    "operationsBootstrap": "Pending build/test and staging; no production permission."
+    "operationsBootstrap": "Pending build/test and staging; no production permission.",
+    "operationsStagingAuto": "Operations CI pass required; staging deployment and smoke pending."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -244,7 +246,8 @@
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
     "CRM worker usa el CORS_WEB_ORIGIN por ambiente para la URL pública",
     "Sin migraciones, REST/Realtime/Outbox compatibles",
-    "Register new DholeOperationsService v0.1.0, .NET 10 API/Workers/Outbox/Inbox architecture, Docker and protected staging/production deploy workflows"
+    "Register new DholeOperationsService v0.1.0, .NET 10 API/Workers/Outbox/Inbox architecture, Docker and protected staging/production deploy workflows",
+    "Enable automatic Operations staging deployment on develop; production remains guarded; version 0.1.1."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -299,7 +302,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
+  "businessReleaseId": "DH-20261112-OPERATIONS-STAGING-127",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -690,12 +693,12 @@
     "productionDeploymentAuthorized": false
   },
   "operationsBootstrapRelease": {
-    "releaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
-    "operationsVersion": "0.1.0",
-    "systemVersion": "1.46.1",
+    "releaseId": "DH-20261112-OPERATIONS-STAGING-127",
+    "operationsVersion": "0.1.1",
+    "systemVersion": "1.46.2",
     "sourceRepository": "CustomCodeCR/DholeConfigService",
     "targetRepository": "CustomCodeCR/DholeOperationsService",
-    "staging": "pending",
+    "staging": "automatic-deployment-pending",
     "productionDeploymentAuthorized": false
   }
 }
