@@ -1,3 +1,8 @@
+## [1.51.2] - 2026-11-13
+
+- PATCH DH-20261113-PRICING-OWN-LCL-140: Web 1.51.2 y sistema/ecosistema 1.51.2. Corrige cotizaciones LCL propias históricas: CFS por CBM cobrable, recuperación segura del POL comercial chino y recálculo de la recolecta sin pérdida de importes; elimina detalles genéricos ajenos a la matriz al guardar.
+- PricingService conserva 1.18.1. Manifiesto y CHANGELOG coordinados, no se alteran otros servicios. Validar CI + staging antes de promover de develop a master; no se modificará main.
+
 ## [1.51.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-139: backport coordinado en master del fix LCL propio, con CFS por CBM cobrable y Manejos persistidos; se evita introducir cargos automáticos fuera del consolidado. Pricing 1.18.1, Web 1.51.1, DholeSystem/ecosistema 1.51.1.
