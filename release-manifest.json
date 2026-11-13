@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRICING-OWN-LCL-140",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.51.2",
+  "ecosystemVersion": "1.51.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,9 +15,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.51.2",
+      "version": "1.51.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-historical-charges-140-develop",
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.51.2",
+      "version": "1.51.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-historical-charges-140-develop",
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -74,11 +74,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.18.1",
+      "version": "1.18.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/own-lcl-cfs-manejos-139-develop"
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -214,7 +214,8 @@
     "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
     "DH-20261113-PRICING-OWN-LCL-139: pruebas LCL propio CFS por CBM cobrable, persistencia Manejos y ausencia de extras, compilación Web/Pricing y CI antes de merge a develop.",
     "DH-20261113-PRICING-OWN-LCL-139: validar staging tras develop; master/prod bloqueados hasta autorización de producción.",
-    "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master."
+    "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
+    "DH-20261113-PRICING-OWN-LCL-141: ejecutar CI Pricing/Web, verificar CBM cobrable/tabla/API/PDF y staging antes de integrar a master."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -253,6 +254,7 @@
     "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization."
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -320,7 +322,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-140",
+  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -756,5 +758,5 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "LCL propio: corrección de hidratación CFS histórico, POL chino no catalogado y exclusión de detalles genéricos; PricingService mantiene versión 1.18.1."
+  "releaseSummary": "Fix de CFS de LCL propio con cantidad cobrable persistida, proyección histórica corregida y versiones globales"
 }
