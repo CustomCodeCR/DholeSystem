@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-AGENDA-RETURN-131",
+  "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.47.5",
   "status": "candidate-ci-and-staging-pending",
@@ -30,7 +30,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-master"
+      "candidateBranch": "fix/crm-activity-return-132-backport-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -118,7 +118,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-master"
+      "candidateBranch": "fix/crm-activity-return-132-backport-master"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -170,7 +170,7 @@
     "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master.",
     "DH-128: CI and Operations staging health must pass before this master release.",
     "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval.",
-    "DH-20261113-CRM-AGENDA-RETURN-131: CI Web regression, Vue typecheck/build, version gate and staging browser smoke required before master. Production approval required; master auto-deploys."
+    "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -206,7 +206,7 @@
     "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized.",
     "operationsStagingAuto": "Operations .NET 10 build/unit/integration/SemVer CI passed; staging runtime pending.",
     "operationsNoFlags": "CI and staging readiness required before master; production deploy automatically after approved merge.",
-    "crmAgendaReturn": "Unit test validated locally (3 scenarios); CI/staging browser verification pending; production unauthorized."
+    "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -219,7 +219,7 @@
     "Register DholeOperationsService v0.1.0 in ecosystem release manifest and preserve existing services.",
     "PATCH 127: Operations staging workflow now auto-runs after develop and component bumped to 0.1.1.",
     "DH-128: Operations auto-deploy on master and develop; no manual flags required.",
-    "DH-20261113-CRM-AGENDA-RETURN-131: Volver al listado de actividades CRM retorna a /crm/followups, conserva fromAccount y evita /crm/activities."
+    "DH-20261113-CRM-AGENDA-RETURN-132 master backport: activity detail navigation routes to /crm/followups preserving fromAccount."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -234,8 +234,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-master",
-  "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-131",
+  "candidateBranch": "fix/crm-activity-return-132-backport-master",
+  "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -578,7 +578,7 @@
     "productionDeploymentAuthorized": false
   },
   "crmAgendaReturnRelease": {
-    "releaseId": "DH-20261113-CRM-AGENDA-RETURN-131",
+    "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
     "webFrom": "1.47.4",
     "webTo": "1.47.5",
     "systemFrom": "1.47.4",
@@ -587,7 +587,14 @@
     "returnPath": "/crm/followups",
     "fromAccountPreserved": true,
     "backendUnchanged": true,
-    "staging": "pending",
-    "productionDeploymentAuthorized": false
+    "staging": "Web and infrastructure staging deploy successful; authenticated browser click verification not run",
+    "productionDeploymentAuthorized": true,
+    "productionApproval": "Explicit user request subelo a master 2026-11-13",
+    "backportMaster": true,
+    "sourceDevelopWebVersion": "1.48.1",
+    "sourceDevelopSystemVersion": "1.48.1",
+    "masterWebVersion": "1.47.5",
+    "masterSystemVersion": "1.47.5",
+    "excludedConcurrentRelease": "Dhole Web 1.48.0 Bitácora comercial"
   }
 }
