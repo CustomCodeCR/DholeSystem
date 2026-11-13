@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRICING-OWN-LCL-140",
+  "releaseId": "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.51.2",
+  "ecosystemVersion": "1.52.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.51.2",
+      "version": "1.52.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-historical-charges-140-master",
+      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -108,16 +108,16 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.30.0",
+      "version": "1.31.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-master"
+      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.51.2",
+      "version": "1.52.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-historical-charges-140-master",
+      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -176,7 +176,8 @@
     "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
     "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
     "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master.",
-    "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master."
+    "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
+    "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -216,6 +217,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -242,7 +244,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/own-lcl-historical-charges-140-master",
+  "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
   "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-140",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -630,5 +632,5 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "LCL propio: corrección de hidratación CFS histórico, POL chino no catalogado y exclusión de detalles genéricos; PricingService mantiene versión 1.18.1."
+  "releaseSummary": "CRM: tareas de acuerdos sin botones adicionales, relación explícita con bitácora padre y retrocompatibilidad."
 }
