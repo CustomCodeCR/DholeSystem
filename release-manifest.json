@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-DRAFT-RECOVERY-130",
+  "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.47.4",
+  "ecosystemVersion": "1.47.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -26,10 +26,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.47.4",
+      "version": "1.47.5",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/crm-activity-return-132-backport-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -113,10 +114,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.47.4",
+      "version": "1.47.5",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/crm-activity-return-132-backport-master"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -167,7 +169,8 @@
     "DH-126: Ops staging DB, API/Workers health, realtime validation and explicit production authorization required before master merge.",
     "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master.",
     "DH-128: CI and Operations staging health must pass before this master release.",
-    "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval."
+    "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval.",
+    "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -202,12 +205,12 @@
     "crmReminderContextLink": "CI / unit tests / staging email click-through pending; no production deployment authorization",
     "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized.",
     "operationsStagingAuto": "Operations .NET 10 build/unit/integration/SemVer CI passed; staging runtime pending.",
-    "operationsNoFlags": "CI and staging readiness required before master; production deploy automatically after approved merge."
+    "operationsNoFlags": "CI and staging readiness required before master; production deploy automatically after approved merge.",
+    "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
@@ -215,7 +218,8 @@
     "Preserve REST API, reminder dedupe, SignalR and Redis Outbox; no migration",
     "Register DholeOperationsService v0.1.0 in ecosystem release manifest and preserve existing services.",
     "PATCH 127: Operations staging workflow now auto-runs after develop and component bumped to 0.1.1.",
-    "DH-128: Operations auto-deploy on master and develop; no manual flags required."
+    "DH-128: Operations auto-deploy on master and develop; no manual flags required.",
+    "DH-20261113-CRM-AGENDA-RETURN-132 master backport: activity detail navigation routes to /crm/followups preserving fromAccount."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -230,8 +234,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113",
-  "businessReleaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
+  "candidateBranch": "fix/crm-activity-return-132-backport-master",
+  "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -572,5 +576,25 @@
     "targetRepository": "CustomCodeCR/DholeOperationsService",
     "staging": "verification-pending",
     "productionDeploymentAuthorized": false
+  },
+  "crmAgendaReturnRelease": {
+    "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
+    "webFrom": "1.47.4",
+    "webTo": "1.47.5",
+    "systemFrom": "1.47.4",
+    "systemTo": "1.47.5",
+    "legacyActivitiesListHidden": true,
+    "returnPath": "/crm/followups",
+    "fromAccountPreserved": true,
+    "backendUnchanged": true,
+    "staging": "Web and infrastructure staging deploy successful; authenticated browser click verification not run",
+    "productionDeploymentAuthorized": true,
+    "productionApproval": "Explicit user request subelo a master 2026-11-13",
+    "backportMaster": true,
+    "sourceDevelopWebVersion": "1.48.1",
+    "sourceDevelopSystemVersion": "1.48.1",
+    "masterWebVersion": "1.47.5",
+    "masterSystemVersion": "1.47.5",
+    "excludedConcurrentRelease": "Dhole Web 1.48.0 Bitácora comercial"
   }
 }
