@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-139",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.51.0",
+  "ecosystemVersion": "1.51.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.51.0",
+      "version": "1.51.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-master"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master-reconciled",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -52,10 +54,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.17.0",
+      "version": "1.18.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master-reconciled"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -112,9 +115,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.51.0",
+      "version": "1.51.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-master"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master-reconciled",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -169,7 +174,8 @@
     "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge.",
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CI/typecheck, staging and explicit authorization are required before master/prod.",
     "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
-    "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización."
+    "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
+    "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -208,8 +214,8 @@
     "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -236,8 +242,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-master",
-  "businessReleaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
+  "candidateBranch": "fix/own-lcl-cfs-manejos-139-master-reconciled",
+  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-139",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -624,5 +630,5 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Bitácoras: tareas opcionales desde acuerdos y edición sin recordatorios de la gestión."
+  "releaseSummary": "LCL propio: CFS por CBM cobrable, Manejos persistentes y solo cargos configurados en el consolidado. Backport a master de 139."
 }
