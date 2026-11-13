@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.46.4",
+  "version": "1.47.4",
   "ecosystemVersion": "1.47.4",
   "releaseId": "DH-20261113-CRM-DRAFT-RECOVERY-130",
   "releaseStatus": "candidate-ci-and-staging-pending",
