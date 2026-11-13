@@ -214,8 +214,8 @@
     "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
