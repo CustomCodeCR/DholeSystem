@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "release/crm-activity-back-to-agenda-20261113-develop",
+  "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -19,7 +19,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/crm-activity-back-to-agenda-20261113-develop"
+      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
