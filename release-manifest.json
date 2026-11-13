@@ -118,7 +118,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/crm-activity-back-to-agenda-20261113-master"
+      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-master"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -234,7 +234,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/crm-activity-back-to-agenda-20261113-master",
+  "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-master",
   "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-131",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
