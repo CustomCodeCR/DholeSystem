@@ -159,7 +159,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
@@ -736,7 +736,7 @@
       "DholeWeb"
     ],
     "authorization": "User requested immediate deployment",
-    "status": "pending-staging-and-ci",
+    "status": "authorized-by-user-but-pending-ci-staging",
     "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
   }
 }
