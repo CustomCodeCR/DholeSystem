@@ -1,3 +1,8 @@
+## [1.51.3] - 2026-11-13
+
+- PATCH DH-20261113-PRICING-OWN-LCL-141: release coordinado Pricing 1.18.2, Web 1.51.3 y ecosistema 1.51.3 para corregir CFS por CBM cobrable (mínimo 1) incluso en cotizaciones LCL propias históricas. Backend deja de forzar CFS a PerCbm y proyecta API/PDF/totales comercialmente, sin mutar revisiones ya publicadas.
+- No altera coloader, Miami CFT, REST, SignalR ni otros servicios. CI y staging son obligatorios antes de fusionar master.
+
 ## [1.51.2] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-140: Web 1.51.2 y sistema/ecosistema 1.51.2. Corrige cotizaciones LCL propias históricas: CFS por CBM cobrable, recuperación segura del POL comercial chino y recálculo de la recolecta sin pérdida de importes; elimina detalles genéricos ajenos a la matriz al guardar.
