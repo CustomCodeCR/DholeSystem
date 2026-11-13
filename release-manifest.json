@@ -8,7 +8,7 @@
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/operations-no-deploy-flags-20261113",
+  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -154,7 +154,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-release-pending-develop",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
