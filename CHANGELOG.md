@@ -1,3 +1,8 @@
+## [1.48.4] - 2026-11-13
+
+- PATCH DH-20261113-PRODUCTION-DEPLOY-SKIP-135: registra la corrección coordinada de la condición if en los jobs de producción Auth/CRM/Web; se eliminan los bloqueos por mensaje de commit que marcaban deploy Skipped, sin flags.
+- Versiones Auth 1.9.2 → 1.9.3; CRM 1.28.2 → 1.28.3; Web 1.48.3 → 1.48.4; DholeSystem 1.47.5 → 1.48.4; ecosistema → 1.48.4. CI y staging requeridos antes de master. Publicación solicitada por usuario 2026-11-13.
+
 ## [1.47.5] - 2026-11-13
 
 - PATCH DH-20261113-CRM-AGENDA-RETURN-132 (backport master): registro global de la corrección «Volver al listado» desde actividades CRM hacia `/crm/followups`, validada previamente en develop Web 1.48.1.
