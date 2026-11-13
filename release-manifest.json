@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
+  "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.48.1",
+  "ecosystemVersion": "1.48.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,11 +15,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.48.1",
+      "version": "1.48.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop-v2"
+      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -32,19 +32,20 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.8.0",
+      "version": "1.9.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.48.1",
+      "version": "1.48.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-develop-v2"
+      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -137,10 +138,11 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.27.4",
+      "version": "1.28.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -157,7 +159,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
@@ -213,7 +215,7 @@
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
     "semver": "Pending coordinated version gate CI",
     "staging": "Pending CRM draft recovery browser smoke",
-    "production": "Unauthorized; master auto-deploys, do not merge before explicit approval.",
+    "production": "Publicación solicitada explícitamente 2026-11-13. CI y staging obligatorios antes de master. Estado de despliegue pendiente de verificación.",
     "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35.",
     "f9Hotfix": "Gateway F9 curl probe candidate, staged deploy not yet verified; DholeSystem prior curl /health returned 200, urllib F9 returned 403",
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
@@ -246,8 +248,10 @@
     "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization."
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeAuthService",
+    "DholeCRMService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
@@ -256,7 +260,8 @@
     "Register new DholeOperationsService v0.1.0, .NET 10 API/Workers/Outbox/Inbox architecture, Docker and protected staging/production deploy workflows",
     "Enable automatic Operations staging deployment on develop; production remains guarded; version 0.1.1.",
     "DH-128: remove Operations production deploy flag; master and develop deploy automatically with CI policy gate.",
-    "DH-20261113-CRM-AGENDA-RETURN-132: activity detail button routes to /crm/followups and preserves fromAccount; Web commercial log 1.48.0 maintained."
+    "DH-20261113-CRM-AGENDA-RETURN-132: activity detail button routes to /crm/followups and preserves fromAccount; Web commercial log 1.48.0 maintained.",
+    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -311,7 +316,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
+  "businessReleaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -721,5 +726,17 @@
     "fromAccountPreserved": true,
     "backendUnchanged": true,
     "productionDeploymentAuthorized": false
+  },
+  "productionDeployment": {
+    "authorizedOn": "2026-11-13",
+    "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
+    "services": [
+      "DholeAuthService",
+      "DholeCRMService",
+      "DholeWeb"
+    ],
+    "authorization": "User requested immediate deployment",
+    "status": "pending-staging-and-ci",
+    "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
   }
 }
