@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rt-20261107-01",
+  "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.44.2",
-  "status": "candidate-staging-not-deployed",
+  "ecosystemVersion": "1.44.3",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/tariff-crm-modal-ui-20261112-develop",
+  "candidateBranch": "feature/crm-reminder-context-link-20261112-124-develop",
   "expectedRepositories": 16,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.44.2",
+      "version": "1.44.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.25.2",
+      "version": "1.25.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -146,7 +146,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "intermediate-release-pending-ci-staging",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
@@ -191,7 +191,8 @@
     "Web 1.44.0 + Pricing 1.17.0: ejecutar CI y build, prueba de autorización backend, Outbox/realtime sin regresiones; staging debe pasar antes de producción.",
     "DH-20261112-PRICING-TRANSIT-LABEL-122: validar CI Web y System, smoke de pantalla 6 en staging para las 3 modalidades, despliegue master solo tras verificación.",
     "DH-20261112-PRICING-TARIFF-MODAL-123: validar en staging que el DhModal Aplicar tarifario sea opaco, lg, responsive, dropdown CRM sin recortes y QUO hija funcional.",
-    "Ejecutar CI build TypeScript y regresión del selector CRM; no promover a master antes de pasar staging y aprobación de producción."
+    "Ejecutar CI build TypeScript y regresión del selector CRM; no promover a master antes de pasar staging y aprobación de producción.",
+    "DH-124: probar CRM unit/build y SMTP link en staging antes de master y producción."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -222,71 +223,17 @@
     "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only.",
     "dynamicsIdtraFirstTen": "Pending dotnet tests and Dynamics read-only validation; no quote written or retried.",
     "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending.",
-    "ltlCurrencyValue": "CI staging candidate pending, no deployment to production"
+    "ltlCurrencyValue": "CI staging candidate pending, no deployment to production",
+    "crmReminderContextLink": "CI and staging pending; no production authorization"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
-    "Extend existing NotificationsHub; do not add another Gateway Hub",
-    "Use existing notificationReceived, Notifications ticket and WebSocket route",
-    "Add server-authorized resource subscribe/unsubscribe and minimal resourceChanged",
-    "Use existing producer streams and REST reconciliation",
-    "Retain 16 repositories, excluding CustomCodeFramework",
-    "F9 staging smoke transports via curl matching successful DholeSystem staging HTTPS health checks; 1.14.1 patch; no auth or production change",
-    "1.14.2: Preserve downstream WS handshake 401/403 via ClientWebSocket.CollectHttpResponseDetails; retain 502 for transport errors.",
-    "1.14.3: Published revision is distinct from active Pricing work; seller projection exposes pricingModificationActive, UI rechecks request and published rates.",
-    "QUO-269 develop: currentRateStatus from the RateHeader, distinct from historical published quote Status; dashboard counts Open correctly.",
-    {
-      "releaseId": "DH-20261109-CRM-CLIENT-QUOTES-053",
-      "summary": "CRM quotes use account/lead UUID; legacy QUOs reconciled after manual verification.",
-      "components": [
-        "DholeSystem",
-        "DholeWeb",
-        "DholePricingService",
-        "DholeCRMService"
-      ]
-    },
-    "Seller Open DH-20261109-SELLER-OPEN-DECISION-054: published revision decision with deferred PDF when rate header contains unpublished update.",
-    "CRM quote migration: server-paginated full QUO historical catalog with explicit account ownership confirmation and no commercial data mutation",
-    "CRM-linked historical QUO updates RateHeader client/executive names, and disappears from the unlinked-only migration list after saving.",
-    "CRM quote indicators from official Pricing account links, direct live quote route views, bounded bulk migration with review (DH-20261110-CRM-QUO-LIVE-057).",
-    "Historical QUO migration hidden in collapsed superadministrator accordion and gated by Pricing server-side role authorization.",
-    "Pricing step 3 CRM-selected commercial executive: propagate matching executiveUserId and executiveName to create/update payloads; reject missing Auth identity before POST; preserve Castro Fallas.",
-    "Translate Pricing QUO status snapshots in CRM history, summary and historical linking tables; no data changes.",
-    "Reconciled status labels release 061 with Web 1.17.6/1.17.7 POE changes; global 1.17.8.",
-    "DH-20261110-CRM-ACCOUNT-SEARCH-064: CRM accounts search by commercial name, legal name and Cédula using normalized tax ID.",
-    "DH-20261110-CRM-AGENDA-CLIENT-EXECUTIVE-065: Client and commercial executive columns in CRM agenda via authorized calendar/labels resolver; no API, database or realtime changes.",
-    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: show full CRM activity details, saved notes and linked agreement followups without a database migration.",
-    "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: CRM client lookup by exact linked ID; preserve executive ownership on normal and amendment requests; historical unlinked amendments remain editable.",
-    "Ocultar TARIFARIO en cotizaciones históricas pendientes de vincular; backend Pricing 1.9.11, total/paginación/selección coherentes.",
-    "DH-20261110-CRM-ADMIN-CALENDAR-069: Auth-verified administrator access to all CRM agendas and full policy-generated followup detail.",
-    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: cargar ejecutivo vigente de CRM al guardar solicitudes de modificación, sin depender del selector en pantalla 3.",
-    "DH-20261110-PRICING-CRM-LEAD-REQUESTS-074: validar ejecutivo CRM de prospectos y cuentas en nuevas solicitudes, ediciones de solicitud y modificaciones antes de guardar.",
-    "DH-20261110-PRICING-CRM-SELLER-MODIFICATION-075: prospectos CRM con ejecutivo asignado en solicitudes de modificación iniciadas por vendedor reciben validación antes de submitSellerModification, sin cambiar permisos.",
-    "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: allow retrospective activities and suppress retroactive reminders.",
-    "DH-20261110-CRM-AGENDA-UNIFIED-077: cerrar compromisos secundarios desde la actividad padre con checkbox y conservar la agenda CRM global, contactos y minutas implementados en 076.",
-    "DH-20261110-CRM-LEAD-PARITY-079: ficha y rutas de prospectos",
-    "DH-20261110-CRM-CONTACTS-SELLERS-078: Contactos CRM mediante DhMultiSelect y vendedores/superusuarios validados desde Auth.",
-    "DH-20261110-CRM-LEAD-QUO-PARITY-082: QUO del prospecto directamente en Pricing, dashboard oficial, rutas cotizadas y vinculación histórica con confirmación de superadministradores.",
-    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: only crm.account.category.manage can assign/reclassify account categories; CRM enforces default for unprivileged account and prospect conversion, no REST/SignalR contract change.",
-    "DH-20261111-CRM-WORKSPACE-TABS-084: reunifica /crm/leads lista/detalle y el espacio Agenda/Seguimientos (/crm/followups, /crm/activities y sus detalles) en una sola pestaña de trabajo por módulo; no cambia APIs.",
-    "DH-20261111-PRICING-OPENING-ATTACHMENTS-084: attach quote PDF, linked seller-request supportDocuments and final rate backup storage files to opening emails.",
-    "DH-20261111-CRM-WORKSPACE-TABS-084: manifiesto del workspace CRM (pestañas Prospectos/Agenda/Seguimientos), DholeWeb master 1.25.1; no cambios al backend.",
-    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: linked multiple Storage documents per CRM account procedure, record-level authorized access, inline PDF/image/text preview and retryable uploads.",
-    "DH-20261111-CRM-AGREEMENT-LIST-085: CRM permite quitar/restaurar compromisos sugeridos sin borrar el campo Acuerdos alcanzados; la agenda solo guarda compromisos seleccionados.",
-    "DH-20261111-CRM-GEOAPIFY-CSP-108: CSP connect-src permits https://api.geoapify.com for CRM visit location search; DholeWeb 1.38.1. No CRM/API Gateway or realtime changes.",
-    "DH-20261111-CRM-DRAFT-RECOVERY-109: CRM autosave and local draft recovery (Web 1.39.0, CRMService 1.24.0, System 1.39.0)",
-    "DH-20261112-CRM-DRAFT-DHMODAL-111: recovery confirmation exclusively through DhModal; pending choices preserve browser drafts; no REST or SignalR change",
-    "DH-112: Auto-list sent/accepted same-client quotations; only accepted target can be linked; Pricing REST/SignalR unchanged.",
-    "DH-113: Pricing linked accepted QUO displays its commercial number, never the UUID; no change to status, REST or realtime.",
-    "DH-20261112-PRICING-ACCEPTANCE-MAIL-113: notify Pricing and seller on accepted quote; manual idempotent resend via DhModal on Screen 9",
-    "DH-20261112-PRICING-RESEND-CHOICE-114: choose opening/quote/notice resend types; explicit Reports vs Outbox error details and no-PDF emergency fallback",
-    "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: map only first 10 distinct IDTRA to Dynamics, preserving full Pricing snapshot and idempotency.",
-    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: bound Outbox correlation IDs to varchar(100), deterministic hash fallback for long keys, exact API error displayed in DhModal",
-    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: render Config.currencies.Value instead of technical CUR-* codes in LTL own and coloader amounts",
-    "DH-20261112-PRICING-TRANSIT-LABEL-122: sustituir «Días de tránsito para la entrega» por «Días de tránsito» en pantalla 6 de tarifas terrestres, aéreas y marítimas; sin modificaciones de persistencia ni reglas de tránsito. DholeWeb 1.44.0 → 1.44.1, DholeSystem/ecosistema 1.44.0 → 1.44.1."
+    "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
+    "CRM worker usa el CORS_WEB_ORIGIN por ambiente para la URL pública",
+    "Sin migraciones, REST/Realtime/Outbox compatibles"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -294,7 +241,19 @@
     "formalGatesPassed": false,
     "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
   },
-  "businessPatchRelease": "DH-20261112-PRICING-TARIFF-MODAL-123",
+  "businessPatchRelease": {
+    "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
+    "from": {
+      "DholeCRMService": "1.25.2",
+      "DholeSystem": "1.44.2"
+    },
+    "to": {
+      "DholeCRMService": "1.25.3",
+      "DholeSystem": "1.44.3"
+    },
+    "productionDeploymentAuthorized": false,
+    "validation": "CI and staging pending"
+  },
   "realtimeReleaseComponents": [
     "DholeSystem",
     "DholeApiGateway"
@@ -329,7 +288,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261112-PRICING-TARIFF-MODAL-123",
+  "businessReleaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
