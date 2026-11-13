@@ -1,3 +1,9 @@
+## [1.46.3] - 2026-11-13
+
+- PATCH DH-20261113-OPERATIONS-NO-FLAGS-128: elimina el bloqueo de despliegue de DholeOperationsService en master que dependía de una variable manual.
+- DholeOperationsService 0.1.1 → 0.1.2; DholeSystem y ecosistema 1.46.2 → 1.46.3. Se conservan las versiones de los demás servicios.
+- Deploy por push automático en develop/staging y master/producción, sin flags de habilitación. Mantiene reglas de ramas intermedias, pruebas CI, readiness y autorización de release previa al merge master.
+
 ## [1.46.2] - 2026-11-12
 
 - PATCH DH-20261112-OPERATIONS-STAGING-127: OperationsService 0.1.0 → 0.1.1 habilita deploy automático en staging al integrar `develop`, igual que ConfigService.
