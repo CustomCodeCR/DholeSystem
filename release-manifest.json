@@ -113,7 +113,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.4",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -206,7 +206,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
