@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.4",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -243,7 +243,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
