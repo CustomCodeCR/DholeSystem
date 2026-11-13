@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
+  "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.48.4",
+  "ecosystemVersion": "1.49.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,11 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.48.4",
+      "version": "1.49.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-master"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -107,20 +105,16 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.28.3",
+      "version": "1.28.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-master"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-master"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.48.4",
+      "version": "1.49.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-master"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-master"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -172,7 +166,8 @@
     "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master.",
     "DH-128: CI and Operations staging health must pass before this master release.",
     "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval.",
-    "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge."
+    "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge.",
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CI/typecheck, staging and explicit authorization are required before master/prod."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -211,9 +206,8 @@
     "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
-    "DholeAuthService",
-    "DholeCRMService",
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -224,7 +218,8 @@
     "PATCH 127: Operations staging workflow now auto-runs after develop and component bumped to 0.1.1.",
     "DH-128: Operations auto-deploy on master and develop; no manual flags required.",
     "DH-20261113-CRM-AGENDA-RETURN-132 master backport: activity detail navigation routes to /crm/followups preserving fromAccount.",
-    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags"
+    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags",
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CRM agenda filters by client/seller and commercial log rendered separately as notes, preserving REST, ACL and realtime."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -239,7 +234,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/crm-activity-return-132-backport-master",
+  "candidateBranch": "feature/crm-agenda-client-seller-notes-136-master",
   "businessReleaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -613,5 +608,18 @@
     "authorization": "User requested immediate deployment",
     "status": "authorized-by-user-but-pending-ci-staging",
     "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
+  },
+  "crmAgendaNotesRelease": {
+    "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
+    "webFrom": "1.48.4",
+    "webTo": "1.49.0",
+    "crmFrom": "1.28.3",
+    "crmTo": "1.28.4",
+    "systemFrom": "1.48.4",
+    "systemTo": "1.49.0",
+    "sourceBranch": "feature/crm-agenda-client-seller-notes-136-master",
+    "backendContractUnchanged": true,
+    "productionDeploymentAuthorized": false,
+    "staging": "pending"
   }
 }

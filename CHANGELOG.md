@@ -1,3 +1,8 @@
+## [1.49.0] - 2026-11-13
+
+- MINOR DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: manifiesto de release coordinado para filtros cliente/vendedor y bitácora de notas independiente en CRM. Versiones: Web 1.49.0, CRM 1.28.4, Sistema/ecosistema 1.49.0; componentes restantes conservan sus versiones previas.
+- API REST, SignalR, permisos y operaciones existentes mantienen compatibilidad. CI/staging pendientes; master y producción no autorizados.
+
 ## [1.48.4] - 2026-11-13
 
 - PATCH DH-20261113-PRODUCTION-DEPLOY-SKIP-135: registra la corrección coordinada de la condición if en los jobs de producción Auth/CRM/Web; se eliminan los bloqueos por mensaje de commit que marcaban deploy Skipped, sin flags.
