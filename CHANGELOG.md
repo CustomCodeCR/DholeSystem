@@ -1,3 +1,8 @@
+## [1.52.1] - 2026-11-13
+
+- PATCH DH-20261113-PRICING-OWN-LCL-141: master 1.52.0 → 1.52.1, Pricing 1.18.2 y Web 1.52.1. CFS propio LCL usa CBM cobrable (1 CBM mínimo) al guardar y consultar cotizaciones anteriores. Sin afectar coloader, Miami, REST ni realtime.
+- Lote coordinado tras CI/staging con ramas intermedias. Historial de revisiones intacto.
+
 ## [1.52.0] - 2026-11-13
 
 - MINOR DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: bitácoras comerciales crean recordatorios directos de acuerdos con fecha futura, sin botones intermedios. El CRM preserva la relación padre-hija mediante FK `origin_activity_id`, recupera recordatorios heredados y presenta acceso a la bitácora padre en el detalle.
