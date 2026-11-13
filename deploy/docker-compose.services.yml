@@ -184,6 +184,7 @@ services:
     environment:
       TZ: ${TZ:-America/Costa_Rica}
       Features__CrmBackgroundTasksEnabled: "${CRM_BACKGROUND_TASKS_ENABLED:-true}"
+      Crm__PublicWebBaseUrl: ${CORS_WEB_ORIGIN}
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       DOTNET_ENVIRONMENT: ${DOTNET_ENVIRONMENT:-Production}
       ConnectionStrings__Postgres: "Host=${POSTGRES_HOST:-postgres};Port=${POSTGRES_PORT:-5432};Database=${CRM_DB:-dhole_crm};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
