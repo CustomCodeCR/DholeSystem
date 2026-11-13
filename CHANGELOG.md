@@ -1,3 +1,9 @@
+## [1.46.2] - 2026-11-12
+
+- PATCH DH-20261112-OPERATIONS-STAGING-127: habilita staging automático de DholeOperationsService en `develop`; Operations 0.1.0 → 0.1.1.
+- DholeSystem/ecosistema 1.46.1 → 1.46.2, sin cambiar otros componentes. La producción sigue sujeta a autorización.
+- CI validado; readiness del servicio en staging pendiente.
+
 ## [1.46.1] - 2026-11-12
 
 - MINOR DH-20261112-OPERATIONS-BOOTSTRAP-126: registra DholeOperationsService v0.1.0 en el manifiesto del ecosistema.

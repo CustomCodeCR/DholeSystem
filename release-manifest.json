@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
+  "releaseId": "DH-20261112-OPERATIONS-STAGING-127",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.46.1",
+  "ecosystemVersion": "1.46.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -113,7 +113,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.1",
+      "version": "1.46.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -121,7 +121,7 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/operations-bootstrap-20261112-master"
     }
@@ -164,7 +164,8 @@
     "DH-20261112-PRICING-TARIFF-MODAL-123: validar en staging que el DhModal Aplicar tarifario sea opaco, lg, responsive, dropdown CRM sin recortes y QUO hija funcional.",
     "Ejecutar CI build TypeScript y regresión del selector CRM; no promover a master antes de pasar staging y aprobación de producción.",
     "DH-124: verificar build/test .NET CRM, enlaces de correo en staging, permisos de la página de detalle y evento Redis/Notifications; no fusionar master sin validación y autorización de producción.",
-    "DH-126: Ops staging DB, API/Workers health, realtime validation and explicit production authorization required before master merge."
+    "DH-126: Ops staging DB, API/Workers health, realtime validation and explicit production authorization required before master merge.",
+    "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master."
   ],
   "validationEvidence": {
     "semver": "Pending CI",
@@ -197,7 +198,8 @@
     "ltlCurrencyValue": "Web and System staging deployments successful, CI and versioning successful; explicit master promotion requested 2026-11-12",
     "dynamicsQuote613619": "Develop CI and staging workflows succeeded; master targeted backport CI and live Dataverse reconciliation to be confirmed",
     "crmReminderContextLink": "CI / unit tests / staging email click-through pending; no production deployment authorization",
-    "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized."
+    "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized.",
+    "operationsStagingAuto": "Operations .NET 10 build/unit/integration/SemVer CI passed; staging runtime pending."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -207,7 +209,8 @@
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
     "CRM worker public Web origin is injected from existing CORS_WEB_ORIGIN for each environment",
     "Preserve REST API, reminder dedupe, SignalR and Redis Outbox; no migration",
-    "Register DholeOperationsService v0.1.0 in ecosystem release manifest and preserve existing services."
+    "Register DholeOperationsService v0.1.0 in ecosystem release manifest and preserve existing services.",
+    "PATCH 127: Operations staging workflow now auto-runs after develop and component bumped to 0.1.1."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -223,7 +226,7 @@
     "validation": "CI and staging pending"
   },
   "candidateBranch": "feature/operations-bootstrap-20261112-master",
-  "businessReleaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
+  "businessReleaseId": "DH-20261112-OPERATIONS-STAGING-127",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -557,12 +560,12 @@
     "productionReleaseRequested": true
   },
   "operationsBootstrapRelease": {
-    "releaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
-    "operationsVersion": "0.1.0",
-    "systemVersion": "1.46.1",
+    "releaseId": "DH-20261112-OPERATIONS-STAGING-127",
+    "operationsVersion": "0.1.1",
+    "systemVersion": "1.46.2",
     "sourceRepository": "CustomCodeCR/DholeConfigService",
     "targetRepository": "CustomCodeCR/DholeOperationsService",
-    "staging": "pending",
+    "staging": "automatic-deployment-pending",
     "productionDeploymentAuthorized": false
   }
 }
