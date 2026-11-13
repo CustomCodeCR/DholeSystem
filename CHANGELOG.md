@@ -1,3 +1,9 @@
+## [1.47.5] - 2026-11-13
+
+- PATCH DH-20261113-CRM-AGENDA-RETURN-131: registra la corrección de navegación de DholeWeb: «Volver al listado» desde detalle de actividad regresa a Agenda y seguimientos (`/crm/followups`), no al listado legado.
+- DholeSystem/ecosistema 1.47.4 → 1.47.5; DholeWeb 1.47.4 → 1.47.5; demás componentes conservan sus versiones. Manifiesto actualizado; sin cambios backend, REST ni SignalR.
+- Tests de regresión y compilación Web en CI, smoke en staging y autorización expresa para promoción a master pendientes.
+
 ## [1.47.4] - 2026-11-13
 
 - PATCH DH-20261113-CRM-DRAFT-RECOVERY-130: manifiesto del release coordinado de recuperación de borradores CRM; mantiene compatibilidad REST, SignalR, Outbox y servicios sin cambios.
