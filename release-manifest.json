@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
+  "releaseId": "DH-20261113-CRM-DRAFT-RECOVERY-130",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.46.3",
+  "ecosystemVersion": "1.47.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -26,7 +26,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.44.2",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -105,7 +105,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.25.3",
+      "version": "1.27.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -113,7 +113,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.3",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -131,7 +131,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -166,12 +166,13 @@
     "DH-124: verificar build/test .NET CRM, enlaces de correo en staging, permisos de la página de detalle y evento Redis/Notifications; no fusionar master sin validación y autorización de producción.",
     "DH-126: Ops staging DB, API/Workers health, realtime validation and explicit production authorization required before master merge.",
     "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master.",
-    "DH-128: CI and Operations staging health must pass before this master release."
+    "DH-128: CI and Operations staging health must pass before this master release.",
+    "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval."
   ],
   "validationEvidence": {
-    "semver": "Pending CI",
-    "staging": "Pending staging",
-    "production": "master release requires staging validation",
+    "semver": "Pending coordinated version gate CI",
+    "staging": "Pending CRM draft recovery browser smoke",
+    "production": "Unauthorized; master auto-deploys, do not merge before explicit approval.",
     "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
     "historicalQuoteCatalog": "PR CI and staging validation pending",
     "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes",
@@ -205,7 +206,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
@@ -228,7 +230,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/operations-no-deploy-flags-20261113-master",
+  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113",
   "businessReleaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",

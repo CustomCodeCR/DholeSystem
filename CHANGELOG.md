@@ -1,3 +1,8 @@
+## [1.47.4] - 2026-11-13
+
+- PATCH DH-20261113-CRM-DRAFT-RECOVERY-130: manifiesto del release coordinado de recuperación de borradores CRM; mantiene compatibilidad REST, SignalR, Outbox y servicios sin cambios.
+- DholeSystem 1.46.3 → 1.47.4, DholeWeb 1.47.3 → 1.47.4, DholeCRMService 1.27.3 → 1.27.4, ecosistema 1.47.3 → 1.47.4. Compilaciones, gates CI y staging pendientes; producción no autorizada.
+
 ## [1.46.3] - 2026-11-13
 
 - PATCH DH-20261113-OPERATIONS-NO-FLAGS-128: DholeOperationsService 0.1.1 → 0.1.2 elimina el flag que saltaba deploy de producción.
