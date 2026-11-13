@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-139",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.51.0",
+  "ecosystemVersion": "1.51.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,9 +15,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.51.0",
+      "version": "1.51.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-develop",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,9 +41,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.51.0",
+      "version": "1.51.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-develop",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,10 +74,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.17.0",
+      "version": "1.18.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -206,7 +211,9 @@
     "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted.",
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Web typecheck, CRM regression tests, staging access and permission checks before merge to master; production release requires explicit approval.",
     "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
-    "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización."
+    "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
+    "DH-20261113-PRICING-OWN-LCL-139: pruebas LCL propio CFS por CBM cobrable, persistencia Manejos y ausencia de extras, compilación Web/Pricing y CI antes de merge a develop.",
+    "DH-20261113-PRICING-OWN-LCL-139: validar staging tras develop; master/prod bloqueados hasta autorización de producción."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
