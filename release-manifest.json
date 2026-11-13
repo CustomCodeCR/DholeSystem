@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
+  "releaseId": "rt-20261107-01",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.44.3",
   "status": "candidate-ci-and-staging-pending",
@@ -124,7 +124,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-release-pending-ci-staging",
+  "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
