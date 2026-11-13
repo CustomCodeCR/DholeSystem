@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
+  "releaseId": "DH-20261113-CRM-DRAFT-RECOVERY-130",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.46.3",
+  "ecosystemVersion": "1.47.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/operations-no-deploy-flags-20261113",
+  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.46.3",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,7 +39,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.44.2",
+      "version": "1.47.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,7 +135,7 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.25.3",
+      "version": "1.27.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null
@@ -203,13 +203,14 @@
     "DH-124: probar CRM unit/build y SMTP link en staging antes de master y producción.",
     "DH-126 Operations: require CI build/tests, PostgreSQL dhole_operations provisioning, staging deployment/health, Redis consumer replay and explicit production authorization before master integration.",
     "DH-127: Operations staging deployment, DB readiness, Redis/SignalR recovery verification must pass before master.",
-    "DH-128: validate Operations .NET CI and staging, then promote to master; production health check is required."
+    "DH-128: validate Operations .NET CI and staging, then promote to master; production health check is required.",
+    "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
-    "semver": "All 16 candidate versions and CHANGELOGs updated for ecosystem 1.14.0; PR compile/version checks successful aside from explicitly deferred DholeSystem F6-F8 formal gates",
-    "staging": "Develop code merged; successful staging deployment and runtime audit not yet verified",
-    "production": "Production not authorized until staging validation",
+    "semver": "Pending coordinated version gate CI",
+    "staging": "Pending CRM draft recovery browser smoke",
+    "production": "Unauthorized; master auto-deploys, do not merge before explicit approval.",
     "develop": "Confirmed: all 16 release PRs merged to develop on 2026-11-09. DholeSystem #161 merge commit 8b0b3dc5503a853cad98d1c27777e8af778ebe35.",
     "f9Hotfix": "Gateway F9 curl probe candidate, staged deploy not yet verified; DholeSystem prior curl /health returned 200, urllib F9 returned 403",
     "f9WsHotfix": "Gateway 1.5.1 staging: HTTPS health passed; anonymous WS returned 502. Expected upstream HTTP 401/403 must be propagated on 1.5.2 staging.",
@@ -242,7 +243,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
