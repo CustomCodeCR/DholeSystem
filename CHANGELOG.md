@@ -1,3 +1,8 @@
+## [1.50.0] - 2026-11-13
+
+- MINOR DH-20261113-CRM-SELLER-ACTIVITY-REPORTS-137: manifiesto coordinado de reportes de actividades comerciales CRM (general y por vendedor), indicadores, desglose por tipo, filtros, Excel y PDF. Web 1.50.0, CRM 1.29.0, Sistema/ecosistema 1.50.0; resto de componentes conserva su versión previa por rama.
+- CI y staging pendientes; sin autorización para despliegue productivo.
+
 ## [1.49.0] - 2026-11-13
 
 - MINOR DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: manifiesto de release coordinado para filtros cliente/vendedor y bitácora de notas independiente en CRM. Versiones: Web 1.49.0, CRM 1.28.4, Sistema/ecosistema 1.49.0; componentes restantes conservan sus versiones previas.
