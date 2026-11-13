@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.44.3",
-  "ecosystemVersion": "1.44.3",
-  "releaseId": "rt-20261107-01",
+  "version": "1.46.1",
+  "ecosystemVersion": "1.46.1",
+  "releaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124"
+  "businessReleaseId": "DH-20261112-OPERATIONS-BOOTSTRAP-126"
 }

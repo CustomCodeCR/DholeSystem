@@ -1,3 +1,10 @@
+## [1.46.1] - 2026-11-12
+
+- MINOR DH-20261112-OPERATIONS-BOOTSTRAP-126: registra DholeOperationsService v0.1.0 en el manifiesto del ecosistema.
+- El servicio sigue la arquitectura y despliegues de DholeConfigService, usando exclusivamente `develop`, `master` y ramas intermedias; no se utiliza `main`.
+- DholeSystem/ecosistema 1.44.3 → 1.46.1. Se conservan las versiones de los 16 componentes existentes.
+- Compilación y pruebas de Operations CI satisfactorias; provisioning y smoke de staging pendientes. Producción no autorizada.
+
 ## [1.44.3] - 2026-11-12
 
 - PATCH DH-20261112-CRM-REMINDER-CONTEXT-124: los recordatorios comerciales de CRM identifican cliente o prospecto y enlazan al detalle del compromiso, ya sea actividad o seguimiento; también en escalaciones a supervisión.
