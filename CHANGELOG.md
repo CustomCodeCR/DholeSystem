@@ -1,3 +1,9 @@
+## [1.46.3] - 2026-11-13
+
+- PATCH DH-20261113-OPERATIONS-NO-FLAGS-128: DholeOperationsService 0.1.1 → 0.1.2 elimina el flag que saltaba deploy de producción.
+- DholeSystem/ecosistema 1.46.2 → 1.46.3; manifiesto actualizado sin modificar las versiones de los otros servicios.
+- Los pushes a develop/master disparan despliegues automáticamente, sin flags. Validación de CI y staging antes de promover a producción.
+
 ## [1.46.2] - 2026-11-12
 
 - PATCH DH-20261112-OPERATIONS-STAGING-127: habilita staging automático de DholeOperationsService en `develop`; Operations 0.1.0 → 0.1.1.
