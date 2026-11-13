@@ -131,7 +131,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-release-pending-develop",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -230,7 +230,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/operations-no-deploy-flags-20261113-master",
+  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113",
   "businessReleaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
