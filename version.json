@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.44.2",
-  "ecosystemVersion": "1.44.2",
+  "version": "1.44.3",
+  "ecosystemVersion": "1.44.3",
   "releaseId": "rt-20261107-01",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261112-PRICING-TARIFF-MODAL-123"
+  "businessReleaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124"
 }
