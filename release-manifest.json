@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-SELLER-ACTIVITY-REPORTS-137",
+  "releaseId": "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.50.0",
+  "ecosystemVersion": "1.51.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/crm-seller-activity-reports-137-develop",
+  "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.50.0",
+      "version": "1.51.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-seller-activity-reports-137-develop"
+      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,9 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.50.0",
+      "version": "1.51.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-seller-activity-reports-137-develop"
+      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -134,9 +134,9 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.29.0",
+      "version": "1.30.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-seller-activity-reports-137-develop"
+      "candidateBranch": "feature/crm-bitacora-agreement-tasks-138-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -205,7 +205,8 @@
     "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval.",
     "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted.",
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Web typecheck, CRM regression tests, staging access and permission checks before merge to master; production release requires explicit approval.",
-    "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master."
+    "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
+    "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -747,5 +748,6 @@
     "backendContractUnchanged": true,
     "productionDeploymentAuthorized": false,
     "staging": "pending"
-  }
+  },
+  "releaseSummary": "Bitácoras: tareas opcionales desde acuerdos y edición sin recordatorios de la gestión."
 }
