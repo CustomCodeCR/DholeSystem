@@ -1,25 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
+  "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.48.4",
+  "ecosystemVersion": "1.49.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop-v2",
+  "candidateBranch": "feature/crm-agenda-client-seller-notes-136-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.48.4",
+      "version": "1.49.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,11 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.48.4",
+      "version": "1.49.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -138,11 +134,9 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.28.3",
+      "version": "1.28.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
+      "candidateBranch": "feature/crm-agenda-client-seller-notes-136-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -209,7 +203,8 @@
     "DH-127: Operations staging deployment, DB readiness, Redis/SignalR recovery verification must pass before master.",
     "DH-128: validate Operations .NET CI and staging, then promote to master; production health check is required.",
     "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval.",
-    "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted."
+    "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted.",
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Web typecheck, CRM regression tests, staging access and permission checks before merge to master; production release requires explicit approval."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -261,7 +256,8 @@
     "Enable automatic Operations staging deployment on develop; production remains guarded; version 0.1.1.",
     "DH-128: remove Operations production deploy flag; master and develop deploy automatically with CI policy gate.",
     "DH-20261113-CRM-AGENDA-RETURN-132: activity detail button routes to /crm/followups and preserves fromAccount; Web commercial log 1.48.0 maintained.",
-    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags"
+    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags",
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Separate unscheduled CRM notes from scheduled agenda, search by client/seller and render log cards with server authorized filters."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -738,5 +734,18 @@
     "authorization": "User requested immediate deployment",
     "status": "authorized-by-user-but-pending-ci-staging",
     "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
+  },
+  "crmAgendaNotesRelease": {
+    "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
+    "webFrom": "1.48.4",
+    "webTo": "1.49.0",
+    "crmFrom": "1.28.3",
+    "crmTo": "1.28.4",
+    "systemFrom": "1.48.4",
+    "systemTo": "1.49.0",
+    "sourceBranch": "feature/crm-agenda-client-seller-notes-136-develop",
+    "backendContractUnchanged": true,
+    "productionDeploymentAuthorized": false,
+    "staging": "pending"
   }
 }

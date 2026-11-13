@@ -1,3 +1,8 @@
+## [1.49.0] - 2026-11-13
+
+- MINOR DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: manifiesto coordinado de navegación CRM Agenda/Calendario/Bitácora · Notas, filtros de cliente y vendedor, tarjetas con notas y documentos. DholeWeb 1.48.4 → 1.49.0; DholeCRMService 1.28.3 → 1.28.4; ecosistema 1.48.4 → 1.49.0.
+- Se preservan autorizaciones CRM, API REST, SignalR, sincronización idempotente y despliegue de staging primero. Producción no autorizada.
+
 ## [1.48.4] - 2026-11-13
 
 - PATCH DH-20261113-PRODUCTION-DEPLOY-SKIP-135: registra la corrección coordinada de la condición if en los jobs de producción Auth/CRM/Web; se eliminan los bloqueos por mensaje de commit que marcaban deploy Skipped, sin flags.
