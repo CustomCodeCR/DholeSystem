@@ -1,24 +1,25 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-DRAFT-RECOVERY-130",
+  "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.47.4",
+  "ecosystemVersion": "1.48.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/crm-draft-autosave-recovery-20261113-develop",
+  "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop-v2",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.47.4",
+      "version": "1.48.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-system-develop-v2"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,10 +40,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.47.4",
+      "version": "1.48.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/crm-activity-back-to-agenda-20261113-develop-v2"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -204,7 +206,8 @@
     "DH-126 Operations: require CI build/tests, PostgreSQL dhole_operations provisioning, staging deployment/health, Redis consumer replay and explicit production authorization before master integration.",
     "DH-127: Operations staging deployment, DB readiness, Redis/SignalR recovery verification must pass before master.",
     "DH-128: validate Operations .NET CI and staging, then promote to master; production health check is required.",
-    "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval."
+    "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval.",
+    "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -239,12 +242,12 @@
     "crmReminderContextLink": "CI and staging pending; no production authorization",
     "operationsBootstrap": "Pending build/test and staging; no production permission.",
     "operationsStagingAuto": "Operations CI pass required; staging deployment and smoke pending.",
-    "operationsNoFlags": "Pending CI and staging; master produces production deploy automatically. No enable/disable deploy flags."
+    "operationsNoFlags": "Pending CI and staging; master produces production deploy automatically. No enable/disable deploy flags.",
+    "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
@@ -252,7 +255,8 @@
     "Sin migraciones, REST/Realtime/Outbox compatibles",
     "Register new DholeOperationsService v0.1.0, .NET 10 API/Workers/Outbox/Inbox architecture, Docker and protected staging/production deploy workflows",
     "Enable automatic Operations staging deployment on develop; production remains guarded; version 0.1.1.",
-    "DH-128: remove Operations production deploy flag; master and develop deploy automatically with CI policy gate."
+    "DH-128: remove Operations production deploy flag; master and develop deploy automatically with CI policy gate.",
+    "DH-20261113-CRM-AGENDA-RETURN-132: activity detail button routes to /crm/followups and preserves fromAccount; Web commercial log 1.48.0 maintained."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -307,7 +311,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
+  "businessReleaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -704,6 +708,18 @@
     "sourceRepository": "CustomCodeCR/DholeConfigService",
     "targetRepository": "CustomCodeCR/DholeOperationsService",
     "staging": "verification-pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmAgendaReturnRelease": {
+    "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
+    "webFrom": "1.48.0",
+    "webTo": "1.48.1",
+    "systemFrom": "1.47.4",
+    "systemTo": "1.48.1",
+    "returnPath": "/crm/followups",
+    "preservesCommercialLog": true,
+    "fromAccountPreserved": true,
+    "backendUnchanged": true,
     "productionDeploymentAuthorized": false
   }
 }
