@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-SELLER-ACTIVITY-REPORTS-137",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-139",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.50.0",
+  "ecosystemVersion": "1.50.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.50.0",
+      "version": "1.50.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-seller-activity-reports-137-master"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -52,10 +54,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.17.0",
+      "version": "1.18.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -112,9 +115,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.50.0",
+      "version": "1.50.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-seller-activity-reports-137-master"
+      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -168,7 +173,9 @@
     "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval.",
     "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge.",
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CI/typecheck, staging and explicit authorization are required before master/prod.",
-    "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master."
+    "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
+    "DH-20261113-PRICING-OWN-LCL-139: pruebas LCL propio CFS por CBM cobrable, persistencia Manejos y ausencia de extras, compilación Web/Pricing y CI antes de merge a develop.",
+    "DH-20261113-PRICING-OWN-LCL-139: validar staging tras develop; master/prod bloqueados hasta autorización de producción."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
