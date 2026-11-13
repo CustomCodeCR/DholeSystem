@@ -252,8 +252,8 @@
     "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization."
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
