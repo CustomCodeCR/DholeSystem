@@ -136,7 +136,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -611,7 +611,7 @@
       "DholeWeb"
     ],
     "authorization": "User requested immediate deployment",
-    "status": "pending-staging-and-ci",
+    "status": "authorized-by-user-but-pending-ci-staging",
     "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
   }
 }
