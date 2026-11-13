@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.51.0",
-  "ecosystemVersion": "1.51.0",
-  "releaseId": "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138",
+  "version": "1.51.1",
+  "ecosystemVersion": "1.51.1",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-139",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138"
+  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-139"
 }
