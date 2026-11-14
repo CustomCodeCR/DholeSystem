@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRICING-OWN-LCL-141",
+  "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.52.1",
+  "ecosystemVersion": "1.53.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.52.1",
+      "version": "1.53.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -108,16 +108,18 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.31.0",
+      "version": "1.32.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master"
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.52.1",
+      "version": "1.53.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -178,7 +180,8 @@
     "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master.",
     "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
     "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master.",
-    "DH-141: verificar pruebas y staging de Pricing/Web antes de master."
+    "DH-141: verificar pruebas y staging de Pricing/Web antes de master.",
+    "DH-20261114-CRM-CALENDAR-SPANS-142: review and pass Web build/type-check, CRM tests, migrations and staging before merging to master (automatic production deployment)."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
