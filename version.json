@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.52.1",
-  "ecosystemVersion": "1.52.1",
-  "releaseId": "DH-20261113-PRICING-OWN-LCL-141",
+  "version": "1.53.0",
+  "ecosystemVersion": "1.53.0",
+  "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141"
+  "businessReleaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142"
 }
