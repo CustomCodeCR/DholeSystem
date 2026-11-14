@@ -1,3 +1,8 @@
+## [1.56.0] - 2026-11-14 (API Manager universal route discovery)
+
+- MINOR: coordina versiones de los 17 componentes y agrega registro de Operations a Gateway para su inventario REST.
+- Mantiene las rutas, Compose y servicios existentes; la exposición a terceros requiere aprobación y token técnico por ruta.
+
 ## [1.55.0] - 2026-11-14 (Dhole API Manager coordinated release)
 
 - MINOR: añade la configuración de ocho identidades técnicas de catálogos Config desde develop, sin alterar los demás servicios de producción.
