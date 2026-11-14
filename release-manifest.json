@@ -1,158 +1,169 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-API-MANAGER-PROMOTION-002",
+  "releaseId": "DH-20261114-API-MANAGER-ROUTE-DISCOVERY-143",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.55.0",
+  "ecosystemVersion": "1.56.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+  "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.6.2",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.9.3",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-develop"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.4.1",
-      "mergeState": "merged-into-develop",
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "b7972edc1861f440e42acd28e49cdc1cea241f87"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "d20b62c1a016952c60f76a1937101d45a820eccf"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.5.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "6250e20558a484fd0b802b46e81274afddd24a04"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.18.2",
+      "version": "1.19.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-develop-reconciled"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.5.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "fb912c1ab25d9d05a76100dbecb35d75b9572384"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "4cdc209412306c3062484d3159519dbac0904bbc"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.6.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.7.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "465a02fb2c8f92ef0725255e2e6668a9db6f0890"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.6.1",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "342bf141c92520c5e1699131c74ba8a2b45bf84c"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.4.0",
-      "mergeState": "merged-into-develop",
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": "76ef881d80b14c71f6aa8cae90e792647e9cb987"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.4.1",
+      "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.32.0",
+      "version": "1.33.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-develop",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/operations-no-deploy-flags-20261113",
-      "developMergeSha": null
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
+      "developMergeSha": null,
+      "candidateSha": null
     }
   ],
   "policyCheck": {
@@ -263,7 +274,21 @@
   "releaseComponents": [
     "DholeApiGateway",
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeAuthService",
+    "DholeConfigService",
+    "DholeAuditLogsService",
+    "DholePricingService",
+    "DholeDataExtractionService",
+    "DholeAIService",
+    "DholeStorageService",
+    "DholeReportsService",
+    "DholeNotificationsService",
+    "DholeContentService",
+    "DholeAgentService",
+    "DholeDynamicsConnectorService",
+    "DholeCRMService",
+    "DholeOperationsService"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
