@@ -1,3 +1,8 @@
+## [1.53.0] - 2026-11-14
+
+- MINOR DH-20261114-CRM-CALENDAR-SPANS-142: coordinación de calendario CRM con intervalos completos y recordatorios con fecha/hora de inicio y fin. Web 1.52.1 → 1.53.0, CRM 1.31.0 → 1.32.0, sistema/ecosistema 1.52.1 → 1.53.0.
+- Manifiesto global actualizado; servicios no afectados conservan sus versiones. Contratos REST/realtime compatibles; migración aditiva. CI y validación de staging obligatorias antes de master y producción.
+
 ## [1.52.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-141: master 1.52.0 → 1.52.1, Pricing 1.18.2 y Web 1.52.1. CFS propio LCL usa CBM cobrable (1 CBM mínimo) al guardar y consultar cotizaciones anteriores. Sin afectar coloader, Miami, REST ni realtime.
