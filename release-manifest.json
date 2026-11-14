@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
+  "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.53.0",
+  "ecosystemVersion": "1.54.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.53.0",
+      "version": "1.54.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-record-followups-142-master",
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -108,16 +108,18 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.31.0",
+      "version": "1.32.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master"
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.53.0",
+      "version": "1.54.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-record-followups-142-master",
+      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -179,7 +181,8 @@
     "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
     "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master.",
     "DH-141: verificar pruebas y staging de Pricing/Web antes de master.",
-    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master."
+    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master.",
+    "DH-20261114-CRM-CALENDAR-SPANS-142: requires merged develop, CI success, completed staging verification and explicit production deployment approval before master"
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -220,6 +223,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
