@@ -1,3 +1,9 @@
+## [1.56.0] - 2026-11-14 (Dhole API Manager: 17 servicios)
+
+- MINOR: coordina inventario autenticado de rutas de todos los servicios API y habilita el enrutamiento de Operations en Gateway sin publicar APIs automáticamente.
+- Versiona los 17 componentes del release, preserva manifiestos realtime y datos actuales, sin permisos adicionales de producción.
+- CI y staging obligatorios para promoción final.
+
 ## [1.55.0] - 2026-11-14 (Dhole API Manager coordinated release)
 
 - MINOR: añade la configuración de ocho identidades técnicas de catálogos Config desde develop, sin alterar los demás servicios de producción.

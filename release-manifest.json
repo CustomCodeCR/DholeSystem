@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-API-MANAGER-PROMOTION-002",
+  "releaseId": "DH-20261114-API-MANAGER-ROUTE-DISCOVERY-143",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.55.0",
+  "ecosystemVersion": "1.56.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,126 +12,155 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.6.2",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.9.3",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/dhole-deploy-skipped-135-master"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.3.3",
-      "mergeState": "candidate-pending-staging"
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.18.2",
+      "version": "1.19.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.3.6",
-      "mergeState": "candidate-pending-staging"
+      "version": "1.6.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
-      "version": "1.2.2",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.4.2",
-      "mergeState": "feature-branch-not-merged"
+      "version": "1.7.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.3.1",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
       "developMergeSha": null,
-      "candidateSha": null
+      "candidateSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
-      "version": "1.2.1",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.2.2",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.4.1",
-      "mergeState": "candidate-master-backport",
-      "developMergeSha": null
+      "version": "1.5.0",
+      "mergeState": "candidate-intermediate-only",
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.32.0",
+      "version": "1.33.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/operations-no-deploy-flags-20261113-master"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
+      "candidateSha": null,
+      "developMergeSha": null
     }
   ],
   "policyCheck": {
@@ -227,7 +256,21 @@
   "releaseComponents": [
     "DholeApiGateway",
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeAuthService",
+    "DholeConfigService",
+    "DholeAuditLogsService",
+    "DholePricingService",
+    "DholeDataExtractionService",
+    "DholeAIService",
+    "DholeStorageService",
+    "DholeReportsService",
+    "DholeNotificationsService",
+    "DholeContentService",
+    "DholeAgentService",
+    "DholeDynamicsConnectorService",
+    "DholeCRMService",
+    "DholeOperationsService"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
@@ -254,7 +297,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
+  "candidateBranch": "feature/api-manager-discovery-1.56.0-master",
   "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
