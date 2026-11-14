@@ -1,3 +1,9 @@
+## [1.55.0] - 2026-11-14 (Dhole API Manager coordinated release)
+
+- MINOR: sincroniza el manifiesto central con Gateway 1.6.2, Web 1.55.0 y System 1.55.0; preserva versiones de todos los demás servicios.
+- Reutiliza los tokens técnicos de los ocho catálogos Config existentes en develop, sin habilitar ThirdParty por defecto.
+- Requiere CI, pruebas de staging y verificación previa a master.
+
 ## [1.54.0] - 2026-11-14
 
 - MINOR DH-20261114-CRM-CALENDAR-SPANS-142: el calendario CRM muestra barras continuas entre días y bloques de duración real entre horas, y los seguimientos comerciales admiten fecha/hora de inicio y finalización. Los recordatorios mantienen su disparador de vencimiento, permisos y compatibilidad con los registros anteriores.
