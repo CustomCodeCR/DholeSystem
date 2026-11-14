@@ -1,3 +1,8 @@
+## [1.53.0] - 2026-11-14
+
+- MINOR DH-20261114-CRM-RECORD-FOLLOWUPS-142: release coordinado de «Seguimientos» CRM en Prospectos y Clientes, historial consolidado con filtros y enlaces de detalle, cuentas agrupadas y REST/SignalR existentes.
+- DholeWeb y DholeSystem 1.52.1 → 1.53.0; CRM 1.31.0 sin cambios. Promoción controlada desde develop con CI, staging y aprobación para producción.
+
 ## [1.52.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-141: master 1.52.0 → 1.52.1, Pricing 1.18.2 y Web 1.52.1. CFS propio LCL usa CBM cobrable (1 CBM mínimo) al guardar y consultar cotizaciones anteriores. Sin afectar coloader, Miami, REST ni realtime.

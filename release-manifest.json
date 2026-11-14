@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-PRICING-OWN-LCL-141",
+  "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.52.1",
+  "ecosystemVersion": "1.53.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.52.1",
+      "version": "1.53.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
+      "candidateBranch": "feature/crm-record-followups-142-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -115,9 +115,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.52.1",
+      "version": "1.53.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
+      "candidateBranch": "feature/crm-record-followups-142-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -178,7 +178,8 @@
     "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master.",
     "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
     "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master.",
-    "DH-141: verificar pruebas y staging de Pricing/Web antes de master."
+    "DH-141: verificar pruebas y staging de Pricing/Web antes de master.",
+    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -214,10 +215,10 @@
     "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized.",
     "operationsStagingAuto": "Operations .NET 10 build/unit/integration/SemVer CI passed; staging runtime pending.",
     "operationsNoFlags": "CI and staging readiness required before master; production deploy automatically after approved merge.",
-    "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
+    "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13.",
+    "crmFollowupHistory": "DholeWeb develop CI/build/CRM tests and staging deploy passed. DholeSystem develop staging and production PR checks pending."
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
@@ -230,7 +231,8 @@
     "DH-128: Operations auto-deploy on master and develop; no manual flags required.",
     "DH-20261113-CRM-AGENDA-RETURN-132 master backport: activity detail navigation routes to /crm/followups preserving fromAccount.",
     "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags",
-    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CRM agenda filters by client/seller and commercial log rendered separately as notes, preserving REST, ACL and realtime."
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CRM agenda filters by client/seller and commercial log rendered separately as notes, preserving REST, ACL and realtime.",
+    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: tabs Seguimientos, CRM sin cambios de API, con control de versión 1.53.0 en Web y DholeSystem."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -245,7 +247,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
+  "candidateBranch": "feature/crm-record-followups-142-master",
   "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -633,5 +635,17 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "CFS LCL propio por CBM cobrable persistido; proyección histórica API/PDF sin alterar revisiones."
+  "releaseSummary": "Pestaña Seguimientos en fichas CRM de Clientes y Prospectos, historial de actividades, bitácoras y recordatorios.",
+  "crmFollowupHistoryRelease": {
+    "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
+    "webVersion": "1.53.0",
+    "systemVersion": "1.53.0",
+    "crmVersion": "1.31.0",
+    "backendContractUnchanged": true,
+    "restCompatible": true,
+    "realtimeExistingTransport": true,
+    "ci": "passed-on-develop-candidate",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
