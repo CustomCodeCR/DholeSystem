@@ -1,3 +1,9 @@
+## [1.53.0] - 2026-11-14 (Dhole API Manager promotion)
+
+- MINOR: Preparación del despliegue de API Manager al Gateway y Web con los ocho catálogos Config y mapeo de campos.
+- Añade únicamente las variables de identidad técnica de catálogos faltantes en master, preservando el resto de la infraestructura de producción.
+- Versiones coordinadas Gateway 1.6.1 / Web 1.53.0 / System 1.53.0; producción no autorizada.
+
 ## [1.52.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-141: master 1.52.0 → 1.52.1, Pricing 1.18.2 y Web 1.52.1. CFS propio LCL usa CBM cobrable (1 CBM mínimo) al guardar y consultar cotizaciones anteriores. Sin afectar coloader, Miami, REST ni realtime.

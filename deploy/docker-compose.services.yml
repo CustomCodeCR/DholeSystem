@@ -20,6 +20,15 @@ services:
       ThirdParty__ServiceTokens__pricing-rate-request-detail: "${THIRDPARTY_PRICING_REQUEST_DETAIL_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-rate-requests-linked: "${THIRDPARTY_PRICING_REQUESTS_LINKED_TOKEN:-}"
       ThirdParty__ServiceTokens__pricing-rate-exchange-eur-usd: "${THIRDPARTY_PRICING_EUR_USD_TOKEN:-}"
+      # Fixed-slug Config catalogs; scope config.catalog-items.view, no privileged JWT.
+      ThirdParty__ServiceTokens__config-catalog-pol: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-poe: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-pod: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-incoterms: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-container-sizes: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-container-types: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-trailer-sizes: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
+      ThirdParty__ServiceTokens__config-catalog-trailer-types: "${THIRDPARTY_CONFIG_CATALOG_READ_TOKEN:-}"
       CONTENT_HTTP_URL: http://content-api:8080
       # The prod2+ Compose projects also advertise the generic
       # dhole-agent-api DNS alias on the shared dhole network. Bind the
