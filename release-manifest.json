@@ -261,6 +261,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
