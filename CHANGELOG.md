@@ -1,7 +1,7 @@
-## [1.53.0] - 2026-11-14
+## [1.54.0] - 2026-11-14
 
-- MINOR DH-20261114-CRM-CALENDAR-SPANS-142: release coordinado de intervalos de calendario y recordatorios en CRM (Web 1.52.1 → 1.53.0, CRM 1.31.0 → 1.32.0, System 1.52.1 → 1.53.0).
-- Manifiesto central actualizado con versiones de todos los componentes; servicios no modificados conservan su versión. Migración aditiva, compatibilidad REST/realtime y validación de staging obligatorias.
+- MINOR DH-20261114-CRM-CALENDAR-SPANS-142: el calendario CRM muestra barras continuas entre días y bloques de duración real entre horas, y los seguimientos comerciales admiten fecha/hora de inicio y finalización. Los recordatorios mantienen su disparador de vencimiento, permisos y compatibilidad con los registros anteriores.
+- Incremento coordinado desde Web 1.53.0 → 1.54.0, CRM 1.31.0 → 1.32.0 y DholeSystem/ecosistema 1.53.0 → 1.54.0. Migración aditiva StartAt; validación CI y staging antes de master.
 
 ## [1.53.0] - 2026-11-14
 
