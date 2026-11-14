@@ -1,5 +1,10 @@
 ## [1.53.0] - 2026-11-14
 
+- MINOR DH-20261114-CRM-CALENDAR-SPANS-142: release coordinado de intervalos de calendario y recordatorios en CRM (Web 1.52.1 → 1.53.0, CRM 1.31.0 → 1.32.0, System 1.52.1 → 1.53.0).
+- Manifiesto central actualizado con versiones de todos los componentes; servicios no modificados conservan su versión. Migración aditiva, compatibilidad REST/realtime y validación de staging obligatorias.
+
+## [1.53.0] - 2026-11-14
+
 - MINOR DH-20261114-CRM-RECORD-FOLLOWUPS-142: release coordinado de nueva pestaña «Seguimientos» en fichas CRM de Prospectos y Clientes, con actividades, bitácoras y recordatorios históricos, filtros y acceso al detalle; incluye cuentas agrupadas y respeta los permisos CRM existentes.
 - DholeWeb 1.52.1 → 1.53.0; DholeSystem/ecosistema 1.52.1 → 1.53.0; DholeCRMService mantiene 1.31.0. Sin cambios de API REST ni transporte SignalR. CI, staging y aprobación expresa antes de publicar en master.
 
