@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
   "date": "2026-11-14",
-  "ecosystemVersion": "1.53.0",
+  "ecosystemVersion": "1.54.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -11,8 +11,8 @@
   "components": [
     {
       "repository": "CustomCodeCR/DholeWeb",
-      "previousVersion": "1.52.1",
-      "version": "1.53.0"
+      "previousVersion": "1.53.0",
+      "version": "1.54.0"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -21,8 +21,8 @@
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
-      "previousVersion": "1.52.1",
-      "version": "1.53.0"
+      "previousVersion": "1.53.0",
+      "version": "1.54.0"
     }
   ],
   "ci": {
