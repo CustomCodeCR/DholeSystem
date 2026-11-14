@@ -1,3 +1,8 @@
+## [1.53.0] - 2026-11-14
+
+- MINOR DH-20261114-CRM-RECORD-FOLLOWUPS-142: release coordinado de nueva pestaña «Seguimientos» en fichas CRM de Prospectos y Clientes, con actividades, bitácoras y recordatorios históricos, filtros y acceso al detalle; incluye cuentas agrupadas y respeta los permisos CRM existentes.
+- DholeWeb 1.52.1 → 1.53.0; DholeSystem/ecosistema 1.52.1 → 1.53.0; DholeCRMService mantiene 1.31.0. Sin cambios de API REST ni transporte SignalR. CI, staging y aprobación expresa antes de publicar en master.
+
 ## [1.52.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-141: release coordinado Pricing 1.18.2 y Web/System 1.52.1. Corrección CFS LCL propio por CBM cobrable (mínimo 1) en guardado, lectura histórica, API, PDF y totales; sin cambiar coloader/Miami ni revisiones publicadas.
