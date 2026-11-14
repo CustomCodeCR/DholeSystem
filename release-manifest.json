@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.53.0",
+  "ecosystemVersion": "1.54.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.53.0",
+      "version": "1.54.0",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-develop",
       "candidateSha": null,
@@ -41,7 +41,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.53.0",
+      "version": "1.54.0",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-develop",
       "candidateSha": null,
