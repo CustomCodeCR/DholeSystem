@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141",
+  "releaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.52.0",
+  "ecosystemVersion": "1.52.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -27,9 +27,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.52.0",
+      "version": "1.52.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -54,11 +54,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.18.1",
+      "version": "1.18.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/own-lcl-cfs-manejos-139-master-reconciled"
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -115,9 +115,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.52.0",
+      "version": "1.52.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
+      "candidateBranch": "fix/own-lcl-cfs-billable-persist-141-master-reconciled",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -177,7 +177,8 @@
     "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
     "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master.",
     "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
-    "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master."
+    "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master.",
+    "DH-141: verificar pruebas y staging de Pricing/Web antes de master."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -216,8 +217,8 @@
     "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13."
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -245,7 +246,7 @@
     "validation": "CI and staging pending"
   },
   "candidateBranch": "feature/crm-bitacora-direct-tasks-parent-141-master",
-  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-140",
+  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -632,5 +633,5 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "CRM: tareas de acuerdos sin botones adicionales, relación explícita con bitácora padre y retrocompatibilidad."
+  "releaseSummary": "CFS LCL propio por CBM cobrable persistido; proyección histórica API/PDF sin alterar revisiones."
 }
