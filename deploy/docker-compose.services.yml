@@ -54,6 +54,12 @@ services:
       Gateway__Routes__14__Destination: "${DYNAMICS_HTTP_URL:-http://dynamics-api:8080}/api/admin/v1"
       Gateway__Routes__14__StripPrefix: "true"
       Gateway__Routes__14__TimeoutSeconds: "120"
+      # Discover Operations routes through the existing authenticated service catalog.
+      Gateway__Routes__15__Prefix: "/api/operations"
+      Gateway__Routes__15__Destination: "${OPERATIONS_HTTP_URL:-http://operations-api:8080}"
+      Gateway__Routes__15__StripPrefix: "false"
+      Gateway__Routes__15__TimeoutSeconds: "120"
+      Gateway__HealthChecks__operations: "${OPERATIONS_HTTP_URL:-http://operations-api:8080}"
     networks:
       - dhole-runtime
 
