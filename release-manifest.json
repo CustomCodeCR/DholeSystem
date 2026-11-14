@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
+  "releaseId": "DH-20261114-API-MANAGER-PROMOTION-002",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.54.0",
+  "ecosystemVersion": "1.55.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,8 +12,11 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.3.0",
-      "mergeState": "previous-release-unchanged"
+      "version": "1.6.2",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -27,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.54.0",
+      "version": "1.55.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
+      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -117,9 +120,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.54.0",
+      "version": "1.55.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/crm-calendar-time-ranges-20261114-142-master-rebased",
+      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -222,8 +225,8 @@
     "crmFollowupHistory": "DholeWeb develop CI/build/CRM tests and staging deploy passed. DholeSystem develop staging and production PR checks pending."
   },
   "releaseComponents": [
+    "DholeApiGateway",
     "DholeWeb",
-    "DholeCRMService",
     "DholeSystem"
   ],
   "changes": [
@@ -251,7 +254,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "feature/crm-record-followups-142-master",
+  "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-master",
   "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",

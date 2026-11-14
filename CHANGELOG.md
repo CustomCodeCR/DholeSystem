@@ -1,3 +1,9 @@
+## [1.55.0] - 2026-11-14 (Dhole API Manager coordinated release)
+
+- MINOR: añade la configuración de ocho identidades técnicas de catálogos Config desde develop, sin alterar los demás servicios de producción.
+- Integra Gateway 1.6.2 / Web y System 1.55.0, conservando las mejoras CRM/Pricing de 1.54.0 y sus datos.
+- La publicación requiere que ThirdParty esté habilitado con token de solo lectura y comprobaciones posteriores al despliegue.
+
 ## [1.54.0] - 2026-11-14
 
 - MINOR DH-20261114-CRM-CALENDAR-SPANS-142: calendario de varios días y horas y recordatorios con fecha final (Web 1.53.0 → 1.54.0; CRM 1.31.0 → 1.32.0; DholeSystem/ecosistema 1.53.0 → 1.54.0).
