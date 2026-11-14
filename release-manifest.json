@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-API-MANAGER-PROMOTION-002",
+  "releaseId": "DH-20261114-API-MANAGER-ROUTE-DISCOVERY-143",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.55.0",
+  "ecosystemVersion": "1.56.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+  "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.6.2",
+      "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop"
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.55.0",
+      "version": "1.56.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-promotion-1.55.0-20261114-develop",
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
       "developMergeSha": null
     },

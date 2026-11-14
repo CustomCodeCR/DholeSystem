@@ -1,3 +1,9 @@
+## [1.56.0] - 2026-11-14 (API Manager: descubrimiento y rutas dinámicas)
+
+- MINOR: coordina versión global 1.56.0, Gateway 1.7.0, Web 1.56.0 y manifiesto central. Los demás microservicios conservan sus versiones actuales.
+- El inventario usa rutas Gateway registradas y OpenAPI cuando está disponible; no expone rutas sin permiso ni habilita credenciales externas.
+- Pendiente cobertura universal de metadatos para servicios sin OpenAPI de producción; no promover a master hasta validar CI, funcionalidad y staging.
+
 ## [1.55.0] - 2026-11-14 (Dhole API Manager coordinated release)
 
 - MINOR: sincroniza el manifiesto central con Gateway 1.6.2, Web 1.55.0 y System 1.55.0; preserva versiones de todos los demás servicios.
