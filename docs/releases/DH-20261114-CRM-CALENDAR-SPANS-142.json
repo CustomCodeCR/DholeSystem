@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261114-CRM-CALENDAR-SPANS-142",
+  "date": "2026-11-14",
+  "ecosystemVersion": "1.53.0",
+  "status": "candidate-ci-and-staging-pending",
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.52.1",
+      "version": "1.53.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.31.0",
+      "version": "1.32.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.52.1",
+      "version": "1.53.0"
+    }
+  ],
+  "ci": {
+    "web": "pending",
+    "crm": "pending",
+    "versionGate": "pending"
+  },
+  "staging": "pending",
+  "productionDeploymentAuthorized": false,
+  "plan": [
+    "Merge development PRs to develop in coordinated batch after CI",
+    "Verify migrated CRM, cross-month calendar, reminders and legacy compatibility in staging",
+    "Promote same validated release to master only after express production authorization"
+  ]
+}
