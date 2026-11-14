@@ -1,3 +1,9 @@
+## [1.53.0] - 2026-11-14 (Dhole API Manager promotion)
+
+- MINOR: Actualiza manifiesto central y seguimiento SemVer del release Gateway 1.6.1 / Web 1.53.0 / System 1.53.0, sin alterar los demás microservicios.
+- Conserva tokens técnicos de catálogos y despliegues actuales de staging. Las APIs externas requieren autorización y habilitación de ThirdParty.
+- `master` y producción quedan bloqueados hasta pruebas de staging y aprobación expresa.
+
 ## [1.52.1] - 2026-11-13
 
 - PATCH DH-20261113-PRICING-OWN-LCL-141: release coordinado Pricing 1.18.2 y Web/System 1.52.1. Corrección CFS LCL propio por CBM cobrable (mínimo 1) en guardado, lectura histórica, API, PDF y totales; sin cambiar coloader/Miami ni revisiones publicadas.
