@@ -1,3 +1,8 @@
+## [1.54.0] - 2026-11-14
+
+- MINOR DH-20261114-CRM-CALENDAR-SPANS-142: calendario de varios días y horas y recordatorios con fecha final (Web 1.53.0 → 1.54.0; CRM 1.31.0 → 1.32.0; DholeSystem/ecosistema 1.53.0 → 1.54.0).
+- Manifiesto central actualiza el release coordinado; los demás servicios conservan sus versiones. Migración PostgreSQL aditiva y contratos REST/realtime compatibles. Master bloqueado hasta validar staging y autorización para producción.
+
 ## [1.53.0] - 2026-11-14
 
 - MINOR DH-20261114-CRM-RECORD-FOLLOWUPS-142: release coordinado de «Seguimientos» CRM en Prospectos y Clientes, historial consolidado con filtros y enlaces de detalle, cuentas agrupadas y REST/SignalR existentes.
