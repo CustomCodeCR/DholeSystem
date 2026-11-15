@@ -1,3 +1,10 @@
+## [1.60.1] - 2026-11-15 (Patch CI/CD rápido y seguro)
+
+- PATCH DH-20261115-DEPLOY-FASTPATH-146: AI y DataExtraction eliminan restauraciones .NET y regresiones repetidas durante producción; PR ejecuta compilación, tests y versionamiento.
+- Deploy master comprueba revisión actual y evita ejecutar revisiones obsoletas; se elimina la eliminación automática de ramas en DataExtraction.
+- Infraestructura de staging y producción sólo se redespliega automáticamente si cambia deploy/**; release-manifest/version.json/CHANGELOG no reinician servicios existentes.
+- Versions AI 1.8.1, DataExtraction 1.8.1, DholeSystem/global 1.60.1; staging y CI antes de master.
+
 ## [1.60.0] - 2026-11-15 (Centro de colas de extracción e IA)
 
 - MINOR: release global DH-20261115-QUEUE-CONTROL-145 de AI 1.8.0, DataExtraction 1.8.0, Web 1.59.0 y System 1.60.0.
