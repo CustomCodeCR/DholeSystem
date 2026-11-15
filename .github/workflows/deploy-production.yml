@@ -3,10 +3,14 @@ name: Deploy Dhole Infrastructure - Production
 on:
   push:
     branches: [master]
+    # Version/changelog/manifest updates are metadata, not an infrastructure change.
+    # Manual workflow_dispatch remains available for an intentional redeploy.
+    paths:
+      - 'deploy/**'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: dhole-infrastructure-production
@@ -24,6 +28,12 @@ jobs:
     steps:
       - name: Checkout infrastructure
         uses: actions/checkout@v4
+
+      - name: F10 universal realtime promotion gate (fail closed before any production mutation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/realtime/verify_f10_production_preflight.py
 
       - name: Prepare runtime environments
         shell: bash
@@ -204,6 +214,7 @@ jobs:
         shell: bash
         run: curl -fsS --max-time 10 http://127.0.0.1:8642/health >/dev/null
 
+      # Branch lifecycle is handled by reviewed PRs; production deployment MUST NOT delete Git refs.
       - name: Show environment routing
         shell: bash
         run: |
