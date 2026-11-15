@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-QUEUE-CONTROL-145",
+  "releaseId": "DH-20261115-DEPLOY-FASTPATH-146",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.60.0",
+  "ecosystemVersion": "1.60.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -57,9 +57,9 @@
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
+      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -75,9 +75,9 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
+      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -147,9 +147,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.60.0",
+      "version": "1.60.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
+      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -169,7 +169,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -216,7 +216,8 @@
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master.",
     "DH-20261114-CRM-CALENDAR-SPANS-142: requires merged develop, CI success, completed staging verification and explicit production deployment approval before master",
     "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus.",
-    "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass."
+    "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass.",
+    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -256,12 +257,12 @@
     "crmFollowupHistory": "DholeWeb develop CI/build/CRM tests and staging deploy passed. DholeSystem develop staging and production PR checks pending.",
     "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes",
     "documentCpuExtraction": "AI and System staging success; DataExtraction staging and field-level quality benchmark pending at release preparation.",
-    "queueControl": "Develop merged in 4 repos; AI/DataExtraction/Web staging success; System staging queued; master PR CI pending."
+    "queueControl": "Develop merged in 4 repos; AI/DataExtraction/Web staging success; System staging queued; master PR CI pending.",
+    "deployFastPath": "Develop CI/staging and master CI required before final production verification. Explicit request to fix production deployment workflow 2026-11-15."
   },
   "releaseComponents": [
     "DholeAIService",
     "DholeDataExtractionService",
-    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
@@ -277,7 +278,8 @@
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: tabs Seguimientos, CRM sin cambios de API, con control de versión 1.53.0 en Web y DholeSystem.",
     "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro.",
     "DH-20261115-CPU-DOC-EVIDENCE-144: CPU-first selective Tesseract OCR, source-backed extraction for logistics docs, Qwen tariff guard; no Ollama model change.",
-    "DH-20261115-QUEUE-CONTROL-145: center for durable extraction and AI queues, emails, Redis/Ollama, safe retries, diagnostics and SignalR refresh; no changes to Ollama model."
+    "DH-20261115-QUEUE-CONTROL-145: center for durable extraction and AI queues, emails, Redis/Ollama, safe retries, diagnostics and SignalR refresh; no changes to Ollama model.",
+    "DH-20261115-DEPLOY-FASTPATH-146: producción AI/DataExtraction compila con las validaciones de PR ya aprobadas, evita restauración NuGet en deploy, comprueba revisiones obsoletas y no elimina ramas; System sólo despliega infra si cambia deploy/**."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -292,8 +294,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
-  "businessReleaseId": "DH-20261115-QUEUE-CONTROL-145",
+  "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
+  "businessReleaseId": "DH-20261115-DEPLOY-FASTPATH-146",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -680,7 +682,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Queue control center with authoritative PostgreSQL + Redis/Ollama metrics, history, retry safeguards and traceability; deployment authorized by user.",
+  "releaseSummary": "Patch de despliegue: evitar restauraciones y regresiones repetidas en producción, rechazar ejecuciones master obsoletas y omitir redespliegue completo de infraestructura ante cambios exclusivos de metadatos.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
