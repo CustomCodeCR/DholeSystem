@@ -1,3 +1,11 @@
+## [1.59.0] - 2026-11-15 (CPU document evidence release candidate)
+
+- MINOR global: coordinación AI 1.7.0 + DataExtraction 1.7.0. Integración de MarkItDown, Tesseract (CPU selectivo) y clasificación documental con evidencia por campo.
+- No cambia el modelo actual de Ollama. Añade clasificación conservadora de documentación no tarifaria antes de procesos costosos de AI.
+- Manifiesto central 17 repositorios actualizado manteniendo intactas versiones de servicios no modificados.
+- CI, staging y benchmark con corpus etiquetado pendientes; el objetivo 99,9% NO está validado. Producción no autorizada.
+- Release DH-20261115-CPU-DOC-EVIDENCE-144.
+
 ## [1.58.0] - 2026-11-15 (API Manager: metadatos completos y filtros de terminal)
 
 - MINOR DH-20261115-API-METADATA-161: coordina Gateway 1.9.0 y Web/System 1.58.0 para exponer JSON real de Config y filtrar CY, SD y APT por registro.
