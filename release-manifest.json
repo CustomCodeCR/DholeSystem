@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-CPU-DOC-EVIDENCE-144",
+  "releaseId": "DH-20261115-QUEUE-CONTROL-145",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.59.0",
+  "ecosystemVersion": "1.60.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261115-CPU-DOC-EVIDENCE-144",
+  "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.59.0",
+      "version": "1.60.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261115-CPU-DOC-EVIDENCE-144",
+      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.58.0",
+      "version": "1.59.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/dh-20261115-api-metadata-161-develop",
+      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261115-CPU-DOC-EVIDENCE-144"
+      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -87,11 +87,11 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261115-CPU-DOC-EVIDENCE-144"
+      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -171,7 +171,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "candidate-intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
@@ -234,7 +234,8 @@
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: pruebas de compilación, casos de regresión, ACL real y smoke staging pendientes; master no autorizado.",
     "DH-20261114-CRM-CALENDAR-SPANS-142: validate CI, migrations, existing CRM flows and staging before master promotion (auto production deploy)",
     "DH-20261115-CPU-DOC-EVIDENCE-144: 99.9% exactitud no está certificada; requiere corpus etiquetado BL/HBL/MBL/AWB/Invoice/Packing List/Manifiesto, métricas por campo, prueba de OCR CPU y revisión humana.",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción)."
+    "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción).",
+    "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -273,12 +274,14 @@
     "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization.",
     "crmFollowupHistory": "Pendientes CI, pruebas Vue, consulta con vendedor asignado y superadmin, grupos de cuentas, navegación desde Prospectos y Clientes y staging.",
     "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes",
-    "documentCpuExtraction": "Unit/CI pending; no measured 99.9% accuracy or server CPU benchmark. Staging and production blocked."
+    "documentCpuExtraction": "Unit/CI pending; no measured 99.9% accuracy or server CPU benchmark. Staging and production blocked.",
+    "queueControl": "CI and staged end-to-end console validation pending; no production approval."
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeAIService",
-    "DholeDataExtractionService"
+    "DholeDataExtractionService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
@@ -292,7 +295,8 @@
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Separate unscheduled CRM notes from scheduled agenda, search by client/seller and render log cards with server authorized filters.",
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: historial vinculado de seguimientos de prospectos y clientes; listado consolidado, filtro, paginación y permisos existentes. Web/System 1.52.1 a 1.53.0; CRM 1.31.0 sin cambios.",
     "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro.",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: DataExtraction evidence endpoint and selective CPU-only Tesseract; AI non-pricing document guard, no model change. Requires manual customs review."
+    "DH-20261115-CPU-DOC-EVIDENCE-144: DataExtraction evidence endpoint and selective CPU-only Tesseract; AI non-pricing document guard, no model change. Requires manual customs review.",
+    "DH-20261115-QUEUE-CONTROL-145: consola web de cola histórica con server paging, búsqueda de correos/IA, Redis/Ollama, intentos, errores, lease y reintentos protegidos sin duplicación Pricing."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -347,7 +351,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261115-CPU-DOC-EVIDENCE-144",
+  "businessReleaseId": "DH-20261115-QUEUE-CONTROL-145",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -783,7 +787,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "AI y DataExtraction: extracción CPU-first de tarifarios y evidencia de documentos de comercio exterior; sin GPU ni cambio de modelo, con validación humana y objetivo 99,9% pendiente de pruebas.",
+  "releaseSummary": "Operación integrada de colas de tarifas por correo, extracción y AI, con observabilidad y control administrativo seguro.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
