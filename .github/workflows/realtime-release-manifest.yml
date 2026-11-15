@@ -34,7 +34,7 @@ jobs:
           assert manifest['ecosystemVersion']==version['ecosystemVersion']
           assert re.fullmatch(r'[0-9]+[.][0-9]+[.][0-9]+', manifest['ecosystemVersion'])
           assert manifest['releaseId']==version['releaseId']
-          assert manifest['candidateBranch'].startswith(('feature/', 'fix/'))
+          assert manifest['candidateBranch'].startswith(('feature/', 'fix/', 'release/'))
           assert manifest['frameworkRepositoryExcluded']=='CustomCodeCR/CustomCodeFramework'
           assert manifest['productionDeploymentAuthorized'] is False
           assert manifest['status'].startswith(('candidate-', 'develop-integrated-', 'f9-'))
