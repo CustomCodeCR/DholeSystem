@@ -3,6 +3,10 @@ name: Deploy Dhole Infrastructure - Production
 on:
   push:
     branches: [master]
+    # Version/changelog/manifest updates are metadata, not an infrastructure change.
+    # Manual workflow_dispatch remains available for an intentional redeploy.
+    paths:
+      - 'deploy/**'
   workflow_dispatch:
 
 permissions:
