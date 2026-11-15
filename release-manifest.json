@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-CPU-DOC-EVIDENCE-144",
+  "releaseId": "DH-20261115-QUEUE-CONTROL-145",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.59.0",
+  "ecosystemVersion": "1.60.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.58.0",
+      "version": "1.59.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/dh-20261115-api-metadata-161-master",
+      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -57,9 +57,9 @@
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-CPU-DOC-EVIDENCE-144-master-backport",
+      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -75,9 +75,9 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-CPU-DOC-EVIDENCE-144-master-backport",
+      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -147,9 +147,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.59.0",
+      "version": "1.60.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-CPU-DOC-EVIDENCE-144-master-backport",
+      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -169,7 +169,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -215,7 +215,8 @@
     "DH-141: verificar pruebas y staging de Pricing/Web antes de master.",
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master.",
     "DH-20261114-CRM-CALENDAR-SPANS-142: requires merged develop, CI success, completed staging verification and explicit production deployment approval before master",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus."
+    "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus.",
+    "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass."
   ],
   "validationEvidence": {
     "semver": "Pending coordinated version gate CI",
@@ -254,12 +255,14 @@
     "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13.",
     "crmFollowupHistory": "DholeWeb develop CI/build/CRM tests and staging deploy passed. DholeSystem develop staging and production PR checks pending.",
     "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes",
-    "documentCpuExtraction": "AI and System staging success; DataExtraction staging and field-level quality benchmark pending at release preparation."
+    "documentCpuExtraction": "AI and System staging success; DataExtraction staging and field-level quality benchmark pending at release preparation.",
+    "queueControl": "Develop merged in 4 repos; AI/DataExtraction/Web staging success; System staging queued; master PR CI pending."
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeAIService",
-    "DholeDataExtractionService"
+    "DholeDataExtractionService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
@@ -273,7 +276,8 @@
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CRM agenda filters by client/seller and commercial log rendered separately as notes, preserving REST, ACL and realtime.",
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: tabs Seguimientos, CRM sin cambios de API, con control de versión 1.53.0 en Web y DholeSystem.",
     "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro.",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: CPU-first selective Tesseract OCR, source-backed extraction for logistics docs, Qwen tariff guard; no Ollama model change."
+    "DH-20261115-CPU-DOC-EVIDENCE-144: CPU-first selective Tesseract OCR, source-backed extraction for logistics docs, Qwen tariff guard; no Ollama model change.",
+    "DH-20261115-QUEUE-CONTROL-145: center for durable extraction and AI queues, emails, Redis/Ollama, safe retries, diagnostics and SignalR refresh; no changes to Ollama model."
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -288,8 +292,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261115-CPU-DOC-EVIDENCE-144-master-backport",
-  "businessReleaseId": "DH-20261115-CPU-DOC-EVIDENCE-144",
+  "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
+  "businessReleaseId": "DH-20261115-QUEUE-CONTROL-145",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -676,7 +680,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "DataExtraction + AI: extracción OCR/MarkItDown con evidencias, prioridad CPU y conservación del modelo Ollama. Revisión humana obligatoria.",
+  "releaseSummary": "Queue control center with authoritative PostgreSQL + Redis/Ollama metrics, history, retry safeguards and traceability; deployment authorized by user.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
