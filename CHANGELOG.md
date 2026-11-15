@@ -1,3 +1,9 @@
+## [1.57.1] - 2026-11-15 (API Manager: eliminar bandera de habilitación)
+
+- PATCH DH-20261115-THIRD-PARTY-404-155: elimina ThirdParty__Enabled=false de la configuración Compose de Gateway para master y develop.
+- Mantiene la conexión a dhole_integrations desde variables existentes y los tokens técnicos limitados por ruta; no agrega secretos ni permisos.
+- Coordina DholeApiGateway 1.8.1 y DholeWeb 1.57.1 para que el error del API Manager informe almacenamiento no disponible en lugar de HTTP 404.
+
 ## [1.56.0] - 2026-11-14 (API Manager: descubrimiento y rutas dinámicas)
 
 - MINOR: coordina versión global 1.56.0, Gateway 1.7.0, Web 1.56.0 y manifiesto central. Los demás microservicios conservan sus versiones actuales.
