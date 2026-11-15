@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-QUEUE-CONTROL-145",
+  "releaseId": "DH-20261115-DEPLOY-FASTPATH-146",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.60.0",
+  "ecosystemVersion": "1.60.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145",
+  "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.60.0",
+      "version": "1.60.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145",
+      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145"
+      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -87,11 +87,11 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261115-QUEUE-CONTROL-145"
+      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -235,7 +235,8 @@
     "DH-20261114-CRM-CALENDAR-SPANS-142: validate CI, migrations, existing CRM flows and staging before master promotion (auto production deploy)",
     "DH-20261115-CPU-DOC-EVIDENCE-144: 99.9% exactitud no está certificada; requiere corpus etiquetado BL/HBL/MBL/AWB/Invoice/Packing List/Manifiesto, métricas por campo, prueba de OCR CPU y revisión humana.",
     "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción).",
-    "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción."
+    "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción.",
+    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
     "branchSync": "All 16 candidates ahead of both current develop/master, behind=0 at verification 2026-11-09",
@@ -275,12 +276,12 @@
     "crmFollowupHistory": "Pendientes CI, pruebas Vue, consulta con vendedor asignado y superadmin, grupos de cuentas, navegación desde Prospectos y Clientes y staging.",
     "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes",
     "documentCpuExtraction": "Unit/CI pending; no measured 99.9% accuracy or server CPU benchmark. Staging and production blocked.",
-    "queueControl": "CI and staged end-to-end console validation pending; no production approval."
+    "queueControl": "CI and staged end-to-end console validation pending; no production approval.",
+    "deployFastPath": "Pending: verify PR CI, staging and production runtime before concluding."
   },
   "releaseComponents": [
     "DholeAIService",
     "DholeDataExtractionService",
-    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
@@ -296,7 +297,8 @@
     "DH-20261114-CRM-RECORD-FOLLOWUPS-142: historial vinculado de seguimientos de prospectos y clientes; listado consolidado, filtro, paginación y permisos existentes. Web/System 1.52.1 a 1.53.0; CRM 1.31.0 sin cambios.",
     "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro.",
     "DH-20261115-CPU-DOC-EVIDENCE-144: DataExtraction evidence endpoint and selective CPU-only Tesseract; AI non-pricing document guard, no model change. Requires manual customs review.",
-    "DH-20261115-QUEUE-CONTROL-145: consola web de cola histórica con server paging, búsqueda de correos/IA, Redis/Ollama, intentos, errores, lease y reintentos protegidos sin duplicación Pricing."
+    "DH-20261115-QUEUE-CONTROL-145: consola web de cola histórica con server paging, búsqueda de correos/IA, Redis/Ollama, intentos, errores, lease y reintentos protegidos sin duplicación Pricing.",
+    "DH-20261115-DEPLOY-FASTPATH-146: producción AI/DataExtraction compila con las validaciones de PR ya aprobadas, evita restauración NuGet en deploy, comprueba revisiones obsoletas y no elimina ramas; System sólo despliega infra si cambia deploy/**."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -351,7 +353,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261115-QUEUE-CONTROL-145",
+  "businessReleaseId": "DH-20261115-DEPLOY-FASTPATH-146",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -787,7 +789,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Operación integrada de colas de tarifas por correo, extracción y AI, con observabilidad y control administrativo seguro.",
+  "releaseSummary": "Patch de despliegue: evitar restauraciones y regresiones repetidas en producción, rechazar ejecuciones master obsoletas y omitir redespliegue completo de infraestructura ante cambios exclusivos de metadatos.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
