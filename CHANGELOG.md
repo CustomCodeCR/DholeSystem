@@ -1,3 +1,9 @@
+## [1.60.0] - 2026-11-15 (Centro de colas de extracción e IA)
+
+- MINOR: release global DH-20261115-QUEUE-CONTROL-145 de AI 1.8.0, DataExtraction 1.8.0, Web 1.59.0 y System 1.60.0.
+- Cola operativa desde Web: diagnóstico por correo/IA, búsqueda, paginación, leases, tiempos, errores, estado de infraestructura y reintentos seguros.
+- Sin modificación de modelo Ollama ni eliminación manual de Redis. CI, staging y validación de permisos pendientes; master/producción no autorizados.
+
 ## [1.59.0] - 2026-11-15 (CPU document evidence release candidate)
 
 - MINOR global: coordinación AI 1.7.0 + DataExtraction 1.7.0. Integración de MarkItDown, Tesseract (CPU selectivo) y clasificación documental con evidencia por campo.
