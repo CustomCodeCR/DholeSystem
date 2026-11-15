@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-API-MANAGER-ROUTE-DISCOVERY-143",
+  "releaseId": "DH-20261115-THIRD-PARTY-404-155",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.56.0",
+  "ecosystemVersion": "1.57.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,7 +12,7 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.7.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
@@ -30,7 +30,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.56.0",
+      "version": "1.57.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
@@ -147,7 +147,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.56.0",
+      "version": "1.57.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
@@ -256,21 +256,7 @@
   "releaseComponents": [
     "DholeApiGateway",
     "DholeWeb",
-    "DholeSystem",
-    "DholeAuthService",
-    "DholeConfigService",
-    "DholeAuditLogsService",
-    "DholePricingService",
-    "DholeDataExtractionService",
-    "DholeAIService",
-    "DholeStorageService",
-    "DholeReportsService",
-    "DholeNotificationsService",
-    "DholeContentService",
-    "DholeAgentService",
-    "DholeDynamicsConnectorService",
-    "DholeCRMService",
-    "DholeOperationsService"
+    "DholeSystem"
   ],
   "changes": [
     "CRM reminders now include linked customer or prospect and a safe direct detail link",
@@ -298,7 +284,7 @@
     "validation": "CI and staging pending"
   },
   "candidateBranch": "feature/api-manager-discovery-143-master-backport",
-  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
+  "businessReleaseId": "DH-20261115-THIRD-PARTY-404-155",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -685,7 +671,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pestaña Seguimientos en fichas CRM de Clientes y Prospectos, historial de actividades, bitácoras y recordatorios.",
+  "releaseSummary": "Habilitar el catálogo de APIs para terceros sin flags; comunicar fallas de PostgreSQL con HTTP 503 y separar los errores de carga de Web.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
