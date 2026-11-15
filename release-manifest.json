@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261114-API-MANAGER-ROUTE-DISCOVERY-143",
+  "releaseId": "DH-20261115-THIRD-PARTY-404-155",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.56.0",
+  "ecosystemVersion": "1.57.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.56.0",
+      "version": "1.57.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
@@ -24,7 +24,7 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.7.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
@@ -42,7 +42,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.56.0",
+      "version": "1.57.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
       "candidateSha": null,
@@ -274,21 +274,7 @@
   "releaseComponents": [
     "DholeApiGateway",
     "DholeWeb",
-    "DholeSystem",
-    "DholeAuthService",
-    "DholeConfigService",
-    "DholeAuditLogsService",
-    "DholePricingService",
-    "DholeDataExtractionService",
-    "DholeAIService",
-    "DholeStorageService",
-    "DholeReportsService",
-    "DholeNotificationsService",
-    "DholeContentService",
-    "DholeAgentService",
-    "DholeDynamicsConnectorService",
-    "DholeCRMService",
-    "DholeOperationsService"
+    "DholeSystem"
   ],
   "changes": [
     "Emails de recordatorios de CRM incluyen cliente o prospecto y un enlace de detalle",
@@ -355,7 +341,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261113-PRICING-OWN-LCL-141",
+  "businessReleaseId": "DH-20261115-THIRD-PARTY-404-155",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -791,7 +777,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pestaña Seguimientos para clientes y prospectos con historial de actividades, bitácora y recordatorios.",
+  "releaseSummary": "Habilitar el catálogo de APIs para terceros sin flags; comunicar fallas de PostgreSQL con HTTP 503 y separar los errores de carga de Web.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
