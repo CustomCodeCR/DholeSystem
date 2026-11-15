@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-THIRD-PARTY-404-155",
+  "releaseId": "DH-20261115-API-METADATA-161",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.57.1",
+  "ecosystemVersion": "1.58.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
+  "candidateBranch": "release/dh-20261115-api-metadata-161-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.57.1",
+      "version": "1.58.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
+      "candidateBranch": "release/dh-20261115-api-metadata-161-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.8.1",
+      "version": "1.9.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "candidateBranch": "release/dh-20261115-api-metadata-161-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.57.1",
+      "version": "1.58.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
+      "candidateBranch": "release/dh-20261115-api-metadata-161-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -269,7 +269,8 @@
     "operationsStagingAuto": "Operations CI pass required; staging deployment and smoke pending.",
     "operationsNoFlags": "Pending CI and staging; master produces production deploy automatically. No enable/disable deploy flags.",
     "crmAgendaReturn": "3 local Node regression cases pass; CI and browser staging verification pending; no production authorization.",
-    "crmFollowupHistory": "Pendientes CI, pruebas Vue, consulta con vendedor asignado y superadmin, grupos de cuentas, navegación desde Prospectos y Clientes y staging."
+    "crmFollowupHistory": "Pendientes CI, pruebas Vue, consulta con vendedor asignado y superadmin, grupos de cuentas, navegación desde Prospectos y Clientes y staging.",
+    "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes"
   },
   "releaseComponents": [
     "DholeApiGateway",
@@ -286,7 +287,8 @@
     "DH-20261113-CRM-AGENDA-RETURN-132: activity detail button routes to /crm/followups and preserves fromAccount; Web commercial log 1.48.0 maintained.",
     "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags",
     "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Separate unscheduled CRM notes from scheduled agenda, search by client/seller and render log cards with server authorized filters.",
-    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: historial vinculado de seguimientos de prospectos y clientes; listado consolidado, filtro, paginación y permisos existentes. Web/System 1.52.1 a 1.53.0; CRM 1.31.0 sin cambios."
+    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: historial vinculado de seguimientos de prospectos y clientes; listado consolidado, filtro, paginación y permisos existentes. Web/System 1.52.1 a 1.53.0; CRM 1.31.0 sin cambios.",
+    "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro."
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -341,7 +343,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261115-THIRD-PARTY-404-155",
+  "businessReleaseId": "DH-20261115-API-METADATA-161",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -777,7 +779,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Habilitar el catálogo de APIs para terceros sin flags; comunicar fallas de PostgreSQL con HTTP 503 y separar los errores de carga de Web.",
+  "releaseSummary": "API Manager publica metadatos íntegros de Config y filtros CY/SD/APT sin cambiar contratos ni credenciales existentes.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
