@@ -1,3 +1,8 @@
+## [1.58.0] - 2026-11-15 (API Manager: metadatos completos y filtros de terminal)
+
+- MINOR DH-20261115-API-METADATA-161: coordina Gateway 1.9.0 y Web/System 1.58.0 para exponer JSON real de Config y filtrar CY, SD y APT por registro.
+- Sin migraciones ni flags de Config; conserva APIs existentes, API Keys y autenticación por ruta. CI y staging obligatorios antes de promover producción.
+
 ## [1.57.1] - 2026-11-15 (API Manager: eliminar bandera de habilitación)
 
 - PATCH DH-20261115-THIRD-PARTY-404-155: elimina ThirdParty__Enabled=false de la configuración Compose de Gateway para master y develop.

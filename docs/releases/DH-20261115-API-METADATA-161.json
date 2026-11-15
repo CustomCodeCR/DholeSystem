@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261115-API-METADATA-161",
+  "date": "2026-11-15",
+  "ecosystemVersion": "1.58.0",
+  "components": [
+    {
+      "component": "DholeApiGateway",
+      "version": "1.9.0"
+    },
+    {
+      "component": "DholeWeb",
+      "version": "1.58.0"
+    },
+    {
+      "component": "DholeSystem",
+      "version": "1.58.0"
+    }
+  ],
+  "changes": [
+    "Config metadata exposed and filterable in third-party APIs"
+  ],
+  "restCompatible": true,
+  "realtimeCompatible": true,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
