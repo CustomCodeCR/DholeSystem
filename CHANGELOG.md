@@ -1,3 +1,8 @@
+## [1.64.1] - 2026-11-16 (CRM: estado de actividad sincronizado tras finalizar)
+
+- PATCH DH-20261116-CRM-COMPLETION-STATE-SYNC-177: DholeWeb 1.63.1 verifica en CRM el estado real de la actividad después de un error en POST y al recuperar foco de la pestaña; limpia alertas obsoletas únicamente cuando el GET confirma finalización, y muestra fecha real, tipo de gestión legible y verificación manual.
+- Se preservan condiciones y validaciones de DholeCRMService, permisos, historial, recordatorios y realtime. Ecosistema Dhole 1.64.0 → 1.64.1; CI y validación multiusuario en staging antes de promover master.
+
 ## [1.64.0] - 2026-11-16 · SRM proveedores y seguridad financiera (DH-176)
 
 - MINOR: coordinación de Auth 1.13.0, Config 1.8.0 y Web 1.63.0 para ficha de proveedor, Hacienda CR, cuenta principal y múltiples cuentas cifradas.
