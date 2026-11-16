@@ -1,3 +1,8 @@
+## [1.63.10] - 2026-11-16 (Completar actividad comercial desde seguimiento y visita)
+
+- PATCH DH-20261116-CRM-ACTIVITY-COMPLETE-175: Web 1.62.8 muestra códigos activos del catálogo Config para el resultado de completar y delega al backend CRM el timestamp de ocurrencia; CRM acepta la fecha real opcional y normaliza Completed a COMPLETED si ese resultado está activo.
+- Actualización de CRM master a 1.33.1 (manifiesto anterior referenciaba 1.33.0 aunque master compilaba 1.32.0) y develop a 1.34.1. DholeSystem/ecosistema 1.63.9 → 1.63.10. Pruebas de regresión y compatibilidad REST/SignalR, validar staging antes de promover a producción.
+
 ## [1.63.9] - 2026-11-16 (Bitácoras CRM: hora real UTC del servidor)
 
 - PATCH DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: Web 1.62.6 → 1.62.7 deja el timestamp de realización al servidor CRM al guardar bitácoras y actividades históricas para evitar fallos por relojes de usuarios adelantados.
