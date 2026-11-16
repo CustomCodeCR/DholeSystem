@@ -1,3 +1,8 @@
+## [1.63.0] - 2026-11-16 (API Manager: rutas completas y defaults)
+
+- MINOR DH-20261116-API-ROUTES-DEFAULTS-165: manifiesto global de Gateway 1.10.0, Web 1.62.0 y 12 servicios REST con inventario de rutas autenticado, sin exponer claves ni habilitar endpoints automáticamente.
+- Permite valores fijos de cliente y ejecutivo en POST/PUT/PATCH, manteniendo validación de permisos de Pricing y CRM; release coordinado en ramas intermedias.
+
 ## [1.63.0] - 2026-11-16 (API Manager: descubrimiento y valores predeterminados)
 
 - MINOR DH-20261116-API-MANAGER-165: Dhole global 1.63.0; Gateway 1.10.0, Web 1.62.0 y System 1.63.0.
