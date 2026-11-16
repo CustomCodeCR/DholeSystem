@@ -1,0 +1,45 @@
+{
+  "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
+  "date": "2026-11-16",
+  "releaseType": "MINOR",
+  "ecosystemVersion": "1.62.0",
+  "components": [
+    {
+      "component": "DholeAuthService",
+      "previousVersion": "1.10.0",
+      "version": "1.11.0"
+    },
+    {
+      "component": "DholePricingService",
+      "previousVersion": "1.20.0",
+      "version": "1.21.0"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.60.0",
+      "version": "1.61.0"
+    },
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.61.0",
+      "version": "1.62.0"
+    }
+  ],
+  "changes": [
+    "Independent own LCL create/update/view permission controls, with legacy rate view read compatibility",
+    "No modifications to quote capacity consumption, pricing or realtime events"
+  ],
+  "restCompatible": true,
+  "realtimeCompatible": true,
+  "validation": {
+    "ci": "success",
+    "staging": "success",
+    "production": "pending"
+  },
+  "productionDeploymentAuthorized": true,
+  "stagingRuns": {
+    "auth": "https://github.com/CustomCodeCR/DholeAuthService/actions/runs/43884376150",
+    "pricing": "https://github.com/CustomCodeCR/DholePricingService/actions/runs/43884392153",
+    "web": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/43884412867"
+  }
+}
