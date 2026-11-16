@@ -1,3 +1,9 @@
+## [1.66.0] - 2026-11-16 · CRM/SRM interfaz y Hacienda unificados (DH-179)
+
+- MINOR Web 1.65.0 + System 1.66.0: interfaz de CRM con pestañas funcionales como SRM para alta y edición de clientes; navegación responsive y permisos intactos.
+- Hacienda CR automática para CRM, con razón social y tipo de identificación aplicados en el formulario, reconsulta y actividades oficiales; proteger contra respuesta obsoleta y sincronizar antes de guardar. Prospectos incluidos.
+- No requiere versiones nuevas de Config ni Auth; sin cambios en la arquitectura realtime/REST. Validar CI y staging antes de master, que despliega producción.
+
 ## [1.65.0] - 2026-11-16 · SRM/Hacienda alineado con CRM (DH-178)
 
 - MINOR: DholeWeb 1.64.0 y DholeSystem 1.65.0. Identificación válida de Costa Rica consulta Hacienda y aplica automáticamente razón social y actividad principal disponible, sin segundo botón.
