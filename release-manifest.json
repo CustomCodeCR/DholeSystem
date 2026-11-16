@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
+  "releaseId": "DH-20261116-API-MANAGER-164",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.62.0",
+  "ecosystemVersion": "1.62.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
+  "candidateBranch": "release/DH-20261116-API-MANAGER-164-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.62.0",
+      "version": "1.62.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.9.0",
+      "version": "1.9.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/dh-20261115-api-metadata-161-develop"
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.61.0",
+      "version": "1.61.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -244,10 +244,9 @@
     "production": "Not deployed"
   },
   "releaseComponents": [
-    "DholeAuthService",
-    "DholePricingService",
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeApiGateway",
+    "DholeWeb"
   ],
   "changes": [
     "Auth seeds independent own LCL create/update/view permissions",
