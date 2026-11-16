@@ -1,3 +1,9 @@
+## [1.63.2] - 2026-11-16 (Publicación segura de solicitudes externas)
+
+- PATCH DH-20261116-API-PRICING-IDENTITY-167: DholeApiGateway 1.10.2 emite JWT de propósito limitado para POST Solicitar tarifa y DholePricingService 1.22.1 valida el vendedor fijo de contrato o el ejecutivo institucional Castro Fallas.
+- Se mantienen Auth, API Keys, scopes, idempotencia, outbox y auditoría sin flags ni credenciales en Git.
+- DholeSystem y ecosistema 1.63.2; release coordinado con CI y verificación de staging antes de promoción a producción.
+
 ## [1.63.1] - 2026-11-16 (API Manager: clientes, prospectos y vendedor Castro Fallas)
 
 - PATCH DH-20261116-API-CRM-166: Web 1.62.1 selecciona cuentas o prospectos del directorio comercial unificado de CRM y conserva la distinción institucional.
