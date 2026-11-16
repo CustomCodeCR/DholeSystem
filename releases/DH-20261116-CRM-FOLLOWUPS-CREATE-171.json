@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
+  "ecosystemVersion": "1.63.6",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-16",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.62.3",
+      "version": "1.62.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.63.5",
+      "version": "1.63.6"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.33.0",
+      "version": "1.33.0",
+      "unchanged": true
+    }
+  ],
+  "technicalChanges": [
+    "Link record followup creation to existing scoped calendar editor",
+    "Preserve CRM permissions and activity/reminder creation"
+  ],
+  "validation": {
+    "tests": "passed-on-develop",
+    "build": "passed-on-develop",
+    "ci": "master-pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}

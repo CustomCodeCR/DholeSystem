@@ -1,3 +1,8 @@
+## [1.63.6] - 2026-11-16 (Creación de seguimientos desde clientes y prospectos)
+
+- PATCH DH-20261116-CRM-FOLLOWUPS-CREATE-171: DholeWeb 1.62.3 → 1.62.4 y DholeSystem/ecosistema 1.63.5 → 1.63.6. Historial CRM permite crear un seguimiento comercial desde la cuenta o el prospecto, reutilizando el formulario existente con vínculo y responsable precargados.
+- Sin cambios en backend, endpoints REST, SignalR, estructura de datos ni scopes. Pruebas de regresión, compilación, CI y validación de staging obligatorias antes de promocionar el mismo release a master; desplegar producción no está autorizado.
+
 ## [1.63.5] - 2026-11-16 (Modales CRM responsivos y recuperación de borrador)
 
 - PATCH DH-20261116-CRM-MOBILE-MODALS-170: DholeWeb 1.62.3 y DholeSystem/global 1.63.5. Modal de actividad y recuperación de borrador con superficies opacas, fondo prioritario más oscuro y acciones responsivas para móviles. Preserva mejoras de pantallas CRM/Configuración de 1.63.4.
