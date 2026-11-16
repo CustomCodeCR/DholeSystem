@@ -1,3 +1,8 @@
+## [1.63.9] - 2026-11-16 (Bitácoras CRM: hora real UTC del servidor)
+
+- PATCH DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: Web 1.62.6 → 1.62.7 deja el timestamp de realización al servidor CRM al guardar bitácoras y actividades históricas para evitar fallos por relojes de usuarios adelantados.
+- Preserva acuerdos futuros, notificaciones, perfiles de vendedor y realtime sin cambios de contratos. DholeSystem/ecosistema 1.63.8 → 1.63.9. Validar CI, staging y autorización para producción.
+
 ## [1.63.8] - 2026-11-16 (Cliente/prospecto visible al editar o recargar QUO)
 
 - PATCH DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: DholeWeb 1.62.5 → 1.62.6 preserva en el selector comercial el nombre histórico de una QUO sin vínculo CRM e indica que debe seleccionarse explícitamente la cuenta o prospecto, sin asignar identidades por similitud.
