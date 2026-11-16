@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
+  "releaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.3",
+  "ecosystemVersion": "1.63.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,11 +30,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.1",
+      "version": "1.62.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-CRM-166-master",
+      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "5efce18477e5c5f2e29a4225690ba51b094dcdfa"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -147,11 +147,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.3",
+      "version": "1.63.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-master",
+      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-master",
       "candidateSha": null,
-      "developMergeSha": "29a334829f673853cc6aab391f56f8b6c054b39"
+      "developMergeSha": "1a49b5417be65ed57fa4aaf8be9f53c25476df77"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -222,18 +222,21 @@
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair."
   ],
   "validationEvidence": {
-    "semver": "Auth, Pricing, Web y System: CI success en PR de develop y master",
-    "staging": "Auth https://github.com/CustomCodeCR/DholeAuthService/actions/runs/43884376150 SUCCESS; Pricing https://github.com/CustomCodeCR/DholePricingService/actions/runs/43884392153 SUCCESS; Web https://github.com/CustomCodeCR/DholeWeb/actions/runs/43884412867 SUCCESS",
-    "production": "Se iniciará al fusionar master; validación posterior pendiente"
+    "semver": "develop candidate versioning CI passed; master CI pending",
+    "unitTests": "develop CRM and responsive CI passed; master CI pending",
+    "build": "develop DholeWeb CI passed; master CI pending",
+    "mobileScreens": "staging validation required",
+    "staging": "develop deploy in progress/pending evidence",
+    "production": "Explicitly authorized by user; realtime feature remains fail-closed"
   },
   "releaseComponents": [
-    "DholeApiGateway",
+    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Auth seeds independent own LCL create/update/view permissions",
-    "Pricing enforces action-scoped writes and compatible read authorization",
-    "Web honors view navigation, create and update buttons, and read-only linked QUO listing"
+    "Master backport of DH-169 mobile responsive Configuración, Clientes, Prospectos and Agenda preserving current master functionality",
+    "CRM activity creation and local draft recovery overlays use opaque surfaces, priority backdrop and legible mobile actions",
+    "No changes to API contracts, realtime, permissions or backend services"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -248,8 +251,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-master",
-  "businessReleaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
+  "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-master",
+  "businessReleaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
