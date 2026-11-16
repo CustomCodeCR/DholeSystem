@@ -263,15 +263,16 @@
     "production": "Not deployed; production approval not supplied"
   },
   "releaseComponents": [
-    "DholeCRMService",
+    "DholeAuthService",
+    "DholeConfigService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Complete CRM activity using authoritative server UTC timestamp when occurredAt is omitted",
-    "Normalize legacy Completed to canonical Config code; retain validation of active outcome codes",
-    "Render active outcome codes from Config in Web activity-detail completion selector",
-    "Preserve existing scheduled visits, commercial followups, scopes and realtime event architecture"
+    "SRM supplier fiscal and corporate profile; Costa Rica Hacienda verification",
+    "Restricted AES-256-GCM bank account management, primary payment account and private finance scopes",
+    "UPPER CASE supplier text persistence and CRM/SRM frontend compatibility",
+    "Coordinated semver manifest DH-20261116-SRM-SUPPLIER-FINANCE-176"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
