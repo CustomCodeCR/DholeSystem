@@ -1,3 +1,9 @@
+## [1.63.0] - 2026-11-16 (Dhole API Manager: discovery universal y parámetros fijos)
+
+- MINOR DH-20261116-API-ROUTES-DEFAULTS-165: manifiesto coordinado para Gateway 1.10.0, Web 1.62.0, System 1.63.0 y microservicios con catálogo runtime autenticado de rutas; las nuevas versiones de cada servicio se registran en el manifiesto global.
+- POST/PUT/PATCH admite parámetros fijos administrados y asistente de cuenta CRM con ejecutivo asignado; los terceros no pueden sobrescribir esos datos. No se habilitan rutas sin identidad técnica.
+- CI, pruebas funcionales y staging obligatorios antes de integración a master; no se añaden flags.
+
 ## [1.62.1] - 2026-11-16 (API Manager: edición y publicación segura)
 
 - PATCH DH-20261116-API-MANAGER-164: versión global 1.62.1, Gateway 1.9.1, Web 1.61.1 y System 1.62.1; otros microservicios mantienen sus versiones.
