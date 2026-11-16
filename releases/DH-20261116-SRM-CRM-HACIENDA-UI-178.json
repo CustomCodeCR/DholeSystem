@@ -1,0 +1,43 @@
+{
+  "releaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
+  "type": "MINOR",
+  "date": "2026-11-16",
+  "ecosystemVersion": "1.65.0",
+  "status": "candidate-master-ci-and-authorization-pending",
+  "productionDeploymentAuthorized": false,
+  "branch": "release/DH-20261116-SRM-CRM-HACIENDA-UI-178-master",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "from": "1.63.1",
+      "to": "1.64.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "from": "1.64.1",
+      "to": "1.65.0"
+    }
+  ],
+  "unchangedDependencies": {
+    "DholeConfigService": "1.8.0",
+    "DholeAuthService": "1.13.0"
+  },
+  "changes": [
+    "Match CRM automatic Hacienda result application, including official legal name and primary activity where present.",
+    "Automatically fetch after a valid Costa Rican tax ID, plus explicit retry without any Apply button.",
+    "Prevent stale country/ID responses and synchronize save with pending lookup.",
+    "Responsive supplier sections for Identity/Hacienda, Contacts, finance-only Banks and Credit."
+  ],
+  "tests": [
+    "tests/srmHacienda.test.ts",
+    "tests/srmSupplierFinance.test.ts",
+    "tests/srmNavigation.test.ts"
+  ],
+  "gate": {
+    "ci": "pending master PR CI",
+    "staging": "develop deployed via staging CI, runtime check pending",
+    "master": "pending authorization",
+    "production": "not deployed"
+  },
+  "rollback": "Revert DholeWeb and DholeSystem release commits; SRM tax and bank persisted data schema is unaffected."
+}
