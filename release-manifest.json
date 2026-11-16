@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-CRM-ACTIVITY-COMPLETE-175",
+  "releaseId": "DH-20261116-SRM-SUPPLIER-FINANCE-176",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.10",
+  "ecosystemVersion": "1.64.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,13 +15,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.10",
+      "version": "1.64.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-ACTIVITY-COMPLETE-175-develop",
+      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -35,31 +35,33 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.11.0",
+      "version": "1.13.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop"
+      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.8",
+      "version": "1.63.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-ACTIVITY-COMPLETE-175-develop",
+      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.6.0",
+      "version": "1.8.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -249,25 +251,28 @@
     "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: execute Web CRM picker regression tests and Vue typecheck/build; verify linked and historic unlinked QUOs in staging before master.",
     "Master is a production auto-deploy target; no production deployment authorized for DH-20261116-PRICING-CRM-EDIT-HYDRATION-173.",
     "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: run Web regression/tests, version gate, CI and staging with user clock skew before master; production approval required.",
-    "DH-20261116-CRM-ACTIVITY-COMPLETE-175: pass CI (.NET and Web), validate outcome catalog and server-time completion on staging, then promote coordinated release to master"
+    "DH-20261116-CRM-ACTIVITY-COMPLETE-175: pass CI (.NET and Web), validate outcome catalog and server-time completion on staging, then promote coordinated release to master",
+    "DH-176: .NET 10 and Vue TypeScript build/tests, SRM scope 403 tests, bank AES-GCM roundtrip, schema migration and key provisioning in staging required before master.",
+    "DH-176: Hacienda API integration and rate limiting must be smoke-tested on staging; do not push to master until staging evidence and explicit production authorization."
   ],
   "validationEvidence": {
-    "semver": "CRM 1.34.1; Web 1.62.8; ecosystem 1.63.10",
-    "unitTests": "Pending CI .NET/Web",
-    "build": "Pending CI .NET/Web",
-    "staging": "Pending real multiple seller smoke for activity completion and mismatched workstation clocks",
-    "production": "No deployment authorization for this new release"
+    "semver": "Auth 1.13.0, Config 1.8.0, Web 1.63.0, ecosystem 1.64.0",
+    "unitTests": "Pending CI",
+    "build": "Pending CI",
+    "staging": "Pending SRM finance permissions, encrypted bank migration, Hacienda smoke and existing supplier edit",
+    "production": "Not deployed; production approval not supplied"
   },
   "releaseComponents": [
-    "DholeCRMService",
+    "DholeAuthService",
+    "DholeConfigService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Complete CRM activity using authoritative server UTC timestamp when occurredAt is omitted",
-    "Normalize legacy Completed to canonical Config code; retain validation of active outcome codes",
-    "Render active outcome codes from Config in Web activity-detail completion selector",
-    "Preserve existing scheduled visits, commercial followups, scopes and realtime event architecture"
+    "SRM supplier fiscal and corporate profile; Costa Rica Hacienda verification",
+    "Restricted AES-256-GCM bank account management, primary payment account and private finance scopes",
+    "UPPER CASE supplier text persistence and CRM/SRM frontend compatibility",
+    "Coordinated semver manifest DH-20261116-SRM-SUPPLIER-FINANCE-176"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {

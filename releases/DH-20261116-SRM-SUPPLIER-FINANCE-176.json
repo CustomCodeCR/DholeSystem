@@ -1,0 +1,56 @@
+{
+  "releaseId": "DH-20261116-SRM-SUPPLIER-FINANCE-176",
+  "type": "MINOR",
+  "date": "2026-11-16",
+  "ecosystemVersion": "1.64.0",
+  "status": "candidate-ci-and-staging-pending",
+  "productionDeploymentAuthorized": false,
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeAuthService",
+      "from": "1.12.0",
+      "to": "1.13.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeConfigService",
+      "from": "1.7.0",
+      "to": "1.8.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "from": "1.62.8",
+      "to": "1.63.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "from": "1.63.10",
+      "to": "1.64.0"
+    }
+  ],
+  "branch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
+  "changes": [
+    "Supplier corporate phone, RUC/NIT, physical/fiscal address, financial contact, activity code and notes",
+    "Costa Rica tax payer query via official Hacienda /fe/ae with cache and country validation",
+    "Finance-only encrypted bank records, multiple accounts, unique primary account and masked UI",
+    "Uppercase normalized values on API writes while preserving emails and machine-readable identifiers"
+  ],
+  "security": {
+    "bankPermissions": [
+      "srm.supplier.bank.read",
+      "srm.supplier.bank.manage"
+    ],
+    "requiredEnvironment": [
+      "DHOLE_SRM_BANK_KEY_BASE64"
+    ],
+    "bankStorage": "config.srm_supplier_bank_records (AES-256-GCM encrypted ciphertext)",
+    "bankDataAbsentFromCatalog": true
+  },
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not authorized"
+  },
+  "rollback": "Revert frontend/backend to previous release branches without dropping encrypted records; retain key and config table for forward repair."
+}
