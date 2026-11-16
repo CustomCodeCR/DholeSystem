@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
+  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.65.0",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.66.0",
+  "status": "candidate-ci-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -15,9 +15,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.65.0",
+      "version": "1.66.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-SRM-CRM-HACIENDA-UI-178",
+      "candidateBranch": "feature/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.64.0",
+      "version": "1.65.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-SRM-CRM-HACIENDA-UI-178",
+      "candidateBranch": "feature/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -174,7 +174,7 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
@@ -256,24 +256,25 @@
     "DH-176: Hacienda API integration and rate limiting must be smoke-tested on staging; do not push to master until staging evidence and explicit production authorization.",
     "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: validate multiuser finalization synchronization, browser 1.62.7 stale client upgrade, CRM response, and Web build on staging before master.",
     "DH-178: verify SRM Hacienda autofill on valid Costa Rica tax IDs, stale response cancellation and correct tab focus before master promotion.",
-    "DH-178: master must use a selective backport because master/develop branches are divergent; explicit production authorization required."
+    "DH-178: master must use a selective backport because master/develop branches are divergent; explicit production authorization required.",
+    "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy."
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.63.1 -> 1.64.0, DholeSystem 1.64.1 -> 1.65.0",
-    "unitTests": "Pending CI and browser validation",
+    "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
+    "unitTests": "Pending CI",
     "build": "Pending CI",
     "staging": "Pending",
-    "production": "Not authorized or deployed"
+    "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "CRM-style automatic Hacienda tax ID lookup in SRM; auto-applied official supplier name and primary economic activity without second click",
-    "Responsive tabbed supplier editor with identity, contacts, finance-only bank accounts and credit sections",
-    "Asynchronous race protection for changed taxpayer/country and save-time lookup synchronization",
-    "Preserve existing Config SRM Hacienda endpoint, bank authorization, encrypted storage and realtime REST compatibility"
+    "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
+    "CRM Hacienda taxpayer lookup is automatic, applies official legal name and identification type and shows activity/regime without inventing missing fields",
+    "CRM lead, account creation and account editing await pending Hacienda request, discarding stale country/identity responses",
+    "No Config/Auth/backend changes, keep REST, realtime, scoped commercial and credit workflows intact"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -328,7 +329,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
+  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
