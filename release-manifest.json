@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169",
+  "releaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.4",
+  "ecosystemVersion": "1.63.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
+  "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.4",
+      "version": "1.63.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
+      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.2",
+      "version": "1.62.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
+      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -241,23 +241,23 @@
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation."
   ],
   "validationEvidence": {
-    "semver": "Candidate metadata updated; CI pending",
-    "unitTests": "Pending Node regression run",
-    "build": "Pending Vue type-check and Vite build",
-    "mobileScreens": "Pending 320/375/390/768px browser validation",
-    "staging": "Pending staging deployment and visual smoke",
-    "production": "Not deployed"
+    "semver": "Pending CI",
+    "unitTests": "Pending CRM mobile modal suite",
+    "build": "Pending Vite and vue-tsc checks",
+    "mobileScreens": "Pending 320/375/390/768px staging smoke",
+    "staging": "Pending DholeWeb staging deploy",
+    "production": "User authorized release promotion once mandatory CI and staging gates pass; realtime production approval stays disabled"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Settings cards use compact single-column layout at phone widths",
-    "CRM account and prospect sections use accessible horizontally scrollable tab rows on phones",
-    "CRM commercial agenda navigation avoids wrapped labels and keeps touch-sized targets",
-    "Mobile calendar defaults to readable list; month retains its seven-day grid with horizontal scrolling",
-    "No backend, API, realtime or permission changes"
+    "CRM creation and draft recovery overlays use opaque surfaces, distinct priority backdrops and mobile-safe content",
+    "Calendar activity mode and save actions reflow with readable buttons at 320px mobile widths",
+    "Preserve previous responsive settings, CRM tabs and calendar improvements from release 169",
+    "Shared modal defaults to glass; explicit solid surfaces avoid exposing underlying user data",
+    "No backend, permission, REST API or realtime contract changes"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -312,7 +312,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169",
+  "businessReleaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
