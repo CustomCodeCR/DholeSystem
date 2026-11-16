@@ -1,3 +1,8 @@
+## [1.63.9] - 2026-11-16 (Bitácora comercial y fecha de realización UTC)
+
+- PATCH DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: Web 1.62.7 usa occurredAt=null para que el backend CRM determine con su reloj UTC la realización de bitácoras sin cita y las actividades históricas inferidas por el servidor, evitando rechazos por desfase horario del navegador.
+- Los acuerdos futuros mantienen tareas y recordatorios separados; las fechas históricas programadas, acceso CRM, contratos REST, SignalR y Outbox permanecen intactos. DholeSystem/ecosistema 1.63.7 → 1.63.9. Validar pruebas, build, CI y staging antes de cualquier master/producción.
+
 ## [1.63.7] - 2026-11-16 (CBM por cotización vinculada a consolidado LCL propio)
 
 - PATCH DH-20261116-OWN-LCL-QUO-CBM-172: Pricing 1.22.1 → 1.22.2 amplía el contrato de QUOs vinculadas con CBM físicos y cobrables; Web 1.62.4 → 1.62.5 los presenta por QUO en el consolidado sin modificar costos, estados ni permisos.
