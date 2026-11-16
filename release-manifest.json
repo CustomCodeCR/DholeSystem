@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
+  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.65.0",
-  "status": "candidate-master-ci-and-authorization-pending",
+  "ecosystemVersion": "1.66.0",
+  "status": "candidate-master-ci-production-authorization-pending",
   "branches": [
     "develop",
     "master"
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.64.0",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261116-SRM-CRM-HACIENDA-UI-178-master",
+      "version": "1.65.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -149,9 +149,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.65.0",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261116-SRM-CRM-HACIENDA-UI-178-master",
+      "version": "1.66.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -171,7 +171,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "master-backport-candidate",
+  "mergeState": "master-backport-pr-pending",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -232,24 +232,25 @@
     "DH-176: dedicated bank API requires a persistent 32-byte DHOLE_SRM_BANK_KEY_BASE64 secret in Config deployment environment; do not treat 503 as payment data loss.",
     "DH-176: verify finance scopes and encrypted bank account readback in production before enabling payment workflows; no bank data auto-migration from legacy catalogs.",
     "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: multiuser staging checks and versions required before master deployment.",
-    "DH-178: final staging Hacienda verification and explicit production deployment authorization required before master merge."
+    "DH-178: final staging Hacienda verification and explicit production deployment authorization required before master merge.",
+    "DH-179: ensure master CI success and staging functional checks for CRM account creation/edition, Hacienda and seller/credit scopes before production authorization."
   ],
   "validationEvidence": {
-    "semver": "Web 1.63.1 -> 1.64.0, System 1.64.1 -> 1.65.0",
-    "unitTests": "Develop passed; master CI pending",
-    "build": "Develop passed; master CI pending",
-    "staging": "Web develop deploy pending",
-    "production": "Not authorized"
+    "semver": "DholeWeb 1.64.0->1.65.0, DholeSystem/global 1.65.0->1.66.0",
+    "unitTests": "Develop CI successful; master CI pending",
+    "build": "Develop CI successful; master CI pending",
+    "staging": "Develop Web deployment pending verification",
+    "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "SRM frontend follows CRM in applying Hacienda tax lookup automatically; Costa Rica supplier name, ID type, tax regime and primary activity where returned",
-    "Responsive sectioned supplier editor and explicit banking authorization preserved",
-    "Safe asynchronous lookup debounce, race invalidation and save-time verification wait",
-    "Selective master backport of Web 1.64.0 and ecosystem 1.65.0, production not authorized"
+    "CRM creation/edition now use SRM-style functional tabs without stacking all sections",
+    "CRM Hacienda lookup automatically applies returned legal name and taxpayer ID type; supports retry and race protection",
+    "Account and lead save wait pending tax lookup; no migrations or modification to Auth/Config, REST/realtime preserved",
+    "Selective master backport preserving unrelated production CRM changes and scoped identity/seller permissions"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -265,7 +266,7 @@
     "validation": "CI and staging pending"
   },
   "candidateBranch": "fix/DH-20261116-CRM-COMPLETION-STATE-SYNC-177-master-current",
-  "businessReleaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
+  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
