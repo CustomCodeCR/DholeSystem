@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
+  "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.5",
+  "ecosystemVersion": "1.63.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
+  "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.5",
+      "version": "1.63.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
+      "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.3",
+      "version": "1.62.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-MOBILE-MODALS-170-develop",
+      "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -238,26 +238,24 @@
     "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción.",
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
     "DH-20261116-API-PRICING-IDENTITY-167: CI .NET Gateway/Pricing + negative authorization tests, staging POST with published API Key and idempotency are required before production deployment.",
-    "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation."
+    "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation.",
+    "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master."
   ],
   "validationEvidence": {
-    "semver": "Pending CI",
-    "unitTests": "Pending CRM mobile modal suite",
-    "build": "Pending Vite and vue-tsc checks",
-    "mobileScreens": "Pending 320/375/390/768px staging smoke",
-    "staging": "Pending DholeWeb staging deploy",
-    "production": "User authorized release promotion once mandatory CI and staging gates pass; realtime production approval stays disabled"
+    "semver": "Candidate bump Web 1.62.3 -> 1.62.4, System 1.63.5 -> 1.63.6",
+    "unitTests": "Pending CRM regression CI",
+    "build": "Pending Vite/vue-tsc CI",
+    "staging": "Pending staging verification",
+    "production": "Not authorized; DholeWeb master push runs production deployment"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "CRM creation and draft recovery overlays use opaque surfaces, distinct priority backdrops and mobile-safe content",
-    "Calendar activity mode and save actions reflow with readable buttons at 320px mobile widths",
-    "Preserve previous responsive settings, CRM tabs and calendar improvements from release 169",
-    "Shared modal defaults to glass; explicit solid surfaces avoid exposing underlying user data",
-    "No backend, permission, REST API or realtime contract changes"
+    "Show Crear seguimiento action in permissioned account/prospect followup history",
+    "Reuse scoped CRM calendar creation with commercial followup preselected and record/owner already linked",
+    "Preserve CRM API, SignalR, grouped accounts, search and existing scopes; no backend code changes"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -312,7 +310,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
+  "businessReleaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -748,7 +746,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Scopes de creación, edición y consulta independientes para Consolidados LCL propios, coordinados en Auth, Pricing y Web.",
+  "releaseSummary": "Permitir crear seguimientos desde el historial de cuentas y prospectos CRM.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -761,5 +759,18 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Este release requiere CI y validación de staging antes de producción."
+  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
+  "crmFollowupCreationRelease": {
+    "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
+    "webFrom": "1.62.3",
+    "webTo": "1.62.4",
+    "systemFrom": "1.63.5",
+    "systemTo": "1.63.6",
+    "crmVersionUnchanged": "1.33.0",
+    "scopesPreserved": true,
+    "restCompatible": true,
+    "signalRCompatible": true,
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
