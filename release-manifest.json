@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261115-DEPLOY-FASTPATH-146",
+  "releaseId": "DH-20261116-OWN-LCL-QUOS-162",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.60.1",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.61.0",
+  "status": "validated-for-master-promotion",
   "branches": [
     "develop",
     "master"
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.59.0",
+      "version": "1.60.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-QUEUE-CONTROL-145-master-backport",
+      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -66,11 +66,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.19.0",
+      "version": "1.20.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport"
+      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -147,9 +147,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.60.1",
+      "version": "1.61.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
+      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -164,11 +164,11 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
-    "checks": 0,
-    "total": 0
+    "status": "candidate-ci-and-staging-success",
+    "checks": 3,
+    "total": 3
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "candidate-intermediate-ready",
   "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -220,66 +220,19 @@
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
-    "semver": "Pending coordinated version gate CI",
-    "staging": "Pending CRM draft recovery browser smoke",
-    "production": "Publicación solicitada explícitamente 2026-11-13. CI y staging obligatorios antes de master. Estado de despliegue pendiente de verificación.",
-    "quo269SellerStatus": "CI and staging verification pending; status payload only; no data repair or direct database mutation",
-    "historicalQuoteCatalog": "PR CI and staging validation pending",
-    "pricingCrmProspectsBackport": "CI y staging 1.19.2 pendientes",
-    "crmAccountCategoryScope": "CI candidate validation pending; functional staging verification pending.",
-    "openingAttachments": "CI and staging pending for master backport",
-    "crmWorkspaceTabsMaster": "DholeWeb master PR #458 merged at 7396cb4ee627ac6efc58d82934472edf9aeadc8f; Web CI passed; production runtime verification pending.",
-    "crmProcedureAttachments": "Develop CI/staging deployment passed CRM, Web and System. Master backport CI pending.",
-    "crmAgreementList": "DholeWeb staging 43039352093 passed for develop, master 1.27.1 CI pending; production promotion requested by user.",
-    "crmLeadInstitutionalSeller": "CI and staging creation, reassignment, duplicate and conversion tests pending; no production deployment authorization.",
-    "crmInstitutionalSellerVisibility": "Pending: frontend Vue regression and bundled render, CRM create/reassign/convert staging, end-to-end production smoke. CI and deployment authorization independent.",
-    "quoVinculada": "Staging develop succeeded. Targeted master backport PR CI pending. Release DH-20261111-PRICING-QUO-LINKED-104",
-    "quoVinculadaCrystal": "DH-20261111-PRICING-QUO-LINK-ACTION-106: Crystal button on screen 9 and FCL duplicate source, backed by existing Pricing 1.14.0",
-    "geoapifyCsp": "CI, nginx -t and staging browser search pending prior to production merge.",
-    "quoLinkClientSentList": "Master candidate reconciled with latest master Web 1.41.0; staging functional verification and production authorization pending.",
-    "pricingLinkedQuoteNumber": "CI and staging validation pending for Web 1.41.2 / System 1.41.2; internal UUID remains link identifier only.",
-    "pricingAcceptanceEmail": "CI for develop passed, pending production-side SMTP confirmation for QUO-00000-000609",
-    "pricingResendChoiceCi": "Pricing .NET tests, Web CI and System CI passed on develop/master candidates",
-    "pricingResendChoiceStaging": "Not independently verified",
-    "pricingResendChoiceSmtp": "Not independently verified",
-    "dynamicsIdtraFirstTen": "Pricing .NET regression and version policy passed in PR #218; staging and Dynamics read-only verification pending.",
-    "pricingAcceptanceCorrelation": "Source-confirmed overflow: old key has 115 characters, DB correlation_id varchar(100). CI and staging pending.",
-    "pricingOutboxCorrelationCi": "Passed: Pricing PR #220, Web PR #539, System PR #314; master candidate checks passed before authorization",
-    "pricingOutboxCorrelationStaging": "Passed staging deployments: Pricing run 43275871187, Web run 43275887702, System run 43275906024",
-    "pricingOutboxCorrelationSmtp": "Not verified: no direct QUO-00000-000609 test email has been dispatched from this chat",
-    "ltlCurrencyValue": "Web and System staging deployments successful, CI and versioning successful; explicit master promotion requested 2026-11-12",
-    "dynamicsQuote613619": "Develop CI and staging workflows succeeded; master targeted backport CI and live Dataverse reconciliation to be confirmed",
-    "crmReminderContextLink": "CI / unit tests / staging email click-through pending; no production deployment authorization",
-    "operationsBootstrap": "Operations .NET CI and SemVer passed in develop. Staging Operations deployment pending and production not authorized.",
-    "operationsStagingAuto": "Operations .NET 10 build/unit/integration/SemVer CI passed; staging runtime pending.",
-    "operationsNoFlags": "CI and staging readiness required before master; production deploy automatically after approved merge.",
-    "crmAgendaReturn": "DholeWeb develop release 1.48.1 CI/CRM regression/version gates passed, Web staging run 43437522267 successful and System staging run 43437531278 successful. Browser-authenticated click smoke not independently executed. User authorized master backport 2026-11-13.",
-    "crmFollowupHistory": "DholeWeb develop CI/build/CRM tests and staging deploy passed. DholeSystem develop staging and production PR checks pending.",
-    "apiMetadata": "Gateway XUnit, Web typecheck/build, version gate y staging pendientes",
-    "documentCpuExtraction": "AI and System staging success; DataExtraction staging and field-level quality benchmark pending at release preparation.",
-    "queueControl": "Develop merged in 4 repos; AI/DataExtraction/Web staging success; System staging queued; master PR CI pending.",
-    "deployFastPath": "Develop CI/staging and master CI required before final production verification. Explicit request to fix production deployment workflow 2026-11-15."
+    "semver": "CI completado para DholeSystem, DholePricingService, DholeWeb",
+    "staging": "DholePricingService actions/runs/43874707769 success; DholeWeb actions/runs/43874717614 success",
+    "production": "Autorizado por el usuario; verificación del workflow de producción pendiente"
   },
   "releaseComponents": [
-    "DholeAIService",
-    "DholeDataExtractionService",
+    "DholePricingService",
+    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "CRM reminders now include linked customer or prospect and a safe direct detail link",
-    "CRM worker public Web origin is injected from existing CORS_WEB_ORIGIN for each environment",
-    "Preserve REST API, reminder dedupe, SignalR and Redis Outbox; no migration",
-    "Register DholeOperationsService v0.1.0 in ecosystem release manifest and preserve existing services.",
-    "PATCH 127: Operations staging workflow now auto-runs after develop and component bumped to 0.1.1.",
-    "DH-128: Operations auto-deploy on master and develop; no manual flags required.",
-    "DH-20261113-CRM-AGENDA-RETURN-132 master backport: activity detail navigation routes to /crm/followups preserving fromAccount.",
-    "DH-20261113-PRODUCTION-DEPLOY-SKIP-135: corregir jobs de producción Skipped al eliminar condiciones basadas en [no-prod] de Auth/CRM/Web, manteniendo despliegue automático en master sin flags",
-    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CRM agenda filters by client/seller and commercial log rendered separately as notes, preserving REST, ACL and realtime.",
-    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: tabs Seguimientos, CRM sin cambios de API, con control de versión 1.53.0 en Web y DholeSystem.",
-    "DH-20261115-API-METADATA-161: Config metadataJson -> API externa, objeto metadata y filtros de terminal por registro.",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: CPU-first selective Tesseract OCR, source-backed extraction for logistics docs, Qwen tariff guard; no Ollama model change.",
-    "DH-20261115-QUEUE-CONTROL-145: center for durable extraction and AI queues, emails, Redis/Ollama, safe retries, diagnostics and SignalR refresh; no changes to Ollama model.",
-    "DH-20261115-DEPLOY-FASTPATH-146: producción AI/DataExtraction compila con las validaciones de PR ya aprobadas, evita restauración NuGet en deploy, comprueba revisiones obsoletas y no elimina ramas; System sólo despliega infra si cambia deploy/**."
+    "Pricing endpoint read-only GET /api/pricing/own-lcl-consolidations/{id}/quotes for explicit persisted links",
+    "Web drilldown shows QUO number, customer, date, status and read-only navigation",
+    "No mutations to price, approved capacity, or historical records"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -294,8 +247,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
-  "businessReleaseId": "DH-20261115-DEPLOY-FASTPATH-146",
+  "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-master",
+  "businessReleaseId": "DH-20261116-OWN-LCL-QUOS-162",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -600,7 +553,7 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "User explicitly requested integration to master for the Outbox correlation fix, 2026-11-12",
+  "productionDeploymentAuthorization": "Autorización explícita del usuario el 2026-11-16: 'subelo a master'.",
   "dynamicsQuote613619Release": {
     "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
     "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
@@ -682,7 +635,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Patch de despliegue: evitar restauraciones y regresiones repetidas en producción, rechazar ejecuciones master obsoletas y omitir redespliegue completo de infraestructura ante cambios exclusivos de metadatos.",
+  "releaseSummary": "Desglose de las QUOs asociadas a cada consolidado LCL propio y navegación de solo lectura al wizard de la cotización.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
