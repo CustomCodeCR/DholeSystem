@@ -1,3 +1,9 @@
+## [1.66.0] - 2026-11-16 · CRM/SRM y Hacienda unificados (DH-179 master candidate)
+
+- MINOR coordinado: Web 1.65.0, DholeSystem 1.66.0. Pestañas horizontales funcionales SRM para alta y edición de CRM, manteniendo contactos, direcciones, perfil comercial y permisos de crédito.
+- Hacienda automática en CRM: cédula CR válida consulta/actualiza nombre y tipo, permite reconsulta, evita respuesta antigua y se sincroniza antes del guardado.
+- Backport selectivo preservando cambios preexistentes de producción. Integración master y despliegue a producción pendientes de autorización expresa.
+
 ## [1.65.0] - 2026-11-16 · SRM/Hacienda como CRM (DH-178 master candidate)
 
 - MINOR: Backport Web 1.64.0 y System 1.65.0; formulario por pestañas y actualización automática de razón social/actividad al consultar Hacienda de Costa Rica.

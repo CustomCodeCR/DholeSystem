@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.65.0",
-  "ecosystemVersion": "1.65.0",
-  "releaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178",
-  "releaseStatus": "candidate-master-ci-and-authorization-pending",
-  "businessReleaseId": "DH-20261116-SRM-CRM-HACIENDA-UI-178"
+  "version": "1.66.0",
+  "ecosystemVersion": "1.66.0",
+  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "releaseStatus": "candidate-master-ci-production-authorization-pending",
+  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179"
 }

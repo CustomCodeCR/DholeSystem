@@ -1,0 +1,43 @@
+{
+  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "type": "MINOR",
+  "date": "2026-11-16",
+  "ecosystemVersion": "1.66.0",
+  "status": "candidate-master-ci-production-authorization-pending",
+  "productionDeploymentAuthorized": false,
+  "branch": "release/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179-master",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.64.0",
+      "next": "1.65.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.65.0",
+      "next": "1.66.0"
+    }
+  ],
+  "unchangedDependencies": {
+    "DholeConfigService": "1.8.0",
+    "DholeAuthService": "1.13.0"
+  },
+  "changes": [
+    "CRM account creation and inline editor now follow SRM horizontal functional tab presentation without stacking hidden sections",
+    "CRM account and lead Hacienda auto-lookup with safe request generation, debouncing, manual retry, official result panel",
+    "Save waits pending taxpayer verification; original assigned seller, category, permissions, credit and contacts retained",
+    "No database migration or API endpoint changes; compatibility with realtime and REST preserved"
+  ],
+  "tests": [
+    "tests/crmSrmParity.test.ts",
+    "tests/crmFrontend.test.ts",
+    "tests/srmHacienda.test.ts"
+  ],
+  "validation": {
+    "ci": "Develop passed; master PR pending",
+    "staging": "develop Web staging deployed? Verify run",
+    "master": "Not merged pending authorization",
+    "production": "Not deployed"
+  },
+  "rollback": "Restore previous DholeWeb account forms and the prior manifest if any regression; no backend schema changes"
+}
