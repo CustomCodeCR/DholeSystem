@@ -1,3 +1,9 @@
+## [1.63.1] - 2026-11-16 (API Manager: clientes, prospectos y vendedor Castro Fallas)
+
+- PATCH DH-20261116-API-CRM-166: Web 1.62.1 selecciona cuentas o prospectos del directorio comercial unificado de CRM y conserva la distinción institucional.
+- Gateway 1.10.1 permite omitir sellerUserId: Pricing utiliza la identidad técnica autenticada como actor operativo; el ejecutivo comercial se mantiene como Castro Fallas. No se utilizan GUID ficticios.
+- DholeSystem/global 1.63.1, manifiesto coordinado y CI/staging obligatorios antes de producción.
+
 ## [1.63.0] - 2026-11-16 (API Manager: descubrimiento y valores predeterminados)
 
 - MINOR DH-20261116-API-MANAGER-165: Dhole global 1.63.0; Gateway 1.10.0, Web 1.62.0 y System 1.63.0.
