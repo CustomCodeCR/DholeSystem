@@ -1,3 +1,8 @@
+## [1.63.7] - 2026-11-16 (CBM por cotización vinculada a consolidado LCL propio)
+
+- PATCH DH-20261116-OWN-LCL-QUO-CBM-172: Pricing 1.22.1 → 1.22.2 amplía el contrato de QUOs vinculadas con CBM físicos y cobrables; Web 1.62.4 → 1.62.5 los presenta por QUO en el consolidado sin modificar costos, estados ni permisos.
+- DholeSystem/ecosistema 1.63.6 → 1.63.7; cambios solo de lectura, sin migración ni cambios realtime. Requiere pruebas, CI, compilación, staging y autorización expresa antes de promoción a master.
+
 ## [1.63.6] - 2026-11-16 (Creación de seguimientos desde clientes y prospectos)
 
 - PATCH DH-20261116-CRM-FOLLOWUPS-CREATE-171: DholeWeb 1.62.3 → 1.62.4 y DholeSystem/ecosistema 1.63.5 → 1.63.6. Historial CRM permite crear un seguimiento comercial desde la cuenta o el prospecto, reutilizando el formulario existente con vínculo y responsable precargados.
