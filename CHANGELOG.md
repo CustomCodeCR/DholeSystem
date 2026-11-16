@@ -1,3 +1,14 @@
+## [1.63.5] - 2026-11-16 (Modales CRM responsivos y recuperación de borrador)
+
+- PATCH DH-20261116-CRM-MOBILE-MODALS-170: DholeWeb 1.62.3 y DholeSystem/global 1.63.5. Modal de actividad y recuperación de borrador con superficies opacas, fondo prioritario más oscuro y acciones responsivas para móviles. Preserva mejoras de pantallas CRM/Configuración de 1.63.4.
+- No se modifica API REST, SignalR, permisos ni servicios backend. El release requiere CI, compilación, validación de staging y promoción de la misma corrección a master. El usuario autorizó explícitamente producción el 2026-11-16, condicionado a las validaciones obligatorias.
+
+## [1.63.4] - 2026-11-16 (Responsive móvil: Configuración y CRM)
+
+- PATCH DH-20261116-MOBILE-CRM-SETTINGS-169: DholeWeb 1.62.2 adapta las tarjetas de Configuración, las pestañas de Clientes/Prospectos y las vistas de Agenda a móviles sin romper el diseño de escritorio.
+- El calendario comercial inicia en modo lista en teléfonos; el modo mensual de siete columnas conserva la visualización de rangos y permite desplazamiento horizontal. Encabezados y acciones ya no ocupan espacios superpuestos en pantallas pequeñas.
+- DholeSystem/global 1.63.4; release coordinado exclusivamente entre Web y System. Sin cambios en contratos REST, SignalR, servicios backend ni permisos. Pruebas, compilación, inspección visual en móvil y staging pendientes. Master y producción sin autorización de despliegue.
+
 ## [1.63.3] - 2026-11-16 (Gateway DNS checkout deployment hardening)
 
 - PATCH DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway 1.10.3 incorpora reintentos limitados para obtener DholeSystem desde los workflows develop y master, manteniendo ramas y definiciones de despliegue correctas.
