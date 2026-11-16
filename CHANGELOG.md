@@ -1,3 +1,9 @@
+## [1.61.0] - 2026-11-16 (QUOs por consolidado LCL propio)
+
+- MINOR DH-20261116-OWN-LCL-QUOS-162: versión global de Pricing 1.20.0, Web 1.60.0 y System 1.61.0.
+- Consolidados LCL propios muestran cotizaciones vinculadas con la referencia guardada, fechas, clientes y estados, y acceso de solo lectura a cada QUO.
+- API REST compatible, sin cambiar consumos CBM, eventos existentes ni cotizaciones. CI y staging obligatorios antes de master/producción.
+
 ## [1.60.1] - 2026-11-15 (Patch CI/CD rápido y seguro)
 
 - PATCH DH-20261115-DEPLOY-FASTPATH-146: AI y DataExtraction eliminan restauraciones .NET y regresiones repetidas durante producción; PR ejecuta compilación, tests y versionamiento.
