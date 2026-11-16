@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OWN-LCL-QUOS-162",
+  "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.61.0",
+  "ecosystemVersion": "1.62.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-develop",
+  "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.61.0",
+      "version": "1.62.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-develop",
+      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -33,18 +33,18 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.10.0",
+      "version": "1.11.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.60.0",
+      "version": "1.61.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-develop",
+      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -78,11 +78,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.20.0",
+      "version": "1.21.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-OWN-LCL-QUOS-162-develop"
+      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -239,19 +239,20 @@
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
-    "semver": "pendiente CI",
-    "staging": "pendiente smoke de vínculos LCL/QUO",
-    "production": "No ejecutada"
+    "semver": "Pending required CI",
+    "staging": "Pending staging deployments",
+    "production": "Not deployed"
   },
   "releaseComponents": [
+    "DholeAuthService",
     "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Pricing endpoint read-only GET /api/pricing/own-lcl-consolidations/{id}/quotes for explicit persisted links",
-    "Web drilldown shows QUO number, customer, date, status and read-only navigation",
-    "No mutations to price, approved capacity, or historical records"
+    "Auth seeds independent own LCL create/update/view permissions",
+    "Pricing enforces action-scoped writes and compatible read authorization",
+    "Web honors view navigation, create and update buttons, and read-only linked QUO listing"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -306,7 +307,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-OWN-LCL-QUOS-162",
+  "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -742,7 +743,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Desglose de las QUOs asociadas a cada consolidado LCL propio y navegación de solo lectura al wizard de la cotización.",
+  "releaseSummary": "Scopes de creación, edición y consulta independientes para Consolidados LCL propios, coordinados en Auth, Pricing y Web.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
