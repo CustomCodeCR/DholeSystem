@@ -1,3 +1,10 @@
+## [1.64.0] - 2026-11-16 · SRM proveedores / Hacienda / cuentas bancarias seguras (DH-176 master)
+
+- MINOR: Auth 1.13.0, Config 1.8.0, Web 1.63.0 y DholeSystem 1.64.0 por backport selectivo del release de proveedores a master.
+- Perfiles UPPER CASE, teléfono, RUC/NIT, dirección, actividad económica, contacto Finanzas, observaciones y Hacienda Costa Rica.
+- Cuentas bancarias separadas, cifradas AES-256-GCM y autorizadas por nuevos scopes. Requiere variable de cifrado persistente `DHOLE_SRM_BANK_KEY_BASE64` antes de operar cuentas.
+- Autorización expresa del usuario para producción recibida el 16 de noviembre de 2026; validación de lectura/escritura bancaria y smoke de Hacienda pendientes.
+
 ## [1.63.10] - 2026-11-16 (Completar actividad comercial desde seguimiento y visita)
 
 - PATCH DH-20261116-CRM-ACTIVITY-COMPLETE-175: Web 1.62.8 muestra códigos activos del catálogo Config para el resultado de completar y delega al backend CRM el timestamp de ocurrencia; CRM acepta la fecha real opcional y normaliza Completed a COMPLETED si ese resultado está activo.
