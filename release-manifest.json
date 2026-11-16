@@ -3,7 +3,7 @@
   "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.62.0",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "validated-for-master-promotion",
   "branches": [
     "develop",
     "master"
@@ -164,12 +164,12 @@
     }
   ],
   "policyCheck": {
-    "status": "candidate-ci-and-staging-success",
-    "checks": 3,
-    "total": 3
+    "status": "passed-ci-and-staging",
+    "checks": 4,
+    "total": 4
   },
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "candidate-intermediate-ready",
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -220,9 +220,9 @@
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
-    "semver": "Pending required CI",
-    "staging": "Pending staging deployments",
-    "production": "Not deployed"
+    "semver": "Auth, Pricing, Web y System: CI success en PR de develop y master",
+    "staging": "Auth https://github.com/CustomCodeCR/DholeAuthService/actions/runs/43884376150 SUCCESS; Pricing https://github.com/CustomCodeCR/DholePricingService/actions/runs/43884392153 SUCCESS; Web https://github.com/CustomCodeCR/DholeWeb/actions/runs/43884412867 SUCCESS",
+    "production": "Se iniciará al fusionar master; validación posterior pendiente"
   },
   "releaseComponents": [
     "DholeAuthService",
@@ -554,7 +554,7 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Autorización explícita del usuario el 2026-11-16: 'subelo a master'.",
+  "productionDeploymentAuthorization": "Usuario solicitó explícitamente modificar master y develop el 2026-11-16. master activa despliegues automáticos.",
   "dynamicsQuote613619Release": {
     "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
     "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
