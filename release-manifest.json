@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-MANAGER-164",
+  "releaseId": "DH-20261116-API-MANAGER-165",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.62.1",
+  "ecosystemVersion": "1.63.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,9 +12,9 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.9.1",
+      "version": "1.10.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-165-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.61.1",
+      "version": "1.62.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-165-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -147,9 +147,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.62.1",
+      "version": "1.63.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-165-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -247,7 +247,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
+  "candidateBranch": "release/DH-20261116-API-MANAGER-165-master",
   "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
