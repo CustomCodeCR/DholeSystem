@@ -5,6 +5,6 @@
   "version": "1.62.0",
   "ecosystemVersion": "1.62.0",
   "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
-  "releaseStatus": "candidate-ci-and-staging-pending",
+  "releaseStatus": "validated-for-master-promotion",
   "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163"
 }
