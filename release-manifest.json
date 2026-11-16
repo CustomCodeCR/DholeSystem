@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-CRM-166",
+  "releaseId": "DH-20261116-API-PRICING-IDENTITY-167",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.1",
+  "ecosystemVersion": "1.63.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,11 +12,11 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-CRM-166-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
+      "candidateSha": "56fc94600fd568ab69fd41e8433f255ec7a6c489",
+      "developMergeSha": "f1073381a8cd08fec0a5341d86674aba13e5da9c"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -66,11 +66,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.21.0",
+      "version": "1.22.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-master"
+      "candidateSha": "eb9b529e8e649bf893b54d21aaf955e99fe9ec96",
+      "developMergeSha": "63dce0b4fffd39177e3f4815d678aacc6f9b0a73",
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -147,11 +147,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.1",
+      "version": "1.63.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-CRM-166-master",
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "75a4848e9e1a5d8860ba190b612cdacf626ddd83"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -164,12 +164,12 @@
     }
   ],
   "policyCheck": {
-    "status": "passed-ci-and-staging",
-    "checks": 4,
-    "total": 4
+    "status": "pending-ci-and-staging",
+    "checks": 0,
+    "total": 0
   },
-  "mergeState": "candidate-intermediate-ready",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-master-backport",
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -217,7 +217,8 @@
     "DH-20261114-CRM-CALENDAR-SPANS-142: requires merged develop, CI success, completed staging verification and explicit production deployment approval before master",
     "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus.",
     "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass.",
-    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
+    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
+    "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion."
   ],
   "validationEvidence": {
     "semver": "Auth, Pricing, Web y System: CI success en PR de develop y master",
@@ -225,9 +226,9 @@
     "production": "Se iniciará al fusionar master; validación posterior pendiente"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeApiGateway",
-    "DholeWeb"
+    "DholePricingService",
+    "DholeSystem"
   ],
   "changes": [
     "Auth seeds independent own LCL create/update/view permissions",
@@ -247,7 +248,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261116-API-CRM-166-master",
+  "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
   "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
