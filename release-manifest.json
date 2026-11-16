@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
+  "releaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.3",
+  "ecosystemVersion": "1.63.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop",
+  "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.3",
+      "version": "1.63.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop",
+      "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.1",
+      "version": "1.62.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
+      "candidateBranch": "fix/DH-20261116-MOBILE-CRM-SETTINGS-169-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -241,18 +241,23 @@
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation."
   ],
   "validationEvidence": {
-    "semver": "Pending required CI",
-    "staging": "Pending staging deployments",
+    "semver": "Candidate metadata updated; CI pending",
+    "unitTests": "Pending Node regression run",
+    "build": "Pending Vue type-check and Vite build",
+    "mobileScreens": "Pending 320/375/390/768px browser validation",
+    "staging": "Pending staging deployment and visual smoke",
     "production": "Not deployed"
   },
   "releaseComponents": [
-    "DholeApiGateway",
+    "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Auth seeds independent own LCL create/update/view permissions",
-    "Pricing enforces action-scoped writes and compatible read authorization",
-    "Web honors view navigation, create and update buttons, and read-only linked QUO listing"
+    "Settings cards use compact single-column layout at phone widths",
+    "CRM account and prospect sections use accessible horizontally scrollable tab rows on phones",
+    "CRM commercial agenda navigation avoids wrapped labels and keeps touch-sized targets",
+    "Mobile calendar defaults to readable list; month retains its seven-day grid with horizontal scrolling",
+    "No backend, API, realtime or permission changes"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
@@ -307,7 +312,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
+  "businessReleaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
