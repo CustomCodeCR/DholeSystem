@@ -1,3 +1,8 @@
+## [1.63.9] - 2026-11-16 (Bitácora comercial y fecha de realización UTC)
+
+- PATCH DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: Web 1.62.7 usa occurredAt=null para que el backend CRM determine con su reloj UTC la realización de bitácoras sin cita y las actividades históricas inferidas por el servidor, evitando rechazos por desfase horario del navegador.
+- Los acuerdos futuros mantienen tareas y recordatorios separados; las fechas históricas programadas, acceso CRM, contratos REST, SignalR y Outbox permanecen intactos. DholeSystem/ecosistema 1.63.8 → 1.63.9. Validar pruebas, build, CI y staging antes de cualquier master/producción.
+
 ## [1.63.8] - 2026-11-16 (Cliente/prospecto visible al editar o recargar QUO)
 
 - PATCH DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: DholeWeb 1.62.5 → 1.62.6 preserva en el selector comercial el nombre histórico de una QUO sin vínculo CRM e indica que debe seleccionarse explícitamente la cuenta o prospecto, sin asignar identidades por similitud.
