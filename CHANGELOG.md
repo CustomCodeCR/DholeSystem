@@ -1,3 +1,9 @@
+## [1.63.2] - 2026-11-16 (Publicación segura de solicitudes externas)
+
+- PATCH DH-20261116-API-PRICING-IDENTITY-167: DholeApiGateway 1.10.2 incorpora JWT técnico restringido al POST de solicitud de tarifas; DholePricingService 1.22.1 valida actor de integración y vendedor fijo, compatible con ejecutivo institucional Castro Fallas.
+- Mantiene vendedor fijado desde CRM para ejecutivos reales, controles de Auth, scopes, API Keys, idempotencia y auditoría, sin flags ni credenciales en Git.
+- DholeSystem y ecosistema 1.63.2; pruebas de CI y staging requeridas para la promoción coordinada a master.
+
 ## [1.63.1] - 2026-11-16 (API Manager: clientes, prospectos y vendedor Castro Fallas)
 
 - PATCH DH-20261116-API-CRM-166: Web 1.62.1 selecciona cuentas o prospectos del directorio comercial unificado de CRM y conserva la distinción institucional.
