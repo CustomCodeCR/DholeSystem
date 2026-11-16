@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-PRICING-IDENTITY-167",
+  "releaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.2",
+  "ecosystemVersion": "1.63.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop",
+  "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.2",
+      "version": "1.63.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop",
+      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.2",
+      "version": "1.10.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "0c19a1bd57413768ccdc168a66259ed1105170a3",
+      "candidateSha": "ac068a74c32c5fc58dc7939b9f0803382f9addc5",
       "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop"
+      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -237,7 +237,8 @@
     "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción).",
     "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción.",
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
-    "DH-20261116-API-PRICING-IDENTITY-167: CI .NET Gateway/Pricing + negative authorization tests, staging POST with published API Key and idempotency are required before production deployment."
+    "DH-20261116-API-PRICING-IDENTITY-167: CI .NET Gateway/Pricing + negative authorization tests, staging POST with published API Key and idempotency are required before production deployment.",
+    "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation."
   ],
   "validationEvidence": {
     "semver": "Pending required CI",
@@ -246,7 +247,6 @@
   },
   "releaseComponents": [
     "DholeApiGateway",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -307,7 +307,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
+  "businessReleaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
