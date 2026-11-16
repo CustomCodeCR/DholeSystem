@@ -1,3 +1,8 @@
+## [1.63.11] - 2026-11-16 (CRM: estado de actividad sincronizado tras finalizar)
+
+- PATCH DH-20261116-CRM-COMPLETION-STATE-SYNC-177: DholeWeb 1.62.9 verifica en CRM el estado real de la actividad después de un error en POST y al recuperar foco de la pestaña; limpia alertas obsoletas únicamente cuando el GET confirma finalización, y muestra fecha real, tipo de gestión legible y verificación manual.
+- Se preservan condiciones y validaciones de DholeCRMService, permisos, historial, recordatorios y realtime. Ecosistema Dhole 1.63.10 → 1.63.11; CI y validación multiusuario en staging antes de promover master.
+
 ## [1.63.10] - 2026-11-16 (Completar actividad comercial desde seguimiento y visita)
 
 - PATCH DH-20261116-CRM-ACTIVITY-COMPLETE-175: Web 1.62.8 muestra códigos activos del catálogo Config para el resultado de completar y delega al backend CRM el timestamp de ocurrencia; CRM acepta la fecha real opcional y normaliza Completed a COMPLETED si ese resultado está activo.
