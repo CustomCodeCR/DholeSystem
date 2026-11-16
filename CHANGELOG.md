@@ -1,3 +1,9 @@
+## [1.62.1] - 2026-11-16 (API Manager: edición y publicación segura)
+
+- PATCH DH-20261116-API-MANAGER-164: global 1.62.1, Gateway 1.9.1, Web 1.61.1 y System 1.62.1. Otros componentes conservan sus versiones previas.
+- Soluciona la edición de APIs guardadas y habilita identidad técnica de lectura exclusiva para catálogos Config, sin superadmin ni publicación automática.
+- Release coordinado mediante CI y staging antes de integración a producción.
+
 ## [1.62.0] - 2026-11-16 (Scopes propios LCL Create/Update/View)
 
 - MINOR DH-20261116-OWN-LCL-SCOPES-163: global 1.62.0, Auth 1.11.0, Pricing 1.21.0, Web 1.61.0. Registro idempotente de permisos y validación por operación, sin flags.
