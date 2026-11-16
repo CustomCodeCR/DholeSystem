@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
+  "releaseId": "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.7",
+  "ecosystemVersion": "1.63.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,12 +30,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.5",
+      "version": "1.62.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "candidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
+      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -149,12 +149,12 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.7",
+      "version": "1.63.8",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "candidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
+      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -224,7 +224,9 @@
     "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion.",
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair.",
     "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master.",
-    "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master."
+    "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master.",
+    "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: execute Web CRM picker regression tests and Vue typecheck/build; verify linked and historic unlinked QUOs in staging before master.",
+    "Master is a production auto-deploy target; no production deployment authorized for DH-20261116-PRICING-CRM-EDIT-HYDRATION-173."
   ],
   "validationEvidence": {
     "semver": "Candidate bump Pricing 1.22.1 → 1.22.2, Web 1.62.4 → 1.62.5, DholeSystem/ecosystem 1.63.6 → 1.63.7",

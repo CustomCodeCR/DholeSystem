@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.63.7",
-  "ecosystemVersion": "1.63.7",
-  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
+  "version": "1.63.8",
+  "ecosystemVersion": "1.63.8",
+  "releaseId": "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261116-OWN-LCL-QUO-CBM-172"
+  "businessReleaseId": "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173"
 }
