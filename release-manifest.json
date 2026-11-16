@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-PRICING-IDENTITY-167",
+  "releaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.2",
+  "ecosystemVersion": "1.63.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -12,11 +12,11 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.2",
+      "version": "1.10.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
-      "candidateSha": "56fc94600fd568ab69fd41e8433f255ec7a6c489",
-      "developMergeSha": "f1073381a8cd08fec0a5341d86674aba13e5da9c"
+      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-master",
+      "candidateSha": "544a4ec53e25e5551c7d4b3583a48613145db5b1",
+      "developMergeSha": "ee09d214cc265fdc995cfbe83b0c71dab10eac11"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -147,11 +147,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.2",
+      "version": "1.63.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
+      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-master",
       "candidateSha": null,
-      "developMergeSha": "75a4848e9e1a5d8860ba190b612cdacf626ddd83"
+      "developMergeSha": "29a334829f673853cc6aab391f56f8b6c054b39"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -218,7 +218,8 @@
     "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus.",
     "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass.",
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
-    "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion."
+    "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion.",
+    "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair."
   ],
   "validationEvidence": {
     "semver": "Auth, Pricing, Web y System: CI success en PR de develop y master",
@@ -227,7 +228,6 @@
   },
   "releaseComponents": [
     "DholeApiGateway",
-    "DholePricingService",
     "DholeSystem"
   ],
   "changes": [
@@ -248,8 +248,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master",
-  "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
+  "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-master",
+  "businessReleaseId": "DH-20261116-GATEWAY-DEPLOY-DNS-168",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {

@@ -1,3 +1,9 @@
+## [1.63.3] - 2026-11-16 (Gateway DNS checkout deployment hardening)
+
+- PATCH DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway 1.10.3 incorpora reintentos limitados para obtener DholeSystem desde los workflows develop y master, manteniendo ramas y definiciones de despliegue correctas.
+- Requiere clones completos y validados; nunca utiliza infraestructura obsoleta para continuar y emite diagnóstico de DNS persistente. DholeSystem/global 1.63.3, manifiesto coordinado sin nuevas capacidades ni migraciones.
+- Verificación CI y staging del release antes de producción.
+
 ## [1.63.2] - 2026-11-16 (Publicación segura de solicitudes externas)
 
 - PATCH DH-20261116-API-PRICING-IDENTITY-167: DholeApiGateway 1.10.2 emite JWT de propósito limitado para POST Solicitar tarifa y DholePricingService 1.22.1 valida el vendedor fijo de contrato o el ejecutivo institucional Castro Fallas.
