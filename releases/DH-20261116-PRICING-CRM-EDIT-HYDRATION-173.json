@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173",
+  "ecosystemVersion": "1.63.8",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-16",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.62.5",
+      "version": "1.62.6"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.63.7",
+      "version": "1.63.8"
+    }
+  ],
+  "technicalChanges": [
+    "Preserve existing QUO client/prospect label on edit and reload when CRM IDs are null, with explicit link-required notification",
+    "Keep server-authorized exact CRM ID lookups and seller ownership for linked accounts and leads",
+    "No backend changes, data migration, REST contract, flags, costs or SignalR behavior"
+  ],
+  "validation": {
+    "tests": "pending-CI",
+    "build": "pending-CI",
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert Web and System release PRs; no migration"
+}

@@ -1,3 +1,9 @@
+## [1.63.8] - 2026-11-16 (Cliente/prospecto visible al editar o recargar QUO)
+
+- PATCH DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: DholeWeb 1.62.5 → 1.62.6 preserva en el selector comercial el nombre histórico de una QUO sin vínculo CRM e indica que debe seleccionarse explícitamente la cuenta o prospecto, sin asignar identidades por similitud.
+- Las QUO vinculadas siguen resolviendo su cliente y ejecutivo en CRM mediante ClientAccountId/ClientLeadId y permisos existentes. No se modifican los contratos REST, bases de datos, scopes, costos ni eventos SignalR.
+- DholeSystem/ecosistema 1.63.7 → 1.63.8. Prueba de regresión, compilación, CI, staging y aprobación de producción requeridos antes de master.
+
 ## [1.63.7] - 2026-11-16 (CBM por cotización vinculada a consolidado LCL propio)
 
 - PATCH DH-20261116-OWN-LCL-QUO-CBM-172: Pricing 1.22.1 → 1.22.2 amplía el contrato de QUOs vinculadas con CBM físicos y cobrables; Web 1.62.4 → 1.62.5 los presenta por QUO en el consolidado sin modificar costos, estados ni permisos.
