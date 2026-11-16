@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-CRM-166",
+  "releaseId": "DH-20261116-API-PRICING-IDENTITY-167",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.1",
+  "ecosystemVersion": "1.63.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
+  "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.1",
+      "version": "1.63.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "0c19a1bd57413768ccdc168a66259ed1105170a3",
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-API-CRM-166-develop"
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -78,11 +78,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.21.0",
+      "version": "1.22.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
+      "candidateSha": "5c3505303c2ac6d821d059b5612524223fd7a5e4",
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-develop"
+      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -172,7 +172,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
@@ -236,7 +236,8 @@
     "DH-20261115-CPU-DOC-EVIDENCE-144: 99.9% exactitud no está certificada; requiere corpus etiquetado BL/HBL/MBL/AWB/Invoice/Packing List/Manifiesto, métricas por campo, prueba de OCR CPU y revisión humana.",
     "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción).",
     "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción.",
-    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
+    "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
+    "DH-20261116-API-PRICING-IDENTITY-167: CI .NET Gateway/Pricing + negative authorization tests, staging POST with published API Key and idempotency are required before production deployment."
   ],
   "validationEvidence": {
     "semver": "Pending required CI",
