@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.60.1",
-  "ecosystemVersion": "1.60.1",
-  "releaseId": "DH-20261115-DEPLOY-FASTPATH-146",
+  "version": "1.61.0",
+  "ecosystemVersion": "1.61.0",
+  "releaseId": "DH-20261116-OWN-LCL-QUOS-162",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261115-DEPLOY-FASTPATH-146"
+  "businessReleaseId": "DH-20261116-OWN-LCL-QUOS-162"
 }
