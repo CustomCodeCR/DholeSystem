@@ -171,7 +171,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "candidate-intermediate-only",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
