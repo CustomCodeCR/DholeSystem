@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.66.0",
-  "ecosystemVersion": "1.66.0",
-  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
-  "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179"
+  "version": "1.66.1",
+  "ecosystemVersion": "1.66.1",
+  "releaseId": "DH-20261116-PRICING-PANAMA-OVERWEIGHT-180",
+  "releaseStatus": "candidate-ci-and-staging-pending",
+  "businessReleaseId": "DH-20261116-PRICING-PANAMA-OVERWEIGHT-180"
 }
