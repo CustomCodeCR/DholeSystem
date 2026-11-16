@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
+  "ecosystemVersion": "1.63.7",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-16",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previousVersion": "1.22.1",
+      "version": "1.22.2"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.62.4",
+      "version": "1.62.5"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.63.6",
+      "version": "1.63.7"
+    }
+  ],
+  "technicalChanges": [
+    "Return actual physical CBM and commercial billable CBM per own-LCL linked quotation in Pricing read-only API",
+    "Render both CBM measures alongside QUO number, status, customer and navigation in Web",
+    "No database migration, price/cost/capacity rule change, permission change, flags or realtime behavior change"
+  ],
+  "validation": {
+    "tests": "pending-CI",
+    "build": "pending-CI",
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert release branches or release PRs. No migrations or data mutations."
+}
