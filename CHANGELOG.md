@@ -1,3 +1,9 @@
+## [1.65.0] - 2026-11-16 · SRM/Hacienda alineado con CRM (DH-178)
+
+- MINOR: DholeWeb 1.64.0 y DholeSystem 1.65.0. Identificación válida de Costa Rica consulta Hacienda y aplica automáticamente razón social y actividad principal disponible, sin segundo botón.
+- UI de proveedores por pestañas, navegación adaptable, errores por sección y sincronización de consulta antes de guardar. Datos bancarios siguen restringidos en Config; servicios REST/realtime existentes sin cambios.
+- Desarrollo sobre rama intermedia; CI, staging y autorización explícita antes de producción.
+
 ## [1.64.1] - 2026-11-16 (CRM: estado de actividad sincronizado tras finalizar)
 
 - PATCH DH-20261116-CRM-COMPLETION-STATE-SYNC-177: DholeWeb 1.63.1 verifica en CRM el estado real de la actividad después de un error en POST y al recuperar foco de la pestaña; limpia alertas obsoletas únicamente cuando el GET confirma finalización, y muestra fecha real, tipo de gestión legible y verificación manual.
