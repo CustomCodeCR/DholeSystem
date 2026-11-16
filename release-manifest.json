@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-API-MANAGER-165",
+  "releaseId": "DH-20261116-API-CRM-166",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.0",
+  "ecosystemVersion": "1.63.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261116-API-MANAGER-165-develop",
+  "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.0",
+      "version": "1.63.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-MANAGER-165-develop",
+      "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-API-MANAGER-165-develop"
+      "candidateBranch": "release/DH-20261116-API-CRM-166-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -42,9 +42,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.0",
+      "version": "1.62.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-API-MANAGER-165-develop",
+      "candidateBranch": "release/DH-20261116-API-CRM-166-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
