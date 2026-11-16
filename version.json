@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.63.4",
-  "ecosystemVersion": "1.63.4",
-  "releaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169",
+  "version": "1.63.5",
+  "ecosystemVersion": "1.63.5",
+  "releaseId": "DH-20261116-CRM-MOBILE-MODALS-170",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261116-MOBILE-CRM-SETTINGS-169"
+  "businessReleaseId": "DH-20261116-CRM-MOBILE-MODALS-170"
 }
