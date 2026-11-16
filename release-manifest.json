@@ -257,14 +257,13 @@
     "production": "Not authorized; master auto-deploy requires explicit approval"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Expose physicalCbm and billableCbm for each explicitly linked own LCL QUO in Pricing GET /own-lcl-consolidations/{id}/quotes",
-    "Display actual and billable CBM in Web responsive linked-QUOs list",
-    "Preserve permissions, freight calculations, approved capacity, REST compatibility and realtime architecture"
+    "Restaurar visualización de cliente/prospecto histórico al editar o recargar QUO sin ClientAccountId/ClientLeadId",
+    "Mantener hidratar por ID de CRM y ejecutivo actual para QUO vinculadas",
+    "Sin cambio backend, contratos REST, eventos realtime o datos"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
