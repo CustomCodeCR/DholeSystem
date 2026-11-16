@@ -1,3 +1,9 @@
+## [1.63.0] - 2026-11-16 (API Manager: descubrimiento y valores predeterminados)
+
+- MINOR DH-20261116-API-MANAGER-165: Dhole global 1.63.0; Gateway 1.10.0, Web 1.62.0 y System 1.63.0.
+- Permite almacenar campos fijos en APIs POST/PUT/PATCH y seleccionar una cuenta real de CRM con su ejecutivo para solicitud de tarifas. El consumidor no puede reemplazar los valores bloqueados.
+- Agrega fallback de rutas aprobadas cuando el inventario remoto no responde; conserva controles de credenciales y API Keys. CI, pruebas y staging previos a producción.
+
 ## [1.62.1] - 2026-11-16 (API Manager: edición y publicación segura)
 
 - PATCH DH-20261116-API-MANAGER-164: versión global 1.62.1, Gateway 1.9.1, Web 1.61.1 y System 1.62.1; otros microservicios mantienen sus versiones.
