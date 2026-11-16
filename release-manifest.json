@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OWN-LCL-SCOPES-163",
+  "releaseId": "DH-20261116-API-MANAGER-164",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.62.0",
-  "status": "validated-for-master-promotion",
+  "ecosystemVersion": "1.62.1",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -12,9 +12,9 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.9.0",
+      "version": "1.9.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/dh-20261115-api-metadata-161-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.61.0",
+      "version": "1.61.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -147,9 +147,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.62.0",
+      "version": "1.62.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-master",
+      "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -225,10 +225,9 @@
     "production": "Se iniciará al fusionar master; validación posterior pendiente"
   },
   "releaseComponents": [
-    "DholeAuthService",
-    "DholePricingService",
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeApiGateway",
+    "DholeWeb"
   ],
   "changes": [
     "Auth seeds independent own LCL create/update/view permissions",
@@ -248,7 +247,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261116-OWN-LCL-SCOPES-163-master",
+  "candidateBranch": "release/DH-20261116-API-MANAGER-164-master",
   "businessReleaseId": "DH-20261116-OWN-LCL-SCOPES-163",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
