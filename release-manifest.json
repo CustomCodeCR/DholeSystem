@@ -3,7 +3,7 @@
   "releaseId": "DH-20261116-OWN-LCL-QUOS-162",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.61.0",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "validated-for-master-promotion",
   "branches": [
     "develop",
     "master"
@@ -164,12 +164,12 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
-    "checks": 0,
-    "total": 0
+    "status": "candidate-ci-and-staging-success",
+    "checks": 3,
+    "total": 3
   },
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "candidate-intermediate-ready",
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
@@ -220,9 +220,9 @@
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita."
   ],
   "validationEvidence": {
-    "semver": "pendiente CI",
-    "staging": "pendiente smoke de vínculos LCL/QUO",
-    "production": "No ejecutada"
+    "semver": "CI completado para DholeSystem, DholePricingService, DholeWeb",
+    "staging": "DholePricingService actions/runs/43874707769 success; DholeWeb actions/runs/43874717614 success",
+    "production": "Autorizado por el usuario; verificación del workflow de producción pendiente"
   },
   "releaseComponents": [
     "DholePricingService",
@@ -553,7 +553,7 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Este release requiere CI y validación de staging antes de producción.",
+  "productionDeploymentAuthorization": "Autorización explícita del usuario el 2026-11-16: 'subelo a master'.",
   "dynamicsQuote613619Release": {
     "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
     "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
