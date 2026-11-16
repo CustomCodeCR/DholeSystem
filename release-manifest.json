@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
+  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.6",
+  "ecosystemVersion": "1.63.7",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,11 +30,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.4",
+      "version": "1.62.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171-master",
+      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "candidateSha": null,
-      "developMergeSha": "2fecb5127fabda79bc9402d745da8a72769af078"
+      "developMergeSha": null,
+      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -66,11 +67,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.22.1",
+      "version": "1.22.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "eb9b529e8e649bf893b54d21aaf955e99fe9ec96",
-      "developMergeSha": "63dce0b4fffd39177e3f4815d678aacc6f9b0a73",
-      "candidateBranch": "fix/DH-20261116-API-PRICING-IDENTITY-167-master"
+      "candidateSha": null,
+      "developMergeSha": null,
+      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -147,11 +149,12 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.6",
+      "version": "1.63.7",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171-master",
+      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "candidateSha": null,
-      "developMergeSha": "614ccbaacb53684c585cb962b79c594dbb57179f"
+      "developMergeSha": null,
+      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -168,7 +171,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and regression tests for commercial terms parsing must pass",
@@ -220,23 +223,25 @@
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
     "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion.",
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair.",
-    "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master."
+    "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master.",
+    "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master."
   ],
   "validationEvidence": {
-    "semver": "Candidate bump Web 1.62.3 -> 1.62.4, System 1.63.5 -> 1.63.6",
-    "unitTests": "CRM tests passed on develop candidate; master branch CI pending",
-    "build": "Web build passed on develop candidate; master CI pending",
-    "staging": "Staging deployment validation pending",
-    "production": "Not authorized; DholeWeb master push triggers automatic production deployment"
+    "semver": "Candidate bump Pricing 1.22.1 → 1.22.2, Web 1.62.4 → 1.62.5, DholeSystem/ecosystem 1.63.6 → 1.63.7",
+    "unitTests": "Pending CI",
+    "build": "Pending CI",
+    "staging": "Pending staging end-to-end API and UI",
+    "production": "Not authorized; master auto-deploy requires explicit approval"
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Show Crear seguimiento action in permissioned account/prospect followup history",
-    "Reuse scoped CRM calendar creation with commercial followup preselected and record/owner already linked",
-    "Preserve CRM API, SignalR, grouped accounts, search and existing scopes; no backend code changes"
+    "Expose physicalCbm and billableCbm for each explicitly linked own LCL QUO in Pricing GET /own-lcl-consolidations/{id}/quotes",
+    "Display actual and billable CBM in Web responsive linked-QUOs list",
+    "Preserve permissions, freight calculations, approved capacity, REST compatibility and realtime architecture"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -251,8 +256,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-CRM-FOLLOWUPS-CREATE-171-master",
-  "businessReleaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
+  "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+  "businessReleaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
