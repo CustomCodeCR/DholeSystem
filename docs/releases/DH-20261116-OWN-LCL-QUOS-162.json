@@ -1,0 +1,35 @@
+{
+  "releaseId": "DH-20261116-OWN-LCL-QUOS-162",
+  "date": "2026-11-16",
+  "releaseType": "MINOR",
+  "ecosystemVersion": "1.61.0",
+  "components": [
+    {
+      "component": "DholePricingService",
+      "previousVersion": "1.19.0",
+      "version": "1.20.0"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.59.0",
+      "version": "1.60.0"
+    },
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.60.1",
+      "version": "1.61.0"
+    }
+  ],
+  "changes": [
+    "Pricing endpoint read-only GET /api/pricing/own-lcl-consolidations/{id}/quotes for explicit persisted links",
+    "Web drilldown shows QUO number, customer, date, status and read-only navigation",
+    "No mutations to price, approved capacity, or historical records"
+  ],
+  "restCompatible": true,
+  "realtimeCompatible": true,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
