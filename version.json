@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.63.7",
-  "ecosystemVersion": "1.63.7",
-  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
+  "version": "1.63.9",
+  "ecosystemVersion": "1.63.9",
+  "releaseId": "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261116-OWN-LCL-QUO-CBM-172"
+  "businessReleaseId": "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174"
 }
