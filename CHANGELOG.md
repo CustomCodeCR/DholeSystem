@@ -1,3 +1,9 @@
+## [1.62.0] - 2026-11-16 (Scopes propios LCL Create/Update/View)
+
+- MINOR DH-20261116-OWN-LCL-SCOPES-163: global 1.62.0, Auth 1.11.0, Pricing 1.21.0, Web 1.61.0. Registro idempotente de permisos y validación por operación, sin flags.
+- Consolidados LCL propios permiten visualizar, crear o editar según scopes explícitos. Se mantiene lectura desde el wizard mediante pricing.rate.view y consulta de QUOs vinculadas.
+- CI y staging obligatorios; manifiesto centralizado actualizado.
+
 ## [1.61.0] - 2026-11-16 (QUOs por consolidado LCL propio)
 
 - MINOR DH-20261116-OWN-LCL-QUOS-162: versión global de Pricing 1.20.0, Web 1.60.0 y System 1.61.0.
