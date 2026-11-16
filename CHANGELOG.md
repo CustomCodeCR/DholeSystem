@@ -1,3 +1,9 @@
+## [1.65.0] - 2026-11-16 · SRM/Hacienda como CRM (DH-178 master candidate)
+
+- MINOR: Backport Web 1.64.0 y System 1.65.0; formulario por pestañas y actualización automática de razón social/actividad al consultar Hacienda de Costa Rica.
+- Manejo de respuestas obsoletas, guardado sin perder verificación y continuidad de scopes de cuentas bancarias. No hay cambios en Config/Auth.
+- Staging, CI sobre master y autorización expresa de despliegue necesarios; sin promoción automática desde esta rama.
+
 ## [1.64.1] - 2026-11-16 (CRM: estado de actividad sincronizado tras finalizar)
 
 - PATCH DH-20261116-CRM-COMPLETION-STATE-SYNC-177: DholeWeb 1.63.1 verifica en CRM el estado real de la actividad después de un error en POST y al recuperar foco de la pestaña; limpia alertas obsoletas únicamente cuando el GET confirma finalización, y muestra fecha real, tipo de gestión legible y verificación manual.
