@@ -245,9 +245,9 @@
     "production": "Not deployed"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeApiGateway",
-    "DholeWeb"
+    "DholePricingService",
+    "DholeSystem"
   ],
   "changes": [
     "Auth seeds independent own LCL create/update/view permissions",
