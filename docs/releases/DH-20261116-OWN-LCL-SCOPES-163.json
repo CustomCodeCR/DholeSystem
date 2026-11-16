@@ -32,8 +32,14 @@
   "restCompatible": true,
   "realtimeCompatible": true,
   "validation": {
-    "ci": "pending",
-    "staging": "pending"
+    "ci": "success",
+    "staging": "success",
+    "production": "pending"
   },
-  "productionDeploymentAuthorized": false
+  "productionDeploymentAuthorized": true,
+  "stagingRuns": {
+    "auth": "https://github.com/CustomCodeCR/DholeAuthService/actions/runs/43884376150",
+    "pricing": "https://github.com/CustomCodeCR/DholePricingService/actions/runs/43884392153",
+    "web": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/43884412867"
+  }
 }
