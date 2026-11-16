@@ -1,3 +1,9 @@
+## [1.64.0] - 2026-11-16 · SRM proveedores y seguridad financiera (DH-176)
+
+- MINOR: coordinación de Auth 1.13.0, Config 1.8.0 y Web 1.63.0 para ficha de proveedor, Hacienda CR, cuenta principal y múltiples cuentas cifradas.
+- Requiere `DHOLE_SRM_BANK_KEY_BASE64` en Config, scopes `srm.supplier.bank.read/manage` y migración de base de datos antes de habilitar cuentas bancarias.
+- Estado: rama intermedia, CI/staging y autorización de producción pendientes; no desplegado a producción.
+
 ## [1.63.10] - 2026-11-16 (Completar actividad comercial desde seguimiento y visita)
 
 - PATCH DH-20261116-CRM-ACTIVITY-COMPLETE-175: Web 1.62.8 muestra códigos activos del catálogo Config para el resultado de completar y delega al backend CRM el timestamp de ocurrencia; CRM acepta la fecha real opcional y normaliza Completed a COMPLETED si ese resultado está activo.
