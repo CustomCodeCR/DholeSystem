@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
+  "releaseId": "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.63.7",
+  "ecosystemVersion": "1.63.9",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.62.5",
+      "version": "1.62.7",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "candidateBranch": "fix/DH-20261116-CRM-BITACORA-SERVER-CLOCK-174-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
@@ -149,9 +149,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.63.7",
+      "version": "1.63.9",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "candidateBranch": "fix/DH-20261116-CRM-BITACORA-SERVER-CLOCK-174-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
@@ -224,24 +224,24 @@
     "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion.",
     "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair.",
     "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master.",
-    "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master."
+    "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master.",
+    "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: run Web regression/tests, version gate, CI and staging with user clock skew before master; production approval required."
   ],
   "validationEvidence": {
-    "semver": "Candidate bump Pricing 1.22.1 → 1.22.2, Web 1.62.4 → 1.62.5, DholeSystem/ecosystem 1.63.6 → 1.63.7",
-    "unitTests": "Pending CI",
-    "build": "Pending CI",
-    "staging": "Pending staging end-to-end API and UI",
-    "production": "Not authorized; master auto-deploy requires explicit approval"
+    "semver": "DholeWeb 1.62.5 → 1.62.7; DholeSystem 1.63.7 → 1.63.9",
+    "unitTests": "Pending PR CI",
+    "build": "Pending PR CI",
+    "staging": "Pending multiuser smoke (ahead workstation clock, past scheduled activities, future agreement tasks)",
+    "production": "Not authorized; master automatically deploys"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Expose physicalCbm and billableCbm for each explicitly linked own LCL QUO in Pricing GET /own-lcl-consolidations/{id}/quotes",
-    "Display actual and billable CBM in Web responsive linked-QUOs list",
-    "Preserve permissions, freight calculations, approved capacity, REST compatibility and realtime architecture"
+    "Set occurredAt=null in CRM calendar creation for commercial logs and historical scheduled activities; CRM assigns UTC server time or preserved historical end when valid",
+    "Keep date-limited agreement followups, seller scopes, REST endpoints, SignalR events and Outbox behavior unchanged",
+    "Add regression coverage for ahead-of-server browser clocks"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -256,7 +256,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+  "candidateBranch": "fix/DH-20261116-CRM-BITACORA-SERVER-CLOCK-174-master",
   "businessReleaseId": "DH-20261116-OWN-LCL-QUO-CBM-172",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -669,5 +669,23 @@
     "signalRCompatible": true,
     "staging": "pending",
     "productionDeploymentAuthorized": false
+  },
+  "crmBitacoraServerClockRelease": {
+    "id": "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174",
+    "webVersion": "1.62.7",
+    "ecosystemVersion": "1.63.9",
+    "scope": [
+      "DholeWeb",
+      "DholeSystem"
+    ],
+    "semantics": "Actual occurrence of unscheduled bitacora records is decided by CRM UTC server clock; historical date inference remains server-side.",
+    "expectedValidation": [
+      "npm run version:check",
+      "npm run test:crm",
+      "npm run build",
+      "Staging two users plus browser clock skew",
+      "No regression in future agreement followup reminders"
+    ],
+    "deploy": "No production deployment authorization"
   }
 }
