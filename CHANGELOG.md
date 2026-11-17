@@ -1,3 +1,8 @@
+## [1.71.3] - 2026-11-17 (Pricing LCL: exclusión estricta de navieras)
+
+- PATCH DH-20261117-PRICING-LCL-CARRIER-200: DholeWeb 1.67.8 → 1.67.9 elimina el filtrado permisivo de cargos navieros en LCL marítimo. Aplica en generación de costos, cálculo de importes y refresco de catálogo con relaciones múltiples/legacy, sin modificar FCL, AirConsol, cotizaciones manuales ni servicios REST/SignalR.
+- DholeSystem/ecosistema 1.71.2 → 1.71.3. Los demás 15 componentes mantienen su versión; CI, pruebas y staging pendientes antes de integrar master. Producción sin autorización.
+
 ## [1.71.2] - 2026-11-17 (Hacienda: Nginx 400 Request Header Or Cookie Too Large)
 
 - PATCH DH-20261117-HACIENDA-HEADER-BUFFERS-199: DholeWeb 1.67.7 → 1.67.8 corrige rechazo de JWT de 9.5 KB en el servidor Nginx antes del Gateway; buffers acotados (16 KB inicial, 4 × 32 KB para cabeceras grandes).
