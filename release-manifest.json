@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195",
+  "releaseId": "DH-20261117-QUOTE-TRANSIT-APPROX-196",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.5",
+  "ecosystemVersion": "1.70.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-develop",
+  "candidateBranch": "fix/DH-20261117-QUOTE-TRANSIT-APPROX-196",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.5",
+      "version": "1.70.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-develop",
+      "candidateBranch": "fix/DH-20261117-QUOTE-TRANSIT-APPROX-196",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -107,11 +107,11 @@
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.7.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "candidateBranch": "fix/DH-20261117-QUOTE-TRANSIT-APPROX-196"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -285,8 +285,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeReportsService"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
