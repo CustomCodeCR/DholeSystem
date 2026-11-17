@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-PRICING-PANAMA-OVERWEIGHT-180",
+  "releaseId": "DH-20261116-SRM-IBAN-181",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.1",
+  "ecosystemVersion": "1.66.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-develop",
+  "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.1",
+      "version": "1.66.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-develop",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.65.1",
+      "version": "1.65.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-develop",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -56,11 +56,11 @@
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.8.0",
+      "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-develop",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
@@ -181,6 +181,9 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-181: TypeScript build, SRM finance/IBAN tests, version gate and staging validation before master merge.",
+    "DH-181: Validate Costa Rica, IBAN foreign-country formats, national non-IBAN account and bank-country changes in staging.",
+    "No production deployment before CI, staging and explicit approval.",
     "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
     "F7: 14 real resilience/chaos scenarios pending on staging",
     "F8: Future-service registry/ACL/WSS enforcement evidence pending",
@@ -268,6 +271,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeConfigService",
     "DholeSystem"
   ],
   "changes": [
