@@ -1,3 +1,8 @@
+## [1.71.1] - 2026-11-17 (Pricing: evitar rubros ajenos a la QUO en edición)
+
+- PATCH DH-20261117-PRICING-EDIT-ITEMS-198: DholeWeb 1.67.6 → 1.67.7 conserva el snapshot de costos guardados al visualizar y editar. Actualizar precios para el mismo contexto no incorpora costos de rutas, proveedores ni servicios no cotizados. Sin cambios de base de datos, REST, SignalR, Outbox/Inbox ni permissions.
+- DholeSystem/ecosistema 1.71.0 → 1.71.1; las versiones de los otros 15 servicios del manifiesto se mantienen. CI y staging antes de promoción a master.
+
 ## [1.71.0] - 2026-11-17 (Hacienda CRM: consulta POST sin identificación en URL)
 
 - MINOR DH-20261117-HACIENDA-POST-197: CRM 1.34.2 → 1.35.0 incorpora POST JSON autenticado para consultas de Hacienda y conserva GET compatible; Web 1.67.5 → 1.67.6 utiliza el nuevo transporte y elimina cookies innecesarias del proxy Nginx.
