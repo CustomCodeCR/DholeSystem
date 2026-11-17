@@ -1,3 +1,9 @@
+## [1.70.1] - 2026-11-17 (DH-20261117-CONFIG-APT-DEPLOY-191 · Config: evitar Docker build atascado)
+
+- PATCH: Config 1.9.0 → 1.9.1 y DholeSystem/ecosistema 1.70.0 → 1.70.1. DholeWeb 1.67.0 y los otros microservicios conservan sus versiones.
+- La imagen de Config y workers aplica límites de 180/300 s y reintentos APT, DNS por red del host durante el build, salida detallada y timeout del job. Un nuevo deploy reemplaza el build de producción atascado sin sustituir contenedores hasta disponer de imágenes completas.
+- DH-20261117-CONFIG-APT-DEPLOY-191: sin cambios de base de datos, funciones SRM, REST, SignalR o permisos. Requiere CI y prueba de health posterior al deploy.
+
 ## [1.70.0] - 2026-11-17 (DH-190 · SRM: eliminación lógica de proveedores)
 
 - MINOR DH-20261117-SRM-SUPPLIER-DELETE-190: acción Eliminar en el directorio SRM con confirmación y autorización srm.supplier.archive, bloqueo de proveedores con referencias, auditoría y realtime por Outbox.
