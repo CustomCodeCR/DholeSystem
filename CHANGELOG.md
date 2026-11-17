@@ -1,3 +1,8 @@
+## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
+
+- PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas de su RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
+- No elimina datos históricos de QUO-00000-000673; las coincidencias duplicadas requieren conciliación controlada. Validar email y PDF con registro real en staging antes de promoción. Ecoversión 1.70.4 → 1.70.5.
+
 ## [1.70.4] - 2026-11-17 (MultiQUO: aprobación de alternativas y PDF)
 
 - PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: DholePricingService 1.22.3 y DholeWeb 1.67.3 con aprobaciones grupales de margen, numeración comercial y PDF. La aceptación del cliente se aplica a una única alternativa.
