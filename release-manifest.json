@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-MULTIQUO-APPROVAL-PDF-194",
+  "releaseId": "DH-20261117-MULTIQUO-DASHBOARD-195",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.4",
+  "ecosystemVersion": "1.70.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194-develop",
+  "candidateBranch": "fix/DH-20261117-MULTIQUO-DASHBOARD-195-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.4",
+      "version": "1.70.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194-develop",
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-DASHBOARD-195-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.3",
+      "version": "1.67.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194-develop",
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-DASHBOARD-195-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -80,11 +80,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.22.3",
+      "version": "1.22.4",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194-develop"
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-DASHBOARD-195-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -273,7 +273,8 @@
     "No merge a master ni despliegue producción sin aprobación explícita.",
     "DH-20261117-CONFIG-APT-DEPLOY-191: ejecutar build y tests Config, comprobar que APT tiene timeout, verificar Docker build y salud API tras despliegue; no tocar los demás servicios.",
     "DH-194: run Pricing build/tests and Web type-check/build/tests; validate group margin approval and PDF with two alternatives in staging before master.",
-    "DH-194: reconcile existing orphan QUO-00000-000673 in live DB after matching client, route and group; preserve audit history."
+    "DH-194: reconcile existing orphan QUO-00000-000673 in live DB after matching client, route and group; preserve audit history.",
+    "DH-195: validate dashboard dedup + grouping (672 vs 673), 2 alternatives and financial sums in staging; preserve historical RateHeaders."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
