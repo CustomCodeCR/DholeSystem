@@ -174,14 +174,13 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "ci-success-staging-health-success",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "approved-staging-verified-pre-master",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "DH-198: validar primero develop/staging, CI Web/System y reversión antes de promover master.",
     "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
     "DH-193: verify unauthenticated same-origin Hacienda GET yields 401 (not 502) and authenticated real lookup returns verified legal name.",
     "DH-192: CI Web/CRM/System, verificación en staging con cuenta costarricense autorizada y errores reales 503/502/NetworkError antes de promover master.",
@@ -281,11 +280,11 @@
     "DH-195: validate commercial sub-QUO A/B identities, grouped PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.67.5 → 1.67.7; DholeSystem/ecosistema 1.70.5 → 1.71.1 (backport selectivo)",
-    "unitTests": "Pending CI",
-    "build": "Pending CI",
-    "staging": "Pending",
-    "production": "User requested merge to master; stage gate pending"
+    "semver": "Web 1.67.6 → 1.67.7 on develop, Web 1.67.5 → 1.67.7 selective backport on master; ecosystem 1.71.1",
+    "unitTests": "Web PR #681/#682 CI passed including Pricing regressions",
+    "build": "Web CI TypeScript/Vite and production-bundle smoke passed",
+    "staging": "Web run 44187573454 successful; deployment and /health verified; authenticated UI smoke pending",
+    "production": "User explicitly requested promotion to master on 2026-11-17"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -295,7 +294,7 @@
     "Backport master DholeWeb 1.67.5 → 1.67.7: la edición de una QUO no agrega rubros de catálogo ajenos; los importes de una actualización con contexto sin cambios solo afectan los cargos persistidos",
     "Backport master DholeSystem/ecosistema 1.70.5 → 1.71.1: mantener versión global equivalente a DH-198 de develop, sin arrastrar funciones de releases no integrados en master"
   ],
-  "stagingValidation": "pending",
+  "stagingValidation": "CI Pricing Web passed. Staging Web deployment run 44187573454 succeeded: image build, bundle verification, web container health, /health OK. Authenticated quote browser check unavailable.",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
