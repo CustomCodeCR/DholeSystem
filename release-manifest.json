@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
+  "releaseId": "DH-20261117-PRICING-LCL-CARRIER-200",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.2",
-  "status": "approved-staging-verified-master-candidate",
+  "ecosystemVersion": "1.71.3",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
+  "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.2",
+      "version": "1.71.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
+      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.8",
+      "version": "1.67.9",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
+      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -174,13 +174,14 @@
     }
   ],
   "policyCheck": {
-    "status": "passed-pr-ci-and-staging",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-200: CI y staging deben comprobar cargos LCL sin naviera antes del merge master. Producción no autorizada.",
     "DH-199: post-production probe required: authenticated Hacienda POST must return application/json instead of 400 text/html, and existing GET/permissions must remain unchanged.",
     "DH-197: registrar CI y smoke autenticado real de Hacienda en staging; verificar POST JSON 200 y ausencia de respuesta HTML 400, y ejecutar smoke en producción después de master.",
     "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
@@ -282,21 +283,21 @@
     "DH-195: validate commercial sub-QUO A/B identities, grouped PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.67.6 → 1.67.7; DholeSystem/ecosistema 1.71.0 → 1.71.1",
-    "unitTests": "DholeWeb develop/master CI completadas con éxito, incluyendo regresión Pricing",
-    "build": "TypeScript/Vite Web CI y navegador/SSR completados con éxito",
-    "staging": "Deploy Dhole Web - Staging #44187573454 exitoso; imagen/bundle, contenedor y /health verificados",
-    "production": "Autorización expresa del usuario para master; prueba autenticada de QUO en navegador pendiente"
+    "semver": "Web 1.67.8 → 1.67.9, System/ecosystem 1.71.2 → 1.71.3",
+    "unitTests": "Web CI pending",
+    "build": "Web CI pending",
+    "staging": "Pending",
+    "production": "Not authorized for this release"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb 1.67.6 → 1.67.7: los rubros de edición de una QUO corresponden al snapshot de RateDetails; refrescar los precios no incorpora costos ajenos cuando ruta/proveedor/servicios permanecen iguales",
-    "DholeSystem 1.71.0 → 1.71.1: release coordinado maestro tras staging y autorización de promoción"
+    "Web 1.67.8 → 1.67.9: maritime LCL rejects naviera-specific costs regardless of API context, legacy relation or carrierName",
+    "System/ecosystem 1.71.2 → 1.71.3: coordinated version manifest with no other service code changes"
   ],
-  "stagingValidation": "deployed-web-health-success-authenticated-ui-smoke-pending",
+  "stagingValidation": "pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
