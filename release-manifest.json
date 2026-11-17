@@ -40,9 +40,9 @@
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.8.0",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261116-SRM-SUPPLIER-FINANCE-176-master-backport",
+      "version": "1.8.1",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -247,6 +247,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeConfigService",
     "DholeSystem"
   ],
   "changes": [
