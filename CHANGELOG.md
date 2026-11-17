@@ -1,3 +1,10 @@
+## [1.69.0] - 2026-11-17 (DH-185 · Primeras tablas de Operations)
+
+- MINOR: seis nuevas tablas operativas para vinculación de cotización, snapshot informativo de costos y proveedores, hitos, tareas, notas y auditoría.
+- Integridad mediante FK al expediente, índices de búsqueda, restricciones de moneda/prioridad, QUO principal único e idempotencia de snapshots.
+- DholeOperationsService 0.3.1 → 0.4.0; DholeSystem/ecosistema 1.68.0 → 1.69.0; versiones de los demás microservicios sin alteración.
+- Las migraciones son aditivas y se verifican en PostgreSQL real (18 tablas); no se eliminan datos existentes. No se conectan aún los snapshots con un consumidor de Pricing.
+
 ## [1.68.0] - 2026-11-17 (DH-184 · Gateway Operations, estados y base de datos)
 
 - MINOR: integración de DholeOperationsService con API Gateway `/api/operations` y el Hub SignalR `/hubs/operations`; health `/api/health/operations` consulta dependencia PostgreSQL/Redis vía `/ready`.

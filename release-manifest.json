@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-GATEWAY-DB-184",
+  "releaseId": "DH-20261117-OPS-FIRST-TABLES-185",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.68.0",
+  "ecosystemVersion": "1.69.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.68.0",
+      "version": "1.69.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -166,11 +166,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
       "developMergeSha": null,
-      "candidateSha": null
+      "candidateSha": "ae3d222ee23131b657d2bc317441fd714fe3f1cc"
     }
   ],
   "policyCheck": {
@@ -267,7 +267,8 @@
     "DH-183: CI con PostgreSQL 16 para migración, concurrencia IDTRA/pool, scopes Auth y staging pendiente de validar.",
     "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
     "DH-183: no promover a master sin validación de staging y autorización expresa.",
-    "DH-184: verify Operations database bootstrap on isolated staging PostgreSQL, API Gateway /api/health/operations returns dependency readiness and /hubs/operations preserves JWT/WSS. CI/staging before production."
+    "DH-184: verify Operations database bootstrap on isolated staging PostgreSQL, API Gateway /api/health/operations returns dependency readiness and /hubs/operations preserves JWT/WSS. CI/staging before production.",
+    "DH-185: real PostgreSQL migration and 18-table schema verified in staging; ensure unchanged 12 base tables, successful tests and /ready before production promotion. Production requires explicit authorization."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
@@ -277,8 +278,6 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeApiGateway",
-    "DholeWeb",
     "DholeOperationsService",
     "DholeSystem"
   ],
