@@ -278,11 +278,11 @@
     "DH-195: validate commercial sub-QUO A/B identities, combined PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
-    "unitTests": "Pending CI",
-    "build": "Pending CI",
-    "staging": "Pending",
-    "production": "Not authorized for DH-179"
+    "semver": "Web 1.67.5 → 1.67.6; DholeSystem/ecosystem 1.70.6 → 1.70.7",
+    "unitTests": "GitHub Actions pending",
+    "build": "GitHub Actions pending",
+    "staging": "Pending Pricing edit/view regression",
+    "production": "Not authorized for DH-197"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -292,7 +292,7 @@
     "DholeWeb 1.67.5→1.67.6: evitar catálogo automático en QUO existente; limitar actualización explícita de costos a rubros guardados si la ruta no cambia",
     "DholeSystem 1.70.6→1.70.7: manifest y release de Web"
   ],
-  "stagingValidation": "pending-collection-acl-and-real-user-realtime",
+  "stagingValidation": "pending-pricing-lcl-coloader-view-edit-catalog-refresh-check",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
