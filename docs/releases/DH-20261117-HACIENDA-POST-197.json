@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.71.0",
+  "releaseId": "DH-20261117-HACIENDA-POST-197",
+  "releaseType": "MINOR",
+  "createdAt": "2026-11-17",
+  "scope": "Authenticated Hacienda taxpayer POST with JSON payload in CRM, Web same-origin proxy header hardening and backward-compatible GET",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "from": "1.67.5",
+      "to": "1.67.6",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "component": "DholeCRMService",
+      "from": "1.34.2",
+      "to": "1.35.0",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.70.5 (master) / 1.70.6 (develop)",
+      "to": "1.71.0",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
+  "validation": {
+    "backendBuild": "pending",
+    "webBuild": "pending",
+    "tests": "pending",
+    "versionGate": "pending",
+    "staging": "verification-pending",
+    "productionDeploy": "authorized-by-user-pending-CI-and-staging"
+  },
+  "productionDeploymentAuthorized": true,
+  "rollback": "Revert the three DH-197 candidate commits if CI/staging fails. Legacy GET remains available; no schema or data migrations."
+}

@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195",
+  "releaseId": "DH-20261117-HACIENDA-POST-197",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.5",
+  "ecosystemVersion": "1.71.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-master",
+  "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.5",
+      "version": "1.71.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-master",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.4",
+      "version": "1.67.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-master",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -157,9 +157,9 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.34.2",
+      "version": "1.35.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192-develop",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -179,8 +179,9 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
+    "DH-197: registrar CI y smoke autenticado real de Hacienda en staging; verificar POST JSON 200 y ausencia de respuesta HTML 400, y ejecutar smoke en producción después de master.",
     "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
     "DH-193: verify unauthenticated same-origin Hacienda GET yields 401 (not 502) and authenticated real lookup returns verified legal name.",
     "DH-192: CI Web/CRM/System, verificación en staging con cuenta costarricense autorizada y errores reales 503/502/NetworkError antes de promover master.",
@@ -288,8 +289,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
