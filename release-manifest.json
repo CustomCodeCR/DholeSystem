@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
+  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.1",
-  "status": "approved-staging-verified-master-candidate",
+  "ecosystemVersion": "1.71.2",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
+  "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.1",
-      "mergeState": "develop-merged-staging-validated-master-candidate",
-      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
+      "version": "1.71.2",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
       "candidateSha": null,
-      "developMergeSha": "efb19522b2fc858f072509cdb4bb503db08cc268",
+      "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
@@ -45,11 +45,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.7",
-      "mergeState": "develop-merged-staging-validated-master-candidate",
-      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
+      "version": "1.67.8",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
       "candidateSha": null,
-      "developMergeSha": "708c2ad60079ce2561eb3898df7f2c12e3b1c94b",
+      "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
@@ -174,13 +174,14 @@
     }
   ],
   "policyCheck": {
-    "status": "ci-success-staging-health-success",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "approved-staging-verified-pre-master",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-199: CI y smoke con JWT largo en staging antes de publicar a producción.",
     "DH-197: registrar CI y smoke autenticado real de Hacienda en staging; verificar POST JSON 200 y ausencia de respuesta HTML 400, y ejecutar smoke en producción después de master.",
     "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
     "DH-193: verify unauthenticated same-origin Hacienda GET yields 401 (not 502) and authenticated real lookup returns verified legal name.",
