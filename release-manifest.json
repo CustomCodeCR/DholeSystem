@@ -283,8 +283,9 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholePricingService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
