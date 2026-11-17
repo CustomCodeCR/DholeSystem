@@ -1,3 +1,9 @@
+## [1.71.0] - 2026-11-17 (Hacienda CRM: consulta POST sin identificación en URL)
+
+- MINOR DH-20261117-HACIENDA-POST-197: CRM 1.34.2 → 1.35.0 incorpora POST JSON autenticado para consultas de Hacienda y conserva GET compatible; Web 1.67.5 → 1.67.6 utiliza el nuevo transporte y elimina cookies innecesarias del proxy Nginx.
+- El rechazo HTML 400 se diferencia de las validaciones fiscales del backend. No se modifican tablas, datos, permisos, Outbox ni SignalR.
+- Ecosistema 1.70.6 → 1.71.0. Release coordinado con ramas intermedias; tests, CI y smoke staging pendientes; producción no autorizada.
+
 ## [1.70.6] - 2026-11-17 (PDF: tiempo aproximado de tránsito)
 
 - PATCH DH-20261117-QUOTE-TRANSIT-APPROX-196: DholeReportsService 1.8.0 → 1.8.1. En PDF comerciales FCL/LCL individuales y agrupados, la etiqueta dice «Tiempo aproximado de tránsito» y la duración indica «38 días aprox.», sin alterar el tiempo persistido.
