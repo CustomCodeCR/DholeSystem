@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-GATEWAY-DB-184",
+  "releaseId": "DH-20261117-OPS-FIRST-TABLES-185",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.68.0",
+  "ecosystemVersion": "1.69.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -149,21 +149,21 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.68.0",
+      "version": "1.69.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-GATEWAY-DB-184-master",
+      "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
       "candidateSha": null,
-      "developMergeSha": "6e2d19f3d548956190b4a08ab2d412c467bba758",
+      "developMergeSha": "f9029849499ee8d72d1a54aabe01517166bdbf4d",
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-GATEWAY-DB-184-master",
-      "candidateSha": "891ce5f08a58807b3f310cde2e35b5e325990e9f",
-      "developMergeSha": "428040f32ba7323fbcda9da18dac67878438e4d9"
+      "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
+      "candidateSha": "6ff0d4ecb99f789bfe9259db988c721fc186becf",
+      "developMergeSha": "fb7e5a3d195a5348ac4d1bc78ffefd076c03a048"
     }
   ],
   "policyCheck": {
@@ -242,7 +242,8 @@
     "DH-179: ensure master CI success and staging functional checks for CRM account creation/edition, Hacienda and seller/credit scopes before production authorization.",
     "DH-183: verificar resultado del deploy Operations staging y smoke REST/SignalR antes de promocionar a master; sin evidencia no publicar.",
     "DH-183: extracción documental no ejecuta procesamiento IA; solo cola preparada hasta integraciones Storage/DataExtraction/Auth.",
-    "DH-184: staging verification Operations DB idempotency /ready, Gateway /api/health/operations, WSS /hubs/operations and Web statuses required before production."
+    "DH-184: staging verification Operations DB idempotency /ready, Gateway /api/health/operations, WSS /hubs/operations and Web statuses required before production.",
+    "DH-185: staging must verify 18 Operations tables and migration history, and CI must pass before master deployment. Do not bypass realtime F10 infrastructure gate."
   ],
   "validationEvidence": {
     "semver": "DholeWeb 1.64.0->1.65.0, DholeSystem/global 1.65.0->1.66.0",
@@ -252,8 +253,6 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeApiGateway",
-    "DholeWeb",
     "DholeOperationsService",
     "DholeSystem"
   ],
@@ -276,7 +275,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261117-OPS-GATEWAY-DB-184-master",
+  "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
