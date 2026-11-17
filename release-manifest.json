@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-HACIENDA-POST-197",
+  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.0",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.71.1",
+  "status": "approved-staging-verified-master-candidate",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
+  "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
+      "version": "1.71.1",
+      "mergeState": "develop-merged-staging-validated-master-candidate",
+      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
       "candidateSha": null,
-      "developMergeSha": null,
+      "developMergeSha": "efb19522b2fc858f072509cdb4bb503db08cc268",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
@@ -45,11 +45,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.6",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-master",
+      "version": "1.67.7",
+      "mergeState": "develop-merged-staging-validated-master-candidate",
+      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-master-v2",
       "candidateSha": null,
-      "developMergeSha": null,
+      "developMergeSha": "708c2ad60079ce2561eb3898df7f2c12e3b1c94b",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
@@ -174,11 +174,11 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "ci-success-staging-health-success",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "approved-staging-verified-pre-master",
   "productionDeploymentAuthorized": true,
   "blockers": [
     "DH-197: registrar CI y smoke autenticado real de Hacienda en staging; verificar POST JSON 200 y ausencia de respuesta HTML 400, y ejecutar smoke en producción después de master.",
@@ -281,24 +281,21 @@
     "DH-195: validate commercial sub-QUO A/B identities, grouped PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
-    "unitTests": "Pending CI",
-    "build": "Pending CI",
-    "staging": "Pending",
-    "production": "Not authorized for DH-179"
+    "semver": "Web 1.67.6 → 1.67.7; DholeSystem/ecosistema 1.71.0 → 1.71.1",
+    "unitTests": "DholeWeb develop/master CI completadas con éxito, incluyendo regresión Pricing",
+    "build": "TypeScript/Vite Web CI y navegador/SSR completados con éxito",
+    "staging": "Deploy Dhole Web - Staging #44187573454 exitoso; imagen/bundle, contenedor y /health verificados",
+    "production": "Autorización expresa del usuario para master; prueba autenticada de QUO en navegador pendiente"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
-    "CRM Hacienda taxpayer lookup is automatic, applies official legal name and identification type and shows activity/regime without inventing missing fields",
-    "CRM lead, account creation and account editing await pending Hacienda request, discarding stale country/identity responses",
-    "No Config/Auth/backend changes, keep REST, realtime, scoped commercial and credit workflows intact"
+    "DholeWeb 1.67.6 → 1.67.7: los rubros de edición de una QUO corresponden al snapshot de RateDetails; refrescar los precios no incorpora costos ajenos cuando ruta/proveedor/servicios permanecen iguales",
+    "DholeSystem 1.71.0 → 1.71.1: release coordinado maestro tras staging y autorización de promoción"
   ],
-  "stagingValidation": "pending-collection-acl-and-real-user-realtime",
+  "stagingValidation": "deployed-web-health-success-authenticated-ui-smoke-pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
