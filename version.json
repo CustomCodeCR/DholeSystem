@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.70.5",
-  "ecosystemVersion": "1.70.5",
-  "releaseId": "DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195",
+  "version": "1.71.1",
+  "ecosystemVersion": "1.71.1",
+  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195"
+  "businessReleaseId": "DH-20261117-PRICING-EDIT-ITEMS-198"
 }
