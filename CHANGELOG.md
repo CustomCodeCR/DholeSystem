@@ -1,3 +1,8 @@
+## [1.71.1] - 2026-11-17 (Backport Pricing: conservar cargos originales de la QUO)
+
+- PATCH DH-20261117-PRICING-EDIT-ITEMS-198: backport selectivo DholeWeb 1.67.5 → 1.67.7. Ver y Editar parten de RateDetails guardados; el refresco de costos para la misma ruta/proveedor no incorpora conceptos ajenos. Se conservan seguro, Manejos, HBL, recolectas, montos e impuestos.
+- DholeSystem/ecosistema master 1.70.5 → 1.71.1, alineado a la versión global del release develop. No incorpora de forma implícita los cambios de Hacienda aún no presentes en master. CI y staging obligatorios.
+
 ## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
 
 - PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas del RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
