@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
+  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.1",
+  "ecosystemVersion": "1.71.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198",
+  "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.1",
+      "version": "1.71.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.7",
+      "version": "1.67.8",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-develop",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -176,6 +176,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-199: verificar con JWT sintético de 11 KB que Nginx devuelve una respuesta del Gateway (no HTML 400) en staging/prod sin exponer credenciales reales.",
+    "DH-199: CI Web/System y staging deben pasar antes de promoción; no desactivar autenticación ni ampliar ilimitadamente encabezados.",
     "DH-198: verify Web CI, catalog refresh regression, and staging view/edit saved QUO before merging to master.",
     "DH-197: validar con un JWT real de CRM la petición POST sin identificación en URL y el nombre oficial devuelto en staging.",
     "DH-197: comprobar con Cloudflare/Nginx que desaparece el 400 text/html y que un 400 de validación conserva application/json.",
