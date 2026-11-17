@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-CONFIG-APT-DEPLOY-191",
+  "releaseId": "DH-20261117-CRM-HACIENDA-NETWORK-192",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.1",
+  "ecosystemVersion": "1.70.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,9 +15,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.1",
+      "version": "1.70.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-CONFIG-APT-DEPLOY-191-develop",
+      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,10 +45,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.0",
+      "version": "1.67.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-SRM-SUPPLIER-DELETE-190",
-      "candidateSha": "307919a1c073a5d829210878e9b11cb22408c5c6",
+      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192",
+      "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
       "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
@@ -157,9 +157,9 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.34.1",
+      "version": "1.34.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-ACTIVITY-COMPLETE-175-develop",
+      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -181,6 +181,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-192: CI Web/CRM/System, verificación en staging con cuenta costarricense autorizada y errores reales 503/502/NetworkError antes de promover master.",
     "DH-186: ejecutar pruebas SRM, Vue typecheck/build y validar selects/IBAN en navegador de staging",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
     "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
@@ -284,7 +285,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeConfigService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.2",
+  "releaseId": "DH-20261117-CRM-HACIENDA-NETWORK-192",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "scope": "CRM Hacienda connection resilience: bounded external calls, secure network/HTTP error messages and one safe frontend retry",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "from": "1.67.0",
+      "to": "1.67.1",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "component": "DholeCRMService",
+      "from": "1.33.1 (master) / 1.34.1 (develop)",
+      "to": "1.34.2",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.70.1",
+      "to": "1.70.2",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192",
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "versionGate": "pending",
+    "staging": "pending",
+    "productionDeploy": "not-authorized"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert the coordinated DH-192 branches/release without changing CRM data or schema; restore previous Web and CRM API container images if deployed."
+}
