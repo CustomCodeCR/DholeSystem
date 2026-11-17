@@ -1,3 +1,10 @@
+## [1.70.0] - 2026-11-17 (DH-190 · SRM: eliminación lógica de proveedores)
+
+- MINOR DH-20261117-SRM-SUPPLIER-DELETE-190: nuevo DELETE SRM autenticado con srm.supplier.archive, comprobación de relaciones antes de archivar y auditoría de la eliminación.
+- Modal de confirmación y botón eliminar en directorio y ficha de proveedores; validaciones y mensaje específico si existen contratos/evaluaciones vinculados.
+- Release coordinado: DholeWeb 1.66.1 → 1.67.0; DholeConfigService 1.8.1 → 1.9.0; DholeSystem y ecosistema 1.69.2 → 1.70.0; versiones restantes sin modificaciones.
+- Realtime de invalidación SRM por Outbox sin publicar datos bancarios; CI y validación de staging pendientes; producción no autorizada.
+
 ## [1.69.2] - 2026-11-17 (DH-187 · Operations esquema propio y mensajería framework)
 
 - PATCH coordinado sobre DH-186 SRM (1.69.1): registra Operations 0.4.1 y respeta todas las versiones y configuraciones del release SRM simultáneo.
