@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-SRM-HACIENDA-182",
+  "releaseId": "DH-20261116-OPS-FOUNDATION-183",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.3",
+  "ecosystemVersion": "1.67.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-develop",
+  "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.3",
+      "version": "1.67.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-develop",
+      "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -166,11 +166,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop",
+      "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
       "developMergeSha": null,
-      "candidateSha": null
+      "candidateSha": "e8fba2c315f578312b7501d3329129b4217ce64d"
     }
   ],
   "policyCheck": {
@@ -263,7 +263,10 @@
     "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: validate multiuser finalization synchronization, browser 1.62.7 stale client upgrade, CRM response, and Web build on staging before master.",
     "DH-178: verify SRM Hacienda autofill on valid Costa Rica tax IDs, stale response cancellation and correct tab focus before master promotion.",
     "DH-178: master must use a selective backport because master/develop branches are divergent; explicit production authorization required.",
-    "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy."
+    "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy.",
+    "DH-183: dotnet build/test de Operations, migración desde Outbox/Inbox existente, concurrencia IDTRA/pool, permisos Auth y staging pendientes.",
+    "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
+    "DH-183: no promover a master sin validación de staging y autorización expresa."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",

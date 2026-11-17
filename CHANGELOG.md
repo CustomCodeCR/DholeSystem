@@ -1,3 +1,11 @@
+## [1.67.0] - 2026-11-16 (Operations backend · núcleo de expedientes, pool, SignalR y documentos · DH-183)
+
+- MINOR: DholeOperationsService 0.2.0 → 0.3.0, DholeSystem/ecosistema 1.66.3 → 1.67.0; otros componentes conservan sus versiones.
+- Creación manual de expediente y consecutivo IDTRA con PostgreSQL transaccional; pool multiempresa con asignación ponderada, reglas de modalidad/ruta, concurrencia y primer estado Aperturas.
+- Metadatos de documentos y trabajos de extracción enlazados a Storage; DataExtraction/AI asíncrono sin completar hasta definir contrato interno autenticado.
+- SignalR restringido a grupos por expediente autorizado, replay REST saneado y migración compatible Outbox/Inbox; no publicación de datos comerciales.
+- Rama intermedia y PR a develop; CI, pruebas de regresión, migración y validación de staging pendientes. Sin autorización de despliegue a producción.
+
 ## [1.66.3] - 2026-11-16 (SRM: resiliencia de Hacienda y footer sin superposición · DH-182)
 
 - PATCH coordinado DH-20261116-SRM-HACIENDA-182: DholeWeb 1.65.2 → 1.65.3; DholeSystem/ecosistema 1.66.2 → 1.66.3. Versiones de Config y demás servicios se conservan.
