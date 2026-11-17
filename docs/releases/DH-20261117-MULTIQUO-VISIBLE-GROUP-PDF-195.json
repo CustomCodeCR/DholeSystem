@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.5",
+  "releaseId": "DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "scope": "Commercial MultiQUO 672-A/672-B shown individually and one combined PDF for downloads and outgoing seller/client emails",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "component": "DholePricingService",
+      "from": "1.22.3",
+      "to": "1.22.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "from": "1.67.3",
+      "to": "1.67.4"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.70.4",
+      "to": "1.70.5"
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-master",
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "versionGate": "pending",
+    "staging": "pending",
+    "quoteNumbers": "pending",
+    "groupPdfDownload": "pending",
+    "groupPdfEmail": "pending",
+    "productionDeploy": "not-authorized"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Rollback coordinated Pricing and Web images and metadata; preserve all quote history"
+}
