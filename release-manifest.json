@@ -1,68 +1,85 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-SRM-CREDIT-IBAN-186",
+  "releaseId": "DH-20261117-OPS-CONFIG-SCHEMA-187",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.1",
+  "ecosystemVersion": "1.69.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
+  "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-187-develop",
+  "expectedRepositories": 17,
+  "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "version": "1.69.2",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-187-develop",
+      "candidateSha": null,
+      "developMergeSha": null,
+      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
+    },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-GATEWAY-DB-184-master",
-      "candidateSha": "e766f4748b3bc3fda882c44ae2eb22527e0b4f06",
-      "developMergeSha": "7fa57caae0666e1b1b2916935e85c4494559ccc3"
+      "candidateSha": null,
+      "developMergeSha": null,
+      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.13.0",
-      "mergeState": "master-candidate-ci-pending",
+      "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "release/DH-20261116-SRM-SUPPLIER-FINANCE-176-master-backport"
+      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.66.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
+      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186",
       "candidateSha": null,
-      "developMergeSha": "42b6bf5bf52e77d253baeb103528283e3b112051",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-develop",
+      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -71,198 +88,213 @@
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
-      "developCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop"
+      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop",
+      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261115-DEPLOY-FASTPATH-146-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.7.0",
       "mergeState": "candidate-intermediate-only",
-      "developMergeSha": null,
       "candidateSha": null,
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport"
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.5.0",
       "mergeState": "candidate-intermediate-only",
+      "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
-      "candidateSha": null
+      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.33.1",
+      "version": "1.34.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-CRM-ACTIVITY-COMPLETE-175-master",
+      "candidateBranch": "fix/DH-20261116-CRM-ACTIVITY-COMPLETE-175-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
-      "repository": "CustomCodeCR/DholeSystem",
-      "component": "DholeSystem",
-      "version": "1.69.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
-      "candidateSha": null,
-      "developMergeSha": "24accc8d5864d8cc7f134939c9ec112edfe2da28",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
-    },
-    {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
-      "candidateSha": "6ff0d4ecb99f789bfe9259db988c721fc186becf",
-      "developMergeSha": "fb7e5a3d195a5348ac4d1bc78ffefd076c03a048"
+      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+      "developMergeSha": "77e1985e3f47c38e6fd72878209fc3326084e026",
+      "candidateSha": "77e1985e3f47c38e6fd72878209fc3326084e026"
     }
   ],
   "policyCheck": {
-    "status": "pending-master-ci",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DH-186: pruebas de CI Web/System completadas en develop; verificar staging y promover master solo con autorización de producción",
+    "DH-186: ejecutar pruebas SRM, Vue typecheck/build y validar selects/IBAN en navegador de staging",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
     "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
     "Despliegue de producción requiere autorización expresa y validación de staging",
     "DH-181: TypeScript build, SRM finance/IBAN tests, version gate and staging validation before master merge.",
     "DH-181: Validate Costa Rica, IBAN foreign-country formats, national non-IBAN account and bank-country changes in staging.",
     "No production deployment before CI, staging and explicit approval.",
-    "CI and regression tests for commercial terms parsing must pass",
-    "Staging must validate compiled Pricing wizard and previously saved terms",
-    "Promotion to master is gated by staging verification",
-    "Verify historical quote listing, CRM account authorization and linking in staging before production.",
+    "F6: Real staging WSS, two-instance connectivity, owner/ACL evidence pending",
+    "F7: 14 real resilience/chaos scenarios pending on staging",
+    "F8: Future-service registry/ACL/WSS enforcement evidence pending",
+    "Verify staging deployment, REST synchronization, idempotency, reconnect and rollback before master",
+    "F9: Gateway public HTTPS+WSS smoke hotfix requires staging verification; 403 root cause not proven",
+    "CRM-LEGACY-QUO-CATALOG: verify full catalog, account access, link integrity and post-link CRM route history in staging before master",
+    "Release 056: compile and test Auth, Notifications, Web, CI and full staging two-user WSS validation before develop/master.",
+    "Release 056: CRM Pricing and Config still require complete endpoint/view coverage audit.",
     "DH-20261110-PRICING-CRM-EXECUTIVE-059: Web typecheck, regression tests and staging CRM seller save before master.",
     "Production approval required; master auto-deploys on push.",
     "CRM account tax ID search: CI and staging proof required before master / production.",
+    "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066: compile, regression and staging tests required before master promotion; no direct production deploy.",
     "DH-20261110-PRICING-CRM-REQUEST-IDENTITY-067: run linked CRM seller identity tests, API tests, compile and staging for normal/modification requests before release promotion.",
-    "Verificar CI y staging del release 1.19.2 antes de fusionar producción.",
+    "DH-20261110-PRICING-MODIFICATION-CRM-OWNER-072: probar modificación LCL vinculada a CRM por ID, test y build antes de promoción a master.",
+    "No desplegar producción sin autorización expresa.",
+    "Validar el hotfix DH-20261110-PRICING-CRM-LEAD-REQUESTS-074 de prospectos CRM en solicitudes Pricing en staging antes de master.",
     "DH-20261110-CRM-GLOBAL-AGENDAS-076: verify Auth, CRM and Web CI, role/scope regression tests, and staging before promotion; no production authorization.",
     "DH-20261110-CRM-SELLERS-COMMITMENTS-078: CI, staging and protected production approval pending",
-    "CRM category-scope release DH-082: validate authorized/unauthorized category writes and lead conversion in staging.",
+    "DH-20261110-CRM-ACCOUNT-CATEGORY-SCOPE-082: CI + staging negative authorization and Web rendering tests must pass before master merge.",
+    "Production deployment requires express authorization (master auto-deploys).",
+    "DH-20261111-CRM-WORKSPACE-TABS-084: CI, prueba funcional en staging y autorización expresa de producción antes de integrar a master.",
     "DH-20261111-CRM-WORKSPACE-TABS-084: E2E de navegación y verificación post-despliegue de master pendiente.",
-    "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: confirm staging migration, institutional seller access and account conversion before master deploy",
+    "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085: CI, staging Storage preview/upload and CRM account authorization are pending; production approval required.",
+    "DH-20261111-CRM-AGREEMENT-LIST-085: CI, build, staging y verificación de recordatorios antes de promoción a master.",
+    "DH-20261111-CRM-LEAD-INSTITUTIONAL-087: verify migration, Auth scope denial, institutional seller label and lead-to-account conversion in staging before promotion",
     "DH-20261111-CRM-INSTITUTIONAL-SELLER-VISIBILITY-088: validar en staging visibilidad por defecto y selección de Castro Fallas en Cuentas, Prospectos y reasignación; comprobar persistencia, migración y permisos antes de producción.",
+    "DH-20261111-PRICING-QUO-LINKED-104: build, unit/regression tests, version gate, PostgreSQL migration and staging verification pending; do not merge master before production authorization.",
     "DH-20261112-PRICING-CLIENT-QUO-PICKER-112: CI/version gate, Web build, account/lead quote list and staging end-to-end required before master.",
     "DH-113: Web CI, typecheck/build and staging linked accepted-QUO number smoke before production.",
+    "DH-20261112-PRICING-ACCEPTANCE-MAIL-113: staging/SMTP verification of QUO-609, confirmation of business email delivery, and production authorization pending.",
     "DH-20261112-PRICING-RESEND-CHOICE-114: verify PDF generation and Notifications delivery for QUO-00000-000609 in staging before production.",
-    "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: stage and verify Dynamics schema plus read-only QUO record reconciliation before any retry; no production deployment approved.",
-    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: SMTP delivery and live Outbox/Notifications business verification of QUO-00000-000609 still pending after deployment; release to master explicitly authorized by user.",
+    "DH-20261112-DYNAMICS-IDTRA-FIRST10-117: dotnet tests, CI version gate, staging Dynamics schema and existing QUO reconciliation before retry of QUO-00000-000552; production requires explicit authorization.",
+    "DH-20261112-PRICING-OUTBOX-CORRELATION-115: CI, staging Outbox persistence and SMTP delivery verification of QUO-00000-000609 pending. Production deployment requires explicit user authorization.",
+    "DH-20261112-PRICING-LTL-CURRENCY-VALUE-118: Web regression/build CI and staging LTL currency check before production",
     "DH-20261112-PRICING-CRM-TARIFF-119: verificar que el prospecto TARIFARIO pertenezca a Castro Fallas en pricing-client-options, probar restauración de borradores y creación de maestro en staging antes de integrar master.",
     "DholeWeb 1.43.6 y DholeSystem 1.43.7: requeridas compilación, pruebas de regresión y CI de versionamiento; producción no autorizada.",
     "DH-20261112-PRICING-CRM-LEAD-OWNER-120: verificar en staging que el prospecto TARIFARIO devuelve isCastroFallasExecutive=true y executiveName=Castro Fallas en GET /pricing-client-options; prueba con borrador creado antes del arreglo.",
     "CRM 1.25.2: pruebas y compilación .NET10, smoke ACL institucional y maestro Pricing antes de promover a producción.",
     "DH-20261112-PRICING-TARIFF-CRM-121: staging debe validar aplicación de tarifario maestro a cuenta y prospecto CRM, ejecutivo institucional Castro Fallas, ClientAccountId/ClientLeadId en la QUO y visibilidad en historial CRM.",
     "Web 1.44.0 + Pricing 1.17.0: ejecutar CI y build, prueba de autorización backend, Outbox/realtime sin regresiones; staging debe pasar antes de producción.",
-    "DH-20261112-PRICING-TRANSIT-LABEL-122: CI, regresión y smoke en staging antes de promover a master; producción auto-despliega en master.",
+    "DH-20261112-PRICING-TRANSIT-LABEL-122: validar CI Web y System, smoke de pantalla 6 en staging para las 3 modalidades, despliegue master solo tras verificación.",
     "DH-20261112-PRICING-TARIFF-MODAL-123: validar en staging que el DhModal Aplicar tarifario sea opaco, lg, responsive, dropdown CRM sin recortes y QUO hija funcional.",
     "Ejecutar CI build TypeScript y regresión del selector CRM; no promover a master antes de pasar staging y aprobación de producción.",
-    "DH-124: verificar build/test .NET CRM, enlaces de correo en staging, permisos de la página de detalle y evento Redis/Notifications; no fusionar master sin validación y autorización de producción.",
-    "DH-126: Ops staging DB, API/Workers health, realtime validation and explicit production authorization required before master merge.",
-    "DH-127: wait for Operations staging deployment, DB health and realtime smoke before master.",
-    "DH-128: CI and Operations staging health must pass before this master release.",
-    "DH-20261113-CRM-DRAFT-RECOVERY-130: tests CRM draft, Vue typecheck and build in CI; stage browser smoke: recovery modal above agenda, Restore/Later/Discard, reload and tenant-user isolation; production requires explicit approval.",
-    "DH-20261113-CRM-AGENDA-RETURN-132: master backport pending CI on target PR, source develop 1.48.1 CI/staging passed; user expressly authorized master merge.",
-    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: CI/typecheck, staging and explicit authorization are required before master/prod.",
+    "DH-124: probar CRM unit/build y SMTP link en staging antes de master y producción.",
+    "DH-126 Operations: require CI build/tests, PostgreSQL dhole_operations provisioning, staging deployment/health, Redis consumer replay and explicit production authorization before master integration.",
+    "DH-127: Operations staging deployment, DB readiness, Redis/SignalR recovery verification must pass before master.",
+    "DH-128: validate Operations .NET CI and staging, then promote to master; production health check is required.",
+    "DH-20261113-CRM-DRAFT-RECOVERY-130: Web tests and Vue build in CI; stage browser smoke Restore/Later/Discard, no modal overlap and reload persistence; prod requires explicit approval.",
+    "DH-20261113-CRM-AGENDA-RETURN-132: CI Web regression, Vue build, version gate, staging browser smoke; previous Web 1.48.0 bitacora release must remain intact. Master auto-deploys, no authorization granted.",
+    "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136: Web typecheck, CRM regression tests, staging access and permission checks before merge to master; production release requires explicit approval.",
     "DH-137: CI, controles ACL por vendedor y prueba del reporte total y exportación Excel/PDF en staging antes de master.",
     "DH-20261113-CRM-BITACORA-AGREEMENT-TASKS-138: CI, tests Web/CRM, prueba de notas sin agenda, tareas seleccionadas y avisos en staging antes de master. Producción pendiente de autorización.",
-    "DH-20261113-PRICING-OWN-LCL-139: validar CI Web, manifiesto y staging Pricing/Web antes de fusionar en master.",
+    "DH-20261113-PRICING-OWN-LCL-139: pruebas LCL propio CFS por CBM cobrable, persistencia Manejos y ausencia de extras, compilación Web/Pricing y CI antes de merge a develop.",
+    "DH-20261113-PRICING-OWN-LCL-139: validar staging tras develop; master/prod bloqueados hasta autorización de producción.",
     "DH-20261113-PRICING-OWN-LCL-140: ejecutar regresión de QUO histórica Shandong #56, validar CFS por CBM cobrable, recálculo POL, recolecta y eliminación de rubros no matriciales; compilar Web y verificar staging antes de master.",
     "DH-20261113-CRM-BITACORA-DIRECT-TASKS-PARENT-141: verificar compilación Web/CRM, FK y despliegue staging, relaciones históricas con sufijo y permisos antes de master.",
-    "DH-141: verificar pruebas y staging de Pricing/Web antes de master.",
-    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: validar CI de master y estado del deploy de infraestructura staging; garantizar sin diffs no relacionados entre develop/master.",
-    "DH-20261114-CRM-CALENDAR-SPANS-142: requires merged develop, CI success, completed staging verification and explicit production deployment approval before master",
-    "DH-20261115-CPU-DOC-EVIDENCE-144: production authorized by user 2026-11-15; still requires real staging evidence before master merge. Target 99.9% cannot be guaranteed without labeled document corpus.",
-    "DH-20261115-QUEUE-CONTROL-145: staging AI, DataExtraction, Web verified 2026-11-15; System pending. Production promotion explicitly authorized by user, PR CI and production workflows must pass.",
+    "Release 141: CI Pricing/Web, staging, cantidad CFS y totales comercial correctos antes de master.",
+    "DH-20261114-CRM-RECORD-FOLLOWUPS-142: pruebas de compilación, casos de regresión, ACL real y smoke staging pendientes; master no autorizado.",
+    "DH-20261114-CRM-CALENDAR-SPANS-142: validate CI, migrations, existing CRM flows and staging before master promotion (auto production deploy)",
+    "DH-20261115-CPU-DOC-EVIDENCE-144: 99.9% exactitud no está certificada; requiere corpus etiquetado BL/HBL/MBL/AWB/Invoice/Packing List/Manifiesto, métricas por campo, prueba de OCR CPU y revisión humana.",
+    "DH-20261115-CPU-DOC-EVIDENCE-144: CI AI/DataExtraction/System, staging de correo+OCR+documentos, verificación de versionado global y aprobación expresa antes de master (master auto-despliega producción).",
+    "DH-20261115-QUEUE-CONTROL-145: requieren build/test del API y Vue, permisos de acceso y reintento, verificación en staging; no autorizado master ni producción.",
     "DH-20261115-DEPLOY-FASTPATH-146: CI de 3 repos, staging AI/DataExtraction y verificación de producción requeridos antes de declarar release completo. Despliegue a producción requiere autorización explícita.",
-    "DH-20261116-API-PRICING-IDENTITY-167: Staging Gateway/Pricing deploy+smoke and authorizations must be verified before production promotion.",
-    "DH-20261116-GATEWAY-DEPLOY-DNS-168: Gateway staging must validate clone helper and CI before master release. Persistent DNS requires runner-host resolver repair.",
+    "DH-20261116-API-PRICING-IDENTITY-167: CI .NET Gateway/Pricing + negative authorization tests, staging POST with published API Key and idempotency are required before production deployment.",
+    "DH-20261116-GATEWAY-DEPLOY-DNS-168: CI, staging runner clone retry tests and deploy smoke must pass before master. Persistent DNS failures require host-level resolver remediation.",
     "DH-20261116-CRM-FOLLOWUPS-CREATE-171: CI, frontend build, CRM scoped account/lead checks and staging before master.",
     "DH-20261116-OWN-LCL-QUO-CBM-172: compile Pricing and Web, run own LCL linked QUO regression tests and staging REST/UI smoke (fractional physical CBM, 1 CBM minimum, Miami without artificial floor), verify no changes to existing cost/capacity logic before master.",
     "DH-20261116-PRICING-CRM-EDIT-HYDRATION-173: execute Web CRM picker regression tests and Vue typecheck/build; verify linked and historic unlinked QUOs in staging before master.",
     "Master is a production auto-deploy target; no production deployment authorized for DH-20261116-PRICING-CRM-EDIT-HYDRATION-173.",
-    "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: verify Web CRM tests, compile and staging before release promotion; user requests master.",
+    "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174: run Web regression/tests, version gate, CI and staging with user clock skew before master; production approval required.",
     "DH-20261116-CRM-ACTIVITY-COMPLETE-175: pass CI (.NET and Web), validate outcome catalog and server-time completion on staging, then promote coordinated release to master",
-    "DH-176: dedicated bank API requires a persistent 32-byte DHOLE_SRM_BANK_KEY_BASE64 secret in Config deployment environment; do not treat 503 as payment data loss.",
-    "DH-176: verify finance scopes and encrypted bank account readback in production before enabling payment workflows; no bank data auto-migration from legacy catalogs.",
-    "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: multiuser staging checks and versions required before master deployment.",
-    "DH-178: final staging Hacienda verification and explicit production deployment authorization required before master merge.",
-    "DH-179: ensure master CI success and staging functional checks for CRM account creation/edition, Hacienda and seller/credit scopes before production authorization.",
-    "DH-183: verificar resultado del deploy Operations staging y smoke REST/SignalR antes de promocionar a master; sin evidencia no publicar.",
-    "DH-183: extracción documental no ejecuta procesamiento IA; solo cola preparada hasta integraciones Storage/DataExtraction/Auth.",
-    "DH-184: staging verification Operations DB idempotency /ready, Gateway /api/health/operations, WSS /hubs/operations and Web statuses required before production.",
-    "DH-185: staging must verify 18 Operations tables and migration history, and CI must pass before master deployment. Do not bypass realtime F10 infrastructure gate."
+    "DH-176: .NET 10 and Vue TypeScript build/tests, SRM scope 403 tests, bank AES-GCM roundtrip, schema migration and key provisioning in staging required before master.",
+    "DH-176: Hacienda API integration and rate limiting must be smoke-tested on staging; do not push to master until staging evidence and explicit production authorization.",
+    "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: validate multiuser finalization synchronization, browser 1.62.7 stale client upgrade, CRM response, and Web build on staging before master.",
+    "DH-178: verify SRM Hacienda autofill on valid Costa Rica tax IDs, stale response cancellation and correct tab focus before master promotion.",
+    "DH-178: master must use a selective backport because master/develop branches are divergent; explicit production authorization required.",
+    "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy.",
+    "DH-183: CI con PostgreSQL 16 para migración, concurrencia IDTRA/pool, scopes Auth y staging pendiente de validar.",
+    "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
+    "DH-183: no promover a master sin validación de staging y autorización expresa.",
+    "DH-184: verify Operations database bootstrap on isolated staging PostgreSQL, API Gateway /api/health/operations returns dependency readiness and /hubs/operations preserves JWT/WSS. CI/staging before production.",
+    "DH-185: real PostgreSQL migration and 18-table schema verified in staging; ensure unchanged 12 base tables, successful tests and /ready before production promotion. Production requires explicit authorization.",
+    "DH-187: after concurrent SRM global 1.69.1, this Operations-only corrective global release is 1.69.2. Confirm 18 Operations schema tables plus preserved framework inbox/outbox in staging before any master promotion."
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.64.0->1.65.0, DholeSystem/global 1.65.0->1.66.0",
-    "unitTests": "Develop CI successful; master CI pending",
-    "build": "Develop CI successful; master CI pending",
-    "staging": "Develop Web deployment pending verification",
+    "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
+    "unitTests": "Pending CI",
+    "build": "Pending CI",
+    "staging": "Pending",
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService",
+    "DholeSystem"
   ],
   "changes": [
-    "CRM creation/edition now use SRM-style functional tabs without stacking all sections",
-    "CRM Hacienda lookup automatically applies returned legal name and taxpayer ID type; supports retry and race protection",
-    "Account and lead save wait pending tax lookup; no migrations or modification to Auth/Config, REST/realtime preserved",
-    "Selective master backport preserving unrelated production CRM changes and scoped identity/seller permissions"
+    "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
+    "CRM Hacienda taxpayer lookup is automatic, applies official legal name and identification type and shows activity/regime without inventing missing fields",
+    "CRM lead, account creation and account editing await pending Hacienda request, discarding stale country/identity responses",
+    "No Config/Auth/backend changes, keep REST, realtime, scoped commercial and credit workflows intact"
   ],
+  "stagingValidation": "pending-collection-acl-and-real-user-realtime",
+  "f6F7F8": {
+    "status": "deferred-to-staging-by-explicit-user-authorization",
+    "formalGatesPassed": false,
+    "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
+  },
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
     "from": {
@@ -276,8 +308,31 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
-  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "realtimeReleaseComponents": [
+    "DholeSystem",
+    "DholeApiGateway"
+  ],
+  "stagingCatalogPilot": {
+    "enabledOnlyInStaging": true,
+    "scope": "config.catalog-list,pricing.cost-list,pricing.rate-list,crm.accountlist,crm.leadlist",
+    "hub": "/api/notifications/hub",
+    "catalogSignalGuid": "00000000-0000-4000-8000-000000000042",
+    "authorizedWsEndToEndValidated": false,
+    "productionApproved": false,
+    "notes": "Read-only owner ACL per collection; CRM visibility filtered by user. Two-session E2E for Config, Pricing and CRM pending; other entities require additional producer/list bindings."
+  },
+  "stagingRealtimeAudit": {
+    "checks": [
+      "public index bundle matches staging container",
+      "anonymous public and internal SignalR negotiate return authorization denial",
+      "Config/Notifications runtime feature flags on staging only",
+      "Notifications Config consumer group exists in staging Redis"
+    ],
+    "status": "initial-runtime-audit-pass-2026-11-10-readonly",
+    "productionDeploymentAuthorized": false,
+    "authenticatedCrossUserDeliveryVerified": false,
+    "streamConsumerLagPendingVerification": true
+  },
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -285,14 +340,62 @@
       "DholePricingService": "1.9.0",
       "DholeSystem": "1.16.0"
     },
-    "status": "candidate-master-staging-pending"
+    "status": "candidate-develop-staging-pending"
+  },
+  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "stagingCollectionRealtime": {
+    "scope": "crm account/lead and pricing rate/cost",
+    "hub": "/api/notifications/hub",
+    "ownerAclRoutes": [
+      "/api/crm/accounts/realtime-access",
+      "/api/crm/leads/realtime-access",
+      "/api/pricing/rates/realtime-access",
+      "/api/pricing/costs/realtime-access"
+    ],
+    "metadataOnly": true,
+    "durableOutbox": true,
+    "featureFlags": "staging only",
+    "browserTwoUsersVerified": false,
+    "productionDeploymentAuthorized": false,
+    "notes": "Owner ACL 404 corrected. Additional domain resources require per-module realtime producer and screen bindings; user-data ACL and dirty-form protection remain mandatory."
   },
   "historicalQuoteLinkSyncRelease": {
     "releaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
     "web": "1.16.1",
     "pricing": "1.9.2",
     "ecosystem": "1.16.2",
-    "status": "candidate-master-staging-pending"
+    "status": "candidate-staging-pending"
+  },
+  "criticalRealtime": {
+    "releaseId": "DH-20261109-RT-CRITICAL-056",
+    "scope": [
+      "CRM",
+      "Pricing",
+      "Auth",
+      "Config",
+      "Notifications"
+    ],
+    "hub": "/api/notifications/hub",
+    "changedComponents": [
+      "DholeAuthService",
+      "DholeNotificationsService",
+      "DholeWeb"
+    ],
+    "existingComponentsReused": [
+      "DholeCRMService",
+      "DholePricingService",
+      "DholeConfigService",
+      "DholeApiGateway"
+    ],
+    "authSecurityEvents": "auth.security.changed.v1",
+    "authSessionRevocationTargeting": true,
+    "authImmediateLogoutBrowserImplemented": true,
+    "authenticatedWssVerified": false,
+    "endToEndTwoUsersVerified": false,
+    "crmPricingAllScreensVerified": false,
+    "notificationRecoveryVerified": false,
+    "testsPassed": false,
+    "productionDeploymentAuthorized": false
   },
   "crmPricingLinkedQuoteRelease": {
     "releaseId": "DH-20261110-CRM-QUO-LIVE-057",
@@ -310,7 +413,7 @@
       "DholePricingService": "1.9.4",
       "DholeSystem": "1.17.2"
     },
-    "status": "candidate-master-staging-pending"
+    "status": "candidate-staging-pending"
   },
   "crmExecutivePayloadFixRelease": {
     "releaseId": "DH-20261110-PRICING-CRM-EXECUTIVE-059",
@@ -321,7 +424,7 @@
     },
     "status": "candidate-ci-staging-pending",
     "productionDeploymentAuthorized": false,
-    "branch": "master",
+    "branch": "develop",
     "requiresStaging": [
       "Pricing save SPOT with CRM account + Auth Vendedor owner",
       "Pricing edit existing quote with selected CRM account owner",
@@ -333,11 +436,11 @@
   "crmQuoteStatusLocalizationRelease": {
     "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
     "components": {
-      "DholeWeb": "1.17.5",
-      "DholeSystem": "1.17.5"
+      "DholeWeb": "1.17.8",
+      "DholeSystem": "1.17.8"
     },
     "status": "candidate-staging-pending",
-    "scope": "CRM-linked quote status label localization, no backend changes"
+    "scope": "Display status enum translations in CRM without changing Pricing server state"
   },
   "crmAccountTaxIdSearchRelease": {
     "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
@@ -349,7 +452,7 @@
     ],
     "versions": {
       "DholeSystem": {
-        "previous": "1.17.5",
+        "previous": "1.17.8",
         "new": "1.17.9"
       },
       "DholeWeb": {
@@ -357,8 +460,8 @@
         "new": "1.17.9"
       },
       "DholeCRMService": {
-        "previous": "1.4.0",
-        "new": "1.4.1"
+        "previous": "1.7.2",
+        "new": "1.7.3"
       }
     },
     "mergeState": "intermediate-only",
@@ -372,53 +475,80 @@
       "DholeWeb": "1.17.10",
       "DholeSystem": "1.17.10"
     },
-    "status": "candidate-master-staging-pending",
+    "status": "candidate-develop-staging-pending",
+    "scope": "Agenda and followups client and commercial executive names; frontend only",
     "productionAuthorized": false
+  },
+  "crmActivityFullDetailRelease": {
+    "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-066",
+    "version": "1.17.11",
+    "components": {
+      "DholeWeb": "1.17.11",
+      "DholeCRMService": "1.7.4",
+      "DholeSystem": "1.17.11"
+    },
+    "schemaMigration": false,
+    "restEndpoints": [
+      "/api/crm/activities/{id}/commitments",
+      "/api/crm/followups/{id}/parent-activity"
+    ],
+    "status": "candidate-ci-staging-pending"
   },
   "pricingLegacyTariffVisibilityRelease": {
     "releaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067",
+    "pricingRepository": "CustomCodeCR/DholePricingService",
     "pricingFrom": "1.9.10",
     "pricingTo": "1.9.11",
-    "scope": "CRM > Cuentas > Cotizaciones > históricas por vincular",
-    "behavior": "Excluye cliente histórico que contiene TARIFARIO; filtro previo a Count/Skip/Take",
-    "productionPatchAuthorizedByUser": true,
-    "staging": "pending"
+    "scope": "CRM / Cuentas / Cotizaciones: excluir clientes históricos que contienen TARIFARIO únicamente del catálogo sin vincular",
+    "behavior": "Filtro en SQL antes de Count/Skip/Take; no elimina datos ni altera tarifas vinculadas",
+    "staging": "pending",
+    "productionAuthorized": false
   },
-  "crmActivityFullDetailRelease": {
-    "releaseId": "DH-20261110-CRM-ACTIVITY-FULL-DETAIL-068",
-    "version": "1.17.14",
+  "crmAdminCalendarRelease": {
+    "releaseId": "DH-20261110-CRM-ADMIN-CALENDAR-069",
+    "ecosystemVersion": "1.18.0",
     "components": {
-      "DholeWeb": "1.17.14",
-      "DholeCRMService": "1.4.3",
-      "DholeSystem": "1.17.14"
+      "DholeSystem": "1.18.0",
+      "DholeWeb": "1.18.0",
+      "DholeCRMService": "1.8.0",
+      "DholeAuthService": "1.6.0"
     },
-    "status": "develop-staging-validated-master-ci-pending",
-    "migration": false
+    "status": "candidate-ci-staging-pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmAdminCalendarNavigationRelease": {
+    "releaseId": "DH-20261110-CRM-ADMIN-CALENDAR-NAV-071",
+    "version": "1.18.1",
+    "components": {
+      "DholeWeb": "1.18.1",
+      "DholeSystem": "1.18.1"
+    },
+    "baseRelease": "DH-20261110-CRM-ADMIN-CALENDAR-069",
+    "description": "Admin CRM activity and followup navigation, retaining Auth/CRM API permissions",
+    "status": "candidate-ci-staging-pending"
   },
   "crmHistoricalActivityRelease": {
     "releaseId": "DH-20261110-CRM-HISTORICAL-ACTIVITIES-075",
-    "version": "1.17.20",
+    "version": "1.19.4",
     "components": {
-      "DholeWeb": "1.17.20",
-      "DholeSystem": "1.17.20",
-      "DholeCRMService": "1.4.6"
+      "DholeWeb": "1.19.4",
+      "DholeSystem": "1.19.4",
+      "DholeCRMService": "1.9.1"
     },
     "schemaMigration": false,
-    "status": "candidate-staging-verified-pending-master"
+    "status": "candidate-staging-queue"
   },
   "previousRealtimeReleaseId": "rt-20261107-01",
-  "expectedRepositories": 17,
-  "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "crmUnifiedAgendaRelease": {
     "releaseId": "DH-20261110-CRM-AGENDA-UNIFIED-077",
     "ecosystemVersion": "1.20.0",
     "components": {
-      "DholeWeb": "1.20.0",
-      "DholeCRMService": "1.5.0",
       "DholeSystem": "1.20.0",
-      "DholeAuthService": "1.2.5"
+      "DholeWeb": "1.20.0",
+      "DholeCRMService": "1.9.2",
+      "DholeAuthService": "1.6.3"
     },
-    "status": "candidate-master-ci-staging-pending",
+    "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
   },
@@ -437,12 +567,36 @@
     ],
     "status": "candidate"
   },
-  "crmContactsRolesMultiselectRelease": {
-    "releaseId": "DH-20261110-CRM-CONTACTS-ROLE-MULTISELECT-079",
+  "crmLeadParityRelease": {
+    "releaseId": "DH-20261110-CRM-LEAD-PARITY-079",
+    "ecosystemVersion": "1.20.2",
     "components": {
+      "DholeWeb": {
+        "from": "1.20.1",
+        "to": "1.20.2"
+      },
+      "DholeSystem": {
+        "from": "1.20.1",
+        "to": "1.20.2"
+      }
+    },
+    "servicesUnchanged": [
+      "DholeCRMService",
+      "DholePricingService",
+      "DholeAuthService"
+    ],
+    "status": "candidate-ci-staging-pending",
+    "productionDeploymentAuthorized": false,
+    "schemaMigration": false,
+    "realtimeContractChange": false
+  },
+  "crmContactsSellersRelease": {
+    "releaseId": "DH-20261110-CRM-CONTACTS-SELLERS-078",
+    "ecosystemVersion": "1.21.0",
+    "versions": {
       "DholeWeb": "1.21.0",
-      "DholeCRMService": "1.6.0",
-      "DholeAuthService": "1.3.0",
+      "DholeCRMService": "1.10.0",
+      "DholeAuthService": "1.7.0",
       "DholeSystem": "1.21.0"
     },
     "status": "candidate-ci-staging-pending",
@@ -452,31 +606,25 @@
   "crmSpecificProceduresRelease": {
     "releaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
     "ecosystemVersion": "1.22.0",
-    "components": {
+    "componentVersions": {
       "DholeCRMService": {
-        "previous": "1.6.0",
-        "new": "1.11.0"
+        "from": "1.10.0",
+        "to": "1.11.0"
       },
       "DholeWeb": {
-        "previous": "1.21.1",
-        "new": "1.22.0"
+        "from": "1.21.0",
+        "to": "1.22.0"
       },
       "DholeSystem": {
-        "previous": "1.21.0",
-        "new": "1.22.0"
+        "from": "1.21.0",
+        "to": "1.22.0"
       }
     },
-    "staging": {
-      "CRM": "https://github.com/CustomCodeCR/DholeCRMService/actions/runs/42952863981",
-      "Web": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/42952869368",
-      "System": "https://github.com/CustomCodeCR/DholeSystem/actions/runs/42952877352",
-      "status": "passed"
-    },
+    "feature": "Multiple account-specific procedures (name, detail, assigned team), account-scoped REST CRUD and responsive accordion",
     "schemaMigration": "20261111030000_AddAccountSpecificProcedures",
-    "scope": "Multiple CRM account-specific procedures; name, detail and team; isolated master backport",
-    "realtime": "Includes opt-in CRM durable Outbox/Redis Streams producer and worker matching staging; realtime flags remain gated until coordinated activation",
-    "status": "candidate-master-ci-pending",
-    "productionDeploymentAuthorized": true
+    "realtime": "Reuse crm.account.updated.v1 with existing transactional Outbox/SignalR when enabled",
+    "status": "candidate-intermediate-ci-staging-pending",
+    "productionDeploymentAuthorized": false
   },
   "crmLeadQuoParityRelease": {
     "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
@@ -495,10 +643,10 @@
         "to": "1.23.0"
       }
     },
+    "preservesConcurrentRelease": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
     "schemaMigration": false,
     "realtimeCompatible": true,
-    "stagingDeploymentValidated": true,
-    "productionDeploymentAuthorized": true
+    "productionAuthorized": false
   },
   "openingAttachmentsRelease": {
     "releaseId": "DH-20261111-PRICING-OPENING-ATTACHMENTS-084",
@@ -506,13 +654,17 @@
     "versions": {
       "DholeSystem": "1.25.2",
       "DholePricingService": "1.10.1",
-      "DholeNotificationsService": "1.3.1"
+      "DholeNotificationsService": "1.6.1"
     },
-    "scope": "Opening emails with commercial PDF, linked seller request supports and final quotation Storage files, deduplicated",
-    "ci": "pending",
-    "staging": "pending",
+    "scope": "Opening emails contain the quote PDF plus all linked request supports and final quotation files from Storage; deduplicated by file ID",
+    "validation": {
+      "pricingBuildTests": "passed",
+      "notificationsBuildTests": "passed",
+      "semver": "passed",
+      "staging": "pending"
+    },
     "productionDeploymentAuthorized": false,
-    "rollback": "Revert PRs; no migration"
+    "rollback": "Revert coordinated pull requests; no database migration"
   },
   "crmSpecificProcedureAttachmentsRelease": {
     "releaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
@@ -522,9 +674,8 @@
       "DholeCRMService": "1.15.0",
       "DholeWeb": "1.27.0"
     },
-    "source": "isolated-master-backport",
-    "staging": "develop-deploys-passed",
-    "businessProductionDeploymentAuthorized": true
+    "approval": "ci-and-staging-pending",
+    "productionDeploymentAuthorized": false
   },
   "crmAgreementListRelease": {
     "releaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
@@ -533,20 +684,19 @@
       "DholeWeb": {
         "previous": "1.27.0",
         "new": "1.27.1",
-        "commit": "627e97f55f9e0b223b90f5d25afd9b40e3129bde"
+        "commit": "d380fdefa7c9f35105d9ae4948cbb06d1cabf38e"
       },
       "DholeSystem": {
         "previous": "1.27.0",
         "new": "1.27.1"
       }
     },
-    "scope": "Excluir compromisos detectados individualmente conservando el texto íntegro de acuerdos",
-    "status": "candidate-master-ci-pending",
+    "scope": "Omisión/restauración de compromisos sugeridos sin alterar texto Acuerdos alcanzados",
+    "status": "candidate-ci-staging-pending",
     "schemaMigration": false,
     "restCompatibility": true,
     "signalRCompatibility": true,
-    "productionAuthorizedForThisPatchByUser": true,
-    "stagingWebWorkflow": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/43039352093"
+    "productionDeploymentAuthorized": false
   },
   "crmDraftRecoveryRelease": {
     "releaseId": "DH-20261111-CRM-DRAFT-RECOVERY-109",
@@ -573,42 +723,14 @@
   },
   "crmDraftModalRelease": {
     "releaseId": "DH-20261112-CRM-DRAFT-DHMODAL-111",
-    "version": "1.39.1",
-    "frontendVersion": "1.39.1",
+    "version": "1.40.1",
+    "frontendVersion": "1.40.1",
     "crmVersion": "1.24.1",
     "component": "CrmDraftRecoveryModal",
     "scope": "CRM drafts",
     "preservesDeferredDrafts": true,
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
-  },
-  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
-  "dynamicsQuote613619Release": {
-    "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
-    "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
-    "components": {
-      "DholeDynamicsConnectorService": {
-        "from": "1.2.1",
-        "to": "1.4.1"
-      },
-      "DholePricingService": {
-        "from": "1.16.2",
-        "to": "1.16.3"
-      },
-      "DholeWeb": {
-        "from": "1.43.4",
-        "to": "1.43.5"
-      },
-      "DholeSystem": {
-        "from": "1.43.5",
-        "to": "1.43.6"
-      }
-    },
-    "branch": "hotfix/quo-613-619-master-20261112",
-    "stagingCI": "passed-on-develop; master-backport-ci-pending",
-    "safeReconciliationOnly": true,
-    "noAutomaticRetry": true,
-    "productionReleaseRequested": true
   },
   "operationsBootstrapRelease": {
     "releaseId": "DH-20261113-OPERATIONS-NO-FLAGS-128",
@@ -621,23 +743,15 @@
   },
   "crmAgendaReturnRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-RETURN-132",
-    "webFrom": "1.47.4",
-    "webTo": "1.47.5",
+    "webFrom": "1.48.0",
+    "webTo": "1.48.1",
     "systemFrom": "1.47.4",
-    "systemTo": "1.47.5",
-    "legacyActivitiesListHidden": true,
+    "systemTo": "1.48.1",
     "returnPath": "/crm/followups",
+    "preservesCommercialLog": true,
     "fromAccountPreserved": true,
     "backendUnchanged": true,
-    "staging": "Web and infrastructure staging deploy successful; authenticated browser click verification not run",
-    "productionDeploymentAuthorized": true,
-    "productionApproval": "Explicit user request subelo a master 2026-11-13",
-    "backportMaster": true,
-    "sourceDevelopWebVersion": "1.48.1",
-    "sourceDevelopSystemVersion": "1.48.1",
-    "masterWebVersion": "1.47.5",
-    "masterSystemVersion": "1.47.5",
-    "excludedConcurrentRelease": "Dhole Web 1.48.0 Bitácora comercial"
+    "productionDeploymentAuthorized": false
   },
   "productionDeployment": {
     "authorizedOn": "2026-11-13",
@@ -659,7 +773,7 @@
     "crmTo": "1.28.4",
     "systemFrom": "1.48.4",
     "systemTo": "1.49.0",
-    "sourceBranch": "feature/crm-agenda-client-seller-notes-136-master",
+    "sourceBranch": "feature/crm-agenda-client-seller-notes-136-develop",
     "backendContractUnchanged": true,
     "productionDeploymentAuthorized": false,
     "staging": "pending"
@@ -673,10 +787,11 @@
     "backendContractUnchanged": true,
     "restCompatible": true,
     "realtimeExistingTransport": true,
-    "ci": "passed-on-develop-candidate",
+    "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
+  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -690,10 +805,28 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
+  "crmBitacoraServerClockRelease": {
+    "id": "DH-20261116-CRM-BITACORA-SERVER-CLOCK-174",
+    "webVersion": "1.62.7",
+    "ecosystemVersion": "1.63.9",
+    "scope": [
+      "DholeWeb",
+      "DholeSystem"
+    ],
+    "semantics": "Actual occurrence of unscheduled bitacora records is decided by CRM UTC server clock; historical date inference remains server-side.",
+    "expectedValidation": [
+      "npm run version:check",
+      "npm run test:crm",
+      "npm run build",
+      "Staging two users plus browser clock skew",
+      "No regression in future agreement followup reminders"
+    ],
+    "deploy": "No production deployment authorization"
+  },
   "crmActivityCompleteRelease": {
     "id": "DH-20261116-CRM-ACTIVITY-COMPLETE-175",
     "versions": {
-      "DholeCRMService": "1.33.1",
+      "DholeCRMService": "1.34.1",
       "DholeWeb": "1.62.8",
       "DholeSystem": "1.63.10"
     },
@@ -711,9 +844,10 @@
     "backend": "DholeCRMService remains unchanged",
     "expectedTests": [
       "node --test tests/crmActivityFullDetail.test.mjs",
-      "Web CI",
-      "staging multiuser"
+      "Web version gate and build",
+      "Staging: complete activity from second tab, return to first; reject old client then GET confirms persisted status",
+      "Staging: unfinished activity retains error and does not show false completion"
     ],
-    "deployStatus": "pending"
+    "deployStatus": "Not deployed; master gated"
   }
 }
