@@ -1,3 +1,9 @@
+## [1.71.2] - 2026-11-17 (Hacienda: Nginx 400 Request Header Or Cookie Too Large)
+
+- PATCH DH-20261117-HACIENDA-HEADER-BUFFERS-199: DholeWeb 1.67.7 → 1.67.8 corrige rechazo de JWT de 9.5 KB en el servidor Nginx antes del Gateway; buffers acotados (16 KB inicial, 4 × 32 KB para cabeceras grandes).
+- Conserva autenticación JWT, scopes, API REST, SignalR, Outbox/Inbox, seguridad y bases de datos. Se reprodujo localmente el 400 con Authorization sintética de 11 KB y se verificó 204 tras ampliar los buffers.
+- DholeSystem/ecosistema 1.71.1 → 1.71.2. Validar CI y staging con respuestas autenticadas antes de promover master.
+
 ## [1.71.1] - 2026-11-17 (Pricing: evitar rubros ajenos a la QUO en edición)
 
 - PATCH DH-20261117-PRICING-EDIT-ITEMS-198: DholeWeb 1.67.6 → 1.67.7 conserva el snapshot de costos guardados al visualizar y editar. Actualizar precios para el mismo contexto no incorpora costos de rutas, proveedores ni servicios no cotizados. Sin cambios de base de datos, REST, SignalR, Outbox/Inbox ni permissions.
