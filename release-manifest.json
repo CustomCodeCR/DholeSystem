@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "releaseId": "DH-20261116-PRICING-PANAMA-OVERWEIGHT-180",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.0",
-  "status": "candidate-master-ci-production-authorization-pending",
+  "ecosystemVersion": "1.66.1",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.65.0",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179-master",
+      "version": "1.65.1",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -149,9 +149,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.0",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179-master",
+      "version": "1.66.1",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -265,7 +265,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-CRM-COMPLETION-STATE-SYNC-177-master-current",
+  "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",

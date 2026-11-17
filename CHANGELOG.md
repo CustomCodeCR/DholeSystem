@@ -1,3 +1,9 @@
+## [1.66.1] - 2026-11-16 (Multimodal Panamá: sobrepeso calculado por excedente · DH-180)
+
+- PATCH coordinado DH-20261116-PRICING-PANAMA-OVERWEIGHT-180: DholeWeb 1.65.0 → 1.65.1; DholeSystem y ecosistema 1.66.0 → 1.66.1; sin cambios de contrato en Pricing/REST/SignalR.
+- El umbral FCL Panamá → Costa Rica es 19.000 kg por contenedor y solo el exceso se valora mediante los cuatro costos maestros de LTL Panamá → Costa Rica: Flete Terrestre, Bunker, Gastos y Custodia + Marchamo.
+- Validación de pesos y cargos, eliminación de duplicados, fail-closed con catálogos incompletos. Candidatos intermedios para develop/master; CI y staging pendientes; no desplegar a producción sin autorización.
+
 ## [1.66.0] - 2026-11-16 · CRM/SRM y Hacienda unificados (DH-179 master candidate)
 
 - MINOR coordinado: Web 1.65.0, DholeSystem 1.66.0. Pestañas horizontales funcionales SRM para alta y edición de CRM, manteniendo contactos, direcciones, perfil comercial y permisos de crédito.
