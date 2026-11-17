@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.70.1",
-  "ecosystemVersion": "1.70.1",
-  "releaseId": "DH-20261117-CONFIG-APT-DEPLOY-191",
+  "version": "1.70.2",
+  "ecosystemVersion": "1.70.2",
+  "releaseId": "DH-20261117-CRM-HACIENDA-NETWORK-192",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-CONFIG-APT-DEPLOY-191"
+  "businessReleaseId": "DH-20261117-CRM-HACIENDA-NETWORK-192"
 }
