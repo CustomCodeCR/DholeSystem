@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.6",
+  "releaseId": "DH-20261117-QUOTE-TRANSIT-APPROX-196",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "scope": "Commercial quotation PDF approximate transit heading and transit-day suffix",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeReportsService",
+      "component": "DholeReportsService",
+      "from": "1.8.0",
+      "to": "1.8.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.70.5",
+      "to": "1.70.6"
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-QUOTE-TRANSIT-APPROX-196",
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "versionGate": "pending",
+    "staging": "pending",
+    "productionDeploy": "not-authorized"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert Reports image, restore stored transit labels after customization review; revert release metadata"
+}

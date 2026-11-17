@@ -1,3 +1,9 @@
+## [1.70.6] - 2026-11-17 (PDF: tiempo aproximado de tránsito)
+
+- PATCH DH-20261117-QUOTE-TRANSIT-APPROX-196: backport coordinado de Reports 1.8.1 a master sin promover cambios ajenos no validados de develop. En PDF FCL/LCL y agrupados: «Tiempo aproximado de tránsito» y «38 días aprox.».
+- Migración idempotente en PostgreSQL; los tiempos persistidos, APIs y SignalR no cambian.
+- DholeSystem/ecosistema 1.70.5 → 1.70.6; release candidate sujeto a CI y staging. Sin autorización de despliegue a producción.
+
 ## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
 
 - PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas del RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
