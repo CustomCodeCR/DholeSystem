@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FIRST-TABLES-185",
+  "releaseId": "DH-20261117-OPS-CONFIG-SCHEMA-186",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.0",
+  "ecosystemVersion": "1.69.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-186-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.69.0",
+      "version": "1.69.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-186-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -166,11 +166,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-186-develop",
       "developMergeSha": null,
-      "candidateSha": "971be2ea836b77e40c9e33a7f5341b2bddf29b0b"
+      "candidateSha": null
     }
   ],
   "policyCheck": {
@@ -268,7 +268,8 @@
     "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
     "DH-183: no promover a master sin validación de staging y autorización expresa.",
     "DH-184: verify Operations database bootstrap on isolated staging PostgreSQL, API Gateway /api/health/operations returns dependency readiness and /hubs/operations preserves JWT/WSS. CI/staging before production.",
-    "DH-185: real PostgreSQL migration and 18-table schema verified in staging; ensure unchanged 12 base tables, successful tests and /ready before production promotion. Production requires explicit authorization."
+    "DH-185: real PostgreSQL migration and 18-table schema verified in staging; ensure unchanged 12 base tables, successful tests and /ready before production promotion. Production requires explicit authorization.",
+    "DH-186: never promote to production unless staging SQL confirms 18 tables under operations schema, canonical framework outbox/inbox with preserved rows, and passing CI. Existing production messages must not be discarded."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",

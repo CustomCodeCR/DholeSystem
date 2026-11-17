@@ -1,3 +1,9 @@
+## [1.69.1] - 2026-11-17 (DH-186 · Corregir esquema Operations basado en Config)
+
+- PATCH: DholeOperationsService usa el esquema `operations` para sus 18 tablas, respetando el patrón de `config` en DholeConfigService.
+- Migration SQL PostgreSQL transaccional mueve tablas existentes con ALTER TABLE SET SCHEMA y adapta `outbox_messages` / `inbox_messages` a las entidades/mapeos oficiales de CustomCodeFramework, preservando eventos y payload del replay.
+- Versión de Operations 0.4.0 → 0.4.1; DholeSystem/ecosistema 1.69.0 → 1.69.1; sin cambios en otros servicios. Verificación de esquema y pruebas sobre datos legacy antes de aprobar la promoción.
+
 ## [1.69.0] - 2026-11-17 (DH-185 · Primeras tablas de Operations)
 
 - MINOR: seis nuevas tablas operativas para vinculación de cotización, snapshot informativo de costos y proveedores, hitos, tareas, notas y auditoría.
