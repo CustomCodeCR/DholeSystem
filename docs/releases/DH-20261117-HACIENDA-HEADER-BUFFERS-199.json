@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.71.2",
+  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "scope": "Fix Nginx 400 Request Header Or Cookie Too Large on same-origin CRM/SRM Hacienda due to scoped JWT Authorization exceeding 8 KB.",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "from": "1.67.7",
+      "to": "1.67.8",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.71.1",
+      "to": "1.71.2",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-master",
+  "validation": {
+    "nginxHeaderReproduction": "passed: local nginx HTTP 400 with 11KB synthetic Authorization before; HTTP 204 with same request after",
+    "build": "passed (Web develop/master CI)",
+    "tests": "passed (Web develop/master CI)",
+    "versionGate": "passed (Web and System)",
+    "staging": "passed: Web staging deploy run 44189966469",
+    "productionDeploy": "authorized by user; awaiting master merge and post-production HTTP smoke"
+  },
+  "productionDeploymentAuthorized": true,
+  "rollback": "Revert DholeWeb and System version 1.71.2/1.67.8 and restore prior Nginx configuration; no DB/schema changes."
+}
