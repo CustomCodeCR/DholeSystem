@@ -1,3 +1,9 @@
+## [1.69.2] - 2026-11-17 (DH-187 · Operations esquema propio y mensajería framework)
+
+- PATCH coordinado sobre DH-186 SRM (1.69.1): registra Operations 0.4.1 y respeta todas las versiones y configuraciones del release SRM simultáneo.
+- DholeOperationsService migra sus 18 tablas de public al esquema operations sin pérdida de información y aplica las entidades y mapeos Inbox/Outbox del mismo CustomCodeFramework que usa DholeConfigService.
+- PostgreSQL conserva los eventos, índices y claves foráneas; las pruebas de migración de datos heredados aprobaron 4 tests unitarios y 6 integraciones. No se autoriza producción sin validar staging.
+
 ## [1.69.1] - 2026-11-17 (DH-186 · SRM: selects de crédito e IBAN)
 
 - PATCH coordinado: DholeWeb 1.66.0 → 1.66.1; DholeSystem/ecosistema 1.69.0 → 1.69.1. Los otros componentes conservan su versión registrada.
