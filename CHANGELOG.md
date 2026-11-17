@@ -1,3 +1,9 @@
+## [1.69.1] - 2026-11-17 (DH-186 · SRM: selects de crédito e IBAN)
+
+- PATCH coordinado: DholeWeb 1.66.0 → 1.66.1; DholeSystem/ecosistema 1.69.0 → 1.69.1. Los otros componentes conservan su versión registrada.
+- Los selects de cobertura de crédito no se superponen con campos posteriores. Las cuentas bancarias explican la causa de un IBAN inválido sin omitir checksum MOD-97, cambiar contratos REST/realtime o permisos.
+- Candidato de release desde ramas intermedias; CI, pruebas en staging y autorización explícita antes de producción.
+
 ## [1.69.0] - 2026-11-17 (DH-185 · Primeras tablas de Operations)
 
 - MINOR: seis nuevas tablas operativas para vinculación de cotización, snapshot informativo de costos y proveedores, hitos, tareas, notas y auditoría.
