@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FIRST-TABLES-185",
+  "releaseId": "DH-20261117-SRM-CREDIT-IBAN-186",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.0",
+  "ecosystemVersion": "1.69.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+  "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.69.0",
+      "version": "1.69.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
+      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.66.0",
+      "version": "1.66.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
+      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -181,6 +181,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-186: ejecutar pruebas SRM, Vue typecheck/build y validar selects/IBAN en navegador de staging",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
     "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
     "Despliegue de producción requiere autorización expresa y validación de staging",
@@ -278,8 +279,8 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeOperationsService",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
