@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.0",
+  "releaseId": "DH-20261117-SRM-SUPPLIER-DELETE-190",
+  "releaseType": "MINOR",
+  "createdAt": "2026-11-17",
+  "scope": "Eliminar proveedores SRM con confirmación, autorización srm.supplier.archive, bloqueo por referencias en contratos y evaluaciones, eliminación lógica auditada y realtime mediante outbox existente.",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeConfigService",
+      "component": "DholeConfigService",
+      "from": "1.8.1",
+      "to": "1.9.0",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "from": "1.66.1",
+      "to": "1.67.0",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "releaseBranch": "feature/DH-20261117-SRM-SUPPLIER-DELETE-190",
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "developCI": "pending",
+    "staging": "pending",
+    "masterCI": "pending"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revertir el release coordinado (Web y Config). No se borra físicamente ningún registro; restauración de proveedores archivados requiere auditoría y una operación explícita.",
+  "componentsNotModified": "Conservan sus versiones anteriores; no se modifican componentes ajenos."
+}
