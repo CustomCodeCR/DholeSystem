@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-SRM-IBAN-181",
+  "releaseId": "DH-20261116-SRM-HACIENDA-182",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.2",
+  "ecosystemVersion": "1.66.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.65.2",
+      "version": "1.65.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
+      "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -149,9 +149,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.2",
+      "version": "1.66.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
+      "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -174,6 +174,9 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
+    "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
+    "Despliegue de producción requiere autorización expresa y validación de staging",
     "DH-181: TypeScript build, SRM finance/IBAN tests, version gate and staging validation before master merge.",
     "DH-181: Validate Costa Rica, IBAN foreign-country formats, national non-IBAN account and bank-country changes in staging.",
     "No production deployment before CI, staging and explicit approval.",
@@ -247,7 +250,6 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeConfigService",
     "DholeSystem"
   ],
   "changes": [
@@ -269,7 +271,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
+  "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",

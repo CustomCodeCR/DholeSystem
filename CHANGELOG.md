@@ -1,3 +1,9 @@
+## [1.66.3] - 2026-11-16 (SRM: resiliencia de Hacienda y footer sin superposición · DH-182)
+
+- PATCH coordinado DH-20261116-SRM-HACIENDA-182: DholeWeb 1.65.2 → 1.65.3; DholeSystem/ecosistema 1.66.2 → 1.66.3. Versiones de Config y demás servicios se conservan.
+- SRM soporta un reintento único de errores de transporte, mensajes sin rutas ni identificaciones, no reintenta errores de autorización o límites; formulario de proveedores mantiene sus campos visibles con acciones fuera del scroll del drawer.
+- Sin cambios en API, scopes, credenciales bancarias, realtime o contratos REST. CI, pruebas en staging y autorización expresa de producción requeridas.
+
 ## [1.66.2] - 2026-11-16 (SRM: validación IBAN por país · DH-181)
 
 - PATCH coordinado DH-20261116-SRM-IBAN-181: DholeWeb 1.65.1 → 1.65.2, DholeConfigService 1.8.0 → 1.8.1 y DholeSystem/ecosistema 1.66.1 → 1.66.2; los demás microservicios mantienen sus versiones.

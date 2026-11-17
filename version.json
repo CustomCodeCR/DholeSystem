@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.66.2",
-  "ecosystemVersion": "1.66.2",
-  "releaseId": "DH-20261116-SRM-IBAN-181",
+  "version": "1.66.3",
+  "ecosystemVersion": "1.66.3",
+  "releaseId": "DH-20261116-SRM-HACIENDA-182",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261116-SRM-IBAN-181"
+  "businessReleaseId": "DH-20261116-SRM-HACIENDA-182"
 }
