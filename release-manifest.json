@@ -170,7 +170,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-OPS-SCHEMA-ALIGN-186-develop",
       "developMergeSha": null,
-      "candidateSha": null
+      "candidateSha": "58fd68b810cb5f2fcd5a99e8d2bb865975b8bbb9"
     }
   ],
   "policyCheck": {
