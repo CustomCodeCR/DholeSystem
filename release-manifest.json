@@ -286,13 +286,11 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeReportsService"
+    "DholeWeb"
   ],
   "changes": [
-    "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
-    "CRM Hacienda taxpayer lookup is automatic, applies official legal name and identification type and shows activity/regime without inventing missing fields",
-    "CRM lead, account creation and account editing await pending Hacienda request, discarding stale country/identity responses",
-    "No Config/Auth/backend changes, keep REST, realtime, scoped commercial and credit workflows intact"
+    "DholeWeb 1.67.5→1.67.6: evitar catálogo automático en QUO existente; limitar actualización explícita de costos a rubros guardados si la ruta no cambia",
+    "DholeSystem 1.70.6→1.70.7: manifest y release de Web"
   ],
   "stagingValidation": "pending-collection-acl-and-real-user-realtime",
   "f6F7F8": {
