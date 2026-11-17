@@ -12,7 +12,7 @@
       "component": "DholeConfigService",
       "from": "1.8.1",
       "to": "1.9.0",
-      "developPr": null,
+      "developPr": 35,
       "masterPr": null
     },
     {
@@ -20,7 +20,7 @@
       "component": "DholeWeb",
       "from": "1.66.1",
       "to": "1.67.0",
-      "developPr": null,
+      "developPr": 665,
       "masterPr": null
     }
   ],
@@ -34,5 +34,6 @@
   },
   "productionDeploymentAuthorized": false,
   "rollback": "Revertir el release coordinado (Web y Config). No se borra físicamente ningún registro; restauración de proveedores archivados requiere auditoría y una operación explícita.",
-  "componentsNotModified": "Conservan sus versiones anteriores; no se modifican componentes ajenos."
+  "componentsNotModified": "Conservan sus versiones anteriores; no se modifican componentes ajenos.",
+  "centralManifestPr": 444
 }
