@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.6",
+  "releaseId": "DH-20261117-OWN-LCL-INSURANCE-196",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "masterFrom": "1.67.4",
+      "developFrom": "1.67.4",
+      "to": "1.67.5",
+      "developPr": 675,
+      "masterPr": 677,
+      "developMergeSha": "dc95a1c35a8b9ec11dd19e28e1892c9bbb12c1a7",
+      "masterMergeSha": "aa9cefcfa35c4f489f891769305e3e0f6946f5bc"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "component": "DholePricingService",
+      "masterFrom": "1.22.4",
+      "developFrom": "1.22.4",
+      "to": "1.22.5",
+      "developPr": 249,
+      "masterPr": 250,
+      "developMergeSha": "bea08fa626e1b029fe5813b8fcdddf087b6a35e4",
+      "masterMergeSha": "49af4a118063f94f645ade6eebc0a56f11b7d5b2"
+    }
+  ],
+  "scope": "LCL propio: persistir Seguro de carga y Manejos en hidratación, edición, actualización de matriz y guardado; proteger contra borrados implícitos en Pricing",
+  "validation": {
+    "developWebCi": "success",
+    "developPricingCi": "success",
+    "staging": "success",
+    "masterCi": "success",
+    "stagingRuns": {
+      "DholeWeb": 44120060854,
+      "DholePricingService": 44120047222
+    },
+    "production": "in-progress",
+    "productionRuns": {
+      "DholeWeb": 44121264289,
+      "DholePricingService": 44121257084
+    }
+  },
+  "productionDeploymentAuthorized": true,
+  "releaseStatus": "master-merged-production-deployment-in-progress",
+  "note": "Staging y CI aprobados; PRs master fusionados tras autorización expresa en chat. DholeSystem main no modificado."
+}
