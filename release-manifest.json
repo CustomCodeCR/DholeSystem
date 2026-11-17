@@ -170,7 +170,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-OPS-FIRST-TABLES-185-develop",
       "developMergeSha": null,
-      "candidateSha": "ae3d222ee23131b657d2bc317441fd714fe3f1cc"
+      "candidateSha": "971be2ea836b77e40c9e33a7f5341b2bddf29b0b"
     }
   ],
   "policyCheck": {
