@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.70.0",
-  "ecosystemVersion": "1.70.0",
-  "releaseId": "DH-20261117-SRM-SUPPLIER-DELETE-190",
+  "version": "1.70.1",
+  "ecosystemVersion": "1.70.1",
+  "releaseId": "DH-20261117-CONFIG-APT-DEPLOY-191",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-SRM-SUPPLIER-DELETE-190"
+  "businessReleaseId": "DH-20261117-CONFIG-APT-DEPLOY-191"
 }
