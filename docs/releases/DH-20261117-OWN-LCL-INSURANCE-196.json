@@ -13,7 +13,8 @@
       "developFrom": "1.67.4",
       "to": "1.67.5",
       "developPr": 675,
-      "masterPr": 677
+      "masterPr": 677,
+      "developMergeSha": "dc95a1c35a8b9ec11dd19e28e1892c9bbb12c1a7"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -22,15 +23,20 @@
       "developFrom": "1.22.4",
       "to": "1.22.5",
       "developPr": 249,
-      "masterPr": 250
+      "masterPr": 250,
+      "developMergeSha": "bea08fa626e1b029fe5813b8fcdddf087b6a35e4"
     }
   ],
   "scope": "LCL propio: persistir Seguro de carga y Manejos en hidratación, edición, actualización de matriz y guardado; proteger contra borrados implícitos en Pricing",
   "validation": {
-    "developWebCi": "retesting",
-    "developPricingCi": "retesting",
-    "staging": "pending",
-    "masterCi": "retesting"
+    "developWebCi": "success",
+    "developPricingCi": "success",
+    "staging": "deploy-in-progress",
+    "masterCi": "success",
+    "stagingRuns": {
+      "DholeWeb": 44120060854,
+      "DholePricingService": 44120047222
+    }
   },
   "productionDeploymentAuthorized": false,
   "releaseStatus": "candidate-ci-and-staging-pending",
