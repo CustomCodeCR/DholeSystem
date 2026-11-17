@@ -276,7 +276,7 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeOperationsService",
     "DholeSystem"
   ],
   "changes": [
