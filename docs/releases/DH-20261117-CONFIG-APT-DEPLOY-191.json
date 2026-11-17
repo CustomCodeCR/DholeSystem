@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.1",
+  "releaseId": "DH-20261117-CONFIG-APT-DEPLOY-191",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "scope": "Fix self-hosted Config production Docker build hanging at Debian apt-get: IPv4, bounded APT/update, Docker host network, plain logs and supersede stuck production run",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeConfigService",
+      "component": "DholeConfigService",
+      "from": "1.9.0",
+      "to": "1.9.1",
+      "developPr": null,
+      "masterPr": null
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "from": "1.70.0",
+      "to": "1.70.1",
+      "developPr": null,
+      "masterPr": null
+    }
+  ],
+  "releaseBranch": "fix/DH-20261117-CONFIG-APT-DEPLOY-191-develop",
+  "validation": {
+    "build": "pending",
+    "tests": "pending",
+    "versionGate": "pending",
+    "staging": "pending",
+    "productionDeploy": "pending"
+  },
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert only this Config Docker/workflow hotfix and restore prior version metadata. Existing runtime containers remain unaffected until a new image is fully built.",
+  "componentsNotModified": "DholeWeb remains 1.67.0; other 14 components retain current versions."
+}
