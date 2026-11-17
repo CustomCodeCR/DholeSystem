@@ -170,7 +170,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
       "developMergeSha": null,
-      "candidateSha": "e8fba2c315f578312b7501d3329129b4217ce64d"
+      "candidateSha": "d8f4e2c76d7c0c17af930862f53f9502374373c0"
     }
   ],
   "policyCheck": {
@@ -264,7 +264,7 @@
     "DH-178: verify SRM Hacienda autofill on valid Costa Rica tax IDs, stale response cancellation and correct tab focus before master promotion.",
     "DH-178: master must use a selective backport because master/develop branches are divergent; explicit production authorization required.",
     "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy.",
-    "DH-183: dotnet build/test de Operations, migración desde Outbox/Inbox existente, concurrencia IDTRA/pool, permisos Auth y staging pendientes.",
+    "DH-183: CI con PostgreSQL 16 para migración, concurrencia IDTRA/pool, scopes Auth y staging pendiente de validar.",
     "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
     "DH-183: no promover a master sin validación de staging y autorización expresa."
   ],
