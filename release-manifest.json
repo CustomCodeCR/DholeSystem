@@ -285,7 +285,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeConfigService"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
