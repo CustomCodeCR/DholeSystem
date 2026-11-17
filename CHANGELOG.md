@@ -1,3 +1,8 @@
+## [1.71.3] - 2026-11-17 (Pricing LCL: no cargar rubros de navieras)
+
+- PATCH DH-20261117-PRICING-LCL-CARRIER-200: Web 1.67.8 → 1.67.9 agrega control universal de cargos navieros para LCL marítimo; evita costos MAERSK y de otras navieras, aun con IDs legacy y respuesta contextual incorrecta.
+- System/ecosistema 1.71.2 → 1.71.3; no altera REST, SignalR, Outbox/Inbox ni otros servicios. Revisar CI y staging antes de master; producción no autorizada.
+
 ## [1.71.2] - 2026-11-17 (Hacienda: Nginx 400 Request Header Or Cookie Too Large)
 
 - PATCH DH-20261117-HACIENDA-HEADER-BUFFERS-199: DholeWeb 1.67.7 → 1.67.8 corrige rechazo de JWT de 9.5 KB en el servidor Nginx antes del Gateway; buffers acotados (16 KB inicial, 4 × 32 KB para cabeceras grandes).
