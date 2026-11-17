@@ -85,6 +85,11 @@ services:
       Gateway__Routes__15__StripPrefix: "false"
       Gateway__Routes__15__TimeoutSeconds: "120"
       Gateway__HealthChecks__operations: "${OPERATIONS_HTTP_URL:-http://operations-api:8080}"
+      # SignalR negotiations, WebSocket upgrades and JWT reach Operations unchanged.
+      Gateway__Routes__16__Prefix: "/hubs/operations"
+      Gateway__Routes__16__Destination: "${OPERATIONS_HTTP_URL:-http://operations-api:8080}"
+      Gateway__Routes__16__StripPrefix: "false"
+      Gateway__Routes__16__TimeoutSeconds: "120"
     networks:
       - dhole-runtime
 

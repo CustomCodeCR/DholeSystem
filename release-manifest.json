@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-OPS-FOUNDATION-183",
+  "releaseId": "DH-20261117-OPS-GATEWAY-DB-184",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.67.0",
+  "ecosystemVersion": "1.68.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.67.0",
+      "version": "1.68.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -26,11 +26,11 @@
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.10.3",
+      "version": "1.11.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateSha": "ac068a74c32c5fc58dc7939b9f0803382f9addc5",
+      "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261116-GATEWAY-DEPLOY-DNS-168-develop"
+      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.65.3",
+      "version": "1.66.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -166,11 +166,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261116-OPS-FOUNDATION-183-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop",
       "developMergeSha": null,
-      "candidateSha": "c832c09193ff309f34874b3522c5ddcb2c53100e"
+      "candidateSha": null
     }
   ],
   "policyCheck": {
@@ -266,7 +266,8 @@
     "DH-179: verify account creation/edition, lead Hacienda auto-lookup, tabs, credit scopes and async responses on staging; explicit new authorization before master production deploy.",
     "DH-183: CI con PostgreSQL 16 para migración, concurrencia IDTRA/pool, scopes Auth y staging pendiente de validar.",
     "DH-183: verificar contrato service-to-service Storage→DataExtraction; la extracción no se ejecuta aún.",
-    "DH-183: no promover a master sin validación de staging y autorización expresa."
+    "DH-183: no promover a master sin validación de staging y autorización expresa.",
+    "DH-184: verify Operations database bootstrap on isolated staging PostgreSQL, API Gateway /api/health/operations returns dependency readiness and /hubs/operations preserves JWT/WSS. CI/staging before production."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
@@ -276,6 +277,8 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
+    "DholeApiGateway",
+    "DholeWeb",
     "DholeOperationsService",
     "DholeSystem"
   ],
