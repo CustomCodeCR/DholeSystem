@@ -1,3 +1,9 @@
+## [1.70.0] - 2026-11-17 (DH-190 · SRM: eliminación lógica de proveedores)
+
+- MINOR DH-20261117-SRM-SUPPLIER-DELETE-190: acción Eliminar en el directorio SRM con confirmación y autorización srm.supplier.archive, bloqueo de proveedores con referencias, auditoría y realtime por Outbox.
+- Backport selectivo desde develop: DholeWeb 1.66.1 → 1.67.0; DholeConfigService 1.8.1 → 1.9.0; DholeSystem/ecosistema 1.69.2 → 1.70.0. Los otros 14 componentes mantienen sus versiones de master.
+- El usuario autoriza promover a master; se exige verificar CI y despliegue postintegración. La eliminación sigue siendo lógica y conserva cuentas bancarias cifradas e historial.
+
 ## [1.69.2] - 2026-11-17 (DH-187 · Operations esquema propio y mensajería framework)
 
 - PATCH coordinado sobre DH-186 SRM (1.69.1): registra Operations 0.4.1 y respeta todas las versiones y configuraciones del release SRM simultáneo.

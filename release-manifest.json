@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-CONFIG-SCHEMA-187",
+  "releaseId": "DH-20261117-SRM-SUPPLIER-DELETE-190",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.2",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.70.0",
+  "status": "candidate-master-ci-pending",
   "branches": [
     "develop",
     "master"
@@ -30,21 +30,23 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.66.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
-      "candidateSha": null,
-      "developMergeSha": "42b6bf5bf52e77d253baeb103528283e3b112051",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
+      "version": "1.67.0",
+      "mergeState": "candidate-master-backport",
+      "candidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master",
+      "candidateSha": "1658a59374ff2367ef4c8e8bed64bae055593c56",
+      "developMergeSha": "7cb99fdaca24c3ab4a4be7d40622ec2fa58d3aa8",
+      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop",
+      "masterCandidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
-      "version": "1.8.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "version": "1.9.0",
+      "mergeState": "candidate-master-backport",
+      "candidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master",
+      "candidateSha": "d16ac8622fcce9530020e2c48b78ef4b4c04089f",
+      "developMergeSha": "72c0075d3004b5937956fa9c3cb12cbd33013e2b",
+      "masterCandidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -149,12 +151,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.69.2",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-SCHEMA-ALIGN-187-master-srm",
+      "version": "1.70.0",
+      "mergeState": "candidate-master-backport",
+      "candidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master",
       "candidateSha": null,
-      "developMergeSha": "a4e8c27c38862e38df912124a52c30c326e903b3",
-      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
+      "developMergeSha": "9aea55b4c2d8e316a2ff7fe7b2b4d13c5b2e59b1",
+      "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop",
+      "masterCandidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -245,7 +248,8 @@
     "DH-183: extracción documental no ejecuta procesamiento IA; solo cola preparada hasta integraciones Storage/DataExtraction/Auth.",
     "DH-184: staging verification Operations DB idempotency /ready, Gateway /api/health/operations, WSS /hubs/operations and Web statuses required before production.",
     "DH-185: staging must verify 18 Operations tables and migration history, and CI must pass before master deployment. Do not bypass realtime F10 infrastructure gate.",
-    "DH-187: comprobar deploy de Operations en producción y 18 tablas bajo operations con outbox/inbox preservados; F10 de infraestructura DholeSystem permanece independiente, no se omite."
+    "DH-187: comprobar deploy de Operations en producción y 18 tablas bajo operations con outbox/inbox preservados; F10 de infraestructura DholeSystem permanece independiente, no se omite.",
+    "DH-20261117-SRM-SUPPLIER-DELETE-190: verificar smoke autenticado SRM en staging y pruebas de permisos/409 antes de considerar validación postproducción completada."
   ],
   "validationEvidence": {
     "semver": "Operations 0.4.0 -> 0.4.1; DholeSystem/global 1.69.1 -> 1.69.2; otros servicios sin cambios",
@@ -255,8 +259,9 @@
     "production": "Autorizado por el usuario; pendiente de verificar deployment y esquema al terminar workflows."
   },
   "releaseComponents": [
-    "DholeOperationsService",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb",
+    "DholeConfigService"
   ],
   "changes": [
     "DholeOperationsService: migración transaccional de 18 tablas existentes de public al esquema operations, sin copiar ni perder registros",
@@ -276,7 +281,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261117-OPS-SCHEMA-ALIGN-187-master-srm",
+  "candidateBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master",
   "businessReleaseId": "DH-20261117-OPS-CONFIG-SCHEMA-187",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
@@ -715,5 +720,6 @@
       "staging multiuser"
     ],
     "deployStatus": "pending"
-  }
+  },
+  "authorization": "Solicitud explícita del usuario: subelo a master (2026-11-16/17)."
 }
