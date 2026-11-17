@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-CRM-HACIENDA-NETWORK-192",
+  "releaseId": "DH-20261117-HACIENDA-SAME-ORIGIN-193",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.2",
+  "ecosystemVersion": "1.70.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,9 +15,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.2",
+      "version": "1.70.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-SAME-ORIGIN-193-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -45,9 +45,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.1",
+      "version": "1.67.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-CRM-HACIENDA-NETWORK-192",
+      "candidateBranch": "fix/DH-20261117-HACIENDA-SAME-ORIGIN-193-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
@@ -181,6 +181,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
+    "DH-193: verify unauthenticated same-origin Hacienda GET yields 401 (not 502) and authenticated real lookup returns verified legal name.",
     "DH-192: CI Web/CRM/System, verificación en staging con cuenta costarricense autorizada y errores reales 503/502/NetworkError antes de promover master.",
     "DH-186: ejecutar pruebas SRM, Vue typecheck/build y validar selects/IBAN en navegador de staging",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
@@ -285,8 +287,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
