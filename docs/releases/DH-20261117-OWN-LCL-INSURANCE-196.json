@@ -9,16 +9,16 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "masterFrom": "1.67.3",
+      "masterFrom": "1.67.4",
       "developFrom": "1.67.4",
       "to": "1.67.5",
       "developPr": 675,
-      "masterPr": 676
+      "masterPr": 677
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "masterFrom": "1.22.3",
+      "masterFrom": "1.22.4",
       "developFrom": "1.22.4",
       "to": "1.22.5",
       "developPr": 249,
@@ -27,12 +27,12 @@
   ],
   "scope": "LCL propio: persistir Seguro de carga y Manejos en hidratación, edición, actualización de matriz y guardado; proteger contra borrados implícitos en Pricing",
   "validation": {
-    "developWebCi": "pending",
-    "developPricingCi": "success",
+    "developWebCi": "retesting",
+    "developPricingCi": "retesting",
     "staging": "pending",
-    "masterCi": "pending"
+    "masterCi": "retesting"
   },
   "productionDeploymentAuthorized": false,
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "note": "Main queda sin modificar hasta autorización específica; manifiesto en rama intermedia."
+  "note": "Ramas develop y master divergen; PRs separados. No fusionar ni desplegar producción hasta validar staging; main sin modificar."
 }
