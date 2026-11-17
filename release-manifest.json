@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
+  "releaseId": "DH-20261117-PRICING-LCL-CARRIER-200",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.2",
+  "ecosystemVersion": "1.71.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
+  "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.2",
+      "version": "1.71.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
+      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.8",
+      "version": "1.67.9",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-HEADER-BUFFERS-199-develop",
+      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -169,13 +169,14 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-200: verificar que LCL marítimo no incluya cargos MAERSK ni otras navieras, y que coloader/seguro/handling y FCL se mantengan en staging; producción no autorizada.",
     "DH-199: verificar con JWT sintético de 11 KB que Nginx devuelve una respuesta del Gateway (no HTML 400) en staging/prod sin exponer credenciales reales.",
     "DH-199: CI Web/System y staging deben pasar antes de promoción; no desactivar autenticación ni ampliar ilimitadamente encabezados.",
     "DH-198: verify Web CI, catalog refresh regression, and staging view/edit saved QUO before merging to master.",
@@ -283,21 +284,21 @@
     "DH-195: validate commercial sub-QUO A/B identities, combined PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.67.6 → 1.67.7; DholeSystem y ecosistema 1.71.0 → 1.71.1",
-    "unitTests": "Pending Web CI",
-    "build": "Pending Web CI",
-    "staging": "Pending QUO view-edit checks",
-    "production": "Authorized by user only after staging checks"
+    "semver": "Web 1.67.8 → 1.67.9, DholeSystem/ecosystem 1.71.2 → 1.71.3",
+    "unitTests": "CI pending: new carrier-guard regression",
+    "build": "CI pending: TypeScript Vite build",
+    "staging": "Pending UI QUO LCL and real Pricing cost context check",
+    "production": "Not authorized for DH-200"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb 1.67.6 → 1.67.7: preservar los rubros guardados de una QUO en Ver/Editar y evitar incorporar cargos de rutas ajenas durante el refresco de precios",
-    "DholeSystem 1.71.0 → 1.71.1: registrar release coordinado de Web"
+    "Web 1.67.8 → 1.67.9: LCL marítimo sin naviera excluye costos del catálogo asociados a navieras aun cuando backend select omita el filtro",
+    "DholeSystem / ecosystem 1.71.2 → 1.71.3: release coordinado con 17 componentes, versiones de servicios sin código nuevo conservadas"
   ],
-  "stagingValidation": "pending",
+  "stagingValidation": "pending-lcl-no-carrier-business-regression",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
