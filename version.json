@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.71.2",
-  "ecosystemVersion": "1.71.2",
-  "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
+  "version": "1.71.3",
+  "ecosystemVersion": "1.71.3",
+  "releaseId": "DH-20261117-PRICING-LCL-CARRIER-200",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199"
+  "businessReleaseId": "DH-20261117-PRICING-LCL-CARRIER-200"
 }
