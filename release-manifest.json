@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-HACIENDA-POST-197",
+  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.0",
+  "ecosystemVersion": "1.71.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-develop",
+  "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.0",
+      "version": "1.71.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-develop",
+      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.6",
+      "version": "1.67.7",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-POST-197-develop",
+      "candidateBranch": "fix/DH-20261117-PRICING-EDIT-ITEMS-198-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -176,6 +176,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-198: verify Web CI, catalog refresh regression, and staging view/edit saved QUO before merging to master.",
     "DH-197: validar con un JWT real de CRM la petición POST sin identificación en URL y el nombre oficial devuelto en staging.",
     "DH-197: comprobar con Cloudflare/Nginx que desaparece el 400 text/html y que un 400 de validación conserva application/json.",
     "DH-197: compilar CRM .NET10, verificar Web TypeScript/build y regresiones, comprobar versión global y autorización antes de master.",
@@ -280,24 +281,21 @@
     "DH-195: validate commercial sub-QUO A/B identities, combined PDF download and one grouped Outbox email in staging before master."
   ],
   "validationEvidence": {
-    "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
-    "unitTests": "Pending CI",
-    "build": "Pending CI",
-    "staging": "Pending",
-    "production": "Not authorized for DH-179"
+    "semver": "Web 1.67.6 → 1.67.7; DholeSystem y ecosistema 1.71.0 → 1.71.1",
+    "unitTests": "Pending Web CI",
+    "build": "Pending Web CI",
+    "staging": "Pending QUO view-edit checks",
+    "production": "Authorized by user only after staging checks"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
-    "CRM Hacienda taxpayer lookup is automatic, applies official legal name and identification type and shows activity/regime without inventing missing fields",
-    "CRM lead, account creation and account editing await pending Hacienda request, discarding stale country/identity responses",
-    "No Config/Auth/backend changes, keep REST, realtime, scoped commercial and credit workflows intact"
+    "DholeWeb 1.67.6 → 1.67.7: preservar los rubros guardados de una QUO en Ver/Editar y evitar incorporar cargos de rutas ajenas durante el refresco de precios",
+    "DholeSystem 1.71.0 → 1.71.1: registrar release coordinado de Web"
   ],
-  "stagingValidation": "pending-collection-acl-and-real-user-realtime",
+  "stagingValidation": "pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
