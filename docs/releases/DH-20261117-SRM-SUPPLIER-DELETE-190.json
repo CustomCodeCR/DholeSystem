@@ -13,7 +13,7 @@
       "from": "1.8.1",
       "to": "1.9.0",
       "developPr": 35,
-      "masterPr": null
+      "masterPr": 36
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
@@ -21,7 +21,7 @@
       "from": "1.66.1",
       "to": "1.67.0",
       "developPr": 665,
-      "masterPr": null
+      "masterPr": 666
     }
   ],
   "releaseBranch": "release/DH-20261117-SRM-SUPPLIER-DELETE-190-master",
@@ -29,12 +29,12 @@
     "build": "passed-pr-ci",
     "tests": "passed-pr-ci",
     "developCI": "passed",
-    "staging": "config-deployed-web-check-pending",
+    "staging": "deploy-success-web-config-authenticated-smoke-pending",
     "masterCI": "pending"
   },
   "productionDeploymentAuthorized": true,
   "rollback": "Revertir el release coordinado (Web y Config). No se borra físicamente ningún registro; restauración de proveedores archivados requiere auditoría y una operación explícita.",
   "componentsNotModified": "Conservan sus versiones anteriores; no se modifican componentes ajenos.",
-  "centralManifestPr": 444,
+  "centralManifestPr": 445,
   "authorization": "Solicitud expresa del usuario 'subelo a master'."
 }
