@@ -1,3 +1,8 @@
+## [1.70.5] - 2026-11-17 (Dashboard MultiQUO comercial)
+
+- PATCH DH-20261117-MULTIQUO-DASHBOARD-195: el dashboard de Pricing muestra un representante comercial por grupo MultiQUO, excluye sub-QUO técnicas y duplicados huérfanos sin borrar datos y presenta cantidad de alternativas. Release coordinado Pricing 1.22.4, Web 1.67.4, System/ecosistema 1.70.5.
+- El release previo DH-194 conserva su aprobación grupal y PDF. CI/staging obligatorios; sin promoción a master ni producción antes de autorización.
+
 ## [1.70.4] - 2026-11-17 (MultiQUO: aprobación de alternativas y PDF)
 
 - PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: release coordinado DholePricingService 1.22.3 y DholeWeb 1.67.3. El margen de todas las sub-QUO se aprueba conjuntamente; solo una alternativa puede ser aceptada comercialmente.
