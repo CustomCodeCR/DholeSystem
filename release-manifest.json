@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FIRST-TABLES-185",
+  "releaseId": "DH-20261117-SRM-CREDIT-IBAN-186",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.0",
+  "ecosystemVersion": "1.69.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,11 +30,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.66.0",
+      "version": "1.66.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-GATEWAY-DB-184-master",
-      "candidateSha": "550bc274ae82dc634831c900df01524410d91822",
-      "developMergeSha": "f031a07e47d1b6acdcd8ccc996d9970261150f55",
+      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
+      "candidateSha": null,
+      "developMergeSha": "42b6bf5bf52e77d253baeb103528283e3b112051",
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
@@ -149,11 +149,11 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.69.0",
+      "version": "1.69.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
+      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
       "candidateSha": null,
-      "developMergeSha": "f9029849499ee8d72d1a54aabe01517166bdbf4d",
+      "developMergeSha": "24accc8d5864d8cc7f134939c9ec112edfe2da28",
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
@@ -167,13 +167,14 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "pending-master-ci",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-186: pruebas de CI Web/System completadas en develop; verificar staging y promover master solo con autorización de producción",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
     "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
     "Despliegue de producción requiere autorización expresa y validación de staging",
@@ -253,8 +254,8 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeOperationsService",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
     "CRM creation/edition now use SRM-style functional tabs without stacking all sections",
@@ -275,7 +276,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
+  "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
