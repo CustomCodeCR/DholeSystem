@@ -1,3 +1,9 @@
+## [1.70.2] - 2026-11-17 (DH-20261117-CRM-HACIENDA-NETWORK-192 · Consulta Hacienda CRM)
+
+- PATCH: DholeWeb 1.67.0 → 1.67.1 y DholeCRMService 1.33.1 (master)/1.34.1 (develop) → 1.34.2; DholeSystem/ecosistema 1.70.1 → 1.70.2. Los demás componentes conservan su versión.
+- CRM oculta la identificación y URLs en los errores de red; reintenta una falla de transporte sin repetir HTTP 4xx/5xx y rechaza respuestas incompletas o de otra identificación. El backend permite concurrencia acotada hacia Hacienda y devuelve 503 controlado cuando se satura.
+- Sin migraciones, cambio de permisos, REST, SignalR ni Outbox. Validar compilación, pruebas, CI y staging antes de promover a master/producción.
+
 ## [1.70.1] - 2026-11-17 (DH-20261117-CONFIG-APT-DEPLOY-191 · Config: evitar Docker build atascado)
 
 - PATCH: Config 1.9.0 → 1.9.1 y DholeSystem/ecosistema 1.70.0 → 1.70.1. DholeWeb 1.67.0 y los otros microservicios conservan sus versiones.
