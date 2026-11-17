@@ -1,3 +1,10 @@
+## [1.68.0] - 2026-11-17 (DH-184 · Gateway Operations, estados y base de datos)
+
+- MINOR: integración de DholeOperationsService con API Gateway `/api/operations` y Hub SignalR `/hubs/operations`; health `/api/health/operations` comprueba PostgreSQL/Redis por `/ready`.
+- Estado técnico Operations visible en DholeWeb con versión real, registro, HTTP, latencia y actualización manual.
+- Variables OPERATIONS_DB/HTTP/GRPC en las copias de runtime staging/producción; los workflows de Operations aseguran `dhole_operations` idempotentemente en su PostgreSQL correspondiente.
+- Release coordinado: DholeApiGateway 1.11.0, DholeWeb 1.66.0, DholeOperationsService 0.3.1, DholeSystem/ecosistema 1.68.0.
+
 ## [1.67.0] - 2026-11-16 (Operations backend · núcleo de expedientes, pool, SignalR y documentos · DH-183)
 
 - MINOR: DholeOperationsService 0.2.0 → 0.3.0, DholeSystem/ecosistema 1.66.3 → 1.67.0; otros componentes conservan sus versiones.

@@ -106,6 +106,10 @@ prepare_runtime_env() {
   append_if_missing "$file" CRM_DB "dhole_crm"
   append_if_missing "$file" CRM_HTTP_URL "http://crm-api:8080"
   append_if_missing "$file" CRM_GRPC_URL "http://crm-api:8081"
+  # Operations remains isolated by staging/prod PostgreSQL container and network.
+  append_if_missing "$file" OPERATIONS_DB "dhole_operations"
+  append_if_missing "$file" OPERATIONS_HTTP_URL "http://operations-api:8080"
+  append_if_missing "$file" OPERATIONS_GRPC_URL "http://operations-api:8081"
   append_if_missing "$file" HERMES_GATEWAY_URL "http://hermes-agent:8642"
 
   # Default to active monitoring and the schema-gated Maersk circuit.
