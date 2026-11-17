@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.66.3",
-  "ecosystemVersion": "1.66.3",
-  "releaseId": "DH-20261116-SRM-HACIENDA-182",
+  "version": "1.67.0",
+  "ecosystemVersion": "1.67.0",
+  "releaseId": "DH-20261116-OPS-FOUNDATION-183",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261116-SRM-HACIENDA-182"
+  "businessReleaseId": "DH-20261116-OPS-FOUNDATION-183"
 }
