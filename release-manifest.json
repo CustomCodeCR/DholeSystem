@@ -3,7 +3,7 @@
   "releaseId": "DH-20261117-HACIENDA-HEADER-BUFFERS-199",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.71.2",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "approved-staging-verified-master-candidate",
   "branches": [
     "develop",
     "master"
@@ -174,14 +174,14 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "passed-pr-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "DH-199: CI y smoke con JWT largo en staging antes de publicar a producción.",
+    "DH-199: post-production probe required: authenticated Hacienda POST must return application/json instead of 400 text/html, and existing GET/permissions must remain unchanged.",
     "DH-197: registrar CI y smoke autenticado real de Hacienda en staging; verificar POST JSON 200 y ausencia de respuesta HTML 400, y ejecutar smoke en producción después de master.",
     "DH-193: verify Web container can resolve/reach api-gateway:8080 on production/staging Docker network before promotion.",
     "DH-193: verify unauthenticated same-origin Hacienda GET yields 401 (not 502) and authenticated real lookup returns verified legal name.",
