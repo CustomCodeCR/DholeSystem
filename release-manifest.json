@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-SRM-CREDIT-IBAN-186",
+  "releaseId": "DH-20261117-OPS-CONFIG-SCHEMA-187",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.69.1",
+  "ecosystemVersion": "1.69.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -149,21 +149,21 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.69.1",
+      "version": "1.69.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
+      "candidateBranch": "release/DH-20261117-OPS-SCHEMA-ALIGN-187-master-srm",
       "candidateSha": null,
-      "developMergeSha": "24accc8d5864d8cc7f134939c9ec112edfe2da28",
+      "developMergeSha": "a4e8c27c38862e38df912124a52c30c326e903b3",
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261117-OPS-FIRST-TABLES-185-master",
-      "candidateSha": "6ff0d4ecb99f789bfe9259db988c721fc186becf",
-      "developMergeSha": "fb7e5a3d195a5348ac4d1bc78ffefd076c03a048"
+      "candidateBranch": "release/DH-20261117-OPS-SCHEMA-ALIGN-186-master",
+      "candidateSha": "58e6c843e97bcddab04bd4bc7c23d34f70d0ba73",
+      "developMergeSha": "77e1985e3f47c38e6fd72878209fc3326084e026"
     }
   ],
   "policyCheck": {
@@ -172,7 +172,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "DH-186: pruebas de CI Web/System completadas en develop; verificar staging y promover master solo con autorización de producción",
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
@@ -244,24 +244,24 @@
     "DH-183: verificar resultado del deploy Operations staging y smoke REST/SignalR antes de promocionar a master; sin evidencia no publicar.",
     "DH-183: extracción documental no ejecuta procesamiento IA; solo cola preparada hasta integraciones Storage/DataExtraction/Auth.",
     "DH-184: staging verification Operations DB idempotency /ready, Gateway /api/health/operations, WSS /hubs/operations and Web statuses required before production.",
-    "DH-185: staging must verify 18 Operations tables and migration history, and CI must pass before master deployment. Do not bypass realtime F10 infrastructure gate."
+    "DH-185: staging must verify 18 Operations tables and migration history, and CI must pass before master deployment. Do not bypass realtime F10 infrastructure gate.",
+    "DH-187: comprobar deploy de Operations en producción y 18 tablas bajo operations con outbox/inbox preservados; F10 de infraestructura DholeSystem permanece independiente, no se omite."
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.64.0->1.65.0, DholeSystem/global 1.65.0->1.66.0",
-    "unitTests": "Develop CI successful; master CI pending",
-    "build": "Develop CI successful; master CI pending",
-    "staging": "Develop Web deployment pending verification",
-    "production": "Not authorized for DH-179"
+    "semver": "Operations 0.4.0 -> 0.4.1; DholeSystem/global 1.69.1 -> 1.69.2; otros servicios sin cambios",
+    "unitTests": "4 unitarias y 6 integraciones PostgreSQL aprobadas, candidato Operations master y develop",
+    "build": "DholeOperationsService 0.4.1 master candidate CI aprobado",
+    "staging": "DholeOperationsService develop 0.4.1 verificado en PostgreSQL: 18 tablas operations y mensajería Config-compatible",
+    "production": "Autorizado por el usuario; pendiente de verificar deployment y esquema al terminar workflows."
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService",
+    "DholeSystem"
   ],
   "changes": [
-    "CRM creation/edition now use SRM-style functional tabs without stacking all sections",
-    "CRM Hacienda lookup automatically applies returned legal name and taxpayer ID type; supports retry and race protection",
-    "Account and lead save wait pending tax lookup; no migrations or modification to Auth/Config, REST/realtime preserved",
-    "Selective master backport preserving unrelated production CRM changes and scoped identity/seller permissions"
+    "DholeOperationsService: migración transaccional de 18 tablas existentes de public al esquema operations, sin copiar ni perder registros",
+    "Alineación Outbox/Inbox con CustomCodeFramework y DholeConfigService; preserva eventos pendientes, índices, identificadores y payload de SignalR",
+    "Integración exclusiva Operations/DholeSystem manteniendo el release SRM 1.69.1 y versiones ajenas"
   ],
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -276,8 +276,8 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261117-SRM-CREDIT-IBAN-186-master",
-  "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
+  "candidateBranch": "release/DH-20261117-OPS-SCHEMA-ALIGN-187-master-srm",
+  "businessReleaseId": "DH-20261117-OPS-CONFIG-SCHEMA-187",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -582,7 +582,7 @@
     "noNativeDialogs": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
+  "productionDeploymentAuthorization": "Autorización explícita del usuario para integrar a master y desplegar Operations 0.4.1 después del CI y validación staging DH-187.",
   "dynamicsQuote613619Release": {
     "releaseId": "DH-20261112-DYNAMICS-QUO-613-619-118",
     "description": "QUO-613 read-only reconcile unique matching Dhole line; QUO-619 require manual ledger reconciliation before new recovery",
@@ -664,7 +664,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Permitir crear seguimientos desde el historial de cuentas y prospectos CRM.",
+  "releaseSummary": "Corrección DH-187: esquema Operations y mensajería basada en Config.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
