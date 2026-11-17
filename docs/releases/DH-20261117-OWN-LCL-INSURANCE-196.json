@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.70.6",
+  "releaseId": "DH-20261117-OWN-LCL-INSURANCE-196",
+  "releaseType": "PATCH",
+  "createdAt": "2026-11-17",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "masterFrom": "1.67.3",
+      "developFrom": "1.67.4",
+      "to": "1.67.5",
+      "developPr": 675,
+      "masterPr": 676
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "component": "DholePricingService",
+      "masterFrom": "1.22.3",
+      "developFrom": "1.22.4",
+      "to": "1.22.5",
+      "developPr": 249,
+      "masterPr": 250
+    }
+  ],
+  "scope": "LCL propio: persistir Seguro de carga y Manejos en hidratación, edición, actualización de matriz y guardado; proteger contra borrados implícitos en Pricing",
+  "validation": {
+    "developWebCi": "pending",
+    "developPricingCi": "success",
+    "staging": "pending",
+    "masterCi": "pending"
+  },
+  "productionDeploymentAuthorized": false,
+  "releaseStatus": "candidate-ci-and-staging-pending",
+  "note": "Main queda sin modificar hasta autorización específica; manifiesto en rama intermedia."
+}
