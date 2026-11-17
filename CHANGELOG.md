@@ -1,3 +1,9 @@
+## [1.66.2] - 2026-11-16 (SRM: validación IBAN por país · DH-181)
+
+- PATCH coordinado DH-20261116-SRM-IBAN-181: DholeWeb 1.65.1 → 1.65.2 y DholeSystem/ecosistema 1.66.1 → 1.66.2; otros microservicios sin cambios de versión.
+- SRM: prefijo del país del banco, límite ISO 13616, contador y checksum MOD-97; cuentas nacionales de países no adheridos sin prefijos ficticios. Pruebas unitarias y formularios de alta/edición.
+- Candidatos intermedios para develop/master; CI, build y staging pendientes antes de integración master o despliegue a producción.
+
 ## [1.66.1] - 2026-11-16 (Multimodal Panamá: sobrepeso calculado por excedente · DH-180)
 
 - PATCH coordinado DH-20261116-PRICING-PANAMA-OVERWEIGHT-180: DholeWeb 1.65.0 → 1.65.1; DholeSystem y ecosistema 1.66.0 → 1.66.1; sin cambios de contrato en Pricing/REST/SignalR.
