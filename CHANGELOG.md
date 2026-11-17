@@ -1,3 +1,8 @@
+## [1.70.7] - 2026-11-17 (Pricing: evitar costos ajenos al editar cotizaciones)
+
+- PATCH DH-20261117-PRICING-EDIT-ITEMS-197: DholeWeb 1.67.5 → 1.67.6 conserva las líneas persistidas en Ver y Editar y restringe la actualización desde Costos y recargos a los rubros existentes si el contexto comercial no cambia. No modifica contratos REST, SignalR, Outbox/Inbox ni base de datos.
+- Ecosistema/DholeSystem 1.70.6 → 1.70.7; manifiesto registra los 17 componentes y mantiene las versiones de los servicios no modificados. Validación Web build, regresión y staging pendiente. No se autoriza producción.
+
 ## [1.70.6] - 2026-11-17 (PDF: tiempo aproximado de tránsito)
 
 - PATCH DH-20261117-QUOTE-TRANSIT-APPROX-196: DholeReportsService 1.8.0 → 1.8.1. En PDF comerciales FCL/LCL individuales y agrupados, la etiqueta dice «Tiempo aproximado de tránsito» y la duración indica «38 días aprox.», sin alterar el tiempo persistido.
