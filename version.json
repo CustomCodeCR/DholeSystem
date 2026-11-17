@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.71.0",
-  "ecosystemVersion": "1.71.0",
-  "releaseId": "DH-20261117-HACIENDA-POST-197",
+  "version": "1.71.1",
+  "ecosystemVersion": "1.71.1",
+  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-198",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-HACIENDA-POST-197"
+  "businessReleaseId": "DH-20261117-PRICING-EDIT-ITEMS-198"
 }
