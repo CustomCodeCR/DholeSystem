@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.70.6",
-  "ecosystemVersion": "1.70.6",
-  "releaseId": "DH-20261117-QUOTE-TRANSIT-APPROX-196",
+  "version": "1.70.7",
+  "ecosystemVersion": "1.70.7",
+  "releaseId": "DH-20261117-PRICING-EDIT-ITEMS-197",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-QUOTE-TRANSIT-APPROX-196"
+  "businessReleaseId": "DH-20261117-PRICING-EDIT-ITEMS-197"
 }
