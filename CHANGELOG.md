@@ -1,3 +1,8 @@
+## [1.70.4] - 2026-11-17 (MultiQUO: aprobación de alternativas y PDF)
+
+- PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: DholePricingService 1.22.3 y DholeWeb 1.67.3 con aprobaciones grupales de margen, numeración comercial y PDF. La aceptación del cliente se aplica a una única alternativa.
+- Versionamiento y manifiesto coordinados; CI, staging y conciliación de duplicados históricos pendientes. Sin despliegue de producción.
+
 ## [1.70.3] - 2026-11-17 (DH-193: Hacienda reverse proxy Web-Gateway)
 - PATCH DH-20261117-HACIENDA-SAME-ORIGIN-193: mismo origen de Web para Hacienda CRM/SRM, con autenticación/impersonación intactas y Nginx limitado a GET, sin registro de identificaciones fiscales en el access log. Evita el salto del navegador al subdominio API con 502 generado por Cloudflare.
 - DholeWeb 1.67.1 → 1.67.2; DholeSystem/ecosistema 1.70.2 → 1.70.3; CRM y los demás servicios conservan versiones y contratos existentes.
