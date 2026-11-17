@@ -1,27 +1,25 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-HACIENDA-SAME-ORIGIN-193",
+  "releaseId": "DH-20261117-MULTIQUO-APPROVAL-PDF-194",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.70.3",
+  "ecosystemVersion": "1.70.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-CONFIG-APT-DEPLOY-191-develop",
+  "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.70.3",
+      "version": "1.70.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-SAME-ORIGIN-193-master",
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
-      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -45,13 +43,11 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.2",
+      "version": "1.67.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-HACIENDA-SAME-ORIGIN-193-master",
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master",
-      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -84,12 +80,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.22.2",
+      "version": "1.22.3",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-develop",
-      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
+      "candidateBranch": "fix/DH-20261117-MULTIQUO-APPROVAL-PDF-194"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -276,7 +271,9 @@
     "DH-187: after concurrent SRM global 1.69.1, this Operations-only corrective global release is 1.69.2. Confirm 18 Operations schema tables plus preserved framework inbox/outbox in staging before any master promotion.",
     "DH-20261117-SRM-SUPPLIER-DELETE-190: compile Config & Web, run regression suite and verify SRM supplier delete ACL, 409 linked agreements/reviews, realtime and confirmation UI in staging.",
     "No merge a master ni despliegue producción sin aprobación explícita.",
-    "DH-20261117-CONFIG-APT-DEPLOY-191: ejecutar build y tests Config, comprobar que APT tiene timeout, verificar Docker build y salud API tras despliegue; no tocar los demás servicios."
+    "DH-20261117-CONFIG-APT-DEPLOY-191: ejecutar build y tests Config, comprobar que APT tiene timeout, verificar Docker build y salud API tras despliegue; no tocar los demás servicios.",
+    "DH-194: run Pricing build/tests and Web type-check/build/tests; validate group margin approval and PDF with two alternatives in staging before master.",
+    "DH-194: reconcile existing orphan QUO-00000-000673 in the live DB after matching its client, route and group to 672-B; preserve audit history."
   ],
   "validationEvidence": {
     "semver": "Web 1.64.0 -> 1.65.0, System/global 1.65.0 -> 1.66.0",
@@ -286,8 +283,9 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholePricingService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
     "CRM account creation and editing use SRM-compatible horizontal functional tab navigation with role-appropriate sections",
