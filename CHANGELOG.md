@@ -1,3 +1,9 @@
+## [1.71.1] - 2026-11-17 (Pricing: sincronizar rubros Ver/Editar)
+
+- PATCH DH-20261117-PRICING-EDIT-ITEMS-198: Web 1.67.6 → 1.67.7 evita que el catálogo agregue cargos extra a las cotizaciones existentes al editar. Refresco explícito en contexto sin cambios solo modifica cargos guardados; conserva seguro, Manejos, HBL y recolecciones.
+- DholeSystem/ecosistema 1.71.0 → 1.71.1. Backend, REST, SignalR, Outbox/Inbox, PricingService y base de datos sin modificaciones.
+- Staging: despliegue Web run 44187573454 y /health correctos, pruebas CI Pricing y compilación correctas. Autorización expresa para master recibida; smoke autenticado de QUO pendiente.
+
 ## [1.71.0] - 2026-11-17 (Hacienda CRM: consulta POST sin identificación en URL)
 
 - MINOR DH-20261117-HACIENDA-POST-197: CRM 1.34.2 → 1.35.0 incorpora POST JSON autenticado para consultas de Hacienda y conserva GET compatible; Web 1.67.5 → 1.67.6 utiliza el nuevo transporte y elimina cookies innecesarias del proxy Nginx.
