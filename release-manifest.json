@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-PRICING-PANAMA-OVERWEIGHT-180",
+  "releaseId": "DH-20261116-SRM-IBAN-181",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.1",
+  "ecosystemVersion": "1.66.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -30,9 +30,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.65.1",
+      "version": "1.65.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -149,9 +149,9 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.1",
+      "version": "1.66.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
+      "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
       "candidateSha": null,
       "developMergeSha": null,
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
@@ -167,13 +167,16 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-master-ci",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "master-backport-pr-pending",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
+    "DH-181: TypeScript build, SRM finance/IBAN tests, version gate and staging validation before master merge.",
+    "DH-181: Validate Costa Rica, IBAN foreign-country formats, national non-IBAN account and bank-country changes in staging.",
+    "No production deployment before CI, staging and explicit approval.",
     "CI and regression tests for commercial terms parsing must pass",
     "Staging must validate compiled Pricing wizard and previously saved terms",
     "Promotion to master is gated by staging verification",
@@ -265,7 +268,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-PRICING-PANAMA-OVERWEIGHT-180-master",
+  "candidateBranch": "fix/DH-20261116-SRM-IBAN-181-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
