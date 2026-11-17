@@ -1,3 +1,13 @@
+## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
+
+- PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas del RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
+- No elimina datos históricos de QUO-00000-000673; las coincidencias duplicadas requieren conciliación controlada. Validar email y PDF con registro real en staging antes de promoción. Versión global 1.70.4 → 1.70.5.
+
+## [1.70.4] - 2026-11-17 (MultiQUO: aprobación de alternativas y PDF)
+
+- PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: release coordinado DholePricingService 1.22.3 y DholeWeb 1.67.3. El margen de todas las sub-QUO se aprueba conjuntamente; solo una alternativa puede ser aceptada comercialmente.
+- Normalización visual QUO-A/QUO-B y exclusión de duplicados huérfanos en el listado agrupado sin eliminación de datos. Requiere CI, smoke en staging, conciliación de duplicados históricos y autorización antes de producción.
+
 ## [1.70.3] - 2026-11-17 (DH-193: Hacienda reverse proxy Web-Gateway)
 - PATCH DH-20261117-HACIENDA-SAME-ORIGIN-193: mismo origen de Web para Hacienda CRM/SRM, con autenticación/impersonación intactas y Nginx limitado a GET, sin registro de identificaciones fiscales en el access log. Evita el salto del navegador al subdominio API con 502 generado por Cloudflare.
 - DholeWeb 1.67.1 → 1.67.2; DholeSystem/ecosistema 1.70.2 → 1.70.3; CRM y los demás servicios conservan versiones y contratos existentes.
