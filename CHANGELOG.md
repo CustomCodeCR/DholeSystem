@@ -1,3 +1,9 @@
+## [1.70.6] - 2026-11-17 (PDF: tiempo aproximado de tránsito)
+
+- PATCH DH-20261117-QUOTE-TRANSIT-APPROX-196: DholeReportsService 1.8.0 → 1.8.1. En PDF comerciales FCL/LCL individuales y agrupados, la etiqueta dice «Tiempo aproximado de tránsito» y la duración indica «38 días aprox.», sin alterar el tiempo persistido.
+- Migración idempotente de plantillas comerciales en PostgreSQL y pruebas para evitar «Por confirmar aprox.» o sufijos duplicados. No hay cambios en REST, SignalR, eventos, precios ni permisos.
+- DholeSystem/ecosistema 1.70.5 → 1.70.6. CI y validación en staging obligatorias antes de master; despliegue a producción no autorizado.
+
 ## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
 
 - PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas de su RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
