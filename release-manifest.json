@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261116-SRM-HACIENDA-182",
+  "releaseId": "DH-20261116-OPS-FOUNDATION-183",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.66.3",
+  "ecosystemVersion": "1.67.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -149,21 +149,21 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.66.3",
+      "version": "1.67.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-master",
+      "candidateBranch": "release/DH-20261116-OPS-FOUNDATION-183-master",
       "candidateSha": null,
-      "developMergeSha": null,
+      "developMergeSha": "c047d58a08ee1d02d89a73e6219369ab13214f3c",
       "developCandidateBranch": "fix/DH-20261116-PRICING-CRM-EDIT-HYDRATION-173-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/api-manager-discovery-143-master-backport",
-      "candidateSha": null,
-      "developMergeSha": null
+      "candidateBranch": "release/DH-20261116-OPS-FOUNDATION-183-master",
+      "candidateSha": "68a3c1fd2eda4017c80e861a6446b24f0b78a620",
+      "developMergeSha": "e5c67972b1cc1c0c504fe164c0904422791b2286"
     }
   ],
   "policyCheck": {
@@ -172,7 +172,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "DH-182: verificar que la consulta SRM a Hacienda responda desde el navegador en staging (con token permitido) y que el footer del drawer no oculte campos",
     "DH-182: validar CI y pruebas de SRM, versión 1.66.3 y flujo de guardado manual cuando falle Hacienda",
@@ -239,7 +239,9 @@
     "DH-176: verify finance scopes and encrypted bank account readback in production before enabling payment workflows; no bank data auto-migration from legacy catalogs.",
     "DH-20261116-CRM-COMPLETION-STATE-SYNC-177: multiuser staging checks and versions required before master deployment.",
     "DH-178: final staging Hacienda verification and explicit production deployment authorization required before master merge.",
-    "DH-179: ensure master CI success and staging functional checks for CRM account creation/edition, Hacienda and seller/credit scopes before production authorization."
+    "DH-179: ensure master CI success and staging functional checks for CRM account creation/edition, Hacienda and seller/credit scopes before production authorization.",
+    "DH-183: verificar resultado del deploy Operations staging y smoke REST/SignalR antes de promocionar a master; sin evidencia no publicar.",
+    "DH-183: extracción documental no ejecuta procesamiento IA; solo cola preparada hasta integraciones Storage/DataExtraction/Auth."
   ],
   "validationEvidence": {
     "semver": "DholeWeb 1.64.0->1.65.0, DholeSystem/global 1.65.0->1.66.0",
@@ -249,7 +251,7 @@
     "production": "Not authorized for DH-179"
   },
   "releaseComponents": [
-    "DholeWeb",
+    "DholeOperationsService",
     "DholeSystem"
   ],
   "changes": [
@@ -271,7 +273,7 @@
     "productionDeploymentAuthorized": false,
     "validation": "CI and staging pending"
   },
-  "candidateBranch": "fix/DH-20261116-SRM-HACIENDA-182-master",
+  "candidateBranch": "release/DH-20261116-OPS-FOUNDATION-183-master",
   "businessReleaseId": "DH-20261116-CRM-SRM-UNIFIED-TABS-HACIENDA-179",
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
