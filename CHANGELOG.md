@@ -1,3 +1,8 @@
+## [1.70.3] - 2026-11-17 (DH-193: Hacienda reverse proxy Web-Gateway)
+- PATCH DH-20261117-HACIENDA-SAME-ORIGIN-193: mismo origen de Web para Hacienda CRM/SRM, con autenticación/impersonación intactas y Nginx limitado a GET, sin registro de identificaciones fiscales en el access log. Evita el salto del navegador al subdominio API con 502 generado por Cloudflare.
+- DholeWeb 1.67.1 → 1.67.2; DholeSystem/ecosistema 1.70.2 → 1.70.3; CRM y los demás servicios conservan versiones y contratos existentes.
+- Sin migraciones ni cambios SignalR/Outbox. CI y prueba real de conectividad DNS Web→Gateway + consulta de Hacienda en staging antes de master/producción.
+
 ## [1.70.2] - 2026-11-17 (DH-20261117-CRM-HACIENDA-NETWORK-192 · Consulta Hacienda CRM)
 
 - PATCH: DholeWeb 1.67.0 → 1.67.1 y DholeCRMService 1.33.1 (master)/1.34.1 (develop) → 1.34.2; DholeSystem/ecosistema 1.70.1 → 1.70.2. Los demás componentes conservan su versión.
