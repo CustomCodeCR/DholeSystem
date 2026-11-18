@@ -1,3 +1,9 @@
+## [1.86.1] - 2026-11-18 (LCL/LTL: peso unitario × cantidad · master)
+
+- PATCH DH-20261118-CARGO-WEIGHT-PER-UNIT-229: promoción selectiva de la corrección integrada y compilada en develop. El peso por unidad se multiplica por cantidad, se refleja en resumen de Ventas y Pricing, y la recarga de cotizaciones evita duplicar el peso persistido.
+- Versiones master: DholeWeb 1.82.0→1.82.1, DholePricingService 1.24.5→1.24.7, DholeSystem/ecosistema 1.86.0→1.86.1. Los restantes componentes conservan versiones y comportamiento existentes.
+- Staging Web y Pricing desplegados, smoke autenticado aún pendiente. No se modifica REST, SignalR, scopes ni AuditLogs; el despliegue de producción requiere aprobación expresa.
+
 ## [1.86.0] - 2026-11-18 (Blobatar: tres emociones personalizadas)
 
 - MINOR DH-20261118-BLOBATAR-MOODS-228: el ecosistema incorpora expresiones Estresado, Cansado y Resignado en DholeWeb, con geometría nativa, transiciones, persistencia por usuario, sincronización de Apariencia y traducciones ES/EN.
