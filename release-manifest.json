@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
+  "releaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.77.1",
-  "status": "candidate-production-promotion",
+  "ecosystemVersion": "1.79.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-master",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.77.1",
-      "mergeState": "candidate-master",
-      "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-master",
+      "version": "1.79.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.73.0",
+      "version": "1.75.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -129,33 +129,34 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-for-master",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Full Operations v1.2 functional UAT pending; backend preparation only",
-    "No external carrier connections active, no final accepted quotation integration yet"
+    "CI Web/semver, SSR tests and production Vite build",
+    "Staging visual test of black background, touch repeat, keyboard and reduced-motion",
+    "Master must not override Operations 208 release; full release staging gate before production",
+    "No production deployment without explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeOperationsService 0.5.0→0.6.0 and DholeSystem 1.77.0→1.77.1",
-    "unitTests": "Operations develop CI and master PR CI",
-    "build": "Operations staging deployment passed",
-    "staging": "https://github.com/CustomCodeCR/DholeOperationsService/actions/runs/44225348804",
-    "production": "explicit user authorization; deploy after master merge"
+    "semver": "DholeSystem 1.77.1→1.79.0; DholeWeb 1.73.0→1.75.0; other components unchanged",
+    "unitTests": "GitHub CI pending",
+    "build": "GitHub CI pending",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Operations master 0.5.0 → 0.6.0: selective promotion of 13 DH-205 source files verified in develop/staging",
-    "Carrier registration, manual origin departure+Outbox, private notes, verified CRM executive lookup",
-    "DholeSystem version 1.77.0 → 1.77.1: master release manifest and notes; realtime production approval remains fail-closed"
+    "DholeWeb: dark mode profile pill and Blobatar background true black; replayable touch/click/keyboard animations with surprise, wink and happy expressions",
+    "DholeSystem: coordinated global version; preserve other 15 component versions on the target branch, no REST/SignalR/API/DB changes"
   ],
-  "stagingValidation": "operations-staging-workflow-44225348804-success",
+  "stagingValidation": "pending-avatar-dark-tap",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -208,7 +209,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
+  "businessReleaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

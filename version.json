@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.77.1",
-  "ecosystemVersion": "1.77.1",
-  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
-  "releaseStatus": "candidate-production-promotion",
-  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION"
+  "version": "1.79.0",
+  "ecosystemVersion": "1.79.0",
+  "releaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
+  "releaseStatus": "candidate-ci-and-staging-pending",
+  "businessReleaseId": "DH-20261118-BLOBATAR-DARK-TAP-209"
 }

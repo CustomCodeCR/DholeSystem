@@ -1,3 +1,8 @@
+## [1.79.0] - 2026-11-18 (Blobatar: fondo negro y animación al tocar)
+
+- MINOR DH-20261118-BLOBATAR-DARK-TAP-209: DholeWeb 1.73.0 → 1.75.0, DholeSystem/ecosistema 1.77.1 → 1.79.0. Modo oscuro negro para la tarjeta y el fondo del avatar; tocar/clic/Enter/Espacio activa expresiones y rebote reutilizable, sin perder animaciones ambientales ni seguimiento de ojos.
+- Se preservan las versiones de los otros 15 componentes en esta rama, junto con sus releases pendientes. REST, SignalR, Outbox/Inbox y base de datos intactos. CI, staging y autorización de producción pendientes.
+
 ## [1.77.1] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205-PROMOTION · Operations a master)
 
 - PATCH: promoción coordinada de DholeOperationsService 0.5.0 → 0.6.0, validado en develop y staging; despliegue a producción autorizado explícitamente.
