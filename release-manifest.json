@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
+  "releaseId": "DH-20261118-PRICING-SAVE-500-230",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.0",
+  "ecosystemVersion": "1.87.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261118-crm-shared-agenda-system-develop-229",
+  "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.0",
+      "version": "1.87.1",
       "mergeState": "candidate",
-      "candidateBranch": "release/20261118-crm-shared-agenda-system-develop-229",
+      "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
-      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229"
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -69,13 +69,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.7",
-      "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
-      "candidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
-      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
-      "candidateSha": null,
-      "developMergeSha": null
+      "version": "1.24.8",
+      "mergeState": "merged-in-develop",
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
+      "candidateSha": "97f7ce081aef3f43c7af66dce55c24060d6bdde8",
+      "developMergeSha": "a8d5984976417ecfe985f560fbb2c5c365b84a8c"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -143,31 +143,28 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Compilación y pruebas LCL/LTL del wizard transformado en CI",
-    "Staging: solicitud de dos tarimas de 749 kg debe mostrar 1498 kg",
-    "Reabrir cotización y verificar no duplicación de peso",
-    "Confirmar pesos históricos con Ventas antes de modificar registros existentes",
-    "Promoción a producción requiere autorización"
+    "Run Pricing build and tests",
+    "Staging authenticated save/edit and create smoke",
+    "Confirm root trace 0HNQ5LP0PAJCE:00000026 in production server logs",
+    "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "Web 1.82.0→1.82.1; Pricing 1.24.6→1.24.7; System/ecosistema 1.86.0→1.86.1",
-    "ci": "pending",
-    "build": "pending",
+    "semver": "Pricing 1.24.7→1.24.8, DholeSystem/ecosystem 1.87.0→1.87.1",
+    "ci": "Pricing build/test and version passed; System CI pending rebased candidate",
     "staging": "pending",
     "production": "not-authorized",
-    "rootCause": "Frontend summed consolidated line weights without multiplying by quantity"
+    "reason": "JSON date-only values can be DateTimeKind.Unspecified against timestamptz"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
-    "Agenda CRM compartida: invitaciones múltiples de usuarios activos de Auth para llamadas, citas, reuniones y recordatorios",
-    "Una única actividad visible para responsable e invitados con recordatorios individuales por email/sistema y deduplicación Outbox",
-    "Gestión y revocación de asistentes con auditoría, permisos CRM y compatibilidad REST/SignalR"
+    "Pricing: normalize YYYY-MM-DD tariff validity dates as UTC midnight before PostgreSQL timestamptz writes",
+    "Prevent Npgsql DateTimeKind.Unspecified errors on new and edited tariffs without changing the commercial date",
+    "Regression tests for date-only JSON, Local and UTC; preserve REST, audit and realtime"
   ],
-  "stagingValidation": "pending-LCL-LTL-per-unit-weight-regression",
+  "stagingValidation": "pending-authenticated-pricing-validity-date-save",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -220,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
+  "businessReleaseId": "DH-20261118-PRICING-SAVE-500-230",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
