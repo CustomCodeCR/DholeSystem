@@ -1,3 +1,9 @@
+## [1.72.0] - 2026-11-17 (Ventas: cancelación de QUO)
+
+- MINOR DH-20261117-SELLER-CANCEL-202: release coordinado DholeWeb 1.69.0 y DholePricingService 1.23.0 para cancelación auditada de cotizaciones por su vendedor.
+- Estado Cancelled persistente, motivo obligatorio, autorización por vendedor, idempotencia y compatibilidad con REST/realtime existentes. Se actualiza manifiesto central.
+- DholeSystem y ecosistema 1.71.3 → 1.72.0. CI y validación staging pendientes; sin despliegue a producción.
+
 ## [1.71.3] - 2026-11-17 (Pricing LCL: no cargar rubros de navieras)
 
 - PATCH DH-20261117-PRICING-LCL-CARRIER-200: Web 1.67.8 → 1.67.9 agrega control universal de cargos navieros para LCL marítimo; evita costos MAERSK y de otras navieras, aun con IDs legacy y respuesta contextual incorrecta.
