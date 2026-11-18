@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-BLOBATAR-206",
+  "releaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.75.0",
+  "ecosystemVersion": "1.76.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
+  "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.75.0",
+      "version": "1.76.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.72.0",
+      "version": "1.73.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -134,14 +134,14 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar pnpm install --frozen-lockfile, tests SSR, typecheck and build",
-    "Validar el avatar real y estados de presencia en staging antes de integrar master",
-    "No desplegar a producción sin autorización expresa"
+    "DholeWeb CI: instalación locked, regresiones de avatares, vue-tsc y build",
+    "Verificación de staging visual con sesión real, movimiento reducido y estados de presencia",
+    "Producción no desplegar sin autorización específica"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosistema 1.74.0→1.75.0; DholeWeb develop 1.71.1→1.72.0 / master 1.71.0→1.72.0; demás servicios sin cambios",
-    "unitTests": "pending GitHub CI",
-    "build": "pending GitHub CI",
+    "semver": "DholeSystem 1.75.0→1.76.0; DholeWeb 1.72.0→1.73.0; 15 servicios restantes sin cambio",
+    "unitTests": "GitHub CI pending",
+    "build": "GitHub CI pending",
     "staging": "pending",
     "production": "not-authorized"
   },
@@ -150,10 +150,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: DhAvatar local Blobatar 2.7.0 with photo priority, deterministic user ID, configurable initials, animated topbar and existing presence status",
-    "DholeSystem: coordinated semantic-version manifest; all other service versions unchanged; REST and SignalR compatible"
+    "DholeWeb: Blobatar ambient animation, hover reactions, mood morphing for busy/offline, cursor gaze in topbar, soft glow and prefers-reduced-motion",
+    "DholeSystem: coordinated version and unchanged other services; no REST, SignalR or schema changes"
   ],
-  "stagingValidation": "pending-dholeweb-avatars-auth",
+  "stagingValidation": "pending-animated-avatar-accessibility-smoke",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -206,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-BLOBATAR-206",
+  "businessReleaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

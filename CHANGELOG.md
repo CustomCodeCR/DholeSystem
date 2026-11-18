@@ -1,3 +1,8 @@
+## [1.76.0] - 2026-11-17 (Blobatar: expresiones, animación y gaze)
+
+- MINOR DH-20261117-BLOBATAR-MOTION-207: actualización coordinada de DholeWeb 1.72.0 → 1.73.0; DholeSystem y ecosistema 1.75.0 → 1.76.0. Se añaden animación continua de cabeza de usuario, ojos que siguen el puntero en escritorio, expresiones al hover/ocupado/desconectado y halo suave, respetando preferencias de movimiento reducido.
+- Manifiesto de los 17 componentes conserva la versión de los 15 microservicios restantes. No hay cambios en REST, SignalR, Outbox/Inbox, bases de datos ni permisos. CI, staging y validación visual pendientes antes de promover a master.
+
 ## [1.75.0] - 2026-11-17 (DholeWeb: sistema de avatares Blobatar)
 
 - MINOR DH-20261117-BLOBATAR-206: integra Blobatar 2.7.0 en el componente compartido DhAvatar, reutilizado por los módulos Dhole. Foto primero; fallback SVG local determinístico por ID; iniciales opcionales; estados SignalR sin cambios.
