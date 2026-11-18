@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-MOODS-228",
+  "releaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.86.0",
+  "ecosystemVersion": "1.86.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
+  "candidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.86.0",
+      "version": "1.86.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
+      "candidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "developCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop"
+      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.82.0",
+      "version": "1.82.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
+      "candidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "developCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop"
+      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.6",
+      "version": "1.24.7",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+      "candidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -142,31 +142,32 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web transformed LCL EXW pickup runtime test + full build",
-    "Pricing fixed pickup resolver unit tests + .NET build",
-    "Authenticated staging quotation save/reopen and PDF smoke",
-    "Production only after coordinated staging validation"
+    "Compilación y pruebas LCL/LTL del wizard transformado en CI",
+    "Staging: solicitud de dos tarimas de 749 kg debe mostrar 1498 kg",
+    "Reabrir cotización y verificar no duplicación de peso",
+    "Confirmar pesos históricos con Ventas antes de modificar registros existentes",
+    "Promoción a producción requiere autorización"
   ],
   "validationEvidence": {
-    "semver": "develop: Web 1.81.1→1.81.2, Pricing 1.24.5→1.24.6, System 1.85.1→1.85.2",
+    "semver": "Web 1.82.0→1.82.1; Pricing 1.24.6→1.24.7; System/ecosistema 1.86.0→1.86.1",
     "ci": "pending",
     "build": "pending",
     "staging": "pending",
     "production": "not-authorized",
-    "rootCause": "Persisted own-LCL hydration dropped manual identity and fixed EXW origin lookup was excluded"
+    "rootCause": "Frontend summed consolidated line weights without multiplying by quantity"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Preserve quote RateDetails in view-only own-LCL hydration and keep manual EXW pickup on edit",
-    "Keep own consolidation matrix and independent pickup/insurance separate",
-    "Include route-matched fixed EXW pickup and preserve authorized manually entered fixed pickup cost",
-    "Show missing EXW pickup as unquoted rather than fabricate monetary totals",
-    "Regression tests for transformed Vue hydration and Pricing resolver policy; REST/scopes/AuditLogs/SignalR unchanged"
+    "Multiply consolidated LCL/LTL per-unit cargo weight by quantity",
+    "Persist total weight per cargo line and hydrate saved rates as unit weight",
+    "Recalculate seller handoff total and chargeable equivalent from lines",
+    "Preserve existing REST contract, permissions, AuditLogs and realtime"
   ],
-  "stagingValidation": "pending-authenticated-own-LCL-EXW-pickup-save-reopen",
+  "stagingValidation": "pending-LCL-LTL-per-unit-weight-regression",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -219,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
+  "businessReleaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
