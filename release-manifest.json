@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
+  "releaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.79.0",
-  "status": "candidate-staging-passed-master-authorized",
+  "ecosystemVersion": "1.80.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master-v2",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.79.0",
+      "version": "1.80.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master-v2",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -40,9 +40,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.75.0",
+      "version": "1.76.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-master",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -131,33 +131,33 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-pr-ci",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-promotion",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "GitHub CI final del release antes del merge a master",
-    "Verificar workflow de producción y healthcheck de DholeWeb",
-    "UAT visual autenticado de modo oscuro/tap y movimiento reducido pendiente"
+    "CI de DholeWeb 1.76.0, regression SSR and Vite build",
+    "Deploy staging and user testing of cycle, accessible label and reduced-motion",
+    "Production deployment requires explicit approval"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosistema master 1.78.0→1.79.0, DholeWeb master 1.73.0→1.75.0 (1.74.0 Operations reservado), los 15 servicios restantes preservados del release Operations 208",
-    "unitTests": "Web master PR #715 CI SUCCESS; DholeSystem candidate CI pending",
-    "build": "Web master PR #715 CI SUCCESS",
-    "staging": "DholeWeb develop 1.75.0 deployment successful 44325152699; UAT visual pending",
-    "production": "User requested master promotion explicitly 2026-11-18; automatic workflow verification pending"
+    "semver": "DholeSystem/ecosistema 1.79.0→1.80.0, DholeWeb 1.75.0→1.76.0, other 15 components unchanged on respective branch",
+    "unitTests": "pending CI",
+    "build": "pending CI",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: black profile pill and avatar background in dark mode, tap/click/keyboard reaction surprised → wink → happy, replayable motion and accessible reduced-motion",
-    "DholeSystem: versioned release 1.79.0 preserving Operations 208 (Auth 1.14.0, Operations 0.7.0) and the other 15 component versions; no REST/SignalR/DB schema changes"
+    "DholeWeb: Blobatar 2.7.0 14-face preview activated by clicking topbar avatar, first angry, persistent expression with visible label, keyboard and tap accessible",
+    "DholeSystem: coordinated release 1.80.0; other microservices version unchanged, no REST, SignalR, database or authentication changes"
   ],
-  "stagingValidation": "DholeWeb 1.75.0 staging deploy GitHub Actions 44325152699 success; visual UAT pending",
+  "stagingValidation": "pending-blobatar-expression-cycle",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -210,7 +210,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
+  "businessReleaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
