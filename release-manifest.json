@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.73.0",
+  "ecosystemVersion": "1.74.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.73.0",
+      "version": "1.74.0",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
       "candidateSha": null,
@@ -45,7 +45,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.70.0",
+      "version": "1.71.0",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
       "candidateSha": null,
@@ -186,7 +186,7 @@
     "Configurar Crm__ApiBaseUrl en despliegues staging/prod; no desplegar producción ni promover master sin aprobación correspondiente."
   ],
   "validationEvidence": {
-    "semver": "System 1.72.0→1.73.0, Web 1.69.0→1.70.0, CRM 1.35.0→1.36.0, Operations 0.4.1→0.5.0",
+    "semver": "System 1.72.0→1.74.0, Web 1.69.0/1.70.0→1.71.0, CRM 1.35.0→1.36.0, Operations 0.4.1→0.5.0",
     "unitTests": "pending-CI",
     "build": "pending-CI",
     "staging": "pending",
