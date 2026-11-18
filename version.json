@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.84.2",
-  "ecosystemVersion": "1.84.2",
-  "releaseId": "DH-20261118-PRICING-LEASE-TX-222",
+  "version": "1.85.1",
+  "ecosystemVersion": "1.85.1",
+  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-TX-222"
+  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226"
 }

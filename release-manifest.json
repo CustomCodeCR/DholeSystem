@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-LEASE-TX-222",
+  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.84.2",
+  "ecosystemVersion": "1.85.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
+  "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.84.2",
+      "version": "1.85.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
+      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop"
+      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.80.2",
+      "version": "1.81.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/multiquo-single-commercial-20261118-develop",
+      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/multiquo-single-commercial-20261118-master",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
+      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.3",
+      "version": "1.24.5",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
+      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -142,28 +142,31 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing CI build and transaction regression test",
-    "Staging pricing deployment and claim smoke",
-    "Production requires authorization"
+    "DholeWeb Pricing EXW pickup regression test and build",
+    "PricingService CI compilation",
+    "Staging authenticated EXW LCL own pickup save and reopen",
+    "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.84.1 → 1.84.2; DholePricingService → 1.24.3; DholeWeb unchanged",
+    "semver": "DholeSystem 1.84.2 → 1.85.1; DholeWeb 1.81.0 → 1.81.1; DholePricingService 1.24.4 → 1.24.5",
     "ci": "pending",
     "build": "pending",
     "staging": "pending",
     "production": "not-authorized",
-    "rootCauseTrace": "0HNQ5JP78QTL4:00000009"
+    "issue": "EXW own LCL pickup missing on existing quotation and manual charges lost on refresh"
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeWeb",
     "DholePricingService"
   ],
   "changes": [
-    "Pricing: fix confirmed NpgsqlRetryingExecutionStrategy exception for claim, heartbeat and release-own by wrapping transactions inside EF Core CreateExecutionStrategy().ExecuteAsync",
-    "Pricing: maintain atomic PostgreSQL advisory locking, existing REST, SignalR, scopes and audit",
-    "DholeSystem: coordinated PATCH release with all 15 unaffected component versions preserved"
+    "EXW own LCL editable origin pickup fallback when no master cost is matched",
+    "Preserve manual pickup/other explicit extras during consolidation matrix refresh and save",
+    "Accept matching EXW pickup catalog rows while excluding unrelated provider costs",
+    "Keep existing REST/SignalR/scopes and persisted view-only quote snapshots unchanged"
   ],
-  "stagingValidation": "pending-pricing-request-claim-smoke",
+  "stagingValidation": "pending-authenticated-EXW-own-LCL-pickup-save-and-reopen",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -216,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-TX-222",
+  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
