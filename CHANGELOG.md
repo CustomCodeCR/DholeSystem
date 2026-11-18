@@ -1,3 +1,8 @@
+## [1.77.0] - 2026-11-17 (DholeWeb: Blobatar con movimiento y expresiones)
+
+- MINOR DH-20261117-BLOBATAR-MOTION-207: DholeWeb 1.72.0 → 1.73.0, DholeSystem/ecosistema 1.76.0 → 1.77.0. Animación de respiración, flotación y parpadeo; expresiones happy, thinking y sleepy, seguimiento de ojos al puntero y halo azul/violeta; respeta reduced-motion y conserva fallback de fotografías/iniciales.
+- Mantiene el release previo Operations Foundation 205 en develop, sus componentes y versiones. Sin modificaciones a backend, REST, SignalR ni permisos. Validar CI y staging; no desplegar a producción sin autorización.
+
 ## [1.76.0] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205 · Preparación Operations v1.2)
 
 - MINOR: Operations 0.5.0 → 0.6.0: registro multicarrier sin falsas activaciones, salida de Origen idempotente a Tránsito, bitácora privada y validación de ejecutivo comercial por CRM.

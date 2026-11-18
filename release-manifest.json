@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FOUNDATION-205",
+  "releaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.76.0",
+  "ecosystemVersion": "1.77.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
+  "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-develop-v2",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.76.0",
+      "version": "1.77.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-develop-v2",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -36,9 +36,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.72.0",
+      "version": "1.73.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-develop",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -118,7 +118,7 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.6.0",
-      "mergeState": "candidate-intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
       "candidateSha": "13981fb1c0d4010dbe22222d087bfa8eb50d0556",
       "developMergeSha": null
@@ -132,29 +132,26 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Integración Pricing: falta evento final de QUO aceptada y snapshot inequívoco de subQUO",
-    "Origen: completar etapa y asignación desde Aperturas, validaciones por modalidad y checklist",
-    "Storage: comprobar ownership de evidencia; Auth: scopes/membresías manuales; staging UAT pendiente",
-    "Master/producción no autorizado sin staging completo"
+    "Validar CI en DholeWeb y DholeSystem y smoke de staging",
+    "Verificar animation, gaze, SSR y prefers-reduced-motion en navegador autenticado",
+    "No desplegar a producción sin autorización expresa"
   ],
   "validationEvidence": {
-    "semver": "Operations 0.5.0→0.6.0, global 1.75.0→1.76.0",
-    "unitTests": "Operations CI validated before global version rebase; recheck pending",
-    "build": "Operations CI validated; System CI pending",
+    "semver": "DholeSystem/ecosistema 1.76.0→1.77.0, DholeWeb 1.72.0→1.73.0, demás versiones del release Operations 205 preservadas",
+    "unitTests": "GitHub CI pending",
+    "build": "GitHub CI pending",
     "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Operations: registro de conexiones marítimas como REQUESTED (no conecta a naviera)",
-    "Operations: estado Origen, salida real a Tránsito idempotente y bitácora privada con ACL",
-    "Operations: consulta CRM autenticada para asignar ejecutivo comercial de la cuenta",
-    "DholeSystem: manifiesto global 1.76.0 reconciliado con release concurrente Blobatar 1.75.0"
+    "DholeWeb: animaciones de respiración, parpadeo, mirada y reacciones; estados feliz/ocupado/dormido; gaze de cursor solo en avatar destacado",
+    "DholeSystem: versionado coordinado; se preserva Operations Foundation 205 integrado en develop; no cambia contratos REST, SignalR ni Outbox/Inbox"
   ],
-  "stagingValidation": "pending-operations-origin-and-carrier-e2e",
+  "stagingValidation": "pending-animated-avatar-accessibility-smoke",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -207,7 +204,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205",
+  "businessReleaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
