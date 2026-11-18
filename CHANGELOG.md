@@ -1,3 +1,9 @@
+## [1.77.1] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205-PROMOTION · Operations a master)
+
+- PATCH: promoción coordinada del backend Operations 0.6.0 validado en develop y staging; despliegue de producción autorizado explícitamente.
+- Manifiesto de 17 componentes actualizado con Operations 0.6.0 y ecosistema 1.77.1, preservando Blobatar y demás releases.
+- MVP Operations v1.2 aún parcial; no se habilitan navieras externas ni se simulan integraciones pendientes.
+
 ## [1.77.0] - 2026-11-17 (DholeWeb: Blobatar con movimiento y expresiones)
 
 - MINOR DH-20261117-BLOBATAR-MOTION-207: DholeWeb 1.72.0 → 1.73.0, DholeSystem/ecosistema 1.76.0 → 1.77.0. Animación de respiración, flotación y parpadeo; expresiones happy, thinking y sleepy, seguimiento de ojos al puntero y halo azul/violeta; respeta reduced-motion y conserva fallback de fotografías/iniciales.
