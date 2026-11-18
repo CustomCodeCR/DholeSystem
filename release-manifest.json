@@ -142,14 +142,15 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI must pass before merge",
-    "Authenticated two-session end-to-end manual check not performed"
+    "DholeWeb CI: Vue typecheck, avatar store regressions, i18n, production build",
+    "Staging visual verification of Appearance avatar, synchronized moods, Auto/Fixed mode",
+    "Production deploy requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.78.0→1.78.1; DholePricingService 1.23.3→1.23.4; DholeSystem 1.82.0→1.82.1; other 14 versions preserved",
-    "unitTests": "CI pending on master backport; develop green",
-    "build": "CI pending on master backport; develop green",
-    "staging": "develop Pricing and Web successful; authenticated two-user manual pending",
+    "semver": "DholeSystem ecosystem 1.82.1→1.83.0, DholeWeb 1.78.1→1.79.0; all other 15 versions retained",
+    "unitTests": "pending GitHub CI",
+    "build": "pending GitHub CI",
+    "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
@@ -158,11 +159,11 @@
     "DholePricingService"
   ],
   "changes": [
-    "DholeWeb: safely release Pricing request lease on route leave; stop heartbeat and wait for pending operations before unlock (preserve Blobatar 215)",
-    "DholePricingService: reject a stale released token from automatic heartbeat retry while allowing explicit same-user resume",
-    "DholeSystem: PATCH 1.82.0 → 1.82.1, preserve the other 14 component versions, no new SignalR/REST contracts"
+    "DholeWeb: Avatar Auto/Fixed moved from topbar to Appearance with 160px interactive preview using shared Dhole UI and full ES/EN localization",
+    "DholeWeb: shared Pinia avatar store keeps topbar and preview in sync with one 30s auto rotation timer; existing local preferences preserved",
+    "DholeSystem: coordinated version bump; all other 15 components and REST, SignalR, Outbox/Inbox unchanged"
   ],
-  "stagingValidation": "develop-staging-deploy-success-two-session-manual-pending",
+  "stagingValidation": "pending-avatar-appearance-preview-sync",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -215,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-214",
+  "businessReleaseId": "DH-20261118-BLOBATAR-APPEARANCE-216",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

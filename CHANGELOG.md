@@ -1,8 +1,14 @@
-## [1.83.1] - 2026-11-18 (MultiQUO: una base 672 y alternativas 672-A/B)
+## [1.83.1] - 2026-11-18 (MultiQUO: 672-A/B comerciales, sin 673)
 
-- PATCH DH-20261118-MULTIQUO-IDENTITY-217: release coordinado DholeWeb 1.79.1 y DholePricingService 1.23.5. Corrige creación de consecutivos de grupos FCL, selección con sufijos persistentes y buscador/listado sin 673 técnico.
-- Migración de alternativas existentes restituye los sufijos desde el registro de grupo sin borrar histórico ni alterar cotizaciones, importes, scopes, audit logs, Outbox ni SignalR.
-- Ecosistema DholeSystem 1.83.0/1.82.1 → 1.83.1, Web 1.79.0/1.78.1 → 1.79.1, Pricing 1.23.4 → 1.23.5. CI, integración develop y verificación staging antes de master, sin despliegue productivo autorizado.
+- PATCH DH-20261118-MULTIQUO-IDENTITY-217: una sola base de cotización FCL y opciones con sufijo persistente. PricingService 1.23.5 incluye migración para recuperar los números históricos y Web 1.79.1 actualiza listados, búsqueda global y wizard.
+- DholeSystem/ecosistema 1.83.0 → 1.83.1; DholeWeb 1.79.0 → 1.79.1; PricingService 1.23.4 → 1.23.5. Demás servicios conservan versiones; se mantienen autorización, auditoría, Outbox y SignalR.
+- Validaciones de CI y despliegues staging aprobados en develop; promoción master autorizada expresamente por el usuario.
+
+## [1.83.0] - 2026-11-18 (Apariencia: vista previa grande y modos de Blobatar)
+
+- MINOR DH-20261118-BLOBATAR-APPEARANCE-216: mueve los controles Auto/Fijo al módulo Apariencia con vista previa grande e interactiva del avatar. Pinia sincroniza la expresión del avatar del encabezado y de la vista previa; un único ciclo de 30 s, guardado por usuario, sincronización entre pestañas y respeto a movimiento reducido.
+- DholeWeb 1.78.1 → 1.79.0 y DholeSystem/ecosistema 1.82.1 → 1.83.0. Mantiene las versiones de los otros 15 servicios y Gateway de esta rama, incluido el release previo de Pricing, sin alterar REST, SignalR, Auth, permisos ni bases de datos.
+- CI, regresiones, build y despliegue de staging requeridos antes de promover a master; no desplegar a producción sin autorización explícita.
 
 ## [1.82.1] - 2026-11-18 (Pricing: liberación definitiva de solicitudes)
 
