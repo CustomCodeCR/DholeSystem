@@ -1,3 +1,9 @@
+## [1.81.0] - 2026-11-18 (Operations: interfaz Dh para Aperturas y Equipos)
+
+- MINOR DH-20261118-OPS-DH-UI-211: DholeWeb 1.76.0 → 1.77.0 sustituye controles HTML y tarjetas básicas de Operations por DhPageHeader, DhCard, DhDataTable, DhModal y componentes de formulario compartidos, con búsqueda y detalle responsive.
+- DholeSystem/ecosistema 1.80.0 → 1.81.0; 15 componentes backend y Gateway conservan versiones. Persistencia, scopes, auditoría, API REST, pool y doble validación sin modificaciones.
+- Validar CI, build, permisos y flujo de asignación en staging antes de integrar a master; producción no autorizada.
+
 ## [1.80.0] - 2026-11-18 (Blobatar: probador interactivo de expresiones)
 
 - MINOR DH-20261118-BLOBATAR-EXPRESSIONS-210: DholeWeb 1.75.0 → 1.76.0, DholeSystem/ecosistema 1.79.0 → 1.80.0. Al pulsar el avatar del usuario muestra cara enojada y permite recorrer las 14 expresiones de Blobatar 2.7.0, manteniendo la pose y mostrando la etiqueta hasta el siguiente clic.
