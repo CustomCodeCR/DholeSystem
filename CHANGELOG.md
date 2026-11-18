@@ -1,3 +1,8 @@
+## [1.87.2] - 2026-11-18 (Diagnóstico seguro de error 500 al guardar Pricing)
+
+- PATCH DH-20261118-PRICING-SAVE-DIAG-231: diagnóstico de solo lectura de categorías de excepción y códigos PostgreSQL en los logs del contenedor de Pricing, sin volcar solicitudes, datos de clientes ni secretos.
+- DholeSystem/ecosistema 1.87.1→1.87.2; microservicios permanecen con su versión anterior. No se modifica producción, migraciones, REST, scopes, realtime ni auditoría. La corrección funcional se abordará según la excepción concreta.
+
 ## [1.87.1] - 2026-11-18 (Pricing: guardar fechas comerciales sin error UTC)
 
 - PATCH DH-20261118-PRICING-SAVE-500-230: corregir el guardado de tarifas por fecha comercial YYYY-MM-DD convirtiendo a medianoche UTC antes de escribir timestamps PostgreSQL; no desplaza el día de vigencia.

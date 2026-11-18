@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-SAVE-500-230",
+  "releaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.1",
+  "ecosystemVersion": "1.87.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
+  "candidateBranch": "fix/DH-20261118-PRICING-SAVE-DIAG-231",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.1",
-      "mergeState": "candidate",
-      "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
+      "version": "1.87.2",
+      "mergeState": "intermediate-diagnostic",
+      "candidateBranch": "fix/DH-20261118-PRICING-SAVE-DIAG-231",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230"
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-DIAG-231"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -70,7 +70,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.24.8",
-      "mergeState": "merged-in-develop",
+      "mergeState": "unchanged",
       "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
       "candidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
       "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
@@ -136,33 +136,26 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
+    "status": "pending-CI",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run Pricing build and tests",
-    "Staging authenticated save/edit and create smoke",
-    "Confirm root trace 0HNQ5LP0PAJCE:00000026 in production server logs",
-    "Production deployment requires explicit authorization"
+    "Collect precise error category for PUT trace 0HNQ5OQL7VVTR without exposing payload",
+    "Diagnose and fix underlying exception in Pricing separate PATCH release"
   ],
   "validationEvidence": {
-    "semver": "Pricing 1.24.7→1.24.8, DholeSystem/ecosystem 1.87.0→1.87.1",
-    "ci": "Pricing build/test and version passed; System CI pending rebased candidate",
-    "staging": "pending",
-    "production": "not-authorized",
-    "reason": "JSON date-only values can be DateTimeKind.Unspecified against timestamptz"
+    "semver": "DholeSystem 1.87.1→1.87.2, Pricing unchanged at 1.24.8",
+    "ci": "pending",
+    "production": "read-only diagnostics; no redeploy"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Pricing: normalize YYYY-MM-DD tariff validity dates as UTC midnight before PostgreSQL timestamptz writes",
-    "Prevent Npgsql DateTimeKind.Unspecified errors on new and edited tariffs without changing the commercial date",
-    "Regression tests for date-only JSON, Local and UTC; preserve REST, audit and realtime"
+    "Add read-only redacted production Pricing error signature diagnostic workflow for persistent rate save 500"
   ],
   "stagingValidation": "pending-authenticated-pricing-validity-date-save",
   "f6F7F8": {
@@ -217,7 +210,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-SAVE-500-230",
+  "businessReleaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
