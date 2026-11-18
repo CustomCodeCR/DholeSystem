@@ -1,3 +1,9 @@
+## [1.83.6] - 2026-11-18 (MultiQUO: identidad comercial consolidada)
+
+- PATCH DH-20261118-MULTIQUO-SINGLE-223: una QUO base en listado, búsqueda y reportes, con alternativas A/B dentro del detalle y aceptación única del grupo. La opción no elegida permanece en historial sin rechazo comercial independiente.
+- master: DholeSystem 1.83.5 → 1.83.6, Pricing 1.23.9 → 1.23.10, Web 1.79.4 → 1.79.5; otros 14 componentes conservan versión. Mantiene correcciones recientes de reservas, permisos, AuditLogs, REST y SignalR.
+- Promoción coordinada por PR y CI; no incluye despliegue manual a producción.
+
 ## [1.83.5] - 2026-11-18 (Pricing: corregir transacciones de reservas)
 
 - PATCH DH-20261118-PRICING-LEASE-TX-222: se corrige el HTTP 503 confirmado por el trace 0HNQ5JP78QTL4:00000009. Las transacciones de claim, heartbeat y release-own se ejecutan íntegramente en la estrategia de reintentos Npgsql/EF Core.
