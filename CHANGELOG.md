@@ -1,3 +1,9 @@
+## [1.83.3] - 2026-11-18 (Pricing: recuperación segura de reservas huérfanas)
+
+- PATCH DH-20261118-PRICING-LEASE-219: permite liberar la propia reserva sin volver a reclamarla; reserva ajena solo tras 45 segundos sin heartbeat en el servidor y acción expresa de Pricing. Se preservan bloques realmente activos y el estado de trabajo.
+- Versiones coordinadas: DholeSystem 1.83.2 → 1.83.3; DholeWeb 1.79.2 → 1.79.3; DholePricingService 1.23.6 → 1.23.7; los otros 14 componentes sin cambios. REST compatible, SignalR intacto, auditoría de acciones registrada.
+- CI, staging y prueba con dos sesiones obligatorios antes de master.
+
 ## [1.83.2] - 2026-11-18 (Pricing: detener reapertura automática de bloqueos)
 
 - PATCH DH-20261118-PRICING-LEASE-218: Web elimina claim automático al fallar heartbeat, ofrece liberación de reserva propia y aísla tokens por identidad; Pricing deja una sola reserva por operador y libera antiguas exclusivamente del mismo usuario bajo transacción.
