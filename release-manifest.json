@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210",
+  "releaseId": "DH-20261118-OPS-DH-UI-211",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.80.0",
+  "ecosystemVersion": "1.81.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
+  "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.80.0",
+      "version": "1.81.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
+      "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
-      "developCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-develop"
+      "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
+      "developCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.76.0",
+      "version": "1.77.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-master",
+      "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
-      "developCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-develop"
+      "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
+      "developCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -138,15 +138,15 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI de DholeWeb 1.76.0, regression SSR and Vite build",
-    "Deploy staging and user testing of cycle, accessible label and reduced-motion",
-    "Production deployment requires explicit approval"
+    "Validar CI y compilación del rediseño Operations sobre master",
+    "Validar operaciones y scopes en staging con usuarios reales",
+    "Promoción a master implica deployment productivo automático; requiere autorización explícita"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosistema 1.79.0→1.80.0, DholeWeb 1.75.0→1.76.0, other 15 components unchanged on respective branch",
-    "unitTests": "pending CI",
-    "build": "pending CI",
-    "staging": "pending",
+    "semver": "DholeSystem/ecosistema 1.80.0→1.81.0; DholeWeb 1.76.0→1.77.0; otros 15 componentes sin cambios",
+    "unitTests": "CI de develop superado, CI master PR pendiente",
+    "build": "CI de develop superado",
+    "staging": "pendiente despliegue staging",
     "production": "not-authorized"
   },
   "releaseComponents": [
@@ -154,10 +154,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: Blobatar 2.7.0 14-face preview activated by clicking topbar avatar, first angry, persistent expression with visible label, keyboard and tap accessible",
-    "DholeSystem: coordinated release 1.80.0; other microservices version unchanged, no REST, SignalR, database or authentication changes"
+    "Promoción del mismo diseño de Operations validado en develop: dos vistas usando componentes compartidos Dh y misma API",
+    "Se preservan contratos, permisos, Outbox, SignalR y demás 15 versiones; no se introducen cambios backend"
   ],
-  "stagingValidation": "pending-blobatar-expression-cycle",
+  "stagingValidation": "pending-operations-dh-ui-smoke",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
