@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-BLOBATAR-MOTION-207",
+  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.77.0",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.77.1",
+  "status": "candidate-production-promotion",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
+  "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.77.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
+      "version": "1.77.1",
+      "mergeState": "candidate-master",
+      "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -122,37 +122,40 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.5.0",
-      "mergeState": "unchanged"
+      "version": "0.6.0",
+      "mergeState": "master-promotion-candidate",
+      "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-master",
+      "candidateSha": "e787e7c1533623011a98fd7d6be4ecb3de22e6e9"
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
+    "status": "pending-ci-for-master",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master partió del ecosistema 1.75.0 y no incorpora aún Operations 205; evitar sobreescribir este release al promover Operations a master",
-    "Staging smoke DholeWeb y controles de producción antes de promoción"
+    "Full Operations v1.2 functional UAT pending; backend preparation only",
+    "No external carrier connections active, no final accepted quotation integration yet"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem master 1.75.0→1.77.0 (1.76.0 Operations Foundation 205 ya utilizado en develop); DholeWeb master 1.72.0→1.73.0; demás componentes de master sin cambios",
-    "unitTests": "GitHub CI pending",
-    "build": "GitHub CI pending",
-    "staging": "develop 1.77.0 pending",
-    "production": "not-authorized"
+    "semver": "DholeOperationsService 0.5.0→0.6.0 and DholeSystem 1.77.0→1.77.1",
+    "unitTests": "Operations develop CI and master PR CI",
+    "build": "Operations staging deployment passed",
+    "staging": "https://github.com/CustomCodeCR/DholeOperationsService/actions/runs/44225348804",
+    "production": "explicit user authorization; deploy after master merge"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService"
   ],
   "changes": [
-    "DholeWeb: Blobatar ambient animation, hover reactions, mood morphing for busy/offline, cursor gaze in topbar, soft glow and prefers-reduced-motion",
-    "DholeSystem: coordinated version and unchanged other services; no REST, SignalR or schema changes"
+    "Operations master 0.5.0 → 0.6.0: selective promotion of 13 DH-205 source files verified in develop/staging",
+    "Carrier registration, manual origin departure+Outbox, private notes, verified CRM executive lookup",
+    "DholeSystem version 1.77.0 → 1.77.1: master release manifest and notes; realtime production approval remains fail-closed"
   ],
-  "stagingValidation": "pending-animated-avatar-accessibility-smoke",
+  "stagingValidation": "operations-staging-workflow-44225348804-success",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -205,7 +208,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-BLOBATAR-MOTION-207",
+  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
