@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.83.6",
-  "ecosystemVersion": "1.83.6",
-  "releaseId": "DH-20261118-MULTIQUO-SINGLE-223",
+  "version": "1.84.4",
+  "ecosystemVersion": "1.84.4",
+  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-MULTIQUO-SINGLE-223"
+  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226"
 }
