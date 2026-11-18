@@ -45,7 +45,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.69.1",
+      "version": "1.70.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-master",
       "candidateSha": null,
