@@ -1,3 +1,10 @@
+## [1.73.0] - 2026-11-17 (CRM / Operations: encargados por cliente)
+
+- MINOR DH-20261117-CRM-OPS-CONTACTS-204: lote coordinado DholeSystem, DholeCRMService, DholeWeb y DholeOperationsService. Permite uno o varios encargados operativos por cuenta, independientes de un único contacto principal.
+- CRM migración aditiva y filtro de contactos activos; Operations lee información actualizada desde CRM con autorización por caso/cuenta. Se requiere Crm__ApiBaseUrl en Operations, CI y staging antes de integración master.
+- Versiones: System 1.72.0 → 1.73.0, Web 1.69.0 → 1.70.0, CRM 1.35.0 → 1.36.0, Operations 0.4.1 → 0.5.0. Los otros componentes mantienen versiones actuales.
+- Producción no autorizada; no desplegar desde ramas intermedias.
+
 ## [1.72.0] - 2026-11-17 (Ventas: cancelación de QUO)
 
 - MINOR DH-20261117-SELLER-CANCEL-202: release coordinado DholeWeb 1.69.0 y DholePricingService 1.23.0 para cancelación auditada de cotizaciones por su vendedor.
