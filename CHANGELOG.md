@@ -1,3 +1,9 @@
+## [1.83.4] - 2026-11-18 (Pricing: evitar error inesperado al abrir solicitud)
+
+- PATCH DH-20261118-PRICING-LEASE-220: reserva de Pricing con lock transaccional PostgreSQL tipado, errores 409/503 identificables y consulta de reserva inactiva traducible por EF; Web muestra por separado error de claim/lectura y evita reintentos concurrentes.
+- develop: Web 1.80.1, Pricing 1.24.1, DholeSystem 1.83.3→1.83.4. Los demás 14 componentes mantienen sus versiones actuales. Sin cambios de REST existentes, scopes, auditoría ni SignalR.
+- CI, staging autenticado y validación de producción pendientes.
+
 ## [1.83.3] - 2026-11-18 (Pricing: recuperación segura de reservas huérfanas)
 
 - PATCH DH-20261118-PRICING-LEASE-219: permite liberar la propia reserva sin volver a reclamarla; reserva ajena solo tras 45 segundos sin heartbeat en el servidor y acción expresa de Pricing. Se preservan bloques realmente activos y el estado de trabajo.
