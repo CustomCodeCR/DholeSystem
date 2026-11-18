@@ -1,3 +1,10 @@
+## [1.84.4] - 2026-11-18 (Pricing: recolecta EXW LCL propio, master backport)
+
+- PATCH DH-20261118-PRICING-EXW-PICKUP-226: promoción coordinada a master desde backport de la corrección EXW de LCL propio. Recupera recolecta editable, conserva importes manuales y limita cargos del catálogo a los aplicables a ruta.
+- Actualiza manifiesto central Web 1.80.4, Pricing 1.24.5 y System 1.84.4; las demás versiones se mantienen en el manifiesto de master. Este backport no incluye los cambios divergentes de los otros módulos en develop.
+- Web/Pricing staging develop desplegados con workflows correctos; compilaciones, CI de backport y smoke autenticado pendientes. Producción expresamente autorizada por solicitud del usuario de master.
+- Staging comprobado: Pricing https://github.com/CustomCodeCR/DholePricingService/actions/runs/44381748194 y Web https://github.com/CustomCodeCR/DholeWeb/actions/runs/44381755824 (ambos success). CI de backport debe superar controles propios de master antes de integrar.
+
 ## [1.83.6] - 2026-11-18 (MultiQUO: identidad comercial consolidada)
 
 - PATCH DH-20261118-MULTIQUO-SINGLE-223: una QUO base en listado, búsqueda y reportes, con alternativas A/B dentro del detalle y aceptación única del grupo. La opción no elegida permanece en historial sin rechazo comercial independiente.

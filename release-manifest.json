@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-MULTIQUO-SINGLE-223",
+  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.6",
+  "ecosystemVersion": "1.84.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+  "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.6",
+      "version": "1.84.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -40,12 +40,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.5",
+      "version": "1.80.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -69,10 +69,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.10",
+      "version": "1.24.5",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
-      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,24 +135,22 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
+    "status": "pending-backport-ci",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Pricing CI build and transaction regression test",
-    "Staging pricing deployment and claim smoke",
-    "Production requires authorization"
+    "CI backport (Web/Pricing/System)",
+    "Authenticated EXW own-LCL quote save/reopen smoke pending"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.83.4 → 1.83.5; DholePricingService → 1.23.9; DholeWeb unchanged",
-    "ci": "pending",
-    "build": "pending",
-    "staging": "pending",
-    "production": "not-authorized",
-    "rootCauseTrace": "0HNQ5JP78QTL4:00000009"
+    "semver": "master: System 1.83.6 → 1.84.4; Web 1.80.3 → 1.80.4; Pricing 1.24.4 → 1.24.5",
+    "ci": "pending-master-backport",
+    "build": "develop-CI-pass-backport-pending",
+    "staging": "develop-Web-and-Pricing-deploy-health-pass; authenticated EXW quote smoke pending",
+    "production": "explicitly-authorized-by-user; deploy-on-master-merge"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -160,11 +158,12 @@
     "DholePricingService"
   ],
   "changes": [
-    "MultiQUO commercial identity: one base quotation in lists/search/report counts",
-    "Internal A/B alternative selection and one accepted group outcome",
-    "Preserve pricing lease fixes, scopes, audit, Outbox and SignalR"
+    "Targeted master backport of EXW own-LCL pickup charge fix from validated develop",
+    "Preserve editable pickup fallback and manual amount on matrix refresh and save",
+    "Include only contextual EXW pickup catalog charge without other global LCL charges",
+    "Maintain REST API, AuditLogs, scopes and SignalR behavior unchanged"
   ],
-  "stagingValidation": "pending-pricing-request-claim-smoke",
+  "stagingValidation": "develop-deployment-health-and-bundle-pass-case-smoke-pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -217,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-TX-222",
+  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
