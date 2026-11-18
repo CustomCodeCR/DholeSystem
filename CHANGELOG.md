@@ -1,3 +1,9 @@
+## [1.79.0] - 2026-11-18 (Blobatar: fondo negro y animación al tocar)
+
+- MINOR DH-20261118-BLOBATAR-DARK-TAP-209: DholeWeb 1.73.0 → 1.75.0, DholeSystem/ecosistema 1.78.0 → 1.79.0. En modo oscuro, tarjeta y fondo del avatar negros; clic, toque o teclado activan sorpresa, guiño y sonrisa con rebote repetible, respetando movimiento reducido.
+- Preserva íntegramente Operations Dual Validation 208: DholeAuthService 1.14.0, DholeOperationsService 0.7.0, además de todas las otras versiones del manifiesto y sus registros históricos. No hay cambios en REST, SignalR, Outbox/Inbox, permisos ni base de datos.
+- CI y staging aprobados para DholeWeb; usuario autorizó expresamente promoción a master el 2026-11-18. Validar workflow de producción tras merge; UAT visual autenticado pendiente.
+
 ## [1.78.0] - 2026-11-17 (DH-20261117-OPS-DUAL-VALIDATION-208 · Aperturas doble validación)
 
 - MINOR: backend Operations 0.7.0 con pool ponderado de dos validadores independientes, equipos, asignación, decisiones y auditoría persistente local + AuditLogs por Redis Outbox.
