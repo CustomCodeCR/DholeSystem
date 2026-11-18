@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
+  "releaseId": "DH-20261118-BLOBATAR-PREFERENCES-215",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.81.1",
+  "ecosystemVersion": "1.82.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-master-v2",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.81.1",
+      "version": "1.82.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-master-v2",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
@@ -40,9 +40,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.77.1",
+      "version": "1.78.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-master-v2",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
@@ -69,8 +69,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.1",
-      "mergeState": "unchanged",
+      "version": "1.23.3",
+      "mergeState": "unchanged-reconciled-release-213",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
     },
     {
@@ -138,12 +138,12 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb master PR CI: theme regression, SSR and build",
-    "Staging visual validation under OS light/dark with explicit Dhole theme",
-    "Production master deployment only after explicit user approval"
+    "DholeWeb CI and SSR with localStorage persistence and Auto mode",
+    "Validate staging before master merge and automated production deployment",
+    "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.77.0→1.77.1; DholeSystem/ecosystem 1.81.0→1.81.1; other 15 component versions preserved",
+    "semver": "DholeSystem/ecosystem master 1.81.1→1.82.0, DholeWeb 1.77.2→1.78.0; PricingService actual 1.23.3 from prior release 213 reconciled, other 14 components preserved",
     "unitTests": "pending CI",
     "build": "pending CI",
     "staging": "pending",
@@ -154,10 +154,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: fix light profile pill contrast and Blobatar expression label; Tailwind dark variant follows html.dark, independent of operating system color-scheme setting",
-    "DholeSystem: coordinated patch version, preserve Operations UI 211 and all microservices versions; no REST/SignalR changes"
+    "DholeWeb: persist selected Blobatar expression and Auto/Fixed mode by authenticated ID in localStorage, rotate 14 emotions every 30s, pause for visibility/reduced-motion",
+    "DholeSystem: minor SemVer 1.82.0, register actual PricingService 1.23.3 from earlier release 213, preserve all other services; no SignalR/API/data changes"
   ],
-  "stagingValidation": "pending-light-mode-avatar-contrast-and-class-theme",
+  "stagingValidation": "pending-blobatar-auto-fixed-persistent",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -210,7 +210,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
+  "businessReleaseId": "DH-20261118-BLOBATAR-PREFERENCES-215",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
