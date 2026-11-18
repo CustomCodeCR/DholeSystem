@@ -1,0 +1,28 @@
+{
+  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
+  "date": "2026-11-17",
+  "globalFrom": "1.77.0",
+  "globalTo": "1.77.1",
+  "components": {
+    "DholeSystem": {
+      "from": "1.77.0",
+      "to": "1.77.1"
+    },
+    "DholeOperationsService": {
+      "from": "0.5.0",
+      "to": "0.6.0"
+    }
+  },
+  "originRelease": "DH-20261117-OPS-FOUNDATION-205",
+  "operationsStagingRun": "https://github.com/CustomCodeCR/DholeOperationsService/actions/runs/44225348804",
+  "productionDeploymentAuthorized": true,
+  "validation": {
+    "operationsCI": "passed",
+    "staging": "Operations deploy and SQL verification passed",
+    "production": "pending"
+  },
+  "limitations": [
+    "Aperturas/Origen complete end-to-end UAT and external carrier credentials pending; partial backend only",
+    "Pricing accepted QUO event, onboarding/permissions, Storage ownership and notifications not yet fully integrated"
+  ]
+}
