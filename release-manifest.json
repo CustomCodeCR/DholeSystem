@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-MULTIQUO-IDENTITY-217",
+  "releaseId": "DH-20261118-PRICING-LEASE-218",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.1",
+  "ecosystemVersion": "1.83.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/multiquo-identity-217-master",
+  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.1",
+      "version": "1.83.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/multiquo-identity-217-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/multiquo-identity-217-master",
-      "developCandidateBranch": "release/multiquo-identity-217-develop"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.1",
+      "version": "1.79.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/multiquo-suffix-20261118-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/multiquo-suffix-20261118-master",
-      "developCandidateBranch": "fix/multiquo-suffix-20261118-develop"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.5",
+      "version": "1.23.6",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/multiquo-suffix-20261118-master",
-      "candidateBranch": "fix/multiquo-suffix-20261118-master",
-      "developCandidateBranch": "fix/multiquo-suffix-20261118-develop",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -142,14 +142,13 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb CI: Vue typecheck, avatar store regressions, i18n, production build",
-    "Staging visual verification of Appearance avatar, synchronized moods, Auto/Fixed mode",
-    "Production deploy requires explicit authorization"
+    "Master CI checks",
+    "Staging deployment and two-user validation"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem ecosystem 1.82.1→1.83.0, DholeWeb 1.78.1→1.79.0; all other 15 versions retained",
-    "unitTests": "pending GitHub CI",
-    "build": "pending GitHub CI",
+    "semver": "System 1.83.1→1.83.2; Web 1.79.1→1.79.2; Pricing 1.23.5→1.23.6, other 14 components unchanged",
+    "unitTests": "develop CI passed",
+    "build": "develop CI passed",
     "staging": "pending",
     "production": "not-authorized"
   },
@@ -159,11 +158,11 @@
     "DholePricingService"
   ],
   "changes": [
-    "DholeWeb: Avatar Auto/Fixed moved from topbar to Appearance with 160px interactive preview using shared Dhole UI and full ES/EN localization",
-    "DholeWeb: shared Pinia avatar store keeps topbar and preview in sync with one 30s auto rotation timer; existing local preferences preserved",
-    "DholeSystem: coordinated version bump; all other 15 components and REST, SignalR, Outbox/Inbox unchanged"
+    "DholeWeb: no automatic reclaim after heartbeat failure; own reservation release, per-identity tokens and unique idempotency keys",
+    "DholePricingService: one current lease per pricing operator; transactionally revoke old leases owned by the SAME actor, never other users",
+    "DholeSystem: coordinated PATCH manifest; other 14 services unchanged"
   ],
-  "stagingValidation": "pending-avatar-appearance-preview-sync",
+  "stagingValidation": "pending-authenticated-lease-ownership-two-users",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -216,7 +215,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-BLOBATAR-APPEARANCE-216",
+  "businessReleaseId": "DH-20261118-PRICING-LEASE-218",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

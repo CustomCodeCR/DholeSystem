@@ -1,3 +1,8 @@
+## [1.83.2] - 2026-11-18 (Pricing: detener reapertura automática de bloqueos)
+
+- PATCH DH-20261118-PRICING-LEASE-218: Web elimina claim automático al fallar heartbeat, ofrece liberación de reserva propia y aísla tokens por identidad; Pricing deja una sola reserva por operador y libera antiguas exclusivamente del mismo usuario bajo transacción.
+- Versiones coordinadas: System 1.83.1 → 1.83.2, Web 1.79.1 → 1.79.2, Pricing 1.23.5 → 1.23.6; otros 14 componentes preservados. CI, pruebas y staging obligatorios.
+
 ## [1.83.1] - 2026-11-18 (MultiQUO: 672-A/B comerciales, sin 673)
 
 - PATCH DH-20261118-MULTIQUO-IDENTITY-217: una sola base de cotización FCL y opciones con sufijo persistente. PricingService 1.23.5 incluye migración para recuperar los números históricos y Web 1.79.1 actualiza listados, búsqueda global y wizard.
