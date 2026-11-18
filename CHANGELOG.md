@@ -1,3 +1,9 @@
+## [1.82.1] - 2026-11-18 (Pricing: liberación definitiva de solicitudes)
+
+- PATCH DH-20261118-PRICING-LEASE-214: cierre de solicitudes sin bloqueos fantasma; Web detiene heartbeat y espera release; Pricing rechaza el claim tardío con token obsoleto.
+- DholeWeb 1.78.0 → 1.78.1 y Pricing 1.23.3 → 1.23.4; ecosistema DholeSystem 1.82.0 → 1.82.1; otros 14 componentes permanecen en sus versiones actuales.
+- Se conservan las preferencias Blobatar del release 215, APIs REST, scopes, auditoría y SignalR. Staging de develop aprobado; validación E2E de dos usuarios pendiente.
+
 ## [1.82.0] - 2026-11-18 (Blobatar: expresión guardada y modo automático)
 
 - MINOR DH-20261118-BLOBATAR-PREFERENCES-215: DholeWeb 1.77.2 → 1.78.0 y DholeSystem/ecosistema 1.81.1 → 1.82.0. Persistencia de expresión y modo Auto/Fijo por usuario en almacenamiento local. Auto rota cada 30 segundos mientras la pestaña está activa y no hay reduced-motion; Fijo mantiene la cara escogida.

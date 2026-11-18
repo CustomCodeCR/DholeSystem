@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-PREFERENCES-215",
+  "releaseId": "DH-20261118-PRICING-LEASE-214",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.82.0",
+  "ecosystemVersion": "1.82.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
+  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.82.0",
+      "version": "1.82.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
-      "developCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.78.0",
+      "version": "1.78.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-PREFERENCES-215-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-master",
-      "developCandidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,9 +69,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.1",
-      "mergeState": "unchanged",
-      "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
+      "version": "1.23.4",
+      "mergeState": "candidate-intermediate-only",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -138,26 +142,27 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb CI and SSR with localStorage persistence and Auto mode",
-    "Validate staging before master merge and automated production deployment",
-    "Production deployment requires explicit authorization"
+    "Master candidate CI must pass before merge",
+    "Authenticated two-session end-to-end manual check not performed"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosystem master 1.81.1→1.82.0, DholeWeb 1.77.2→1.78.0; all other 15 component versions unchanged in master (PricingService 1.23.1 in master central registry; Pricing 213/214 promoted independently)",
-    "unitTests": "pending CI",
-    "build": "pending CI",
-    "staging": "pending",
+    "semver": "DholeWeb 1.78.0→1.78.1; DholePricingService 1.23.3→1.23.4; DholeSystem 1.82.0→1.82.1; other 14 versions preserved",
+    "unitTests": "CI pending on master backport; develop green",
+    "build": "CI pending on master backport; develop green",
+    "staging": "develop Pricing and Web successful; authenticated two-user manual pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "DholeWeb: persist selected Blobatar expression and Auto/Fixed mode by authenticated ID in localStorage, rotate 14 emotions every 30s, pause for visibility/reduced-motion",
-    "DholeSystem: minor SemVer 1.82.0, preserve all existing master component versions, including PricingService, for release policy compliance; no SignalR/API/data changes"
+    "DholeWeb: safely release Pricing request lease on route leave; stop heartbeat and wait for pending operations before unlock (preserve Blobatar 215)",
+    "DholePricingService: reject a stale released token from automatic heartbeat retry while allowing explicit same-user resume",
+    "DholeSystem: PATCH 1.82.0 → 1.82.1, preserve the other 14 component versions, no new SignalR/REST contracts"
   ],
-  "stagingValidation": "pending-blobatar-auto-fixed-persistent",
+  "stagingValidation": "develop-staging-deploy-success-two-session-manual-pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -210,7 +215,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-BLOBATAR-PREFERENCES-215",
+  "businessReleaseId": "DH-20261118-PRICING-LEASE-214",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
