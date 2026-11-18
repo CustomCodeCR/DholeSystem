@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "releaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.84.4",
+  "ecosystemVersion": "1.85.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+  "candidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.84.4",
+      "version": "1.85.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "candidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
+      "masterCandidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.80.4",
+      "version": "1.81.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "candidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
+      "masterCandidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.5",
+      "version": "1.24.6",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
+      "masterCandidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
+      "candidateBranch": "release/DH-20261118-EXW-LCL-PICKUP-227-master-backport",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,22 +135,23 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-backport-ci",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI backport (Web/Pricing/System)",
-    "Authenticated EXW own-LCL quote save/reopen smoke pending"
+    "Master backport Web/Pricing/System CI",
+    "Develop Web and Pricing staging health and quote smoke",
+    "Do not merge master until staging and checks pass"
   ],
   "validationEvidence": {
-    "semver": "master: System 1.83.6 → 1.84.4; Web 1.80.3 → 1.80.4; Pricing 1.24.4 → 1.24.5",
-    "ci": "pending-master-backport",
-    "build": "develop-CI-pass-backport-pending",
-    "staging": "develop-Web-and-Pricing-deploy-health-pass; authenticated EXW quote smoke pending",
-    "production": "explicitly-authorized-by-user; deploy-on-master-merge"
+    "semver": "master: System 1.84.4→1.85.2, Web 1.81.0→1.81.1, Pricing 1.24.5→1.24.6; develop Web1.81.2",
+    "build": "pending-master-backport-CI",
+    "ci": "pending",
+    "staging": "develop-deploy-in-progress",
+    "production": "not-yet-authorized-for-deployment"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -158,12 +159,12 @@
     "DholePricingService"
   ],
   "changes": [
-    "Targeted master backport of EXW own-LCL pickup charge fix from validated develop",
-    "Preserve editable pickup fallback and manual amount on matrix refresh and save",
-    "Include only contextual EXW pickup catalog charge without other global LCL charges",
-    "Maintain REST API, AuditLogs, scopes and SignalR behavior unchanged"
+    "Preserve own-LCL EXW quote details, manually entered and catalog-backed pickup, when reopening",
+    "Separate own consolidation matrix from supplemental quote charges",
+    "Fixed EXW origin pickup cost retrieval and manual amount authorization on Pricing",
+    "Historical persisted quote missing EXW pickup: show actionable warning without fabricating cost"
   ],
-  "stagingValidation": "develop-deployment-health-and-bundle-pass-case-smoke-pending",
+  "stagingValidation": "pending-authenticated-EXW-LCL-pickup-save-reopen",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -216,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "businessReleaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
