@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.75.0",
-  "ecosystemVersion": "1.75.0",
-  "releaseId": "DH-20261117-BLOBATAR-206",
+  "version": "1.77.0",
+  "ecosystemVersion": "1.77.0",
+  "releaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261117-BLOBATAR-206"
+  "businessReleaseId": "DH-20261117-BLOBATAR-MOTION-207"
 }
