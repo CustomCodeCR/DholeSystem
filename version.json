@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.77.1",
-  "ecosystemVersion": "1.77.1",
-  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
-  "releaseStatus": "candidate-ci-and-production-promotion",
-  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION"
+  "version": "1.78.0",
+  "ecosystemVersion": "1.78.0",
+  "releaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "releaseStatus": "candidate-ci-and-staging-pending",
+  "businessReleaseId": "DH-20261117-OPS-DUAL-VALIDATION-208"
 }

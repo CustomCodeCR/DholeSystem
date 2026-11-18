@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
+  "releaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.77.1",
-  "status": "candidate-ci-and-production-promotion",
+  "ecosystemVersion": "1.78.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.77.1",
-      "mergeState": "candidate-promotion",
-      "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-promote-develop",
+      "version": "1.78.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -30,15 +30,18 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.13.0",
-      "mergeState": "unchanged"
+      "version": "1.14.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.73.0",
+      "version": "1.74.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -117,10 +120,10 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.6.0",
-      "mergeState": "develop-validated-await-master",
-      "candidateBranch": "release/DH-20261117-OPS-FOUNDATION-205-master",
-      "candidateSha": "e787e7c1533623011a98fd7d6be4ecb3de22e6e9",
+      "version": "0.7.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateSha": null,
       "developMergeSha": null
     }
   ],
@@ -132,26 +135,32 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Aperturas/Origen complete end-to-end UAT and external carrier credentials pending; partial backend only",
-    "Pricing accepted QUO event, onboarding/permissions, Storage ownership and notifications not yet fully integrated",
-    "El flag productionDeploymentAuthorized=false protege el canal realtime; el deploy ordinario de Operations se autoriza explícitamente en la solicitud"
+    "CI, integration smoke, and staging deployment pending; no production release authorized",
+    "Actual Operations workforce users and scopes must be provisioned manually by administrators",
+    "QUO acceptance, full Aperturas modality checklists, external carrier APIs remain separate milestones"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.77.0 → 1.77.1; DholeOperationsService master 0.5.0 → 0.6.0",
-    "unitTests": "Operations CI pass",
-    "build": "Operations CI pass",
-    "staging": "Operations deploy and database checks passed; complete functional UAT pending",
-    "production": "Explicit user approval to merge Operations master; realtime production gate stays false"
+    "build": "pending coordinated CI",
+    "unitTests": "pending CI",
+    "postgres": "pending migration and concurrency checks",
+    "staging": "pending",
+    "auditLogs": "pending end-to-end delivery check",
+    "production": "not authorized"
   },
   "releaseComponents": [
-    "DholeSystem"
+    "DholeSystem",
+    "DholeAuthService",
+    "DholeOperationsService",
+    "DholeWeb"
   ],
   "changes": [
-    "Promote staged Operations v0.6.0 (DH-205): carrier registry, Origin, internal notes, CRM ownership resolution",
-    "Operations v0.6.0 already validated in develop and staging; source changes to master limited to 13 release files",
-    "DholeSystem version 1.77.0 → 1.77.1: reconcile manifest without affecting Blobatar"
+    "Dual independent Aperturas validation workflow with weighted team pool, isolated per company",
+    "Manually managed internal Auth users and scopes; no auto account creation or grants",
+    "PostgreSQL append-only team/case audit history, durable Outbox -> dhole.audit.events -> AuditLogs Inbox",
+    "DholeWeb Operations screens for teams, user assignments, Aperturas queue and two decisions",
+    "DholeOperationsService 0.6.0→0.7.0; Auth 1.13.0→1.14.0; Web 1.73.0→1.74.0; global System 1.77.1→1.78.0"
   ],
-  "stagingValidation": "operations-staging-workflow-44225348804-success",
+  "stagingValidation": "pending-ci-and-staging",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -204,7 +213,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205-PROMOTION",
+  "businessReleaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -640,7 +649,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "CRM registra encargados operativos independientes por cuenta; Operations los expone por trámite autorizado",
+  "releaseSummary": "Dual-user Aperturas validation pool, team management, Auth scopes and immutable AuditLogs",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
