@@ -1,0 +1,19 @@
+{
+  "releaseId": "DH-20261118-MULTIQUO-IDENTITY-217",
+  "date": "2026-11-18",
+  "ecosystemVersion": "1.83.1",
+  "components": {
+    "DholeSystem": "1.83.1",
+    "DholePricingService": "1.23.5",
+    "DholeWeb": "1.79.1"
+  },
+  "componentsUnchanged": "All other ecosystem services retain versions in release-manifest.json",
+  "scope": [
+    "one parent consecutive for MultiQUO",
+    "immutable commercial option suffixes after selection",
+    "historical numbering migration",
+    "global search and quotation wizard"
+  ],
+  "status": "candidate-ci-and-staging-pending",
+  "productionDeployment": "not-authorized"
+}
