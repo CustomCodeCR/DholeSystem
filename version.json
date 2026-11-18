@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.83.0",
-  "ecosystemVersion": "1.83.0",
-  "releaseId": "DH-20261118-BLOBATAR-APPEARANCE-216",
+  "version": "1.83.1",
+  "ecosystemVersion": "1.83.1",
+  "releaseId": "DH-20261118-MULTIQUO-IDENTITY-217",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-BLOBATAR-APPEARANCE-216"
+  "businessReleaseId": "DH-20261118-MULTIQUO-IDENTITY-217"
 }

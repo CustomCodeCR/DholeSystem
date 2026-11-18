@@ -1,3 +1,9 @@
+## [1.83.1] - 2026-11-18 (MultiQUO: 672-A/B comerciales, sin 673)
+
+- PATCH DH-20261118-MULTIQUO-IDENTITY-217: una sola base de cotización FCL y opciones con sufijo persistente. PricingService 1.23.5 incluye migración para recuperar los números históricos y Web 1.79.1 actualiza listados, búsqueda global y wizard.
+- DholeSystem/ecosistema 1.83.0 → 1.83.1; DholeWeb 1.79.0 → 1.79.1; PricingService 1.23.4 → 1.23.5. Demás servicios conservan versiones; se mantienen autorización, auditoría, Outbox y SignalR.
+- Validaciones de CI y despliegues staging aprobados en develop; promoción master autorizada expresamente por el usuario.
+
 ## [1.83.0] - 2026-11-18 (Apariencia: vista previa grande y modos de Blobatar)
 
 - MINOR DH-20261118-BLOBATAR-APPEARANCE-216: mueve los controles Auto/Fijo al módulo Apariencia con vista previa grande e interactiva del avatar. Pinia sincroniza la expresión del avatar del encabezado y de la vista previa; un único ciclo de 30 s, guardado por usuario, sincronización entre pestañas y respeto a movimiento reducido.

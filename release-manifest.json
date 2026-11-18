@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-APPEARANCE-216",
+  "releaseId": "DH-20261118-MULTIQUO-IDENTITY-217",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.0",
+  "ecosystemVersion": "1.83.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-APPEARANCE-216-master",
+  "candidateBranch": "release/multiquo-identity-217-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.0",
+      "version": "1.83.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-APPEARANCE-216-master",
+      "candidateBranch": "release/multiquo-identity-217-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop"
+      "masterCandidateBranch": "release/multiquo-identity-217-master",
+      "developCandidateBranch": "release/multiquo-identity-217-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.0",
+      "version": "1.79.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-APPEARANCE-216-master",
+      "candidateBranch": "fix/multiquo-suffix-20261118-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop"
+      "masterCandidateBranch": "fix/multiquo-suffix-20261118-master",
+      "developCandidateBranch": "fix/multiquo-suffix-20261118-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.4",
-      "mergeState": "unchanged",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
+      "version": "1.23.5",
+      "mergeState": "candidate-intermediate-only",
+      "masterCandidateBranch": "fix/multiquo-suffix-20261118-master",
+      "candidateBranch": "fix/multiquo-suffix-20261118-master",
+      "developCandidateBranch": "fix/multiquo-suffix-20261118-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -155,7 +155,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "DholeWeb: Avatar Auto/Fixed moved from topbar to Appearance with 160px interactive preview using shared Dhole UI and full ES/EN localization",
