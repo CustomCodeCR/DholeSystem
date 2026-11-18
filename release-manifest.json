@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261117-SELLER-CANCEL-ACCEPTED-203",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.73.1",
+  "ecosystemVersion": "1.73.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.73.1",
+      "version": "1.73.2",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop",
       "candidateSha": null,
@@ -43,7 +43,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.70.1",
+      "version": "1.70.2",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop",
       "candidateSha": null,
