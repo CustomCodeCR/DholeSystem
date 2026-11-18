@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-LEASE-218",
+  "releaseId": "DH-20261118-PRICING-LEASE-219",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.2",
+  "ecosystemVersion": "1.83.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
+  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.2",
+      "version": "1.83.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,21 +33,20 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.14.0",
-      "mergeState": "unchanged",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "intermediate-master-backport",
+      "candidateBranch": "release/DH-20261117-OPS-DUAL-VALIDATION-208-master",
+      "candidateSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.2",
+      "version": "1.79.3",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +69,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.6",
+      "version": "1.23.7",
       "mergeState": "candidate-intermediate-only",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-219-develop",
       "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -93,7 +92,7 @@
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.8.1",
+      "version": "1.7.0",
       "mergeState": "unchanged"
     },
     {
@@ -130,10 +129,9 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.7.0",
-      "mergeState": "unchanged",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "intermediate-master-backport",
+      "candidateBranch": "release/DH-20261117-OPS-DUAL-VALIDATION-208-master",
+      "candidateSha": null
     }
   ],
   "policyCheck": {
@@ -144,12 +142,12 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI build and regression tests",
-    "Staging lease cleanup with two users",
-    "No production promotion before validation"
+    "CI for all candidates",
+    "Staging manual two-account Pricing dashboard lock recovery",
+    "Production publication only after explicit approval"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.83.1→1.83.2; DholeWeb 1.79.0/1.79.1→1.79.2; Pricing 1.23.4/1.23.5→1.23.6; 14 others retained",
+    "semver": "DholeSystem 1.83.2→1.83.3; DholeWeb 1.79.2→1.79.3; DholePricingService 1.23.6→1.23.7; other 14 components unchanged",
     "unitTests": "pending CI",
     "build": "pending CI",
     "staging": "pending",
@@ -161,11 +159,11 @@
     "DholePricingService"
   ],
   "changes": [
-    "DholeWeb: never re-claim an abandoned request after heartbeat failure; explicit same-user release, identity-scoped tokens, unique HTTP idempotency keys",
-    "DholePricingService: atomic one active lease per actor on claim and heartbeat using PostgreSQL advisory transaction; no cross-user unlock",
-    "DholeSystem: PATCH manifest for coordinated pricing lease lifecycle; preserves other 14 component versions, REST endpoints, scopes and realtime"
+    "DholePricingService: owner unlock never needs re-claim, stale lease release only after 45 seconds without server heartbeat, protected by pricing.rate.update and structured audit logs",
+    "DholeWeb: action for stale lease recovery; owner release direct; active lease still protected; no automatic stealing",
+    "DholeSystem: coordinated PATCH 1.83.2→1.83.3; other 14 unchanged"
   ],
-  "stagingValidation": "pending-lease-acquire-release-reacquire-two-user",
+  "stagingValidation": "pending-pricing-lock-stale-recovery",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -218,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-218",
+  "businessReleaseId": "DH-20261118-PRICING-LEASE-219",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -725,5 +723,6 @@
       "Staging: unfinished activity retains error and does not show false completion"
     ],
     "deployStatus": "Not deployed; master gated"
-  }
+  },
+  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false."
 }
