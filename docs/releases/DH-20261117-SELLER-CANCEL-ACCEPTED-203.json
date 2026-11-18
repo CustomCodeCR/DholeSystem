@@ -26,7 +26,7 @@
   "components": [
     {
       "repository": "CustomCodeCR/DholeWeb",
-      "version": "1.69.1"
+      "version": "1.70.1"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
