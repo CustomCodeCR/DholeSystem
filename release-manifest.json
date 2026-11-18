@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210",
+  "releaseId": "DH-20261118-OPS-DH-UI-211",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.80.0",
+  "ecosystemVersion": "1.81.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-develop",
+  "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.80.0",
+      "version": "1.81.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-develop",
+      "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,9 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.76.0",
+      "version": "1.77.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-EXPRESSIONS-210-develop",
+      "candidateBranch": "feature/DH-20261118-OPS-DH-UI-211-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,12 +135,12 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI de DholeWeb 1.76.0, regression SSR and Vite build",
-    "Deploy staging and user testing of cycle, accessible label and reduced-motion",
-    "Production deployment requires explicit approval"
+    "Verificar type-check, build y regresiones de las vistas Operations en CI",
+    "Validar creación, pool, doble revisión, permisos y bitácora en staging",
+    "No autorizado desplegar a producción sin verificación y autorización explícita"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosistema 1.79.0→1.80.0, DholeWeb 1.75.0→1.76.0, other 15 components unchanged on respective branch",
+    "semver": "DholeSystem/ecosistema 1.80.0→1.81.0; DholeWeb 1.76.0→1.77.0; otros 15 componentes conservados",
     "unitTests": "pending CI",
     "build": "pending CI",
     "staging": "pending",
@@ -151,10 +151,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: Blobatar 2.7.0 14-face preview activated by clicking topbar avatar, first angry, persistent expression with visible label, keyboard and tap accessible",
-    "DholeSystem: coordinated release 1.80.0; other microservices version unchanged, no REST, SignalR, database or authentication changes"
+    "Operations Aperturas y Equipos usan componentes Dh compartidos: tablas, formularios, métricas, detalles, búsquedas y modales",
+    "Preservados REST/SignalR, asignación de dos validadores independientes, autorización por scope y audit log; sin modificación backend ni base de datos"
   ],
-  "stagingValidation": "pending-blobatar-expression-cycle",
+  "stagingValidation": "pending-operations-dh-ui-smoke",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
