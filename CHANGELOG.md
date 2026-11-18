@@ -1,3 +1,9 @@
+## [1.87.3] - 2026-11-18 (Fix PostgreSQL 22001 al actualizar IDTRA múltiples)
+
+- PATCH DH-20261118-RATE-REVISION-IDTRA-232: persistencia histórica de revisiones RateRevisions.IdtraNumber amplía de varchar(100) a varchar(2000), igual que cabecera para soportar múltiples IDTRA en la misma QUO. Caso reproducible: 366 caracteres para QUO-00000-000552.
+- Migration no destructiva y pruebas de largo de IDTRA, mapeo EF y compatibilidad con datos existentes. No altera contratos REST, scopes, realtime, Outbox ni auditoría.
+- Versiones: DholePricingService 1.24.8→1.24.9, DholeSystem/ecosistema 1.87.2→1.87.3. CI y staging antes de producción.
+
 ## [1.87.2] - 2026-11-18 (Diagnóstico seguro de error 500 al guardar Pricing)
 
 - PATCH DH-20261118-PRICING-SAVE-DIAG-231: diagnóstico de solo lectura de categorías de excepción y códigos PostgreSQL en los logs del contenedor de Pricing, sin volcar solicitudes, datos de clientes ni secretos.

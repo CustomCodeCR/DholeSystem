@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
+  "releaseId": "DH-20261118-RATE-REVISION-IDTRA-232",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.2",
+  "ecosystemVersion": "1.87.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
+  "candidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.2",
-      "mergeState": "intermediate-master-diagnostic",
-      "candidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
+      "version": "1.87.3",
+      "mergeState": "intermediate-master-backport",
+      "candidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-DIAG-231"
+      "masterCandidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
+      "developCandidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -69,13 +69,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.8",
-      "mergeState": "unchanged",
-      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
-      "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
-      "candidateSha": "4cb548f0b6863ad7d149a8bf1aeaf0ed2b7e2321",
-      "developMergeSha": "a8d5984976417ecfe985f560fbb2c5c365b84a8c"
+      "version": "1.24.9",
+      "mergeState": "intermediate-master-backport",
+      "masterCandidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
+      "candidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
+      "developCandidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232",
+      "candidateSha": "d7849361d47d06bf318ddf5bb2557a11ee81863a",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -136,26 +136,32 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-CI",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Collect precise error category for PUT trace 0HNQ5OQL7VVTR without exposing payload",
-    "Diagnose and fix underlying exception in Pricing separate PATCH release"
+    "Pricing CI must pass, including has-pending-model-changes and integration/unit tests",
+    "Pricing staging must deploy migration and pass health check",
+    "Authenticated replay of quote QUO-00000-000552 must return 200/204 and persist revision before declaring fully fixed"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.87.1→1.87.2, Pricing unchanged at 1.24.8",
+    "semver": "DholePricingService 1.24.8→1.24.9; DholeSystem/ecosystem 1.87.2→1.87.3",
+    "rootCause": "Confirmed Npgsql PostgreSQL 22001 during UpdateRate.SaveChangesAsync; RateRevisions.IdtraNumber varchar(100) vs payload 366 chars and RateHeaders 2000",
     "ci": "pending",
-    "production": "read-only diagnostics; no redeploy"
+    "staging": "pending",
+    "production": "pending"
   },
   "releaseComponents": [
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
-    "Add read-only redacted production Pricing error signature diagnostic workflow for persistent rate save 500"
+    "Expand RateRevisions.IdtraNumber from varchar(100) to varchar(2000) to match RateHeader.IdtraNumber and prevent confirmed SQLSTATE 22001 on PUT rate revisions",
+    "Non-destructive EF migration; regression verifies mapping and long IDTRA without truncation",
+    "Keep existing audit, Outbox/SignalR, scopes, REST and historical snapshots intact"
   ],
   "stagingValidation": "pending-authenticated-pricing-validity-date-save",
   "f6F7F8": {
@@ -210,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
+  "businessReleaseId": "DH-20261118-RATE-REVISION-IDTRA-232",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
