@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+  "releaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.86.1",
+  "ecosystemVersion": "1.87.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
+  "candidateBranch": "release/20261118-crm-shared-agenda-system-master-229",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.86.1",
-      "mergeState": "candidate-intermediate-master-backport",
-      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
+      "version": "1.87.0",
+      "mergeState": "candidate",
+      "candidateBranch": "release/20261118-crm-shared-agenda-system-master-229",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
@@ -40,9 +40,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.82.1",
-      "mergeState": "candidate-intermediate-master-backport",
-      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
+      "version": "1.83.0",
+      "mergeState": "candidate",
+      "candidateBranch": "release/20261118-crm-shared-agenda-master-229",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
@@ -122,8 +122,9 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.36.0",
-      "mergeState": "unchanged"
+      "version": "1.37.0",
+      "mergeState": "candidate",
+      "candidateBranch": "release/20261118-crm-shared-agenda-master-229"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -158,13 +159,12 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
-    "Promote same LCL/LTL unit-weight correction previously integrated into develop",
-    "Show weight per unit × quantity in Sales and Pricing",
-    "Preserve aggregate REST cargo line weights and avoid double multiplication upon rehydration",
-    "No changes to realtime, permissions or audit logs"
+    "Agenda CRM compartida: invitaciones múltiples de usuarios activos de Auth para llamadas, citas, reuniones y recordatorios",
+    "Una única actividad visible para responsable e invitados con recordatorios individuales por email/sistema y deduplicación Outbox",
+    "Gestión y revocación de asistentes con auditoría, permisos CRM y compatibilidad REST/SignalR"
   ],
   "stagingValidation": "staging-deploy-success-authenticated-cargo-smoke-pending",
   "f6F7F8": {
@@ -219,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
+  "businessReleaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
