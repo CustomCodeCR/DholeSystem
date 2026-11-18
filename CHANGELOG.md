@@ -1,3 +1,8 @@
+## [1.84.1] - 2026-11-18 (MultiQUO: cotización única con opciones A/B)
+
+- PATCH DH-20261118-MULTIQUO-SINGLE-221: una única QUO comercial 672 y opciones internas A/B, estado tomado de opción ganadora y aceptación sin rechazar opción alternativa. Actualiza Paging, reportes y vistas para vendedor; conserva seguridad, auditoría, eventos y PDFs.
+- Sobre develop actual: DholeSystem 1.83.4→1.84.1, Web 1.80.1→1.80.2, Pricing 1.24.1→1.24.2. Conserva rutas multipunto y últimas correcciones de reservas, otros 14 componentes sin modificaciones. Requiere CI, staging y autorización expresa antes de master.
+
 ## [1.83.4] - 2026-11-18 (Pricing: evitar error inesperado al abrir solicitud)
 
 - PATCH DH-20261118-PRICING-LEASE-220: reserva de Pricing con lock transaccional PostgreSQL tipado, errores 409/503 identificables y consulta de reserva inactiva traducible por EF; Web muestra por separado error de claim/lectura y evita reintentos concurrentes.
