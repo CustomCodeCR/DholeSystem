@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.85.2",
-  "ecosystemVersion": "1.85.2",
-  "releaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
+  "version": "1.85.3",
+  "ecosystemVersion": "1.85.3",
+  "releaseId": "DH-20261118-EXW-LCL-PICKUP-SAVE-228",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227"
+  "businessReleaseId": "DH-20261118-EXW-LCL-PICKUP-SAVE-228"
 }
