@@ -165,7 +165,7 @@
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
       "developMergeSha": null,
-      "candidateSha": "507c092e0a046cc4f2c014a910086efa08b2a219"
+      "candidateSha": "ec6a17555fa438fc712256ea42680bbedc4b0264"
     }
   ],
   "policyCheck": {
@@ -179,7 +179,8 @@
     "Pricing's final acceptance event+accepted option snapshot contract is not yet available",
     "Stage creation, CRM executive validation, checklists, customer notification and complete Operations UI remain pending",
     "CI, PostgreSQL migration, Storage ownership, role ACL and staging UAT must be completed before master",
-    "No production deployment without explicit authorization"
+    "No production deployment without explicit authorization",
+    "CRM account without executive currently rejects creation instead of saving an incomplete draft; resolution workflow remains pending"
   ],
   "validationEvidence": {
     "semver": "DholeOperationsService 0.5.0→0.6.0; ecosystem 1.74.0→1.75.0",
@@ -195,7 +196,8 @@
   "changes": [
     "Operations 0.6.0: registration-only carrier connections, capacities remain unverified",
     "Operations 0.6.0: manually confirmed Origin departure with idempotent PostgreSQL/Outbox and restricted internal notes",
-    "DholeSystem 1.75.0: global version and release manifest"
+    "DholeSystem 1.75.0: global version and release manifest",
+    "Operations: manual openings resolve CRM account executive from authenticated CRM response instead of trusting posted salesperson ID"
   ],
   "stagingValidation": "pending-origin-and-carrier-registry-e2e",
   "f6F7F8": {
