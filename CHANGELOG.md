@@ -1,3 +1,9 @@
+## [1.87.0] - 2026-11-18 (CRM · agenda comercial compartida e invitados internos)
+
+- MINOR DH-20261118-CRM-SHARED-AGENDA-229: invitados de Auth a actividades, llamadas, citas y seguimientos; evento único visible en las agendas de responsable y asistentes, recordatorios individuales Email/System idempotentes, revocación y auditoría.
+- DholeSystem/ecosistema 1.86.1 → 1.87.0; DholeWeb 1.82.1 → 1.83.0 y DholeCRMService 1.36.0 → 1.37.0. Los otros 14 componentes conservan la versión correspondiente de master.
+- CI y despliegues de ambos servicios en staging superados; promoción a master en revisión antes de los despliegues productivos.
+
 ## [1.86.1] - 2026-11-18 (LCL/LTL: peso unitario × cantidad · master)
 
 - PATCH DH-20261118-CARGO-WEIGHT-PER-UNIT-229: promoción selectiva de la corrección integrada y compilada en develop. El peso por unidad se multiplica por cantidad, se refleja en resumen de Ventas y Pricing, y la recarga de cotizaciones evita duplicar el peso persistido.
