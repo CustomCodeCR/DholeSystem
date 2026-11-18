@@ -1,3 +1,9 @@
+## [1.74.0] - 2026-11-17 (CRM / Operations: responsables de operaciones por cliente)
+
+- MINOR DH-20261117-CRM-OPS-CONTACTS-204: campos independientes para contacto principal único y múltiples responsables operativos por cuenta CRM. API Operations obtiene sus datos por expediente autorizado, sin replicar contactos; se conserva realtime.
+- Versiones: DholeSystem/ecosistema 1.73.2 → 1.74.0, DholeWeb 1.70.1 → 1.71.0, DholeCRMService 1.35.0 → 1.36.0, DholeOperationsService 0.4.1 → 0.5.0.
+- Integración develop validada por CI; staging operativo y autorización de producción por confirmar antes del master release.
+
 ## [1.73.2] - 2026-11-17 (Ventas: cancelación solo de QUO aceptada)
 
 - PATCH DH-20261117-SELLER-CANCEL-ACCEPTED-203: se corrige el release de cancelación para que únicamente las cotizaciones comerciales con estado AcceptedByClient puedan pasar a Cancelled, tanto en Web como en el dominio de Pricing.
