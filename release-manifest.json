@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "releaseId": "DH-20261117-OPS-QUEUE-CLAIMLESS-209",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.78.0",
+  "ecosystemVersion": "1.78.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+  "candidateBranch": "fix/DH-20261117-OPS-QUEUE-CLAIMLESS-209-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.78.0",
+      "version": "1.78.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateBranch": "fix/DH-20261117-OPS-QUEUE-CLAIMLESS-209-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -120,9 +120,9 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateBranch": "fix/DH-20261117-OPS-QUEUE-CLAIMLESS-209-develop",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -135,32 +135,25 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, integration smoke, and staging deployment pending; no production release authorized",
-    "Actual Operations workforce users and scopes must be provisioned manually by administrators",
-    "QUO acceptance, full Aperturas modality checklists, external carrier APIs remain separate milestones"
+    "Verify DH-208/DH-209 end-to-end staging before master promotion",
+    "Production deployment is not authorized"
   ],
   "validationEvidence": {
-    "build": "pending coordinated CI",
+    "build": "pending CI",
     "unitTests": "pending CI",
-    "postgres": "pending migration and concurrency checks",
     "staging": "pending",
-    "auditLogs": "pending end-to-end delivery check",
     "production": "not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAuthService",
-    "DholeOperationsService",
-    "DholeWeb"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Dual independent Aperturas validation workflow with weighted team pool, isolated per company",
-    "Manually managed internal Auth users and scopes; no auto account creation or grants",
-    "PostgreSQL append-only team/case audit history, durable Outbox -> dhole.audit.events -> AuditLogs Inbox",
-    "DholeWeb Operations screens for teams, user assignments, Aperturas queue and two decisions",
-    "DholeOperationsService 0.6.0→0.7.0; Auth 1.13.0→1.14.0; Web 1.73.0→1.74.0; global System 1.77.1→1.78.0"
+    "PATCH: scope case access for internal Auth users lacking a company_id claim to explicitly assigned/created Aperturas only",
+    "Restrict non-administrator read-all to company claim or direct involvement; preserve two-reviewer rule, scopes, and AuditLogs",
+    "DholeOperationsService 0.7.0→0.7.1 and DholeSystem/ecosystem 1.78.0→1.78.1; other components unchanged"
   ],
-  "stagingValidation": "pending-ci-and-staging",
+  "stagingValidation": "pending-dh208-dh209-staging",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -213,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "businessReleaseId": "DH-20261117-OPS-QUEUE-CLAIMLESS-209",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -649,7 +642,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Dual-user Aperturas validation pool, team management, Auth scopes and immutable AuditLogs",
+  "releaseSummary": "Tenant-safe Aperturas case visibility for internal Auth users without company_id claim",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",

@@ -1,0 +1,21 @@
+{
+  "releaseId": "DH-20261117-OPS-QUEUE-CLAIMLESS-209",
+  "date": "2026-11-17",
+  "sourceRelease": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "components": {
+    "DholeSystem": {
+      "previous": "1.78.0",
+      "next": "1.78.1"
+    },
+    "DholeOperationsService": {
+      "previous": "0.7.0",
+      "next": "0.7.1"
+    }
+  },
+  "changes": [
+    "PATCH: scope case access for internal Auth users lacking a company_id claim to explicitly assigned/created Aperturas only",
+    "Restrict non-administrator read-all to company claim or direct involvement; preserve two-reviewer rule, scopes, and AuditLogs",
+    "DholeOperationsService 0.7.0→0.7.1 and DholeSystem/ecosystem 1.78.0→1.78.1; other components unchanged"
+  ],
+  "productionDeploymentAuthorized": false
+}

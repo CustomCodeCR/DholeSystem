@@ -1,3 +1,10 @@
+## [1.78.1] - 2026-11-17 (DH-20261117-OPS-QUEUE-CLAIMLESS-209 · Visibilidad Aperturas)
+
+- PATCH: DholeOperationsService 0.7.0 → 0.7.1 permite consultar expedientes propios y explícitamente asignados a usuarios internos sin company_id, manteniendo aislamiento entre compañías.
+- El permiso read-all no concede visibilidad global sin contexto de empresa; SuperUsuario conserva acceso administrativo.
+- DholeSystem y ecosistema 1.78.0 → 1.78.1, preservando los scopes, la auditoría y las versiones de los demás componentes.
+- CI y staging obligatorios; producción no autorizada.
+
 ## [1.78.0] - 2026-11-17 (DH-20261117-OPS-DUAL-VALIDATION-208 · Aperturas doble validación)
 
 - MINOR: backend Operations 0.7.0 con pool ponderado de dos validadores independientes, equipos, asignación, decisiones y auditoría persistente local + AuditLogs por Redis Outbox.
