@@ -1,3 +1,8 @@
+## [1.83.2] - 2026-11-18 (Pricing: corrección definitiva de reservas fantasma)
+
+- PATCH DH-20261118-PRICING-LEASE-218: el frontend deja de reclamar automáticamente solicitudes tras heartbeat fallido, usa tokens por identidad, agrega Liberar mi reserva y evita colisiones de idempotencia. El backend limita a una reserva activa por usuario, limpiando únicamente las demás reservas del mismo usuario bajo transacción.
+- DholeSystem 1.83.1 → 1.83.2; DholeWeb 1.79.2; DholePricingService 1.23.6; otros 14 componentes preservados. CI, staging y revisión de roles pendientes.
+
 ## [1.83.1] - 2026-11-18 (MultiQUO: una base 672 y alternativas 672-A/B)
 
 - PATCH DH-20261118-MULTIQUO-IDENTITY-217: release coordinado DholeWeb 1.79.1 y DholePricingService 1.23.5. Corrige creación de consecutivos de grupos FCL, selección con sufijos persistentes y buscador/listado sin 673 técnico.

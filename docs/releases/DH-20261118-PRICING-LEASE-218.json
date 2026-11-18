@@ -1,0 +1,32 @@
+{
+  "releaseId": "DH-20261118-PRICING-LEASE-218",
+  "date": "2026-11-18",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.83.2",
+  "type": "PATCH",
+  "status": "candidate-ci-and-staging-pending",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "from": "1.83.1",
+      "to": "1.83.2"
+    },
+    {
+      "component": "DholeWeb",
+      "to": "1.79.2"
+    },
+    {
+      "component": "DholePricingService",
+      "to": "1.23.6"
+    }
+  ],
+  "unchangedComponents": 14,
+  "restCompatibility": "preserved",
+  "signalR": "preserved",
+  "security": "Only same actor's abandoned leases cleared",
+  "validation": {
+    "build": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
