@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-SELLER-CANCEL-202",
+  "releaseId": "DH-20261117-SELLER-CANCEL-ACCEPTED-203",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.72.0",
+  "ecosystemVersion": "1.73.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
+  "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.72.0",
+      "version": "1.73.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
+      "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.69.0",
+      "version": "1.70.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
+      "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -80,11 +80,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.0",
+      "version": "1.23.2",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202"
+      "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-develop"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
