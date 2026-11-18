@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-LEASE-TX-222",
+  "releaseId": "DH-20261118-MULTIQUO-SINGLE-223",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.5",
+  "ecosystemVersion": "1.83.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
+  "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.5",
+      "version": "1.83.6",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
+      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop"
+      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.4",
+      "version": "1.79.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
+      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-develop"
+      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.9",
+      "version": "1.23.10",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
+      "masterCandidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "candidateBranch": "release/DH-20261118-MULTIQUO-SINGLE-223-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -156,12 +156,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeWeb",
     "DholePricingService"
   ],
   "changes": [
-    "Pricing: fix confirmed NpgsqlRetryingExecutionStrategy exception for claim, heartbeat and release-own by wrapping transactions inside EF Core CreateExecutionStrategy().ExecuteAsync",
-    "Pricing: maintain atomic PostgreSQL advisory locking, existing REST, SignalR, scopes and audit",
-    "DholeSystem: coordinated PATCH release with all 15 unaffected component versions preserved"
+    "MultiQUO commercial identity: one base quotation in lists/search/report counts",
+    "Internal A/B alternative selection and one accepted group outcome",
+    "Preserve pricing lease fixes, scopes, audit, Outbox and SignalR"
   ],
   "stagingValidation": "pending-pricing-request-claim-smoke",
   "f6F7F8": {
