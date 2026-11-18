@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-BLOBATAR-MOODS-228",
+  "releaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.86.0",
+  "ecosystemVersion": "1.86.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
+  "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.86.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
+      "version": "1.86.1",
+      "mergeState": "candidate-intermediate-master-backport",
+      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
+      "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -40,12 +40,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.82.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
+      "version": "1.82.1",
+      "mergeState": "candidate-intermediate-master-backport",
+      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
+      "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -69,10 +69,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.5",
-      "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "version": "1.24.7",
+      "mergeState": "candidate-intermediate-master-backport",
+      "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
+      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,34 +135,38 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-backport-ci",
+    "status": "pending-master-ci-and-runtime-smoke",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-master-backport",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI backport (Web/Pricing/System)",
-    "Authenticated EXW own-LCL quote save/reopen smoke pending"
+    "Verificar CI de master en Web, Pricing y System",
+    "Smoke autenticado en aplicación: dos tarimas de 749 kg = 1498 kg",
+    "Verificar edición/reapertura sin duplicar el peso",
+    "Producción únicamente con autorización expresa"
   ],
   "validationEvidence": {
-    "semver": "master: System 1.83.6 → 1.84.4; Web 1.80.3 → 1.80.4; Pricing 1.24.4 → 1.24.5",
-    "ci": "pending-master-backport",
-    "build": "develop-CI-pass-backport-pending",
-    "staging": "develop-Web-and-Pricing-deploy-health-pass; authenticated EXW quote smoke pending",
-    "production": "explicitly-authorized-by-user; deploy-on-master-merge"
+    "semver": "master: Web 1.82.0→1.82.1, Pricing 1.24.5→1.24.7, System/ecosistema 1.86.0→1.86.1",
+    "ci": "pending master PR",
+    "build": "develop CI passed",
+    "staging": "Web and Pricing staging deploy success; authenticated weight smoke not verified",
+    "production": "not-authorized",
+    "rootCause": "Cargo weight was not multiplied by quantity in consolidated frontend"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Targeted master backport of EXW own-LCL pickup charge fix from validated develop",
-    "Preserve editable pickup fallback and manual amount on matrix refresh and save",
-    "Include only contextual EXW pickup catalog charge without other global LCL charges",
-    "Maintain REST API, AuditLogs, scopes and SignalR behavior unchanged"
+    "Promote same LCL/LTL unit-weight correction previously integrated into develop",
+    "Show weight per unit × quantity in Sales and Pricing",
+    "Preserve aggregate REST cargo line weights and avoid double multiplication upon rehydration",
+    "No changes to realtime, permissions or audit logs"
   ],
-  "stagingValidation": "develop-deployment-health-and-bundle-pass-case-smoke-pending",
+  "stagingValidation": "staging-deploy-success-authenticated-cargo-smoke-pending",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -215,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "businessReleaseId": "DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
