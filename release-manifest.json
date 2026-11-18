@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "releaseId": "DH-20261118-BLOBATAR-MOODS-228",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.84.4",
+  "ecosystemVersion": "1.86.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.84.4",
+      "version": "1.86.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "masterCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -40,12 +40,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.80.4",
+      "version": "1.82.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-EXW-PICKUP-226-master-backport",
+      "masterCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-master",
       "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
@@ -154,8 +154,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
     "Targeted master backport of EXW own-LCL pickup charge fix from validated develop",
