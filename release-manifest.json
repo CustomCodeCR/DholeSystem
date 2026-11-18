@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
+  "releaseId": "DH-20261118-BLOBATAR-MOODS-228",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.85.2",
+  "ecosystemVersion": "1.86.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.85.2",
+      "version": "1.86.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
+      "developCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.81.2",
+      "version": "1.82.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
-      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
+      "developCandidateBranch": "feature/DH-20261118-BLOBATAR-MOODS-228-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -157,8 +157,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
     "Preserve quote RateDetails in view-only own-LCL hydration and keep manual EXW pickup on edit",
