@@ -154,8 +154,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
     "Targeted master backport of EXW own-LCL pickup charge fix from validated develop",
