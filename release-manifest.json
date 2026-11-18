@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
+  "releaseId": "DH-20261117-BLOBATAR-206",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.74.0",
+  "ecosystemVersion": "1.75.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
+  "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.74.0",
+      "version": "1.75.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -27,27 +27,20 @@
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261117-OPS-GATEWAY-DB-184-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.13.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176",
-      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.71.0",
+      "version": "1.72.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
+      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
@@ -57,154 +50,110 @@
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.9.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261117-CONFIG-APT-DEPLOY-191-develop",
-      "developCandidateBranch": "feature/DH-20261116-SRM-SUPPLIER-FINANCE-176"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.23.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-master",
+      "mergeState": "unchanged",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261115-DEPLOY-FASTPATH-146"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.7.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.7.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "candidateBranch": "feature/api-manager-discovery-1.56.0-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.36.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.5.0",
-      "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-master",
-      "developMergeSha": null,
-      "candidateSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-staging",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Revisar duplicados históricos de contactos principales antes de migración de índice único",
-    "Verificación manual de usuarios autenticados y del filtrado de encargados por trámite en staging",
-    "Verificar despliegues staging Operations y Web; no desplegar producción sin autorización explícita"
+    "Validar pnpm install --frozen-lockfile, tests SSR, typecheck and build",
+    "Validar el avatar real y estados de presencia en staging antes de integrar master",
+    "No desplegar a producción sin autorización expresa"
   ],
   "validationEvidence": {
-    "semver": "System 1.73.2→1.74.0; Web 1.70.1→1.71.0; CRM 1.35.0→1.36.0; Operations 0.4.1→0.5.0",
-    "unitTests": "CI develop passed",
-    "build": "CI develop passed",
-    "staging": "pending full E2E",
-    "production": "not authorized"
+    "semver": "DholeSystem/ecosistema 1.74.0→1.75.0; DholeWeb develop 1.71.1→1.72.0 / master 1.71.0→1.72.0; demás servicios sin cambios",
+    "unitTests": "pending GitHub CI",
+    "build": "pending GitHub CI",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "CRM: indicador por relación cuenta-contacto; un único principal activo; API de encargados operativos",
-    "Web: formularios de CRM con casillas independientes de principal y operaciones",
-    "Operations: lectura por trámite con control de acceso al caso y a la cuenta en CRM",
-    "Mantiene la compatibilidad de REST, SignalR y las versiones de otros servicios no modificados"
+    "DholeWeb: DhAvatar local Blobatar 2.7.0 with photo priority, deterministic user ID, configurable initials, animated topbar and existing presence status",
+    "DholeSystem: coordinated semantic-version manifest; all other service versions unchanged; REST and SignalR compatible"
   ],
-  "stagingValidation": "pending-authenticated-operations-contact-cases",
+  "stagingValidation": "pending-dholeweb-avatars-auth",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -257,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
+  "businessReleaseId": "DH-20261117-BLOBATAR-206",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
