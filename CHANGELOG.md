@@ -1,3 +1,9 @@
+## [1.82.0] - 2026-11-18 (Blobatar: expresión guardada y modo automático)
+
+- MINOR DH-20261118-BLOBATAR-PREFERENCES-215: DholeWeb 1.77.2 → 1.78.0 y DholeSystem/ecosistema 1.81.1 → 1.82.0. Persistencia de expresión y modo Auto/Fijo por usuario en almacenamiento local. Auto rota cada 30 segundos mientras la pestaña está activa y no hay reduced-motion; Fijo mantiene la cara escogida.
+- Se conserva sin modificar la versión del manifiesto maestro de DholePricingService (1.23.1), así como las de los otros 14 servicios. Pricing 213/214 se versiona de forma independiente, sin mezclarlo en el release de Blobatar. No afecta REST, Auth, SignalR ni permisos.
+- CI, SSR, build y staging antes de master. Despliegue de producción solo bajo autorización.
+
 ## [1.81.1] - 2026-11-18 (DholeWeb: corrección de modo claro en avatar)
 
 - PATCH DH-20261118-LIGHT-MODE-AVATAR-212: el tema oscuro de Tailwind obedece la clase html.dark de Dhole. La tarjeta del usuario, nombre/correo y la etiqueta de expresión son claros y contrastados en modo claro; el modo oscuro mantiene fondo negro y letras blancas.
