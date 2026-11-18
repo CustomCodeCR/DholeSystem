@@ -129,22 +129,22 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "develop-promotion-candidate",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Aperturas/Origen complete end-to-end UAT and external carrier credentials pending; partial backend only",
-    "Pricing accepted QUO event, onboarding/permissions, Storage ownership and notifications not yet fully integrated"
+    "Pricing accepted QUO event, onboarding/permissions, Storage ownership and notifications not yet fully integrated",
+    "El flag productionDeploymentAuthorized=false protege el canal realtime; el deploy ordinario de Operations se autoriza explícitamente en la solicitud"
   ],
   "validationEvidence": {
     "semver": "DholeSystem 1.77.0 → 1.77.1; DholeOperationsService master 0.5.0 → 0.6.0",
     "unitTests": "Operations CI pass",
     "build": "Operations CI pass",
     "staging": "Operations deploy and database checks passed; complete functional UAT pending",
-    "production": "explicit user authorization to promote master; deploy pending"
+    "production": "Explicit user approval to merge Operations master; realtime production gate stays false"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeOperationsService"
+    "DholeSystem"
   ],
   "changes": [
     "Promote staged Operations v0.6.0 (DH-205): carrier registry, Origin, internal notes, CRM ownership resolution",
