@@ -1,0 +1,50 @@
+{
+  "releaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "date": "2026-11-17",
+  "global": {
+    "from": "1.77.1",
+    "to": "1.78.0"
+  },
+  "components": {
+    "DholeSystem": [
+      "1.77.1",
+      "1.78.0"
+    ],
+    "DholeAuthService": [
+      "1.13.0",
+      "1.14.0"
+    ],
+    "DholeOperationsService": [
+      "0.6.0",
+      "0.7.0"
+    ],
+    "DholeWeb": [
+      "1.73.0",
+      "1.74.0"
+    ]
+  },
+  "scopes": [
+    "operations.team.manage",
+    "operations.audit.read",
+    "operations.aperture.validation.assign",
+    "operations.aperture.validation.review",
+    "operations.case.read",
+    "operations.case.create"
+  ],
+  "invariants": [
+    "Exactly 2 distinct users within same team",
+    "User identity and eligibility verified live in Auth",
+    "Both approved before Apertura is validated",
+    "Rejections stop progress",
+    "Audit local and central via Outbox with EventId dedup",
+    "No automatic Auth users/roles grants",
+    "No production deployments without explicit approval"
+  ],
+  "repos": [
+    "CustomCodeCR/DholeAuthService",
+    "CustomCodeCR/DholeOperationsService",
+    "CustomCodeCR/DholeWeb",
+    "CustomCodeCR/DholeSystem"
+  ],
+  "productionDeploymentAuthorized": false
+}
