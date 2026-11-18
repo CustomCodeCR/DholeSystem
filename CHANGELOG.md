@@ -1,7 +1,7 @@
-## [1.84.4] - 2026-11-18 (Pricing: recolecta EXW LCL propio)
+## [1.85.1] - 2026-11-18 (Pricing: recolecta EXW LCL propio)
 
 - PATCH DH-20261118-PRICING-EXW-PICKUP-226: release coordinado para resolver recolectas EXW ausentes en LCL propio y preservar costos manuales tras actualización/guardado.
-- DholeSystem 1.84.2 → 1.84.4, DholeWeb 1.80.3 → 1.80.4, DholePricingService 1.24.4 → 1.24.5; el resto de los componentes conserva versión. Ecosistema 1.84.3 → 1.84.4.
+- DholeSystem 1.84.2 → 1.85.1, DholeWeb 1.81.0 → 1.81.1, DholePricingService 1.24.4 → 1.24.5; el resto de los componentes conserva versión. Ecosistema 1.85.0 → 1.85.1.
 - Ramas intermedias y PR a develop; compilación, CI, staging y aceptación del caso EXW pendientes. No desplegar producción sin autorización explícita.
 
 ## [1.84.2] - 2026-11-18 (Pricing: corregir transacciones de reservas)
