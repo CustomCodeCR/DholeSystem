@@ -157,8 +157,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
     "Preserve quote RateDetails in view-only own-LCL hydration and keep manual EXW pickup on edit",
