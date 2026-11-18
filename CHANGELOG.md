@@ -1,3 +1,9 @@
+## [1.83.0] - 2026-11-18 (Apariencia: vista previa grande y modos de Blobatar)
+
+- MINOR DH-20261118-BLOBATAR-APPEARANCE-216: mueve los controles Auto/Fijo al módulo Apariencia con vista previa grande e interactiva del avatar. Pinia sincroniza la expresión del avatar del encabezado y de la vista previa; un único ciclo de 30 s, guardado por usuario, sincronización entre pestañas y respeto a movimiento reducido.
+- DholeWeb 1.78.1 → 1.79.0 y DholeSystem/ecosistema 1.82.1 → 1.83.0. Mantiene las versiones de los otros 15 servicios y Gateway de esta rama, incluido el release previo de Pricing, sin alterar REST, SignalR, Auth, permisos ni bases de datos.
+- CI, regresiones, build y despliegue de staging requeridos antes de promover a master; no desplegar a producción sin autorización explícita.
+
 ## [1.82.1] - 2026-11-18 (Pricing: liberación definitiva de solicitudes)
 
 - PATCH DH-20261118-PRICING-LEASE-214: cierre de solicitudes sin bloqueos fantasma; Web detiene heartbeat y espera release; Pricing rechaza el claim tardío con token obsoleto.
