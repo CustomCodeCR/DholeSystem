@@ -1,3 +1,9 @@
+## [1.83.1] - 2026-11-18 (MultiQUO: una base 672 y alternativas 672-A/B)
+
+- PATCH DH-20261118-MULTIQUO-IDENTITY-217: release coordinado DholeWeb 1.79.1 y DholePricingService 1.23.5. Corrige creación de consecutivos de grupos FCL, selección con sufijos persistentes y buscador/listado sin 673 técnico.
+- Migración de alternativas existentes restituye los sufijos desde el registro de grupo sin borrar histórico ni alterar cotizaciones, importes, scopes, audit logs, Outbox ni SignalR.
+- Ecosistema DholeSystem 1.83.0/1.82.1 → 1.83.1, Web 1.79.0/1.78.1 → 1.79.1, Pricing 1.23.4 → 1.23.5. CI, integración develop y verificación staging antes de master, sin despliegue productivo autorizado.
+
 ## [1.82.1] - 2026-11-18 (Pricing: liberación definitiva de solicitudes)
 
 - PATCH DH-20261118-PRICING-LEASE-214: cierre de solicitudes sin bloqueos fantasma; Web detiene heartbeat y espera release; Pricing rechaza el claim tardío con token obsoleto.
