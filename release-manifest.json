@@ -150,7 +150,7 @@
     "DholeWeb"
   ],
   "changes": [
-    "DholeWeb: DhAvatar local Blobatar 2.8.0 with photo priority, deterministic user ID, configurable initials, animated topbar and existing presence status",
+    "DholeWeb: DhAvatar local Blobatar 2.7.0 with photo priority, deterministic user ID, configurable initials, animated topbar and existing presence status",
     "DholeSystem: coordinated semantic-version manifest; all other service versions unchanged; REST and SignalR compatible"
   ],
   "stagingValidation": "pending-dholeweb-avatars-auth",
