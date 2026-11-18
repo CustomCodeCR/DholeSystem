@@ -1,3 +1,8 @@
+## [1.83.5] - 2026-11-18 (Pricing: corregir transacciones de reservas)
+
+- PATCH DH-20261118-PRICING-LEASE-TX-222: se corrige el HTTP 503 confirmado por el trace 0HNQ5JP78QTL4:00000009. Las transacciones de claim, heartbeat y release-own se ejecutan íntegramente en la estrategia de reintentos Npgsql/EF Core.
+- master: DholeSystem 1.83.4 → 1.83.5; DholePricingService → 1.23.9; DholeWeb y restantes 14 componentes sin cambio. Mantiene scopes, AuditLogs y SignalR; CI/staging obligatorios antes de producción.
+
 ## [1.83.4] - 2026-11-18 (Pricing: evitar error inesperado al abrir solicitud)
 
 - PATCH DH-20261118-PRICING-LEASE-220: reserva de Pricing con lock transaccional PostgreSQL tipado, errores 409/503 identificables y consulta de reserva inactiva traducible por EF; Web muestra por separado error de claim/lectura y evita reintentos concurrentes.
