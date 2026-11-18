@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-PRICING-LCL-CARRIER-200",
+  "releaseId": "DH-20261117-SELLER-CANCEL-202",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.71.3",
+  "ecosystemVersion": "1.72.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200",
+  "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.71.3",
+      "version": "1.72.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200",
+      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,9 +43,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.67.9",
+      "version": "1.69.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261117-PRICING-LCL-CARRIER-200-develop",
+      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -80,11 +80,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.22.4",
+      "version": "1.23.0",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "fix/DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195-develop"
+      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -292,7 +292,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Web 1.67.8 → 1.67.9: LCL marítimo sin naviera excluye costos del catálogo asociados a navieras aun cuando backend select omita el filtro",
