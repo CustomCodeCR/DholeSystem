@@ -69,8 +69,8 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.3",
-      "mergeState": "unchanged-reconciled-release-213",
+      "version": "1.23.1",
+      "mergeState": "unchanged",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
     },
     {
@@ -143,7 +143,7 @@
     "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosystem master 1.81.1→1.82.0, DholeWeb 1.77.2→1.78.0; PricingService actual 1.23.3 from prior release 213 reconciled, other 14 components preserved",
+    "semver": "DholeSystem/ecosystem master 1.81.1→1.82.0, DholeWeb 1.77.2→1.78.0; all other 15 component versions unchanged in master (PricingService 1.23.1 in master central registry; Pricing 213/214 promoted independently)",
     "unitTests": "pending CI",
     "build": "pending CI",
     "staging": "pending",
@@ -155,7 +155,7 @@
   ],
   "changes": [
     "DholeWeb: persist selected Blobatar expression and Auto/Fixed mode by authenticated ID in localStorage, rotate 14 emotions every 30s, pause for visibility/reduced-motion",
-    "DholeSystem: minor SemVer 1.82.0, register actual PricingService 1.23.3 from earlier release 213, preserve all other services; no SignalR/API/data changes"
+    "DholeSystem: minor SemVer 1.82.0, preserve all existing master component versions, including PricingService, for release policy compliance; no SignalR/API/data changes"
   ],
   "stagingValidation": "pending-blobatar-auto-fixed-persistent",
   "f6F7F8": {
