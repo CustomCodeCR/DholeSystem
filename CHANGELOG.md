@@ -1,3 +1,9 @@
+## [1.81.3] - 2026-11-18 (Pricing: liberación definitiva de reservas)
+
+- PATCH DH-20261118-PRICING-LEASE-214: DholeWeb libera al cerrar pestañas y no renueva leases obsoletos; DholePricingService rechaza reclamos tardíos con tokens liberados.
+- Manifiesto global actualizado: System 1.81.3, Web 1.77.3, Pricing 1.23.4; 14 componentes restantes preservados.
+- Pruebas unitarias, CI y staging pendientes; sin autorización de producción.
+
 ## [1.81.1] - 2026-11-18 (DholeWeb: perfil y expresiones legibles en modo claro)
 
 - PATCH DH-20261118-LIGHT-MODE-AVATAR-212: Tailwind 4 ahora aplica clases dark: según html.dark del themeStore de Dhole, no según la preferencia del sistema operativo. El perfil del topbar usa tarjeta blanca y nombre/correo legibles en modo claro; negro y texto blanco en modo oscuro; etiqueta de expresión con contraste en ambos.
