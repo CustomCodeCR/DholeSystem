@@ -1,8 +1,14 @@
-## [1.75.0] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205 · Preparación Operations v1.2)
+## [1.76.0] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205 · Preparación Operations v1.2)
 
-- MINOR: DholeOperationsService 0.5.0 → 0.6.0; registro de conexiones multicarrier sin habilitación ficticia, bitácora interna y salida real de Origen idempotente.
-- Manifiesto centralizado mantiene versiones existentes de los demás componentes; CI/staging pendientes antes de promover a master.
-- Ningún despliegue a producción autorizado para este release.
+- MINOR: Operations 0.5.0 → 0.6.0: registro multicarrier sin falsas activaciones, salida de Origen idempotente a Tránsito, bitácora privada y validación de ejecutivo comercial por CRM.
+- Versión global 1.75.0 → 1.76.0; se conserva íntegramente el release anterior Blobatar 1.75.0 y su histórico.
+- Release candidato a CI y staging; master y despliegue productivo no autorizados sin pasar validaciones.
+
+## [1.75.0] - 2026-11-17 (DholeWeb: sistema de avatares Blobatar)
+
+- MINOR DH-20261117-BLOBATAR-206: integra Blobatar 2.7.0 en el componente compartido DhAvatar, reutilizado por los módulos Dhole. Foto primero; fallback SVG local determinístico por ID; iniciales opcionales; estados SignalR sin cambios.
+- Versiones coordinadas: DholeSystem/ecosistema 1.74.0 → 1.75.0, DholeWeb 1.71.1 → 1.72.0. Resto de microservicios conservan sus versiones, reflejadas en el manifiesto de 17 componentes.
+- Instalación frozen-lockfile, regresión SSR, CI, staging y autorización de producción pendientes; no hay migraciones, API REST ni cambios de eventos realtime.
 
 ## [1.74.0] - 2026-11-17 (CRM / Operations: encargados por cuenta)
 

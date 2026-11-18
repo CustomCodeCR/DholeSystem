@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.75.0",
-  "ecosystemVersion": "1.75.0",
+  "version": "1.76.0",
+  "ecosystemVersion": "1.76.0",
   "releaseId": "DH-20261117-OPS-FOUNDATION-205",
   "releaseStatus": "candidate-ci-and-staging-pending",
   "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205"
