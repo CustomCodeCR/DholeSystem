@@ -1,0 +1,71 @@
+name: Diagnose Pricing 500 (redacted production exception signatures)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - .github/workflows/diagnose-pricing-save-500.yml
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 5
+    steps:
+      - name: Read only Pricing container error signatures (no payload or secrets)
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +x
+          python3 - <<'PY'
+          import collections
+          import re
+          import subprocess
+
+          result = subprocess.run(["docker", "ps", "--format", "{{.Names}}"],
+                                  text=True, capture_output=True, check=True)
+          containers = [name for name in result.stdout.splitlines()
+                        if "pricing-api" in name.lower() and "staging" not in name.lower()]
+          print("PRODUCTION_PRICING_CONTAINER_COUNT:", len(containers))
+          traces = ("0HNQ5OQL7VVTR", "0HNQ5LP0PAJCE")
+          exception = re.compile(r"(?:[A-Za-z_][A-Za-z0-9_]*\.)*[A-Za-z_][A-Za-z0-9_]*(?:Exception|Error)\b")
+          sqlstate = re.compile(r"(?:SQLSTATE|SqlState)\s*[:=]?\s*([A-Z0-9]{5})", re.I)
+          constraint = re.compile(r"(?:ConstraintName|constraint)\s*[:=]?\s*[\"']?([A-Za-z][A-Za-z0-9_]*)", re.I)
+          table = re.compile(r"\b(?:RateHeaders|RateDetails|RateRevisions|RateRequests|RateContainerAllocations|OutboxMessages)\b", re.I)
+          stack = re.compile(r"\bat\s+(?:Dhole\.Pricing|Microsoft\.EntityFrameworkCore|Npgsql)\.[A-Za-z0-9_.+<>]+")
+          for container in containers:
+              proc = subprocess.run(["docker", "logs", "--since", "8h", "--tail", "12000", container],
+                                    text=True, errors="replace", capture_output=True)
+              if proc.returncode:
+                  print("LOG_READ_FAILED")
+                  continue
+              lines = (proc.stdout + "\n" + proc.stderr).splitlines()
+              indexes = [i for i, line in enumerate(lines) if any(t in line for t in traces)]
+              # Loggers do not always emit the HTTP trace ID. Keep only low-entropy
+              # exception metadata from recent failures in that case.
+              if indexes:
+                  relevant = []
+                  for i in indexes:
+                      relevant.extend(lines[max(0, i - 35):min(len(lines), i + 55)])
+              else:
+                  relevant = [line for line in lines if any(word in line for word in
+                              ("Exception", "SqlState", "SQLSTATE", "ConstraintName",
+                               "UpdateRateCommandHandler", "SaveChangesAsync"))][-200:]
+              signatures = collections.Counter()
+              for line in relevant:
+                  for kind, regex in (
+                      ("exception", exception),
+                      ("sqlstate", sqlstate),
+                      ("constraint", constraint),
+                      ("table", table),
+                      ("stack", stack)):
+                      for match in regex.findall(line):
+                          value = match.strip().replace("\n", "")[:150]
+                          signatures[(kind, value)] += 1
+              print("TRACE_MATCH_COUNT:", len(indexes))
+              print("RELEVANT_LINE_COUNT:", len(relevant))
+              for (kind, value), count in signatures.most_common(80):
+                  print(f"DIAGNOSTIC {kind} {value} count={count}")
+          PY

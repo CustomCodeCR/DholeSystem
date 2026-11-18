@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-SAVE-500-230",
+  "releaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.1",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.87.2",
+  "status": "diagnostic-ci-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+  "candidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.1",
-      "mergeState": "candidate-intermediate-master-backport",
-      "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "version": "1.87.2",
+      "mergeState": "intermediate-master-diagnostic",
+      "candidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230"
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-DIAG-231-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-DIAG-231"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -70,7 +70,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.24.8",
-      "mergeState": "candidate-intermediate-master-backport",
+      "mergeState": "unchanged",
       "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
       "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
       "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
@@ -136,33 +136,26 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-master-ci-and-staging",
+    "status": "pending-CI",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-master-diagnostic",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validate Pricing build and tests on both branches",
-    "Verify authenticated staging edit/save and new rate creation",
-    "Confirm production exception using trace 0HNQ5LP0PAJCE:00000026",
-    "Do not deploy production without explicit authorization"
+    "Collect precise error category for PUT trace 0HNQ5OQL7VVTR without exposing payload",
+    "Diagnose and fix underlying exception in Pricing separate PATCH release"
   ],
   "validationEvidence": {
-    "semver": "Pricing 1.24.7→1.24.8, DholeSystem/ecosystem 1.87.0→1.87.1",
-    "ci": "Pricing develop success; master CI pending",
-    "staging": "pending",
-    "production": "not-authorized",
-    "reason": "DateTimeKind.Unspecified is invalid for Npgsql timestamptz writes"
+    "semver": "DholeSystem 1.87.1→1.87.2, Pricing unchanged at 1.24.8",
+    "ci": "pending",
+    "production": "read-only diagnostics; no redeploy"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Backport Pricing date-only validity normalization to midnight UTC for Npgsql PostgreSQL timestamptz",
-    "Preserve commercial validity day and existing REST, realtime, audit and scopes",
-    "Regression tests for JSON date-only, local and UTC inputs"
+    "Add read-only redacted production Pricing error signature diagnostic workflow for persistent rate save 500"
   ],
   "stagingValidation": "pending-authenticated-pricing-validity-date-save",
   "f6F7F8": {
@@ -217,7 +210,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-SAVE-500-230",
+  "businessReleaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
