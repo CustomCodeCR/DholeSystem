@@ -1,0 +1,38 @@
+{
+  "releaseId": "DH-20261118-PRICING-LEASE-220",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.83.4",
+  "type": "PATCH",
+  "date": "2026-11-18",
+  "status": "candidate-ci-and-staging-pending",
+  "targetBranch": "master",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "from": "1.83.3",
+      "to": "1.83.4"
+    },
+    {
+      "component": "DholeWeb",
+      "to": "1.79.4"
+    },
+    {
+      "component": "DholePricingService",
+      "to": "1.23.8"
+    }
+  ],
+  "unchangedComponents": 14,
+  "rest": "backwards compatible",
+  "scopes": "unchanged",
+  "realtime": "unchanged",
+  "tests": [
+    "Pricing claim policy and stale translation",
+    "Web wizard stage errors and retry",
+    "Authenticated staging claim smoke"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
