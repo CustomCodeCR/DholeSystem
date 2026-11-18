@@ -1,3 +1,9 @@
+## [1.82.0] - 2026-11-18 (Blobatar: preferencias persistentes y modo automático)
+
+- MINOR DH-20261118-BLOBATAR-PREFERENCES-214: DholeWeb 1.77.2 → 1.78.0 y DholeSystem/ecosistema 1.81.1 → 1.82.0. Se persiste la expresión elegida por usuario y el modo Auto/Fijo en almacenamiento local. Auto alterna las 14 expresiones cada 30 segundos, con pausa por pestaña oculta y movimiento reducido.
+- Se sincroniza el registro de versión DholePricingService a 1.23.3, previamente publicado por el release SELLER-ACCEPTED-213, sin modificar ese repositorio ni sus contratos. Otros 14 componentes sin cambios; endpoints REST, SignalR, eventos y permisos intactos.
+- CI, SSR, build, versionado y smoke en staging requeridos antes de integración a master; despliegue de producción pendiente de autorización.
+
 ## [1.81.1] - 2026-11-18 (DholeWeb: perfil y expresiones legibles en modo claro)
 
 - PATCH DH-20261118-LIGHT-MODE-AVATAR-212: Tailwind 4 ahora aplica clases dark: según html.dark del themeStore de Dhole, no según la preferencia del sistema operativo. El perfil del topbar usa tarjeta blanca y nombre/correo legibles en modo claro; negro y texto blanco en modo oscuro; etiqueta de expresión con contraste en ambos.
