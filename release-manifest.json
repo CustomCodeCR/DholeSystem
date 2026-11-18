@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-LEASE-218",
+  "releaseId": "DH-20261118-MULTIQUO-SINGLE-220",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.2",
+  "ecosystemVersion": "1.83.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+  "candidateBranch": "feature/multiquo-single-commercial-20261118-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.2",
+      "version": "1.83.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "candidateBranch": "feature/multiquo-single-commercial-20261118-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop"
+      "masterCandidateBranch": "feature/multiquo-single-commercial-20261118-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.79.2",
+      "version": "1.79.4",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
+      "candidateBranch": "feature/multiquo-single-commercial-20261118-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop"
+      "masterCandidateBranch": "feature/multiquo-single-commercial-20261118-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.6",
+      "version": "1.23.8",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-218-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-218-develop",
+      "masterCandidateBranch": "feature/multiquo-single-commercial-20261118-master",
+      "candidateBranch": "feature/multiquo-single-commercial-20261118-master",
+      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
