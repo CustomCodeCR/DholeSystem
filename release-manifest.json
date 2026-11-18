@@ -156,12 +156,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholeWeb",
     "DholePricingService"
   ],
   "changes": [
-    "Pricing: fix confirmed NpgsqlRetryingExecutionStrategy exception for claim, heartbeat and release-own by wrapping transactions inside EF Core CreateExecutionStrategy().ExecuteAsync",
-    "Pricing: maintain atomic PostgreSQL advisory locking, existing REST, SignalR, scopes and audit",
-    "DholeSystem: coordinated PATCH release with all 15 unaffected component versions preserved"
+    "MultiQUO commercial identity: one base quotation in lists/search/report counts",
+    "Internal A/B alternative selection and one accepted group outcome",
+    "Preserve pricing lease fixes, scopes, audit, Outbox and SignalR"
   ],
   "stagingValidation": "pending-pricing-request-claim-smoke",
   "f6F7F8": {
