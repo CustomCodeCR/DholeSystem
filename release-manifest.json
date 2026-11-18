@@ -1,25 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
+  "releaseId": "DH-20261118-PRICING-LEASE-214",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.81.1",
+  "ecosystemVersion": "1.81.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-develop",
+  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.81.1",
+      "version": "1.81.3",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,11 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.77.1",
+      "version": "1.77.3",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/DH-20261118-LIGHT-MODE-AVATAR-212-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -66,8 +70,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.2",
-      "mergeState": "unchanged"
+      "version": "1.23.4",
+      "mergeState": "candidate-intermediate-only",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-develop",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-214-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -135,26 +143,28 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb CI: CSS theme variant, avatar SSR regressions and build",
-    "Staging verification: manual light, dark and OS dark/light mismatch",
-    "No production deployment without explicit user authorization"
+    "CI backend/web verification",
+    "Pricing lease close/open two-user staging scenario",
+    "Production deployment not authorized"
   ],
   "validationEvidence": {
-    "semver": "DholeWeb 1.77.0→1.77.1; DholeSystem/ecosystem 1.81.0→1.81.1; 15 other components preserved",
-    "unitTests": "pending GitHub CI",
-    "build": "pending GitHub CI",
+    "semver": "System 1.81.1→1.81.3; Web 1.77.2→1.77.3; Pricing 1.23.3→1.23.4; other 14 component versions unchanged",
+    "unitTests": "pending CI",
+    "build": "pending CI",
     "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "DholeWeb: Tailwind 4 dark utilities use html.dark configured by themeStore; topbar pill white with readable dark text in light mode, black with white text in dark mode, avatar expression badge themed accordingly",
-    "DholeSystem: coordinated patch version 1.81.1; Operations 211 and all other services preserved; API/SignalR unchanged"
+    "Web: await in-flight operations and stop heartbeat before release on route leave",
+    "Pricing API: reject stale-token fallback claims after release, allow explicit same-user recovery",
+    "System: coordinated version and manifest; no contract or SignalR changes"
   ],
-  "stagingValidation": "pending-light-mode-avatar-contrast-and-class-theme",
+  "stagingValidation": "pending-manual-rate-request-lease-close-and-reopen",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -207,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
+  "businessReleaseId": "DH-20261118-PRICING-LEASE-214",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
