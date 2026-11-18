@@ -1,3 +1,9 @@
+## [1.78.0] - 2026-11-17 (DH-20261117-OPS-DUAL-VALIDATION-208 · Aperturas doble validación)
+
+- MINOR: backend Operations 0.7.0 con pool ponderado de dos validadores independientes, equipos, asignación, decisiones y auditoría persistente local + AuditLogs por Redis Outbox.
+- Auth 1.14.0 publica usuarios internos elegibles y scopes para asignación manual; Web 1.74.0 implementa administración de equipos y Aperturas iniciales.
+- Ecosistema 1.77.1 → 1.78.0 en 17 componentes; CI y staging obligatorios antes de releases maestros; producción no autorizada.
+
 ## [1.77.1] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205-PROMOTION · Operations a master)
 
 - PATCH: promoción coordinada del backend Operations 0.6.0 validado en develop y staging; despliegue de producción autorizado explícitamente.
