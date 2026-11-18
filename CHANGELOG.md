@@ -1,3 +1,9 @@
+## [1.74.0] - 2026-11-17 (CRM / Operations: encargados por cuenta)
+
+- MINOR DH-20261117-CRM-OPS-CONTACTS-204: indicador operativo múltiple por cuenta CRM y único principal activo; CRUD autorizado y endpoint de Operations por expediente.
+- Preserva release 1.73.2 de Seller Cancel Accepted y todos los componentes externos. System 1.73.2 → 1.74.0, Web 1.70.2 → 1.71.0, CRM 1.35.0 → 1.36.0, Operations 0.4.1 → 0.5.0.
+- CI de servicios verificado; staging, migración de datos y gate master pendientes. Producción no autorizada.
+
 ## [1.73.2] - 2026-11-17 (Ventas: cancelación solo de QUO aceptada)
 
 - PATCH DH-20261117-SELLER-CANCEL-ACCEPTED-203: se corrige el release de cancelación para que únicamente las cotizaciones comerciales con estado AcceptedByClient puedan pasar a Cancelled, tanto en Web como en el dominio de Pricing.
