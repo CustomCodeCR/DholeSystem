@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "releaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.85.1",
+  "ecosystemVersion": "1.85.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+  "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.85.1",
+      "version": "1.85.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
-      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118"
+      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +40,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.81.1",
+      "version": "1.81.2",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
-      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118"
+      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.5",
+      "version": "1.24.6",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
-      "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
-      "developCandidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
+      "masterCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "candidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
+      "developCandidateBranch": "fix/exw-pickup-hydration-own-lcl-20261118",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -142,18 +142,18 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb Pricing EXW pickup regression test and build",
-    "PricingService CI compilation",
-    "Staging authenticated EXW LCL own pickup save and reopen",
-    "Production deployment requires explicit authorization"
+    "Web transformed LCL EXW pickup runtime test + full build",
+    "Pricing fixed pickup resolver unit tests + .NET build",
+    "Authenticated staging quotation save/reopen and PDF smoke",
+    "Production only after coordinated staging validation"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.84.2 → 1.85.1; DholeWeb 1.81.0 → 1.81.1; DholePricingService 1.24.4 → 1.24.5",
+    "semver": "develop: Web 1.81.1→1.81.2, Pricing 1.24.5→1.24.6, System 1.85.1→1.85.2",
     "ci": "pending",
     "build": "pending",
     "staging": "pending",
     "production": "not-authorized",
-    "issue": "EXW own LCL pickup missing on existing quotation and manual charges lost on refresh"
+    "rootCause": "Persisted own-LCL hydration dropped manual identity and fixed EXW origin lookup was excluded"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -161,12 +161,13 @@
     "DholePricingService"
   ],
   "changes": [
-    "EXW own LCL editable origin pickup fallback when no master cost is matched",
-    "Preserve manual pickup/other explicit extras during consolidation matrix refresh and save",
-    "Accept matching EXW pickup catalog rows while excluding unrelated provider costs",
-    "Keep existing REST/SignalR/scopes and persisted view-only quote snapshots unchanged"
+    "Preserve quote RateDetails in view-only own-LCL hydration and keep manual EXW pickup on edit",
+    "Keep own consolidation matrix and independent pickup/insurance separate",
+    "Include route-matched fixed EXW pickup and preserve authorized manually entered fixed pickup cost",
+    "Show missing EXW pickup as unquoted rather than fabricate monetary totals",
+    "Regression tests for transformed Vue hydration and Pricing resolver policy; REST/scopes/AuditLogs/SignalR unchanged"
   ],
-  "stagingValidation": "pending-authenticated-EXW-own-LCL-pickup-save-and-reopen",
+  "stagingValidation": "pending-authenticated-own-LCL-EXW-pickup-save-reopen",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -219,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
+  "businessReleaseId": "DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
