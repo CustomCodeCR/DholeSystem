@@ -1,3 +1,9 @@
+## [1.85.2] - 2026-11-18 (EXW LCL: recolecta persistente, master backport)
+
+- PATCH DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227: promociona la corrección del snapshot y rehidratación EXW LCL, la asociación de costos fijos de recolecta por ruta, y el precio manual autorizado en el resolver de Pricing. Sin importar funcionalidades ajenas de develop.
+- Master Web 1.81.0→1.81.1, Pricing 1.24.5→1.24.6 y System 1.84.4→1.85.2. Reconciliación del manifiesto global con Web master actual y 14 servicios sin cambios.
+- Protecciones REST, SignalR, auditoría y scopes sin alteración. Validación de CI y despliegue staging requerida antes de master.
+
 ## [1.84.4] - 2026-11-18 (Pricing: recolecta EXW LCL propio, master backport)
 
 - PATCH DH-20261118-PRICING-EXW-PICKUP-226: promoción coordinada a master desde backport de la corrección EXW de LCL propio. Recupera recolecta editable, conserva importes manuales y limita cargos del catálogo a los aplicables a ruta.
