@@ -292,7 +292,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Web 1.67.8 → 1.67.9: LCL marítimo sin naviera excluye costos del catálogo asociados a navieras aun cuando backend select omita el filtro",
