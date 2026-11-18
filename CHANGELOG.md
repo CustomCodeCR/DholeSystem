@@ -1,7 +1,7 @@
 ## [1.72.1] - 2026-11-17 (Ventas: cancelación solo de QUO aceptada)
 
 - PATCH DH-20261117-SELLER-CANCEL-ACCEPTED-203: se corrige el release de cancelación para que únicamente las cotizaciones comerciales con estado AcceptedByClient puedan pasar a Cancelled, tanto en Web como en el dominio de Pricing.
-- Coordinación de versiones: DholeWeb 1.70.0 → 1.70.1, DholePricingService 1.23.0 → 1.23.1, DholeSystem/ecosistema 1.72.0 → 1.73.1. Motivo, auditoría, idempotencia y contrato REST/realtime preservados.
+- Coordinación de versiones: DholeWeb 1.70.0 → 1.70.1, DholePricingService 1.23.1 → 1.23.2, DholeSystem/ecosistema 1.72.0 → 1.73.1. Motivo, auditoría, idempotencia y contrato REST/realtime preservados.
 - Verificaciones de compilación, CI y staging pendientes; no hay migraciones de base de datos.
 
 ## [1.72.0] - 2026-11-17 (Ventas: cancelación de QUO)
