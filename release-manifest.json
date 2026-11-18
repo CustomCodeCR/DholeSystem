@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "releaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.78.0",
+  "ecosystemVersion": "1.79.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+  "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.78.0",
+      "version": "1.79.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -31,7 +31,7 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.14.0",
-      "mergeState": "candidate-intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
       "candidateSha": null,
       "developMergeSha": null
@@ -39,9 +39,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.74.0",
+      "version": "1.75.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
+      "candidateBranch": "feature/DH-20261118-BLOBATAR-DARK-TAP-209-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -121,46 +121,41 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.7.0",
-      "mergeState": "candidate-intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "feature/DH-20261117-OPS-DUAL-VALIDATION-208-develop",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending-release-ci",
+    "status": "pending-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, integration smoke, and staging deployment pending; no production release authorized",
-    "Actual Operations workforce users and scopes must be provisioned manually by administrators",
-    "QUO acceptance, full Aperturas modality checklists, external carrier APIs remain separate milestones"
+    "CI Web/semver, SSR tests and production Vite build",
+    "Staging visual test of black background, touch repeat, keyboard and reduced-motion",
+    "Master must not override Operations 208 release; full release staging gate before production",
+    "No production deployment without explicit authorization"
   ],
   "validationEvidence": {
-    "build": "pending coordinated CI",
-    "unitTests": "pending CI",
-    "postgres": "pending migration and concurrency checks",
+    "semver": "DholeSystem 1.78.0→1.79.0; DholeWeb 1.74.0→1.75.0; other components unchanged",
+    "unitTests": "GitHub CI pending",
+    "build": "GitHub CI pending",
     "staging": "pending",
-    "auditLogs": "pending end-to-end delivery check",
-    "production": "not authorized"
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAuthService",
-    "DholeOperationsService",
     "DholeWeb"
   ],
   "changes": [
-    "Dual independent Aperturas validation workflow with weighted team pool, isolated per company",
-    "Manually managed internal Auth users and scopes; no auto account creation or grants",
-    "PostgreSQL append-only team/case audit history, durable Outbox -> dhole.audit.events -> AuditLogs Inbox",
-    "DholeWeb Operations screens for teams, user assignments, Aperturas queue and two decisions",
-    "DholeOperationsService 0.6.0→0.7.0; Auth 1.13.0→1.14.0; Web 1.73.0→1.74.0; global System 1.77.1→1.78.0"
+    "DholeWeb: dark mode profile pill and Blobatar background true black; replayable touch/click/keyboard animations with surprise, wink and happy expressions",
+    "DholeSystem: coordinated global version; preserve other 15 component versions on the target branch, no REST/SignalR/API/DB changes"
   ],
-  "stagingValidation": "pending-ci-and-staging",
+  "stagingValidation": "pending-avatar-dark-tap",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -213,7 +208,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-OPS-DUAL-VALIDATION-208",
+  "businessReleaseId": "DH-20261118-BLOBATAR-DARK-TAP-209",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
