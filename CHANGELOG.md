@@ -1,3 +1,8 @@
+## [1.85.3] - 2026-11-18 (EXW LCL: seguimiento de recolecta en ediciones posteriores)
+
+- PATCH DH-20261118-EXW-LCL-PICKUP-SAVE-228: el wizard conserva cargos de recolecta EXW guardados con CostId y DetailId al reabrir y volver a guardar cotizaciones LCL propias. La identidad existente prevalece sobre la clave temporal del catálogo y se incluye en el snapshot PUT sin duplicados.
+- Versión coordinada DholeWeb 1.81.2→1.81.3 y DholeSystem 1.85.2→1.85.3; DholePricingService 1.24.6 y los demás componentes sin cambios. CI y staging antes de master.
+
 ## [1.85.2] - 2026-11-18 (EXW LCL: corrección definitiva de rehidratación y precios)
 
 - PATCH DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227: mantener la recolecta EXW manual al abrir y editar una tarifa LCL propia y evitar la sustitución del costo EXW fijo autorizado por el catálogo. Los suplementos no se confunden con las líneas base del consolidado.
