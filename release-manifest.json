@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261118-PRICING-EXW-PICKUP-226",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.84.4",
+  "ecosystemVersion": "1.85.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.84.4",
+      "version": "1.85.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
       "candidateSha": null,
@@ -40,7 +40,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.80.4",
+      "version": "1.81.1",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "fix/exw-own-lcl-pickup-persistence-20261118",
       "candidateSha": null,
@@ -148,7 +148,7 @@
     "Production deployment requires explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.84.2 → 1.84.4; DholeWeb 1.80.3 → 1.80.4; DholePricingService 1.24.4 → 1.24.5",
+    "semver": "DholeSystem 1.84.2 → 1.85.1; DholeWeb 1.81.0 → 1.81.1; DholePricingService 1.24.4 → 1.24.5",
     "ci": "pending",
     "build": "pending",
     "staging": "pending",
