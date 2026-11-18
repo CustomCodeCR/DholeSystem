@@ -1,3 +1,9 @@
+## [1.75.0] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205 · Preparación Operations v1.2)
+
+- MINOR: DholeOperationsService 0.5.0 → 0.6.0; registro de conexiones multicarrier sin habilitación ficticia, bitácora interna y salida real de Origen idempotente.
+- Manifiesto centralizado mantiene versiones existentes de los demás componentes; CI/staging pendientes antes de promover a master.
+- Ningún despliegue a producción autorizado para este release.
+
 ## [1.74.0] - 2026-11-17 (CRM / Operations: encargados por cuenta)
 
 - MINOR DH-20261117-CRM-OPS-CONTACTS-204: indicador operativo múltiple por cuenta CRM y único principal activo; CRUD autorizado y endpoint de Operations por expediente.
