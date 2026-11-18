@@ -1,43 +1,48 @@
-## [1.83.2] - 2026-11-18 (Pricing: corrección definitiva de reservas fantasma)
+## [1.83.3] - 2026-11-18 (Pricing: recuperación segura de reservas huérfanas)
 
-- PATCH DH-20261118-PRICING-LEASE-218: el frontend deja de reclamar automáticamente solicitudes tras heartbeat fallido, usa tokens por identidad, agrega Liberar mi reserva y evita colisiones de idempotencia. El backend limita a una reserva activa por usuario, limpiando únicamente las demás reservas del mismo usuario bajo transacción.
-- DholeSystem 1.83.1 → 1.83.2; DholeWeb 1.79.2; DholePricingService 1.23.6; otros 14 componentes preservados. CI, staging y revisión de roles pendientes.
+- PATCH DH-20261118-PRICING-LEASE-219: permite liberar la propia reserva sin volver a reclamarla; reserva ajena solo tras 45 segundos sin heartbeat en el servidor y acción expresa de Pricing. Se preservan bloques realmente activos y el estado de trabajo.
+- Versiones coordinadas: DholeSystem 1.83.2 → 1.83.3; DholeWeb 1.79.2 → 1.79.3; DholePricingService 1.23.6 → 1.23.7; los otros 14 componentes sin cambios. REST compatible, SignalR intacto, auditoría de acciones registrada.
+- CI, staging y prueba con dos sesiones obligatorios antes de master.
 
-## [1.83.1] - 2026-11-18 (MultiQUO: una base 672 y alternativas 672-A/B)
+## [1.83.2] - 2026-11-18 (Pricing: detener reapertura automática de bloqueos)
 
-- PATCH DH-20261118-MULTIQUO-IDENTITY-217: release coordinado DholeWeb 1.79.1 y DholePricingService 1.23.5. Corrige creación de consecutivos de grupos FCL, selección con sufijos persistentes y buscador/listado sin 673 técnico.
-- Migración de alternativas existentes restituye los sufijos desde el registro de grupo sin borrar histórico ni alterar cotizaciones, importes, scopes, audit logs, Outbox ni SignalR.
-- Ecosistema DholeSystem 1.83.0/1.82.1 → 1.83.1, Web 1.79.0/1.78.1 → 1.79.1, Pricing 1.23.4 → 1.23.5. CI, integración develop y verificación staging antes de master, sin despliegue productivo autorizado.
+- PATCH DH-20261118-PRICING-LEASE-218: Web elimina claim automático al fallar heartbeat, ofrece liberación de reserva propia y aísla tokens por identidad; Pricing deja una sola reserva por operador y libera antiguas exclusivamente del mismo usuario bajo transacción.
+- Versiones coordinadas: System 1.83.1 → 1.83.2, Web 1.79.1 → 1.79.2, Pricing 1.23.5 → 1.23.6; otros 14 componentes preservados. CI, pruebas y staging obligatorios.
+
+## [1.83.1] - 2026-11-18 (MultiQUO: 672-A/B comerciales, sin 673)
+
+- PATCH DH-20261118-MULTIQUO-IDENTITY-217: una sola base de cotización FCL y opciones con sufijo persistente. PricingService 1.23.5 incluye migración para recuperar los números históricos y Web 1.79.1 actualiza listados, búsqueda global y wizard.
+- DholeSystem/ecosistema 1.83.0 → 1.83.1; DholeWeb 1.79.0 → 1.79.1; PricingService 1.23.4 → 1.23.5. Demás servicios conservan versiones; se mantienen autorización, auditoría, Outbox y SignalR.
+- Validaciones de CI y despliegues staging aprobados en develop; promoción master autorizada expresamente por el usuario.
 
 ## [1.83.0] - 2026-11-18 (Apariencia: vista previa grande y modos de Blobatar)
 
 - MINOR DH-20261118-BLOBATAR-APPEARANCE-216: mueve los controles Auto/Fijo al módulo Apariencia con vista previa grande e interactiva del avatar. Pinia sincroniza la expresión del avatar del encabezado y de la vista previa; un único ciclo de 30 s, guardado por usuario, sincronización entre pestañas y respeto a movimiento reducido.
-- DholeWeb 1.78.0 → 1.79.0 y DholeSystem/ecosistema 1.82.0 → 1.83.0. Mantiene las versiones de los otros 15 servicios y Gateway de esta rama, incluido el release previo de Pricing, sin alterar REST, SignalR, Auth, permisos ni bases de datos.
+- DholeWeb 1.78.1 → 1.79.0 y DholeSystem/ecosistema 1.82.1 → 1.83.0. Mantiene las versiones de los otros 15 servicios y Gateway de esta rama, incluido el release previo de Pricing, sin alterar REST, SignalR, Auth, permisos ni bases de datos.
 - CI, regresiones, build y despliegue de staging requeridos antes de promover a master; no desplegar a producción sin autorización explícita.
 
-## [1.82.0] - 2026-11-18 (Blobatar: guardar expresiones y modo automático)
+## [1.82.1] - 2026-11-18 (Pricing: liberación definitiva de solicitudes)
 
-- MINOR DH-20261118-BLOBATAR-PREFERENCES-215: DholeWeb 1.77.3 → 1.78.0; DholeSystem/ecosistema 1.81.3 → 1.82.0. Avatar guarda por usuario su última expresión y el modo Auto/Fijo en localStorage; el modo Auto rota cada 30 segundos, pausando en pestañas ocultas o movimiento reducido. Modo Fijo conserva la expresión entre sesiones.
-- Se preserva PricingService 1.23.4 y todos los cambios de PRICING-LEASE-214; demás 14 componentes sin incrementos. No hay cambios en contratos REST, SignalR, eventos, permisos ni base de datos.
-- CI, SSR, build, política de versiones y staging obligatorios antes de master; no desplegar producción sin autorización expresa.
+- PATCH DH-20261118-PRICING-LEASE-214: cierre de solicitudes sin bloqueos fantasma; Web detiene heartbeat y espera release; Pricing rechaza el claim tardío con token obsoleto.
+- DholeWeb 1.78.0 → 1.78.1 y Pricing 1.23.3 → 1.23.4; ecosistema DholeSystem 1.82.0 → 1.82.1; otros 14 componentes permanecen en sus versiones actuales.
+- Se conservan las preferencias Blobatar del release 215, APIs REST, scopes, auditoría y SignalR. Staging de develop aprobado; validación E2E de dos usuarios pendiente.
 
-## [1.81.3] - 2026-11-18 (Pricing: liberación definitiva de reservas)
+## [1.82.0] - 2026-11-18 (Blobatar: expresión guardada y modo automático)
 
-- PATCH DH-20261118-PRICING-LEASE-214: DholeWeb libera al cerrar pestañas y no renueva leases obsoletos; DholePricingService rechaza reclamos tardíos con tokens liberados.
-- Manifiesto global actualizado: System 1.81.3, Web 1.77.3, Pricing 1.23.4; 14 componentes restantes preservados.
-- Pruebas unitarias, CI y staging pendientes; sin autorización de producción.
+- MINOR DH-20261118-BLOBATAR-PREFERENCES-215: DholeWeb 1.77.2 → 1.78.0 y DholeSystem/ecosistema 1.81.1 → 1.82.0. Persistencia de expresión y modo Auto/Fijo por usuario en almacenamiento local. Auto rota cada 30 segundos mientras la pestaña está activa y no hay reduced-motion; Fijo mantiene la cara escogida.
+- Se conserva sin modificar la versión del manifiesto maestro de DholePricingService (1.23.1), así como las de los otros 14 servicios. Pricing 213/214 se versiona de forma independiente, sin mezclarlo en el release de Blobatar. No afecta REST, Auth, SignalR ni permisos.
+- CI, SSR, build y staging antes de master. Despliegue de producción solo bajo autorización.
 
-## [1.81.1] - 2026-11-18 (DholeWeb: perfil y expresiones legibles en modo claro)
+## [1.81.1] - 2026-11-18 (DholeWeb: corrección de modo claro en avatar)
 
-- PATCH DH-20261118-LIGHT-MODE-AVATAR-212: Tailwind 4 ahora aplica clases dark: según html.dark del themeStore de Dhole, no según la preferencia del sistema operativo. El perfil del topbar usa tarjeta blanca y nombre/correo legibles en modo claro; negro y texto blanco en modo oscuro; etiqueta de expresión con contraste en ambos.
-- DholeWeb 1.77.0 → 1.77.1; ecosistema/DholeSystem 1.81.0 → 1.81.1. Preserva el release Operations DH-20261118-OPS-DH-UI-211, su navegación Dh y las versiones de otros 15 componentes. No hay cambios de permisos, REST, SignalR ni persistencia.
-- Pruebas de frontend CI, tema, avatar SSR, compilación y smoke staging antes de promoción a master; producción requiere autorización.
+- PATCH DH-20261118-LIGHT-MODE-AVATAR-212: el tema oscuro de Tailwind obedece la clase html.dark de Dhole. La tarjeta del usuario, nombre/correo y la etiqueta de expresión son claros y contrastados en modo claro; el modo oscuro mantiene fondo negro y letras blancas.
+- DholeWeb 1.77.0 → 1.77.1; DholeSystem/ecosistema 1.81.0 → 1.81.1. Mantiene intactos los cambios de Operations DH-20261118-OPS-DH-UI-211 y las versiones de los otros 15 componentes. REST, permisos, realtime y datos intactos.
+- CI, compilación y staging obligatorios. No desplegar producción sin autorización expresa.
 
 ## [1.81.0] - 2026-11-18 (Operations: interfaz Dh para Aperturas y Equipos)
 
-- MINOR DH-20261118-OPS-DH-UI-211: DholeWeb 1.76.0 → 1.77.0 sustituye controles HTML y tarjetas básicas de Operations por DhPageHeader, DhCard, DhDataTable, DhModal y componentes de formulario compartidos, con búsqueda y detalle responsive.
-- DholeSystem/ecosistema 1.80.0 → 1.81.0; 15 componentes backend y Gateway conservan versiones. Persistencia, scopes, auditoría, API REST, pool y doble validación sin modificaciones.
-- Validar CI, build, permisos y flujo de asignación en staging antes de integrar a master; producción no autorizada.
+- MINOR DH-20261118-OPS-DH-UI-211: promoción de DholeWeb 1.76.0 → 1.77.0 con componentes Dh, tablas y filtros, modales, asignaciones y trazabilidad; versión global DholeSystem/ecosistema 1.80.0 → 1.81.0.
+- Preserva versiones de los demás 15 componentes, servicios REST, scopes, pool de dos validadores, audit log y realtime. Validación de CI/develop aprobada; staging y autorización productiva aún requeridos.
 
 ## [1.80.0] - 2026-11-18 (Blobatar: probador interactivo de expresiones)
 
@@ -47,8 +52,9 @@
 
 ## [1.79.0] - 2026-11-18 (Blobatar: fondo negro y animación al tocar)
 
-- MINOR DH-20261118-BLOBATAR-DARK-TAP-209: DholeWeb 1.74.0 → 1.75.0, DholeSystem/ecosistema 1.78.0 → 1.79.0. Modo oscuro negro para la tarjeta y el fondo del avatar; tocar/clic/Enter/Espacio activa expresiones y rebote reutilizable, sin perder animaciones ambientales ni seguimiento de ojos.
-- Se preservan las versiones de los otros 15 componentes en esta rama, junto con sus releases pendientes. REST, SignalR, Outbox/Inbox y base de datos intactos. CI, staging y autorización de producción pendientes.
+- MINOR DH-20261118-BLOBATAR-DARK-TAP-209: DholeWeb 1.73.0 → 1.75.0, DholeSystem/ecosistema 1.78.0 → 1.79.0. En modo oscuro, tarjeta y fondo del avatar negros; clic, toque o teclado activan sorpresa, guiño y sonrisa con rebote repetible, respetando movimiento reducido.
+- Preserva íntegramente Operations Dual Validation 208: DholeAuthService 1.14.0, DholeOperationsService 0.7.0, además de todas las otras versiones del manifiesto y sus registros históricos. No hay cambios en REST, SignalR, Outbox/Inbox, permisos ni base de datos.
+- CI y staging aprobados para DholeWeb; usuario autorizó expresamente promoción a master el 2026-11-18. Validar workflow de producción tras merge; UAT visual autenticado pendiente.
 
 ## [1.78.0] - 2026-11-17 (DH-20261117-OPS-DUAL-VALIDATION-208 · Aperturas doble validación)
 
@@ -58,37 +64,31 @@
 
 ## [1.77.1] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205-PROMOTION · Operations a master)
 
-- PATCH: promoción coordinada del backend Operations 0.6.0 validado en develop y staging; despliegue de producción autorizado explícitamente.
-- Manifiesto de 17 componentes actualizado con Operations 0.6.0 y ecosistema 1.77.1, preservando Blobatar y demás releases.
-- MVP Operations v1.2 aún parcial; no se habilitan navieras externas ni se simulan integraciones pendientes.
+- PATCH: promoción coordinada de DholeOperationsService 0.5.0 → 0.6.0, validado en develop y staging; despliegue a producción autorizado explícitamente.
+- Versiones globales DholeSystem 1.77.0 → 1.77.1; preserva Blobatar y los 17 componentes del ecosistema.
+- Funcionalidad de Operations v1.2 parcial; las navieras permanecen sin conexión externa y las integraciones pendientes no se anuncian como completas.
 
-## [1.77.0] - 2026-11-17 (DholeWeb: Blobatar con movimiento y expresiones)
+## [1.77.0] - 2026-11-17 (Blobatar: expresiones, animación y gaze)
 
-- MINOR DH-20261117-BLOBATAR-MOTION-207: DholeWeb 1.72.0 → 1.73.0, DholeSystem/ecosistema 1.76.0 → 1.77.0. Animación de respiración, flotación y parpadeo; expresiones happy, thinking y sleepy, seguimiento de ojos al puntero y halo azul/violeta; respeta reduced-motion y conserva fallback de fotografías/iniciales.
-- Mantiene el release previo Operations Foundation 205 en develop, sus componentes y versiones. Sin modificaciones a backend, REST, SignalR ni permisos. Validar CI y staging; no desplegar a producción sin autorización.
-
-## [1.76.0] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205 · Preparación Operations v1.2)
-
-- MINOR: Operations 0.5.0 → 0.6.0: registro multicarrier sin falsas activaciones, salida de Origen idempotente a Tránsito, bitácora privada y validación de ejecutivo comercial por CRM.
-- Versión global 1.75.0 → 1.76.0; se conserva íntegramente el release anterior Blobatar 1.75.0 y su histórico.
-- Release candidato a CI y staging; master y despliegue productivo no autorizados sin pasar validaciones.
+- MINOR DH-20261117-BLOBATAR-MOTION-207: actualización coordinada de DholeWeb 1.72.0 → 1.73.0; DholeSystem y ecosistema 1.75.0 → 1.77.0. Se añaden animación continua de cabeza de usuario, ojos que siguen el puntero en escritorio, expresiones al hover/ocupado/desconectado y halo suave, respetando preferencias de movimiento reducido.
+- Manifiesto de los 17 componentes conserva la versión de los 15 microservicios restantes. No hay cambios en REST, SignalR, Outbox/Inbox, bases de datos ni permisos. CI, staging y validación visual pendientes antes de promover a master.
 
 ## [1.75.0] - 2026-11-17 (DholeWeb: sistema de avatares Blobatar)
 
 - MINOR DH-20261117-BLOBATAR-206: integra Blobatar 2.7.0 en el componente compartido DhAvatar, reutilizado por los módulos Dhole. Foto primero; fallback SVG local determinístico por ID; iniciales opcionales; estados SignalR sin cambios.
-- Versiones coordinadas: DholeSystem/ecosistema 1.74.0 → 1.75.0, DholeWeb 1.71.1 → 1.72.0. Resto de microservicios conservan sus versiones, reflejadas en el manifiesto de 17 componentes.
+- Versiones coordinadas: DholeSystem/ecosistema 1.74.0 → 1.75.0, DholeWeb 1.71.0 → 1.72.0. Resto de microservicios conservan sus versiones, reflejadas en el manifiesto de 17 componentes.
 - Instalación frozen-lockfile, regresión SSR, CI, staging y autorización de producción pendientes; no hay migraciones, API REST ni cambios de eventos realtime.
 
-## [1.74.0] - 2026-11-17 (CRM / Operations: encargados por cuenta)
+## [1.74.0] - 2026-11-17 (CRM / Operations: responsables de operaciones por cliente)
 
-- MINOR DH-20261117-CRM-OPS-CONTACTS-204: indicador operativo múltiple por cuenta CRM y único principal activo; CRUD autorizado y endpoint de Operations por expediente.
-- Preserva release 1.73.2 de Seller Cancel Accepted y todos los componentes externos. System 1.73.2 → 1.74.0, Web 1.70.2 → 1.71.0, CRM 1.35.0 → 1.36.0, Operations 0.4.1 → 0.5.0.
-- CI de servicios verificado; staging, migración de datos y gate master pendientes. Producción no autorizada.
+- MINOR DH-20261117-CRM-OPS-CONTACTS-204: campos independientes para contacto principal único y múltiples responsables operativos por cuenta CRM. API Operations obtiene sus datos por expediente autorizado, sin replicar contactos; se conserva realtime.
+- Versiones: DholeSystem/ecosistema 1.73.2 → 1.74.0, DholeWeb 1.70.1 → 1.71.0, DholeCRMService 1.35.0 → 1.36.0, DholeOperationsService 0.4.1 → 0.5.0.
+- Integración develop validada por CI; staging operativo y autorización de producción por confirmar antes del master release.
 
 ## [1.73.2] - 2026-11-17 (Ventas: cancelación solo de QUO aceptada)
 
 - PATCH DH-20261117-SELLER-CANCEL-ACCEPTED-203: se corrige el release de cancelación para que únicamente las cotizaciones comerciales con estado AcceptedByClient puedan pasar a Cancelled, tanto en Web como en el dominio de Pricing.
-- Coordinación de versiones: DholeWeb 1.70.1 → 1.70.2, DholePricingService 1.23.1 → 1.23.2, DholeSystem/ecosistema 1.72.0 → 1.73.2. Motivo, auditoría, idempotencia y contrato REST/realtime preservados.
+- Coordinación de versiones: DholeWeb 1.70.0 → 1.70.1, DholePricingService 1.23.0 → 1.23.1, DholeSystem/ecosistema 1.72.0 → 1.73.2. Motivo, auditoría, idempotencia y contrato REST/realtime preservados.
 - Verificaciones de compilación, CI y staging pendientes; no hay migraciones de base de datos.
 
 ## [1.72.0] - 2026-11-17 (Ventas: cancelación de QUO)
@@ -97,10 +97,10 @@
 - Estado Cancelled persistente, motivo obligatorio, autorización por vendedor, idempotencia y compatibilidad con REST/realtime existentes. Se actualiza manifiesto central.
 - DholeSystem y ecosistema 1.71.3 → 1.72.0. CI y validación staging pendientes; sin despliegue a producción.
 
-## [1.71.3] - 2026-11-17 (Pricing LCL: exclusión estricta de navieras)
+## [1.71.3] - 2026-11-17 (Pricing LCL: no cargar rubros de navieras)
 
-- PATCH DH-20261117-PRICING-LCL-CARRIER-200: DholeWeb 1.67.8 → 1.67.9 elimina el filtrado permisivo de cargos navieros en LCL marítimo. Aplica en generación de costos, cálculo de importes y refresco de catálogo con relaciones múltiples/legacy, sin modificar FCL, AirConsol, cotizaciones manuales ni servicios REST/SignalR.
-- DholeSystem/ecosistema 1.71.2 → 1.71.3. Los demás 15 componentes mantienen su versión; CI, pruebas y staging pendientes antes de integrar master. Producción sin autorización.
+- PATCH DH-20261117-PRICING-LCL-CARRIER-200: Web 1.67.8 → 1.67.9 agrega control universal de cargos navieros para LCL marítimo; evita costos MAERSK y de otras navieras, aun con IDs legacy y respuesta contextual incorrecta.
+- System/ecosistema 1.71.2 → 1.71.3; no altera REST, SignalR, Outbox/Inbox ni otros servicios. Revisar CI y staging antes de master; producción no autorizada.
 
 ## [1.71.2] - 2026-11-17 (Hacienda: Nginx 400 Request Header Or Cookie Too Large)
 
@@ -108,10 +108,12 @@
 - Conserva autenticación JWT, scopes, API REST, SignalR, Outbox/Inbox, seguridad y bases de datos. Se reprodujo localmente el 400 con Authorization sintética de 11 KB y se verificó 204 tras ampliar los buffers.
 - DholeSystem/ecosistema 1.71.1 → 1.71.2. Validar CI y staging con respuestas autenticadas antes de promover master.
 
-## [1.71.1] - 2026-11-17 (Pricing: evitar rubros ajenos a la QUO en edición)
 
-- PATCH DH-20261117-PRICING-EDIT-ITEMS-198: DholeWeb 1.67.6 → 1.67.7 conserva el snapshot de costos guardados al visualizar y editar. Actualizar precios para el mismo contexto no incorpora costos de rutas, proveedores ni servicios no cotizados. Sin cambios de base de datos, REST, SignalR, Outbox/Inbox ni permissions.
-- DholeSystem/ecosistema 1.71.0 → 1.71.1; las versiones de los otros 15 servicios del manifiesto se mantienen. CI y staging antes de promoción a master.
+## [1.71.1] - 2026-11-17 (Pricing: sincronizar rubros Ver/Editar)
+
+- PATCH DH-20261117-PRICING-EDIT-ITEMS-198: Web 1.67.6 → 1.67.7 evita que el catálogo agregue cargos extra a las cotizaciones existentes al editar. Refresco explícito en contexto sin cambios solo modifica cargos guardados; conserva seguro, Manejos, HBL y recolecciones.
+- DholeSystem/ecosistema 1.71.0 → 1.71.1. Backend, REST, SignalR, Outbox/Inbox, PricingService y base de datos sin modificaciones.
+- Staging: despliegue Web run 44187573454 y /health correctos, pruebas CI Pricing y compilación correctas. Autorización expresa para master recibida; smoke autenticado de QUO pendiente.
 
 ## [1.71.0] - 2026-11-17 (Hacienda CRM: consulta POST sin identificación en URL)
 
@@ -119,21 +121,16 @@
 - El rechazo HTML 400 se diferencia de las validaciones fiscales del backend. No se modifican tablas, datos, permisos, Outbox ni SignalR.
 - Ecosistema 1.70.6 → 1.71.0. Release coordinado con ramas intermedias; tests, CI y smoke staging pendientes; producción no autorizada.
 
-## [1.70.6] - 2026-11-17 (PDF: tiempo aproximado de tránsito)
-
-- PATCH DH-20261117-QUOTE-TRANSIT-APPROX-196: DholeReportsService 1.8.0 → 1.8.1. En PDF comerciales FCL/LCL individuales y agrupados, la etiqueta dice «Tiempo aproximado de tránsito» y la duración indica «38 días aprox.», sin alterar el tiempo persistido.
-- Migración idempotente de plantillas comerciales en PostgreSQL y pruebas para evitar «Por confirmar aprox.» o sufijos duplicados. No hay cambios en REST, SignalR, eventos, precios ni permisos.
-- DholeSystem/ecosistema 1.70.5 → 1.70.6. CI y validación en staging obligatorias antes de master; despliegue a producción no autorizado.
 
 ## [1.70.5] - 2026-11-17 (MultiQUO: alternativas reales y PDF conjunto en correo)
 
-- PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas de su RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
-- No elimina datos históricos de QUO-00000-000673; las coincidencias duplicadas requieren conciliación controlada. Validar email y PDF con registro real en staging antes de promoción. Ecoversión 1.70.4 → 1.70.5.
+- PATCH DH-20261117-MULTIQUO-VISIBLE-GROUP-PDF-195: Pricing 1.22.4 y Web 1.67.4 exponen las sub-QUO 672-A y 672-B separadas del RateCode interno, unifican descarga PDF, envío y cierre de solicitud en un único PDF con ambas rutas, y preservan auditoría/realtime.
+- No elimina datos históricos de QUO-00000-000673; las coincidencias duplicadas requieren conciliación controlada. Validar email y PDF con registro real en staging antes de promoción. Versión global 1.70.4 → 1.70.5.
 
 ## [1.70.4] - 2026-11-17 (MultiQUO: aprobación de alternativas y PDF)
 
-- PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: DholePricingService 1.22.3 y DholeWeb 1.67.3 con aprobaciones grupales de margen, numeración comercial y PDF. La aceptación del cliente se aplica a una única alternativa.
-- Versionamiento y manifiesto coordinados; CI, staging y conciliación de duplicados históricos pendientes. Sin despliegue de producción.
+- PATCH DH-20261117-MULTIQUO-APPROVAL-PDF-194: release coordinado DholePricingService 1.22.3 y DholeWeb 1.67.3. El margen de todas las sub-QUO se aprueba conjuntamente; solo una alternativa puede ser aceptada comercialmente.
+- Normalización visual QUO-A/QUO-B y exclusión de duplicados huérfanos en el listado agrupado sin eliminación de datos. Requiere CI, smoke en staging, conciliación de duplicados históricos y autorización antes de producción.
 
 ## [1.70.3] - 2026-11-17 (DH-193: Hacienda reverse proxy Web-Gateway)
 - PATCH DH-20261117-HACIENDA-SAME-ORIGIN-193: mismo origen de Web para Hacienda CRM/SRM, con autenticación/impersonación intactas y Nginx limitado a GET, sin registro de identificaciones fiscales en el access log. Evita el salto del navegador al subdominio API con 502 generado por Cloudflare.
