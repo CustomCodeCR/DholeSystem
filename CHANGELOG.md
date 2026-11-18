@@ -1,6 +1,6 @@
 ## [1.75.0] - 2026-11-17 (DholeWeb: sistema de avatares Blobatar)
 
-- MINOR DH-20261117-BLOBATAR-206: integra Blobatar 2.8.0 en el componente compartido DhAvatar, reutilizado por los módulos Dhole. Foto primero; fallback SVG local determinístico por ID; iniciales opcionales; estados SignalR sin cambios.
+- MINOR DH-20261117-BLOBATAR-206: integra Blobatar 2.7.0 en el componente compartido DhAvatar, reutilizado por los módulos Dhole. Foto primero; fallback SVG local determinístico por ID; iniciales opcionales; estados SignalR sin cambios.
 - Versiones coordinadas: DholeSystem/ecosistema 1.74.0 → 1.75.0, DholeWeb 1.71.1 → 1.72.0. Resto de microservicios conservan sus versiones, reflejadas en el manifiesto de 17 componentes.
 - Instalación frozen-lockfile, regresión SSR, CI, staging y autorización de producción pendientes; no hay migraciones, API REST ni cambios de eventos realtime.
 
