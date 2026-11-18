@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261117-BLOBATAR-MOTION-207",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.76.0",
+  "ecosystemVersion": "1.77.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.76.0",
+      "version": "1.77.0",
       "mergeState": "candidate-intermediate-only",
       "candidateBranch": "feature/DH-20261117-BLOBATAR-MOTION-207-master",
       "candidateSha": null,
@@ -134,15 +134,14 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb CI: instalación locked, regresiones de avatares, vue-tsc y build",
-    "Verificación de staging visual con sesión real, movimiento reducido y estados de presencia",
-    "Producción no desplegar sin autorización específica"
+    "Master partió del ecosistema 1.75.0 y no incorpora aún Operations 205; evitar sobreescribir este release al promover Operations a master",
+    "Staging smoke DholeWeb y controles de producción antes de promoción"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.75.0→1.76.0; DholeWeb 1.72.0→1.73.0; 15 servicios restantes sin cambio",
+    "semver": "DholeSystem master 1.75.0→1.77.0 (1.76.0 Operations Foundation 205 ya utilizado en develop); DholeWeb master 1.72.0→1.73.0; demás componentes de master sin cambios",
     "unitTests": "GitHub CI pending",
     "build": "GitHub CI pending",
-    "staging": "pending",
+    "staging": "develop 1.77.0 pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
