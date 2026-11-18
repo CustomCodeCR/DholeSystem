@@ -1,3 +1,9 @@
+## [1.87.1] - 2026-11-18 (Pricing: guardar fechas comerciales sin error UTC)
+
+- PATCH DH-20261118-PRICING-SAVE-500-230: corregir el guardado de tarifas por fecha comercial YYYY-MM-DD convirtiendo a medianoche UTC antes de escribir timestamps PostgreSQL; no desplaza el día de vigencia.
+- DholePricingService 1.24.7→1.24.8 (integrado en develop), DholeSystem/ecosistema 1.87.0→1.87.1, otros componentes sin cambios.
+- Pruebas de Pricing y versionamiento aprobadas; staging autenticado pendiente. No hay migraciones ni cambios a REST, scopes, AuditLogs, Outbox/SignalR. Despliegue productivo requiere autorización.
+
 ## [1.87.0] - 2026-11-18 (CRM · agenda comercial compartida e invitados internos)
 
 - MINOR DH-20261118-CRM-SHARED-AGENDA-229: invitados de Auth a actividades, llamadas, citas y seguimientos; evento único visible en las agendas de responsable y asistentes, recordatorios individuales Email/System idempotentes, revocación y auditoría.
