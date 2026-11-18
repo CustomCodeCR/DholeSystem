@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.81.1",
-  "ecosystemVersion": "1.81.1",
-  "releaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
+  "version": "1.82.0",
+  "ecosystemVersion": "1.82.0",
+  "releaseId": "DH-20261118-BLOBATAR-PREFERENCES-214",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-LIGHT-MODE-AVATAR-212"
+  "businessReleaseId": "DH-20261118-BLOBATAR-PREFERENCES-214"
 }
