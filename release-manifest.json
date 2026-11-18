@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
+  "releaseId": "DH-20261117-OPS-FOUNDATION-205",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.74.0",
+  "ecosystemVersion": "1.75.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.74.0",
+      "version": "1.75.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -161,11 +161,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-CRM-OPS-CONTACTS-204-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
       "developMergeSha": null,
-      "candidateSha": null
+      "candidateSha": "507c092e0a046cc4f2c014a910086efa08b2a219"
     }
   ],
   "policyCheck": {
@@ -176,30 +176,28 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar duplicados históricos de contacto principal antes de aplicar índice único en staging",
-    "Pruebas staging de contactos operativos, permisos, archivo, realtime e integración por trámite pendientes",
-    "No integrar master ni desplegar producción sin pasar staging y autorización explícita"
+    "Pricing's final acceptance event+accepted option snapshot contract is not yet available",
+    "Stage creation, CRM executive validation, checklists, customer notification and complete Operations UI remain pending",
+    "CI, PostgreSQL migration, Storage ownership, role ACL and staging UAT must be completed before master",
+    "No production deployment without explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.73.2→1.74.0, DholeWeb 1.70.2→1.71.0, CRM 1.35.0→1.36.0, Operations 0.4.1→0.5.0",
-    "unitTests": "GitHub CI passed CRM, Operations and Web; System CI pending",
-    "build": "GitHub CI passed CRM/Operations/Web",
+    "semver": "DholeOperationsService 0.5.0→0.6.0; ecosystem 1.74.0→1.75.0",
+    "unitTests": "pending CI",
+    "build": "pending CI",
     "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService",
     "DholeOperationsService"
   ],
   "changes": [
-    "CRM: columna is_operations_contact en relaciones; único principal activo; API de encargados autorizada por cuenta",
-    "DholeWeb: campos independientes en alta y edición de contactos y cuentas",
-    "DholeOperations: endpoint de responsables desde CRM usando red interna; sin replicación de datos de contacto",
-    "DholeSystem: release coordinado preserva historial 203 y catálogo de versiones"
+    "Operations 0.6.0: registration-only carrier connections, capacities remain unverified",
+    "Operations 0.6.0: manually confirmed Origin departure with idempotent PostgreSQL/Outbox and restricted internal notes",
+    "DholeSystem 1.75.0: global version and release manifest"
   ],
-  "stagingValidation": "pending-operations-contacts-crm-e2e",
+  "stagingValidation": "pending-origin-and-carrier-registry-e2e",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -252,7 +250,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
+  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
