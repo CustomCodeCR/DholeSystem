@@ -1,3 +1,9 @@
+## [1.86.0] - 2026-11-18 (Blobatar: tres emociones personalizadas)
+
+- MINOR DH-20261118-BLOBATAR-MOODS-228: el ecosistema incorpora expresiones Estresado, Cansado y Resignado en DholeWeb, con geometría nativa, transiciones, persistencia por usuario, sincronización de Apariencia y traducciones ES/EN.
+- DholeSystem/ecosistema → 1.86.0 y DholeWeb → 1.82.0; los otros 15 componentes mantienen sus versiones del manifiesto de cada rama, sin tocar APIs REST, permisos, realtime o bases de datos.
+- Integración primero a develop, CI y pruebas de staging obligatorios antes de promocionar master. Sin autorización de despliegue a producción.
+
 ## [1.84.4] - 2026-11-18 (Pricing: recolecta EXW LCL propio, master backport)
 
 - PATCH DH-20261118-PRICING-EXW-PICKUP-226: promoción coordinada a master desde backport de la corrección EXW de LCL propio. Recupera recolecta editable, conserva importes manuales y limita cargos del catálogo a los aplicables a ruta.
