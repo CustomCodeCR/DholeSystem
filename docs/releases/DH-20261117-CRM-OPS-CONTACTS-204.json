@@ -1,0 +1,41 @@
+{
+  "releaseId": "DH-20261117-CRM-OPS-CONTACTS-204",
+  "ecosystemVersion": "1.73.0",
+  "date": "2026-11-17",
+  "status": "candidate-ci-and-staging-pending",
+  "components": {
+    "DholeSystem": {
+      "from": "1.72.0",
+      "to": "1.73.0"
+    },
+    "DholeWeb": {
+      "from": "1.69.0",
+      "to": "1.70.0"
+    },
+    "DholeCRMService": {
+      "from": "1.35.0",
+      "to": "1.36.0"
+    },
+    "DholeOperationsService": {
+      "from": "0.4.1",
+      "to": "0.5.0"
+    }
+  },
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "databaseMigration": "20261117190000_AddOperationsContactFlag",
+  "operationsConfig": [
+    "Crm__ApiBaseUrl"
+  ],
+  "productionDeploymentAuthorized": false,
+  "acceptance": [
+    "At most one active primary contact per account",
+    "Several operations contacts per account",
+    "Contact may have both flags",
+    "Archived/unlinked contacts not returned",
+    "Operations case reads only its own CRM account contacts",
+    "Authorized realtime invalidation on updated role flags"
+  ]
+}
