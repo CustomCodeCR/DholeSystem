@@ -1,3 +1,9 @@
+## [1.85.2] - 2026-11-18 (EXW LCL: corrección definitiva de rehidratación y precios)
+
+- PATCH DH-20261118-EXW-LCL-PICKUP-ROUNDTRIP-227: mantener la recolecta EXW manual al abrir y editar una tarifa LCL propia y evitar la sustitución del costo EXW fijo autorizado por el catálogo. Los suplementos no se confunden con las líneas base del consolidado.
+- Los snapshots de tarifas históricas muestran exactamente los detalles guardados; si falta recolecta se indica pendiente y se permite editar sin inventar importes.
+- Release Web 1.81.1 → 1.81.2, Pricing 1.24.5 → 1.24.6 y DholeSystem/ecosistema 1.85.1 → 1.85.2. Otros componentes sin cambios; pruebas, CI y staging obligatorios antes de promover a master.
+
 ## [1.85.1] - 2026-11-18 (Pricing: recolecta EXW LCL propio)
 
 - PATCH DH-20261118-PRICING-EXW-PICKUP-226: release coordinado para resolver recolectas EXW ausentes en LCL propio y preservar costos manuales tras actualización/guardado.
