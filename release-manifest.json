@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
+  "releaseId": "DH-20261118-PRICING-SAVE-500-230",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.0",
+  "ecosystemVersion": "1.87.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261118-crm-shared-agenda-system-master-229",
+  "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.0",
-      "mergeState": "candidate",
-      "candidateBranch": "release/20261118-crm-shared-agenda-system-master-229",
+      "version": "1.87.1",
+      "mergeState": "candidate-intermediate-master-backport",
+      "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop"
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -69,13 +69,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.7",
+      "version": "1.24.8",
       "mergeState": "candidate-intermediate-master-backport",
-      "masterCandidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
-      "candidateBranch": "release/DH-20261118-CARGO-WEIGHT-PER-UNIT-229-master",
-      "developCandidateBranch": "feature/multiquo-single-commercial-20261118-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "masterCandidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "candidateBranch": "release/DH-20261118-PRICING-SAVE-500-230-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-SAVE-500-230",
+      "candidateSha": "4cb548f0b6863ad7d149a8bf1aeaf0ed2b7e2321",
+      "developMergeSha": "a8d5984976417ecfe985f560fbb2c5c365b84a8c"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -136,37 +136,35 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-master-ci-and-runtime-smoke",
+    "status": "pending-master-ci-and-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Verificar CI de master en Web, Pricing y System",
-    "Smoke autenticado en aplicación: dos tarimas de 749 kg = 1498 kg",
-    "Verificar edición/reapertura sin duplicar el peso",
-    "Producción únicamente con autorización expresa"
+    "Validate Pricing build and tests on both branches",
+    "Verify authenticated staging edit/save and new rate creation",
+    "Confirm production exception using trace 0HNQ5LP0PAJCE:00000026",
+    "Do not deploy production without explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "master: Web 1.82.0→1.82.1, Pricing 1.24.5→1.24.7, System/ecosistema 1.86.0→1.86.1",
-    "ci": "pending master PR",
-    "build": "develop CI passed",
-    "staging": "Web and Pricing staging deploy success; authenticated weight smoke not verified",
+    "semver": "Pricing 1.24.7→1.24.8, DholeSystem/ecosystem 1.87.0→1.87.1",
+    "ci": "Pricing develop success; master CI pending",
+    "staging": "pending",
     "production": "not-authorized",
-    "rootCause": "Cargo weight was not multiplied by quantity in consolidated frontend"
+    "reason": "DateTimeKind.Unspecified is invalid for Npgsql timestamptz writes"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
-    "Agenda CRM compartida: invitaciones múltiples de usuarios activos de Auth para llamadas, citas, reuniones y recordatorios",
-    "Una única actividad visible para responsable e invitados con recordatorios individuales por email/sistema y deduplicación Outbox",
-    "Gestión y revocación de asistentes con auditoría, permisos CRM y compatibilidad REST/SignalR"
+    "Backport Pricing date-only validity normalization to midnight UTC for Npgsql PostgreSQL timestamptz",
+    "Preserve commercial validity day and existing REST, realtime, audit and scopes",
+    "Regression tests for JSON date-only, local and UTC inputs"
   ],
-  "stagingValidation": "staging-deploy-success-authenticated-cargo-smoke-pending",
+  "stagingValidation": "pending-authenticated-pricing-validity-date-save",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -219,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-CRM-SHARED-AGENDA-229",
+  "businessReleaseId": "DH-20261118-PRICING-SAVE-500-230",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

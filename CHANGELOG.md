@@ -1,3 +1,9 @@
+## [1.87.1] - 2026-11-18 (Pricing: backport guardar fechas comerciales sin error UTC)
+
+- PATCH DH-20261118-PRICING-SAVE-500-230: guardado de cotizaciones nuevas/editadas normaliza fechas comerciales YYYY-MM-DD a medianoche UTC, evitando rechazo de Npgsql frente a PostgreSQL timestamptz.
+- Pricing 1.24.7→1.24.8, DholeSystem/ecosistema 1.87.0→1.87.1. Sin migraciones; contratos REST, SignalR/Outbox, AuditLogs y scopes conservados.
+- CI, staging y prueba de guardado autenticada obligatorios antes de master; la promoción de master auto-despliega y requiere autorización productiva expresa.
+
 ## [1.87.0] - 2026-11-18 (CRM · agenda comercial compartida e invitados internos)
 
 - MINOR DH-20261118-CRM-SHARED-AGENDA-229: invitados de Auth a actividades, llamadas, citas y seguimientos; evento único visible en las agendas de responsable y asistentes, recordatorios individuales Email/System idempotentes, revocación y auditoría.
