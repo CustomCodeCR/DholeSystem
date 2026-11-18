@@ -5,11 +5,11 @@
   "status": "candidate-ci-and-staging-pending",
   "components": {
     "DholeSystem": {
-      "from": "1.72.0",
+      "from": "1.73.2",
       "to": "1.74.0"
     },
     "DholeWeb": {
-      "from": "1.69.0",
+      "from": "1.70.1",
       "to": "1.71.0"
     },
     "DholeCRMService": {

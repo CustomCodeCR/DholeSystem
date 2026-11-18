@@ -84,11 +84,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.0",
+      "version": "1.23.1",
       "mergeState": "candidate-intermediate-only",
       "candidateSha": null,
       "developMergeSha": null,
-      "candidateBranch": "feature/DH-20261117-SELLER-CANCEL-202-master",
+      "candidateBranch": "fix/DH-20261117-SELLER-CANCEL-ACCEPTED-203-master",
       "masterCandidateBranch": "feature/DH-20261116-OWN-LCL-QUO-CBM-172-master"
     },
     {
@@ -174,23 +174,23 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-ci-and-staging",
+    "status": "pending-ci-staging",
     "checks": 0,
     "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Comprobar que no existen múltiples contactos principales activos previos a crear índice único en la migración CRM.",
-    "CI y pruebas funcionales staging de CRM + Web + Operations; validar permisos CRM para roles operativos.",
-    "Configurar Crm__ApiBaseUrl en despliegues staging/prod; no desplegar producción ni promover master sin aprobación correspondiente."
+    "Revisar duplicados históricos de contactos principales antes de migración de índice único",
+    "Verificación manual de usuarios autenticados y del filtrado de encargados por trámite en staging",
+    "Verificar despliegues staging Operations y Web; no desplegar producción sin autorización explícita"
   ],
   "validationEvidence": {
-    "semver": "System 1.72.0→1.74.0, Web 1.69.0/1.70.0→1.71.0, CRM 1.35.0→1.36.0, Operations 0.4.1→0.5.0",
-    "unitTests": "pending-CI",
-    "build": "pending-CI",
-    "staging": "pending",
-    "production": "not-authorized"
+    "semver": "System 1.73.2→1.74.0; Web 1.70.1→1.71.0; CRM 1.35.0→1.36.0; Operations 0.4.1→0.5.0",
+    "unitTests": "CI develop passed",
+    "build": "CI develop passed",
+    "staging": "pending full E2E",
+    "production": "not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -199,12 +199,12 @@
     "DholeOperationsService"
   ],
   "changes": [
-    "CRM: indicador de encargado de operaciones independiente de contacto principal, relación account-contact y API filtrada",
-    "Web: switches de contacto principal y encargado en creación/edición de cuentas y contactos",
-    "Operations: GET /api/operations/cases/{id}/operations-contacts consulta CRM con ACL y autenticación; configurar Crm__ApiBaseUrl",
-    "System: manifiesto versionado del lote de cuatro repositorios y conservación de versiones de servicios sin cambios"
+    "CRM: indicador por relación cuenta-contacto; un único principal activo; API de encargados operativos",
+    "Web: formularios de CRM con casillas independientes de principal y operaciones",
+    "Operations: lectura por trámite con control de acceso al caso y a la cuenta en CRM",
+    "Mantiene la compatibilidad de REST, SignalR y las versiones de otros servicios no modificados"
   ],
-  "stagingValidation": "pending-crm-operations-contact-role-e2e",
+  "stagingValidation": "pending-authenticated-operations-contact-cases",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -693,7 +693,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Contactos encargados de operaciones identificados por cuenta CRM y consultables desde cada trámite de Operations.",
+  "releaseSummary": "Contactos encargados de operaciones en CRM y exposición por trámite en DholeOperations",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",

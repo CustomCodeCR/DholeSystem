@@ -1,9 +1,14 @@
-## [1.74.0] - 2026-11-17 (CRM / Operations: encargados por cliente)
+## [1.74.0] - 2026-11-17 (CRM / Operations: responsables de operaciones por cliente)
 
-- MINOR DH-20261117-CRM-OPS-CONTACTS-204: lote coordinado DholeSystem, DholeCRMService, DholeWeb y DholeOperationsService. Permite uno o varios encargados operativos por cuenta, independientes de un único contacto principal.
-- CRM migración aditiva y filtro de contactos activos; Operations lee información actualizada desde CRM con autorización por caso/cuenta. Se requiere Crm__ApiBaseUrl en Operations, CI y staging antes de integración master.
-- Versiones: System 1.72.0 → 1.74.0, Web 1.69.0/1.70.0 → 1.71.0, CRM 1.35.0 → 1.36.0, Operations 0.4.1 → 0.5.0. Los otros componentes mantienen versiones actuales.
-- Producción no autorizada; no desplegar desde ramas intermedias.
+- MINOR DH-20261117-CRM-OPS-CONTACTS-204: campos independientes para contacto principal único y múltiples responsables operativos por cuenta CRM. API Operations obtiene sus datos por expediente autorizado, sin replicar contactos; se conserva realtime.
+- Versiones: DholeSystem/ecosistema 1.73.2 → 1.74.0, DholeWeb 1.70.1 → 1.71.0, DholeCRMService 1.35.0 → 1.36.0, DholeOperationsService 0.4.1 → 0.5.0.
+- Integración develop validada por CI; staging operativo y autorización de producción por confirmar antes del master release.
+
+## [1.73.2] - 2026-11-17 (Ventas: cancelación solo de QUO aceptada)
+
+- PATCH DH-20261117-SELLER-CANCEL-ACCEPTED-203: se corrige el release de cancelación para que únicamente las cotizaciones comerciales con estado AcceptedByClient puedan pasar a Cancelled, tanto en Web como en el dominio de Pricing.
+- Coordinación de versiones: DholeWeb 1.70.0 → 1.70.1, DholePricingService 1.23.0 → 1.23.1, DholeSystem/ecosistema 1.72.0 → 1.73.2. Motivo, auditoría, idempotencia y contrato REST/realtime preservados.
+- Verificaciones de compilación, CI y staging pendientes; no hay migraciones de base de datos.
 
 ## [1.72.0] - 2026-11-17 (Ventas: cancelación de QUO)
 
