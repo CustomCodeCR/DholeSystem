@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.80.0",
-  "ecosystemVersion": "1.80.0",
-  "releaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210",
+  "version": "1.81.0",
+  "ecosystemVersion": "1.81.0",
+  "releaseId": "DH-20261118-OPS-DH-UI-211",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-BLOBATAR-EXPRESSIONS-210"
+  "businessReleaseId": "DH-20261118-OPS-DH-UI-211"
 }
