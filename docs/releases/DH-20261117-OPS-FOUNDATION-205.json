@@ -1,0 +1,29 @@
+{
+  "releaseId": "DH-20261117-OPS-FOUNDATION-205",
+  "ecosystemVersion": "1.76.0",
+  "date": "2026-11-17",
+  "status": "candidate-ci-and-staging-pending",
+  "components": {
+    "DholeSystem": {
+      "from": "1.75.0",
+      "to": "1.76.0"
+    },
+    "DholeOperationsService": {
+      "from": "0.5.0",
+      "to": "0.6.0"
+    }
+  },
+  "branch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
+  "operationsCommit": "13981fb1c0d4010dbe22222d087bfa8eb50d0556",
+  "scope": [
+    "Carrier connection registry; not live carrier integrations",
+    "Origin departure with deduplication/transactional Outbox; private notes",
+    "Backend preparation and verified integration-gap documentation"
+  ],
+  "productionDeploymentAuthorized": false,
+  "validation": {
+    "ci": "Operations completed before version alignment; final candidate pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}

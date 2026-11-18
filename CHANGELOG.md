@@ -1,3 +1,9 @@
+## [1.77.1] - 2026-11-17 (DH-20261117-OPS-FOUNDATION-205-PROMOTION · Operations a master)
+
+- PATCH: promoción coordinada de DholeOperationsService 0.5.0 → 0.6.0, validado en develop y staging; despliegue a producción autorizado explícitamente.
+- Versiones globales DholeSystem 1.77.0 → 1.77.1; preserva Blobatar y los 17 componentes del ecosistema.
+- Funcionalidad de Operations v1.2 parcial; las navieras permanecen sin conexión externa y las integraciones pendientes no se anuncian como completas.
+
 ## [1.77.0] - 2026-11-17 (Blobatar: expresiones, animación y gaze)
 
 - MINOR DH-20261117-BLOBATAR-MOTION-207: actualización coordinada de DholeWeb 1.72.0 → 1.73.0; DholeSystem y ecosistema 1.75.0 → 1.77.0. Se añaden animación continua de cabeza de usuario, ojos que siguen el puntero en escritorio, expresiones al hover/ocupado/desconectado y halo suave, respetando preferencias de movimiento reducido.
