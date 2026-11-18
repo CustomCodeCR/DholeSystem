@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.81.0",
-  "ecosystemVersion": "1.81.0",
-  "releaseId": "DH-20261118-OPS-DH-UI-211",
+  "version": "1.81.1",
+  "ecosystemVersion": "1.81.1",
+  "releaseId": "DH-20261118-LIGHT-MODE-AVATAR-212",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-OPS-DH-UI-211"
+  "businessReleaseId": "DH-20261118-LIGHT-MODE-AVATAR-212"
 }

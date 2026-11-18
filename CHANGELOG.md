@@ -1,3 +1,9 @@
+## [1.81.1] - 2026-11-18 (DholeWeb: perfil y expresiones legibles en modo claro)
+
+- PATCH DH-20261118-LIGHT-MODE-AVATAR-212: Tailwind 4 ahora aplica clases dark: según html.dark del themeStore de Dhole, no según la preferencia del sistema operativo. El perfil del topbar usa tarjeta blanca y nombre/correo legibles en modo claro; negro y texto blanco en modo oscuro; etiqueta de expresión con contraste en ambos.
+- DholeWeb 1.77.0 → 1.77.1; ecosistema/DholeSystem 1.81.0 → 1.81.1. Preserva el release Operations DH-20261118-OPS-DH-UI-211, su navegación Dh y las versiones de otros 15 componentes. No hay cambios de permisos, REST, SignalR ni persistencia.
+- Pruebas de frontend CI, tema, avatar SSR, compilación y smoke staging antes de promoción a master; producción requiere autorización.
+
 ## [1.81.0] - 2026-11-18 (Operations: interfaz Dh para Aperturas y Equipos)
 
 - MINOR DH-20261118-OPS-DH-UI-211: DholeWeb 1.76.0 → 1.77.0 sustituye controles HTML y tarjetas básicas de Operations por DhPageHeader, DhCard, DhDataTable, DhModal y componentes de formulario compartidos, con búsqueda y detalle responsive.
