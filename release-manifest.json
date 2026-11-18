@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-PRICING-LEASE-220",
+  "releaseId": "DH-20261118-PRICING-LEASE-TX-222",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.83.4",
+  "ecosystemVersion": "1.83.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
+  "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.83.4",
+      "version": "1.83.5",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-develop"
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -69,11 +69,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.23.8",
+      "version": "1.23.9",
       "mergeState": "candidate-intermediate-only",
-      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
-      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-220-master",
-      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-220-develop",
+      "masterCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
+      "candidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-master",
+      "developCandidateBranch": "fix/DH-20261118-PRICING-LEASE-TX-222-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -142,26 +142,26 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI compilation and tests",
-    "Staging authenticated Pricing request claim and GET",
-    "Production approval"
+    "Pricing CI build and transaction regression test",
+    "Staging pricing deployment and claim smoke",
+    "Production requires authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.83.3→1.83.4; DholeWeb 1.79.3→1.79.4; DholePricingService 1.23.7→1.23.8; other 14 components retained",
-    "build": "pending CI",
-    "unitTests": "pending CI",
+    "semver": "DholeSystem 1.83.4 → 1.83.5; DholePricingService → 1.23.9; DholeWeb unchanged",
+    "ci": "pending",
+    "build": "pending",
     "staging": "pending",
-    "production": "not-authorized"
+    "production": "not-authorized",
+    "rootCauseTrace": "0HNQ5JP78QTL4:00000009"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
     "DholePricingService"
   ],
   "changes": [
-    "Pricing API: replace non-query SELECT-based advisory lock with a scalar PostgreSQL transaction try-lock, respond 409 on contention and 503 with TraceId on SQL errors",
-    "Pricing API: precompute stale-lease SQL threshold; preserve auth scope, one lease per operator and audit",
-    "DholeWeb: differentiate claim errors from GET errors in Pricing request wizard; serialize Retry; preserve other work"
+    "Pricing: fix confirmed NpgsqlRetryingExecutionStrategy exception for claim, heartbeat and release-own by wrapping transactions inside EF Core CreateExecutionStrategy().ExecuteAsync",
+    "Pricing: maintain atomic PostgreSQL advisory locking, existing REST, SignalR, scopes and audit",
+    "DholeSystem: coordinated PATCH release with all 15 unaffected component versions preserved"
   ],
   "stagingValidation": "pending-pricing-request-claim-smoke",
   "f6F7F8": {
@@ -216,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-PRICING-LEASE-220",
+  "businessReleaseId": "DH-20261118-PRICING-LEASE-TX-222",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
