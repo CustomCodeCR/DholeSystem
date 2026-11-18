@@ -1,3 +1,9 @@
+## [1.82.0] - 2026-11-18 (Blobatar: guardar expresiones y modo automático)
+
+- MINOR DH-20261118-BLOBATAR-PREFERENCES-215: DholeWeb 1.77.3 → 1.78.0; DholeSystem/ecosistema 1.81.3 → 1.82.0. Avatar guarda por usuario su última expresión y el modo Auto/Fijo en localStorage; el modo Auto rota cada 30 segundos, pausando en pestañas ocultas o movimiento reducido. Modo Fijo conserva la expresión entre sesiones.
+- Se preserva PricingService 1.23.4 y todos los cambios de PRICING-LEASE-214; demás 14 componentes sin incrementos. No hay cambios en contratos REST, SignalR, eventos, permisos ni base de datos.
+- CI, SSR, build, política de versiones y staging obligatorios antes de master; no desplegar producción sin autorización expresa.
+
 ## [1.81.3] - 2026-11-18 (Pricing: liberación definitiva de reservas)
 
 - PATCH DH-20261118-PRICING-LEASE-214: DholeWeb libera al cerrar pestañas y no renueva leases obsoletos; DholePricingService rechaza reclamos tardíos con tokens liberados.
