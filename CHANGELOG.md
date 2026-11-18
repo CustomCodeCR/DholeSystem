@@ -1,3 +1,9 @@
+## [1.81.1] - 2026-11-18 (DholeWeb: corrección de modo claro en avatar)
+
+- PATCH DH-20261118-LIGHT-MODE-AVATAR-212: el tema oscuro de Tailwind obedece la clase html.dark de Dhole. La tarjeta del usuario, nombre/correo y la etiqueta de expresión son claros y contrastados en modo claro; el modo oscuro mantiene fondo negro y letras blancas.
+- DholeWeb 1.77.0 → 1.77.1; DholeSystem/ecosistema 1.81.0 → 1.81.1. Mantiene intactos los cambios de Operations DH-20261118-OPS-DH-UI-211 y las versiones de los otros 15 componentes. REST, permisos, realtime y datos intactos.
+- CI, compilación y staging obligatorios. No desplegar producción sin autorización expresa.
+
 ## [1.81.0] - 2026-11-18 (Operations: interfaz Dh para Aperturas y Equipos)
 
 - MINOR DH-20261118-OPS-DH-UI-211: promoción de DholeWeb 1.76.0 → 1.77.0 con componentes Dh, tablas y filtros, modales, asignaciones y trazabilidad; versión global DholeSystem/ecosistema 1.80.0 → 1.81.0.
