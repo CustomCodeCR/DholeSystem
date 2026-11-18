@@ -1,3 +1,9 @@
+## [1.80.0] - 2026-11-18 (Blobatar: probador interactivo de expresiones)
+
+- MINOR DH-20261118-BLOBATAR-EXPRESSIONS-210: DholeWeb 1.75.0 → 1.76.0, DholeSystem/ecosistema 1.79.0 → 1.80.0. Al pulsar el avatar del usuario muestra cara enojada y permite recorrer las 14 expresiones de Blobatar 2.7.0, manteniendo la pose y mostrando la etiqueta hasta el siguiente clic.
+- Conserva modo oscuro negro, seguimiento de ojos, fotografía/prioridad, status, animación ambiental, acceso por teclado y prefers-reduced-motion. El componente genérico mantiene animaciones existentes. No hay cambios de API, realtime, bases ni permisos.
+- Se preservan las versiones de los otros 15 componentes de este manifiesto. Validar CI, build, staging y autorización de producción.
+
 ## [1.79.0] - 2026-11-18 (Blobatar: fondo negro y animación al tocar)
 
 - MINOR DH-20261118-BLOBATAR-DARK-TAP-209: DholeWeb 1.73.0 → 1.75.0, DholeSystem/ecosistema 1.78.0 → 1.79.0. En modo oscuro, tarjeta y fondo del avatar negros; clic, toque o teclado activan sorpresa, guiño y sonrisa con rebote repetible, respetando movimiento reducido.
