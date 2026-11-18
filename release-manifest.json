@@ -3,7 +3,7 @@
   "releaseId": "DH-20261118-PRICING-SAVE-DIAG-231",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.87.2",
-  "status": "diagnostic-ci-pending",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
@@ -140,7 +140,7 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-diagnostic",
+  "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "Collect precise error category for PUT trace 0HNQ5OQL7VVTR without exposing payload",
