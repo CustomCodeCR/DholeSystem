@@ -1,3 +1,9 @@
+## [1.83.4] - 2026-11-18 (MultiQUO: una sola cotización comercial)
+
+- PATCH DH-20261118-MULTIQUO-SINGLE-220: integra PricingService 1.23.8 y Web 1.79.4, mostrando QUO 672 una vez, opciones A/B dentro, aceptación única y estados consolidados.
+- DholeSystem/ecosistema 1.83.3 → 1.83.4; los demás 14 componentes mantienen su versión. Sin cambios de permisos existentes, auditoría ni SignalR.
+- Integración develop, validación staging y autorización expresa antes del despliegue a master.
+
 ## [1.83.3] - 2026-11-18 (Pricing: recuperación segura de reservas huérfanas)
 
 - PATCH DH-20261118-PRICING-LEASE-219: permite liberar la propia reserva sin volver a reclamarla; reserva ajena solo tras 45 segundos sin heartbeat en el servidor y acción expresa de Pricing. Se preservan bloques realmente activos y el estado de trabajo.
