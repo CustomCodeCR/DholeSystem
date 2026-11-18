@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261117-BLOBATAR-206",
+  "releaseId": "DH-20261117-OPS-FOUNDATION-205",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.75.0",
+  "ecosystemVersion": "1.76.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261117-BLOBATAR-206-develop",
+  "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.75.0",
+      "version": "1.76.0",
       "mergeState": "candidate-intermediate-only",
-      "candidateBranch": "feature/DH-20261117-BLOBATAR-206-develop",
+      "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -117,8 +117,11 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.5.0",
-      "mergeState": "unchanged"
+      "version": "0.6.0",
+      "mergeState": "candidate-intermediate-only",
+      "candidateBranch": "feature/DH-20261117-OPS-FOUNDATION-205-develop",
+      "candidateSha": "13981fb1c0d4010dbe22222d087bfa8eb50d0556",
+      "developMergeSha": null
     }
   ],
   "policyCheck": {
@@ -129,26 +132,29 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar pnpm install --frozen-lockfile, tests SSR, typecheck and build",
-    "Validar el avatar real y estados de presencia en staging antes de integrar master",
-    "No desplegar a producción sin autorización expresa"
+    "Integración Pricing: falta evento final de QUO aceptada y snapshot inequívoco de subQUO",
+    "Origen: completar etapa y asignación desde Aperturas, validaciones por modalidad y checklist",
+    "Storage: comprobar ownership de evidencia; Auth: scopes/membresías manuales; staging UAT pendiente",
+    "Master/producción no autorizado sin staging completo"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem/ecosistema 1.74.0→1.75.0; DholeWeb develop 1.71.1→1.72.0 / master 1.71.0→1.72.0; demás servicios sin cambios",
-    "unitTests": "pending GitHub CI",
-    "build": "pending GitHub CI",
+    "semver": "Operations 0.5.0→0.6.0, global 1.75.0→1.76.0",
+    "unitTests": "Operations CI validated before global version rebase; recheck pending",
+    "build": "Operations CI validated; System CI pending",
     "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService"
   ],
   "changes": [
-    "DholeWeb: DhAvatar local Blobatar 2.7.0 with photo priority, deterministic user ID, configurable initials, animated topbar and existing presence status",
-    "DholeSystem: coordinated semantic-version manifest; all other service versions unchanged; REST and SignalR compatible"
+    "Operations: registro de conexiones marítimas como REQUESTED (no conecta a naviera)",
+    "Operations: estado Origen, salida real a Tránsito idempotente y bitácora privada con ACL",
+    "Operations: consulta CRM autenticada para asignar ejecutivo comercial de la cuenta",
+    "DholeSystem: manifiesto global 1.76.0 reconciliado con release concurrente Blobatar 1.75.0"
   ],
-  "stagingValidation": "pending-dholeweb-avatars-auth",
+  "stagingValidation": "pending-operations-origin-and-carrier-e2e",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -201,7 +207,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261117-BLOBATAR-206",
+  "businessReleaseId": "DH-20261117-OPS-FOUNDATION-205",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
