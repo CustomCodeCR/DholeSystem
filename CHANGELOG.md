@@ -1,3 +1,8 @@
+## [1.84.2] - 2026-11-18 (Pricing: corregir transacciones de reservas)
+
+- PATCH DH-20261118-PRICING-LEASE-TX-222: se corrige el HTTP 503 confirmado por el trace 0HNQ5JP78QTL4:00000009. Las transacciones de claim, heartbeat y release-own se ejecutan íntegramente en la estrategia de reintentos Npgsql/EF Core.
+- develop: DholeSystem 1.84.1 → 1.84.2; DholePricingService → 1.24.3; DholeWeb y restantes 14 componentes sin cambio. Mantiene scopes, AuditLogs y SignalR; CI/staging obligatorios antes de producción.
+
 ## [1.84.1] - 2026-11-18 (MultiQUO: cotización única con opciones A/B)
 
 - PATCH DH-20261118-MULTIQUO-SINGLE-221: una única QUO comercial 672 y opciones internas A/B, estado tomado de opción ganadora y aceptación sin rechazar opción alternativa. Actualiza Paging, reportes y vistas para vendedor; conserva seguridad, auditoría, eventos y PDFs.
