@@ -1,3 +1,9 @@
+## [1.100.1] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-ROUTE-271 · Filtro de tarifas por puerto)
+
+- PATCH: registra la corrección de DholeWeb que mantiene la coincidencia de POL, POE y POD aun con todos los ítems del catálogo visibles.
+- Mantiene la integración de CRM y versiones de servicios anteriores; no se alteran esquemas ni costos de Pricing.
+- Web/System 1.100.0 → 1.100.1; CRM permanece 1.41.0. CI y staging son requisitos previos al release de master.
+
 ## [1.100.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-MATCH-270 · acuerdos preferenciales por servicio)
 
 - MINOR: registra selección opcional de servicios y ítems manuales de CRM, reglas por especificidad, y migración aditiva de DholeCRMService.
