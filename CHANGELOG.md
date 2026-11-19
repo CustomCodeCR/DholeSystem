@@ -1,3 +1,9 @@
+## [1.103.8] - 2026-11-19 (DH-20261119-PRICING-LTL-DDP-FREIGHT-284 · flete internacional DDP en LTL/FTL)
+
+- PATCH coordinado DholeWeb/DholeSystem 1.103.7→1.103.8 y DholePricingService 1.25.1→1.25.2. Se corrige Pricing.RateInvalidFreightDistribution de solicitudes terrestres LTL con Incoterm DDP y flete por CBM.
+- En creación y edición se permite flete DDP terrestre explícito sin distribución de contenedores FCL. CIF/FCL y validaciones de distribución marítima continúan sin cambios. Sin migraciones, alteraciones REST ni de SignalR.
+- 14 componentes no participantes retienen sus versiones. CI y staging obligatorios; sin autorización de despliegue a producción.
+
 ## [1.103.7] - 2026-11-19 (DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278 · reparación integral de LTL propio manual)
 
 - PATCH DholeWeb/DholeSystem 1.103.6→1.103.7: la fuente propia manual LTL es válida en pantalla 5 y 6 y se mantiene en borradores; los importes de flete se conservan.
