@@ -1,3 +1,9 @@
+## [1.103.3] - 2026-11-19 (DH-20261119-CRM-MANUAL-BENEFITS-275 · cargos manuales preferenciales verificables)
+
+- PATCH: DholeWeb y DholeSystem 1.103.2→1.103.3. CRM guarda como antes; Web ahora verifica mediante lectura de la API, muestra errores en el formulario y lista las tarifas manuales guardadas para el ámbito elegido.
+- Repositorios backend y versiones de los otros 15 componentes preservados; no cambia REST, bases de datos ni SignalR.
+- Release con ramas intermedias para develop/master y pruebas CI y staging previas a promoción. No se informa despliegue productivo completado.
+
 ## [1.103.2] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-RUNTIME-274 · corrección de runtime de wizard)
 
 - PATCH: sincroniza DholeSystem y DholeWeb 1.103.1→1.103.2 para reparar la referencia `resolveClientRouteOperation` no definida en el bundle productivo. Web calcula operación desde CRM/POL/POD en variables existentes, sin helper intermedio.
