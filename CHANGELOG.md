@@ -1,3 +1,11 @@
+## [1.88.0] - 2026-11-18 (CRM Prospectos: contactos, zonas y fuentes comerciales)
+
+- MINOR DH-20261118-CRM-PROSPECT-235: captura comercial con nombre y razón social independiente, catálogo de captación, referido y notas iniciales.
+- Alta y gestión de contactos y ubicaciones jerárquicas antes de convertir a Cuenta.
+- Conversión transaccional de contactos y direcciones, con scopes y realtime Outbox existentes.
+- DholeWeb 1.84.0, DholeCRMService 1.38.0, DholeConfigService 1.12.0, DholeSystem 1.88.0.
+- Cambios en rama master candidata: solo promover tras CI, staging y autorización de producción.
+
 ## [1.87.4] - 2026-11-18 (Ventas: retiro de cancelación de cotizaciones a vendedores)
 
 - PATCH DH-20261118-SELLER-CANCEL-HIDE-234: botón «Cancelar cotización» eliminado del dashboard comercial en móvil/escritorio y del detalle de vendedores; el modal de ventas ya solo admite aceptación o rechazo.
