@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.100.0",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.101.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+  "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.100.0",
+      "version": "1.101.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
       "candidateSha": null,
-      "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
+      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.100.0",
+      "version": "1.101.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
       "candidateSha": null,
-      "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
+      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.41.0",
+      "version": "1.42.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-master",
+      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -141,21 +141,16 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": {
-    "status": "pending",
-    "checks": 0,
-    "total": 0
-  },
+  "policyCheck": "SemVer MINOR: System/Web 1.100.0→1.101.0; CRM 1.41.0→1.42.0; other components retained",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Validate master CI",
-    "No additional manual production deployment"
+    "CI and staging must pass before master promotion"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "DholeWeb GCF release 1.97.5 GitHub CI success; authenticated staging E2E not verified",
-    "production": "pending"
+    "tests": "pending CI",
+    "staging": "pending CI and staging deploy",
+    "production": "explicitly authorized; pending merge"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -163,14 +158,12 @@
     "DholeCRMService"
   ],
   "changes": [
-    "Preferencias CRM: servicios seleccionables y todas las partidas de Pricing",
-    "Alta manual de ítems preferenciales y rutas/puertos/equipo opcionales",
-    "Resolución CRM por coincidencia más específica con fallback general",
-    "Migración CRM add service_codes, conservando los costos de Pricing intactos",
-    "Backport selectivo sin los releases adicionales pendientes en develop"
+    "CRM countryId in authorized account/lead options",
+    "Incoterm perspective based on client country compared to origin POL and final destination POD",
+    "No country fallback; physical destination governs VAT and customs"
   ],
   "stagingValidation": {
-    "status": "pending-authenticated-e2e"
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -224,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "businessReleaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -783,5 +776,28 @@
       "FOB freight guard"
     ],
     "status": "candidate-ci-pending"
+  },
+  "productionAuthorization": "user explicitly requested 'subelo a prod' on 2026-11-19",
+  "clientCountryOperationRelease": {
+    "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
+    "fromGlobal": "1.100.0",
+    "toGlobal": "1.101.0",
+    "versions": {
+      "DholeWeb": "1.101.0",
+      "DholeSystem": "1.101.0",
+      "DholeCRMService": "1.42.0"
+    },
+    "operationRules": {
+      "clientOrigin": "Export",
+      "clientDestination": "Import",
+      "thirdCountry": "TransitDomestic",
+      "sameCountry": "TransitDomestic",
+      "unknown": "blocked"
+    },
+    "restAdditive": true,
+    "migration": false,
+    "realtimeUnchanged": true,
+    "productionDeploymentAuthorized": true,
+    "status": "candidate-ci-and-staging-pending"
   }
 }
