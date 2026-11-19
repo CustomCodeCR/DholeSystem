@@ -1,3 +1,10 @@
+## [1.100.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-MATCH-270 · manifiesto del backport preferencial)
+
+- MINOR: versión Web/System 1.98.0 → 1.100.0 y CRM 1.39.0 → 1.41.0 para el matching por servicio e ítems manuales.
+- Conserva versionado de los 17 componentes no modificados y cambios de master preexistentes.
+- Migración aditiva de ServiceCodes en CRM sin modificar los costos de Pricing ni la infraestructura realtime.
+- CI y staging antes de producción; no ejecuta despliegue manual.
+
 ## [1.98.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-SCOPE-267 · backport scope CRM)
 
 - MINOR: sincroniza Web/System 1.97.9 → 1.98.0 y CRM 1.38.0 → 1.39.0 por la persistencia de naviera e Incoterm en tarifas preferenciales.

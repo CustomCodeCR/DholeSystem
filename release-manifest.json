@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.98.0",
+  "ecosystemVersion": "1.100.0",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+  "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.98.0",
+      "version": "1.100.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.98.0",
+      "version": "1.100.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.39.0",
+      "version": "1.41.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -163,10 +163,11 @@
     "DholeCRMService"
   ],
   "changes": [
-    "Backport de tarifas preferenciales de CRM con ámbito comercial por naviera e Incoterm",
-    "Migración PostgreSQL aditiva de carrier_code/incoterm_code, sin alterar costos de Pricing",
-    "Conservación íntegra de la corrección GCF-CIF-268-MASTER ya incluida en master",
-    "DholeWeb/DholeSystem 1.97.9 a 1.98.0 y CRM 1.38.0 a 1.39.0; demás componentes sin cambios"
+    "Preferencias CRM: servicios seleccionables y todas las partidas de Pricing",
+    "Alta manual de ítems preferenciales y rutas/puertos/equipo opcionales",
+    "Resolución CRM por coincidencia más específica con fallback general",
+    "Migración CRM add service_codes, conservando los costos de Pricing intactos",
+    "Backport selectivo sin los releases adicionales pendientes en develop"
   ],
   "stagingValidation": {
     "status": "pending-authenticated-e2e"
@@ -223,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -731,7 +732,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Solo integración a master solicitada; verificar staging, no autorizar operación de despliegue a producción manual.",
+  "productionAuthorizationNote": "Sin autorización de despliegue de producción manual; merge a master solicitado.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "ecosystemVersion": "1.96.0",
