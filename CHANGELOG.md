@@ -1,3 +1,9 @@
+## [1.98.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-SCOPE-267 · Alcance de tarifas preferenciales)
+
+- MINOR: sincroniza DholeSystem y DholeWeb 1.97.7 → 1.98.0 y registra DholeCRMService 1.38.0 → 1.39.0 en el manifiesto global.
+- Condiciones por naviera e Incoterm en CRM, migración aditiva, compatibilidad REST y costos de Pricing inalterados.
+- Las versiones de otros servicios se conservan. Candidato en rama intermedia; CI, staging e integración coordinada pendientes. Sin autorización de producción.
+
 ## [1.97.7] - 2026-11-19 (DH-20261119-DHOLE-REBRAND-266 · Identidad Dhole System)
 
 - PATCH: sincroniza versión global 1.97.6 → 1.97.7 con DholeWeb para restaurar Dhole System y su nuevo icono SVG en staging y producción.
