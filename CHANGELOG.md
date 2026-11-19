@@ -1,3 +1,9 @@
+## [1.101.0] - 2026-11-19 (DH-20261119-PRICING-RETURN-REQUEST-271 · devolución y corrección de solicitudes)
+
+- MINOR: manifiesto coordinado DholeWeb 1.101.0 y DholeSystem 1.101.0; DholePricingService 1.25.0. Conserva versiones de los demás 14 componentes.
+- Pricing puede devolver una solicitud sin tarifa vinculada con motivo auditado, evento de notificación sistema/correo, historial y reenvío desde Ventas.
+- Ramas intermedias en los tres repositorios. Faltan pruebas de CI y validación staging; producción no autorizada. Realtime, scopes y contratos existentes preservados.
+
 ## [1.100.1] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-ROUTE-271 · Filtro de tarifas por puerto)
 
 - PATCH: registra la corrección de DholeWeb que mantiene la coincidencia de POL, POE y POD aun con todos los ítems del catálogo visibles.
