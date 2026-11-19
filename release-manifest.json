@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "releaseId": "DH-20261119-PRICING-RETURN-REQUEST-271",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.100.0",
+  "ecosystemVersion": "1.101.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
+  "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.100.0",
+      "version": "1.101.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-REQUEST-271-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.100.0",
+      "version": "1.101.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
-      "candidateSha": null,
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+      "candidateSha": "261bd54e8591579cb665fc7643cd4134f95f55d5",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-REQUEST-271-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,8 +75,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.24.9",
-      "mergeState": "unchanged"
+      "version": "1.25.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-REQUEST-271-master",
+      "candidateSha": "a3f9252fa5efdedc8b3cbca29b1bc01ca692d9e9",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -141,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer MINOR: DholeSystem/DholeWeb 1.98.1→1.99.0; CRM 1.39.0→1.40.0; all other components keep listed versions",
+  "policyCheck": "SemVer MINOR: Web/System 1.100.0→1.101.0; Pricing 1.24.9→1.25.0; remaining 14 components retain current version. Protected develop/master; staging checks and authorization required before production.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -151,7 +156,15 @@
   "validationEvidence": {
     "tests": "pending CI",
     "staging": "pending",
-    "production": "not-authorized"
+    "production": "not-authorized",
+    "DH-20261119-PRICING-RETURN-REQUEST-271": {
+      "backendUnitTests": "pending",
+      "webTests": "pending",
+      "build": "pending",
+      "ci": "pending",
+      "staging": "pending",
+      "productionAuthorized": false
+    }
   },
   "releaseComponents": [
     "DholeSystem",
@@ -219,7 +232,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "businessReleaseId": "DH-20261119-PRICING-RETURN-REQUEST-271",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -655,7 +668,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "GCF: metadata de 249 países ISO, agente mundial en Pricing FCL y excepción de flete en duplicación CIF importación; CI/staging pendientes.",
+  "releaseSummary": "Pricing returns seller rate requests with mandatory reason; seller sees correction and resubmits same request; system/email outbox notifications.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -800,6 +813,26 @@
     "realtimeContractsUnchanged": true,
     "testStatus": "pending",
     "stagingStatus": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "pricingRateRequestReturnRelease": {
+    "releaseId": "DH-20261119-PRICING-RETURN-REQUEST-271",
+    "globalVersion": "1.101.0",
+    "componentVersions": {
+      "DholePricingService": "1.25.0",
+      "DholeWeb": "1.101.0",
+      "DholeSystem": "1.101.0"
+    },
+    "backendBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+    "webBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+    "systemBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
+    "expectedOutcomes": [
+      "Pricing can return unlinked open request with a non-empty 10–1000 char reason and active lease",
+      "Seller gets System and Email events via durable outbox",
+      "Seller dashboard displays reason and edit/resubmit of original request",
+      "Open queue receives corrected request again"
+    ],
+    "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   }
 }
