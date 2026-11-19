@@ -1,3 +1,8 @@
+## [1.96.1] - 2026-11-19 (DH-20261119-OPS-SIDEBAR-255 · Navegación de Operaciones)
+
+- PATCH: DholeWeb retira solo «Aperturas» del sidebar bajo Operaciones. Conserva el módulo, los permisos y el acceso desde Dashboard.
+- DholeSystem/DholeWeb 1.96.0 → 1.96.1; otros componentes sin cambios y con sus versiones existentes. Promoción a master pendiente de staging/CI y autorización.
+
 ## [1.96.0] - 2026-11-19 (DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254 · Dashboard operativo por rol y equipo)
 
 - MINOR: Promoción coordinada desde develop, con staging validado: DholeSystem y DholeWeb 1.95.1 → 1.96.0; DholeOperationsService 0.11.0 → 0.12.0.

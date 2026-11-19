@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+  "releaseId": "DH-20261119-OPS-SIDEBAR-255",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.96.0",
-  "status": "candidate-ci-and-staging-validated",
+  "ecosystemVersion": "1.96.1",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
+  "candidateBranch": "release/operations-hide-apertures-sidebar-255-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.96.0",
+      "version": "1.96.1",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
+      "candidateBranch": "release/operations-hide-apertures-sidebar-255-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.96.0",
+      "version": "1.96.1",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
+      "candidateBranch": "release/operations-hide-apertures-sidebar-255-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -142,12 +142,12 @@
     }
   ],
   "policyCheck": {
-    "status": "pending-master-ci",
+    "status": "pending",
     "checks": 0,
     "total": 0
   },
   "mergeState": "master-candidate",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Production merge, CI and post-deployment validation pending"
   ],
@@ -158,14 +158,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Dashboard Operaciones por rol y por equipo con KPI de Aperturas y doble validación",
-    "Control de datos por empresa, scope y pertenencia al equipo; sin acceso transversal",
-    "UI Equipos renovada con DhMultiSelect y bitácora plegada",
-    "Tabla Pricing más legible sin colores de fila invasivos"
+    "Hide Aperturas menu item under Operaciones, retaining Trámites and Equipos",
+    "Preserve protected /operations/apertures route, workflows, authorization and Dashboard entry",
+    "No backend service changes"
   ],
   "stagingValidation": "CI y despliegue automático de staging aprobados; validación autenticada manual pendiente",
   "f6F7F8": {
@@ -220,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+  "businessReleaseId": "DH-20261119-OPS-SIDEBAR-255",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -739,5 +737,17 @@
     "stagingValidation": "passed",
     "masterCi": "pending",
     "deploymentAuthorization": "master promotion requested 2026-11-19"
+  },
+  "operationsSidebarSimplificationRelease": {
+    "releaseId": "DH-20261119-OPS-SIDEBAR-255",
+    "scope": "Hide Aperturas in left navigation only",
+    "version": "1.96.1",
+    "changedComponents": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "routePreserved": "/operations/apertures",
+    "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
   }
 }
