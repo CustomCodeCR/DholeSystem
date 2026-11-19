@@ -159,12 +159,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
-    "CIF import no longer runs MultiQUO carrier navigation when no international freight is billed",
-    "Wizard screen 6 advances directly into destination charges screen 7 for zero freight alternatives",
-    "FOB EXW imports and CIF exports preserve normal multi-carrier workflow"
+    "Persistencia CRM de ámbitos carrierCode/incotermCode en tarifas preferenciales",
+    "Selectores y filtros de naviera e Incoterm en DholeWeb",
+    "Migración PostgreSQL aditiva y validaciones, sin cambio de costos originales de Pricing"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-DHOLE-REBRAND-266",
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -729,7 +730,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false.",
+  "productionAuthorizationNote": "Producción no autorizada; validar CI y staging antes de integrar a master.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
