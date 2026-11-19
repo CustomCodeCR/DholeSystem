@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.9",
-  "ecosystemVersion": "1.97.9",
-  "releaseId": "DH-20261119-GCF-CIF-268-MASTER",
+  "version": "1.98.0",
+  "ecosystemVersion": "1.98.0",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "releaseStatus": "candidate-ci-and-production-pending",
-  "businessReleaseId": "DH-20261119-GCF-CIF-268-MASTER"
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267"
 }

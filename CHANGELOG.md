@@ -1,3 +1,9 @@
+## [1.98.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-SCOPE-267 · backport scope CRM)
+
+- MINOR: sincroniza Web/System 1.97.9 → 1.98.0 y CRM 1.38.0 → 1.39.0 por la persistencia de naviera e Incoterm en tarifas preferenciales.
+- Mantiene release previo de CIF y componentes no incluidos; manifiesto completo de servicios conservado.
+- Incluir verificación de CI y staging antes de integrar en master; producción sin autorización expresa de despliegue.
+
 ## [1.97.9] - 2026-11-19 (DH-20261119-GCF-CIF-268-MASTER · GCF mundial y CIF sin flete)
 
 - PATCH coordinado: DholeWeb y DholeSystem master 1.97.8 → 1.97.9. Backport del release develop 1.98.1, sin integrar funcionalidades nuevas de CRM.
