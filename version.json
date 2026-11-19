@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.4",
-  "ecosystemVersion": "1.97.4",
-  "releaseId": "DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263",
+  "version": "1.97.5",
+  "ecosystemVersion": "1.97.5",
+  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-264",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263"
+  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-264"
 }
