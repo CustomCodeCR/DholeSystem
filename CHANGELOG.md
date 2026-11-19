@@ -1,3 +1,9 @@
+## [1.93.0] - 2026-11-19 (DH-20261119-BLOBATAR-MASCOT-250 · Blobatar como mascota del sistema)
+
+- MINOR: DholeWeb incorpora cinco emociones adicionales (58 en total), foto local de perfil y mascota Blobatar con nombre, movimiento fijo/libre, posición persistente, accesibilidad y configuración ES/EN.
+- Release unificado Web/System 1.93.0, sin incrementar los restantes 15 servicios del manifiesto al no cambiar su código.
+- Pruebas CI, verificación de staging y autorización de despliegue productivo obligatorias.
+
 ## [1.92.1] - 2026-11-19 (DH-20261119-OPS-ROLE-NAME-249 · rol logístico exacto)
 
 - PATCH: sincronizar versión global Web/System tras el release 1.92.0 de Blobatar; Auth 1.16.1 reconoce el rol vigente «Operativo Logístico».
