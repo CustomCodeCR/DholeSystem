@@ -1,3 +1,9 @@
+## [1.95.0] - 2026-11-19 (DH-20261119-BLOBATAR-TRANSPARENT-252 · Mascota Blobatar permanente)
+
+- MINOR: DholeWeb presenta mascota siempre disponible sin foto, personalización de seis accesorios, fondo transparente y nombre/emoción visibles solo al pasar el cursor o enfocar con teclado.
+- Coordinación de DholeWeb y DholeSystem 1.95.0; restantes componentes mantienen sus versiones propias sin modificar código.
+- CI/staging antes de master y promoción productiva sujeta a autorización expresa.
+
 ## [1.94.0] - 2026-11-19 (DH-20261119-OPS-TEAM-BULK-251 · asignación múltiple en Operations)
 
 - MINOR: release coordinado: Web/System 1.94.0, Operations 0.11.0 y Auth 1.16.2.
