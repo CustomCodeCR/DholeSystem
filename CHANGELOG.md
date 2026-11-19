@@ -1,3 +1,9 @@
+## [1.103.4] - 2026-11-19 (DH-20261119-PRICING-COUNTRY-LTL-276 · país CRM y LTL propio manual)
+
+- PATCH coordinado con DholeWeb 1.103.4: el wizard usa la referencia canónica de países de Config para cuentas y prospectos y conserva los parámetros de IVA; en LTL, permite tarifario propio manual sin fuente activa.
+- Las versiones de DholeCRMService, DholePricingService y los otros trece componentes se mantienen. Sin nuevos scopes, migraciones, cambios REST ni SignalR.
+- Ramas intermedias, CI y staging antes de master. La presente solicitud no autoriza despliegue a producción.
+
 ## [1.103.3] - 2026-11-19 (DH-20261119-CRM-MANUAL-BENEFITS-275 · cargos manuales preferenciales verificables)
 
 - PATCH: DholeWeb y DholeSystem 1.103.2→1.103.3. CRM guarda como antes; Web ahora verifica mediante lectura de la API, muestra errores en el formulario y lista las tarifas manuales guardadas para el ámbito elegido.

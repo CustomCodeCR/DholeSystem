@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
+  "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.3",
+  "ecosystemVersion": "1.103.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
+  "candidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.3",
+      "version": "1.103.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
+      "candidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-275-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.3",
+      "version": "1.103.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
-      "candidateSha": "5e6371891740f0597892c95077a52e475cab46dc",
+      "candidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop",
+      "candidateSha": "817655f411931a24a3df47e81f4c21f7ff099c15",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-275-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,24 +146,24 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.2→1.103.3; otros 15 componentes sin cambios. CI, lectura persistida del cargo en CRM y staging antes de master.",
+  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.3→1.103.4. CRM and Pricing remain unchanged; all other 15 component versions retained. CI and staging before master; no production deployment authorization.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI y staging pendientes"
+    "CI and staging verification pending"
   ],
   "validationEvidence": {
     "tests": "CI pending",
     "staging": "pending",
-    "production": "not yet deployed"
+    "production": "not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Verify CRM manual preferential charge persistence with server GET after save",
-    "Display saved manual charges next to the form with immediate validation errors and confirmation"
+    "Fix CRM client-country classification by loading canonical Config countries without losing VAT metadata",
+    "Allow manual own LTL source when no tariff is available; preserve manual coloader source"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -220,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
+  "businessReleaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
