@@ -1,3 +1,9 @@
+## [1.103.6] - 2026-11-19 (DH-20261119-PRICING-LTL-STEP6-277 · pantalla 6 LTL manual)
+
+- PATCH coordinado DholeWeb/DholeSystem 1.103.5→1.103.6. El botón Continuar acepta flete LTL/FTL terrestre con moneda, costo y venta válidos sin exigir naviera oculta; mantiene el agente obligatorio de coloader manual.
+- El resumen de validaciones coincide con campos visibles. Se preservan los otros 15 componentes, permisos, APIs REST y SignalR.
+- Ramas intermedias, compilación CI y staging antes de master, validación del despliegue de producción posterior.
+
 ## [1.103.5] - 2026-11-19 (DH-20261119-PRICING-COUNTRY-LTL-276 · resolución país CRM / LTL propio manual)
 
 - PATCH DholeWeb y DholeSystem 1.103.4→1.103.5 posterior a CRM seguimientos y recordatorios 281; se preserva CRM 1.42.1 y todos los componentes no participantes.
