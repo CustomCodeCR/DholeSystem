@@ -1,3 +1,9 @@
+## [1.97.0] - 2026-11-19 (DH-20261119-ORVELUM-BRAND-256 · Orvelum System)
+
+- MINOR: nueva identidad comercial Orvelum System para la interfaz, marca orbital e icono de navegación.
+- Versiones comerciales DholeWeb y DholeSystem alineadas en 1.97.0; identificadores técnicos, APIs, permisos y nombres de repositorios sin cambios.
+- El título del navegador muestra automáticamente la versión instalada del build, con textos bilingües y favicon actualizado.
+
 ## [1.96.1] - 2026-11-19 (DH-20261119-OPS-SIDEBAR-255 · Navegación de Operaciones)
 
 - PATCH: DholeWeb retira solo «Aperturas» del sidebar bajo Operaciones. Conserva el módulo, los permisos y el acceso desde Dashboard.
