@@ -44,7 +44,7 @@
       "version": "1.103.7",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
-      "candidateSha": null,
+      "candidateSha": "6b109140f95b934ff8cc423a0559d2e559bb4aea",
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
       "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-develop"
