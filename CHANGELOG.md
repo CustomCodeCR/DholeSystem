@@ -1,3 +1,9 @@
+## [1.103.3] - 2026-11-19 (DH-20261119-CRM-FOLLOWUP-EDIT-281 · seguimientos y recordatorios editables)
+
+- PATCH: habilita la edición completa de seguimientos y recordatorios desde su detalle CRM, con la misma dinámica que bitácoras y validación de fechas, responsables e invitados.
+- DholeWeb/DholeSystem 1.103.2 → 1.103.3 y DholeCRMService 1.42.0 → 1.42.1. Cambios de API compatibles; historial, versionado optimista, notificaciones durables y SignalR conservados.
+- Release coordinado desde ramas intermedias, CI y staging pendientes; master y despliegue productivo requieren validación y autorización.
+
 ## [1.103.2] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-RUNTIME-274 · corrección de runtime de wizard)
 
 - PATCH: sincroniza DholeSystem y DholeWeb 1.103.1→1.103.2 para reparar la referencia `resolveClientRouteOperation` no definida en el bundle productivo. Web calcula operación desde CRM/POL/POD en variables existentes, sin helper intermedio.
