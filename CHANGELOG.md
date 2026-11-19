@@ -1,3 +1,9 @@
+## [1.98.1] - 2026-11-19 (DH-20261119-GCF-CIF-268 · GCF mundial y CIF sin flete adicional)
+
+- PATCH: manifiesto global sincronizado con DholeWeb 1.98.1; agente GCF con 249 países/códigos ISO en metadata al guardar y selección para cualquier POL.
+- El guard de actualización de flete FCL duplicado solo aplica si el Incoterm requiere contratar flete internacional; CIF/CFR de importación pueden avanzar sin ese servicio.
+- Otros microservicios conservan sus versiones; CI, pruebas y staging antes de master. Producción no autorizada.
+
 ## [1.98.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-SCOPE-267 · Alcance de tarifas preferenciales)
 
 - MINOR: sincroniza DholeSystem y DholeWeb 1.97.7 → 1.98.0 y registra DholeCRMService 1.38.0 → 1.39.0 en el manifiesto global.

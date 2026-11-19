@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261119-GCF-CIF-268",
+  "version": "1.98.1",
+  "type": "PATCH",
+  "sourceBranch": "fix/DH-20261119-GCF-CIF-268",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "old": "1.98.0",
+      "new": "1.98.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "old": "1.98.0",
+      "new": "1.98.1"
+    }
+  ],
+  "unmodifiedServices": "Other services retain current versions",
+  "ci": "pending",
+  "staging": "pending",
+  "productionAuthorization": false
+}
