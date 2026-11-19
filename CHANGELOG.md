@@ -1,3 +1,10 @@
+## [1.97.5] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-264 · GCF cobertura mundial)
+
+- PATCH: Grupo Castro Fallas como agente para todos los países, con metadata.allCountries y compatibilidad con países existentes y futuros.
+- Se mantiene prioridad de agentes por país en Pricing; cambios exclusivos de DholeWeb y DholeSystem.
+- Versión global Web/System 1.97.4 → 1.97.5; se preservan correcciones CIF 1.97.3 e identidad visual 1.97.4.
+- Validación CI/staging pendiente; producción sin autorización.
+
 ## [1.97.4] - 2026-11-19 (DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263 · Dhole System con icono Orvelum exclusivo staging)
 
 - PATCH: DholeWeb en develop/staging presenta Dhole System con el símbolo orbital transparente de Orvelum en acceso, menú y favicon.
