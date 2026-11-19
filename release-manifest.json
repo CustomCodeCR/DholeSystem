@@ -141,11 +141,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": {
-    "status": "pending",
-    "checks": 0,
-    "total": 0
-  },
+  "policyCheck": "SemVer: only DholeSystem and DholeWeb changed from 1.98.0 to 1.98.1; all other components retained",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -159,8 +155,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Persistencia CRM de ámbitos carrierCode/incotermCode en tarifas preferenciales",
