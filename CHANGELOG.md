@@ -1,3 +1,8 @@
+## [1.95.1] - 2026-11-19 (DH-20261119-DH-MULTISELECT-OVERLAY-253 · overlay sólido DhMultiSelect)
+
+- PATCH: versionado global System/Web 1.95.1, compatible con el release Blobatar 1.95.0 y la arquitectura de Operaciones.
+- Cambios visuales únicamente en DholeWeb; Auth, Operations y el resto de servicios permanecen sin cambios.
+
 ## [1.95.0] - 2026-11-19 (DH-20261119-BLOBATAR-TRANSPARENT-252 · Mascota Blobatar permanente)
 
 - MINOR: DholeWeb presenta mascota siempre disponible sin foto, personalización de seis accesorios, fondo transparente y nombre/emoción visibles solo al pasar el cursor o enfocar con teclado.
