@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-GCF-CIF-268-MASTER",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.9",
+  "ecosystemVersion": "1.98.0",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
+  "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.9",
+      "version": "1.98.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
-      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.9",
+      "version": "1.98.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
-      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.38.0",
+      "version": "1.39.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-master",
+      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -159,13 +159,14 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
-    "Grupo Castro Fallas has worldwide agent coverage for current and new POL countries",
-    "Catalogs persists metadata.allCountries and compatible country metadata on save",
-    "Pricing LCL and RateExisting use GCF as a worldwide fallback after country-specific agents",
-    "Keep Orvelum System production branding unchanged; do not promote staging-only identity"
+    "Backport de tarifas preferenciales de CRM con ámbito comercial por naviera e Incoterm",
+    "Migración PostgreSQL aditiva de carrier_code/incoterm_code, sin alterar costos de Pricing",
+    "Conservación íntegra de la corrección GCF-CIF-268-MASTER ya incluida en master",
+    "DholeWeb/DholeSystem 1.97.9 a 1.98.0 y CRM 1.38.0 a 1.39.0; demás componentes sin cambios"
   ],
   "stagingValidation": {
     "status": "pending-authenticated-e2e"
@@ -222,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-GCF-CIF-268-MASTER",
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -730,7 +731,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false.",
+  "productionAuthorizationNote": "Solo integración a master solicitada; verificar staging, no autorizar operación de despliegue a producción manual.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "ecosystemVersion": "1.96.0",
