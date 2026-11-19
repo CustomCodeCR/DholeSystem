@@ -3,7 +3,7 @@
   "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.95.1",
-  "status": "candidate-ci-and-staging-pending",
+  "status": "authorized-for-production-merge",
   "branches": [
     "develop",
     "master"
@@ -147,15 +147,14 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Run CI and staging",
-    "Master merge and production deployment require explicit approval"
+    "Production merge, CI and post-deployment validation pending"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "pending",
-    "production": "not-authorized"
+    "tests": "System release candidate checks successful; Web pending reconciliation",
+    "staging": "success (develop)",
+    "production": "authorized; pending GitHub Actions production deployment"
   },
   "releaseComponents": [
     "DholeSystem",
