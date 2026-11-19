@@ -1,3 +1,11 @@
+## [1.88.0] - 2026-11-18 (CRM Prospectos: ficha comercial, contactos y fuentes)
+
+- MINOR DH-20261118-CRM-PROSPECT-235: registro comercial con nombre único, razón social opcional, fuente de captación, referido y notas iniciales.
+- Provincia, cantón y distrito por catálogo geográfico, además de contactos vinculados desde el primer registro.
+- Conversión transaccional a Cuenta conserva identificadores de contactos, responsables de operaciones y ubicaciones.
+- Versiones: DholeWeb 1.84.0; DholeCRMService 1.38.0; DholeConfigService 1.12.0; ecosistema 1.88.0.
+- CI, staging y autorización de producción pendientes; integración únicamente vía ramas intermedias.
+
 ## [1.87.4] - 2026-11-18 (Ventas: retiro de cancelación de cotizaciones a vendedores)
 
 - PATCH DH-20261118-SELLER-CANCEL-HIDE-234: botón «Cancelar cotización» eliminado del dashboard comercial en móvil/escritorio y del detalle de vendedores; el modal de ventas ya solo admite aceptación o rechazo.
