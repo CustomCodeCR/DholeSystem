@@ -1,3 +1,16 @@
+## [1.97.7] - 2026-11-19 (DH-20261119-DHOLE-REBRAND-266 · Identidad Dhole System)
+
+- PATCH: sincroniza versión global 1.97.6 → 1.97.7 con DholeWeb para volver a Dhole System y su nuevo icono SVG en master y develop.
+- Sin cambios de backend, scopes, contratos API, redis ni persistencia. CI y staging antes de promoción a master.
+- Rollback: restaurar la versión 1.97.6 en Web y System.
+
+## [1.97.7] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-266 · Promoción GCF a master)
+
+- PATCH: cobertura mundial de Grupo Castro Fallas; todos los países, metadatos conservados, prioridad de agentes locales.
+- Cambio validado en develop versión 1.97.5, promocionado sobre master versión 1.97.6 sin alterar corrección CIF ni identidad Orvelum System.
+- Versión global, DholeWeb y DholeSystem 1.97.6 → 1.97.7; demás servicios sin cambios.
+- CI obligatoria; no despliegue manual.
+
 ## [1.97.6] - 2026-11-19 (DH-20261119-PRICING-CIF-NAV-265 · CIF importación: avance a costos sin alternativas marítimas)
 
 - PATCH: DholeSystem y manifiesto universal sincronizados con la corrección de DholeWeb al avanzar CIF/CFR sin alternativas marítimas.
