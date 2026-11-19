@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "releaseId": "DH-20261119-OPS-ROLE-NAME-248",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.91.0",
+  "ecosystemVersion": "1.91.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/20261119-operations-audit-role-release",
+  "candidateBranch": "fix/20261119-ops-role-name-release-248",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.91.0",
+      "version": "1.91.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/20261119-operations-audit-role-release",
       "candidateSha": null,
@@ -32,7 +32,7 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.16.0",
+      "version": "1.16.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/20261119-operations-role-eligibility-cleanup",
       "candidateSha": null,
@@ -41,7 +41,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.91.0",
+      "version": "1.91.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/20261119-operations-audit-timeline-ux",
       "candidateSha": null,
@@ -155,17 +155,17 @@
   ],
   "validationEvidence": {
     "semver": "System/Web 1.89.0→1.91.0; Auth 1.15.0→1.16.0; Operations 0.9.0→0.10.0",
-    "tests": "pending-ci",
+    "tests": "pending",
     "staging": "pending",
-    "production": "user-approved-promotion-after-staging; realtime-specific production flag remains fail-closed"
+    "production": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeAuthService"
   ],
   "changes": [
+    "PATCH: corregir referencia al rol existente Operativo Logístico en filtros de Auth y UI de Web sin crear roles",
     "Replace Operations team card list with DhSelect department/team picker",
     "Readable ES/EN audit timeline shared by Teams and Aperturas with actor names, diff and nested technical detail",
     "Allow team membership only with Operador Logístico or Supervisor Operativo roles, enforced by Auth and Operations",
@@ -225,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "businessReleaseId": "DH-20261119-OPS-ROLE-NAME-248",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
