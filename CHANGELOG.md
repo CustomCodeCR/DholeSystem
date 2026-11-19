@@ -1,3 +1,8 @@
+## [1.97.1] - 2026-11-19 (DH-20261119-OPS-DASHBOARD-UX-257 · Rediseño Dashboard de Operaciones)
+
+- PATCH: Orvelum/Dhole Web incorpora vista compacta de Operaciones con roles/equipos, KPI y estado vacío legible. Sin cambios de acceso, APIs ni backend.
+- Versión global y Web/System 1.97.0 → 1.97.1; otros 15 componentes mantienen su versión. Release en ramas intermedias, sin aprobación productiva.
+
 ## [1.97.0] - 2026-11-19 (DH-20261119-ORVELUM-BRAND-256 · Orvelum System)
 
 - MINOR: nueva identidad comercial Orvelum System para la interfaz, marca orbital e icono de navegación.
