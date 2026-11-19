@@ -1,3 +1,9 @@
+## [1.97.6] - 2026-11-19 (DH-20261119-PRICING-CIF-NAV-265 · CIF importación: avance a costos sin alternativas marítimas)
+
+- PATCH: DholeSystem y manifiesto universal sincronizados con la corrección de DholeWeb al avanzar CIF/CFR sin alternativas marítimas.
+- Release global 1.97.6; las versiones intermedias 1.97.4 y 1.97.5 se reservaron para cambios de staging que no se promoverán junto a este parche, por lo que master pasa directamente desde 1.97.3.
+- Conserva Orvelum System y todas las funcionalidades productivas existentes. Sin despliegue de producción hasta validación de staging y autorización expresa.
+
 ## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
 
 - PATCH coordinado de DholeSystem: versión global 1.97.2 → 1.97.3 junto con DholeWeb para corregir el flujo de importación CIF FCL.
