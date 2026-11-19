@@ -1,3 +1,9 @@
+## [1.97.1] - 2026-11-19 (DH-20261119-ORVELUM-TRANSPARENT-261 · Orvelum icono transparente master)
+
+- PATCH: Orvelum conserva el nombre comercial únicamente en master/producción y elimina el fondo del logotipo.
+- El icono de la interfaz utiliza colores actuales del tema claro/oscuro y su favicon carece de superficie sólida.
+- Web y System sincronizados en 1.97.1. Develop/staging conserva Dhole sin cambios técnicos en API, scopes ni servicios.
+
 ## [1.97.0] - 2026-11-19 (DH-20261119-ORVELUM-BRAND-256 · Orvelum System)
 
 - MINOR: identidad comercial Orvelum System; imagen orbital y favicon integrados en DholeWeb.
