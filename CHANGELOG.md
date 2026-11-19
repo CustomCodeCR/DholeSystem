@@ -1,3 +1,9 @@
+## [1.97.2] - 2026-11-19 (DH-20261119-RESTORE-DHOLE-DEVELOP-260 · Marca Dhole exclusiva en develop)
+
+- PATCH: DholeWeb vuelve a mostrar Dhole, el icono previo GCF/D y favicon original exclusivamente en develop/staging.
+- La identidad Orvelum System queda reservada para master/producción. Los nombres internos de repositorios y servicios no cambian.
+- DholeWeb y DholeSystem sincronizados en 1.97.2; sin cambios en APIs, datos, rutas ni permisos.
+
 ## [1.97.1] - 2026-11-19 (DH-20261119-OPS-DASHBOARD-UX-257 · Rediseño Dashboard de Operaciones)
 
 - PATCH: Orvelum/Dhole Web incorpora vista compacta de Operaciones con roles/equipos, KPI y estado vacío legible. Sin cambios de acceso, APIs ni backend.
