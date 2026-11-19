@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-ORVELUM-BRAND-256",
+  "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.0",
+  "ecosystemVersion": "1.97.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/orvelum-brand-20261119-develop",
+  "candidateBranch": "feature/operations-dashboard-ux-20261119-257",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.0",
+      "version": "1.97.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/orvelum-brand-20261119-develop",
+      "candidateBranch": "feature/operations-dashboard-ux-20261119-257",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.0",
+      "version": "1.97.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/orvelum-brand-20261119-develop",
+      "candidateBranch": "feature/operations-dashboard-ux-20261119-257",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -162,9 +162,9 @@
     "DholeWeb"
   ],
   "changes": [
-    "Hide Aperturas menu item under Operaciones, retaining Trámites and Equipos",
-    "Preserve protected /operations/apertures route, workflows, authorization and Dashboard entry",
-    "No backend service changes"
+    "Operations dashboard: one consolidated header with permitted role selection and team filter",
+    "Responsive KPI and actions; compact empty state; loading values distinguish unknown from zero",
+    "Existing Operations permissions, realtime, REST and other dashboards preserved"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-SIDEBAR-255",
+  "businessReleaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -750,6 +750,18 @@
       "DholeWeb"
     ],
     "routePreserved": "/operations/apertures",
+    "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "operationsDashboardUxRelease": {
+    "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+    "version": "1.97.1",
+    "branch": "feature/operations-dashboard-ux-20261119-257",
+    "components": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "change": "Compact, responsive Operations dashboard with role/team controls and clear data state",
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   }
