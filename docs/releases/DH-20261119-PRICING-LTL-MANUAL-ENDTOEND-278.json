@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.103.7",
+  "releaseType": "PATCH",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.6",
+      "version": "1.103.7",
+      "candidateSha": "8ab6fa5ed9295756142479a2a0b965952ed40530"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.6",
+      "version": "1.103.7"
+    }
+  ],
+  "otherComponentVersions": "Unchanged per release-manifest.json",
+  "changes": [
+    "Accept LTL own manual source as valid on steps 5 and 6",
+    "Reconcile CRM customer country on resumed rate requests and allow explicit quote-only country when CRM country absent",
+    "Keep LTL manual profile and country override in browser draft"
+  ],
+  "ci": "pending",
+  "staging": "pending",
+  "productionDeploymentAuthorized": true,
+  "schemaMigration": false,
+  "realtime": "Unchanged"
+}

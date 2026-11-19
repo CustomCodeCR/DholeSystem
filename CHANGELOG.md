@@ -1,3 +1,9 @@
+## [1.103.7] - 2026-11-19 (DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278 · reparación integral de LTL propio manual)
+
+- PATCH DholeWeb/DholeSystem 1.103.6→1.103.7: la fuente propia manual LTL es válida en pantalla 5 y 6 y se mantiene en borradores; los importes de flete se conservan.
+- Recupera el país desde la cuenta CRM al retomar solicitudes de Ventas. Cuando el cliente no tiene país, Pricing puede seleccionarlo para la QUO sin cambiar el CRM ni presumir dirección comercial.
+- Pruebas Pricing y CI/staging antes de master. Los 15 restantes componentes, contratos REST, SignalR, permisos y bases de datos se mantienen.
+
 ## [1.103.6] - 2026-11-19 (DH-20261119-PRICING-LTL-STEP6-277 · pantalla 6 LTL manual)
 
 - PATCH coordinado DholeWeb/DholeSystem 1.103.5→1.103.6. El botón Continuar acepta flete LTL/FTL terrestre con moneda, costo y venta válidos sin exigir naviera oculta; mantiene el agente obligatorio de coloader manual.
