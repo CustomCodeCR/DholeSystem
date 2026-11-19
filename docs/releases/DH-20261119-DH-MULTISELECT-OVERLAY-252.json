@@ -1,0 +1,45 @@
+{
+  "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-252",
+  "type": "PATCH",
+  "ecosystemVersion": "1.94.1",
+  "sourceBranch": "fix/20261119-dh-multiselect-solid-overlay-252",
+  "changes": [
+    "DhMultiSelect uses an opaque --dh-card-solid drop-down menu above stacking contexts",
+    "Floating menu is portaled to body and repositions on window scroll/resize",
+    "Click-outside and Escape close the menu without breaking search/multi-selection"
+  ],
+  "components": [
+    {
+      "component": "DholeWeb",
+      "previous": "1.94.0",
+      "version": "1.94.1"
+    },
+    {
+      "component": "DholeSystem",
+      "previous": "1.94.0",
+      "version": "1.94.1"
+    }
+  ],
+  "unchanged": [
+    {
+      "component": "DholeAuthService",
+      "version": "1.16.2"
+    },
+    {
+      "component": "DholeOperationsService",
+      "version": "0.11.0"
+    }
+  ],
+  "security": {
+    "newScopes": false,
+    "newRoles": false,
+    "backendChange": false
+  },
+  "validation": {
+    "CI": "pending",
+    "staging": "pending",
+    "production": "not-approved"
+  },
+  "integrationOrder": "develop staging then master",
+  "component": "DholeSystem"
+}
