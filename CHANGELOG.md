@@ -1,3 +1,10 @@
+## [1.97.9] - 2026-11-19 (DH-20261119-GCF-CIF-268-MASTER · GCF mundial y CIF sin flete)
+
+- PATCH coordinado: DholeWeb y DholeSystem master 1.97.8 → 1.97.9. Backport del release develop 1.98.1, sin integrar funcionalidades nuevas de CRM.
+- Metadata de Grupo Castro Fallas materializa los 249 países ISO 3166-1 y habilita el agente global en cualquier POL.
+- El control de nueva tarifa duplicada FCL no exige flete marítimo si la importación CIF/CFR ya lo incluye. FOB/EXW importación y CIF exportación siguen validados.
+- Otros servicios conservan versiones, contratos REST y arquitectura realtime. Integración y despliegue automático sujetos a verificaciones CI de master.
+
 ## [1.97.8] - 2026-11-19 (DH-20261119-DHOLE-REBRAND-266 · Identidad Dhole System en master)
 
 - PATCH: coordina DholeWeb master 1.97.8 para adoptar el nombre e icono Dhole System y eliminar Orvelum de la interfaz.
