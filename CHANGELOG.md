@@ -1,3 +1,10 @@
+## [1.97.3] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-261 · Cobertura global del agente GCF)
+
+- PATCH: Grupo Castro Fallas se reconoce como agente de cobertura mundial sin selección manual de países, y se persiste el indicador metadata.allCountries al guardar.
+- Los dos flujos Pricing mantienen prioridad de agentes locales y utilizan GCF como alternativa mundial para POL con países nuevos o no definidos.
+- DholeWeb y DholeSystem 1.97.2 → 1.97.3; el resto de componentes conserva versión actual; REST y SignalR sin cambios.
+- Release coordinado en ramas intermedias. CI y staging pendientes; producción no autorizada.
+
 ## [1.97.2] - 2026-11-19 (DH-20261119-RESTORE-DHOLE-DEVELOP-260 · Marca Dhole exclusiva en develop)
 
 - PATCH: DholeWeb vuelve a mostrar Dhole, el icono previo GCF/D y favicon original exclusivamente en develop/staging.
