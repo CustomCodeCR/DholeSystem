@@ -60,13 +60,13 @@
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.6.0",
+      "version": "1.5.0",
       "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.9.0",
+      "version": "1.8.1",
       "mergeState": "unchanged"
     },
     {
@@ -78,7 +78,7 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.9.0",
+      "version": "1.8.1",
       "mergeState": "unchanged"
     },
     {
@@ -108,7 +108,7 @@
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.6.0",
+      "version": "1.5.0",
       "mergeState": "unchanged"
     },
     {
