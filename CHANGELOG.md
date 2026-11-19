@@ -1,3 +1,9 @@
+## [1.97.6] - 2026-11-19 (DH-20261119-PRICING-CIF-NAV-265 · Avance CIF sin alternativas FCL)
+
+- PATCH coordinado DholeSystem: versión del ecosistema 1.97.5 → 1.97.6 y manifiesto central para corrección de navegación CIF en Web.
+- Sin cambios backend, migraciones ni contratos API; conserva versiones existentes de los otros microservicios, realtime e identidad exclusiva de staging.
+- CI y validación staging obligatorias antes del release a master.
+
 ## [1.97.5] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-264 · GCF cobertura mundial)
 
 - PATCH: Grupo Castro Fallas como agente para todos los países, con metadata.allCountries y compatibilidad con países existentes y futuros.

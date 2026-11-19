@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.5",
-  "ecosystemVersion": "1.97.5",
-  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-264",
+  "version": "1.97.6",
+  "ecosystemVersion": "1.97.6",
+  "releaseId": "DH-20261119-PRICING-CIF-NAV-265",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-264"
+  "businessReleaseId": "DH-20261119-PRICING-CIF-NAV-265"
 }
