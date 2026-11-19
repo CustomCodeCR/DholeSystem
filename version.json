@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.0",
-  "ecosystemVersion": "1.103.0",
-  "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
+  "version": "1.103.1",
+  "ecosystemVersion": "1.103.1",
+  "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
   "releaseStatus": "candidate-ci-and-production-pending",
-  "businessReleaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272"
+  "businessReleaseId": "DH-20261119-WIZARD-ROUTE-REF-273"
 }

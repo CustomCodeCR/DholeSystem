@@ -1,3 +1,9 @@
+## [1.103.1] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-REF-273 · corrección de error de apertura Pricing)
+
+- PATCH: release coordinado System/Web 1.103.0→1.103.1 para eliminar la referencia de runtime `routeOperation` en el wizard «Crear tarifa».
+- Sin modificaciones a servicios backend, APIs, datos ni eventos SignalR; componentes restantes conservan versiones existentes y se documentan en manifiesto.
+- Cambios sobre ramas intermedias aisladas; CI, pruebas funcionales y staging obligatorios antes de master. La autorización de despliegue productivo permanece false.
+
 ## [1.103.0] - 2026-11-19 (DH-20261119-PRICING-RETURN-PROMOTION-272 · promoción devolución Pricing)
 
 - MINOR: DholeWeb/System 1.102.0→1.103.0, Pricing 1.25.0→1.25.1, el manifiesto incluye los tres componentes incrementados y conserva los demás 14.

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
+  "kind": "patch",
+  "title": "Pricing wizard routeOperation runtime reference",
+  "ecosystemVersion": "1.103.1",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.0",
+      "version": "1.103.1",
+      "codeChanges": true
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.0",
+      "version": "1.103.1",
+      "codeChanges": false
+    }
+  ],
+  "scope": [
+    "PricingAlternativeWizardCrystal.vue",
+    "Country-based Incoterm behavior preserved",
+    "Wizard regression test"
+  ],
+  "branch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
+  "stage": "candidate",
+  "ci": "pending",
+  "staging": "pending",
+  "productionDeploymentAuthorized": false
+}
