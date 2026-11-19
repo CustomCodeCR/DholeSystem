@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
+  "releaseId": "DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.3",
+  "ecosystemVersion": "1.97.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
+  "candidateBranch": "fix/20261119-dhole-system-orvelum-icon-staging",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.3",
+      "version": "1.97.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
+      "candidateBranch": "fix/20261119-dhole-system-orvelum-icon-staging",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.3",
+      "version": "1.97.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
+      "candidateBranch": "fix/20261119-dhole-system-orvelum-icon-staging",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
@@ -149,22 +149,22 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run CI and staging",
-    "Master merge and production deployment require explicit approval"
+    "Run CI and validate staging before any further integration",
+    "Production/master excluded from this request; production deployment not authorized"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
-    "staging": "pending authenticated staging",
-    "production": "not authorized"
+    "tests": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
-    "CIF/CFR imports do not request or create ocean freight in Pricing FCL screen 6",
-    "Both manual ocean-freight cards and direct creation are guarded when the Incoterm includes the freight",
-    "Carrier selection remains available for destination and customs charges when freight selection step 5 is skipped"
+    "Staging-only: Dhole System in login, navigation, tab title and update notifications",
+    "Reuse transparent Orvelum orbital SVG mark in login, sidebar and favicon",
+    "Preserve earlier CIF fix, REST, SignalR, permissions and other component versions; master untouched"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
+  "businessReleaseId": "DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
