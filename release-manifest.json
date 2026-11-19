@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-LTL-STEP6-277",
+  "releaseId": "DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.6",
+  "ecosystemVersion": "1.103.7",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
+  "candidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.6",
+      "version": "1.103.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
+      "candidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-STEP6-277-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.6",
+      "version": "1.103.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
-      "candidateSha": "3af6e61db42d756337defe1092b5c1684c11c6ee",
+      "candidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-STEP6-277-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -145,7 +145,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Web/System 1.103.5→1.103.6 for LTL manual screen-6 navigation parity; backend 15 component versions retained; CI and staging required before master.",
+  "policyCheck": "PATCH Web/System 1.103.6→1.103.7. Correct complete own-manual LTL source validation and hydrate CRM customer country for rate requests. All other 15 versions unchanged. CI/staging required before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
@@ -154,15 +154,16 @@
   "validationEvidence": {
     "tests": "CI pending",
     "staging": "pending",
-    "production": "not yet deployed"
+    "production": "not deployed"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Fix land LTL/FTL screen 6 validation: carrier is not required; manual LTL coloader requires a real agent",
-    "Retain previous CRM, Pricing backend and realtime versions"
+    "Accept LTL own manual source as valid on steps 5 and 6",
+    "Reconcile CRM customer country on resumed rate requests and allow explicit quote-only country when CRM country absent",
+    "Keep LTL manual profile and country override in browser draft"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -219,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-LTL-STEP6-277",
+  "businessReleaseId": "DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
