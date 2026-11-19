@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-ROLE-NAME-248",
+  "releaseId": "DH-20261119-BLOBATAR-MASCOT-250",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.91.1",
+  "ecosystemVersion": "1.93.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/20261119-operations-audit-role-release",
+  "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.91.1",
+      "version": "1.93.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-audit-role-247-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.91.1",
+      "version": "1.93.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-audit-role-247-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-web-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -160,9 +160,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
     "DH-247: Operations 0.10.0, Auth team role eligibility, DhSelect and readable audit log",
