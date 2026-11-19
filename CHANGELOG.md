@@ -1,3 +1,9 @@
+## [1.103.2] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-RUNTIME-274 · corrección de runtime de wizard)
+
+- PATCH: sincroniza DholeSystem y DholeWeb 1.103.1→1.103.2 para reparar la referencia `resolveClientRouteOperation` no definida en el bundle productivo. Web calcula operación desde CRM/POL/POD en variables existentes, sin helper intermedio.
+- Nueva validación del bundle minificado y prueba de regresión; se conservan los 15 componentes restantes y las APIs REST/SignalR.
+- CI y staging obligatorios previos a promoción master. Release coordinado sin cambios de infraestructura.
+
 ## [1.103.1] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-REF-273 · corrección de error de apertura Pricing)
 
 - PATCH: release coordinado System/Web 1.103.0→1.103.1 para eliminar la referencia de runtime `routeOperation` en el wizard «Crear tarifa».
