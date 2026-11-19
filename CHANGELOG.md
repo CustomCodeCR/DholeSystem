@@ -1,3 +1,10 @@
+## [1.97.4] - 2026-11-19 (DH-20261119-DHOLE-ORVELUM-ICON-STAGING-263 · Dhole System con icono Orvelum exclusivo staging)
+
+- PATCH: DholeWeb en develop/staging presenta Dhole System con el símbolo orbital transparente de Orvelum en acceso, menú y favicon.
+- DholeSystem y DholeWeb 1.97.3 → 1.97.4; el resto de componentes conserva versión, funcionalidad y contratos.
+- Se conservan los cambios CIF ya integrados en develop. Sin alteraciones en master ni despliegue de producción.
+- CI y staging pendientes de verificación antes de considerar el release confirmado.
+
 ## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
 
 - PATCH coordinado de DholeSystem: versión global 1.97.2 → 1.97.3 junto con DholeWeb para corregir el flujo de importación CIF FCL.
