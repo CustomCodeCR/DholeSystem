@@ -1,3 +1,9 @@
+## [1.101.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271 · Incoterms desde la perspectiva del país de cliente)
+
+- MINOR: promoción coordinada del cambio CRM y Web para clasificar operaciones según país de cuenta/prospecto y países físicos POL/POD.
+- Web/System 1.100.0 → 1.101.0; CRM 1.41.0 → 1.42.0. Preservan versión de los demás servicios, realtime y API REST compatibles; no hay migraciones.
+- Corrección implementada anteriormente en develop (269), backport aislado en master (271) sin arrastrar commits de otras funciones; producción expresamente solicitada por el usuario.
+
 ## [1.100.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-MATCH-270 · manifiesto del backport preferencial)
 
 - MINOR: versión Web/System 1.98.0 → 1.100.0 y CRM 1.39.0 → 1.41.0 para el matching por servicio e ítems manuales.
