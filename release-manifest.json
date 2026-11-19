@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
+  "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.95.1",
+  "ecosystemVersion": "1.96.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-253",
+  "candidateBranch": "feature/operations-role-team-dashboard-20261119",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.95.1",
+      "version": "1.96.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-253",
+      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.95.1",
+      "version": "1.96.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-253",
+      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -134,9 +134,9 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
+      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
       "candidateSha": null,
       "developMergeSha": null
     }
@@ -159,14 +159,18 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "PATCH: shared DhMultiSelect menu is teleported outside glass stacking contexts",
-    "Opaque theme card surface in both light/dark themes and responsive positioning",
-    "Retains 1.95.0 Blobatar functionality, no backend changes"
+    "Nuevo dashboard operativo por rol y por equipo con Aperturas, totales y estado de doble validación",
+    "DholeOperationsService: acceso seguro con JWT, scope y pertenencia a equipos para filas y agregados",
+    "DholeWeb: selector de roles, directorio de equipos legible y AuditLogs plegables",
+    "DholeWeb: la bandeja Pricing conserva prioridades sin el fondo rojo en filas completas"
   ],
-  "stagingValidation": "pending-browser-update-popup-and-browser-reload-with-unsaved-work",
+  "stagingValidation": {
+    "status": "pending"
+  },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -219,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
+  "businessReleaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -727,5 +731,16 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false."
+  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false.",
+  "operationsRoleTeamDashboardRelease": {
+    "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+    "globalVersion": "1.96.0",
+    "webVersion": "1.96.0",
+    "operationsVersion": "0.12.0",
+    "systemVersion": "1.96.0",
+    "branch": "feature/operations-role-team-dashboard-20261119",
+    "ciStatus": "pending",
+    "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
