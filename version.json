@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.96.1",
-  "ecosystemVersion": "1.96.1",
-  "releaseId": "DH-20261119-OPS-SIDEBAR-255",
+  "version": "1.97.0",
+  "ecosystemVersion": "1.97.0",
+  "releaseId": "DH-20261119-ORVELUM-BRAND-256",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-OPS-SIDEBAR-255"
+  "businessReleaseId": "DH-20261119-ORVELUM-BRAND-256"
 }
