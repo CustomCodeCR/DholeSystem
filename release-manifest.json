@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-RATE-REVISION-IDTRA-232",
+  "releaseId": "DH-20261118-SELLER-CANCEL-HIDE-234",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.87.3",
+  "ecosystemVersion": "1.87.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232",
+  "candidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.87.3",
+      "version": "1.87.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232",
+      "candidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
-      "developCandidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232"
+      "masterCandidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-master",
+      "developCandidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,20 +33,18 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.14.0",
-      "mergeState": "intermediate-master-backport",
-      "candidateBranch": "release/DH-20261117-OPS-DUAL-VALIDATION-208-master",
-      "candidateSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.83.0",
-      "mergeState": "candidate",
-      "candidateBranch": "release/20261118-crm-shared-agenda-master-229",
+      "version": "1.83.1",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-web-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229",
-      "developCandidateBranch": "fix/DH-20261118-CARGO-WEIGHT-PER-UNIT-229"
+      "masterCandidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-web-master",
+      "developCandidateBranch": "fix/DH-20261118-SELLER-CANCEL-HIDE-234-web-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,12 +68,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.24.9",
-      "mergeState": "intermediate-only",
-      "masterCandidateBranch": "release/DH-20261118-RATE-REVISION-IDTRA-232-master",
-      "candidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232",
-      "developCandidateBranch": "fix/DH-20261118-RATE-REVISION-IDTRA-232",
-      "candidateSha": "f4ebe23ca7330d60a28313d3772e8bffdd468c08",
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -123,16 +116,13 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.37.0",
-      "mergeState": "candidate",
-      "candidateBranch": "release/20261118-crm-shared-agenda-master-229"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.7.0",
-      "mergeState": "intermediate-master-backport",
-      "candidateBranch": "release/DH-20261117-OPS-DUAL-VALIDATION-208-master",
-      "candidateSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": {
@@ -143,27 +133,28 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing CI must pass, including has-pending-model-changes and integration/unit tests",
-    "Pricing staging must deploy migration and pass health check",
-    "Authenticated replay of quote QUO-00000-000552 must return 200/204 and persist revision before declaring fully fixed"
+    "DholeWeb type-check/build, version-check and regression tests must pass in CI",
+    "Authenticate as a seller in staging and verify cancellation absent on desktop, mobile and detail",
+    "Authenticate as Pricing in staging and verify accepted quotation cancellation still works",
+    "Do not merge or deploy master until staging is validated and production deployment explicitly authorized"
   ],
   "validationEvidence": {
-    "semver": "DholePricingService 1.24.8→1.24.9; DholeSystem/ecosystem 1.87.2→1.87.3",
-    "rootCause": "Confirmed Npgsql PostgreSQL 22001 during UpdateRate.SaveChangesAsync; RateRevisions.IdtraNumber varchar(100) vs payload 366 chars and RateHeaders 2000",
-    "ci": "pending",
-    "staging": "pending",
-    "production": "pending"
+    "semver": "DholeWeb 1.83.0→1.83.1; DholeSystem/ecosystem 1.87.3→1.87.4; other 15 components unchanged",
+    "sourceStatic": "seller cancel pathways removed from dashboard/detail/modal; Pricing control preserved",
+    "tests": "pending-ci",
+    "staging": "pending-authenticated",
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Expand RateRevisions.IdtraNumber from varchar(100) to varchar(2000) to match RateHeader.IdtraNumber and prevent confirmed SQLSTATE 22001 on PUT rate revisions",
-    "Non-destructive EF migration; regression verifies mapping and long IDTRA without truncation",
-    "Keep existing audit, Outbox/SignalR, scopes, REST and historical snapshots intact"
+    "Remove seller quote cancellation action from commercial dashboard (desktop and mobile), seller details and seller decision modal",
+    "Preserve acceptance, rejection, PDF and Pricing-only cancellation workflows",
+    "No API, SignalR, Outbox, scopes or AuditLogs changes"
   ],
-  "stagingValidation": "pending-authenticated-pricing-validity-date-save",
+  "stagingValidation": "pending-authenticated-seller-and-pricing-cancellation-role-check",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,

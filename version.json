@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.87.3",
-  "ecosystemVersion": "1.87.3",
-  "releaseId": "DH-20261118-RATE-REVISION-IDTRA-232",
+  "version": "1.87.4",
+  "ecosystemVersion": "1.87.4",
+  "releaseId": "DH-20261118-SELLER-CANCEL-HIDE-234",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-RATE-REVISION-IDTRA-232"
+  "businessReleaseId": "DH-20261118-SELLER-CANCEL-HIDE-234"
 }
