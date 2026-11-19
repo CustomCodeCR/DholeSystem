@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.7",
-  "ecosystemVersion": "1.97.7",
-  "releaseId": "DH-20261119-DHOLE-REBRAND-266",
+  "version": "1.98.0",
+  "ecosystemVersion": "1.98.0",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-DHOLE-REBRAND-266"
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267"
 }
