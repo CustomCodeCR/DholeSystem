@@ -147,7 +147,7 @@
     "total": 0
   },
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Cross-service CI and staging smoke must pass before promotion to master",
     "Verify operations auditing authors, role eligibility and exact role retirement in staging",
@@ -157,7 +157,7 @@
     "semver": "System/Web 1.89.0→1.91.0; Auth 1.15.0→1.16.0; Operations 0.9.0→0.10.0",
     "tests": "pending-ci",
     "staging": "pending",
-    "production": "explicitly-requested-after-staging"
+    "production": "user-approved-promotion-after-staging; realtime-specific production flag remains fail-closed"
   },
   "releaseComponents": [
     "DholeSystem",
