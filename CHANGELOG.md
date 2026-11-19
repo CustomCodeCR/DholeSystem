@@ -1,3 +1,9 @@
+## [1.102.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271 · Promoción Incoterms por país CRM)
+
+- MINOR: System 1.101.0 → 1.102.0, Web 1.100.1 → 1.102.0 y CRM 1.42.0 (ya integrado a develop); preserva release PRICING-RETURN-REQUEST-271.
+- En master se promueve operación import/export/tránsito según país de cliente contra POL/POD, con responsabilidad de Incoterm y flete acorde, sin modificar IVA físico.
+- Aprobación explícita de producción por usuario, staging y CI obligatorios; realtime permanece fail-closed.
+
 ## [1.101.0] - 2026-11-19 (DH-20261119-PRICING-RETURN-REQUEST-271 · devolución y corrección de solicitudes)
 
 - MINOR: manifiesto coordinado DholeWeb 1.101.0 y DholeSystem 1.101.0; DholePricingService 1.25.0. Conserva versiones de los demás 14 componentes.
