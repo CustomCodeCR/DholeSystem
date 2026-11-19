@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
+  "releaseId": "DH-20261119-PRICING-LTL-STEP6-277",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.5",
+  "ecosystemVersion": "1.103.6",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+  "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.5",
+      "version": "1.103.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
       "candidateSha": null,
-      "developMergeSha": "d8e934e9ce78cc59f55cc29e0f4deb2351f5f74d",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-STEP6-277-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.5",
+      "version": "1.103.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
-      "candidateSha": "7d02d0a8f9b4528ae451f7740deb276aa4026d79",
-      "developMergeSha": "d53ce7dabd62d6834563241ae05938362baee2d5",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
+      "candidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
+      "candidateSha": "3af6e61db42d756337defe1092b5c1684c11c6ee",
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-STEP6-277-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-STEP6-277-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -145,29 +145,27 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH isolated master backport: Web/System master 1.103.2→1.103.5, preserving all backend component versions. Develop 1.103.3/1.103.4 unrelated functionality is not promoted. CI and successful staging source SHA required.",
+  "policyCheck": "PATCH Web/System 1.103.5→1.103.6 for LTL manual screen-6 navigation parity; backend 15 component versions retained; CI and staging required before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Master PR CI pending"
+    "CI and staging pending"
   ],
   "validationEvidence": {
-    "tests": "master PR CI pending",
-    "staging": "passed: https://github.com/CustomCodeCR/DholeWeb/actions/runs/44632552904",
-    "production": "not yet verified"
+    "tests": "CI pending",
+    "staging": "pending",
+    "production": "not yet deployed"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Resolve CRM country UUID against canonical Config countries; retain country VAT rates",
-    "Manual own LTL tariff option on Pricing screen 5, independent of coloader"
+    "Fix land LTL/FTL screen 6 validation: carrier is not required; manual LTL coloader requires a real agent",
+    "Retain previous CRM, Pricing backend and realtime versions"
   ],
   "stagingValidation": {
-    "status": "success",
-    "sourceSha": "d53ce7dabd62d6834563241ae05938362baee2d5",
-    "run": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/44632552904"
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -221,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
+  "businessReleaseId": "DH-20261119-PRICING-LTL-STEP6-277",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
