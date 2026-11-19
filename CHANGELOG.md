@@ -1,3 +1,9 @@
+## [1.99.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-269 · Importación/exportación según país de cliente)
+
+- MINOR: versión global sincronizada con DholeWeb 1.99.0 y CRM 1.40.0; nueva regla de perspectiva comercial Incoterm por país de la cuenta/prospecto CRM respecto al origen y destino físico.
+- API REST existente extendida sin ruptura; sin migraciones, cambios de scopes ni modificaciones de eventos SignalR. El tipo de operación no sustituye la jurisdicción física del IVA.
+- DholeWeb/DholeSystem 1.98.1 → 1.99.0, DholeCRMService 1.39.0 → 1.40.0. Validación CI/staging y release a master pendientes.
+
 ## [1.98.1] - 2026-11-19 (DH-20261119-GCF-CIF-268 · GCF mundial y CIF sin flete adicional)
 
 - PATCH: manifiesto global sincronizado con DholeWeb 1.98.1; agente GCF con 249 países/códigos ISO en metadata al guardar y selección para cualquier POL.
