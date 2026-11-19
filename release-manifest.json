@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
+  "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.0",
+  "ecosystemVersion": "1.103.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
+  "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.0",
+      "version": "1.103.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
+      "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-PROMOTION-272-master",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop"
+      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
+      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.0",
+      "version": "1.103.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
-      "candidateSha": null,
+      "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop",
+      "candidateSha": "3e9d606c61aecb6aad7d8f8f0b1ace684128a10b",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-PROMOTION-272-master",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop"
+      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
+      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,26 +146,24 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer MINOR: System/Web 1.102.0→1.103.0, Pricing 1.25.0→1.25.1 (develop) / 1.24.9→1.25.1 (master); all 14 unaffected components retain versions. CI/staging gate. Production promotion explicitly requested by user; infrastructure-wide deploy remains unapproved.",
+  "policyCheck": "SemVer PATCH: DholeSystem/DholeWeb 1.103.0→1.103.1; 15 otros componentes conservan versión. Cambio exclusivamente frontend y metadatos centralizados; CI y staging previos a master, sin despliegue productivo.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending"
+    "CI, pruebas funcionales y staging pendientes"
   ],
   "validationEvidence": {
     "tests": "pending CI",
     "staging": "pending",
-    "production": "user authorized; pending master"
+    "production": "not authorized; release candidate only"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Country of CRM account/lead determines Import/Export/TransitDomestic commercial perspective vs POL/POD",
-    "Incoterm-cost and freight calculation respects client perspective",
-    "Tax/CRC remains based on actual physical destination, no guessed countries"
+    "Resolve missing routeOperation runtime binding when opening Pricing wizard",
+    "Preserve CRM country / POL-POD Incoterm perspective and prevent unvalidated rate saves"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -838,5 +836,18 @@
     "authorization": "User expressly requested master promotion",
     "infrastructureDeploymentAuthorized": false,
     "productionDeployTriggeredByMasterMerge": true
+  },
+  "pricingWizardRouteOperationHotfixRelease": {
+    "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
+    "components": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "previousVersion": "1.103.0",
+    "version": "1.103.1",
+    "webCandidateSha": "3e9d606c61aecb6aad7d8f8f0b1ace684128a10b",
+    "branch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop",
+    "validation": "pending CI and staging",
+    "productionDeploymentAuthorized": false
   }
 }
