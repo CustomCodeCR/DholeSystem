@@ -1,3 +1,9 @@
+## [1.103.4] - 2026-11-19 (DH-20261119-CRM-FOLLOWUP-EDIT-281 · seguimientos y recordatorios editables)
+
+- PATCH: permite editar asunto, fechas, responsable, invitados y avisos de seguimientos y recordatorios CRM desde su detalle, con interacción similar a la edición de bitácoras.
+- DholeWeb/DholeSystem 1.103.3 → 1.103.4 y DholeCRMService 1.42.0 → 1.42.1. REST compatible, auditoría, concurrencia y avisos durables actualizados. Conserva los componentes ajenos al release.
+- CI y staging pendientes; sin autorización de despliegue a producción.
+
 ## [1.103.3] - 2026-11-19 (DH-20261119-CRM-MANUAL-BENEFITS-275 · cargos manuales preferenciales verificables)
 
 - PATCH: DholeWeb y DholeSystem 1.103.2→1.103.3. CRM guarda como antes; Web ahora verifica mediante lectura de la API, muestra errores en el formulario y lista las tarifas manuales guardadas para el ámbito elegido.
