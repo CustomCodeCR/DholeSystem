@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-266",
+  "releaseId": "DH-20261119-DHOLE-REBRAND-266",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.7",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.97.8",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
+  "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.7",
+      "version": "1.97.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
+      "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
-      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
+      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.7",
+      "version": "1.97.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
+      "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
-      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
+      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-266",
+  "businessReleaseId": "DH-20261119-DHOLE-REBRAND-266",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
