@@ -44,7 +44,7 @@
       "version": "1.101.0",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-      "candidateSha": "261bd54e8591579cb665fc7643cd4134f95f55d5",
+      "candidateSha": "0cfc34b18794c959c401ddcb3c7f4f8abbd91d2e",
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-REQUEST-271-master",
       "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop"
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer MINOR: Web/System 1.100.0→1.101.0; Pricing 1.24.9→1.25.0; remaining 14 components retain current version. Protected develop/master; staging checks and authorization required before production.",
+  "policyCheck": "SemVer MINOR: Web/System 1.100.1→1.101.0; Pricing 1.24.9→1.25.0; remaining 14 components retain current version. Protected develop/master; staging checks and authorization required before production.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -168,14 +168,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Cargos manuales CRM y visualización de todos los conceptos de Pricing",
-    "Selección opcional de servicios, rutas, equipos, navieras e Incoterms",
-    "Resolución determinista de coincidencia preferencial más específica, con fallback general",
-    "Nueva migración CRM service_codes; costos de Pricing intactos"
+    "El catálogo completo de Pricing respeta siempre POL, POE y POD seleccionados",
+    "Cargos de otras modalidades únicamente visibles con coincidencia geográfica y de servicio",
+    "PortRole=Any o sin rol verifica el puerto explícito contra POL/POE/POD; cargos generales siguen disponibles",
+    "Regresiones para destinos Caldera/San José frente a puertos de Panamá"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -740,7 +739,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Producción pendiente de autorización independiente y validación staging",
+  "productionAuthorizationNote": "Despliegue de producción solo tras verificación de CI y staging",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
