@@ -1,3 +1,8 @@
+## [1.97.1] - 2026-11-19 (DH-20261119-OPS-DASHBOARD-UX-257 · Rediseño de Dashboard de Operaciones)
+
+- PATCH: Web integra una cabecera compacta, selector de rol/equipo, cuatro KPI y listado de Aperturas con estado vacío reducido y sin ceros aparentes durante la carga.
+- System/Web 1.97.0 → 1.97.1, sin actualizar otros componentes ni afectar el cambio de marca Orvelum 1.97.0. Preparado para master, producción sin autorización.
+
 ## [1.97.0] - 2026-11-19 (DH-20261119-ORVELUM-BRAND-256 · Orvelum System)
 
 - MINOR: identidad comercial Orvelum System; imagen orbital y favicon integrados en DholeWeb.

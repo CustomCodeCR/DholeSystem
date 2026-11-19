@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-ORVELUM-BRAND-256",
+  "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.0",
-  "status": "candidate-ci-and-staging-validated",
+  "ecosystemVersion": "1.97.1",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/orvelum-brand-20261119-master",
+  "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.0",
+      "version": "1.97.1",
       "mergeState": "master-candidate",
-      "candidateBranch": "feature/orvelum-brand-20261119-master",
+      "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.0",
+      "version": "1.97.1",
       "mergeState": "master-candidate",
-      "candidateBranch": "feature/orvelum-brand-20261119-master",
+      "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -161,9 +161,8 @@
     "DholeWeb"
   ],
   "changes": [
-    "Hide Aperturas menu item under Operaciones, retaining Trámites and Equipos",
-    "Preserve protected /operations/apertures route, workflows, authorization and Dashboard entry",
-    "No backend service changes"
+    "Consolidate Operations Dashboard header and role/team controls",
+    "Improve loading/empty states and responsive KPI presentation, preserving access controls"
   ],
   "stagingValidation": "CI y despliegue automático de staging aprobados; validación autenticada manual pendiente",
   "f6F7F8": {
@@ -218,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-SIDEBAR-255",
+  "businessReleaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -748,6 +747,17 @@
     ],
     "routePreserved": "/operations/apertures",
     "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "operationsDashboardUxRelease": {
+    "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+    "version": "1.97.1",
+    "branch": "release/operations-dashboard-ux-20261119-257-master",
+    "components": [
+      "DholeWeb",
+      "DholeSystem"
+    ],
+    "stagingValidation": "develop-ci-passed-staging-deployment-in-progress",
     "productionDeploymentAuthorized": false
   }
 }
