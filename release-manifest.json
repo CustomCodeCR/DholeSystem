@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-264",
+  "releaseId": "DH-20261119-PRICING-CIF-NAV-265",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.5",
+  "ecosystemVersion": "1.97.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-264",
+  "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.5",
+      "version": "1.97.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-264",
+      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
-      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
+      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.5",
+      "version": "1.97.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-264",
+      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
-      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
+      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -153,7 +153,7 @@
     "Integrate develop first; no master or production without authorization"
   ],
   "validationEvidence": {
-    "tests": "pending",
+    "tests": "pending CI",
     "staging": "pending",
     "production": "not-authorized"
   },
@@ -162,10 +162,9 @@
     "DholeWeb"
   ],
   "changes": [
-    "Grupo Castro Fallas: agent with global POL country coverage",
-    "Metadata flag allCountries with backwards-compatible country and code arrays",
-    "Pricing global fallback that preserves specific-country agent priority",
-    "Tests for metadata and GCF identity"
+    "CIF import no longer runs MultiQUO carrier navigation when no international freight is billed",
+    "Wizard screen 6 advances directly into destination charges screen 7 for zero freight alternatives",
+    "FOB EXW imports and CIF exports preserve normal multi-carrier workflow"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-264",
+  "businessReleaseId": "DH-20261119-PRICING-CIF-NAV-265",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -658,7 +657,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "PATCH CIF FCL no duplicate maritime freight, preserves destination/customs billing",
+  "releaseSummary": "PATCH Pricing CIF zero-option navigation",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
