@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-ROLE-NAME-249",
+  "releaseId": "DH-20261119-BLOBATAR-MASCOT-250",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.92.1",
+  "ecosystemVersion": "1.93.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/20261119-ops-role-name-249-system",
+  "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.92.1",
+      "version": "1.93.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-develop",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.92.1",
+      "version": "1.93.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-web-develop",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-web-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -161,8 +161,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeAuthService"
+    "DholeWeb"
   ],
   "changes": [
     "PATCH: corregir en Auth/Web el nombre elegible Operativo Logístico",
