@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
+  "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.102.0",
+  "ecosystemVersion": "1.103.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-102-develop",
+  "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.102.0",
+      "version": "1.103.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-102-develop",
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-master",
-      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-PROMOTION-272-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.102.0",
+      "version": "1.103.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-102-develop",
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-master",
-      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-PROMOTION-272-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.0",
+      "version": "1.25.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-REQUEST-271-master",
+      "candidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-RETURN-PROMOTION-272-develop",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-RETURN-PROMOTION-272-master",
       "candidateSha": "a3f9252fa5efdedc8b3cbca29b1bc01ca692d9e9",
       "developMergeSha": null
     },
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "System 1.101.0→1.102.0, Web 1.100.1→1.102.0, CRM 1.41.0→1.42.0; other components unchanged",
+  "policyCheck": "SemVer MINOR: System/Web 1.102.0→1.103.0, Pricing 1.25.0→1.25.1 (develop) / 1.24.9→1.25.1 (master); all 14 unaffected components retain versions. CI/staging gate. Production promotion explicitly requested by user; infrastructure-wide deploy remains unapproved.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Country of CRM account/lead determines Import/Export/TransitDomestic commercial perspective vs POL/POD",
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
+  "businessReleaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -821,5 +821,22 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionAuthorization": "user explicitly authorized deployment; realtime flags kept false"
+  "productionAuthorization": "user explicitly authorized deployment; realtime flags kept false",
+  "pricingRateRequestReturnPromotion": {
+    "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
+    "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
+    "componentVersions": {
+      "DholeWeb": "1.103.0",
+      "DholeSystem": "1.103.0",
+      "DholePricingService": "1.25.1"
+    },
+    "sourceRelease": "DH-20261119-PRICING-RETURN-REQUEST-271",
+    "sourceStaging": {
+      "pricing": "success",
+      "web": "success"
+    },
+    "authorization": "User expressly requested master promotion",
+    "infrastructureDeploymentAuthorized": false,
+    "productionDeployTriggeredByMasterMerge": true
+  }
 }
