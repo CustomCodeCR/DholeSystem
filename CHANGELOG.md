@@ -1,3 +1,8 @@
+## [1.92.1] - 2026-11-19 (DH-20261119-OPS-ROLE-NAME-249 · rol logístico exacto)
+
+- PATCH: sincronizar versión global Web/System tras el release 1.92.0 de Blobatar; Auth 1.16.1 reconoce el rol vigente «Operativo Logístico».
+- Mantiene Operations 0.10.0 y el historial de DH-247 y DH-20261119-BLOBATAR-EMOTIONS-248 sin modificaciones.
+
 ## [1.92.0] - 2026-11-19 (DH-20261119-BLOBATAR-EMOTIONS-248 · catálogo Blobatar ampliado)
 
 - MINOR: DholeWeb incorpora 36 expresiones nuevas (53 en total), selector DhSelect en Apariencia, sincronización de modos y traducciones ES/EN.
