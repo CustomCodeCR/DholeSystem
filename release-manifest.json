@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-TEAM-BULK-251",
+  "releaseId": "DH-20261119-BLOBATAR-TRANSPARENT-252",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.94.0",
+  "ecosystemVersion": "1.95.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
+  "candidateBranch": "feature/DH-20261119-BLOBATAR-TRANSPARENT-252-system-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.94.0",
+      "version": "1.95.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-TRANSPARENT-252-system-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.94.0",
+      "version": "1.95.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-TRANSPARENT-252-web-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -161,9 +161,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
     "Auth accepts existing historical Operativo Logisitico role alias without creating roles",
