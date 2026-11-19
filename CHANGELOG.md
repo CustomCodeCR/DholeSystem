@@ -1,3 +1,9 @@
+## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
+
+- PATCH coordinado de DholeSystem: actualización de manifiesto y versión global 1.97.2 → 1.97.3 junto con DholeWeb para el ajuste CIF FCL.
+- Importación CIF no debe exigir ni crear un nuevo flete marítimo; no se cambian contratos API, realtime, roles ni datos persistidos.
+- Mantener Orvelum System en master/producción. Validar CI/staging antes de integrar a master y desplegar producción.
+
 ## [1.97.2] - 2026-11-19 (DH-20261119-ORVELUM-TRANSPARENT-261 · Orvelum adaptable al tema)
 
 - PATCH de producción: icono Orvelum transparente en sidebar/login, sin superficie azul oscuro; adaptado a variables del tema actual.
