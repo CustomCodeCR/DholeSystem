@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-TEAM-BULK-251",
+  "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-252",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.94.0",
+  "ecosystemVersion": "1.94.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
+  "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-252",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.94.0",
+      "version": "1.94.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
+      "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-252",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.94.0",
+      "version": "1.94.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
+      "candidateBranch": "fix/20261119-dh-multiselect-solid-overlay-252",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -149,27 +149,22 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "All CI checks must pass",
-    "Staging validation required",
-    "No direct branch commits to develop/master"
+    "CI and staging checks required",
+    "master integration and production deployment require explicit approval"
   ],
   "validationEvidence": {
-    "semver": "Web/System 1.93.0→1.94.0; Auth 1.16.1→1.16.2; Operations 0.10.0→0.11.0",
-    "tests": "pending-ci",
+    "tests": "pending",
     "staging": "pending",
     "production": "not-deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Auth accepts existing historical Operativo Logisitico role alias without creating roles",
-    "Operations bulk member assignment checks every user before writing and audits in one SaveChanges transaction",
-    "Web native DhMultiSelect supports multi-user assignment; full paginated Auth directory",
-    "Web and System both use global version 1.94.0"
+    "PATCH: DhMultiSelect dropdown Teleported above glass card stacking contexts",
+    "Solid --dh-card-solid themed background and collision-aware positioning",
+    "Shared UI regression tests; no API/role/scope changes"
   ],
   "stagingValidation": "pending-browser-update-popup-and-browser-reload-with-unsaved-work",
   "f6F7F8": {
@@ -224,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-TEAM-BULK-251",
+  "businessReleaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-252",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
