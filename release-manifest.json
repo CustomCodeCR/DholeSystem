@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
+  "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.95.1",
-  "status": "authorized-for-production-merge",
+  "ecosystemVersion": "1.96.0",
+  "status": "candidate-ci-and-staging-validated",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261119-dh-multiselect-solid-overlay-253-master",
+  "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.95.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dh-multiselect-solid-overlay-253-master",
+      "version": "1.96.0",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.95.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dh-multiselect-solid-overlay-253-master",
+      "version": "1.96.0",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -134,19 +134,19 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.11.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
+      "version": "0.12.0",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "pending",
+    "status": "pending-master-ci",
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-only",
+  "mergeState": "master-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
     "Production merge, CI and post-deployment validation pending"
@@ -158,12 +158,14 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "PATCH: shared DhMultiSelect menu is teleported outside glass stacking contexts",
-    "Opaque theme card surface in both light/dark themes and responsive positioning",
-    "Retains 1.95.0 Blobatar functionality, no backend changes"
+    "Dashboard Operaciones por rol y por equipo con KPI de Aperturas y doble validación",
+    "Control de datos por empresa, scope y pertenencia al equipo; sin acceso transversal",
+    "UI Equipos renovada con DhMultiSelect y bitácora plegada",
+    "Tabla Pricing más legible sin colores de fila invasivos"
   ],
   "stagingValidation": "CI y despliegue automático de staging aprobados; validación autenticada manual pendiente",
   "f6F7F8": {
@@ -218,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
+  "businessReleaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -726,5 +728,16 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false."
+  "productionAuthorizationNote": "Explicit user request to promote DH-208 master for Auth, Operations, Web; global realtime production gate remains false.",
+  "operationsRoleTeamDashboardRelease": {
+    "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+    "ecosystemVersion": "1.96.0",
+    "webVersion": "1.96.0",
+    "operationsVersion": "0.12.0",
+    "systemVersion": "1.96.0",
+    "branch": "release/20261119-operations-role-team-dashboard-254-master",
+    "stagingValidation": "passed",
+    "masterCi": "pending",
+    "deploymentAuthorization": "master promotion requested 2026-11-19"
+  }
 }

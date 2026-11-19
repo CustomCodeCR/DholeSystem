@@ -1,3 +1,9 @@
+## [1.96.0] - 2026-11-19 (DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254 · Dashboard operativo por rol y equipo)
+
+- MINOR: Promoción coordinada desde develop, con staging validado: DholeSystem y DholeWeb 1.95.1 → 1.96.0; DholeOperationsService 0.11.0 → 0.12.0.
+- Dashboard por rol/Equipo, Aperturas y doble validación; acceso por scopes, pertenencia y tenant. Diseño de Equipos y Pricing actualizado.
+- Los restantes componentes conservan sus versiones; promoción selectiva para no incorporar cambios no relacionados con master.
+
 ## [1.95.1] - 2026-11-19 (DH-20261119-DH-MULTISELECT-OVERLAY-253 · overlay sólido DhMultiSelect)
 
 - PATCH: versionado global System/Web 1.95.1, compatible con el release Blobatar 1.95.0 y la arquitectura de Operaciones.
