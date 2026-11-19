@@ -1,3 +1,8 @@
+## [1.94.0] - 2026-11-19 (DH-20261119-OPS-TEAM-BULK-251 · asignación múltiple en Operations)
+
+- MINOR: release coordinado: Web/System 1.94.0, Operations 0.11.0 y Auth 1.16.2.
+- El directorio de Auth admite variantes históricas del rol Operativo Logístico; la pantalla asigna múltiples integrantes con DhMultiSelect y el backend valida/audita un lote atómico.
+
 ## [1.93.0] - 2026-11-19 (DH-20261119-BLOBATAR-MASCOT-250 · Blobatar como mascota del sistema)
 
 - MINOR: DholeWeb incorpora cinco emociones adicionales (58 en total), foto local de perfil y mascota Blobatar con nombre, movimiento fijo/libre, posición persistente, accesibilidad y configuración ES/EN.
