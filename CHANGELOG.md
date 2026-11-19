@@ -1,3 +1,8 @@
+## [1.94.1] - 2026-11-19 (DH-20261119-DH-MULTISELECT-OVERLAY-252 · corrección visual de DhMultiSelect)
+
+- PATCH: sincroniza el release global de System y Web 1.94.1; el selector compartido usa un menú flotante sólido sobre los paneles de Dhole.
+- Auth 1.16.2, Operations 0.11.0 y demás microservicios no requieren cambios.
+
 ## [1.94.0] - 2026-11-19 (DH-20261119-OPS-TEAM-BULK-251 · asignación múltiple en Operations)
 
 - MINOR: release coordinado: Web/System 1.94.0, Operations 0.11.0 y Auth 1.16.2.
