@@ -161,9 +161,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
     "Replace Operations team card list with DhSelect department/team picker",
