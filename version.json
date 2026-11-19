@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.2",
-  "ecosystemVersion": "1.97.2",
-  "releaseId": "DH-20261119-RESTORE-DHOLE-DEVELOP-260",
+  "version": "1.97.3",
+  "ecosystemVersion": "1.97.3",
+  "releaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-RESTORE-DHOLE-DEVELOP-260"
+  "businessReleaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262"
 }

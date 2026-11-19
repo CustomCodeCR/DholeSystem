@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-RESTORE-DHOLE-DEVELOP-260",
+  "releaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.2",
+  "ecosystemVersion": "1.97.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/dhole-brand-develop-20261119",
+  "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.2",
+      "version": "1.97.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-brand-develop-20261119",
+      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-develop"
+      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
+      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.2",
+      "version": "1.97.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-brand-develop-20261119",
+      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-develop"
+      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
+      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -153,18 +153,18 @@
     "Master merge and production deployment require explicit approval"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "pending",
-    "production": "not-authorized"
+    "tests": "pending CI",
+    "staging": "pending authenticated staging",
+    "production": "not authorized"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Operations dashboard: one consolidated header with permitted role selection and team filter",
-    "Responsive KPI and actions; compact empty state; loading values distinguish unknown from zero",
-    "Existing Operations permissions, realtime, REST and other dashboards preserved"
+    "CIF/CFR imports do not request or create ocean freight in Pricing FCL screen 6",
+    "Both manual ocean-freight cards and direct creation are guarded when the Incoterm includes the freight",
+    "Carrier selection remains available for destination and customs charges when freight selection step 5 is skipped"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+  "businessReleaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -657,7 +657,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "MINOR prospect CRM onboarding with Config source catalog, location hierarchy and transactional contact conversion",
+  "releaseSummary": "PATCH CIF FCL no duplicate maritime freight, preserves destination/customs billing",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",

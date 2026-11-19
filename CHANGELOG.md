@@ -1,3 +1,15 @@
+## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
+
+- PATCH coordinado de DholeSystem: versión global 1.97.2 → 1.97.3 junto con DholeWeb para corregir el flujo de importación CIF FCL.
+- Sin cambios en contratos API, datos persistidos, roles ni arquitectura realtime; solo versionamiento y manifiesto de release.
+- Mantiene Dhole en develop/staging. CI y staging obligatorios antes de master.
+
+## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
+
+- PATCH coordinado de DholeSystem: actualización de manifiesto y versión global 1.97.2 → 1.97.3 junto con DholeWeb para el ajuste CIF FCL.
+- Importación CIF no debe exigir ni crear un nuevo flete marítimo; no se cambian contratos API, realtime, roles ni datos persistidos.
+- Mantener Dhole en develop/staging. Validar CI/staging antes de integrar a master y desplegar producción.
+
 ## [1.97.2] - 2026-11-19 (DH-20261119-RESTORE-DHOLE-DEVELOP-260 · Marca Dhole exclusiva en develop)
 
 - PATCH: DholeWeb vuelve a mostrar Dhole, el icono previo GCF/D y favicon original exclusivamente en develop/staging.
