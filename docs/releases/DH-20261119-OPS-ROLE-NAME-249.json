@@ -1,0 +1,15 @@
+{
+  "releaseId": "DH-20261119-OPS-ROLE-NAME-249",
+  "type": "PATCH",
+  "globalVersion": "1.92.1",
+  "components": {
+    "DholeSystem": "1.92.1",
+    "DholeWeb": "1.92.1",
+    "DholeAuthService": "1.16.1",
+    "DholeOperationsService": "0.10.0"
+  },
+  "change": "Use existing Operativo Logístico role instead of incorrect Operador Logístico reference",
+  "branch": "fix/20261119-ops-role-name-249-system",
+  "staging": "pending",
+  "production": "not-deployed"
+}
