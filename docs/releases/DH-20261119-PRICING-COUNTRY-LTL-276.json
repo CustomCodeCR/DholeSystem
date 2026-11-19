@@ -3,19 +3,19 @@
   "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "date": "2026-11-19",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.4",
+  "ecosystemVersion": "1.103.5",
   "releaseType": "PATCH",
   "components": [
     {
       "repository": "CustomCodeCR/DholeWeb",
-      "previousVersion": "1.103.3",
-      "version": "1.103.4",
-      "candidateSha": "817655f411931a24a3df47e81f4c21f7ff099c15"
+      "previousVersion": "1.103.4",
+      "version": "1.103.5",
+      "candidateSha": "596ef697a1af05e25ec89f92c08c308f53c761f6"
     },
     {
       "repository": "CustomCodeCR/DholeSystem",
-      "previousVersion": "1.103.3",
-      "version": "1.103.4"
+      "previousVersion": "1.103.4",
+      "version": "1.103.5"
     }
   ],
   "otherComponentVersions": "Retained from release-manifest.json",

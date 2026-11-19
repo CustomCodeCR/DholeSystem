@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.4",
+  "ecosystemVersion": "1.103.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.4",
+      "version": "1.103.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop",
       "candidateSha": null,
@@ -41,10 +41,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.4",
+      "version": "1.103.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop",
-      "candidateSha": "817655f411931a24a3df47e81f4c21f7ff099c15",
+      "candidateSha": "596ef697a1af05e25ec89f92c08c308f53c761f6",
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
       "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.0",
+      "version": "1.42.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-102-develop",
+      "candidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-master",
-      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-develop"
+      "masterCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -146,11 +146,11 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.3→1.103.4. CRM and Pricing remain unchanged; all other 15 component versions retained. CI and staging before master; no production deployment authorization.",
+  "policyCheck": "PATCH: Web/System 1.103.4→1.103.5; CRM remains 1.42.1 from prior followup release and all other 14 versions remain unchanged. Run CI then staging; no production authorization.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging verification pending"
+    "CI/staging pending"
   ],
   "validationEvidence": {
     "tests": "CI pending",
@@ -162,8 +162,9 @@
     "DholeWeb"
   ],
   "changes": [
-    "Fix CRM client-country classification by loading canonical Config countries without losing VAT metadata",
-    "Allow manual own LTL source when no tariff is available; preserve manual coloader source"
+    "Fix client-country lookup using canonical Config countries + preserve VAT-only country rates",
+    "Enable LTL own manual quotation path when no master rate is available",
+    "Preserve CRM followup edit release 281"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -861,6 +862,20 @@
     "branch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop",
     "webCandidateSha": "c09150e8ebd5297d93d3a5153a970d85aded6c92",
     "validation": "CI/staging pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmFollowupEditingRelease": {
+    "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
+    "releaseType": "PATCH",
+    "ecosystemVersion": "1.103.4",
+    "components": {
+      "DholeWeb": "1.103.4",
+      "DholeSystem": "1.103.4",
+      "DholeCRMService": "1.42.1"
+    },
+    "description": "Versioned editing of CRM followups and reminders with audit, invitation preservation and durable re-enqueue",
+    "branch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281-system-sync",
+    "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   }
 }
