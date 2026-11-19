@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-BLOBATAR-MASCOT-250",
+  "releaseId": "DH-20261119-OPS-TEAM-BULK-251",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.93.0",
+  "ecosystemVersion": "1.94.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-master",
+  "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.93.0",
+      "version": "1.94.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-system-master",
+      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -32,18 +32,18 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.16.1",
+      "version": "1.16.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-audit-role-247-master",
+      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.93.0",
+      "version": "1.94.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-BLOBATAR-MASCOT-250-web-master",
+      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -134,42 +134,42 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-audit-role-247-master",
+      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
       "candidateSha": null,
       "developMergeSha": null
     }
   ],
   "policyCheck": {
-    "status": "passed-develop-ci-and-staging",
-    "checks": 4,
-    "total": 4
+    "status": "pending",
+    "checks": 0,
+    "total": 0
   },
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Validación de usuario autenticado y roles retirados tras despliegue",
-    "Los checks de master deben aprobar antes del merge"
+    "All CI checks must pass",
+    "Staging validation required",
+    "No direct branch commits to develop/master"
   ],
   "validationEvidence": {
-    "semver": "System/Web 1.89.0→1.91.0; Auth 1.15.0→1.16.0; Operations 0.9.0→0.10.0",
-    "tests": "CI-success",
-    "staging": "deploy-success",
-    "production": "user-authorized-master-release"
+    "semver": "Web/System 1.93.0→1.94.0; Auth 1.16.1→1.16.2; Operations 0.10.0→0.11.0",
+    "tests": "pending-ci",
+    "staging": "pending",
+    "production": "not-deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeAuthService",
+    "DholeOperationsService"
   ],
   "changes": [
-    "DH-247: Operations 0.10.0, Auth team role eligibility, DhSelect and readable audit log",
-    "DH-248: Correct existing Operativo Logístico role name in Auth/Web",
-    "Replace Operations team card list with DhSelect department/team picker",
-    "Readable ES/EN audit timeline shared by Teams and Aperturas with actor names, diff and nested technical detail",
-    "Allow team membership only with Operador Logístico or Supervisor Operativo roles, enforced by Auth and Operations",
-    "Soft-retire seven named unrequested seeded roles and revoke their memberships, keeping existing scopes and audit history",
-    "Synchronize Web/System global 1.91.0 and Auth/Operations component versions in central release manifest"
+    "Auth accepts existing historical Operativo Logisitico role alias without creating roles",
+    "Operations bulk member assignment checks every user before writing and audits in one SaveChanges transaction",
+    "Web native DhMultiSelect supports multi-user assignment; full paginated Auth directory",
+    "Web and System both use global version 1.94.0"
   ],
   "stagingValidation": "CI y despliegue automático de staging aprobados; validación autenticada manual pendiente",
   "f6F7F8": {
@@ -224,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-ROLE-NAME-248",
+  "businessReleaseId": "DH-20261119-OPS-TEAM-BULK-251",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
