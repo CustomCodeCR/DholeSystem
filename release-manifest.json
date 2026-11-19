@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-RESTORE-DHOLE-DEVELOP-260",
+  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-261",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.2",
+  "ecosystemVersion": "1.97.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/dhole-brand-develop-20261119",
+  "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-261",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.2",
+      "version": "1.97.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-brand-develop-20261119",
+      "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-261",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.2",
+      "version": "1.97.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-brand-develop-20261119",
+      "candidateBranch": "fix/DH-20261119-GCF-ALL-COUNTRIES-261",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -149,8 +149,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run CI and staging",
-    "Master merge and production deployment require explicit approval"
+    "Run automated tests and staging validation",
+    "Integrate to develop first; master and production require explicit approval"
   ],
   "validationEvidence": {
     "tests": "pending",
@@ -162,9 +162,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "Operations dashboard: one consolidated header with permitted role selection and team filter",
-    "Responsive KPI and actions; compact empty state; loading values distinguish unknown from zero",
-    "Existing Operations permissions, realtime, REST and other dashboards preserved"
+    "Catalog: Grupo Castro Fallas retains worldwide agent coverage, including new countries",
+    "Catalog metadata: allCountries wildcard and compatible countries/countryCodes on save",
+    "Pricing: GCF fallback for every POL; specific-country agents retain priority",
+    "Regression tests for GCF identity, metadata and empty country catalog"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-261",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
