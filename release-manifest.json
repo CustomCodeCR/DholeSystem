@@ -161,10 +161,12 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeAuthService"
+    "DholeAuthService",
+    "DholeOperationsService"
   ],
   "changes": [
-    "PATCH: reconocer rol existente Operativo Logístico en Auth/Web, sin crear nuevos roles",
+    "DH-247: Operations 0.10.0, Auth team role eligibility, DhSelect and readable audit log",
+    "DH-248: Correct existing Operativo Logístico role name in Auth/Web",
     "Replace Operations team card list with DhSelect department/team picker",
     "Readable ES/EN audit timeline shared by Teams and Aperturas with actor names, diff and nested technical detail",
     "Allow team membership only with Operador Logístico or Supervisor Operativo roles, enforced by Auth and Operations",
