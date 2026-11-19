@@ -1,3 +1,9 @@
+## [1.97.8] - 2026-11-19 (DH-20261119-DHOLE-REBRAND-266 · Identidad Dhole System en master)
+
+- PATCH: coordina DholeWeb master 1.97.8 para adoptar el nombre e icono Dhole System y eliminar Orvelum de la interfaz.
+- Preserva el release previo GCF mundial 1.97.7. Staging ya validado a nivel de versión 1.97.7; sin cambios de servicios backend o contratos API.
+- CI y verificación del despliegue productivo obligatorios.
+
 ## [1.97.7] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-266 · Promoción GCF a master)
 
 - PATCH: cobertura mundial de Grupo Castro Fallas; todos los países, metadatos conservados, prioridad de agentes locales.
