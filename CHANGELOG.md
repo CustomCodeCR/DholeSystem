@@ -1,3 +1,9 @@
+## [1.103.5] - 2026-11-19 (DH-20261119-PRICING-COUNTRY-LTL-276 · resolución país CRM / LTL propio manual)
+
+- PATCH DholeWeb y DholeSystem 1.103.4→1.103.5 posterior a CRM seguimientos y recordatorios 281; se preserva CRM 1.42.1 y todos los componentes no participantes.
+- Se corrige la resolución de UUID país cliente desde Config/countries y se preservan las tasas IVA configuradas. Pantalla 5 permite continuar con la tarifa LTL propia manual.
+- Sin cambios a API REST, SignalR, migraciones ni permisos. CI/staging obligatorios antes de master; producción no autorizada por la solicitud actual.
+
 ## [1.103.4] - 2026-11-19 (DH-20261119-CRM-FOLLOWUP-EDIT-281 · seguimientos y recordatorios editables)
 
 - PATCH: permite editar asunto, fechas, responsable, invitados y avisos de seguimientos y recordatorios CRM desde su detalle, con interacción similar a la edición de bitácoras.
