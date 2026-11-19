@@ -1,8 +1,13 @@
-## [1.97.1] - 2026-11-19 (DH-20261119-ORVELUM-TRANSPARENT-261 · Orvelum icono transparente master)
+## [1.97.2] - 2026-11-19 (DH-20261119-ORVELUM-TRANSPARENT-261 · Orvelum adaptable al tema)
 
-- PATCH: Orvelum conserva el nombre comercial únicamente en master/producción y elimina el fondo del logotipo.
-- El icono de la interfaz utiliza colores actuales del tema claro/oscuro y su favicon carece de superficie sólida.
-- Web y System sincronizados en 1.97.1. Develop/staging conserva Dhole sin cambios técnicos en API, scopes ni servicios.
+- PATCH de producción: icono Orvelum transparente en sidebar/login, sin superficie azul oscuro; adaptado a variables del tema actual.
+- Favicon Orvelum transparente. Las versiones comerciales Web/System quedan coordinadas sin afectar el Dashboard de Operaciones 1.97.1.
+- En develop/staging se conserva el nombre visible Dhole; no se alteran APIs, servicios ni scopes.
+
+## [1.97.1] - 2026-11-19 (DH-20261119-OPS-DASHBOARD-UX-257 · Rediseño de Dashboard de Operaciones)
+
+- PATCH: Web integra una cabecera compacta, selector de rol/equipo, cuatro KPI y listado de Aperturas con estado vacío reducido y sin ceros aparentes durante la carga.
+- System/Web 1.97.0 → 1.97.1, sin actualizar otros componentes ni afectar el cambio de marca Orvelum 1.97.0. Preparado para master, producción sin autorización.
 
 ## [1.97.0] - 2026-11-19 (DH-20261119-ORVELUM-BRAND-256 · Orvelum System)
 
