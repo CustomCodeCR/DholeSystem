@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.101.0",
+  "releaseType": "MINOR",
+  "changes": [
+    "Promote CRM customer country-based Incoterm perspective to master using isolated patches without overwriting release 270",
+    "CRM adds account/lead countryId to permission-scoped picker",
+    "Web classifies import/export/transit-domestic vs physical POL/POD and prevents unresolved country from saving",
+    "VAT/CRC calculation depends on physical POD and remains unchanged"
+  ],
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.100.0",
+      "version": "1.101.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.100.0",
+      "version": "1.101.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.41.0",
+      "version": "1.42.0"
+    }
+  ],
+  "otherComponentVersions": "retained in central release-manifest.json",
+  "requires": [
+    "PR CI success",
+    "develop first",
+    "staging deployment success",
+    "production deployment confirmation"
+  ],
+  "realtime": "Existing events and SignalR contracts preserved",
+  "schemaMigration": false,
+  "backwardCompatibleRest": true,
+  "userAuthorizedProduction": true,
+  "tests": "pending",
+  "staging": "pending",
+  "production": "pending"
+}
