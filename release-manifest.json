@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+  "releaseId": "DH-20261119-OPS-SIDEBAR-255",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.96.0",
+  "ecosystemVersion": "1.96.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/operations-role-team-dashboard-20261119",
+  "candidateBranch": "fix/operations-hide-apertures-sidebar-255",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.96.0",
+      "version": "1.96.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
+      "candidateBranch": "fix/operations-hide-apertures-sidebar-255",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.96.0",
+      "version": "1.96.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
+      "candidateBranch": "fix/operations-hide-apertures-sidebar-255",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -159,14 +159,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Nuevo dashboard operativo por rol y por equipo con Aperturas, totales y estado de doble validación",
-    "DholeOperationsService: acceso seguro con JWT, scope y pertenencia a equipos para filas y agregados",
-    "DholeWeb: selector de roles, directorio de equipos legible y AuditLogs plegables",
-    "DholeWeb: la bandeja Pricing conserva prioridades sin el fondo rojo en filas completas"
+    "Hide Aperturas menu item under Operaciones, retaining Trámites and Equipos",
+    "Preserve protected /operations/apertures route, workflows, authorization and Dashboard entry",
+    "No backend service changes"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -223,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
+  "businessReleaseId": "DH-20261119-OPS-SIDEBAR-255",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -740,6 +738,18 @@
     "systemVersion": "1.96.0",
     "branch": "feature/operations-role-team-dashboard-20261119",
     "ciStatus": "pending",
+    "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "operationsSidebarSimplificationRelease": {
+    "releaseId": "DH-20261119-OPS-SIDEBAR-255",
+    "scope": "Hide Aperturas in left navigation only",
+    "version": "1.96.1",
+    "changedComponents": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "routePreserved": "/operations/apertures",
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   }
