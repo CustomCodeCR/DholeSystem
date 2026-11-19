@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-ROUTE-271",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.100.0",
+  "ecosystemVersion": "1.100.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
+  "candidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.100.0",
+      "version": "1.100.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
+      "candidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "masterCandidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.100.0",
+      "version": "1.100.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
+      "candidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
+      "masterCandidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-PREFERENTIAL-ROUTE-271-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -155,14 +155,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Cargos manuales CRM y visualización de todos los conceptos de Pricing",
-    "Selección opcional de servicios, rutas, equipos, navieras e Incoterms",
-    "Resolución determinista de coincidencia preferencial más específica, con fallback general",
-    "Nueva migración CRM service_codes; costos de Pricing intactos"
+    "El catálogo completo de Pricing respeta siempre POL, POE y POD seleccionados",
+    "Cargos de otras modalidades únicamente visibles con coincidencia geográfica y de servicio",
+    "PortRole=Any o sin rol verifica el puerto explícito contra POL/POE/POD; cargos generales siguen disponibles",
+    "Regresiones para destinos Caldera/San José frente a puertos de Panamá"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -219,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-ROUTE-271",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -727,7 +726,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Producción pendiente de autorización independiente y validación staging",
+  "productionAuthorizationNote": "Despliegue de producción solo tras verificación de CI y staging",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
