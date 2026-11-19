@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.100.0",
-  "ecosystemVersion": "1.100.0",
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
+  "version": "1.100.1",
+  "ecosystemVersion": "1.100.1",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-ROUTE-271",
   "releaseStatus": "candidate-ci-and-production-pending",
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270"
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-ROUTE-271"
 }
