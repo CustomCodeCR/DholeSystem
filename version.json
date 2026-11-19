@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.3",
-  "ecosystemVersion": "1.103.3",
-  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
+  "version": "1.103.4",
+  "ecosystemVersion": "1.103.4",
+  "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275"
+  "businessReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281"
 }

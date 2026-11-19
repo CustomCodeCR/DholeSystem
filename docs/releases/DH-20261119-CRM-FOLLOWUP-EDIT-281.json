@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
+  "previousReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.103.4",
+  "component": "DholeSystem",
+  "previousVersion": "1.103.3",
+  "version": "1.103.4",
+  "candidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281-system-sync",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "affectedComponents": [
+    "DholeWeb",
+    "DholeCRMService",
+    "DholeSystem"
+  ],
+  "changeSummary": [
+    "Editable followups and reminders",
+    "Versioned audit trail, invitation preservation and reminder rescheduling"
+  ],
+  "status": "candidate-ci-and-staging-pending",
+  "validation": {
+    "unit": "pending",
+    "build": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  },
+  "productionDeploymentAuthorized": false
+}
