@@ -1,3 +1,11 @@
+## [1.97.5] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-264 · Promoción a master de GCF cobertura mundial)
+
+- PATCH: Grupo Castro Fallas funciona como agente para todos los países, incluidos países futuros; conserva datos existentes y usa bandera metadata.allCountries.
+- Pricing da prioridad a agentes con país específico, con GCF como alternativa mundial.
+- DholeWeb y DholeSystem master 1.97.3 → 1.97.5; Config, Pricing Service y demás servicios sin cambios.
+- Mantener identidad Orvelum System en master. No promueve la marca Dhole de staging ni ajustes funcionales posteriores a release 1.97.5.
+- CI y validaciones coordinadas antes de merge a master. Despliegue manual a producción no autorizado.
+
 ## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
 
 - PATCH coordinado de DholeSystem: versión global 1.97.2 → 1.97.3 junto con DholeWeb para corregir el flujo de importación CIF FCL.
