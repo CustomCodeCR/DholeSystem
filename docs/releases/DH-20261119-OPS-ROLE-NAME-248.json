@@ -1,0 +1,33 @@
+{
+  "releaseId": "DH-20261119-OPS-ROLE-NAME-248",
+  "ecosystemVersion": "1.91.1",
+  "type": "PATCH",
+  "changes": [
+    "Exact Auth role name is Operativo Logístico, not Operador Logístico; avoid creating duplicate role"
+  ],
+  "components": [
+    {
+      "component": "DholeSystem",
+      "from": "1.91.0",
+      "to": "1.91.1"
+    },
+    {
+      "component": "DholeWeb",
+      "from": "1.91.0",
+      "to": "1.91.1"
+    },
+    {
+      "component": "DholeAuthService",
+      "from": "1.16.0",
+      "to": "1.16.1"
+    }
+  ],
+  "unchanged": [
+    {
+      "component": "DholeOperationsService",
+      "version": "0.10.0"
+    }
+  ],
+  "productionAuthorized": true,
+  "validation": "CI-and-staging-pending"
+}
