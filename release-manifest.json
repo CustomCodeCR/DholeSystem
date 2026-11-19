@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-WEB-VERSION-SYNC-236",
+  "releaseId": "DH-20261119-BLOBATAR-EMOTIONS-248",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.89.0",
+  "ecosystemVersion": "1.92.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-system-master",
+  "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.89.0",
+      "version": "1.92.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-system-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.89.0",
+      "version": "1.92.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-web-master",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-web-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",

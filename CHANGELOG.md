@@ -1,3 +1,9 @@
+## [1.92.0] - 2026-11-19 (DH-20261119-BLOBATAR-EMOTIONS-248 · catálogo Blobatar ampliado)
+
+- MINOR: DholeWeb incorpora 36 expresiones nuevas (53 en total), selector DhSelect en Apariencia, sincronización de modos y traducciones ES/EN.
+- DholeWeb y DholeSystem comparten la versión 1.92.0. Manifiesto de 17 componentes preserva las versiones de los 15 servicios no afectados.
+- CI, pruebas en staging e integración coordinada a develop/master requeridas. Producción no autorizada.
+
 ## [1.89.0] - 2026-11-18 (Sincronización Web/System y actualización de pestañas)
 
 - MINOR DH-20261118-WEB-VERSION-SYNC-236: DholeWeb y DholeSystem pasan a compartir la versión 1.89.0 como contrato obligatorio para todos los releases posteriores.

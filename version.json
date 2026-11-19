@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.89.0",
-  "ecosystemVersion": "1.89.0",
-  "releaseId": "DH-20261118-WEB-VERSION-SYNC-236",
+  "version": "1.92.0",
+  "ecosystemVersion": "1.92.0",
+  "releaseId": "DH-20261119-BLOBATAR-EMOTIONS-248",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261118-WEB-VERSION-SYNC-236"
+  "businessReleaseId": "DH-20261119-BLOBATAR-EMOTIONS-248"
 }
