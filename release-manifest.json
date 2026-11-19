@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+  "releaseId": "DH-20261119-ORVELUM-TRANSPARENT-261",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.1",
+  "ecosystemVersion": "1.97.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
+  "candidateBranch": "fix/orvelum-theme-logo-master-20261119",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.1",
+      "version": "1.97.2",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
+      "candidateBranch": "fix/orvelum-theme-logo-master-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.1",
+      "version": "1.97.2",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/operations-dashboard-ux-20261119-257-master",
+      "candidateBranch": "fix/orvelum-theme-logo-master-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",

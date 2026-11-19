@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.97.1",
-  "ecosystemVersion": "1.97.1",
-  "releaseId": "DH-20261119-OPS-DASHBOARD-UX-257",
+  "version": "1.97.2",
+  "ecosystemVersion": "1.97.2",
+  "releaseId": "DH-20261119-ORVELUM-TRANSPARENT-261",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-OPS-DASHBOARD-UX-257"
+  "businessReleaseId": "DH-20261119-ORVELUM-TRANSPARENT-261"
 }
