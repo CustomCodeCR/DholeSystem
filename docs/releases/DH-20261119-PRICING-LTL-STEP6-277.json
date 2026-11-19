@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-LTL-STEP6-277",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.103.6",
+  "releaseType": "PATCH",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.5",
+      "version": "1.103.6"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.5",
+      "version": "1.103.6",
+      "candidateSha": "3af6e61db42d756337defe1092b5c1684c11c6ee"
+    }
+  ],
+  "otherComponentVersions": "Retained from release-manifest.json",
+  "changes": [
+    "Fix land LTL/FTL screen 6 validation: carrier is not required; manual LTL coloader requires a real agent",
+    "Retain previous CRM, Pricing backend and realtime versions"
+  ],
+  "productionDeploymentAuthorized": true,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
+  },
+  "schemaMigration": false,
+  "realtime": "Unchanged"
+}
