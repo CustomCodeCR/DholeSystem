@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CIF-NAV-265",
+  "releaseId": "DH-20261119-GCF-ALL-COUNTRIES-266",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.6",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.97.7",
+  "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+  "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.6",
+      "version": "1.97.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developMergeSha": "previous-release-merged",
+      "masterCandidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
       "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.6",
+      "version": "1.97.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "candidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developMergeSha": "previous-release-merged",
+      "masterCandidateBranch": "release/DH-20261119-GCF-ALL-COUNTRIES-266-master",
       "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
@@ -146,26 +146,29 @@
     "checks": 0,
     "total": 0
   },
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Production merge, CI and post-deployment validation pending"
+    "Validate master CI",
+    "No additional manual production deployment"
   ],
   "validationEvidence": {
-    "tests": "pending master CI",
-    "staging": "pending",
-    "production": "not-authorized"
+    "tests": "pending",
+    "staging": "DholeWeb GCF release 1.97.5 GitHub CI success; authenticated staging E2E not verified",
+    "production": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "CIF/CFR imports skip empty MultiQUO navigation and go from provider to destination cost lines",
-    "Master candidate contains the CIF correction only, preserving Orvelum branding; staging-only business releases remain isolated"
+    "Grupo Castro Fallas has worldwide agent coverage for current and new POL countries",
+    "Catalogs persists metadata.allCountries and compatible country metadata on save",
+    "Pricing LCL and RateExisting use GCF as a worldwide fallback after country-specific agents",
+    "Keep Orvelum System production branding unchanged; do not promote staging-only identity"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "pending-authenticated-e2e"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -219,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CIF-NAV-265",
+  "businessReleaseId": "DH-20261119-GCF-ALL-COUNTRIES-266",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
