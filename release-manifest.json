@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.99.0",
+  "ecosystemVersion": "1.100.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
+  "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.99.0",
+      "version": "1.100.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.99.0",
+      "version": "1.100.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.40.0",
+      "version": "1.41.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-master",
-      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
+      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-MATCH-270-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-MATCH-270-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -154,14 +154,15 @@
     "production": "not-authorized"
   },
   "releaseComponents": [
-    "DholeCRMService",
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
-    "CRM pricing-client-options now returns countryId of visible accounts and prospects with existing owner ACL",
-    "DholeWeb derives Import/Export/TransitDomestic from CRM client country vs physical POL and final POD, applying Incoterm billing sections/freight",
-    "On unresolved CRM or route country, prevent saving ambiguous commercial operation; physical destination retains VAT/CRC treatment"
+    "Cargos manuales CRM y visualización de todos los conceptos de Pricing",
+    "Selección opcional de servicios, rutas, equipos, navieras e Incoterms",
+    "Resolución determinista de coincidencia preferencial más específica, con fallback general",
+    "Nueva migración CRM service_codes; costos de Pricing intactos"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -218,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
+  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-MATCH-270",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -726,7 +727,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Producción no autorizada; validar CI y staging antes de integrar a master.",
+  "productionAuthorizationNote": "Producción pendiente de autorización independiente y validación staging",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",

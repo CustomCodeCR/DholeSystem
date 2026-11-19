@@ -1,3 +1,10 @@
+## [1.100.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-MATCH-270 · acuerdos preferenciales por servicio)
+
+- MINOR: registra selección opcional de servicios y ítems manuales de CRM, reglas por especificidad, y migración aditiva de DholeCRMService.
+- Sin alterar costos originales de Pricing, contratos anteriores ni infraestructura realtime.
+- Ecosistema Web/System 1.99.0 → 1.100.0; CRM 1.40.0 → 1.41.0; demás componentes con versiones estables.
+- Staging, CI y autorización independiente de producción sujetos a validación del release coordinado.
+
 ## [1.99.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-269 · Importación/exportación según país de cliente)
 
 - MINOR: versión global sincronizada con DholeWeb 1.99.0 y CRM 1.40.0; nueva regla de perspectiva comercial Incoterm por país de la cuenta/prospecto CRM respecto al origen y destino físico.
