@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.1",
-  "ecosystemVersion": "1.103.1",
-  "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
+  "version": "1.103.2",
+  "ecosystemVersion": "1.103.2",
+  "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
   "releaseStatus": "candidate-ci-and-production-pending",
-  "businessReleaseId": "DH-20261119-WIZARD-ROUTE-REF-273"
+  "businessReleaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274"
 }

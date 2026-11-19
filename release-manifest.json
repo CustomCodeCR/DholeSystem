@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
+  "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.1",
+  "ecosystemVersion": "1.103.2",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
+  "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.1",
+      "version": "1.103.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
+      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop"
+      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.1",
+      "version": "1.103.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
-      "candidateSha": "dea0ebc62bb1050f6b0d76110b97381f3b03c589",
+      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+      "candidateSha": "6a5421de805420275acbd5e81d202aefeaa42282",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop"
+      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -145,16 +145,16 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer PATCH: DholeSystem/DholeWeb 1.103.0→1.103.1; 15 otros componentes conservan versión. Cambio exclusivamente frontend y metadatos centralizados; CI y staging previos a master, sin despliegue productivo.",
+  "policyCheck": "SemVer PATCH: DholeWeb/DholeSystem 1.103.1→1.103.2; 15 other components remain unchanged. Verify final minified production bundle unresolved bindings, CI and staging prior to master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, pruebas funcionales y staging pendientes"
+    "CI and staging pending"
   ],
   "validationEvidence": {
     "tests": "pending CI",
     "staging": "pending",
-    "production": "not authorized; release candidate only"
+    "production": "not yet deployed"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -826,6 +826,19 @@
     "webCandidateSha": "dea0ebc62bb1050f6b0d76110b97381f3b03c589",
     "branch": "release/DH-20261119-WIZARD-ROUTE-REF-273-master",
     "validation": "pending CI and staging",
+    "productionDeploymentAuthorized": false
+  },
+  "pricingWizardRouteRuntimeFixRelease": {
+    "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
+    "version": "1.103.2",
+    "previousVersion": "1.103.1",
+    "components": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "branch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+    "webCandidateSha": "6a5421de805420275acbd5e81d202aefeaa42282",
+    "validation": "CI/staging pending",
     "productionDeploymentAuthorized": false
   }
 }
