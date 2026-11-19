@@ -74,6 +74,7 @@ def main():
         assert len(manifest["components"]) >= 15
         versions = {item["component"]: item["version"] for item in manifest["components"]}
         assert len(versions) == len(manifest["components"]), "Duplicated component in manifest"
+        assert versions.get("DholeWeb") == version, "DholeWeb and DholeSystem must always share the same SemVer"
         assert all(parse(value) <= parse(version) for value in versions.values())
         changed = manifest.get("releaseComponents", [])
         assert changed and all(name in versions for name in changed), (
