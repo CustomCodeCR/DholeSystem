@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.99.0",
+  "changeType": "MINOR",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.98.1",
+      "version": "1.99.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.98.1",
+      "version": "1.99.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.39.0",
+      "version": "1.40.0"
+    }
+  ],
+  "otherComponentVersions": "retained from central release-manifest.json",
+  "change": "Classify Incoterm commercial perspective from CRM customer country against physical POL and final POD, without Costa Rica-specific fallback",
+  "rules": {
+    "client-country==POL": "Export",
+    "client-country==POD": "Import",
+    "thirdCountry": "TransitDomestic",
+    "sameCountry": "TransitDomestic",
+    "unresolved": "user-visible validation"
+  },
+  "validations": [
+    "CRM account and lead country data returned under existing visibility ACL",
+    "CIF import does not charge international freight; DDP export does",
+    "Physical destination retains customs/VAT/CRC context",
+    "Edits and seller requests cannot persist unresolved country"
+  ],
+  "realtime": {
+    "restBackwardCompatible": true,
+    "signalRContractsUnchanged": true,
+    "backfillMigration": false
+  },
+  "staging": {
+    "status": "pending"
+  },
+  "ci": {
+    "status": "pending"
+  },
+  "merge": {
+    "develop": "pending",
+    "master": "pending"
+  },
+  "productionDeploymentAuthorized": false
+}
