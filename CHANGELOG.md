@@ -1,3 +1,9 @@
+## [1.99.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-269 · Incoterms por país del cliente)
+
+- MINOR: sincronización DholeWeb/DholeSystem 1.99.0 y CRM 1.40.0, con clasificación del cliente respecto a POL/POD final, apli­cada a fletes e Incoterms.
+- Reglas físicas de impuestos/adunas sin modificación, contratos REST compatibles y SignalR preservado. Backport sobre rama separada de master, sin arrastrar commits divergentes.
+- CI y staging de develop completados; promoción a master condicionada a verificación de pruebas en el branch de producción y staging funcional.
+
 ## [1.98.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-SCOPE-267 · backport scope CRM)
 
 - MINOR: sincroniza Web/System 1.97.9 → 1.98.0 y CRM 1.38.0 → 1.39.0 por la persistencia de naviera e Incoterm en tarifas preferenciales.
