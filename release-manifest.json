@@ -168,7 +168,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "El catálogo completo de Pricing respeta siempre POL, POE y POD seleccionados",
