@@ -1,3 +1,10 @@
+## [1.87.4] - 2026-11-18 (Ventas: retiro de cancelación de cotizaciones a vendedores)
+
+- PATCH DH-20261118-SELLER-CANCEL-HIDE-234: botón «Cancelar cotización» eliminado del dashboard comercial en móvil/escritorio y del detalle de vendedores; el modal de ventas ya solo admite aceptación o rechazo.
+- La cancelación de cotizaciones aceptadas permanece en Pricing con permisos y auditoría. No se alteran servicios backend, contratos REST, SignalR, Outbox ni scopes.
+- DholeWeb 1.83.0 → 1.83.1; DholeSystem/ecosistema 1.87.3 → 1.87.4. Los 15 componentes restantes conservan sus versiones en el manifiesto.
+- CI y staging autenticado son obligatorios antes de master. No se autoriza despliegue productivo.
+
 ## [1.87.3] - 2026-11-18 (Fix PostgreSQL 22001 al actualizar IDTRA múltiples)
 
 - PATCH DH-20261118-RATE-REVISION-IDTRA-232: persistencia histórica de revisiones RateRevisions.IdtraNumber amplía de varchar(100) a varchar(2000), igual que cabecera para soportar múltiples IDTRA en la misma QUO. Caso reproducible: 366 caracteres para QUO-00000-000552.

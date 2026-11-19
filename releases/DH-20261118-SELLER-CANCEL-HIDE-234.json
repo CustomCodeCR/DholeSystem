@@ -1,0 +1,41 @@
+{
+  "releaseId": "DH-20261118-SELLER-CANCEL-HIDE-234",
+  "date": "2026-11-18",
+  "type": "PATCH",
+  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.87.4",
+  "previousEcosystemVersion": "1.87.3",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.87.3",
+      "version": "1.87.4"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.83.0",
+      "version": "1.83.1"
+    }
+  ],
+  "unchangedComponents": 15,
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "webBranches": [
+    "fix/DH-20261118-SELLER-CANCEL-HIDE-234-web-develop",
+    "fix/DH-20261118-SELLER-CANCEL-HIDE-234-web-master"
+  ],
+  "systemBranches": [
+    "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-develop",
+    "fix/DH-20261118-SELLER-CANCEL-HIDE-234-system-master"
+  ],
+  "scope": "Remove quote cancellation UI from sales, leave Pricing cancellation and backend unchanged",
+  "compatibility": "REST, realtime, audit, scopes unaffected",
+  "checks": {
+    "source": "static-check-passed",
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
