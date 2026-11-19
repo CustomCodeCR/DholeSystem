@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-GCF-CIF-268-MASTER",
+  "ecosystem": "Dhole",
+  "version": "1.97.9",
+  "releaseType": "PATCH",
+  "sourceReleaseId": "DH-20261119-GCF-CIF-268",
+  "sourceDevelopVersion": "1.98.1",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.97.8",
+      "next": "1.97.9"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.97.8",
+      "next": "1.97.9"
+    }
+  ],
+  "unchanged": "Other microservices and gateway",
+  "target": "master",
+  "status": "candidate-ci-pending"
+}
