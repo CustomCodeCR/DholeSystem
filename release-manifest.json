@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
+  "releaseId": "DH-20261119-PRICING-CIF-NAV-265",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.3",
+  "ecosystemVersion": "1.97.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
+  "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.3",
+      "version": "1.97.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
+      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
-      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
+      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.3",
+      "version": "1.97.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
+      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-master",
-      "developCandidateBranch": "fix/cif-no-ocean-freight-1.97.3-develop"
+      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
+      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -152,20 +152,21 @@
     "Production merge, CI and post-deployment validation pending"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
-    "staging": "pending authenticated staging",
-    "production": "not authorized"
+    "tests": "pending master CI",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
-    "CIF/CFR imports do not request or create ocean freight in Pricing FCL screen 6",
-    "Both manual ocean-freight cards and direct creation are guarded when the Incoterm includes the freight",
-    "Carrier selection remains available for destination and customs charges when freight selection step 5 is skipped"
+    "CIF/CFR imports skip empty MultiQUO navigation and go from provider to destination cost lines",
+    "Master candidate contains the CIF correction only, preserving Orvelum branding; staging-only business releases remain isolated"
   ],
-  "stagingValidation": "pending CI and authenticated staging validation",
+  "stagingValidation": {
+    "status": "pending"
+  },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -218,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CIF-NO-FREIGHT-262",
+  "businessReleaseId": "DH-20261119-PRICING-CIF-NAV-265",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -654,7 +655,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "PATCH CIF FCL no duplicate maritime freight, preserves destination/customs billing",
+  "releaseSummary": "PATCH Pricing CIF no-freight navigation",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
