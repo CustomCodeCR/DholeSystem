@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "releaseId": "DH-20261119-GCF-CIF-268",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.98.0",
+  "ecosystemVersion": "1.98.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
+  "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.98.0",
+      "version": "1.98.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
+      "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "developCandidateBranch": "fix/DH-20261119-GCF-CIF-268"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.98.0",
+      "version": "1.98.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
+      "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "developCandidateBranch": "fix/DH-20261119-GCF-CIF-268"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -141,11 +141,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": {
-    "status": "pending",
-    "checks": 0,
-    "total": 0
-  },
+  "policyCheck": "SemVer: only DholeSystem and DholeWeb changed from 1.98.0 to 1.98.1; all other components retained",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -159,8 +155,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Persistencia CRM de ámbitos carrierCode/incotermCode en tarifas preferenciales",
@@ -222,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "businessReleaseId": "DH-20261119-GCF-CIF-268",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -658,7 +653,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "PATCH Pricing CIF zero-option navigation",
+  "releaseSummary": "GCF: metadata de 249 países ISO, agente mundial en Pricing FCL y excepción de flete en duplicación CIF importación; CI/staging pendientes.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -765,5 +760,22 @@
     "change": "Compact, responsive Operations dashboard with role/team controls and clear data state",
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
+  },
+  "gcfCifRelease": {
+    "releaseId": "DH-20261119-GCF-CIF-268",
+    "version": "1.98.1",
+    "originBranch": "fix/DH-20261119-GCF-CIF-268",
+    "status": "candidate-ci-and-staging-pending",
+    "components": [
+      "DholeWeb",
+      "DholeSystem"
+    ],
+    "acceptance": [
+      "249 ISO country codes materialized in metadata on save",
+      "GCF offered for unmatched POL",
+      "CIF import duplicated without ocean freight",
+      "FOB import freight guard remains"
+    ],
+    "productionAuthorized": false
   }
 }
