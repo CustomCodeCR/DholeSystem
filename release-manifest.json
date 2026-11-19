@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DHOLE-REBRAND-266",
+  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.7",
+  "ecosystemVersion": "1.98.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
+  "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.7",
+      "version": "1.98.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.7",
+      "version": "1.98.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.38.0",
+      "version": "1.39.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-develop",
+      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-develop"
+      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
