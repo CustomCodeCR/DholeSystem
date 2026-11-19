@@ -1,3 +1,9 @@
+## [1.89.0] - 2026-11-18 (Sincronización Web/System y actualización de pestañas)
+
+- MINOR DH-20261118-WEB-VERSION-SYNC-236: DholeWeb y DholeSystem pasan a compartir la versión 1.89.0 como contrato obligatorio para todos los releases posteriores.
+- El manifiesto central y los validadores impiden publicar una versión de Web diferente de System; la web comprueba /version.json y notifica actualizaciones sin recargar formularios automáticamente.
+- Componentes: DholeSystem 1.88.0 → 1.89.0; DholeWeb 1.84.0 → 1.89.0. CI y staging pendientes; producción no autorizada.
+
 ## [1.88.0] - 2026-11-18 (CRM Prospectos: contactos, zonas y fuentes comerciales)
 
 - MINOR DH-20261118-CRM-PROSPECT-235: captura comercial con nombre y razón social independiente, catálogo de captación, referido y notas iniciales.
