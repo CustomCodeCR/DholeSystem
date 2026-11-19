@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DHOLE-REBRAND-266",
+  "releaseId": "DH-20261119-GCF-CIF-268-MASTER",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.8",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.97.9",
+  "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+  "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.8",
+      "version": "1.97.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "masterCandidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
       "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.8",
+      "version": "1.97.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "candidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
       "candidateSha": null,
       "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master-v198",
+      "masterCandidateBranch": "fix/DH-20261119-GCF-CIF-268-master-v1979",
       "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-DHOLE-REBRAND-266",
+  "businessReleaseId": "DH-20261119-GCF-CIF-268-MASTER",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -658,7 +658,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "PATCH Pricing CIF no-freight navigation",
+  "releaseSummary": "Backport master de GCF ISO 249 y validación CIF sin flete; DholeSystem/DholeWeb 1.97.9; otros componentes sin cambios",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -764,5 +764,22 @@
     ],
     "stagingValidation": "develop-ci-passed-staging-deployment-in-progress",
     "productionDeploymentAuthorized": false
+  },
+  "gcfCifRelease": {
+    "releaseId": "DH-20261119-GCF-CIF-268-MASTER",
+    "originRelease": "DH-20261119-GCF-CIF-268",
+    "stagingVersion": "1.98.1",
+    "masterVersion": "1.97.9",
+    "components": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "tests": [
+      "GCF all ISO codes",
+      "FCL worldwide agent",
+      "CIF duplicated no ocean freight",
+      "FOB freight guard"
+    ],
+    "status": "candidate-ci-pending"
   }
 }
