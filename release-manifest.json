@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "releaseId": "DH-20261119-BLOBATAR-EMOTIONS-248",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.91.0",
+  "ecosystemVersion": "1.92.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/20261119-operations-audit-role-release",
+  "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.91.0",
+      "version": "1.92.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-audit-role-release",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.91.0",
+      "version": "1.92.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-audit-timeline-ux",
+      "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-web-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
