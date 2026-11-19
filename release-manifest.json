@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "releaseId": "DH-20261119-OPS-ROLE-NAME-248",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.91.0",
+  "ecosystemVersion": "1.91.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.91.0",
+      "version": "1.91.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/20261119-operations-audit-role-247-master",
       "candidateSha": null,
@@ -32,7 +32,7 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.16.0",
+      "version": "1.16.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/20261119-operations-audit-role-247-master",
       "candidateSha": null,
@@ -41,7 +41,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.91.0",
+      "version": "1.91.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/20261119-operations-audit-role-247-master",
       "candidateSha": null,
@@ -161,10 +161,10 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeAuthService",
-    "DholeOperationsService"
+    "DholeAuthService"
   ],
   "changes": [
+    "PATCH: reconocer rol existente Operativo Logístico en Auth/Web, sin crear nuevos roles",
     "Replace Operations team card list with DhSelect department/team picker",
     "Readable ES/EN audit timeline shared by Teams and Aperturas with actor names, diff and nested technical detail",
     "Allow team membership only with Operador Logístico or Supervisor Operativo roles, enforced by Auth and Operations",
@@ -224,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "businessReleaseId": "DH-20261119-OPS-ROLE-NAME-248",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
