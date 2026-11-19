@@ -1,3 +1,13 @@
+## [1.91.1] - 2026-11-19 (DH-20261119-OPS-ROLE-NAME-248 · rol Operativo Logístico)
+
+- PATCH: paridad System/Web 1.91.1 y Auth 1.16.1. El pool de Operaciones usa el rol existente «Operativo Logístico», sin crear roles adicionales.
+- Conserva Operations 0.10.0 y el release funcional DH-247 con su auditoría y DhSelect.
+
+## [1.91.0] - 2026-11-19 (DH-20261119-OPS-AUDIT-ROLE-247 · Operaciones, auditoría y roles)
+
+- MINOR: manifiesto global de 17 componentes actualizado para coordinación de Auth, Operations y Web; Web/System conservan la misma versión y comprobación de actualizaciones.
+- Release coordinado DholeWeb/DholeSystem 1.89.0→1.91.0; Auth 1.15.0→1.16.0; Operations 0.9.0→0.10.0. Ecosistema 1.91.0. CI/staging y comprobación de producción obligatorias.
+
 ## [1.89.0] - 2026-11-18 (Sincronización Web/System y actualización de pestañas)
 
 - MINOR DH-20261118-WEB-VERSION-SYNC-236: DholeWeb y DholeSystem pasan a compartir la versión 1.89.0 como contrato obligatorio para todos los releases posteriores.
