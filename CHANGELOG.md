@@ -1,3 +1,9 @@
+## [1.103.5] - 2026-11-19 (DH-20261119-PRICING-COUNTRY-LTL-276 · promoción aislada de país CRM y LTL manual)
+
+- PATCH master 1.103.2→1.103.5 en DholeWeb y DholeSystem. No arrastra releases de CRM 1.103.3/1.103.4 ni altera las versiones de otros 15 componentes. La versión global coincide con staging 1.103.5.
+- Pricing corrige selección de países CRM desde Config/countries y mantiene tasas IVA de country-vat-rates. LTL incorpora captura propia manual separada de coloaders.
+- Sin migraciones, scopes ni cambios REST/SignalR. CI de master y staging confirmados antes del release.
+
 ## [1.103.2] - 2026-11-19 (DH-20261119-WIZARD-ROUTE-RUNTIME-274 · corrección de runtime de wizard)
 
 - PATCH: sincroniza DholeSystem y DholeWeb 1.103.1→1.103.2 para reparar la referencia `resolveClientRouteOperation` no definida en el bundle productivo. Web calcula operación desde CRM/POL/POD en variables existentes, sin helper intermedio.
