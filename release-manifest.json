@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
+  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.2",
+  "ecosystemVersion": "1.103.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop",
+  "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.2",
+      "version": "1.103.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop",
+      "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-275-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.2",
+      "version": "1.103.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop",
-      "candidateSha": "c09150e8ebd5297d93d3a5153a970d85aded6c92",
+      "candidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
+      "candidateSha": "5e6371891740f0597892c95077a52e475cab46dc",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-275-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,14 +146,14 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer PATCH: DholeWeb/DholeSystem 1.103.1→1.103.2; 15 other components remain unchanged. Verify final minified production bundle unresolved bindings, CI and staging prior to master.",
+  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.2→1.103.3; otros 15 componentes sin cambios. CI, lectura persistida del cargo en CRM y staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending"
+    "CI y staging pendientes"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
+    "tests": "CI pending",
     "staging": "pending",
     "production": "not yet deployed"
   },
@@ -162,8 +162,8 @@
     "DholeWeb"
   ],
   "changes": [
-    "Resolve missing routeOperation runtime binding when opening Pricing wizard",
-    "Preserve CRM country / POL-POD Incoterm perspective and prevent unvalidated rate saves"
+    "Verify CRM manual preferential charge persistence with server GET after save",
+    "Display saved manual charges next to the form with immediate validation errors and confirmation"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -220,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
+  "businessReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

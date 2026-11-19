@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-275",
+  "kind": "patch",
+  "ecosystemVersion": "1.103.3",
+  "summary": "CRM manually entered preferred charges are verified after save and visibly listed",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.2",
+      "version": "1.103.3"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.2",
+      "version": "1.103.3"
+    }
+  ],
+  "branch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop",
+  "checks": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
+  },
+  "productionDeploymentAuthorized": false
+}
