@@ -1,3 +1,9 @@
+## [1.97.7] - 2026-11-19 (DH-20261119-DHOLE-REBRAND-266 · Identidad Dhole System)
+
+- PATCH: sincroniza versión global 1.97.6 → 1.97.7 con DholeWeb para restaurar Dhole System y su nuevo icono SVG en staging y producción.
+- Sin cambios en servicios backend, scopes, contratos REST, realtime ni persistencia.
+- Validar CI y despliegue staging antes de master; rollback a 1.97.6 disponible.
+
 ## [1.97.6] - 2026-11-19 (DH-20261119-PRICING-CIF-NAV-265 · Avance CIF sin alternativas FCL)
 
 - PATCH coordinado DholeSystem: versión del ecosistema 1.97.5 → 1.97.6 y manifiesto central para corrección de navegación CIF en Web.

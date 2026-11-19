@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-CIF-NAV-265",
+  "releaseId": "DH-20261119-DHOLE-REBRAND-266",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.97.6",
+  "ecosystemVersion": "1.97.7",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
+  "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.97.6",
+      "version": "1.97.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
+      "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
-      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
+      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
+      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.97.6",
+      "version": "1.97.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop",
+      "candidateBranch": "release/20261119-dhole-rebrand-266-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-master",
-      "developCandidateBranch": "fix/20261119-pricing-cif-zero-alternatives-265-develop"
+      "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
+      "developCandidateBranch": "release/20261119-dhole-rebrand-266-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-CIF-NAV-265",
+  "businessReleaseId": "DH-20261119-DHOLE-REBRAND-266",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
