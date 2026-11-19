@@ -1,3 +1,9 @@
+## [1.103.0] - 2026-11-19 (DH-20261119-PRICING-RETURN-PROMOTION-272 · promoción devolución Pricing)
+
+- MINOR: DholeWeb/System 1.102.0→1.103.0, Pricing 1.25.0→1.25.1, el manifiesto incluye los tres componentes incrementados y conserva los demás 14.
+- Promover el flujo de devolución con motivo obligatorio, notificaciones System/Email y reenvío de Ventas. No modificar archivos de infraestructura ni deploy.
+- CI y staging completados para la implementación previa; verificar la promoción coordinada. Solicitud expresa de master recibida; la bandera de autorización para despliegues generales de infraestructura permanece desactivada.
+
 ## [1.102.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271 · Incoterms según país CRM)
 
 - MINOR: incorpora en master la perspectiva de cliente para cargas POL/POD, con la API CRM countryId y la adaptación de responsabilidad de Incoterms/flete en Web.
