@@ -1,3 +1,10 @@
+## [1.97.4] - 2026-11-19 (DH-20261119-GCF-ALL-COUNTRIES-263 · GCF cobertura mundial)
+
+- PATCH: cobertura global del agente Grupo Castro Fallas para todos los países, con regla compatible con países futuros.
+- Configuración de catálogo y asignación de agentes de Pricing LCL/Rate conservan contratos y prioridad de agentes locales.
+- Versión global, DholeWeb y DholeSystem 1.97.3 → 1.97.4; se preserva el ajuste CIF de 1.97.3. Otros componentes sin cambios.
+- CI y staging pendientes; merge en master y producción sin autorizar.
+
 ## [1.97.3] - 2026-11-19 (DH-20261119-PRICING-CIF-NO-FREIGHT-262 · Importación CIF sin flete marítimo adicional)
 
 - PATCH coordinado de DholeSystem: versión global 1.97.2 → 1.97.3 junto con DholeWeb para corregir el flujo de importación CIF FCL.
