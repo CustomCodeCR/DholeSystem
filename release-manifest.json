@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-GCF-CIF-268",
+  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.98.1",
+  "ecosystemVersion": "1.99.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
+  "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.98.1",
+      "version": "1.99.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
+      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "fix/DH-20261119-GCF-CIF-268"
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.98.1",
+      "version": "1.99.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-GCF-CIF-268",
+      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/20261119-dhole-rebrand-266-master",
-      "developCandidateBranch": "fix/DH-20261119-GCF-CIF-268"
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.39.0",
+      "version": "1.40.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop",
+      "candidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-crm-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -141,12 +141,12 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer: only DholeSystem and DholeWeb changed from 1.98.0 to 1.98.1; all other components retained",
+  "policyCheck": "SemVer MINOR: DholeSystem/DholeWeb 1.98.1→1.99.0; CRM 1.39.0→1.40.0; all other components keep listed versions",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending",
-    "Integrate develop first; no master or production without authorization"
+    "CI/test and staging validation pending",
+    "Integrate intermediate branches into develop first, then stage, then promote coordinated release to master; production deployment requires explicit authorization"
   ],
   "validationEvidence": {
     "tests": "pending CI",
@@ -154,13 +154,14 @@
     "production": "not-authorized"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeCRMService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Persistencia CRM de ámbitos carrierCode/incotermCode en tarifas preferenciales",
-    "Selectores y filtros de naviera e Incoterm en DholeWeb",
-    "Migración PostgreSQL aditiva y validaciones, sin cambio de costos originales de Pricing"
+    "CRM pricing-client-options now returns countryId of visible accounts and prospects with existing owner ACL",
+    "DholeWeb derives Import/Export/TransitDomestic from CRM client country vs physical POL and final POD, applying Incoterm billing sections/freight",
+    "On unresolved CRM or route country, prevent saving ambiguous commercial operation; physical destination retains VAT/CRC treatment"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -217,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-GCF-CIF-268",
+  "businessReleaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -777,5 +778,27 @@
       "FOB import freight guard remains"
     ],
     "productionAuthorized": false
+  },
+  "clientCountryOperationRelease": {
+    "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
+    "components": {
+      "DholeSystem": "1.99.0",
+      "DholeWeb": "1.99.0",
+      "DholeCRMService": "1.40.0"
+    },
+    "rules": {
+      "customerMatchesOrigin": "Export",
+      "customerMatchesDestination": "Import",
+      "thirdCountry": "TransitDomestic",
+      "sameOriginAndDestination": "TransitDomestic",
+      "missingCountry": "validation-error"
+    },
+    "metadata": "CRM countryId; Config countries resolve ISO-3166 alpha-2; physical POD decides IVA",
+    "schemaMigration": false,
+    "restAdditive": true,
+    "realtimeContractsUnchanged": true,
+    "testStatus": "pending",
+    "stagingStatus": "pending",
+    "productionDeploymentAuthorized": false
   }
 }
