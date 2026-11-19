@@ -1,3 +1,9 @@
+## [1.100.1] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-ROUTE-271 · Backport de filtro de puertos)
+
+- PATCH: registro de la corrección Web que impide listar costos con POE/POD diferentes de los seleccionados aunque esté activo mostrar todos los ítems.
+- Conserva las versiones de servicios y demás funcionalidades existentes en master; CRM se mantiene en 1.41.0.
+- Web/System 1.100.0 → 1.100.1; manifiesto central actualizado; producción manual requiere autorización separada.
+
 ## [1.100.0] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-MATCH-270 · manifiesto del backport preferencial)
 
 - MINOR: versión Web/System 1.98.0 → 1.100.0 y CRM 1.39.0 → 1.41.0 para el matching por servicio e ítems manuales.
