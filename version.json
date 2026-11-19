@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.95.1",
-  "ecosystemVersion": "1.95.1",
-  "releaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253",
+  "version": "1.96.0",
+  "ecosystemVersion": "1.96.0",
+  "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-DH-MULTISELECT-OVERLAY-253"
+  "businessReleaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254"
 }
