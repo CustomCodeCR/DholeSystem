@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-BLOBATAR-EMOTIONS-248",
+  "releaseId": "DH-20261119-OPS-ROLE-NAME-249",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.92.0",
+  "ecosystemVersion": "1.92.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-develop",
+  "candidateBranch": "fix/20261119-ops-role-name-249-system",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.92.0",
+      "version": "1.92.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-system-develop",
       "candidateSha": null,
@@ -32,7 +32,7 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.16.0",
+      "version": "1.16.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/20261119-operations-role-eligibility-cleanup",
       "candidateSha": null,
@@ -41,7 +41,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.92.0",
+      "version": "1.92.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/DH-20261119-BLOBATAR-EMOTIONS-248-web-develop",
       "candidateSha": null,
@@ -161,9 +161,11 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeAuthService"
   ],
   "changes": [
+    "PATCH: corregir en Auth/Web el nombre elegible Operativo Logístico",
     "Replace Operations team card list with DhSelect department/team picker",
     "Readable ES/EN audit timeline shared by Teams and Aperturas with actor names, diff and nested technical detail",
     "Allow team membership only with Operador Logístico or Supervisor Operativo roles, enforced by Auth and Operations",
@@ -223,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-OPS-AUDIT-ROLE-247",
+  "businessReleaseId": "DH-20261119-OPS-ROLE-NAME-249",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
