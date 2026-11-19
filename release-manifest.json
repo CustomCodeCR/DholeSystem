@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261118-CRM-PROSPECT-235",
+  "releaseId": "DH-20261118-WEB-VERSION-SYNC-236",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.88.0",
+  "ecosystemVersion": "1.89.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
+  "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-system-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.88.0",
+      "version": "1.89.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
+      "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-system-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-system-master",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.84.0",
+      "version": "1.89.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
+      "candidateBranch": "feature/DH-20261118-WEB-VERSION-SYNC-236-web-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-web-master",
@@ -149,24 +149,21 @@
     "No production deployment until explicit authorization"
   ],
   "validationEvidence": {
-    "semver": "DholeSystem 1.87.3→1.88.0; DholeWeb 1.83.0→1.84.0; DholeCRMService 1.37.0→1.38.0; DholeConfigService 1.11.0→1.12.0",
+    "semver": "DholeSystem 1.88.0→1.89.0; DholeWeb 1.84.0→1.89.0",
     "tests": "pending-ci",
     "staging": "pending",
     "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeConfigService",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Unify commercial and legal prospect name, initial notes and Config acquisition sources",
-    "Hierarchical province and canton for prospect locations, with optional districts",
-    "Multiple contacts in prospect, preserving identity and primary/operations flags on account conversion",
-    "Structured CRM APIs with permission checks and realtime outbox"
+    "DholeWeb and DholeSystem share the same semantic version on every global release",
+    "DholeWeb warns on newer deployed /version.json builds with user-controlled refresh",
+    "Release CI validates the remote System branch version and blocks Web/System version drift"
   ],
-  "stagingValidation": "pending-prospect-conversion-with-contacts-and-geography",
+  "stagingValidation": "pending-browser-update-popup-and-browser-reload-with-unsaved-work",
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
     "formalGatesPassed": false,
@@ -219,7 +216,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261118-CRM-PROSPECT-235",
+  "businessReleaseId": "DH-20261118-WEB-VERSION-SYNC-236",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
