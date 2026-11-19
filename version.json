@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.92.1",
-  "ecosystemVersion": "1.92.1",
-  "releaseId": "DH-20261119-OPS-ROLE-NAME-249",
+  "version": "1.93.0",
+  "ecosystemVersion": "1.93.0",
+  "releaseId": "DH-20261119-BLOBATAR-MASCOT-250",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-OPS-ROLE-NAME-249"
+  "businessReleaseId": "DH-20261119-BLOBATAR-MASCOT-250"
 }
