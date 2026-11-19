@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.98.0",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.99.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+  "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.98.0",
+      "version": "1.99.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
       "candidateSha": null,
-      "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.98.0",
+      "version": "1.99.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
       "candidateSha": null,
-      "developMergeSha": "previous-release-merged",
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -123,13 +123,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.39.0",
+      "version": "1.40.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
+      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-PREFERENTIAL-SCOPE-267-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-PREFERENTIAL-CARRIER-INCOTERM-267-develop"
+      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-269-master",
+      "developCandidateBranch": "feature/DH-20261119-PRICING-CLIENT-COUNTRY-269"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -141,35 +141,31 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": {
-    "status": "pending",
-    "checks": 0,
-    "total": 0
-  },
+  "policyCheck": "SemVer MINOR isolated master: Web/System 1.98.0→1.99.0, CRM 1.39.0→1.40.0; other versions unchanged; no divergent develop history merged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validate master CI",
-    "No additional manual production deployment"
+    "Production deployment not authorized by explicit environment request",
+    "Functional authenticated staging scenario validation pending",
+    "Merge master PRs only after CI and staging gate"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "DholeWeb GCF release 1.97.5 GitHub CI success; authenticated staging E2E not verified",
-    "production": "pending"
+    "tests": "develop PR CI success; master branch CI pending",
+    "staging": "CRM and Web staging deploy success; authenticated scenario checks pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
-    "DholeSystem",
+    "DholeCRMService",
     "DholeWeb",
-    "DholeCRMService"
+    "DholeSystem"
   ],
   "changes": [
-    "Backport de tarifas preferenciales de CRM con ámbito comercial por naviera e Incoterm",
-    "Migración PostgreSQL aditiva de carrier_code/incoterm_code, sin alterar costos de Pricing",
-    "Conservación íntegra de la corrección GCF-CIF-268-MASTER ya incluida en master",
-    "DholeWeb/DholeSystem 1.97.9 a 1.98.0 y CRM 1.38.0 a 1.39.0; demás componentes sin cambios"
+    "CRM pricing-client-options returns countryId in existing owner-authorized selector",
+    "Customer country against POL/final POD decides Export/Import/TransitDomestic Incoterm cost responsibility",
+    "No inferred country if client/route country missing; tax jurisdiction remains physical destination"
   ],
   "stagingValidation": {
-    "status": "pending-authenticated-e2e"
+    "status": "deploy-success-functional-pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -223,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-PREFERENTIAL-SCOPE-267",
+  "businessReleaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -782,5 +778,18 @@
       "FOB freight guard"
     ],
     "status": "candidate-ci-pending"
+  },
+  "clientCountryOperationRelease": {
+    "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-269",
+    "versions": {
+      "Web": "1.99.0",
+      "System": "1.99.0",
+      "CRM": "1.40.0"
+    },
+    "scope": "customer country vs physical POL/POD, same contract on develop and master",
+    "stagingDeploySuccess": true,
+    "stagingFunctionalVerification": false,
+    "masterPRPending": true,
+    "productionDeploymentAuthorized": false
   }
 }
