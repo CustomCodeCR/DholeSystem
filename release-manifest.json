@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
+  "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.2",
+  "ecosystemVersion": "1.103.5",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+  "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.2",
+      "version": "1.103.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
+      "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
+      "developMergeSha": "d8e934e9ce78cc59f55cc29e0f4deb2351f5f74d",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.2",
+      "version": "1.103.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
-      "candidateSha": "6a5421de805420275acbd5e81d202aefeaa42282",
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
-      "developCandidateBranch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop"
+      "candidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "candidateSha": "7d02d0a8f9b4528ae451f7740deb276aa4026d79",
+      "developMergeSha": "d53ce7dabd62d6834563241ae05938362baee2d5",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-COUNTRY-LTL-276-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-COUNTRY-LTL-276-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -145,27 +145,29 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "SemVer PATCH: DholeWeb/DholeSystem 1.103.1→1.103.2; 15 other components remain unchanged. Verify final minified production bundle unresolved bindings, CI and staging prior to master.",
+  "policyCheck": "PATCH isolated master backport: Web/System master 1.103.2→1.103.5, preserving all backend component versions. Develop 1.103.3/1.103.4 unrelated functionality is not promoted. CI and successful staging source SHA required.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging pending"
+    "Master PR CI pending"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
-    "staging": "pending",
-    "production": "not yet deployed"
+    "tests": "master PR CI pending",
+    "staging": "passed: https://github.com/CustomCodeCR/DholeWeb/actions/runs/44632552904",
+    "production": "not yet verified"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Resolve missing routeOperation runtime binding when opening Pricing wizard",
-    "Preserve CRM country / POL-POD Incoterm perspective and prevent unvalidated rate saves"
+    "Resolve CRM country UUID against canonical Config countries; retain country VAT rates",
+    "Manual own LTL tariff option on Pricing screen 5, independent of coloader"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "success",
+    "sourceSha": "d53ce7dabd62d6834563241ae05938362baee2d5",
+    "run": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/44632552904"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -219,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
+  "businessReleaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

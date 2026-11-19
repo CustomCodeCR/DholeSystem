@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-COUNTRY-LTL-276",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.103.5",
+  "releaseType": "PATCH",
+  "promotionType": "isolated-master-backport",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.2",
+      "version": "1.103.5"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.2",
+      "version": "1.103.5",
+      "candidateSha": "7d02d0a8f9b4528ae451f7740deb276aa4026d79"
+    }
+  ],
+  "otherComponentVersions": "Retained from release-manifest.json",
+  "changes": [
+    "Resolve CRM country UUID against canonical Config countries; retain country VAT rates",
+    "Manual own LTL tariff option on Pricing screen 5, independent of coloader"
+  ],
+  "productionDeploymentAuthorized": true,
+  "ci": "pending",
+  "staging": {
+    "status": "success",
+    "sourceSha": "d53ce7dabd62d6834563241ae05938362baee2d5",
+    "run": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/44632552904"
+  },
+  "master": "pending",
+  "schemaMigration": false,
+  "realtime": "Unchanged"
+}
