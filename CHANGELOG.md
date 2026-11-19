@@ -1,7 +1,7 @@
-## [1.101.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271 · Incoterms según país CRM)
+## [1.102.0] - 2026-11-19 (DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271 · Incoterms según país CRM)
 
 - MINOR: incorpora en master la perspectiva de cliente para cargas POL/POD, con la API CRM countryId y la adaptación de responsabilidad de Incoterms/flete en Web.
-- Global System 1.100.1 → 1.101.0, Web 1.100.0 → 1.101.0, CRM 1.41.0 → 1.42.0; servicios no afectados mantienen versión, compatibilidad REST/SignalR, sin migraciones.
+- Global System 1.101.0 → 1.102.0, Web 1.100.1 → 1.102.0, CRM 1.41.0 → 1.42.0; servicios no afectados mantienen versión, compatibilidad REST/SignalR, sin migraciones.
 - Se conserva el cambio CRM-PREFERENTIAL-ROUTE-271; ramas aisladas, CI y staging antes de despliegue productivo expresamente autorizado.
 
 ## [1.100.1] - 2026-11-19 (DH-20261119-CRM-PREFERENTIAL-ROUTE-271 · Backport de filtro de puertos)
