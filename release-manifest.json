@@ -159,7 +159,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Verify CRM manual preferential charge persistence with server GET after save",
