@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-INCOTERMS-WIZARD-367",
+  "releaseId": "DH-20261120-P7-CHARGES-368",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.0",
+  "ecosystemVersion": "1.108.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+    "develop": "fix/DH-20261120-P7-CHARGES-368-develop",
     "master": null
   },
-  "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+  "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.0",
+      "version": "1.108.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+      "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop"
+      "developCandidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.0",
+      "version": "1.108.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+      "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop"
+      "developCandidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,39 +131,36 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "MINOR DholeWeb + DholeSystem 1.107.5 -> 1.108.0; DholePricingService 1.26.9 and all other components unchanged. Integrate only into develop after CI; no production promotion.",
+  "policyCheck": "PATCH DholeWeb + DholeSystem 1.108.0 -> 1.108.1; all Pricing/CRM and other services unchanged. Develop only; production forbidden.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web build, TypeScript, source-transform guard and pricing regression suite",
-    "Authenticated P1-P9 create/edit/PDF smoke on staging",
-    "Backend contractual place / risk / party / insurance evidence and detailed PDF are deferred to subsequent phases"
+    "Validated CI on feature branch and staging after coordinated develop merge",
+    "Authenticated MAERSK/WWL FCL P6/P7 5500/5800 + 17 fixed/19 optional checks",
+    "Post-deploy verification of rate persistence, taxes and PDF"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "DholeWeb feature branch implementation and regression test; no staging runtime results yet",
-    "scope": "UX all six blocks, optional contextual charges, P6-P7 API guard, EXW/FCA draft preservation"
+    "source": "Regression test pricingScreenSevenCostRecovery368.test.ts and actual cost selections exported from stage",
+    "scope": "P6→P7 MAERSK Caldera WWL without browser reload"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Keep Recolecta, Origen, Flete, Destino, Entrega and Seguro accessible for all Incoterms",
-    "Protect P6-P7 against failed and stale cost queries and preserve priced lines only for equal context",
-    "Preserve EXW and FCA draft places, caution on CIF/CIP insurance without duplicate charges",
-    "No changes to PricingService REST, migrations or production"
+    "P7 combines CostIds from contextual Pricing query and previously loaded active cost catalogue, respecting strict local route/carrier/agent filters",
+    "P7 cache invalidated if line collection was erased; non-destructive automatic and manual reload; Any shipment mode eligible",
+    "P6 manual freight preserved across P7 transition; selected company-specific charge sales remain unchanged"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "P1 modalidad and P2 shipment type remain stable",
-      "P3 Import/Export manual plus 11 Incoterms and named EXW/FCA places survive P4-P9",
-      "P5 selects rate per POE and carrier; P6 selected inland Merchant/Carrier reaches P7 without reload",
-      "P7 shows all six cost blocks and matching route/carrier/agent/services/client charges, correct per-unit basis and manual charges",
-      "P8 cost sale tax and draft group totals match P7",
-      "P9 saved rate and generated PDF reproduce persisted lines and subQUOs",
-      "No duplicate insurance or freight for CIF, CIP and DDP; check CRM preferential rates"
+      "FCL / MAERSK / Puerto Caldera / WWL: at least one fixed MAERSK destination CostId and WWL agent CostId present in P7",
+      "Freight manual 40HC cost 5500 sale 5800 survives to P7 and P8",
+      "Fixed rows and Optional rows retain unique CostId and different shipment charge bases",
+      "Change naviera/POE keeps route-exclusive costs and manual values",
+      "Reopen P7 without refresh, verify IVA and PDF after saved rate"
     ]
   },
   "f6F7F8": {
@@ -218,7 +215,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-INCOTERMS-WIZARD-367",
+  "businessReleaseId": "DH-20261120-P7-CHARGES-368",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
