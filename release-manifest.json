@@ -149,7 +149,7 @@
   ],
   "policyCheck": "PATCH Web/System 1.106.4 → 1.106.5; remaining 15 component versions unchanged. Screen6 loads the same route-matched Optional catalog as Screen7; CI and authenticated staging checks required.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Confirm CI and global version policy on coordinated branches",
     "Authenticated staging Balboa → Colon Free Zone Merchant UAT remains pending"
@@ -979,5 +979,7 @@
     "ci": "master candidate Web and System green except transient version crosscheck pending System first",
     "staging": "unverified (must not claim UAT passed)",
     "productionDeploy": "Web push-to-master triggers production workflow"
-  }
+  },
+  "businessReleaseMasterPromotionRequested": true,
+  "productionAuthorizationScope": "Pricing Merchant Haulage Web business patch only; realtime F6/F9 production authorization remains disabled"
 }
