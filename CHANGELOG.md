@@ -1,3 +1,13 @@
+## [1.104.1] - 2026-11-20 (DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX · Outbox de autorización corregido)
+
+- PATCH: evita fallos PostgreSQL 22001 del identificador de correlación de Notifications Outbox y garantiza idempotencia por solicitud/destinatario/canal.
+- DholeWeb/System 1.104.0 → 1.104.1 y Pricing 1.26.0 → 1.26.1, 14 componentes sin cambios.
+
+## [1.104.0] - 2026-11-20 (DH-20261120-EXPIRED-RATE-APPROVAL-301 · aprobación de tarifas vencidas)
+
+- MINOR: explicación obligatoria, autorización de Roy o José Pablo, historial por revisión y avisos a los jefes vía System/SignalR y Email; bloqueo de actualización en API.
+- Web/System 1.103.23 → 1.104.0 y Pricing 1.25.4 → 1.26.0. CI/staging obligatorios antes de master.
+
 ## [1.103.23] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · corrección de país CRM en cotizaciones FCL)
 
 - PATCH: promoción selectiva del fix probado en develop: permitir seleccionar en la pantalla 3 el país del cliente si CRM no lo proporciona; el país de la cotización no modifica el registro CRM.
