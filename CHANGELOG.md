@@ -1,3 +1,9 @@
+## [1.103.16] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · corregir el CHECK de tarifas preferenciales)
+
+- PATCH: coordina CRM 1.42.3 con Web/System 1.103.15→1.103.16 para permitir TIERED_SALE en PostgreSQL y evitar el 409 de cargos por tramos.
+- Conserva los cambios previos del dashboard; el frontend retiene solo los ítems pendientes tras guardados parciales. Sin cambios de API ni eventos realtime.
+- Validar CI y migración en staging antes de master.
+
 ## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · indicadores de venta y seguimiento filtrable)
 
 - PATCH DholeWeb/DholeSystem 1.103.14 → 1.103.15. Tarjetas de estados comerciales activan el filtro de la tabla de tarifas del dashboard y llevan el scroll hasta ella, sin navegar a la vista Pricing.
