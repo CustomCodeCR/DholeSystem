@@ -1,3 +1,8 @@
+## [1.104.5] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-324 · precios preferenciales CRM en las cotizaciones)
+
+- PATCH: DholeWeb aplica automáticamente tarifas preferenciales definidas en CRM únicamente a ventas que coinciden por cuenta, ruta, equipo, naviera, Incoterm, servicio y rubro; costos originales y cotizaciones persistidas se conservan.
+- CRM 1.42.8 publica integración CONNECTED; Web/System 1.104.5. Versión global y manifiesto coordinados; CI, pruebas de integración y staging antes de la promoción a master.
+
 ## [1.104.3] - 2026-11-20 (DH-20261120-CRM-INVITEE-VISIBILITY-323 · agendas de invitados CRM)
 
 - PATCH coordinado de DholeSystem, DholeWeb y DholeCRMService: nombres reales de invitados internos en actividades, visibilidad de actividades compartidas en sus calendarios y reconciliación SignalR.
