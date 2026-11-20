@@ -130,9 +130,9 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: DholeWeb 1.106.13 -> 1.106.14; DholeSystem 1.106.10 -> 1.106.14. Restore build compatibility between the Pricing own LTL Panama transform and universal cost loader; component Pricing remains unchanged in this release.",
+  "policyCheck": "PATCH: DholeWeb 1.106.13 -> 1.106.14; DholeSystem 1.106.10 -> 1.106.14. Restore build compatibility between the Pricing own LTL Panama transform and universal cost loader; component Pricing remains unchanged in this release. Staging/Develop is not production-authorized; authorization is limited to production release promotion.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Version checks, Web build/tests and System metadata CI must pass",
     "Staging deployment and authenticated Pricing screen 7 validation pending"
