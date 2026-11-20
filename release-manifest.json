@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
+  "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.105.1",
+  "ecosystemVersion": "1.106.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
-    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master"
+    "develop": "feature/operations-tramites-drawer-detail-20261120",
+    "master": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
+  "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.105.1",
+      "version": "1.106.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
+      "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.105.1",
+      "version": "1.106.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
+      "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
@@ -131,35 +131,37 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.13.0",
+      "version": "0.14.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
+      "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
       "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: ecosystem & DholeSystem 1.105.0→1.105.1, DholeWeb develop 1.105.0→1.105.1 and master 1.104.5→1.105.1; CRM 1.42.8, Operations 0.13.0 unchanged.",
+  "policyCheck": "MINOR: System/Web 1.105.1→1.106.0, Operations 0.13.0→0.14.0; other 14 components unchanged. Maintain separate protected-branch promotion after staging.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI/build and functional staging validation required"
+    "CI checks and authenticated staging workflow pending",
+    "Pricing acceptance → automatic opening remains in future release"
   ],
   "validationEvidence": {
-    "regression": "pending CI",
-    "viteFinalGuard": "must pass final transformed source",
-    "staging": "pending",
-    "production": "not yet verified"
+    "unitTests": "pending GitHub CI",
+    "staging": "pending deployment and authenticated UAT",
+    "production": "not authorized"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Restore customer CRM agreement retrieval in effective Vite-generated Pricing cost loader",
-    "Enforce final built wizard includes agreement fetch before catalog sales",
-    "Show actual number of applied preferential quote lines"
+    "Unify Trámites listing and manual opening with CRM account picker",
+    "Drawer summary and full eight-tab case detail with backend tab ACL",
+    "Versioned authorized modifications of opening metadata, audit, SignalR",
+    "Stage assignments, milestones, tasks, quote cost ACL and private Origin notes"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -216,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
+  "businessReleaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -995,5 +997,15 @@
     },
     "stagingValidation": "pending",
     "productionValidation": "pending"
+  },
+  "operationsTramitesWorkspaceRelease": {
+    "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
+    "web": "1.106.0",
+    "operations": "0.14.0",
+    "system": "1.106.0",
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false,
+    "pricingAutomaticIntegration": "pending",
+    "legacyDynamicsBackfill": "pending"
   }
 }
