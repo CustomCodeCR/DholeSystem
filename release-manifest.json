@@ -5,10 +5,10 @@
   "ecosystemVersion": "1.106.18",
   "status": "candidate-ci-staging-verified-previous-release",
   "branches": {
-    "develop": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+    "develop": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
     "master": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master"
   },
-  "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+  "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -17,11 +17,11 @@
       "component": "DholeSystem",
       "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
+      "developCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,11 +40,11 @@
       "component": "DholeWeb",
       "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
+      "developCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -69,8 +69,8 @@
       "component": "DholePricingService",
       "version": "1.26.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "candidateSha": null,
       "developMergeSha": null
@@ -132,7 +132,7 @@
   ],
   "policyCheck": "PATCH role-specific expired quotation authorization promotion; already implemented/tested/deployed on develop as DH-20261120-EXPIRED-ROLE-354. Current master lacks same code. Pricing 1.26.8→1.26.9; Web/System 1.106.17→1.106.18 develop, master 1.106.16→1.106.18.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Verify production deploy success and role-based edit after master merge",
     "Staging CI for current release / production authenticated smoke tests"
@@ -140,7 +140,7 @@
   "validationEvidence": {
     "unitTests": "Original expiry patch DholePricing CI success; current release gates pending",
     "staging": "Original expired rate patch Web/Pricing staging deploy succeeded; authenticated role verification pending",
-    "production": "explicit master promotion requested in conversation"
+    "production": "master promotion explicitly authorized; develop manifest remains fail-closed under staging gate"
   },
   "releaseComponents": [
     "DholeSystem",
