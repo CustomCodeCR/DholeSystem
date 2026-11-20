@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.107.2",
-  "ecosystemVersion": "1.107.2",
-  "releaseId": "DH-20261120-PRICING-INLAND-RESTORE-363",
-  "releaseStatus": "candidate-ci-staging-reference-approved-for-master",
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-RESTORE-363"
+  "version": "1.107.3",
+  "ecosystemVersion": "1.107.3",
+  "releaseId": "DH-20261120-PRICING-PERSPECTIVE-364",
+  "releaseStatus": "candidate-ci-and-staging-pending",
+  "businessReleaseId": "DH-20261120-PRICING-PERSPECTIVE-364"
 }
