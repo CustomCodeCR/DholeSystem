@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
+  "releaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.5",
+  "ecosystemVersion": "1.105.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
     "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
+  "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.5",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.5",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,29 +131,37 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.12.0",
-      "mergeState": "unchanged"
+      "version": "0.13.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119",
+      "candidateSha": null,
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: Global max(1.104.4) → 1.104.5; Web 1.104.3/1.104.4 → 1.104.5, CRM 1.42.7 → 1.42.8; other components unchanged.",
+  "policyCheck": "MINOR: ecosystem and Web 1.104.5 → 1.105.0; Operations 0.12.0 → 0.13.0; other component versions unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Required CI and staging tests pending"
+    "Pricing definitive acceptance event/snapshot and idempotent Operations consumer not implemented",
+    "Staging end-to-end and CI verification pending"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
+    "tests": "CI pending",
     "staging": "pending",
     "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Apply existing CRM preferential agreements to new Pricing quote sales by account, carrier, incoterm, POL/POE/POD, equipment, service and cost",
-    "Preserve supplier cost and persisted quote snapshot; expose manual charges; retry CRM on transient failure"
+    "Manual Aperturas CRM account picker and authorized case creation",
+    "Operations dashboard KPIs for manual and Pricing-origin cases",
+    "Paged Aperturas and Trámites filtering by IDTRA, status and origin",
+    "Single 8-tab Operations expediente navigation for existing data"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -210,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
+  "businessReleaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
