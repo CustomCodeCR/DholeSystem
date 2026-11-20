@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "releaseId": "DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.1",
+  "ecosystemVersion": "1.106.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+    "develop": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
     "master": "pending-coordinated-release"
   },
-  "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+  "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.1",
+      "version": "1.106.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+      "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
+      "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.1",
+      "version": "1.106.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+      "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
+      "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,10 +67,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.2",
+      "version": "1.26.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
+      "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+      "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -140,11 +140,12 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.0 → 1.106.1; other 15 components unchanged. Coordinated staging required before master.",
+  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.1 → 1.106.2; DholePricingService 1.26.2 → 1.26.3; other 14 components unchanged. CI/staging required before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI checks and staging route/CRM customer UAT pending"
+    "Verify CI and regression checks for coordinated Web/Pricing changes",
+    "Staging authenticated test CPT LTL, CIF FCL and other Incoterms required before master"
   ],
   "validationEvidence": {
     "unitTests": "pending GitHub CI",
@@ -153,16 +154,22 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Fix customer-specific cost cache identity in Pricing quotes",
-    "Reconcile CRM preferential route aliases solely by selected catalog IDs",
-    "Apply linked and manual customer sales while preserving provider costs and historical snapshots",
-    "Add regression tests with six FCL preferred charges and mismatch safeguards"
+    "Permit explicitly quoted international freight across Incoterms when the Transport International service is selected",
+    "Prevent false Pricing.RateInvalidFreightDistribution for LTL CPT with no physical container allocations",
+    "Retain strict FCL equipment allocation for quoted FCL freight and preserve other commercial charges"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "pending",
+    "scenarios": [
+      "CPT LTL Colón-Managua 1 CBM, Freight+TI",
+      "CIF FCL destination only",
+      "CIF/CPT FCL with explicit freight allocations",
+      "FTL and LCL prices across all 11 Incoterms"
+    ]
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
