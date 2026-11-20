@@ -1,3 +1,10 @@
+## [1.106.9] - 2026-11-20 (DH-20261120-LCL-CRC-AGENCY-352 · Agencia Aduanal CRC LCL propio)
+
+- PATCH Web/System: evita el retorno anticipado que descartaba el servicio aduanal CRC seleccionado por Ventas en la pantalla 7 del LCL propio.
+- Agrega la línea aduanal independiente con costo Pricing según ruta, servicio, Incoterm y tramo de peso; respeta la matriz del consolidado.
+- Mantiene el cargo al recargar, guardar y reabrir, sin duplicados y con fallback editable cuando falta precio.
+- Pruebas de regresión y metadatos de release. DholePricingService sin cambios de contrato ni de código.
+
 ## [1.106.8] - 2026-11-20 (DH-20261120-INCOTERM-SAVE-351 · Guardado Incoterm FOB importación)
 
 - PATCH de Web/System: el transformador de edición de tarifas ya no introduce `freightNotRequiredByIncoterm`, variable inexistente que bloqueaba la operación antes de llamar al API Pricing.
