@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.106.17",
-  "ecosystemVersion": "1.106.17",
-  "releaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
-  "releaseStatus": "candidate-staging-validation-pending",
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360"
+  "version": "1.106.19",
+  "ecosystemVersion": "1.106.19",
+  "releaseId": "DH-20261120-PRICING-INLAND-CONFLICTS-362",
+  "releaseStatus": "candidate-master-pr-conflicts-resolved-ci-pending",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-CONFLICTS-362"
 }

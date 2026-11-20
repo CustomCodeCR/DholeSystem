@@ -1,8 +1,14 @@
-## [1.106.17] - 2026-11-20 (DH-20261120-PRICING-INLAND-REGRESSION-360 · contención de regresión inland)
+## [1.106.19] - 2026-11-20 (DH-20261120-PRICING-INLAND-CONFLICTS-362 · inland y cargos: resolución de conflictos)
 
-- PATCH: restablece la sincronización de Pantallas 6–7 anterior a 1.106.15/1.106.16 en DholeWeb, evitando mutaciones anticipadas de cargos y borradores durante la carga asíncrona.
-- DholeWeb 1.106.16 → 1.106.17; DholeSystem 1.106.16 → 1.106.17; DholePricingService se mantiene 1.26.8, sin modificaciones de API, datos, realtime ni configuración.
-- Contención no equivale a resolver la incidencia inicial: se mantiene pendiente prueba autenticada con POE/naviera/cargos de inland y reimplementación segura. Se preserva el desbloqueo temporal de Incoterms de master.
+- PATCH de contención coordinado con DholeWeb 1.106.19, sobre la versión master 1.106.18, que retira la sincronización/guardado prematuro de cargos entre las pantallas 6 y 7.
+- Conserva la autorización de vencidas según rol (release 361) y el desbloqueo temporal de Incoterms. DholePricingService 1.26.9 y otros 14 componentes sin cambios.
+- Sin alteraciones de REST, SignalR, migraciones o infraestructura. CI de PR pendiente, sin despliegue de producción autorizado.
+
+## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · aprobación de vencidas exclusiva para vendedores)
+
+- PATCH coordinado Pricing/Web/System: Master recibe corrección de roles aplicada originalmente en develop como 354. Vendedores solicitan autorización a Roy/José Pablo; Pricing y Superadmin editan tarifas vencidas directamente, sin el modal de solicitud ni el bloqueo HTTP 409.
+- Pricing 1.26.8 → 1.26.9, Web/System 1.106.16 → 1.106.18; versión por encima de develop 1.106.17. Resto de componentes sin cambios, preservando funcionalidades del master actual.
+- No hay migraciones, se mantienen auditoría, REST, SignalR/Outbox e idempotencia. La promoción a master está solicitada explícitamente; CI y validación posdespliegue obligatorias.
 
 ## [1.106.16] - 2026-11-20 (DH-20261120-PRICING-INLAND-QA-358 · control de calidad del inland 6→7)
 

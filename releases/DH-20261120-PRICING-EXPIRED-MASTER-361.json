@@ -1,0 +1,19 @@
+{
+  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "ecosystemVersion": "1.106.18",
+  "sourceRelease": "DH-20261120-EXPIRED-ROLE-354",
+  "type": "PATCH",
+  "componentVersions": {
+    "DholeSystem": "1.106.18",
+    "DholeWeb": "1.106.18",
+    "DholePricingService": "1.26.9"
+  },
+  "productionDeploymentAuthorized": true,
+  "ci": "pending",
+  "staging": "source release 354 automated staging deploy succeeded",
+  "changes": [
+    "Production promotion of seller-only expired rate authorization without unrelated develop changes",
+    "Keep Pricing and Superadmin direct editing, seller approval workflow"
+  ],
+  "rollback": "Revert targeted PRs on master; no migration."
+}
