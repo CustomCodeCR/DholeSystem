@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DASHBOARD-TABLE-293",
+  "releaseId": "DH-20261120-CRM-AGREEMENT-INVITEES-295",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.15",
-  "status": "candidate-master-approval-pending",
+  "ecosystemVersion": "1.103.17",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
+  "candidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.15",
+      "version": "1.103.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
+      "candidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
+      "masterCandidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.15",
+      "version": "1.103.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
+      "candidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
+      "masterCandidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.2",
+      "version": "1.42.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "candidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-ACTIVITY-INVITEES-286"
+      "masterCandidateBranch": "release/DH-20261120-CRM-AGREEMENT-INVITEES-295-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-AGREEMENT-INVITEES-295"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -160,7 +160,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Master backport of dashboard KPI card in-place table filter",
