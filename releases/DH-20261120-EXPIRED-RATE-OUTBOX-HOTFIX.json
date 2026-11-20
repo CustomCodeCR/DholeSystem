@@ -1,0 +1,16 @@
+{
+  "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+  "releaseType": "PATCH",
+  "previousEcosystemVersion": "1.104.0",
+  "ecosystemVersion": "1.104.1",
+  "components": {
+    "DholeSystem": "1.104.1",
+    "DholeWeb": "1.104.1",
+    "DholePricingService": "1.26.1"
+  },
+  "unchangedComponents": 14,
+  "branch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+  "staging": "pending",
+  "productionAuthorized": false,
+  "fix": "Shorten deterministic Notification Outbox correlation IDs to <=100 chars; avoid PostgreSQL 22001 and preserve idempotency for both supervisors and channels."
+}
