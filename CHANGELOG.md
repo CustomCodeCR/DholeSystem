@@ -1,3 +1,9 @@
+## [1.103.21] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · desbloqueo país CRM y ruta Vietnam)
+
+- PATCH frontend: el asistente de Pricing acepta la selección explícita del país del cliente en Pantalla 3 cuando CRM no lo tiene, sin alterar la ficha de la cuenta.
+- POL Ho Chi Minh, Vietnam se identifica con ISO VN aun cuando Config no tenga catálogo completo; POD sigue determinando jurisdicción tributaria. No hay cambios de contratos REST, SignalR, esquema ni backend.
+- Web/System 1.103.20→1.103.21; demás 15 componentes permanecen en sus versiones actuales. CI, staging y pruebas de regresión requeridos antes de master. Producción no autorizada.
+
 ## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · guardar ítems manuales CRM)
 
 - PATCH: coordina Web/System 1.103.19→1.103.20. Vue v-model number genera valores numéricos y el formulario manual lanzaba TypeError por .trim(), bloqueando POST.
