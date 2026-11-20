@@ -1,3 +1,8 @@
+## [1.104.2] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310 · aprobación de tarifas vencidas desde ventas)
+
+- PATCH: Roy y José Pablo acceden a las solicitudes de actualización de tarifas vencidas desde el dashboard del rol que ya poseen; José Pablo no necesita rol Pricing ni SuperUsuario. Contador en tiempo real, acceso directo desde las notificaciones y aprobación por identidad Auth.
+- Web/System 1.104.1 → 1.104.2; Pricing 1.26.1 → 1.26.2; otros 14 componentes conservan sus versiones. Validar CI/staging antes de master.
+
 ## [1.104.1] - 2026-11-20 (DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX · revisión de longitud de Outbox)
 
 - PATCH coordinado para autorizaciones de tarifas vencidas: corrige correlación excedida de Notifications Outbox (varchar(100)) y previene fallo de persistencia de eventos de sistema/SignalR/correo.
