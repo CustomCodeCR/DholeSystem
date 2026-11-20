@@ -1,3 +1,9 @@
+## [1.106.15] - 2026-11-20 (DH-20261120-PRICING-INLAND-STEP67-357 · inland y cargos se mantienen de pantalla 6 a 7)
+
+- PATCH coordinado de DholeWeb 1.106.14 → 1.106.15, DholePricingService 1.26.7 → 1.26.8 y DholeSystem 1.106.11 → 1.106.15. Los demás 14 repositorios mantienen versión.
+- El inland Naviera/Merchant y los recargos configurados se transfieren por CostId al entrar a Pantalla 7, se conservan en borradores por POE/naviera y no se pierden por carreras de consultas asíncronas.
+- Misma API REST, permisos, SignalR y esquema de datos. CI, staging y despliegue a producción pendientes; producción no autorizada.
+
 ## [1.106.11] - 2026-11-20 (DH-20261120-EXPIRED-ROLE-354 · vencimiento autorizado solo para vendedores)
 
 - PATCH coordinado: las tarifas vencidas requieren autorización de Roy/José Pablo únicamente para vendedores; los usuarios de Pricing con permiso pricing.rate.update y Superadmin editan directamente.
