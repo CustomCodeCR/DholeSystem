@@ -1,0 +1,20 @@
+{
+  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+  "releaseType": "MINOR",
+  "previousEcosystemVersion": "1.103.23",
+  "ecosystemVersion": "1.104.0",
+  "components": {
+    "DholeSystem": "1.104.0",
+    "DholeWeb": "1.104.0",
+    "DholePricingService": "1.26.0"
+  },
+  "unchangedComponents": 14,
+  "branch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
+  "staging": "pending",
+  "productionAuthorized": false,
+  "features": [
+    "Supervisor approval of expired rate updates by Roy and Jose Pablo",
+    "Mandatory expiry reason with revision-scoped persistence and decision history",
+    "System/SignalR and Email via Notifications Outbox"
+  ]
+}
