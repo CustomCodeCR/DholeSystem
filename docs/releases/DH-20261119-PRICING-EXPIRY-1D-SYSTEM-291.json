@@ -1,0 +1,36 @@
+{
+  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "ecosystemVersion": "1.103.12",
+  "releaseType": "PATCH",
+  "components": [
+    {
+      "component": "DholePricingService",
+      "from": "1.25.2",
+      "to": "1.25.3"
+    },
+    {
+      "component": "DholeSystem",
+      "from": "1.103.11",
+      "to": "1.103.12"
+    },
+    {
+      "component": "DholeWeb",
+      "from": "1.103.11",
+      "to": "1.103.12"
+    }
+  ],
+  "componentCount": 17,
+  "unchangedCount": 14,
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "migration": "20261119193000_AddOneDaySystemRateExpiryMarker",
+  "communication": "System via Notifications Redis/SignalR plus existing Email",
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not authorized"
+  },
+  "rollback": "Revert release PRs and roll back marker migration only if safe; keep original email reminders."
+}
