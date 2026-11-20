@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
+  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.0",
+  "ecosystemVersion": "1.106.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "develop",
-    "master": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
+    "develop": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+    "master": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master"
   },
-  "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
+  "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.0",
+      "version": "1.106.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
+      "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
+      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.0",
+      "version": "1.106.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
+      "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
+      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -147,31 +147,29 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "MINOR: System/Web 1.105.2→1.106.0, Operations 0.13.0→0.14.0; other components unchanged. Develop merges before staging.",
+  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.0 → 1.106.1; other 15 components unchanged. CI and staging deployment passed.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI checks and authenticated staging workflow pending",
-    "Pricing acceptance → automatic opening remains in future release"
+    "Authenticated customer pricing UAT not verified"
   ],
   "validationEvidence": {
-    "unitTests": "pending GitHub CI",
-    "staging": "pending deployment and authenticated UAT",
-    "production": "not authorized"
+    "unitTests": "CI Web passed",
+    "staging": "Web staging deployment passed; authenticated UAT not verified",
+    "production": "master promotion requested; production workflow runs automatically"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Unify Trámites listing and manual opening with CRM account picker",
-    "Drawer summary and full eight-tab case detail with backend tab ACL",
-    "Versioned authorized modifications of opening metadata, audit, SignalR",
-    "Stage assignments, milestones, tasks, quote cost ACL and private Origin notes"
+    "Fix customer-specific cost cache identity in Pricing quotes",
+    "Reconcile CRM preferential route aliases solely by selected catalog IDs",
+    "Apply linked and manual customer sales while preserving provider costs and historical snapshots",
+    "Add regression tests with six FCL preferred charges and mismatch safeguards"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "deployed-uat-pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -225,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
+  "businessReleaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
