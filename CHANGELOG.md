@@ -1,3 +1,9 @@
+## [1.106.17] - 2026-11-20 (DH-20261120-PRICING-INLAND-REGRESSION-360 · contención de regresión inland)
+
+- PATCH: restablece la sincronización de Pantallas 6–7 anterior a 1.106.15/1.106.16 en DholeWeb, evitando mutaciones anticipadas de cargos y borradores durante la carga asíncrona.
+- DholeWeb 1.106.16 → 1.106.17; DholeSystem 1.106.16 → 1.106.17; DholePricingService se mantiene 1.26.8, sin modificaciones de API, datos, realtime ni configuración.
+- Contención no equivale a resolver la incidencia inicial: se mantiene pendiente prueba autenticada con POE/naviera/cargos de inland y reimplementación segura. Se preserva el desbloqueo temporal de Incoterms de master.
+
 ## [1.106.16] - 2026-11-20 (DH-20261120-PRICING-INLAND-QA-358 · control de calidad del inland 6→7)
 
 - PATCH de DholeWeb/DholeSystem 1.106.15 → 1.106.16: rectifica la prueba aislada del guardado de Merchant/Carrier en Pantalla 6, tras la incorporación del nuevo autoguardado por POE/naviera; Pricing 1.26.8 sin cambios.
