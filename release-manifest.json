@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "releaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.16",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.106.17",
+  "status": "candidate-staging-validation-pending",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
     "master": "fix/DH-20261120-PRICING-INLAND-QA-358"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.16",
+      "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.16",
+      "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
@@ -125,7 +125,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb 1.106.15->1.106.16 and DholeSystem 1.106.15->1.106.16, Pricing remains 1.26.8; regression harness only; no REST/SignalR changes",
+  "policyCheck": "PATCH: DholeSystem and DholeWeb 1.106.16→1.106.17. DholePricingService unchanged 1.26.8, other 14 components unchanged; no runtime infrastructure release.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -133,10 +133,8 @@
     "Validate screen 6->7 inland and browser reload on staging before any master merge"
   ],
   "validationEvidence": {
-    "unitTests": "pending CI",
-    "build": "pending CI",
-    "staging": "pending",
-    "production": "not authorized"
+    "status": "pending",
+    "note": "CI and staging checks required; authenticated 6→7 manual acceptance not evidenced"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -206,7 +204,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -997,9 +995,9 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed",
-  "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master integration requested by user; realtime infrastructure production approval stays false",
+  "productionAuthorizationScope": "Emergency containment staged first; new production deployment requires explicit user authorization.",
+  "releaseMasterIntegrationRequested": false,
+  "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
