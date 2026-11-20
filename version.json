@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.19",
-  "ecosystemVersion": "1.103.19",
-  "releaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "version": "1.104.0",
+  "ecosystemVersion": "1.104.0",
+  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-298",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-298"
 }
