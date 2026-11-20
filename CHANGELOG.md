@@ -1,3 +1,10 @@
+## [1.106.4] - 2026-11-20 (DH-20261120-PRICING-MERCHANT-HAULAGE-346 · Merchant Haulage FCL)
+
+- Promoción selectiva de 1.106.4 a master en DholeWeb y DholeSystem desde ramas intermedias, sin fusionar cambios ajenos acumulados en develop.
+- Los cargos Inland Fixed, Variable y Optional configurados para Merchant o Naviera se reconocen según proveedor y POE/POD; las líneas fijas compartidas no se duplican ni se convierten en transporte alternativo.
+- 15 servicios adicionales permanecen en sus versiones actuales. Manifiesto de 17 componentes actualizado y sincronizado con Web; REST y SignalR sin modificación.
+- Pruebas de Pricing y CI de develop aprobadas; validar CI del candidato de master y comprobar staging antes de autorizar producción.
+
 ## [1.106.3] - 2026-11-20 (DH-20261120-PRICING-IMPORT-COSTS-345 · costos FCL importación por contexto válido)
 
 - PATCH coordinado DholeWeb/DholeSystem 1.106.2 → 1.106.3. Se muestran costos activos que ya pasaron la verificación real de Pricing por ruta, proveedor, modalidad, servicios e Incoterm, sin descartarlos por snapshots legados de un único puerto.
