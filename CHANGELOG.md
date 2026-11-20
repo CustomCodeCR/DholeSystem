@@ -1,3 +1,9 @@
+## [1.106.10] - 2026-11-20 (DH-20261120-PRICING-VAT-TOTAL-353 · IVA de tarifas en el resumen de oferta)
+
+- PATCH coordinado en DholePricingService 1.26.5 y DholeWeb/DholeSystem 1.106.10: IVA comercial por línea agregado en USD/CRC aunque Config guarde códigos de moneda opacos.
+- En tarifas persistidas, el frontend recupera el IVA comercial por renglón cuando la API histórica devuelve cero, evitando total incorrecto; subtotal, utilidad y margen permanecen sin IVA.
+- Pruebas para rubros gravados y no gravados, con paridad de PDF. Sin migración, cambios REST ni SignalR; CI y staging pendientes, producción no autorizada.
+
 ## [1.106.8] - 2026-11-20 (DH-20261120-INCOTERM-SAVE-351 · Guardado Incoterm FOB importación)
 
 - PATCH de Web/System: el transformador de edición de tarifas ya no introduce `freightNotRequiredByIncoterm`, variable inexistente que bloqueaba la operación antes de llamar al API Pricing.
