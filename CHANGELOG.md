@@ -1,3 +1,10 @@
+## [1.106.5] - 2026-11-20 (DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347 · selección Merchant/Naviera Pantalla 6)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.106.4 → 1.106.5. Los cargos opcionales de transporte disponibles en Pantalla 7 se consultan previamente en Pantalla 6, resolviendo el Inland Balboa → Colon Free Zone (Merchant) que no se ofrecía en la alternativa.
+- La carga combina CostIds por ruta y descarta solicitudes obsoletas entre cambios de POE/POD, naviera, agente y servicios. Se preservan cargos fijos comunes, bases por contenedor, contexto comercial CRM y las APIs REST/SignalR actuales.
+- Se agregaron pruebas de regresión para carga de catálogo opcional en Pantalla 6, sincronización de elección y protección ante respuestas antiguas.
+- Manifiesto global de 17 componentes actualizado. DholePricingService y otros 14 servicios sin cambios binarios. CI y staging obligatorios antes de producción.
+
 ## [1.106.4] - 2026-11-20 (DH-20261120-PRICING-MERCHANT-HAULAGE-346 · Merchant Haulage FCL)
 
 - Promoción selectiva de 1.106.4 a master en DholeWeb y DholeSystem desde ramas intermedias, sin fusionar cambios ajenos acumulados en develop.
