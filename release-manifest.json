@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "releaseId": "DH-20261120-PRICING-INLAND-CONFLICTS-362",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.18",
-  "status": "candidate-ci-staging-verified-previous-release",
+  "ecosystemVersion": "1.106.19",
+  "status": "candidate-master-pr-conflicts-resolved-ci-pending",
   "branches": {
     "develop": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
     "master": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.18",
+      "version": "1.106.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.18",
+      "version": "1.106.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
@@ -76,7 +76,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.9",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -147,38 +147,30 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Targeted release: source hotfix 354 already integrated on develop (staging deployments passed) but missing in master; preserve master-only changes. Pricing 1.26.8→1.26.9; Web/System 1.106.16→1.106.18, max develop 1.106.17. Other components unchanged.",
+  "policyCheck": "PATCH DholeWeb/DholeSystem 1.106.18->1.106.19; DholePricingService remains 1.26.9; preserve expired-rate 361 and master Incoterm bypass.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "PR CI must pass all build/version checks",
-    "Monitor automated production deploy after merge",
-    "Authenticate staging/production and smoke-test seller vs Pricing/Superadmin permissions"
+    "Master integration and production deployment require explicit authorization",
+    "Authenticated Quote 6→7 end-to-end scenario remains unverified"
   ],
   "validationEvidence": {
-    "unitTests": "source release 354 Pricing and Web unit/build PR CI passed; new master PR CI pending",
-    "staging": "source release 354 Pricing/Web automatic staging deploy succeeded",
-    "production": "master hotfix explicitly requested by user; production deploy still to be verified"
+    "sourceStaging": "Web 1.106.17 run 44805678536 succeeded",
+    "masterPR": "CI required",
+    "production": "Not authorized"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Pricing update GET/PUT and expired approval policy exempt Pricing scope and Superadmin but require seller manager approval",
-    "Web modal only for sellers; Pricing and Superadmin open edit without interruption",
-    "Preserve new master inland/Incoterm patches; no full branch merge",
-    "Keep SignalR Outbox notifications and revisions"
+    "Resolve PR 939/704 conflicts against master 1.106.18",
+    "Restore staged pre-regression inland synchronization without early save",
+    "Preserve 361 expired-rate authorization and Incoterms master hotfix"
   ],
   "stagingValidation": {
-    "status": "source-release-staging-passed-automation-manual-role-check-pending",
-    "scenarios": [
-      "Seller expiry opens approval request",
-      "Pricing and Superadmin edit expired quote directly",
-      "Closed/Cancelled are still blocked",
-      "Approve/reject produces System SignalR and Email notifications"
-    ]
+    "status": "Web 1.106.17 staging deployment passed; manual business scenario unverified",
+    "source": "GitHub Actions 44805678536"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -232,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-CONFLICTS-362",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -987,9 +979,9 @@
     "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User explicitly requested 'subalo a master' for inland Step 6→7 bugfix only. Realtime infrastructure flags remain fail-closed.",
-  "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master service workflows automatically deploy on push; no Infrastructure compose changes or universal realtime promotion in this release.",
+  "productionAuthorizationScope": "Only conflict resolution in PRs 939 and 704 was requested; master merge and production deploy not authorized in this turn.",
+  "releaseMasterIntegrationRequested": false,
+  "releaseProductionDeploymentPolicy": "Master service push automatically deploys. Hold until user authorizes deployment.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
