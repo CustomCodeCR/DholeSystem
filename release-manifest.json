@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "releaseId": "DH-20261120-PRICING-IMPORT-COSTS-345",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.1",
+  "ecosystemVersion": "1.106.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
-    "master": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master"
+    "develop": "develop",
+    "master": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod"
   },
-  "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
+  "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
+      "version": "1.106.3",
+      "mergeState": "production-candidate",
+      "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
-      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+      "developCandidateBranch": "develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
+      "version": "1.106.3",
+      "mergeState": "production-candidate",
+      "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343-master",
-      "developCandidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+      "developCandidateBranch": "develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.2",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
-      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "version": "1.26.3",
+      "mergeState": "production-candidate",
+      "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+      "developCandidateBranch": "develop",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
       "developMergeSha": null,
       "candidateSha": null
     },
@@ -147,29 +147,35 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.0 → 1.106.1; other 15 components unchanged. CI and staging deployment passed.",
-  "mergeState": "intermediate-only",
+  "policyCheck": "Coordinated PATCH promotions 344 + 345: DholeSystem and DholeWeb 1.106.1 → 1.106.3, Pricing 1.26.2 → 1.26.3; other 14 components unchanged.",
+  "mergeState": "production-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Authenticated customer pricing UAT not verified"
+    "Await automated master-candidate CI and production health check; authenticated scenario UAT has not been run"
   ],
   "validationEvidence": {
-    "unitTests": "CI Web passed",
-    "staging": "Web staging deployment passed; authenticated UAT not verified",
-    "production": "master promotion requested; production workflow runs automatically"
+    "unitTests": "staging branches passed .NET and Web CI; master promotion candidate CI pending",
+    "staging": "Staging Web deployment run 44753202437 successful; authenticated UAT pending",
+    "production": "user authorized; deployment not yet verified"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Fix customer-specific cost cache identity in Pricing quotes",
-    "Reconcile CRM preferential route aliases solely by selected catalog IDs",
-    "Apply linked and manual customer sales while preserving provider costs and historical snapshots",
-    "Add regression tests with six FCL preferred charges and mismatch safeguards"
+    "Release 344: permit LTL and other explicit Freight regardless of Incoterm, preserve FCL equipment validation",
+    "Release 345: contextual import costs from authoritative Pricing selection; retain strict fallback filtering and manual charge sections"
   ],
   "stagingValidation": {
-    "status": "deployed-uat-pending"
+    "status": "automated-deploy-success; authenticated-UAT-pending",
+    "webRun": "44753202437",
+    "scenarios": [
+      "CPT LTL freight preservation",
+      "FOB and CIF import costs across all applicable sections",
+      "FCL multi-port carrier and service restrictions",
+      "Customs-only quotes without automatic freight"
+    ]
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -672,7 +678,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
+  "productionDeploymentAuthorization": "Explicit user authorization in chat on 2026-11-20 to promote requested import-cost and Incoterm fixes to master and production.",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -783,7 +789,7 @@
     ],
     "status": "candidate-ci-pending"
   },
-  "productionAuthorization": "user explicitly authorized deployment; realtime flags kept false",
+  "productionAuthorization": "Explicit user authorization in chat on 2026-11-20 to promote requested import-cost and Incoterm fixes to master and production.",
   "clientCountryOperationRelease": {
     "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
     "globalVersion": "1.102.0",
