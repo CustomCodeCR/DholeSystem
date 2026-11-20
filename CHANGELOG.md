@@ -1,3 +1,8 @@
+## [1.108.3] - 2026-11-20 (DH-20261120-P7-FREIGHT-DRAFT-370 · recuperación estable de pantalla 7)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.108.2 → 1.108.3 en develop únicamente. Fix Web: primera entrada P6→P7 conserva flete, segunda entrada no pierde CostIds/ventas; títulos de controles y grupos vacíos corregidos.
+- Backend PricingService, master y producción sin cambios. CI y validación funcional autenticada de staging requeridos.
+
 ## [1.108.2] - 2026-11-20 (DH-20261120-P7-VISIBLE-369 · hotfix P7 staging)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.108.1 → 1.108.2. El transformador de Vite dejó una referencia a `visible` sin declaración y bloqueaba toda reconstrucción de cargos en P7.
