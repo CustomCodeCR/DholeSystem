@@ -1,3 +1,11 @@
+## [1.108.0] - 2026-11-20 (DH-20261120-INCOTERMS-WIZARD-367 · fase 1 de Incoterms en develop)
+
+- MINOR coordinado DholeSystem/DholeWeb 1.107.5 → 1.108.0. El backend DholePricingService 1.26.9 permanece intacto. Sin autorización de despliegue a producción.
+- Incoterms® 2020 ya no ocultan los seis bloques del flujo de costos en Pantalla 7; mantienen consultas aplicables a ruta, naviera, agente, servicios y cliente, y no crean cargos ficticios por habilitar secciones.
+- La navegación P6→P7 aborta cuando los costos del contexto fallan, conserva importes manualmente ajustados al recargar en el mismo contexto y retiene borradores de ubicaciones EXW/FCA ante cambios de Incoterm.
+- Mensajes CIF/CIP requieren documentar seguro de tercero sin duplicar primas. Se agregaron pruebas de regresión para P1–P9 y los seis bloques.
+- Son cambios iniciales de UX y control del wizard, no la implementación completa de lugar contractual, evidencia de seguro, responsables por cargo, persistencia backend y PDF detallado. CI y staging autenticado pendientes.
+
 ## [1.107.5] - 2026-11-20 (DH-20261120-PRICING-WIZARD-RUNTIME-366 · restaurar formulario Pricing y evitar errores runtime)
 
 - PATCH coordinado Web/System 1.107.4 → 1.107.5: corrige `automaticOperationType is not defined` después de la promoción de la resolución mundial de países, sin revertirla.
