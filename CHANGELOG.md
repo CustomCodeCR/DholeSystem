@@ -1,3 +1,10 @@
+## [1.107.4] - 2026-11-20 (DH-20261120-PRICING-UNIVERSAL-COUNTRY-365 · países y rutas universales de Pricing)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.107.3 → 1.107.4 para resolver países de todas las rutas con ISO 3166-1, códigos ISO2/3, UN/LOCODE y nombres ES/EN/PT/FR, sin listas manuales de destinos.
+- La perspectiva comercial se determina con el país real del cliente frente al origen/destino final; cuando falta evidencia, continúa disponible el selector manual de Importación/Exportación/Tránsito.
+- VAT por POD, Incoterms, cargos, contratos REST y SignalR sin cambios. DholePricingService 1.26.9 se mantiene.
+- CI y staging autenticado obligatorios antes de producción. No existe autorización de despliegue productivo para esta versión.
+
 ## [1.107.3] - 2026-11-20 (DH-20261120-PRICING-PERSPECTIVE-364 · perspectiva comercial de Pricing)
 
 - PATCH Web/System coordinado 1.107.2 → 1.107.3: identifica El Salvador en los destinos antiguos aunque falte ISO en Config, amplía el ISO-2 de países CRM y permite seleccionar Importación/Exportación manualmente.
