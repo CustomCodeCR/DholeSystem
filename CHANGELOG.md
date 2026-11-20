@@ -3,6 +3,11 @@
 - PATCH: DholeWeb aplica automáticamente tarifas preferenciales definidas en CRM únicamente a ventas que coinciden por cuenta, ruta, equipo, naviera, Incoterm, servicio y rubro; costos originales y cotizaciones persistidas se conservan.
 - CRM 1.42.8 publica integración CONNECTED; Web/System 1.104.5. Versión global y manifiesto coordinados; CI, pruebas de integración y staging antes de la promoción a master.
 
+## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · aprobador nominal desde ventas)
+
+- PATCH: José Pablo, vendedor con autorización nominal, puede revisar y aprobar solicitudes de tarifas vencidas desde Inicio → Dashboard de Ventas; Roy accede desde Inicio. Sin permisos de Pricing ni SuperUsuario adicionales.
+- Contador en tiempo real vía SignalR y notificaciones con enlace seguro. DholeSystem/Web 1.104.3 → 1.104.4; Pricing 1.26.1 → 1.26.2.
+
 ## [1.104.3] - 2026-11-20 (DH-20261120-CRM-INVITEE-VISIBILITY-323 · agendas de invitados CRM)
 
 - PATCH coordinado de DholeSystem, DholeWeb y DholeCRMService: nombres reales de invitados internos en actividades, visibilidad de actividades compartidas en sus calendarios y reconciliación SignalR.
