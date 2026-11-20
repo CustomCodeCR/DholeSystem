@@ -1,3 +1,9 @@
+## [1.106.14] - 2026-11-20 (DH-20261120-PRICING-COSTS-BUILD-356 · corrección coordinada de compilación Pricing Web)
+
+- PATCH: sincroniza DholeSystem 1.106.10 → 1.106.14 con DholeWeb 1.106.14; repara compatibilidad del transformador LTL CFZ → San José con la carga universal del catálogo de costos.
+- Registra el release de recuperación de cargos y recargos para todos los Incoterms. DholePricingService no cambia; se conserva la validación de ruta, proveedor, servicios y precios.
+- Metadata y manifiesto únicamente; sin cambios en despliegues, servicios, contratos REST/SignalR o base de datos. CI y staging pendientes.
+
 ## [1.106.10] - 2026-11-20 (DH-20261120-PRICING-VAT-TOTAL-353 · IVA de tarifas en el resumen de oferta)
 
 - PATCH coordinado en DholePricingService 1.26.5 y DholeWeb/DholeSystem 1.106.10: IVA comercial por línea agregado en USD/CRC aunque Config guarde códigos de moneda opacos.
