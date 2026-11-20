@@ -90,8 +90,11 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.7.0",
-      "mergeState": "unchanged"
+      "version": "1.8.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -124,14 +127,15 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "MINOR: DholeSystem/DholeWeb 1.106.17→1.107.0; DholeAuthService 1.16.2→1.17.0; remaining 14 service components unchanged. CI/staging and authorized promotion required.",
+  "policyCheck": "MINOR: DholeSystem/DholeWeb 1.106.17→1.107.0; DholeAuthService 1.16.2→1.17.0; DholeNotificationsService 1.7.0→1.8.0; remaining 13 components unchanged. Four-repository coordinated release.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run DholeWeb and DholeAuthService CI and compile checks",
-    "Apply Auth preference migration and test global and per-user permissions in staging",
-    "Verify authenticated two-user update dialog behavior and reconciliation on staging",
-    "Verify SignalR event delivery or retain documented polling fallback before production"
+    "DholeWeb, DholeAuthService, DholeNotificationsService, DholeSystem CI and compile checks",
+    "Apply Auth preference migration and validate permissions in staging",
+    "Two-user staging SignalR validation: global and user-targeted policy invalidation; Redis outbox/inbox retries",
+    "Validate reconnect REST reconciliation, browser reload and no duplicate notices",
+    "Staging approval before master and explicit production authorization"
   ],
   "validationEvidence": {
     "status": "pending",
@@ -140,13 +144,14 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeAuthService",
+    "DholeNotificationsService",
     "DholeWeb"
   ],
   "changes": [
     "Version update dialog obeys authenticated global and individual preferences",
-    "Auth persists global/individual settings and writes durable outbox metadata",
-    "Only SuperUsuario can update all-user or another user's preference",
-    "System operational CRM/Pricing notifications remain unaffected"
+    "Auth persists global/individual settings and emits one outbox invalidation per affected active user",
+    "Auth Redis Stream routes policy events to Notifications, SignalR dispatch to validated user groups only",
+    "Normal CRM/Pricing operational notifications and notification inbox remain unaffected"
   ],
   "stagingValidation": {
     "status": "pending",
@@ -156,7 +161,9 @@
       "Per-user inherit restores global default",
       "Normal user blocked from global/other user's update routes",
       "Operational notifications remain unaffected",
-      "Existing sessions reconcile within 60-second polling window"
+      "Existing sessions reconcile within 60-second polling window",
+      "SignalR policy invalidation is per-user only; global change fans out by authorized user groups",
+      "Notifications inbox unchanged by policy events; duplicate Redis events do not duplicate notifications"
     ]
   },
   "f6F7F8": {
