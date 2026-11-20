@@ -1,3 +1,10 @@
+## [1.105.0] - 2026-11-20 (DH-20261120-OPERATIONS-APERTURES-330 · Aperturas manuales, Dashboard y Trámites)
+
+- MINOR coordinado DholeSystem/Web/Operations: formularios de Aperturas asistidos por CRM, consultas paginadas y seguras, indicadores por origen y navegación de expediente con ocho tabs.
+- Web/System 1.104.4 → 1.105.0; Operations 0.12.0 → 0.13.0. Se conservan las versiones de los otros 14 microservicios y componentes en el manifiesto central.
+- La integración definitiva Pricing → Operations para crear automáticamente un IDTRA requiere evento durable, snapshot de la opción aceptada, resolución segura de CRM e Inbox idempotente; **pendiente**, no simulada.
+- CI, staging, política de ramas y autorizaciones de producción por validar. No desplegar automáticamente a master.
+
 ## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · aprobador nominal desde ventas)
 
 - PATCH: José Pablo, vendedor con autorización nominal, puede revisar y aprobar solicitudes de tarifas vencidas desde Inicio → Dashboard de Ventas; Roy accede desde Inicio. Sin permisos de Pricing ni SuperUsuario adicionales.
