@@ -8,7 +8,7 @@
     "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
     "master": "fix/DH-20261120-PRICING-INLAND-QA-358"
   },
-  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+  "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -17,7 +17,7 @@
       "component": "DholeSystem",
       "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
@@ -40,7 +40,7 @@
       "component": "DholeWeb",
       "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
