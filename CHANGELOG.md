@@ -1,3 +1,9 @@
+## [1.104.0] - 2026-11-20 (DH-20261120-EXPIRED-RATE-APPROVAL-301 · autorización de tarifas vencidas)
+
+- MINOR coordinado de DholeSystem, DholeWeb y DholePricingService: tarifas vencidas con justificación obligatoria, autorización nominativa de Roy o José Pablo, registro histórico de solicitudes/decisiones, controles de edición en API y vista de aprobación.
+- Notificaciones durables System/SignalR y Email mediante Notifications Outbox; migración PostgreSQL aditiva. DholeSystem/DholeWeb 1.103.20 → 1.104.0; Pricing 1.25.4 → 1.26.0; resto de componentes sin cambios.
+- Requiere integración en develop, validación de staging y CI antes de master; sin despliegue productivo no autorizado.
+
 ## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · reparación guardado manual CRM)
 
 - PATCH: corrige TypeError en el formulario manual de tarifas preferenciales ocasionado por manual.amount.trim() después de v-model type=number.
