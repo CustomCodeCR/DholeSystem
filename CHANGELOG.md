@@ -1,3 +1,9 @@
+## [1.103.8] - 2026-11-19 (DH-20261119-PRICING-LTL-DDP-FREIGHT-284 · DDP LTL/FTL a producción)
+
+- PATCH de promoción selectiva Web/System 1.103.7→1.103.8 y DholePricingService 1.25.1→1.25.2: el flete internacional explícito de LTL/FTL bajo DDP no debe rechazarse como distribución FCL. Caso corregido: USD 50/CBM, 33.33 CBM, equipo terrestre 24.
+- Se conserva el esquema, los contratos REST y SignalR, la exclusión marítima CIF/FCL y todos los módulos preexistentes de master. Los otros 14 componentes mantienen su SemVer en el manifiesto; CRM master 1.42.0 no se reemplaza por develop.
+- Pruebas CI y despliegues staging de Pricing/Web aprobados; promoción master autorizada por usuario con validaciones y despliegue de producción automatizado sujetos a workflows.
+
 ## [1.103.7] - 2026-11-19 (DH-20261119-PRICING-LTL-MANUAL-ENDTOEND-278 · reparación integral de LTL propio manual)
 
 - PATCH DholeWeb/DholeSystem 1.103.6→1.103.7: la fuente propia manual LTL es válida en pantalla 5 y 6 y se mantiene en borradores; los importes de flete se conservan.
