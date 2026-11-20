@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "releaseId": "DH-20261120-VERSION-NOTICES-361",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.18",
-  "status": "candidate-ci-staging-verified-previous-release",
+  "ecosystemVersion": "1.107.0",
+  "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
-    "master": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master"
+    "develop": "feature/DH-20261120-VERSION-NOTICES-361",
+    "master": "release/DH-20261120-VERSION-NOTICES-361-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+  "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.18",
+      "version": "1.107.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -32,18 +32,18 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.16.2",
+      "version": "1.17.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
+      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.18",
+      "version": "1.107.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -104,8 +104,11 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.7.0",
-      "mergeState": "unchanged"
+      "version": "1.8.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -147,37 +150,40 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Targeted release: source hotfix 354 already integrated on develop (staging deployments passed) but missing in master; preserve master-only changes. Pricing 1.26.8→1.26.9; Web/System 1.106.16→1.106.18, max develop 1.106.17. Other components unchanged.",
+  "policyCheck": "MINOR coordinated DholeWeb/System 1.106.18→1.107.0, Auth 1.16.2→1.17.0, Notifications manifest 1.7.0→1.8.0; other 13 components unchanged, preserving Pricing master 1.26.9.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "PR CI must pass all build/version checks",
-    "Monitor automated production deploy after merge",
-    "Authenticate staging/production and smoke-test seller vs Pricing/Superadmin permissions"
+    "Staging deployment pipelines must complete successfully",
+    "Authenticated staging test: global and per-user disable and enable",
+    "Auth migration and Redis Streams and SignalR per-user event tested",
+    "All master-specific backport CI/build/test and version policy must pass",
+    "Confirm same functional release without unrelated develop changes"
   ],
   "validationEvidence": {
-    "unitTests": "source release 354 Pricing and Web unit/build PR CI passed; new master PR CI pending",
-    "staging": "source release 354 Pricing/Web automatic staging deploy succeeded",
-    "production": "master hotfix explicitly requested by user; production deploy still to be verified"
+    "status": "pending",
+    "note": "develop merged; staging deployment queued; isolated master backports pending CI and E2E; no production promotion before verification."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeAuthService",
+    "DholeNotificationsService",
+    "DholeWeb"
   ],
   "changes": [
-    "Pricing update GET/PUT and expired approval policy exempt Pricing scope and Superadmin but require seller manager approval",
-    "Web modal only for sellers; Pricing and Superadmin open edit without interruption",
-    "Preserve new master inland/Incoterm patches; no full branch merge",
-    "Keep SignalR Outbox notifications and revisions"
+    "Switchable version-update pop-up policy globally or per user",
+    "Persisted Auth preference and outbox event targeted by user",
+    "Notifications SignalR invalidation and REST fallback after reconnect",
+    "No change to CRM Pricing operational notification messages"
   ],
   "stagingValidation": {
-    "status": "source-release-staging-passed-automation-manual-role-check-pending",
+    "status": "pending",
     "scenarios": [
-      "Seller expiry opens approval request",
-      "Pricing and Superadmin edit expired quote directly",
-      "Closed/Cancelled are still blocked",
-      "Approve/reject produces System SignalR and Email notifications"
+      "Global disable hides popup for all authenticated users",
+      "Individual disable hides popup only for selected user",
+      "Normal user cannot manage global or other users",
+      "SignalR event on update and recovery on reconnect",
+      "Other operational notifications unaffected"
     ]
   },
   "f6F7F8": {
@@ -232,7 +238,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "businessReleaseId": "DH-20261120-VERSION-NOTICES-361",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
