@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+  "releaseType": "PATCH",
+  "date": "2026-11-20",
+  "ecosystemVersion": "1.106.2",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.106.1",
+      "version": "1.106.2"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.106.1",
+      "version": "1.106.2"
+    },
+    {
+      "component": "DholePricingService",
+      "previousVersion": "1.26.2",
+      "version": "1.26.3"
+    }
+  ],
+  "unchangedComponents": 14,
+  "sourceBranches": {
+    "DholeSystem": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+    "DholeWeb": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+    "DholePricingService": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344"
+  },
+  "checks": [
+    "Pricing unit regression for LTL CPT and FCL freight distribution",
+    "Web tests for explicit transport selection across Incoterms",
+    "GitHub CI and staging validation before master"
+  ],
+  "migration": false,
+  "signalR": "unchanged",
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "pending"
+}
