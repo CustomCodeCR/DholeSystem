@@ -1,3 +1,10 @@
+## [1.106.6] - 2026-11-20 (DH-20261120-MERCHANT-OPTIONS-348 · Merchant/Carrier comparte opciones entre Pantalla 6 y 7)
+
+- PATCH coordinado Web/System 1.106.5 → 1.106.6: opciones Optional de ruta confirmadas para Pantalla 7 no se descartan en Pantalla 6 por el segundo filtro de tramos. El cargo Balboa → Colon Free Zone (Merchant) queda disponible para comparar si cumple su contexto de Pricing.
+- El catálogo opcional validado se asocia a la alternativa actual, con protección de solicitudes atrasadas y consulta opcional independiente ante fallo del contexto general. Precios, CostIds, cantidades y cargos comunes se conservan.
+- Regresiones actualizadas para simular eliminación de todos los Optional por `applicableConfiguredCosts()` sin perder los costos de la pantalla siguiente.
+- Manifiesto de 17 componentes actualizado; 15 sin cambios de binarios. Infraestructura realtime mantiene bloqueo de producción independiente. CI y staging previos a publicación.
+
 ## [1.106.5] - 2026-11-20 (DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347 · selección Merchant/Naviera Pantalla 6)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.106.4 → 1.106.5. Los cargos opcionales de transporte disponibles en Pantalla 7 se consultan previamente en Pantalla 6, resolviendo el Inland Balboa → Colon Free Zone (Merchant) que no se ofrecía en la alternativa.
