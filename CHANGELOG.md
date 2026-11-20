@@ -1,3 +1,9 @@
+## [1.107.2] - 2026-11-20 (DH-20261120-PRICING-INLAND-RESTORE-363 · restauración de cargos en pantallas 6 y 7)
+
+- PATCH de contención coordinado con DholeWeb 1.107.2; revierte mutaciones prematuras del inland y de los costos durante la carga asíncrona, preservando la rama master actual (1.107.1).
+- Conserva las notificaciones de actualizaciones de 1.107.1, las aprobaciones de tarifas vencidas de 1.106.18 y el desbloqueo temporal de Incoterms. DholePricingService sigue en 1.26.9 y los otros componentes no cambian.
+- Sin cambios en infraestructura, bases de datos, REST ni SignalR. Validaciones de CI y posteriores al despliegue obligatorias.
+
 ## [1.107.1] - 2026-11-20 (DH-20261120-VERSION-NOTICE-500-362 · hotfix del guardado de avisos de versión)
 
 - PATCH coordinado: corrige HTTP 500 global/personal mediante Npgsql execution strategy que agrupa la transacción y los eventos Outbox atómicamente.
