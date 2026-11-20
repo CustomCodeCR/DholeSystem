@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.15",
-  "ecosystemVersion": "1.103.15",
-  "releaseId": "DH-20261119-DASHBOARD-TABLE-293",
+  "version": "1.103.16",
+  "ecosystemVersion": "1.103.16",
+  "releaseId": "DH-20261119-CRM-AGREEMENT-INVITEES-294",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-DASHBOARD-TABLE-293"
+  "businessReleaseId": "DH-20261119-CRM-AGREEMENT-INVITEES-294"
 }
