@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-PRICING-IMPORT-COSTS-345",
+  "releaseType": "PATCH",
+  "date": "2026-11-20",
+  "ecosystemVersion": "1.106.3",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "previousVersion": "1.106.2",
+      "version": "1.106.3"
+    },
+    {
+      "component": "DholeWeb",
+      "previousVersion": "1.106.2",
+      "version": "1.106.3"
+    }
+  ],
+  "unchangedComponents": 15,
+  "sourceBranches": {
+    "DholeSystem": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
+    "DholeWeb": "fix/DH-20261120-PRICING-IMPORT-COSTS-345"
+  },
+  "checks": [
+    "CIF import costs across origin / destination / documentation",
+    "Strict fallback catalog context restrictions",
+    "Manual charge stages, Web CI and version policy",
+    "Authenticated staging test before master"
+  ],
+  "migration": false,
+  "signalR": "unchanged",
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "pending"
+}
