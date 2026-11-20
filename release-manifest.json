@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
+  "releaseId": "DH-20261120-MERCHANT-OPTIONS-348",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.5",
+  "ecosystemVersion": "1.106.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
-    "master": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master"
+    "develop": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop",
+    "master": "fix/DH-20261120-MERCHANT-OPTIONS-348-master"
   },
-  "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
+  "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.5",
+      "version": "1.106.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
-      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.5",
+      "version": "1.106.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
-      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONS-348-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -140,35 +140,35 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH Web/System 1.106.4 → 1.106.5; remaining 15 component versions unchanged. Screen6 loads the same route-matched Optional catalog as Screen7; CI and authenticated staging checks required.",
+  "policyCheck": "PATCH Web/System 1.106.5 → 1.106.6; 15 components unchanged. Merchant option comparison uses same validated Screen7 Optional catalogue, without pricing-band double filter; gated by CI.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Confirm CI and global version policy on coordinated branches",
-    "Authenticated staging Balboa → Colon Free Zone Merchant UAT remains pending"
+    "CI regression + build and version gates",
+    "Authenticated staging price option comparison and persisted wizard parity UAT"
   ],
   "validationEvidence": {
-    "unitTests": "pending GitHub CI",
+    "unitTests": "pending CI",
     "staging": "pending authenticated UAT",
-    "production": "user explicitly requested master release; deployment not verified"
+    "production": "not verified"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Align Screen6 Merchant/Carrier alternative lookup with Screen7 Optional contextual catalog",
-    "Merge CostIds only for current POE/POD/provider context with serial guard",
-    "Keep exclusive haulage selection, no double counting and REST/SignalR compatibility",
-    "Preserve versions of 15 other components"
+    "Remove double price-band filtering of already validated Screen7 Optional catalogue in Screen6",
+    "Preserve dedicated CostId/context cache during refreshes, with stale request protection",
+    "Do not suppress valid Optional Merchant when independent contextual lookup fails",
+    "No REST, SignalR, or 15 other component version changes"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Balboa → Colon Free Zone Optional Merchant appears in Screen6 and Screen7",
-      "Merchant selection persists into Screen7 exactly once",
-      "Changing POE, POD, naviera or agent excludes previous optional transport",
-      "Other fixed shared charges remain selected"
+      "FCL Balboa to Colon Free Zone Merchant offered on Screen6 if present in Screen7",
+      "Merchant option remains visible when generic applicableConfiguredCosts rejects Optional",
+      "Switch POE or POD and stale optional cost disappears",
+      "Only chosen inland appears in Screen7 without duplicate shared charges"
     ]
   },
   "f6F7F8": {
@@ -223,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
+  "businessReleaseId": "DH-20261120-MERCHANT-OPTIONS-348",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1014,5 +1014,5 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Pricing Merchant Haulage Web business patch only; realtime F6/F9 production authorization remains disabled"
+  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed"
 }
