@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "releaseId": "DH-20261119-DASHBOARD-TABLE-293",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.14",
+  "ecosystemVersion": "1.103.15",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "candidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.14",
+      "version": "1.103.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
+      "candidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292"
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.14",
+      "version": "1.103.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
+      "candidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292"
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH comercial: Web/System 1.103.13→1.103.14. Desempeño (aceptadas−vencidas)/(cotizadas−abiertas), rechazadas en base y vencidas penalizadas. 15 componentes no alterados. CI/staging antes de master.",
+  "policyCheck": "PATCH Dashboard Ventas: DholeWeb/DholeSystem 1.103.14 → 1.103.15, otros 15 componentes conservan su versión. Tarjetas filtran tabla de seguimiento local y selector de clientes limitado a tarifas del vendedor, fecha, modalidad, estado y búsqueda. CI/staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -163,9 +163,9 @@
     "DholeWeb"
   ],
   "changes": [
-    "Notify the assigned seller in-app one day before quotation expiry (09:00 Costa Rica)",
-    "Preserve 5d/3d/1d/6h email reminders with separate durable 1d-system marker and transactional outbox",
-    "No REST contract or SignalR transport changes; migration extends reminder milestone constraint"
+    "Seller dashboard KPI cards filter the authorized quotation table in-place and scroll to its header",
+    "Client selector only includes clients from visible quoted rates after role/date/mode/status/search filters",
+    "No REST, realtime or backend permission changes"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "businessReleaseId": "DH-20261119-DASHBOARD-TABLE-293",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

@@ -1,3 +1,9 @@
+## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · indicadores de venta y seguimiento filtrable)
+
+- PATCH DholeWeb/DholeSystem 1.103.14 → 1.103.15. Tarjetas de estados comerciales activan el filtro de la tabla de tarifas del dashboard y llevan el scroll hasta ella, sin navegar a la vista Pricing.
+- Selector de cliente construido únicamente con cotizaciones autorizadas y filtradas; evita mostrar clientes ajenos al estado/vendedor/modalidad/periodo/búsqueda, deduplica valores y reinicia paginación.
+- Otros 15 componentes y su SemVer sin modificaciones; no cambia REST, SignalR ni esquema de datos. CI y staging requeridos; producción no autorizada.
+
 ## [1.103.14] - 2026-11-19 (DH-20261119-DASHBOARD-PERFORMANCE-292 · desempeño de ventas corregido)
 
 - PATCH Web/System 1.103.13 → 1.103.14: porcentaje de desempeño = (aceptadas − vencidas) / (total cotizadas − abiertas) × 100; incluye rechazadas, penaliza vencidas y excluye abiertas no entregadas.
