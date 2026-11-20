@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.17",
-  "ecosystemVersion": "1.103.17",
-  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "version": "1.103.18",
+  "ecosystemVersion": "1.103.18",
+  "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-CRM-TIERED-CHECK-293"
+  "businessReleaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295"
 }
