@@ -1,3 +1,9 @@
+## [1.106.7] - 2026-11-20 (DH-20261120-INCOTERM-IMPORT-350 · Incoterms importación China a Costa Rica)
+
+- PATCH coordinado Pricing/Web/System: los Incoterms aplican las obligaciones desde el país real del cliente, POL China y POD Costa Rica; importaciones no heredan el punto de vista exportador. Resolución de los 11 códigos ICC, con identificadores Config opacos y flete internacional expresamente contratado.
+- DholePricingService 1.26.3 → 1.26.4; DholeWeb y DholeSystem 1.106.6 → 1.106.7. Los otros 14 componentes no cambian binarios; se preservan REST, SignalR, Outbox e Inbox.
+- Release en ramas intermedias; compilación y pruebas CI, staging autenticado y aprobación de producción pendientes. Sin migración de datos ni despliegue autorizado.
+
 ## [1.106.6] - 2026-11-20 (DH-20261120-MERCHANT-OPTIONS-348 · Merchant/Carrier comparte opciones entre Pantalla 6 y 7)
 
 - PATCH coordinado Web/System 1.106.5 → 1.106.6: opciones Optional de ruta confirmadas para Pantalla 7 no se descartan en Pantalla 6 por el segundo filtro de tramos. El cargo Balboa → Colon Free Zone (Merchant) queda disponible para comparar si cumple su contexto de Pricing.
