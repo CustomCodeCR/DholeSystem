@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
+  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.17",
-  "status": "candidate-staging-validation-pending",
+  "ecosystemVersion": "1.106.18",
+  "status": "candidate-ci-staging-verified-previous-release",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
-    "master": "fix/DH-20261120-PRICING-INLAND-QA-358"
+    "develop": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+    "master": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.17",
+      "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.17",
+      "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-REGRESSION-360",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,8 +67,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.8",
-      "mergeState": "unchanged"
+      "version": "1.26.9",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -125,31 +130,36 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem and DholeWeb 1.106.16→1.106.17. DholePricingService unchanged 1.26.8, other 14 components unchanged; no runtime infrastructure release.",
+  "policyCheck": "PATCH role-specific expired quotation authorization promotion; already implemented/tested/deployed on develop as DH-20261120-EXPIRED-ROLE-354. Current master lacks same code. Pricing 1.26.8→1.26.9; Web/System 1.106.17→1.106.18 develop, master 1.106.16→1.106.18.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "DholeWeb CI and build must pass",
-    "Validate screen 6->7 inland and browser reload on staging before any master merge"
+    "Verify production deploy success and role-based edit after master merge",
+    "Staging CI for current release / production authenticated smoke tests"
   ],
   "validationEvidence": {
-    "status": "pending",
-    "note": "CI and staging checks required; authenticated 6→7 manual acceptance not evidenced"
+    "unitTests": "Original expiry patch DholePricing CI success; current release gates pending",
+    "staging": "Original expired rate patch Web/Pricing staging deploy succeeded; authenticated role verification pending",
+    "production": "explicit master promotion requested in conversation"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Update web screen 6 Merchant optional regression test harness to include draft persistence mocks"
+    "Promote pre-tested expiry role permission policy into master without overwriting newer master pricing or incoterm changes",
+    "Retain seller manager authorization workflow/Outbox/SignalR; allow pricing.rate.update and Superadmin editing expired rates",
+    "Preserve master-only later changes; commit coordinated cherry-pick as new patch after 1.106.17."
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "original-release-automated-deploy-passed",
     "scenarios": [
-      "Screen 6 selects Inland from configured costs",
-      "Screen 7 includes Inland by CostId without hard refresh",
-      "Selected inland persists across browser reload",
-      "No duplicate cost rows on repeated navigation"
+      "Seller receives approval modal and cannot edit expired rate without jefatura",
+      "Pricing with pricing.rate.update bypasses expired-rate approval",
+      "Superadmin role bypasses expired-rate approval",
+      "Closed/Cancelled remain noneditable",
+      "Approvals audit and notifications remain available"
     ]
   },
   "f6F7F8": {
@@ -204,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
+  "businessReleaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
