@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.17",
+  "ecosystemVersion": "1.103.18",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
+  "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.17",
+      "version": "1.103.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
+      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.17",
+      "version": "1.103.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
+      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,10 +75,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.3",
+      "version": "1.25.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/System -> 1.103.17, DholeCRMService 1.42.2->1.42.3. Allow TIERED_SALE in PostgreSQL and preserve partial writes; other services unchanged.",
+  "policyCheck": "PATCH paridad dashboard comercial: Web/System 1.103.17→1.103.18 y Pricing 1.25.3→1.25.4; otros 14 servicios sin cambios. Fuente única por sellerUserId incluyendo recibos/asignaciones/última publicación. REST opcional compatible, SignalR intacto; validar CI/staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -159,7 +159,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Fix PostgreSQL check constraint for TIERED_SALE in preferential rates",
@@ -905,6 +906,25 @@
     "otherComponentsUnchanged": 15,
     "formula": "(AcceptedByClient - Expired)/(Sent + AcceptedByClient + RejectedByClient + Expired)*100",
     "branch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "sellerDashboardPortfolioParityRelease": {
+    "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
+    "releaseType": "PATCH",
+    "previousEcosystemVersion": "1.103.17",
+    "ecosystemVersion": "1.103.18",
+    "components": {
+      "DholeSystem": "1.103.18",
+      "DholeWeb": "1.103.18",
+      "DholePricingService": "1.25.4"
+    },
+    "unchangedComponents": 14,
+    "security": "supervisory seller selection is authorized, read-only and uses user-id scoped published quotes",
+    "frontend": "scope selected seller in backend; remove request-only local cuts",
+    "performance": "(accepted-expired)/(quoted-open) on consistent published portfolio",
+    "branch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false

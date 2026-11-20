@@ -1,3 +1,9 @@
+## [1.103.18] - 2026-11-19 (DH-20261119-SELLER-DASHBOARD-PARITY-295 · corrección de paridad de carteras comerciales)
+
+- PATCH: el SuperUsuario filtrado por vendedor y la sesión de ese vendedor consultan la misma cartera de cotizaciones publicadas, incluyendo asignaciones directas, recibidas, vinculadas y las alternativas comerciales. Evita el recorte por solicitudes y discrepancias de 72/31 tarifas observadas en las capturas.
+- El desempeño mantiene (aceptadas − vencidas) / (cotizadas − abiertas) × 100, con un único conjunto de datos para ambos roles; las rechazadas permanecen en el denominador.
+- Versiones Web/System 1.103.17→1.103.18 y Pricing 1.25.3→1.25.4; 14 componentes inalterados, sin migraciones ni cambios incompatibles REST/SignalR. CI, staging y autorización previa a master.
+
 ## [1.103.17] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · CRM TIERED_SALE y guardados parciales)
 
 - PATCH: coordina CRM 1.42.3 con Web/System 1.103.16→1.103.17, corrigiendo el CHECK PostgreSQL que rechazaba TIERED_SALE con 409.
