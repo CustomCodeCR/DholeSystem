@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "releaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.16",
-  "status": "candidate-master-authorized-staging-deploy-passed-pr-gates-pending",
+  "ecosystemVersion": "1.106.17",
+  "status": "candidate-master-approval-pending-staging-deploy-completed",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
     "master": "release/DH-20261120-PRICING-INLAND-MASTER-359"
   },
-  "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.16",
+      "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.16",
+      "version": "1.106.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-RECOVERY-360-master-targeted",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
@@ -76,7 +76,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.8",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
       "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
       "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
@@ -147,37 +147,30 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH targeted promotion: staged DholeWeb/DholeSystem 1.106.16, Pricing 1.26.8; preserve master-only Incoterm temporary-unblock behavior. Other components unchanged.",
+  "policyCheck": "PATCH targeted master backport 1.106.17: restore pre-regression Screen 6→7 timing and safe optional cost loading; preserve master Incoterm unblocking, unchanged PricingService 1.26.8.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Authenticated manual Screen 6→7 inland acceptance still not evidenced; retain rollback plan",
-    "Confirm production deployment and check rate lines after merge"
+    "Authorized production deploy pending",
+    "Authenticated multi-POE route/inland regression acceptance remains pending"
   ],
   "validationEvidence": {
-    "unitTests": "passed GitHub CI",
-    "build": "passed GitHub CI",
-    "staging": "Web/Pricing deployment succeeded; authenticated quote 6→7 business acceptance still pending",
-    "production": "master integration explicitly requested"
+    "unitTests": "Staging PR CI passed; target master PR CI pending",
+    "staging": "DholeWeb 1.106.17 staging deploy success f20b6324a9119e3e74165fdc052102d6d6883d7e",
+    "production": "requires explicit approval"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Port staged inland Merchant/Carrier selection and CostId-scoped charges from Screen 6 to Screen 7",
-    "Persist inland by POE and carrier and discard late catalog responses",
-    "Preserve master temporary unblock of Incoterm cargo inclusion without wholesale develop merge"
+    "Rollback only unsafe synchronous step-7 inland/draft mutations from Web 1.106.16",
+    "Keep existing master Incoterm temporary unblocking and other 14 service versions",
+    "No backend Pricing API changes, no schema/migration changes"
   ],
   "stagingValidation": {
-    "status": "automated-deploy-passed-manual-e2e-pending",
-    "scenarios": [
-      "Screen 6 selects Inland from configured costs",
-      "Screen 7 includes Inland by CostId without hard refresh",
-      "Selected inland persists across browser reload",
-      "No duplicate cost rows on repeated navigation"
-    ]
+    "status": "staging deployed successfully; user reports data loads",
+    "source": "GitHub Actions staging 44805678536"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -231,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-REGRESSION-360",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -986,9 +979,9 @@
     "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User explicitly requested 'subalo a master' for inland Step 6→7 bugfix only. Realtime infrastructure flags remain fail-closed.",
-  "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master service workflows automatically deploy on push; no Infrastructure compose changes or universal realtime promotion in this release.",
+  "productionAuthorizationScope": "Release 1.106.17 is staging-proven but still requires explicit production deployment approval.",
+  "releaseMasterIntegrationRequested": false,
+  "releaseProductionDeploymentPolicy": "Do not merge master until user authorizes production; master push auto-deploys Web.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
