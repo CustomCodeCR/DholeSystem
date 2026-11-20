@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.11",
-  "ecosystemVersion": "1.103.11",
-  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
+  "version": "1.103.12",
+  "ecosystemVersion": "1.103.12",
+  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290"
+  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
 }
