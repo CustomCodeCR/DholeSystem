@@ -1,3 +1,9 @@
+## [1.107.1] - 2026-11-20 (DH-20261120-VERSION-NOTICE-500-362 · hotfix del guardado de avisos de versión)
+
+- PATCH coordinado: corrige HTTP 500 global/personal mediante Npgsql execution strategy que agrupa la transacción y los eventos Outbox atómicamente.
+- Auth 1.17.0 → 1.17.1; DholeSystem y DholeWeb 1.107.0 → 1.107.1; resto de componentes sin cambios.
+- Implementado y compilado en develop; promoción aislada sobre master sin arrastrar cambios no relacionados.
+
 ## [1.107.0] - 2026-11-20 (DH-20261120-VERSION-NOTICES-361 · control de avisos de nuevas versiones)
 
 - MINOR coordinado: DholeWeb 1.106.18 → 1.107.0, DholeAuthService 1.16.2 → 1.17.0, DholeNotificationsService 1.7.0 → 1.8.0 y DholeSystem 1.106.18 → 1.107.0.
