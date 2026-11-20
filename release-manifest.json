@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
+  "releaseId": "DH-20261120-INCOTERMS-WIZARD-367",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.5",
+  "ecosystemVersion": "1.108.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
-    "master": "fix/DH-20261120-PRICING-RUNTIME-366-master"
+    "develop": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+    "master": null
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
+  "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.5",
+      "version": "1.108.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
+      "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.5",
+      "version": "1.108.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
+      "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,7 +70,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.8",
+      "version": "1.26.9",
       "mergeState": "unchanged"
     },
     {
@@ -131,36 +131,39 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb and DholeSystem 1.107.4 → 1.107.5; PricingService 1.26.9 and all other components unchanged; no master merge before CI/staging.",
+  "policyCheck": "MINOR DholeWeb + DholeSystem 1.107.5 -> 1.108.0; DholePricingService 1.26.9 and all other components unchanged. Integrate only into develop after CI; no production promotion.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web build + TypeScript + pricing regression and minified JS runtime symbol validation",
-    "Staging authenticated wizard create/edit/view smoke",
-    "Production release authorization and postdeployment monitoring"
+    "Web build, TypeScript, source-transform guard and pricing regression suite",
+    "Authenticated P1-P9 create/edit/PDF smoke on staging",
+    "Backend contractual place / risk / party / insurance evidence and detailed PDF are deferred to subsequent phases"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "Production v1.107.4 screenshot and console show automaticOperationType is not defined after Vite transform",
-    "integrity": "Source has declaration but production bundle exposed global unbound reference"
+    "source": "DholeWeb feature branch implementation and regression test; no staging runtime results yet",
+    "scope": "UX all six blocks, optional contextual charges, P6-P7 API guard, EXW/FCA draft preservation"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Remove intermediate automaticOperationType and derive operation directly inside Pricing computed",
-    "Prevent shipping missing runtime symbol with transformed Vite and final bundle guards",
-    "Preserve all countries, customs VAT, import/export manual fallback, inland and other production fixes"
+    "Keep Recolecta, Origen, Flete, Destino, Entrega and Seguro accessible for all Incoterms",
+    "Protect P6-P7 against failed and stale cost queries and preserve priced lines only for equal context",
+    "Preserve EXW and FCA draft places, caution on CIF/CIP insurance without duplicate charges",
+    "No changes to PricingService REST, migrations or production"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Pricing create wizard mounts for all CRM and countries",
-      "Pricing persisted rate opens view/edit",
-      "Country selection automatic and manual remains correct",
-      "No inland/VAT/cost regresses screens 6-7",
-      "No automaticOperationType in final JavaScript bundle"
+      "P1 modalidad and P2 shipment type remain stable",
+      "P3 Import/Export manual plus 11 Incoterms and named EXW/FCA places survive P4-P9",
+      "P5 selects rate per POE and carrier; P6 selected inland Merchant/Carrier reaches P7 without reload",
+      "P7 shows all six cost blocks and matching route/carrier/agent/services/client charges, correct per-unit basis and manual charges",
+      "P8 cost sale tax and draft group totals match P7",
+      "P9 saved rate and generated PDF reproduce persisted lines and subQUOs",
+      "No duplicate insurance or freight for CIF, CIP and DDP; check CRM preferential rates"
     ]
   },
   "f6F7F8": {
@@ -215,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
+  "businessReleaseId": "DH-20261120-INCOTERMS-WIZARD-367",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
