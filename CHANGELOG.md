@@ -1,3 +1,8 @@
+## [1.103.21] - 2026-11-20 (DH-20261120-CRM-INVITEE-SYNC-309 · promoción de persistencia de invitados CRM)
+
+- PATCH: DholeSystem y DholeWeb 1.103.20 → 1.103.21, CRM 1.42.5 → 1.42.6, aplicando únicamente propagación de invitados y validación de persistencia; conserva el resto de los componentes del release.
+- Actualiza manifiesto global de 17 repositorios, mantiene outbox y SignalR, compatibilidad REST, pruebas y staging. Producción autorizada expresamente para esta promoción a master.
+
 ## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · reparación guardado manual CRM)
 
 - PATCH: corrige TypeError en el formulario manual de tarifas preferenciales ocasionado por manual.amount.trim() después de v-model type=number.
