@@ -1,3 +1,9 @@
+## [1.104.0] - 2026-11-20 (DH-20261120-EXPIRED-RATE-APPROVAL-301 · autorización de tarifas vencidas)
+
+- MINOR coordinado de DholeSystem, DholeWeb y DholePricingService: tarifas vencidas con justificación obligatoria, autorización nominativa de Roy o José Pablo, registro histórico de solicitudes/decisiones, controles de edición en API y vista de aprobación.
+- Notificaciones durables System/SignalR y Email mediante Notifications Outbox; migración PostgreSQL aditiva. DholeSystem/DholeWeb 1.103.21 → 1.104.0; Pricing 1.25.4 → 1.26.0; resto de componentes sin cambios.
+- Requiere integración en develop, validación de staging y CI antes de master; sin despliegue productivo no autorizado.
+
 ## [1.103.21] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · desbloqueo país CRM y ruta Vietnam)
 
 - PATCH frontend: el asistente de Pricing acepta la selección explícita del país del cliente en Pantalla 3 cuando CRM no lo tiene, sin alterar la ficha de la cuenta.
