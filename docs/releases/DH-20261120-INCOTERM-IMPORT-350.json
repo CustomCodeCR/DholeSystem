@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-INCOTERM-IMPORT-350",
+  "date": "2026-11-20",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.106.7",
+  "releaseType": "PATCH",
+  "component": "DholeSystem",
+  "previousVersion": "1.106.6",
+  "version": "1.106.7",
+  "components": [
+    {
+      "name": "DholeSystem",
+      "previousVersion": "1.106.6",
+      "version": "1.106.7"
+    },
+    {
+      "name": "DholeWeb",
+      "previousVersion": "1.106.6",
+      "version": "1.106.7"
+    },
+    {
+      "name": "DholePricingService",
+      "previousVersion": "1.26.3",
+      "version": "1.26.4"
+    }
+  ],
+  "productionDeploymentAuthorized": false,
+  "staging": "pending",
+  "ci": "pending"
+}
