@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
+  "releaseType": "PATCH",
+  "component": "DholeSystem",
+  "previousVersion": "1.103.10",
+  "version": "1.103.11",
+  "ecosystemVersion": "1.103.11",
+  "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "affectedComponents": [
+    "DholeCRMService",
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "stagingValidation": "pending",
+  "ci": "pending",
+  "productionDeploymentAuthorized": false
+}

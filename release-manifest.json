@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286",
+  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.10",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.103.11",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+  "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.10",
+      "version": "1.103.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
+      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.10",
+      "version": "1.103.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
-      "candidateSha": "3512d31209c63217870c491478888b9691205438",
+      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
+      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.1",
+      "version": "1.42.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
-      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
+      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-ACTIVITY-INVITEES-286"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -148,7 +148,7 @@
   ],
   "policyCheck": "PATCH: DholeWeb y DholeSystem 1.103.8→1.103.9; 15 servicios restantes conservan sus versiones. Backport selectivo del fix CRM 275 sobre master 284.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI master PR pendiente"
   ],
@@ -158,8 +158,8 @@
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeWeb",
     "DholeSystem",
+    "DholeWeb",
     "DholeCRMService"
   ],
   "changes": [
