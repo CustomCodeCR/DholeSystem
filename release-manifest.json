@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "releaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.20",
+  "ecosystemVersion": "1.103.21",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
+  "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.20",
+      "version": "1.103.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.20",
+      "version": "1.103.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
-      "candidateSha": "de666d5605111dba14fa3cbb2253548e2c8d2377",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.5",
+      "version": "1.42.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -159,7 +159,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Fix manual preferential amount numeric input parsing (avoid .trim TypeError)",
@@ -220,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
