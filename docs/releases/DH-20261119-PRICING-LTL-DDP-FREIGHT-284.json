@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "date": "2026-11-19",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.103.8",
+  "releaseType": "PATCH",
+  "promotion": "selective master from staging-tested release",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.7",
+      "version": "1.103.8"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.7",
+      "version": "1.103.8"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previousVersion": "1.25.1",
+      "version": "1.25.2"
+    }
+  ],
+  "otherComponentVersions": "preserved from master release-manifest.json",
+  "realtime": "unchanged",
+  "schemaMigration": false,
+  "productionDeploymentAuthorized": true,
+  "ci": "pending-master-pr",
+  "staging": "success",
+  "production": "pending"
+}
