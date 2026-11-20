@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "releaseId": "DH-20261120-PRICING-CLIENT-COUNTRY-298",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.20",
+  "ecosystemVersion": "1.103.21",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+  "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.20",
+      "version": "1.103.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
+      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.20",
+      "version": "1.103.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "candidateSha": "90751e3a10bccd1b372407ffdf05cf48bb1f398d",
+      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
+      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -912,5 +912,10 @@
     "developMerged": true,
     "staging": "pending",
     "productionDeploymentAuthorized": false
-  }
+  },
+  "releaseNotes": [
+    "FCL Vietnam–Costa Rica: faltante país CRM se selecciona en pantalla 3",
+    "Identificación explícita VN en POL sin metadata ISO",
+    "Se conservan reglas de IVA por POD y API/SignalR"
+  ]
 }
