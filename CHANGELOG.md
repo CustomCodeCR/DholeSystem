@@ -1,3 +1,8 @@
+## [1.105.1] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331 · restaurar beneficios preferenciales CRM en Pricing)
+
+- PATCH: reparación en DholeWeb del cargador efectivo de costos generado por Vite: ahora recupera los acuerdos de la cuenta CRM y aplica la venta preferencial por CostId, ruta, naviera, servicio, equipo e Incoterm, sin cambiar el costo del proveedor ni las cotizaciones emitidas.
+- Se agrega comprobación automática del resultado final de transformaciones, prueba de regresión y contador de líneas preferenciales efectivamente aplicadas. System/Web 1.105.0 → 1.105.1; CRM 1.42.8 y demás componentes sin cambios. CI/staging obligatorios.
+
 ## [1.105.0] - 2026-11-20 (DH-20261120-OPERATIONS-APERTURES-330 · Aperturas manuales, Dashboard y Trámites)
 
 - MINOR coordinado DholeSystem/Web/Operations: formularios de Aperturas asistidos por CRM, consultas paginadas y seguras, indicadores por origen y navegación de expediente con ocho tabs.
