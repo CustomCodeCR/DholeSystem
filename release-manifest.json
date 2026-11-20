@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.12",
+  "ecosystemVersion": "1.103.13",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.12",
+      "version": "1.103.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.12",
+      "version": "1.103.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: Pricing 1.25.2→1.25.3; System/Web 1.103.11→1.103.12; 14 components unchanged. New one-day System notification via existing realtime and Notifications outbox; CI/staging before master.",
+  "policyCheck": "PATCH Dashboard Ventas: Web/System 1.103.12 → 1.103.13; otros 15 componentes inalterados. Cabecera global, penalización vencidas y resultado por estado. CI/staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -878,6 +878,22 @@
     "description": "Versioned editing of CRM followups and reminders with audit, invitation preservation and durable re-enqueue",
     "branch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281-system-sync",
     "stagingValidation": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "commercialDashboardFilterRelease": {
+    "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+    "releaseType": "PATCH",
+    "previousVersion": "1.103.12",
+    "ecosystemVersion": "1.103.13",
+    "components": {
+      "DholeWeb": "1.103.13",
+      "DholeSystem": "1.103.13"
+    },
+    "otherComponentsUnchanged": 15,
+    "scope": "Filtro global Ventas fechas/vendedor/modalidad, desempeño negativo vencimientos y cinco categorías de importes.",
+    "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+    "ci": "pending",
+    "staging": "pending",
     "productionDeploymentAuthorized": false
   }
 }
