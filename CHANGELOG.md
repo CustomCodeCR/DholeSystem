@@ -1,3 +1,9 @@
+## [1.107.0] - 2026-11-20 (DH-20261120-VERSION-NOTICES-361 · configuración de avisos de actualizaciones)
+
+- MINOR coordinado: DholeWeb 1.106.17 → 1.107.0; DholeAuthService 1.16.2 → 1.17.0; DholeSystem 1.106.17 → 1.107.0. Los otros 14 componentes del manifiesto no cambian versión.
+- Ajustes autenticados con preferencia global (SuperUsuario) y por usuario, migración persistente Auth y control del diálogo de actualización en Web.
+- Outbox genera eventos de cambios, con validación de entrega SignalR y recuperación por reconexión aún pendiente. CI, staging y aprobación de producción obligatorios.
+
 ## [1.106.17] - 2026-11-20 (DH-20261120-PRICING-INLAND-REGRESSION-360 · contención de regresión inland)
 
 - PATCH: restablece la sincronización de Pantallas 6–7 anterior a 1.106.15/1.106.16 en DholeWeb, evitando mutaciones anticipadas de cargos y borradores durante la carga asíncrona.
