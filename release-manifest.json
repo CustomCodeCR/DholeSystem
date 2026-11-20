@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
+  "releaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.4",
+  "ecosystemVersion": "1.106.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-merchant-haulage-20261120",
-    "master": "pending-coordinated-release"
+    "develop": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
+    "master": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master"
   },
-  "candidateBranch": "fix/pricing-merchant-haulage-20261120",
+  "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.4",
+      "version": "1.106.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-merchant-haulage-20261120",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.4",
+      "version": "1.106.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-merchant-haulage-20261120",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -140,37 +140,35 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.106.3 → 1.106.4; other 15 components unchanged. Build/test and authenticated staging are required before integration to master.",
+  "policyCheck": "PATCH Web/System 1.106.4 → 1.106.5; remaining 15 component versions unchanged. Screen6 loads the same route-matched Optional catalog as Screen7; CI and authenticated staging checks required.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Verify Web unit tests, type-check, build and cross-repository semantic version gates",
-    "Authenticated staging UAT for fixed Merchant Balboa–San José, route exclusions and rate-line deduplication"
+    "Confirm CI and global version policy on coordinated branches",
+    "Authenticated staging Balboa → Colon Free Zone Merchant UAT remains pending"
   ],
   "validationEvidence": {
     "unitTests": "pending GitHub CI",
     "staging": "pending authenticated UAT",
-    "production": "not authorized"
+    "production": "user explicitly requested master release; deployment not verified"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Fix FCL Merchant/Carrier Haulage choice for route-matched Fixed/Variable Inland costs, not only Optional",
-    "Keep common fixed destination charges separate from alternative inland choices",
-    "Apply selected option exclusively in rate details without duplicate shared inland amounts",
-    "Preserve authoritative POE/POD multi-port matching, container charge bases, REST/SignalR and 15 unchanged components"
+    "Align Screen6 Merchant/Carrier alternative lookup with Screen7 Optional contextual catalog",
+    "Merge CostIds only for current POE/POD/provider context with serial guard",
+    "Keep exclusive haulage selection, no double counting and REST/SignalR compatibility",
+    "Preserve versions of 15 other components"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Maritime FCL Panama POE Balboa to POD San José: fixed unlinked inland appears as Merchant",
-      "Carrier-linked inland appears only under Naviera; fixed common destination charges remain",
-      "Per-container totals applied once when selecting Merchant",
-      "Changing to Naviera excludes Merchant cost by CostId",
-      "Alternative with another real POE/POD or carrier does not inherit previous inland",
-      "No regression Optional Merchant/Carrier and edit revisions"
+      "Balboa → Colon Free Zone Optional Merchant appears in Screen6 and Screen7",
+      "Merchant selection persists into Screen7 exactly once",
+      "Changing POE, POD, naviera or agent excludes previous optional transport",
+      "Other fixed shared charges remain selected"
     ]
   },
   "f6F7F8": {
@@ -225,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
+  "businessReleaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1014,5 +1012,7 @@
     "productionDeploymentAuthorized": false,
     "pricingAutomaticIntegration": "pending",
     "legacyDynamicsBackfill": "pending"
-  }
+  },
+  "businessReleaseMasterPromotionRequested": true,
+  "productionAuthorizationScope": "Pricing Merchant Haulage Web business patch only; realtime F6/F9 production authorization remains disabled"
 }
