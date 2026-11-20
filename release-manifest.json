@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+  "releaseId": "DH-20261120-PRICING-IMPORT-COSTS-345",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.2",
+  "ecosystemVersion": "1.106.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+    "develop": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
     "master": "pending-coordinated-release"
   },
-  "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+  "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.2",
+      "version": "1.106.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+      "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344"
+      "developCandidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.2",
+      "version": "1.106.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
+      "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344"
+      "developCandidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -68,7 +68,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.3",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
       "developCandidateBranch": "fix/DH-20261120-INCOTERM-QUOTED-FREIGHT-344",
       "masterCandidateBranch": null,
@@ -140,12 +140,12 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.1 → 1.106.2; DholePricingService 1.26.2 → 1.26.3; other 14 components unchanged. CI/staging required before master.",
+  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.2 → 1.106.3; DholePricingService 1.26.3 and other 14 components unchanged. CI/staging required before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Verify CI and regression checks for coordinated Web/Pricing changes",
-    "Staging authenticated test CPT LTL, CIF FCL and other Incoterms required before master"
+    "Verify Web CI including import cost regressions and version gates",
+    "Authenticated staging UAT with matching and nonmatching contextual cost cases pending"
   ],
   "validationEvidence": {
     "unitTests": "pending GitHub CI",
@@ -154,21 +154,22 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Permit explicitly quoted international freight across Incoterms when the Transport International service is selected",
-    "Prevent false Pricing.RateInvalidFreightDistribution for LTL CPT with no physical container allocations",
-    "Retain strict FCL equipment allocation for quoted FCL freight and preserve other commercial charges"
+    "Do not double-filter authoritative Pricing contextual costs by legacy multi-port snapshots",
+    "Show eligible origin, destination and documentation charges in import quotations regardless of responsibility-only section mapping",
+    "Keep manual section selection open and freight limited by contracted transport service",
+    "Preserve strict fallback catalog matching and other 15 component versions"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "CPT LTL Colón-Managua 1 CBM, Freight+TI",
-      "CIF FCL destination only",
-      "CIF/CPT FCL with explicit freight allocations",
-      "FTL and LCL prices across all 11 Incoterms"
+      "CIF import destination and origin charges loaded from Costs/select",
+      "No ocean freight if INT_TRANSPORT absent",
+      "CIF import paid Freight if INT_TRANSPORT selected",
+      "Unmatched carrier/route/Incoterm costs excluded",
+      "Manual charge can use all stages"
     ]
   },
   "f6F7F8": {
