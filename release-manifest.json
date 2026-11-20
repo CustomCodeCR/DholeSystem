@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CLIENT-COUNTRY-298",
+  "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.23",
+  "ecosystemVersion": "1.104.1",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+  "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.23",
+      "version": "1.104.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,32 +33,24 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.16.2",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.23",
+      "version": "1.104.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -75,11 +67,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.4",
+      "version": "1.26.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
-      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master-v3",
       "developMergeSha": "95e7ece325968140f3f13a5f5a62b47ae389e435",
       "candidateSha": null
     },
@@ -129,21 +121,13 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.42.6",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
-      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.12.0",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.18→1.103.20. Remaining 15 services unchanged. CRM manual preferred charges numeric v-model TypeError fix; requires CI/staging.",
@@ -159,7 +143,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Avoid .trim on Vue's numeric v-model value before manual CRM POST",
@@ -220,7 +205,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -917,5 +902,28 @@
     "El usuario puede ingresar país CRM para cotización en Pantalla 3",
     "POL Vietnam reconocido explícitamente como VN",
     "Compatibilidad con IVA POD, REST y SignalR existente"
-  ]
+  ],
+  "expiredRateAuthorizationRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+    "releaseType": "MINOR",
+    "ecosystemVersion": "1.104.0",
+    "pricingVersion": "1.26.0",
+    "channels": [
+      "System (SignalR)",
+      "Email"
+    ],
+    "productionDeploymentAuthorized": false
+  },
+  "expiredRateOutboxHotfixRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+    "releaseType": "PATCH",
+    "previousEcosystemVersion": "1.104.0",
+    "ecosystemVersion": "1.104.1",
+    "pricingVersion": "1.26.1",
+    "systemAndWebVersion": "1.104.1",
+    "reason": "Outbox correlation_id varchar(100) protection",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
