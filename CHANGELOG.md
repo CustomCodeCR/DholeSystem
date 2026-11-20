@@ -1,3 +1,9 @@
+## [1.103.12] - 2026-11-19 (DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291 · aviso de vencimiento al vendedor)
+
+- PATCH coordinado de DholeSystem y DholeWeb 1.103.11→1.103.12, Pricing 1.25.2→1.25.3. Las otras 14 versiones no cambian.
+- Se añade recordatorio System/SignalR un día antes del vencimiento de una tarifa enviada, con destinatario vendedor autorizado, enlace, cliente y fecha. El correo existente sigue activo, con idempotencia separada por canal.
+- Migración compatible de marcador PostgreSQL y outbox transaccional. Se mantienen REST, seguridad e infraestructura realtime. CI y staging requeridos; despliegue de producción no autorizado.
+
 ## [1.103.11] - 2026-11-19 (DH-20261119-CRM-INVITATIONS-SAVE-290 · CRM invitaciones sin error interno)
 
 - PATCH: sincroniza DholeSystem/DholeWeb 1.103.11 y DholeCRMService 1.42.2; el sistema de eventos SignalR/Redis Streams y el outbox de invitaciones permanecen compatibles.
