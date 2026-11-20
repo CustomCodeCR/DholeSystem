@@ -1,3 +1,8 @@
+## [1.103.17] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · corregir 409 de tarifas preferenciales)
+
+- PATCH selectivo System/Web 1.103.15→1.103.17 y CRM 1.42.2→1.42.3. CRM amplía CHECK para TIERED_SALE y conserva todos los datos; Web no reenvía cargos ya guardados.
+- Validación de migración en staging completada. CI y staging del frontend antes del master. REST/SignalR permanecen compatibles.
+
 ## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · backport master dashboard de ventas)
 
 - PATCH: backport aislado de DholeWeb/DholeSystem 1.103.14→1.103.15, sin fusionar ramas divergentes.
