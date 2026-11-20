@@ -3,7 +3,7 @@
   "releaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.107.5",
-  "status": "candidate-production-ci-pending",
+  "status": "candidate-master-authorized-ci-pending",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
     "master": "fix/DH-20261120-PRICING-RUNTIME-366-master"
@@ -150,18 +150,21 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH DholeWeb and DholeSystem 1.107.4 → 1.107.5; PricingService 1.26.9 and all other components unchanged; no master merge before CI/staging.",
+  "policyCheck": "PATCH v1.107.4 -> v1.107.5 for the same Pricing master promotion explicitly requested by the user; emergency repair of runtime crash after release v1.107.4. DholePricingService 1.26.9 unchanged. Stage build+CI passed; authenticated E2E unverified.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Web build + TypeScript + pricing regression and minified JS runtime symbol validation",
-    "Staging authenticated wizard create/edit/view smoke",
-    "Production release authorization and postdeployment monitoring"
+    "Master release CI and version synchronization with DholeWeb",
+    "Staging authenticated Pricing wizard E2E could not be verified independently; post-deploy validation required",
+    "Confirm production wizard create/view/edit, manual Import/Export and inland after promotion"
   ],
   "validationEvidence": {
     "status": "pending",
     "source": "Production v1.107.4 screenshot and console show automaticOperationType is not defined after Vite transform",
-    "integrity": "Source has declaration but production bundle exposed global unbound reference"
+    "integrity": "Source has declaration but production bundle exposed global unbound reference",
+    "authorization": "Follow-up emergency correction of previous explicitly requested master Pricing release 1.107.4",
+    "stageCI": "DholeWeb PR #947 passed all 5 checks and merged develop",
+    "stagingAuthenticatedE2E": "unverified"
   },
   "releaseComponents": [
     "DholeWeb",
