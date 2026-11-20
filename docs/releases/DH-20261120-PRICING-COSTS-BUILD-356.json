@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-PRICING-COSTS-BUILD-356",
+  "date": "2026-11-20",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.106.14",
+  "releaseType": "PATCH",
+  "scope": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "versions": {
+    "DholeWeb": {
+      "from": "1.106.13",
+      "to": "1.106.14"
+    },
+    "DholeSystem": {
+      "from": "1.106.10",
+      "to": "1.106.14"
+    },
+    "DholePricingService": {
+      "unchanged": "1.26.7"
+    }
+  },
+  "changes": [
+    "Compatibility fix in build/pricingOwnLtlPanamaCosts.ts for universal Pricing full catalogue query",
+    "Preserve matching CostIds for CFZ-to-San Jose operational LTL charges independently of Incoterm",
+    "Retain existing filters for route, carrier, agent, service, shipment mode and price band"
+  ],
+  "tests": [
+    "pnpm build",
+    "pnpm test:pricing-rate-update",
+    "Dhole semantic version gate",
+    "ltlPanamaOwnCosts.test.ts"
+  ],
+  "realtime": "unchanged REST/SignalR",
+  "schemaMigration": false,
+  "productionDeploymentAuthorized": true,
+  "ci": "pending",
+  "staging": "pending",
+  "authenticatedProductionValidation": "pending",
+  "rollback": "Revert coordinated patch release and restore last tested Web build if deployment fails.",
+  "component": "DholeSystem"
+}
