@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-COUNTRY-OPTIONS-310",
+  "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.24",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.104.3",
+  "status": "production-release-candidate-staging-gate",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-system-master",
+  "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.24",
+      "version": "1.104.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-system-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.24",
+      "version": "1.104.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-web-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.6",
+      "version": "1.42.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
-      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -146,24 +146,26 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.18→1.103.20. Remaining 15 services unchanged. CRM manual preferred charges numeric v-model TypeError fix; requires CI/staging.",
+  "policyCheck": "Production PATCH: System/Web 1.103.24 -> 1.104.3, CRM 1.42.6 -> 1.42.7; global release matches develop 1.104.3; other 14 components unchanged.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging validation pending"
+    "Staging deploy confirmation and functional two-user verification required before merge"
   ],
   "validationEvidence": {
-    "tests": "CI pending",
-    "staging": "pending",
+    "tests": "PR CI pending",
+    "staging": "deploy pending",
     "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
-    "Avoid .trim on Vue's numeric v-model value before manual CRM POST",
-    "Show form validation errors without browser silent blocking and add behavioral tests"
+    "Resolve activity invitees to Auth display names without leaking directory",
+    "Show the same invited activity in each internal invitee calendar with event membership authorization",
+    "Realtime/REST reconnection reconciles participants and calendars"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -220,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -914,9 +916,18 @@
     "productionDeploymentAuthorized": false
   },
   "releaseNotes": [
-    "Fix runtime r.pricingQuoteCountryOptions undefined on Create tariff",
-    "Use reactive Config countries directly in both country selectors",
-    "Prevent regressions by inspecting minified Pricing bundle",
-    "No REST, SignalR or backend changes"
-  ]
+    "No broad develop-to-master merge; three production-compatible components only",
+    "No new REST breaking changes or database migrations"
+  ],
+  "crmInviteeVisibilityRelease": {
+    "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+    "releaseType": "PATCH",
+    "previousMasterEcosystemVersion": "1.103.24",
+    "developEcosystemVersion": "1.104.3",
+    "ecosystemVersion": "1.104.3",
+    "crmVersion": "1.42.7",
+    "staging": "pending",
+    "ci": "pending",
+    "productionDeploymentAuthorized": true
+  }
 }
