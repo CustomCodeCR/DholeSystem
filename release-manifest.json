@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "releaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.4",
+  "ecosystemVersion": "1.105.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.4",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.4",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,15 +131,21 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.12.0",
-      "mergeState": "unchanged"
+      "version": "0.13.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/aperturas-dashboard-tramites-20261119",
+      "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119",
+      "candidateSha": null,
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: Global 1.104.2 → 1.104.3; Web catches up from 1.104.1 → 1.104.3 and CRM 1.42.6 → 1.42.7; other components unchanged.",
+  "policyCheck": "MINOR: ecosystem and DholeWeb 1.104.4 → 1.105.0; Operations 0.12.0 → 0.13.0; other 14 component versions unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging verification pending"
+    "Pricing definitive acceptance event/snapshot and idempotent Operations consumer not implemented",
+    "Staging end-to-end and CI verification pending"
   ],
   "validationEvidence": {
     "tests": "CI pending",
@@ -149,12 +155,13 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Show named internal CRM activity invitees",
-    "Include shared activities in invited internal users' calendars",
-    "Keep attendee details synchronized with SignalR and REST"
+    "Manual Aperturas CRM account picker and authorized case creation",
+    "Operations dashboard KPIs for manual and Pricing-origin cases",
+    "Paged Aperturas and Trámites filtering by IDTRA, status and origin",
+    "Single 8-tab Operations expediente navigation for existing data"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -211,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "businessReleaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
