@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-VERSION-NOTICE-500-362",
+  "releaseId": "DH-20261120-PRICING-INLAND-RESTORE-363",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.1",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.107.2",
+  "status": "candidate-master-authorized-ci-pending",
   "branches": {
     "develop": "feature/DH-20261120-VERSION-NOTICES-361",
     "master": "release/DH-20261120-VERSION-NOTICES-361-master"
   },
-  "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-master",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.1",
+      "version": "1.107.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.1",
+      "version": "1.107.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -76,7 +76,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.9",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
       "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
@@ -150,26 +150,25 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "MINOR coordinated DholeWeb/System 1.106.18→1.107.0, Auth 1.16.2→1.17.0, Notifications manifest 1.7.0→1.8.0; other 13 components unchanged, preserving Pricing master 1.26.9.",
+  "policyCheck": "PATCH Web/System 1.107.1->1.107.2; DholePricingService stays 1.26.9; other components preserved.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Auth staging deploy 1.17.1 and authenticated verification",
-    "master PR CI and synchronized Web/System versions"
+    "CI and postdeploy real quote verification required"
   ],
   "validationEvidence": {
-    "rootCause": "NpgsqlRetryingExecutionStrategy does not support user-started transaction outside execution strategy",
-    "logWorkflow": "DholeAuthService/actions/runs/44812820196",
-    "status": "pending-staging-e2e"
+    "staging": "Reference Web 1.106.17 staging deployed success (run 44805678536)",
+    "masterPR": "CI pending",
+    "production": "Authorized by user 2026-11-20"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeAuthService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Fix EF Core retry strategy transaction and outbox for update notice preferences",
-    "Align Auth, DholeWeb and DholeSystem SemVer"
+    "Restore staging-stable inland screen6 to screen7 behavior, remove premature catalog line and draft mutations",
+    "Preserve master-only version notifications, expired rate approval and Incoterm temporary unblock",
+    "No PricingService REST/SignalR changes"
   ],
   "stagingValidation": {
     "status": "pending",
@@ -231,7 +230,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-VERSION-NOTICES-361",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-RESTORE-363",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -986,9 +985,9 @@
     "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User explicitly requested 'subalo a master' for inland Step 6→7 bugfix only. Realtime infrastructure flags remain fail-closed.",
+  "productionAuthorizationScope": "User explicitly requested subelo a master for the inland Step 6→7 recovery hotfix only. Existing infra realtime release gates unchanged.",
   "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master service workflows automatically deploy on push; no Infrastructure compose changes or universal realtime promotion in this release.",
+  "releaseProductionDeploymentPolicy": "Master integration authorized for this Web/System hotfix; production Web push auto deploys. No infrastructure compose changes.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
