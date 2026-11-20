@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.103.13",
-  "ecosystemVersion": "1.103.13",
-  "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+  "version": "1.103.14",
+  "ecosystemVersion": "1.103.14",
+  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
   "releaseStatus": "candidate-ci-and-production-pending",
-  "businessReleaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+  "businessReleaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292"
 }

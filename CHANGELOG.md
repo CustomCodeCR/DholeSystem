@@ -1,3 +1,8 @@
+## [1.103.14] - 2026-11-19 (DH-20261119-DASHBOARD-PERFORMANCE-292 · fórmula comercial corregida)
+
+- PATCH: las abiertas se excluyen del total de cotizaciones entregadas; las rechazadas sí permanecen en el denominador y las vencidas restan en el numerador. Desempeño = (aceptadas − vencidas) / (total cotizadas − abiertas) × 100.
+- Incluye reporte general de Ventas 1.103.13, filtros por fecha/vendedor/modalidad y categorías monetarias. Se conservan versiones de los otros 15 componentes, REST y SignalR. Requiere staging previo a master.
+
 ## [1.103.13] - 2026-11-19 (DH-20261119-DASHBOARD-GLOBAL-FILTER-291 · dashboard comercial global)
 
 - PATCH DholeWeb/DholeSystem 1.103.12 → 1.103.13. Filtros globales de fecha, vendedor y modalidad en dashboard de Ventas y reportería.
