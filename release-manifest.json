@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.2",
+  "ecosystemVersion": "1.104.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.2",
+      "version": "1.104.3",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
       "candidateSha": null,
@@ -38,7 +38,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.2",
+      "version": "1.104.3",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
       "candidateSha": null,
@@ -135,7 +135,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: Web/System 1.104.1 → 1.104.2 and CRM 1.42.6 → 1.42.7; fourteen other components unchanged, CI + staging required.",
+  "policyCheck": "PATCH: Global 1.104.2 → 1.104.3; Web catches up from 1.104.1 → 1.104.3 and CRM 1.42.6 → 1.42.7; other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -959,8 +959,8 @@
   "crmInviteeVisibilityRelease": {
     "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
     "releaseType": "PATCH",
-    "previousEcosystemVersion": "1.104.1",
-    "ecosystemVersion": "1.104.2",
+    "previousEcosystemVersion": "1.104.2",
+    "ecosystemVersion": "1.104.3",
     "crmVersion": "1.42.7",
     "ci": "pending",
     "staging": "pending",
