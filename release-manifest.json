@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.4",
+  "ecosystemVersion": "1.104.5",
   "status": "candidate-ci-and-staging-pending",
-  "branches": [
-    "develop",
-    "master"
-  ],
-  "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+  "branches": {
+    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
+    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master"
+  },
+  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.4",
+      "version": "1.104.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.4",
+      "version": "1.104.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.7",
+      "version": "1.42.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -146,26 +146,25 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "Production PATCH: System/Web 1.103.24 -> 1.104.3, CRM 1.42.6 -> 1.42.7; global release matches develop 1.104.3; other 14 components unchanged.",
+  "policyCheck": "PATCH: Global baseline up to 1.104.4 → 1.104.5; Web to 1.104.5 and CRM to 1.42.8. Other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Staging deploy confirmation and functional two-user verification required before merge"
+    "Required CI and staging tests pending"
   ],
   "validationEvidence": {
-    "tests": "PR CI pending",
-    "staging": "deploy pending",
+    "tests": "pending CI",
+    "staging": "pending",
     "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
-    "Resolve activity invitees to Auth display names without leaking directory",
-    "Show the same invited activity in each internal invitee calendar with event membership authorization",
-    "Realtime/REST reconnection reconciles participants and calendars"
+    "Apply CRM customer-specific preferential sale prices on new Pricing quotations",
+    "Preserve supplier costs and existing quote snapshots; support manual CRM charge and retry"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

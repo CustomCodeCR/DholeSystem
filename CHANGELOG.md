@@ -1,3 +1,8 @@
+## [1.104.5] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-324 · precios preferenciales de CRM)
+
+- PATCH: Pricing aplica automáticamente ventas preferenciales CRM en cargos coincidentes del cliente. Mantiene costo proveedor y cotizaciones persistidas.
+- Web/System 1.104.5; CRM 1.42.8. Release coordinado con manifiesto, CI/staging pendientes.
+
 ## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · aprobador nominal desde ventas)
 
 - PATCH: José Pablo, vendedor con autorización nominal, puede revisar y aprobar solicitudes de tarifas vencidas desde Inicio → Dashboard de Ventas; Roy accede desde Inicio. Sin permisos de Pricing ni SuperUsuario adicionales.
