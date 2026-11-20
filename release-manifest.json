@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.20",
+  "ecosystemVersion": "1.104.0",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+  "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.20",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,32 +33,24 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.16.2",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/20261119-operations-team-bulk-251-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.20",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "candidateSha": "90751e3a10bccd1b372407ffdf05cf48bb1f398d",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -75,11 +67,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.4",
+      "version": "1.26.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
-      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-RATE-APPROVAL-301-master",
       "developMergeSha": "95e7ece325968140f3f13a5f5a62b47ae389e435",
       "candidateSha": null
     },
@@ -129,21 +121,13 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.42.3",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.12.0",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.18→1.103.20. Remaining 15 services unchanged. CRM manual preferred charges numeric v-model TypeError fix; requires CI/staging.",
@@ -158,8 +142,9 @@
     "production": "not deployed"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholePricingService"
   ],
   "changes": [
     "Avoid .trim on Vue's numeric v-model value before manual CRM POST",
@@ -220,7 +205,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -910,6 +895,25 @@
     "unchangedComponents": 14,
     "scope": "Admin selected seller rates identical to personal projection, no RateRequest-only cut",
     "developMerged": true,
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "expiredRateAuthorizationRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+    "releaseType": "MINOR",
+    "ecosystemVersion": "1.104.0",
+    "pricingVersion": "1.26.0",
+    "systemAndWebVersion": "1.104.0",
+    "authorizers": [
+      "rsibaja@castrofallas.com",
+      "jmesen@castrofallas.com"
+    ],
+    "channels": [
+      "System (SignalR)",
+      "Email"
+    ],
+    "audit": "revision-scoped",
+    "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
   }
