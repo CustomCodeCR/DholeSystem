@@ -1,3 +1,8 @@
+## [1.103.21] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · desbloqueo de país CRM para FCL)
+
+- PATCH compatible de Pricing Web: la selección del país del cliente se ofrece en Pantalla 3, donde actualmente se valida, sin alterar el CRM. Reconoce Vietnam como VN desde el nombre explícito del POL cuando falta metadata Config.
+- Web/System 1.103.20→1.103.21, demás 15 servicios conservan sus versiones; contratos REST, SignalR y DB sin cambios. Requiere CI, staging y autorización antes de producción.
+
 ## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · reparación guardado manual CRM)
 
 - PATCH: corrige TypeError en el formulario manual de tarifas preferenciales ocasionado por manual.amount.trim() después de v-model type=number.
