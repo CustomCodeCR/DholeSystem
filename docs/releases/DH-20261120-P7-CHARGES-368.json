@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-P7-CHARGES-368",
+  "ecosystem": "Dhole",
+  "date": "2026-11-20",
+  "type": "PATCH",
+  "target": "develop",
+  "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
+  "ecosystemVersion": "1.108.1",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previous": "1.108.0",
+      "next": "1.108.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previous": "1.108.0",
+      "next": "1.108.1"
+    }
+  ],
+  "backendUnchanged": true,
+  "productionDeploymentAuthorized": false,
+  "changes": [
+    "Reconcile contextual and active supplier costs by CostId, then filter strictly by route/provider/Incoterm",
+    "Restore fixed MAERSK-Caldera destination and WWL agent charges when contextual API returns only optional costs",
+    "Recover empty P7 lines automatically and via manual action, without page reload",
+    "Allow shipmentMode Any costs without bypassing carrier/agent filters"
+  ],
+  "evidence": [
+    "User-provided active catalogue includes fixed MAERSK destination cost 280/435, MAERSK Doc Fee 60/65, WWL Manejos cost 50, plus optionals",
+    "tests/pricingScreenSevenCostRecovery368.test.ts"
+  ],
+  "stagingChecked": false,
+  "testsPassed": false,
+  "rollback": "Revert develop Web/System PRs; no backend or migration changes"
+}
