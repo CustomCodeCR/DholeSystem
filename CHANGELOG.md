@@ -1,8 +1,20 @@
-## [1.106.19] - 2026-11-20 (DH-20261120-PRICING-INLAND-CONFLICTS-362 · inland y cargos: resolución de conflictos)
+## [1.107.2] - 2026-11-20 (DH-20261120-PRICING-INLAND-RESTORE-363 · restauración de cargos en pantallas 6 y 7)
 
-- PATCH de contención coordinado con DholeWeb 1.106.19, sobre la versión master 1.106.18, que retira la sincronización/guardado prematuro de cargos entre las pantallas 6 y 7.
-- Conserva la autorización de vencidas según rol (release 361) y el desbloqueo temporal de Incoterms. DholePricingService 1.26.9 y otros 14 componentes sin cambios.
-- Sin alteraciones de REST, SignalR, migraciones o infraestructura. CI de PR pendiente, sin despliegue de producción autorizado.
+- PATCH de contención coordinado con DholeWeb 1.107.2; revierte mutaciones prematuras del inland y de los costos durante la carga asíncrona, preservando la rama master actual (1.107.1).
+- Conserva las notificaciones de actualizaciones de 1.107.1, las aprobaciones de tarifas vencidas de 1.106.18 y el desbloqueo temporal de Incoterms. DholePricingService sigue en 1.26.9 y los otros componentes no cambian.
+- Sin cambios en infraestructura, bases de datos, REST ni SignalR. Validaciones de CI y posteriores al despliegue obligatorias.
+
+## [1.107.1] - 2026-11-20 (DH-20261120-VERSION-NOTICE-500-362 · hotfix del guardado de avisos de versión)
+
+- PATCH coordinado: corrige HTTP 500 global/personal mediante Npgsql execution strategy que agrupa la transacción y los eventos Outbox atómicamente.
+- Auth 1.17.0 → 1.17.1; DholeSystem y DholeWeb 1.107.0 → 1.107.1; resto de componentes sin cambios.
+- Implementado y compilado en develop; promoción aislada sobre master sin arrastrar cambios no relacionados.
+
+## [1.107.0] - 2026-11-20 (DH-20261120-VERSION-NOTICES-361 · control de avisos de nuevas versiones)
+
+- MINOR coordinado: DholeWeb 1.106.18 → 1.107.0, DholeAuthService 1.16.2 → 1.17.0, DholeNotificationsService 1.7.0 → 1.8.0 y DholeSystem 1.106.18 → 1.107.0.
+- Preferencias globales e individuales, persistencia Auth, Outbox/Redis Streams y SignalR con reconciliación REST y aislamiento por usuario.
+- Promoción aislada desde rama master y no desde develop (evita 1.000+ commits no relacionados); CI, migración y staging E2E obligatorios antes de merge a master.
 
 ## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · aprobación de vencidas exclusiva para vendedores)
 
