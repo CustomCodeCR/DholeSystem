@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
+  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.10",
+  "ecosystemVersion": "1.106.16",
   "status": "candidate-master-authorized-staging-deploy-passed-pr-gates-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
-    "master": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master"
+    "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
+    "master": "release/DH-20261120-PRICING-INLAND-MASTER-359"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+  "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.10",
+      "version": "1.106.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
       "candidateSha": null,
-      "developMergeSha": "ef45804d313fa81c1d0ad72fd02f715c218f830d",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.10",
+      "version": "1.106.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
       "candidateSha": null,
-      "developMergeSha": "8e63d359e6f3aba6c8655cdc607a22c9cdfdf3e5",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,12 +75,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.5",
+      "version": "1.26.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
-      "developMergeSha": "6054f5a7de67cce7fc87582c5b1141b744c7dc0d",
+      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "developMergeSha": null,
       "candidateSha": null
     },
     {
@@ -147,38 +147,36 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH: Global DholeSystem 1.106.8 → 1.106.10, DholeWeb 1.106.9 → 1.106.10, DholePricingService 1.26.4 → 1.26.5. Only release DH-20261120-PRICING-VAT-TOTAL-353; version 1.106.9 Web-only from previous master release remains in history.",
+  "policyCheck": "PATCH targeted promotion: staged DholeWeb/DholeSystem 1.106.16, Pricing 1.26.8; preserve master-only Incoterm temporary-unblock behavior. Other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Master PR CI/SemVer must pass before merge",
-    "Authenticated E2E check of saved quote e539ec3f-8f6e-4802-8f20-f7012bcd8101 is not covered by staging deployment smoke"
+    "Authenticated manual Screen 6→7 inland acceptance still not evidenced; retain rollback plan",
+    "Confirm production deployment and check rate lines after merge"
   ],
   "validationEvidence": {
-    "pricingCi": "passed",
-    "webCi": "passed",
-    "systemCi": "passed",
-    "pricingStagingDeploy": "passed: 44787835362",
-    "webStagingDeploy": "passed: 44787968542",
-    "authenticatedSavedQuoteParity": "pending"
+    "unitTests": "passed GitHub CI",
+    "build": "passed GitHub CI",
+    "staging": "Web/Pricing deployment succeeded; authenticated quote 6→7 business acceptance still pending",
+    "production": "master integration explicitly requested"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Aggregate destination VAT by commercial ISO USD/CRC even for Config generated currency code",
-    "Show persisted commercial per-line VAT when old Pricing header reports zero; subtotal, pre-tax utility, margin unchanged",
-    "Totals and PDF use persisted commercial tax; no migration, no REST or SignalR change",
-    "Promote exact patch previously merged to develop, without merging divergent branches"
+    "Port staged inland Merchant/Carrier selection and CostId-scoped charges from Screen 6 to Screen 7",
+    "Persist inland by POE and carrier and discard late catalog responses",
+    "Preserve master temporary unblock of Incoterm cargo inclusion without wholesale develop merge"
   ],
   "stagingValidation": {
-    "status": "deployment-passed-quote-e2e-pending",
+    "status": "automated-deploy-passed-manual-e2e-pending",
     "scenarios": [
-      "Review saved quote Carrusel USD 305, IVA 13% = USD 39.65 and totals USD/CRC",
-      "Compare API totalTaxUsd/totalTaxCrc with commercialTaxAmount per line and PDF",
-      "Check unaffected rate detail sums, subtotal USD 7615, margin 5.34% in supplied screenshot"
+      "Screen 6 selects Inland from configured costs",
+      "Screen 7 includes Inland by CostId without hard refresh",
+      "Selected inland persists across browser reload",
+      "No duplicate cost rows on repeated navigation"
     ]
   },
   "f6F7F8": {
@@ -233,7 +231,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-QA-358",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -988,7 +986,41 @@
     "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Explicit user request 'master ahora' for DH-20261120-PRICING-VAT-TOTAL-353 only; no other pending feature release included.",
+  "productionAuthorizationScope": "User explicitly requested 'subalo a master' for inland Step 6→7 bugfix only. Realtime infrastructure flags remain fail-closed.",
   "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master integration requested by user; realtime infrastructure production approval stays false"
+  "releaseProductionDeploymentPolicy": "Master service workflows automatically deploy on push; no Infrastructure compose changes or universal realtime promotion in this release.",
+  "inlandStep67Release": {
+    "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
+    "from": {
+      "DholeSystem": "1.106.11",
+      "DholeWeb": "1.106.14",
+      "DholePricingService": "1.26.7"
+    },
+    "to": {
+      "DholeSystem": "1.106.15",
+      "DholeWeb": "1.106.15",
+      "DholePricingService": "1.26.8"
+    },
+    "ci": "pending",
+    "staging": "pending",
+    "schemaMigration": false,
+    "restCompatible": true,
+    "signalRCompatible": true,
+    "productionDeploymentAuthorized": false
+  },
+  "inlandStep67QaRelease": {
+    "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+    "from": {
+      "DholeSystem": "1.106.15",
+      "DholeWeb": "1.106.15"
+    },
+    "to": {
+      "DholeSystem": "1.106.16",
+      "DholeWeb": "1.106.16"
+    },
+    "DholePricingService": "1.26.8",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
