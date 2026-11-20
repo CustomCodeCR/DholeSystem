@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-OPERATIONS-APERTURES-330",
+  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.105.0",
+  "ecosystemVersion": "1.105.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
-    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master"
+    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
+    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master"
   },
-  "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
+  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.105.0",
+      "version": "1.105.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.105.0",
+      "version": "1.105.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -147,28 +147,26 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master"
     }
   ],
-  "policyCheck": "MINOR master: System/Web 1.104.5 → 1.105.0; Operations 0.12.0 → 0.13.0; other components unchanged.",
+  "policyCheck": "PATCH: ecosystem & DholeSystem 1.105.0→1.105.1, DholeWeb develop 1.105.0→1.105.1 and master 1.104.5→1.105.1; CRM 1.42.8, Operations 0.13.0 unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing definitive acceptance event/snapshot and idempotent Operations consumer not implemented",
-    "Staging end-to-end and CI verification pending"
+    "CI/build and functional staging validation required"
   ],
   "validationEvidence": {
-    "tests": "PR CI pending",
-    "staging": "awaiting staging verification",
-    "production": "not deployed"
+    "regression": "pending CI",
+    "viteFinalGuard": "must pass final transformed source",
+    "staging": "pending",
+    "production": "not yet verified"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholeSystem"
   ],
   "changes": [
-    "Manual Aperturas CRM account picker and authorized case creation",
-    "Operations dashboard KPIs for manual and Pricing-origin cases",
-    "Paged Aperturas and Trámites filtering by IDTRA, status and origin",
-    "Single 8-tab Operations expediente navigation for existing data"
+    "Restore customer CRM agreement retrieval in effective Vite-generated Pricing cost loader",
+    "Enforce final built wizard includes agreement fetch before catalog sales",
+    "Show actual number of applied preferential quote lines"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -225,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-OPERATIONS-APERTURES-330",
+  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -946,5 +944,16 @@
     "approvedBy": "Auth identity",
     "staging": "pending",
     "productionDeploymentAuthorized": false
+  },
+  "preferentialPricingRuntimeRelease": {
+    "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
+    "rootCause": "pricingFtlLandCostsFix source replacement omitted loadCustomerPreferentialRates()",
+    "componentVersions": {
+      "DholeWeb": "1.105.1",
+      "DholeSystem": "1.105.1",
+      "DholeCRMService": "1.42.8"
+    },
+    "stagingValidation": "pending",
+    "productionValidation": "pending"
   }
 }

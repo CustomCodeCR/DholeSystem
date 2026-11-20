@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.105.0",
-  "ecosystemVersion": "1.105.0",
-  "releaseId": "DH-20261120-OPERATIONS-APERTURES-330",
+  "version": "1.105.1",
+  "ecosystemVersion": "1.105.1",
+  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261120-OPERATIONS-APERTURES-330"
+  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331"
 }
