@@ -1,3 +1,18 @@
+## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · aprobador nominal desde ventas)
+
+- PATCH: José Pablo, vendedor con autorización nominal, puede revisar y aprobar solicitudes de tarifas vencidas desde Inicio → Dashboard de Ventas; Roy accede desde Inicio. Sin permisos de Pricing ni SuperUsuario adicionales.
+- Contador en tiempo real vía SignalR y notificaciones con enlace seguro. DholeSystem/Web 1.104.3 → 1.104.4; Pricing 1.26.1 → 1.26.2.
+
+## [1.104.1] - 2026-11-20 (DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX · Outbox de autorización corregido)
+
+- PATCH: evita fallos PostgreSQL 22001 del identificador de correlación de Notifications Outbox y garantiza idempotencia por solicitud/destinatario/canal.
+- DholeWeb/System 1.104.0 → 1.104.1 y Pricing 1.26.0 → 1.26.1, 14 componentes sin cambios.
+
+## [1.104.0] - 2026-11-20 (DH-20261120-EXPIRED-RATE-APPROVAL-301 · aprobación de tarifas vencidas)
+
+- MINOR: explicación obligatoria, autorización de Roy o José Pablo, historial por revisión y avisos a los jefes vía System/SignalR y Email; bloqueo de actualización en API.
+- Web/System 1.103.23 → 1.104.0 y Pricing 1.25.4 → 1.26.0. CI/staging obligatorios antes de master.
+
 ## [1.103.24] - 2026-11-20 (DH-20261120-PRICING-COUNTRY-OPTIONS-310 · corrección del wizard de tarifas en blanco)
 
 - PATCH: reparar TypeError pricingQuoteCountryOptions undefined al abrir Crear tarifa; la vista consume las opciones de países desde el catálogo reactivo de Config en ambas pantallas, sin acceso a computed susceptible a transformaciones Vite.
