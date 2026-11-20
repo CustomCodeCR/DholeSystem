@@ -1,3 +1,8 @@
+## [1.103.18] - 2026-11-19 (DH-20261119-SELLER-DASHBOARD-PARITY-295 · dashboards comerciales consistentes)
+
+- PATCH: los indicadores, estados e importes de supervisión con vendedor seleccionado comparten la misma cartera comercial del vendedor, incluyendo asignaciones directas y la última revisión publicada. Corrige discrepancias de 72 vs 31 tarifas; conserva el cálculo del desempeño y el control de permisos.
+- Pricing 1.25.3→1.25.4, Web/System 1.103.17→1.103.18; otras 14 versiones inalteradas, sin migraciones o incompatibilidad REST/SignalR. CI y staging antes de la publicación.
+
 ## [1.103.17] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · corregir 409 de tarifas preferenciales)
 
 - PATCH selectivo System/Web 1.103.15→1.103.17 y CRM 1.42.2→1.42.3. CRM amplía CHECK para TIERED_SALE y conserva todos los datos; Web no reenvía cargos ya guardados.

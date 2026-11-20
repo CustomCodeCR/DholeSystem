@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.17",
+  "ecosystemVersion": "1.103.18",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+  "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.17",
+      "version": "1.103.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.17",
+      "version": "1.103.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.3",
+      "version": "1.25.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
       "developMergeSha": "95e7ece325968140f3f13a5f5a62b47ae389e435",
       "candidateSha": null
     },
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: System/Web 1.103.15→1.103.17; CRM 1.42.2→1.42.3. Allow TIERED_SALE in PostgreSQL; no other service version changes.",
+  "policyCheck": "PATCH sender/supervisor parity: Web/System 1.103.17→1.103.18, Pricing 1.25.3→1.25.4, 14 servicios restantes con la misma versión; requiere CI y staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -158,9 +158,9 @@
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Allow TIERED_SALE in CRM database constraint",
@@ -894,6 +894,22 @@
     },
     "otherComponentsUnchanged": 15,
     "formula": "(AcceptedByClient - Expired)/(Sent + AcceptedByClient + RejectedByClient + Expired)*100",
+    "developMerged": true,
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "sellerDashboardPortfolioParityRelease": {
+    "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
+    "releaseType": "PATCH",
+    "previousEcosystemVersion": "1.103.17",
+    "ecosystemVersion": "1.103.18",
+    "components": {
+      "DholeSystem": "1.103.18",
+      "DholeWeb": "1.103.18",
+      "DholePricingService": "1.25.4"
+    },
+    "unchangedComponents": 14,
+    "scope": "Admin selected seller rates identical to personal projection, no RateRequest-only cut",
     "developMerged": true,
     "staging": "pending",
     "productionDeploymentAuthorized": false
