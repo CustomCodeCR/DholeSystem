@@ -1,3 +1,10 @@
+## [1.106.1] - 2026-11-20 (DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343 · tarifas preferenciales CRM por identidad de cuenta y ruta)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.106.0 → 1.106.1. Pricing utiliza identidad de cuenta CRM en sus cachés e identifica equivalencias de catálogo por ID real (POL, POE, POD y naviera) sin aplicar preferencias ajenas.
+- Precio de venta preferencial y cargos manuales se recalculan por alternativa al reconciliar el contexto, preservando costos proveedor, cantidad, unidades, impuestos y cotizaciones persistidas; rechazo de respuestas CRM malformadas.
+- Manifiesto y pruebas regresivas del caso de seis ítems FCL CIF 40HC/ONE/Caldera/San José; servicios CRM/Pricing no cambian binarios y conservan REST/SignalR.
+- CI del PR Web y deploy de staging completados; pruebas UAT autenticadas con cliente real pendientes. Release a master solicitado por usuario.
+
 ## [1.106.0] - 2026-11-20 (DH-20261120-OPERATIONS-TRAMITES-UX-332 · Trámites, drawer y expediente completo)
 
 - MINOR coordinado Web/System/Operations: Trámites es entrada única para listar, buscar, crear apertura manual con cuenta CRM y ver un resumen en drawer.
