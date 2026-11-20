@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
+  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.11",
+  "ecosystemVersion": "1.103.12",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
+  "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.11",
+      "version": "1.103.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
+      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.11",
+      "version": "1.103.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
+      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.2",
+      "version": "1.25.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+      "candidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -146,11 +146,12 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH DDP land freight: Web/System 1.103.7→1.103.8 and Pricing 1.25.1→1.25.2; 14 other components unchanged. CI/staging required before master.",
+  "policyCheck": "PATCH: Pricing 1.25.2→1.25.3; System/Web 1.103.11→1.103.12; 14 components unchanged. New one-day System notification via existing realtime and Notifications outbox; CI/staging before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending"
+    "CI and staging pending",
+    "Production deployment authorization not provided"
   ],
   "validationEvidence": {
     "tests": "pending",
@@ -158,14 +159,14 @@
     "production": "not deployed"
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Allow explicitly priced DDP LTL/FTL international road freight without applying FCL container distribution",
-    "Preserve CIF/FCL historical freight exclusion and FCL distribution controls",
-    "Synchronize DholeWeb/DholeSystem 1.103.8 and Pricing 1.25.2"
+    "Notify the assigned seller in-app one day before quotation expiry (09:00 Costa Rica)",
+    "Preserve 5d/3d/1d/6h email reminders with separate durable 1d-system marker and transactional outbox",
+    "No REST contract or SignalR transport changes; migration extends reminder milestone constraint"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
