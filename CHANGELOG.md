@@ -1,3 +1,9 @@
+## [1.107.3] - 2026-11-20 (DH-20261120-PRICING-PERSPECTIVE-364 · perspectiva comercial de Pricing)
+
+- PATCH Web/System coordinado 1.107.2 → 1.107.3: identifica El Salvador en los destinos antiguos aunque falte ISO en Config, amplía el ISO-2 de países CRM y permite seleccionar Importación/Exportación manualmente.
+- El asistente de Pricing guarda la selección en borradores y preserva la operación existente; no se modifica la lógica de IVA, contratos REST, SignalR ni Redis Streams.
+- DholePricingService 1.26.9 sin cambios. Validación de compilación, CI, pruebas y staging pendiente; producción no autorizada para este release.
+
 ## [1.107.1] - 2026-11-20 (DH-20261120-VERSION-NOTICE-500-362 · hotfix preferencias de avisos de versión)
 
 - PATCH coordinado: corrige error 500 al guardar preferencias globales o personales (Npgsql execution strategy + transacción/outbox atómicos).
