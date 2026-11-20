@@ -1,3 +1,9 @@
+## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · reparación guardado manual CRM)
+
+- PATCH: corrige TypeError en el formulario manual de tarifas preferenciales ocasionado por manual.amount.trim() después de v-model type=number.
+- Valida importes numéricos y texto con pruebas de regresión; guarda sin bloqueos silenciosos de HTML. Versiones DholeWeb y DholeSystem 1.103.18→1.103.20, resto sin modificaciones.
+- REST, CRM, realtime y Pricing compatibles. CI/staging previo a producción.
+
 ## [1.103.18] - 2026-11-19 (DH-20261119-SELLER-DASHBOARD-PARITY-295 · dashboards comerciales consistentes)
 
 - PATCH: los indicadores, estados e importes de supervisión con vendedor seleccionado comparten la misma cartera comercial del vendedor, incluyendo asignaciones directas y la última revisión publicada. Corrige discrepancias de 72 vs 31 tarifas; conserva el cálculo del desempeño y el control de permisos.
