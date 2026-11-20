@@ -1,0 +1,23 @@
+{
+  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "ecosystemVersion": "1.106.16",
+  "releaseType": "PATCH",
+  "status": "candidate-ci-and-staging-pending",
+  "components": {
+    "DholeSystem": {
+      "from": "1.106.15",
+      "to": "1.106.16"
+    },
+    "DholeWeb": {
+      "from": "1.106.15",
+      "to": "1.106.16"
+    },
+    "DholePricingService": {
+      "unchanged": "1.26.8"
+    }
+  },
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "pending",
+  "branch": "fix/DH-20261120-PRICING-INLAND-QA-358"
+}
