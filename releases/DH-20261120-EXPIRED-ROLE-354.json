@@ -1,0 +1,30 @@
+{
+  "releaseId": "DH-20261120-EXPIRED-ROLE-354",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.106.11",
+  "changeType": "PATCH",
+  "components": {
+    "DholeSystem": {
+      "from": "1.106.10",
+      "to": "1.106.11"
+    },
+    "DholeWeb": {
+      "from": "1.106.10",
+      "to": "1.106.11"
+    },
+    "DholePricingService": {
+      "from": "1.26.5",
+      "to": "1.26.6"
+    }
+  },
+  "unchangedRepositories": 14,
+  "description": "Seller-only expired rate update authorization, Pricing and Superadmin bypass",
+  "branches": [
+    "develop",
+    "master"
+  ],
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "pending",
+  "rollback": "Revert coordinated release PRs; no schema changes."
+}

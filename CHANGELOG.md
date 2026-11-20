@@ -1,3 +1,9 @@
+## [1.106.11] - 2026-11-20 (DH-20261120-EXPIRED-ROLE-354 · vencimiento autorizado solo para vendedores)
+
+- PATCH coordinado: las tarifas vencidas requieren autorización de Roy/José Pablo únicamente para vendedores; los usuarios de Pricing con permiso pricing.rate.update y Superadmin editan directamente.
+- DholePricingService 1.26.5 → 1.26.6; DholeWeb y DholeSystem 1.106.10 → 1.106.11. Otros 14 componentes sin cambios; manifiesto central actualizado.
+- Se conservan control de acceso del servidor, historial, Outbox/SignalR/Email e invariantes de tarifas cerradas. Pruebas CI y staging pendientes, producción no autorizada.
+
 ## [1.106.10] - 2026-11-20 (DH-20261120-PRICING-VAT-TOTAL-353 · IVA de tarifas en el resumen de oferta)
 
 - PATCH coordinado en DholePricingService 1.26.5 y DholeWeb/DholeSystem 1.106.10: IVA comercial por línea agregado en USD/CRC aunque Config guarde códigos de moneda opacos.
