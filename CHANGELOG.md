@@ -1,3 +1,9 @@
+## [1.103.11] - 2026-11-19 (DH-20261119-CRM-INVITATIONS-SAVE-290 · guardado de invitados CRM)
+
+- PATCH: DholeSystem y DholeWeb 1.103.10 → 1.103.11, DholeCRMService 1.42.1 → 1.42.2. Manifiesto de 17 componentes, incrementando únicamente los tres repositorios afectados.
+- Backend usa directorio Auth autorizado y conserva invitaciones/realtime individuales durables; REST y SignalR compatibles.
+- Requiere CI, staging y aprobación explícita de producción antes de master; no desplegar automáticamente aún.
+
 ## [1.103.10] - 2026-11-19 (DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286 · promoción de editor de seguimientos CRM)
 
 - PATCH: promueve el editor de seguimientos/recordatorios validado en staging, con cambios de asunto, responsable, fechas, invitados y avisos, auditados y versionados.
