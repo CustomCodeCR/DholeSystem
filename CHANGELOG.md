@@ -1,3 +1,10 @@
+## [1.106.4] - 2026-11-20 (DH-20261120-PRICING-MERCHANT-HAULAGE-346 · Merchant Haulage FCL por ruta)
+
+- PATCH coordinado de DholeWeb y DholeSystem 1.106.3 → 1.106.4. Los cargos Inland fijos o variables válidos de Costos y recargos se consideran alternativas Merchant/Naviera en Pantalla 6, conservando las relaciones reales POE, POD, agente, naviera, servicio y modalidad.
+- La selección exclusiva Merchant/Carrier llega a Pantalla 7 sin sumarse dos veces ni confundir cargos fijos compartidos. Se preservan CostId, precio y base por contenedor.
+- Nuevo test de regresión para Balboa–San José y selector de costos; manifiesto global de 17 componentes actualizado. Los 15 servicios restantes continúan en sus versiones actuales. REST y SignalR sin cambios.
+- CI y pruebas autenticadas en staging pendientes; no se autoriza despliegue a producción.
+
 ## [1.106.3] - 2026-11-20 (DH-20261120-PRICING-IMPORT-COSTS-345 · costos FCL importación por contexto válido)
 
 - PATCH coordinado DholeWeb/DholeSystem 1.106.2 → 1.106.3. Se muestran costos activos que ya pasaron la verificación real de Pricing por ruta, proveedor, modalidad, servicios e Incoterm, sin descartarlos por snapshots legados de un único puerto.
