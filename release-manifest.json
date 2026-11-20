@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-PREFERRED-BLOCKS-342",
+  "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.105.2",
+  "ecosystemVersion": "1.106.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop",
-    "master": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master"
+    "develop": "develop",
+    "master": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
   },
-  "candidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+  "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.105.2",
+      "version": "1.106.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
       "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.105.2",
+      "version": "1.106.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
       "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
     },
     {
@@ -139,32 +139,36 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.13.0",
+      "version": "0.14.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master"
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH: ecosystem & DholeSystem 1.105.0→1.105.1, DholeWeb develop 1.105.0→1.105.1 and master 1.104.5→1.105.1; CRM 1.42.8, Operations 0.13.0 unchanged.",
+  "policyCheck": "MINOR: System/Web 1.105.2→1.106.0, Operations 0.13.0→0.14.0; other components unchanged. Develop merges before staging.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging not yet verified"
+    "CI checks and authenticated staging workflow pending",
+    "Pricing acceptance → automatic opening remains in future release"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
-    "staging": "pending",
-    "production": "not deployed"
+    "unitTests": "pending GitHub CI",
+    "staging": "pending deployment and authenticated UAT",
+    "production": "not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Unify existing CRM commercial benefit rules by exact route scope as an editable block",
-    "Apply quote services to preference matching, safely reconcile stale CostId and commercial unit basis, show diagnostics per rule"
+    "Unify Trámites listing and manual opening with CRM account picker",
+    "Drawer summary and full eight-tab case detail with backend tab ACL",
+    "Versioned authorized modifications of opening metadata, audit, SignalR",
+    "Stage assignments, milestones, tasks, quote cost ACL and private Origin notes"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-PREFERRED-BLOCKS-342",
+  "businessReleaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -953,5 +957,15 @@
     },
     "stagingValidation": "pending",
     "productionValidation": "pending"
+  },
+  "operationsTramitesWorkspaceRelease": {
+    "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
+    "web": "1.106.0",
+    "operations": "0.14.0",
+    "system": "1.106.0",
+    "schemaMigration": false,
+    "productionDeploymentAuthorized": false,
+    "pricingAutomaticIntegration": "pending",
+    "legacyDynamicsBackfill": "pending"
   }
 }
