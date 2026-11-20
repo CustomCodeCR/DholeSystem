@@ -1,3 +1,9 @@
+## [1.108.2] - 2026-11-20 (DH-20261120-P7-VISIBLE-369 · hotfix P7 staging)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.108.1 → 1.108.2. El transformador de Vite dejó una referencia a `visible` sin declaración y bloqueaba toda reconstrucción de cargos en P7.
+- La corrección de Web elimina la referencia errónea y agrega prueba de regresión para CostId en P7. Solo develop; PricingService y producción permanecen intactos.
+- CI, staging y validación autenticada de cargos/flete pendientes hasta ejecución formal.
+
 ## [1.108.1] - 2026-11-20 (DH-20261120-P7-CHARGES-368 · recuperación de cargos P7 en develop)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.108.0 → 1.108.1, limitado a develop, sin cambios del backend PricingService.
