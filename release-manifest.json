@@ -158,7 +158,6 @@
     "production": "CRM production deployment status pending"
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholeSystem",
     "DholeWeb"
   ],
