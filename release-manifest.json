@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+  "releaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.4",
-  "status": "candidate-master-authorized-ci-pending",
+  "ecosystemVersion": "1.107.5",
+  "status": "candidate-production-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
-    "master": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master"
+    "develop": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
+    "master": "fix/DH-20261120-PRICING-RUNTIME-366-master"
   },
-  "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
+  "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.4",
+      "version": "1.107.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.4",
+      "version": "1.107.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -150,36 +150,36 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Authorized production PATCH Web/System 1.107.2 -> 1.107.4; includes the previously tested 1.107.3 trade-direction fallback. PricingService remains 1.26.9 and other service versions remain unchanged.",
+  "policyCheck": "PATCH DholeWeb and DholeSystem 1.107.4 → 1.107.5; PricingService 1.26.9 and all other components unchanged; no master merge before CI/staging.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master branch Web build, TypeScript and Pricing regressions",
-    "Authenticated staging live quote tests not confirmed, require production post-deploy verification",
-    "Maintain inland, VAT and Incoterm behavior across all shipping modes"
+    "Web build + TypeScript + pricing regression and minified JS runtime symbol validation",
+    "Staging authenticated wizard create/edit/view smoke",
+    "Production release authorization and postdeployment monitoring"
   ],
   "validationEvidence": {
-    "develop": "5 Web CI checks passed for 1.107.4 before merge; PR #945",
-    "productionApproval": "Explicit user message 2026-11-20 requesting master",
-    "staging": "authenticated end-to-end confirmation unavailable",
-    "production": "pending"
+    "status": "pending",
+    "source": "Production v1.107.4 screenshot and console show automaticOperationType is not defined after Vite transform",
+    "integrity": "Source has declaration but production bundle exposed global unbound reference"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Promote worldwide 249 ISO country resolver, UNLOCODE, multilingual names and CRM/Config country metadata",
-    "Preserve manual Import/Export/Transit operation in quotation screen3/seller screen5 and restore existing drafts",
-    "Keep all master-only inland charge and other production hotfixes",
-    "Unchanged PricingService 1.26.9, REST, SignalR and database schema"
+    "Remove intermediate automaticOperationType and derive operation directly inside Pricing computed",
+    "Prevent shipping missing runtime symbol with transformed Vite and final bundle guards",
+    "Preserve all countries, customs VAT, import/export manual fallback, inland and other production fixes"
   ],
   "stagingValidation": {
-    "status": "unverified",
+    "status": "pending",
     "scenarios": [
-      "CN->SV and all regions Import/Export",
-      "Country Config missing/malformed fallback selects manual operation",
-      "No inland/VAT/Incoterms/charge regression"
+      "Pricing create wizard mounts for all CRM and countries",
+      "Pricing persisted rate opens view/edit",
+      "Country selection automatic and manual remains correct",
+      "No inland/VAT/cost regresses screens 6-7",
+      "No automaticOperationType in final JavaScript bundle"
     ]
   },
   "f6F7F8": {
@@ -234,7 +234,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+  "businessReleaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
