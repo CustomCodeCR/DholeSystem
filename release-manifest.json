@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "releaseId": "DH-20261119-DASHBOARD-TABLE-293",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.14",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.103.15",
+  "status": "candidate-master-approval-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+  "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.14",
+      "version": "1.103.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+      "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
       "candidateSha": null,
-      "developMergeSha": "d07fa9953792e6b171b298414b13165bfe9ca434",
-      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "developMergeSha": null,
+      "masterCandidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.14",
+      "version": "1.103.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+      "candidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
       "candidateSha": null,
-      "developMergeSha": "1cd8e07e93263b7edd80f862efb1adad57d3588d",
-      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "developMergeSha": null,
+      "masterCandidateBranch": "backport/DH-20261119-DASHBOARD-TABLE-293-master",
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-TABLE-293"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,26 +146,26 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH dashboard comercial: Web/System 1.103.12 en master → 1.103.14 release combinado, desarrollos 1.103.13+1.103.14. (aceptadas−vencidas)/(cotizadas−abiertas). Pricing 1.25.3 y demás servicios se mantienen. CI/staging antes de master.",
+  "policyCheck": "PATCH master backport: DholeWeb/DholeSystem 1.103.14→1.103.15, otros 15 componentes sin cambios. Dashboard KPI cards filtran seguimiento sin navegación a Pricing y selector solo incluye clientes autorizados visibles. Merge únicamente después de staging/CI y autorización productiva.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Await staging validation",
-    "Production deployment not explicitly authorized"
+    "Production deployment authorization not provided",
+    "Master backport CI/staging verification pending"
   ],
   "validationEvidence": {
-    "tests": "CI succeeded on develop candidate",
-    "staging": "pending",
+    "tests": "development CI passed; master backport pending",
+    "staging": "develop deployment pending",
     "production": "not deployed"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
-    "Notify assigned seller in System one day before quotation expires at 09:00 Costa Rica",
-    "Keep Email reminder 5d/3d/1d/6h and independent transactional one-day System outbox/marker",
-    "Notifications Redis/SignalR REST compatibility and safe seller identity"
+    "Master backport of dashboard KPI card in-place table filter",
+    "Client selector derives names only from authorized table rows matching status and search",
+    "No REST, SignalR, permissions or data schema changes"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "businessReleaseId": "DH-20261119-DASHBOARD-TABLE-293",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

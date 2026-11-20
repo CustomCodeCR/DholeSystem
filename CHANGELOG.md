@@ -1,3 +1,9 @@
+## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · backport master dashboard de ventas)
+
+- PATCH: backport aislado de DholeWeb/DholeSystem 1.103.14→1.103.15, sin fusionar ramas divergentes.
+- Las tarjetas comerciales seleccionan el estado de la tabla del dashboard y desplazan a su encabezado. El selector de cliente solo usa nombres de registros visibles y autorizados; la paginación se reinicia.
+- Conserva los otros 15 servicios, APIs REST, eventos SignalR y permisos. CI del backport y validación de staging previas al merge; no autorizado el despliegue a producción.
+
 ## [1.103.14] - 2026-11-19 (DH-20261119-DASHBOARD-PERFORMANCE-292 · fórmula comercial corregida)
 
 - PATCH: las abiertas se excluyen del total de cotizaciones entregadas; las rechazadas sí permanecen en el denominador y las vencidas restan en el numerador. Desempeño = (aceptadas − vencidas) / (total cotizadas − abiertas) × 100.
