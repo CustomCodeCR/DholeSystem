@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.13",
+  "ecosystemVersion": "1.103.14",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+  "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.13",
+      "version": "1.103.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+      "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "developCandidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.13",
+      "version": "1.103.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+      "candidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "developCandidateBranch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Dashboard Ventas: Web/System 1.103.12 → 1.103.13, Pricing 1.25.3 y otros 14 componentes conservan versión. Filtros globales y score penalizado por vencimientos; CI/staging antes de master.",
+  "policyCheck": "PATCH comercial: Web/System 1.103.13→1.103.14. Desempeño (aceptadas−vencidas)/(cotizadas−abiertas), rechazadas en base y vencidas penalizadas. 15 componentes no alterados. CI/staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -891,6 +891,22 @@
     "otherComponentsUnchanged": 15,
     "scope": "Filtro global Ventas fechas/vendedor/modalidad, desempeño negativo vencimientos y cinco categorías de importes.",
     "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "commercialPerformanceCorrectionRelease": {
+    "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
+    "previousVersion": "1.103.13",
+    "ecosystemVersion": "1.103.14",
+    "type": "PATCH",
+    "components": {
+      "DholeSystem": "1.103.14",
+      "DholeWeb": "1.103.14"
+    },
+    "otherComponentsUnchanged": 15,
+    "formula": "(AcceptedByClient - Expired)/(Sent + AcceptedByClient + RejectedByClient + Expired)*100",
+    "branch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false

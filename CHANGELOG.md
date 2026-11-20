@@ -1,3 +1,8 @@
+## [1.103.14] - 2026-11-19 (DH-20261119-DASHBOARD-PERFORMANCE-292 · desempeño de ventas corregido)
+
+- PATCH Web/System 1.103.13 → 1.103.14: porcentaje de desempeño = (aceptadas − vencidas) / (total cotizadas − abiertas) × 100; incluye rechazadas, penaliza vencidas y excluye abiertas no entregadas.
+- Sin cambios en los otros 15 componentes, REST, permisos o SignalR. Mantiene filtros globales y resultados de venta. CI y staging antes de master.
+
 ## [1.103.13] - 2026-11-19 (DH-20261119-DASHBOARD-GLOBAL-FILTER-291 · dashboard comercial unificado)
 
 - PATCH: filtros globales por fecha, vendedor y modalidad aplicados al Dashboard de Ventas completo y a sus reportes de Pricing.
