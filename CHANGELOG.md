@@ -1,3 +1,9 @@
+## [1.103.24] - 2026-11-20 (DH-20261120-PRICING-COUNTRY-OPTIONS-310 · corrección del wizard de tarifas en blanco)
+
+- PATCH: reparar TypeError pricingQuoteCountryOptions undefined al abrir Crear tarifa; la vista consume las opciones de países desde el catálogo reactivo de Config en ambas pantallas, sin acceso a computed susceptible a transformaciones Vite.
+- Añade regresión de selector de país y comprobación del bundle minificado que falla si reaparece el símbolo sin enlace. Se conservan países CRM, país de POL/POD, impuestos, los contratos REST y SignalR sin cambios.
+- Web/System 1.103.23 → 1.103.24; demás 15 componentes permanecen en sus versiones previas. CI y validación de staging antes de master.
+
 ## [1.103.23] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · corrección de país CRM en cotizaciones FCL)
 
 - PATCH: promoción selectiva del fix probado en develop: permitir seleccionar en la pantalla 3 el país del cliente si CRM no lo proporciona; el país de la cotización no modifica el registro CRM.
