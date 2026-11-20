@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-ROLE-354",
+  "releaseId": "DH-20261120-PRICING-COSTS-BUILD-356",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.11",
+  "ecosystemVersion": "1.106.14",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
-    "master": "fix/DH-20261120-EXPIRED-ROLE-354-master"
+    "develop": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop",
+    "master": "fix/DH-20261120-PRICING-COSTS-BUILD-356"
   },
-  "candidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
+  "candidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.11",
+      "version": "1.106.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-master",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.11",
+      "version": "1.106.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-master",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-COSTS-BUILD-356-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -68,7 +68,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.6",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
       "developCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-develop",
       "masterCandidateBranch": "fix/DH-20261120-EXPIRED-ROLE-354-master",
@@ -130,38 +130,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: expired rate update approval only for sellers; privileged Pricing scope or Superadmin role bypass. Pricing 1.26.5 → 1.26.6; DholeWeb/DholeSystem 1.106.10 → 1.106.11. Other components unchanged. REST/SignalR compatible.",
+  "policyCheck": "PATCH: DholeWeb 1.106.13 -> 1.106.14; DholeSystem 1.106.10 -> 1.106.14. Restore build compatibility between the Pricing own LTL Panama transform and universal cost loader; component Pricing remains unchanged in this release. Staging/Develop is not production-authorized; authorization is limited to production release promotion.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run Pricing .NET solution build and expired approval policy tests",
-    "Run Web pricing expired approval regression and build/version gates",
-    "Verify seller, Pricing and Superadmin expiry edit flows in staging before master merge"
+    "Version checks, Web build/tests and System metadata CI must pass",
+    "Staging deployment and authenticated Pricing screen 7 validation pending"
   ],
   "validationEvidence": {
-    "unitTests": "pending CI",
-    "staging": "pending",
-    "production": "not authorized"
+    "webCi": "pending",
+    "systemCi": "pending",
+    "webStagingDeploy": "pending",
+    "screen7Authenticated": "pending"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Expired rate authorization request applies to sellers only",
-    "Pricing users with pricing.rate.update and Superadmin role edit expired quotation directly",
-    "Backend matches listing, GET approval status, update eligibility and PUT guard; closed/cancelled quote still blocked",
-    "Preserve seller approval by Roy or José Pablo, realtime notifications, audit history"
+    "Repair Vite pricingOwnLtlPanamaCosts transform now that full active cost catalogue loads in every shipment mode",
+    "Restore CFZ->San José LTL charges by actual CostIds without Incoterm suppression",
+    "Keep existing route, service, transport mode, and price-band validation",
+    "DholeSystem is a metadata-only release with no infrastructure deploy changes"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Seller: expired quotation displays request authorization; no edit before supervisor approval",
-      "Pricing: expired quotation edit opens without modal and PUT succeeds absent approval",
-      "Superadmin: expired quotation edit opens without modal and PUT succeeds absent approval",
-      "Any role: Closed/Cancelled cannot be edited",
-      "Seller approval history and System/Email realtime notifications persist"
+      "Build Web with new loader and Vite own-LTL transform",
+      "Validate screen 7 costs for FCL/LCL/LTL including CFZ Panama, FTL and Air",
+      "Ensure master catalogue costs require matching route/providers and billable rules"
     ]
   },
   "f6F7F8": {
@@ -216,7 +213,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-ROLE-354",
+  "businessReleaseId": "DH-20261120-PRICING-COSTS-BUILD-356",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
