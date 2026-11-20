@@ -1,0 +1,14 @@
+{
+  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "releaseType": "PATCH",
+  "previousVersion": "1.103.13",
+  "ecosystemVersion": "1.103.14",
+  "components": {
+    "DholeWeb": "1.103.14",
+    "DholeSystem": "1.103.14"
+  },
+  "unchangedComponents": 15,
+  "branch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "staging": "pending",
+  "productionAuthorized": false
+}
