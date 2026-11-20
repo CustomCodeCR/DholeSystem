@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-285",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.8",
+  "ecosystemVersion": "1.103.9",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+  "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.8",
+      "version": "1.103.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.8",
+      "version": "1.103.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.0",
+      "version": "1.42.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-current-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-master",
-      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
     "Accept explicitly priced DDP land freight LTL/FTL without FCL container distribution",
@@ -224,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "businessReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-285",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -844,6 +844,31 @@
     "branch": "release/DH-20261119-WIZARD-ROUTE-RUNTIME-274-master",
     "webCandidateSha": "6a5421de805420275acbd5e81d202aefeaa42282",
     "validation": "CI/staging pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmFollowupEditingProductionRelease": {
+    "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-285",
+    "sourceReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
+    "releaseType": "PATCH",
+    "ecosystemVersion": "1.103.9",
+    "components": {
+      "DholeSystem": "1.103.9",
+      "DholeWeb": "1.103.9",
+      "DholeCRMService": "1.42.1"
+    },
+    "branch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-285-master",
+    "staging": {
+      "DholeCRMService": {
+        "run": 44631744897,
+        "result": "success"
+      },
+      "DholeWeb": {
+        "run": 44631800014,
+        "result": "success"
+      }
+    },
+    "authorization": "User requested master promotion",
+    "validation": "candidate CI pending",
     "productionDeploymentAuthorized": false
   }
 }
