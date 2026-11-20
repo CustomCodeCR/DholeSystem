@@ -134,17 +134,17 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staged Web verification pending"
+    "Awaiting CI checks and staging validation before master"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "CRM migration completed successfully",
-    "production": "CRM production deployment status pending"
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Fix PostgreSQL check constraint for TIERED_SALE in preferential rates",
@@ -205,7 +205,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-298",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -654,7 +654,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
+  "productionDeploymentAuthorization": false,
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -909,6 +909,26 @@
     "frontend": "scope selected seller in backend; remove request-only local cuts",
     "performance": "(accepted-expired)/(quoted-open) on consistent published portfolio",
     "branch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "expiredRateAuthorizationRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-298",
+    "releaseType": "MINOR",
+    "ecosystemVersion": "1.104.0",
+    "pricingVersion": "1.26.0",
+    "systemAndWebVersion": "1.104.0",
+    "authorizers": [
+      "rsibaja@castrofallas.com",
+      "jmesen@castrofallas.com"
+    ],
+    "requestReasonMinChars": 15,
+    "channels": [
+      "System (SignalR)",
+      "Email"
+    ],
+    "audit": "revision-scoped request/decision history",
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
