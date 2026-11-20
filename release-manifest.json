@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-IMPORT-COSTS-345",
+  "releaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.3",
+  "ecosystemVersion": "1.106.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
+    "develop": "fix/pricing-merchant-haulage-20261120",
     "master": "pending-coordinated-release"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
+  "candidateBranch": "fix/pricing-merchant-haulage-20261120",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.3",
+      "version": "1.106.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
+      "candidateBranch": "fix/pricing-merchant-haulage-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345"
+      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.3",
+      "version": "1.106.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345",
+      "candidateBranch": "fix/pricing-merchant-haulage-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-PRICING-IMPORT-COSTS-345"
+      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -140,12 +140,12 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.2 → 1.106.3; DholePricingService 1.26.3 and other 14 components unchanged. CI/staging required before master.",
+  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.106.3 → 1.106.4; other 15 components unchanged. Build/test and authenticated staging are required before integration to master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Verify Web CI including import cost regressions and version gates",
-    "Authenticated staging UAT with matching and nonmatching contextual cost cases pending"
+    "Verify Web unit tests, type-check, build and cross-repository semantic version gates",
+    "Authenticated staging UAT for fixed Merchant Balboa–San José, route exclusions and rate-line deduplication"
   ],
   "validationEvidence": {
     "unitTests": "pending GitHub CI",
@@ -157,19 +157,20 @@
     "DholeWeb"
   ],
   "changes": [
-    "Do not double-filter authoritative Pricing contextual costs by legacy multi-port snapshots",
-    "Show eligible origin, destination and documentation charges in import quotations regardless of responsibility-only section mapping",
-    "Keep manual section selection open and freight limited by contracted transport service",
-    "Preserve strict fallback catalog matching and other 15 component versions"
+    "Fix FCL Merchant/Carrier Haulage choice for route-matched Fixed/Variable Inland costs, not only Optional",
+    "Keep common fixed destination charges separate from alternative inland choices",
+    "Apply selected option exclusively in rate details without duplicate shared inland amounts",
+    "Preserve authoritative POE/POD multi-port matching, container charge bases, REST/SignalR and 15 unchanged components"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "CIF import destination and origin charges loaded from Costs/select",
-      "No ocean freight if INT_TRANSPORT absent",
-      "CIF import paid Freight if INT_TRANSPORT selected",
-      "Unmatched carrier/route/Incoterm costs excluded",
-      "Manual charge can use all stages"
+      "Maritime FCL Panama POE Balboa to POD San José: fixed unlinked inland appears as Merchant",
+      "Carrier-linked inland appears only under Naviera; fixed common destination charges remain",
+      "Per-container totals applied once when selecting Merchant",
+      "Changing to Naviera excludes Merchant cost by CostId",
+      "Alternative with another real POE/POD or carrier does not inherit previous inland",
+      "No regression Optional Merchant/Carrier and edit revisions"
     ]
   },
   "f6F7F8": {
@@ -224,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "businessReleaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
