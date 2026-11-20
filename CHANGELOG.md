@@ -1,3 +1,9 @@
+## [1.103.10] - 2026-11-19 (DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286 · promoción de editor de seguimientos CRM)
+
+- PATCH: promueve el editor de seguimientos/recordatorios validado en staging, con cambios de asunto, responsable, fechas, invitados y avisos, auditados y versionados.
+- Release coordinado DholeSystem/DholeWeb 1.103.9 → 1.103.10 y DholeCRMService 1.42.0 → 1.42.1. Conserva los cambios del release de tarifas preferenciales 285 ya integrado en master.
+- REST y SignalR existentes se mantienen; se respetan los permisos y la infraestructura de recordatorios durables. CI de master obligatorio.
+
 ## [1.103.9] - 2026-11-19 (DH-20261119-CRM-MANUAL-BENEFITS-285 · backport del guardado de cargos manuales CRM)
 
 - PATCH: sincroniza DholeSystem/DholeWeb 1.103.8→1.103.9; conserva las correcciones posteriores del wizard Pricing y resto del ecosistema.

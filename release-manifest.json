@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-285",
+  "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.9",
+  "ecosystemVersion": "1.103.10",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+  "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.9",
+      "version": "1.103.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.9",
+      "version": "1.103.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
       "candidateSha": "3512d31209c63217870c491478888b9691205438",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.0",
+      "version": "1.42.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-system-current-master",
+      "candidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-master",
-      "developCandidateBranch": "release/DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271-web-current-develop"
+      "masterCandidateBranch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -159,7 +159,8 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeCRMService"
   ],
   "changes": [
     "Backport verifiable manual preferential charges from release 275 to master 1.103.8",
@@ -220,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-285",
+  "businessReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -841,5 +842,29 @@
     "webCandidateSha": "6a5421de805420275acbd5e81d202aefeaa42282",
     "validation": "CI/staging pending",
     "productionDeploymentAuthorized": false
+  },
+  "crmFollowupEditingProductionRelease": {
+    "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286",
+    "sourceReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
+    "releaseType": "PATCH",
+    "ecosystemVersion": "1.103.10",
+    "components": {
+      "DholeSystem": "1.103.10",
+      "DholeWeb": "1.103.10",
+      "DholeCRMService": "1.42.1"
+    },
+    "branch": "release/DH-20261119-CRM-FOLLOWUP-EDIT-286-master",
+    "staging": {
+      "DholeCRMService": {
+        "run": 44631744897,
+        "result": "success"
+      },
+      "DholeWeb": {
+        "run": 44631800014,
+        "result": "success"
+      }
+    },
+    "authorization": "User explicitly requested master promotion",
+    "validation": "CI candidate pending"
   }
 }
