@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-298",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.19",
+  "ecosystemVersion": "1.104.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.19",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,32 +33,24 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.16.2",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.19",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -75,10 +67,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.4",
+      "version": "1.26.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
-      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298",
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-298",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -129,21 +121,13 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.42.5",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": "PATCH paridad dashboard comercial: Web/System 1.103.17→1.103.18 y Pricing 1.25.3→1.25.4; otros 14 servicios sin cambios. Fuente única por sellerUserId incluyendo recibos/asignaciones/última publicación. REST opcional compatible, SignalR intacto; validar CI/staging antes de master.",
