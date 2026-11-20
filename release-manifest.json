@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-VERSION-NOTICES-361",
+  "releaseId": "DH-20261120-VERSION-NOTICE-500-362",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.0",
+  "ecosystemVersion": "1.107.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
     "develop": "feature/DH-20261120-VERSION-NOTICES-361",
     "master": "feature/DH-20261120-VERSION-NOTICES-361"
   },
-  "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
+  "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.0",
+      "version": "1.107.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
+      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -30,18 +30,18 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.17.0",
+      "version": "1.17.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
+      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.0",
+      "version": "1.107.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
+      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -131,39 +131,33 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb, DholeAuthService, DholeNotificationsService, DholeSystem CI and compile checks",
-    "Apply Auth preference migration and validate permissions in staging",
-    "Two-user staging SignalR validation: global and user-targeted policy invalidation; Redis outbox/inbox retries",
-    "Validate reconnect REST reconciliation, browser reload and no duplicate notices",
-    "Staging approval before master and explicit production authorization"
+    "Auth build and integration verification on develop",
+    "Staging PUT /global and PUT /me success under Npgsql retry execution strategy",
+    "Master PR CI and version sync checks"
   ],
   "validationEvidence": {
     "status": "pending",
-    "note": "GitHub feature branches contain candidate code; no verified CI, authenticated staging E2E, or production authorization."
+    "rootCause": "NpgsqlRetryingExecutionStrategy rejected explicit transaction in SetAsync",
+    "tracking": "API 500 in staging on 2026-11-20, read-only log diagnostics job 44812820196"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeAuthService",
-    "DholeNotificationsService",
     "DholeWeb"
   ],
   "changes": [
-    "Version update dialog obeys authenticated global and individual preferences",
-    "Auth persists global/individual settings and emits one outbox invalidation per affected active user",
-    "Auth Redis Stream routes policy events to Notifications, SignalR dispatch to validated user groups only",
-    "Normal CRM/Pricing operational notifications and notification inbox remain unaffected"
+    "Wrap preference and outbox SQL transaction in DbContext.Database.CreateExecutionStrategy().ExecuteAsync",
+    "Clear change tracker across strategy retries",
+    "Preserve business notifications and existing endpoints"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "SuperUsuario disables for all; both open sessions hide new-version popup",
-      "Global enabled; target user disabled while other user retains notices",
-      "Per-user inherit restores global default",
-      "Normal user blocked from global/other user's update routes",
-      "Operational notifications remain unaffected",
-      "Existing sessions reconcile within 60-second polling window",
-      "SignalR policy invalidation is per-user only; global change fans out by authorized user groups",
-      "Notifications inbox unchanged by policy events; duplicate Redis events do not duplicate notifications"
+      "Superuser toggles global enabled successfully",
+      "Personal preference toggles enabled successfully",
+      "Per-user preference toggles successfully",
+      "SignalR invalidation delivered to targeted users",
+      "No operational notification regressions"
     ]
   },
   "f6F7F8": {
