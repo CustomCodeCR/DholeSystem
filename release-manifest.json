@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-RESTORE-363",
+  "releaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.2",
+  "ecosystemVersion": "1.107.4",
   "status": "candidate-master-authorized-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261120-VERSION-NOTICES-361",
-    "master": "release/DH-20261120-VERSION-NOTICES-361-master"
+    "develop": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+    "master": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master"
   },
-  "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
+  "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.2",
+      "version": "1.107.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
+      "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.2",
+      "version": "1.107.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "hotfix/DH-20261120-PRICING-INLAND-REBASE-363",
+      "candidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365-master",
       "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
@@ -150,32 +150,36 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.107.1->1.107.2; DholePricingService stays 1.26.9; other components preserved.",
+  "policyCheck": "Authorized production PATCH Web/System 1.107.2 -> 1.107.4; includes the previously tested 1.107.3 trade-direction fallback. PricingService remains 1.26.9 and other service versions remain unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and postdeploy real quote verification required"
+    "Master branch Web build, TypeScript and Pricing regressions",
+    "Authenticated staging live quote tests not confirmed, require production post-deploy verification",
+    "Maintain inland, VAT and Incoterm behavior across all shipping modes"
   ],
   "validationEvidence": {
-    "staging": "Reference Web 1.106.17 staging deployed success (run 44805678536)",
-    "masterPR": "CI pending",
-    "production": "Authorized by user 2026-11-20"
+    "develop": "5 Web CI checks passed for 1.107.4 before merge; PR #945",
+    "productionApproval": "Explicit user message 2026-11-20 requesting master",
+    "staging": "authenticated end-to-end confirmation unavailable",
+    "production": "pending"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Restore staging-stable inland screen6 to screen7 behavior, remove premature catalog line and draft mutations",
-    "Preserve master-only version notifications, expired rate approval and Incoterm temporary unblock",
-    "No PricingService REST/SignalR changes"
+    "Promote worldwide 249 ISO country resolver, UNLOCODE, multilingual names and CRM/Config country metadata",
+    "Preserve manual Import/Export/Transit operation in quotation screen3/seller screen5 and restore existing drafts",
+    "Keep all master-only inland charge and other production hotfixes",
+    "Unchanged PricingService 1.26.9, REST, SignalR and database schema"
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "unverified",
     "scenarios": [
-      "PUT global and me no longer return 500",
-      "Auth migration remains valid",
-      "User targeted realtime invalidation unaffected"
+      "CN->SV and all regions Import/Export",
+      "Country Config missing/malformed fallback selects manual operation",
+      "No inland/VAT/Incoterms/charge regression"
     ]
   },
   "f6F7F8": {
@@ -230,7 +234,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-RESTORE-363",
+  "businessReleaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
