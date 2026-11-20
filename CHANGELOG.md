@@ -1,3 +1,9 @@
+## [1.103.19] - 2026-11-20 (DH-20261120-CRM-INVITEE-PERSISTENCE-296 · persistencia de invitados CRM)
+
+- PATCH: corrige la propagación de invitados añadidos posteriormente a una actividad comercial hacia los compromisos de agenda vinculados, con persistencia atómica, deduplicación, historial y recordatorios outbox/realtime.
+- Web mantiene visibles usuarios ya guardados aunque no aparezcan entre los primeros 100 del directorio Auth y verifica la persistencia después de actualizar invitados.
+- Pruebas de regresión para invitados añadidos después de crear el acuerdo, idempotencia y acuerdos completados. CRM 1.42.4 → 1.42.5; Web/System 1.103.18 → 1.103.19. CI/staging pendientes, sin autorización de producción.
+
 ## [1.103.18] - 2026-11-19 (DH-20261119-SELLER-DASHBOARD-PARITY-295 · corrección de paridad de carteras comerciales)
 
 - PATCH: el SuperUsuario filtrado por vendedor y la sesión de ese vendedor consultan la misma cartera de cotizaciones publicadas, incluyendo asignaciones directas, recibidas, vinculadas y las alternativas comerciales. Evita el recorte por solicitudes y discrepancias de 72/31 tarifas observadas en las capturas.
