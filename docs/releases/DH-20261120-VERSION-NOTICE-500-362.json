@@ -1,0 +1,43 @@
+{
+  "releaseId": "DH-20261120-VERSION-NOTICE-500-362",
+  "kind": "PATCH",
+  "ecosystemVersion": "1.107.1",
+  "incident": "PUT /api/auth/version-update-notifications/global and /me returns HTTP 500 in staging",
+  "traceId": "0HNQ78AR1TVP4:00000005",
+  "cause": "NpgsqlRetryingExecutionStrategy does not support raw BeginTransactionAsync outside Database.CreateExecutionStrategy.ExecuteAsync",
+  "fix": "Wrap the full preference change and outbox write in a retriable EF execution strategy and clear stale tracked entries before retry",
+  "branches": {
+    "develop": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
+    "master": "fix/DH-20261120-VERSION-NOTICE-500-362-master"
+  },
+  "components": [
+    {
+      "repository": "DholeAuthService",
+      "before": "1.17.0",
+      "after": "1.17.1"
+    },
+    {
+      "repository": "DholeSystem",
+      "before": "1.107.0",
+      "after": "1.107.1"
+    },
+    {
+      "repository": "DholeWeb",
+      "before": "1.107.0",
+      "after": "1.107.1"
+    }
+  ],
+  "nonChangedComponents": "all other 14 components remain unchanged",
+  "checks": {
+    "compile": "pending",
+    "ci": "pending",
+    "staging": "pending",
+    "globalPreference": "pending",
+    "ownPreference": "pending",
+    "individualPreference": "pending",
+    "realtime": "pending",
+    "production": "queued-after-merge"
+  },
+  "productionDeploymentAuthorized": true,
+  "status": "master-promotion-candidate"
+}
