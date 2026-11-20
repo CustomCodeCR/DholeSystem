@@ -1,0 +1,15 @@
+{
+  "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
+  "releaseType": "PATCH",
+  "previousEcosystemVersion": "1.103.17",
+  "ecosystemVersion": "1.103.18",
+  "components": {
+    "DholeSystem": "1.103.18",
+    "DholeWeb": "1.103.18",
+    "DholePricingService": "1.25.4"
+  },
+  "unchangedComponents": 14,
+  "branch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
+  "staging": "pending",
+  "productionAuthorized": false
+}
