@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-P7-CHARGES-368",
+  "releaseId": "DH-20261120-P7-VISIBLE-369",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.1",
+  "ecosystemVersion": "1.108.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-P7-CHARGES-368-develop",
+    "develop": "fix/DH-20261120-P7-VISIBLE-369-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
+  "candidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.1",
+      "version": "1.108.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
+      "candidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop"
+      "developCandidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.1",
+      "version": "1.108.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop",
+      "candidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-P7-CHARGES-368-develop"
+      "developCandidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,36 +131,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb + DholeSystem 1.108.0 -> 1.108.1; all Pricing/CRM and other services unchanged. Develop only; production forbidden.",
+  "policyCheck": "PATCH DholeWeb + DholeSystem 1.108.1 -> 1.108.2; no PricingService change; develop only",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validated CI on feature branch and staging after coordinated develop merge",
-    "Authenticated MAERSK/WWL FCL P6/P7 5500/5800 + 17 fixed/19 optional checks",
-    "Post-deploy verification of rate persistence, taxes and PDF"
+    "Web CI including generated-transform regression and browser smoke",
+    "Authenticated staging P7 for MAERSK / WWL Caldera freight 5500/5800",
+    "P8/P9 persisted cost and PDF confirmation"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "Regression test pricingScreenSevenCostRecovery368.test.ts and actual cost selections exported from stage",
-    "scope": "P6→P7 MAERSK Caldera WWL without browser reload"
+    "source": "Uploaded staging screenshot: visible is not defined with 41 applicable and 314 reviewed; exact Vite transform identified",
+    "scope": "P7 runtime exception"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "P7 combines CostIds from contextual Pricing query and previously loaded active cost catalogue, respecting strict local route/carrier/agent filters",
-    "P7 cache invalidated if line collection was erased; non-destructive automatic and manual reload; Any shipment mode eligible",
-    "P6 manual freight preserved across P7 transition; selected company-specific charge sales remain unchanged"
+    "Remove dangling visible.has(section) left by pricingWizardScreen4CostSelectors Vite transform in P7 merge",
+    "Keep declaration when future visibility checks remain; fail at build rather than blank costs in runtime",
+    "Keep P6 freight and CostId catalogue filters unchanged"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "FCL / MAERSK / Puerto Caldera / WWL: at least one fixed MAERSK destination CostId and WWL agent CostId present in P7",
-      "Freight manual 40HC cost 5500 sale 5800 survives to P7 and P8",
-      "Fixed rows and Optional rows retain unique CostId and different shipment charge bases",
-      "Change naviera/POE keeps route-exclusive costs and manual values",
-      "Reopen P7 without refresh, verify IVA and PDF after saved rate"
+      "MAERSK Caldera WWL 40HC freight cost USD 5500 and sale USD 5800 remains visible",
+      "All correct CostIds appear in P7 (fixed and optional) with no visible ReferenceError",
+      "Switch POE/carrier and return to P7 without reload",
+      "Verify P8 subtotals and P9 PDF reflect P7 rates"
     ]
   },
   "f6F7F8": {
@@ -215,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-P7-CHARGES-368",
+  "businessReleaseId": "DH-20261120-P7-VISIBLE-369",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

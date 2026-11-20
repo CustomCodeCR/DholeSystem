@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261120-P7-VISIBLE-369",
+  "version": "1.108.2",
+  "releaseType": "PATCH",
+  "target": "develop",
+  "candidateBranch": "fix/DH-20261120-P7-VISIBLE-369-develop",
+  "components": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "pricingServiceUnchanged": true,
+  "productionDeploymentAuthorized": false,
+  "rootCause": "build/pricingWizardScreen4CostSelectors.ts removed `const visible` even though a newer CostId condition still used visible.has(section), causing ReferenceError in P7 after reading eligible costs.",
+  "changes": [
+    "Normalize both historical and current optional cost guard shapes",
+    "Preserve visible declaration when any reference remains; fail compilation if dangling",
+    "New test tests/pricingGeneratedVisibleGuard369.test.ts runs as part of pricing regression"
+  ],
+  "manualValidation": [
+    "MAERSK/WWL FCL 40HC POE Caldera, P7 fixed/optional costs and USD 5500/5800 freight",
+    "No visible ReferenceError when switching P6/P7 alternatives",
+    "P8 totals and P9 PDF match persisted rows"
+  ],
+  "ci": "pending",
+  "staging": "pending",
+  "rollback": "Revert Web/System PR; no database changes"
+}
