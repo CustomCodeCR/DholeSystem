@@ -1,3 +1,8 @@
+## [1.104.3] - 2026-11-20 (DH-20261120-CRM-INVITEE-VISIBILITY-323 · agendas de invitados CRM)
+
+- PATCH coordinado de DholeSystem, DholeWeb y DholeCRMService: nombres reales de invitados internos en actividades, visibilidad de actividades compartidas en sus calendarios y reconciliación SignalR.
+- Global 1.104.2 → 1.104.3, Web 1.104.1 → 1.104.3, CRM 1.42.6 → 1.42.7; otros componentes sin cambios. Se conserva el release paralelo de opciones de países. CI y staging pendientes; producción no autorizada.
+
 ## [1.104.2] - 2026-11-20 (DH-20261120-PRICING-COUNTRY-OPTIONS-310 · restaurar Crear tarifa)
 
 - PATCH: el wizard de Pricing deja de depender de pricingQuoteCountryOptions en plantilla; las opciones son calculadas desde catalogs.countries, conservando perspectiva comercial y IVA por POD.
