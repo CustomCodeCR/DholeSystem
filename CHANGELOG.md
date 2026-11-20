@@ -1,3 +1,9 @@
+## [1.103.17] - 2026-11-20 (DH-20261120-CRM-AGREEMENT-INVITEES-295 · invitados de compromisos CRM)
+
+- PATCH: master 1.103.15 → 1.103.17 sincronizado con CRM 1.42.3 → 1.42.4. Incluye solo el hotfix de invitados con migración aditiva y controles UI, sin arrastrar cambios extra de develop.
+- Conserva REST, SignalR, Outbox/Inbox, demás 14 componentes y el manifiesto global de 17 repositorios.
+- Requiere CI, staging y autorización de producción antes de merge a master.
+
 ## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · backport master dashboard de ventas)
 
 - PATCH: backport aislado de DholeWeb/DholeSystem 1.103.14→1.103.15, sin fusionar ramas divergentes.
