@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.3",
-  "status": "production-release-candidate-staging-gate",
+  "ecosystemVersion": "1.104.4",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+  "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.3",
+      "version": "1.104.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.3",
+      "version": "1.104.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
+      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-VISIBILITY-323-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,12 +75,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.4",
+      "version": "1.26.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
-      "masterCandidateBranch": "release/DH-20261119-SELLER-DASHBOARD-PARITY-295-master",
-      "developMergeSha": "95e7ece325968140f3f13a5f5a62b47ae389e435",
+      "candidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
+      "masterCandidateBranch": "release/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312-master-reconciled",
+      "developMergeSha": null,
       "candidateSha": null
     },
     {
@@ -148,7 +148,7 @@
   ],
   "policyCheck": "Production PATCH: System/Web 1.103.24 -> 1.104.3, CRM 1.42.6 -> 1.42.7; global release matches develop 1.104.3; other 14 components unchanged.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Staging deploy confirmation and functional two-user verification required before merge"
   ],
@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Resolve activity invitees to Auth display names without leaking directory",
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+  "businessReleaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -929,5 +929,19 @@
     "staging": "pending",
     "ci": "pending",
     "productionDeploymentAuthorized": true
+  },
+  "expiredRateSellerApproverAccessRelease": {
+    "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+    "releaseType": "PATCH",
+    "systemWebVersion": "1.104.4",
+    "pricingVersion": "1.26.2",
+    "approvers": [
+      "rsibaja@castrofallas.com",
+      "jmesen@castrofallas.com"
+    ],
+    "route": "/home?expiredApprovals=1",
+    "approvedBy": "Auth identity",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
   }
 }
