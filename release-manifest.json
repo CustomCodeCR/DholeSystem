@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-INCOTERM-SAVE-351",
+  "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.8",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.106.10",
+  "status": "candidate-master-authorized-staging-deploy-passed-pr-gates-pending",
   "branches": {
-    "develop": "fix/DH-20261120-INCOTERM-SAVE-351-develop",
-    "master": "fix/DH-20261120-INCOTERM-SAVE-351-master"
+    "develop": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
+    "master": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master"
   },
-  "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
+  "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.8",
+      "version": "1.106.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-develop"
+      "developMergeSha": "ef45804d313fa81c1d0ad72fd02f715c218f830d",
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.8",
+      "version": "1.106.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-develop"
+      "developMergeSha": "8e63d359e6f3aba6c8655cdc607a22c9cdfdf3e5",
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,12 +75,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.4",
+      "version": "1.26.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-develop",
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
-      "developMergeSha": null,
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developMergeSha": "6054f5a7de67cce7fc87582c5b1141b744c7dc0d",
       "candidateSha": null
     },
     {
@@ -147,33 +147,38 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.106.7→1.106.8: missing runtime symbol in Incoterm freight edit save, without REST/SignalR changes; Pricing 1.26.4 unchanged.",
+  "policyCheck": "PATCH: Global DholeSystem 1.106.8 → 1.106.10, DholeWeb 1.106.9 → 1.106.10, DholePricingService 1.26.4 → 1.26.5. Only release DH-20261120-PRICING-VAT-TOTAL-353; version 1.106.9 Web-only from previous master release remains in history.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Web CI regression, build and version gates",
-    "Staging import FOB edit-save validation"
+    "Master PR CI/SemVer must pass before merge",
+    "Authenticated E2E check of saved quote e539ec3f-8f6e-4802-8f20-f7012bcd8101 is not covered by staging deployment smoke"
   ],
   "validationEvidence": {
-    "unitTests": "pending CI",
-    "staging": "pending",
-    "production": "pending"
+    "pricingCi": "passed",
+    "webCi": "passed",
+    "systemCi": "passed",
+    "pricingStagingDeploy": "passed: 44787835362",
+    "webStagingDeploy": "passed: 44787968542",
+    "authenticatedSavedQuoteParity": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholePricingService",
     "DholeWeb"
   ],
   "changes": [
-    "Remove stale freightNotRequiredByIncoterm reference from Vite wizard edit transform",
-    "Use explicit International Transport service to reconcile persisted Freight without removing contracted FOB imports",
-    "Regression tests for save-reference and historical RateDetail reconciliation"
+    "Aggregate destination VAT by commercial ISO USD/CRC even for Config generated currency code",
+    "Show persisted commercial per-line VAT when old Pricing header reports zero; subtotal, pre-tax utility, margin unchanged",
+    "Totals and PDF use persisted commercial tax; no migration, no REST or SignalR change",
+    "Promote exact patch previously merged to develop, without merging divergent branches"
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "deployment-passed-quote-e2e-pending",
     "scenarios": [
-      "China Shanghai POL / Costa Rica POD / CRM client CR => Import",
-      "FOB import + International Transport service saves explicitly billed freight",
-      "No transport service removes historical Freight but keeps destination charges"
+      "Review saved quote Carrusel USD 305, IVA 13% = USD 39.65 and totals USD/CRC",
+      "Compare API totalTaxUsd/totalTaxCrc with commercialTaxAmount per line and PDF",
+      "Check unaffected rate detail sums, subtotal USD 7615, margin 5.34% in supplied screenshot"
     ]
   },
   "f6F7F8": {
@@ -228,7 +233,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-INCOTERM-SAVE-351",
+  "businessReleaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -972,14 +977,18 @@
     "legacyDynamicsBackfill": "pending"
   },
   "masterPromotionAuthorization": {
-    "source": "explicit user request to push to master",
-    "date": "2026-11-20",
-    "ci": "master candidate Web and System green except transient version crosscheck pending System first",
-    "staging": "unverified (must not claim UAT passed)",
-    "productionDeploy": "Web push-to-master triggers production workflow"
+    "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
+    "authorized": true,
+    "scope": [
+      "DholeSystem",
+      "DholePricingService",
+      "DholeWeb"
+    ],
+    "source": "explicit user request: master ahora",
+    "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed",
+  "productionAuthorizationScope": "Explicit user request 'master ahora' for DH-20261120-PRICING-VAT-TOTAL-353 only; no other pending feature release included.",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Master integration requested by user; realtime infrastructure production approval stays false"
 }
