@@ -1,3 +1,9 @@
+## [1.103.23] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · corrección de país CRM en cotizaciones FCL)
+
+- PATCH: promoción selectiva del fix probado en develop: permitir seleccionar en la pantalla 3 el país del cliente si CRM no lo proporciona; el país de la cotización no modifica el registro CRM.
+- Resolver país de POL Ho Chi Minh, Vietnam explícitamente como VN incluso con metadata Config incompleta. Se conserva el país del POD para IVA; sin cambios en los contratos REST/SignalR ni backend.
+- DholeSystem 1.103.22 → 1.103.23; DholeWeb master 1.103.20 → 1.103.23 en release coordinado; 15 componentes más permanecen en sus versiones actuales. CI y staging requeridos antes de producción.
+
 ## [1.103.22] - 2026-11-20 (DH-20261120-CRM-INVITEE-SYNC-309 · persistencia de invitados CRM)
 
 - PATCH: versión coordinada DholeSystem/DholeWeb 1.103.20 → 1.103.22; DholeCRMService 1.42.6. Propaga nuevos invitados a acuerdos pendientes y confirma guardado desde Web.

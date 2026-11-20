@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
+  "releaseId": "DH-20261120-PRICING-CLIENT-COUNTRY-298",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.22",
+  "ecosystemVersion": "1.103.23",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+  "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.22",
+      "version": "1.103.23",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
-      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.22",
+      "version": "1.103.23",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
-      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
+      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -148,7 +148,7 @@
   ],
   "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.18→1.103.20. Remaining 15 services unchanged. CRM manual preferred charges numeric v-model TypeError fix; requires CI/staging.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
@@ -159,8 +159,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
     "Avoid .trim on Vue's numeric v-model value before manual CRM POST",
@@ -913,5 +912,10 @@
     "developMerged": true,
     "staging": "pending",
     "productionDeploymentAuthorized": false
-  }
+  },
+  "releaseNotes": [
+    "El usuario puede ingresar país CRM para cotización en Pantalla 3",
+    "POL Vietnam reconocido explícitamente como VN",
+    "Compatibilidad con IVA POD, REST y SignalR existente"
+  ]
 }
