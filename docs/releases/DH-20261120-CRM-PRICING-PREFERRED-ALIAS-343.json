@@ -1,0 +1,52 @@
+{
+  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "type": "PATCH",
+  "date": "2026-11-20",
+  "ecosystem": {
+    "previous": "1.106.0",
+    "next": "1.106.1"
+  },
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "component": "DholeWeb",
+      "previous": "1.106.0",
+      "next": "1.106.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "component": "DholeSystem",
+      "previous": "1.106.0",
+      "next": "1.106.1",
+      "documentationOnly": true
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "component": "DholeCRMService",
+      "previous": "1.42.8",
+      "next": "1.42.8",
+      "binariesChanged": false
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "component": "DholePricingService",
+      "binariesChanged": false
+    }
+  ],
+  "changes": [
+    "Include selected CRM account ID and kind in Pricing cost cache keys, including compiled Vite transformation",
+    "Match CRM agreement location and carrier aliases only when exact selected catalog IDs establish identity; never infer by name",
+    "Reapply matching customer-specific sale amounts and manual lines, preserving supplier costs and previous quote snapshots",
+    "Reject malformed CRM preferential rate payloads instead of silently using catalog sales",
+    "Add regression coverage for six CIF FCL preferred charges and cross-route/currency safeguards"
+  ],
+  "sourceBranches": {
+    "DholeWeb": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+    "DholeSystem": "fix/crm-preferenciales-ruta-cuenta-20261120-343"
+  },
+  "ciVerified": true,
+  "stagingVerified": false,
+  "productionAuthorized": true,
+  "productionDeployed": false,
+  "notes": "Staging deployment completed; authenticated customer-specific UAT remains unverified. User explicitly requested master promotion."
+}
