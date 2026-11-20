@@ -1,3 +1,9 @@
+## [1.106.13] - 2026-11-20 (DH-20261120-PRICING-COSTS-355 · manifiesto coordinado para cargos y recargos)
+
+- PATCH coordinado: DholeWeb 1.106.12 → 1.106.13 recupera los CostIds vigentes del catálogo de Pricing por ruta, agente, naviera, modalidad y servicio sin filtros restrictivos por Incoterm.
+- DholeSystem 1.106.10 → 1.106.13 actualiza el manifiesto global de 17 componentes. DholePricingService 1.26.7 permanece sin cambios; no se altera infraestructura, datos, REST ni SignalR.
+- La verificación de beneficios preferenciales CRM continúa siendo obligatoria para guardar cuando el CRM no responde. CI, staging y confirmación autenticada pendientes.
+
 ## [1.106.10] - 2026-11-20 (DH-20261120-PRICING-VAT-TOTAL-353 · IVA de tarifas en el resumen de oferta)
 
 - PATCH coordinado en DholePricingService 1.26.5 y DholeWeb/DholeSystem 1.106.10: IVA comercial por línea agregado en USD/CRC aunque Config guarde códigos de moneda opacos.
