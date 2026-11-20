@@ -1,25 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-VERSION-NOTICE-500-362",
+  "releaseId": "DH-20261120-PRICING-PERSPECTIVE-364",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.1",
+  "ecosystemVersion": "1.107.3",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "feature/DH-20261120-VERSION-NOTICES-361",
-    "master": "feature/DH-20261120-VERSION-NOTICES-361"
+    "develop": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
+    "master": "fix/DH-20261120-PRICING-PERSPECTIVE-364"
   },
-  "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
+  "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.1",
+      "version": "1.107.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -39,11 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.1",
+      "version": "1.107.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -127,37 +131,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "MINOR: DholeSystem/DholeWeb 1.106.17→1.107.0; DholeAuthService 1.16.2→1.17.0; DholeNotificationsService 1.7.0→1.8.0; remaining 13 components unchanged. Four-repository coordinated release.",
+  "policyCheck": "PATCH Web/System 1.107.1 (develop) / 1.107.2 (master) -> 1.107.3; other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Auth build and integration verification on develop",
-    "Staging PUT /global and PUT /me success under Npgsql retry execution strategy",
-    "Master PR CI and version sync checks"
+    "CI tests and Web Vite/TypeScript build",
+    "Authenticated staging Pricing country and draft regression test",
+    "Master separately authorized after staging"
   ],
   "validationEvidence": {
     "status": "pending",
-    "rootCause": "NpgsqlRetryingExecutionStrategy rejected explicit transaction in SetAsync",
-    "tracking": "API 500 in staging on 2026-11-20, read-only log diagnostics job 44812820196"
+    "rootCause": "Explicit El Salvador destination country not resolved from legacy Config label; manual quote direction unavailable"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeAuthService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Wrap preference and outbox SQL transaction in DbContext.Database.CreateExecutionStrategy().ExecuteAsync",
-    "Clear change tracker across strategy retries",
-    "Preserve business notifications and existing endpoints"
+    "Resolve legacy country labels El Salvador and CRM ISO-2 metadata",
+    "Provide optional manual Import/Export/Transit overriding automatic country-based operation",
+    "Persist manual operation in browser draft, restore from RateDto when editing",
+    "No REST/SignalR/schema changes"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Superuser toggles global enabled successfully",
-      "Personal preference toggles enabled successfully",
-      "Per-user preference toggles successfully",
-      "SignalR invalidation delivered to targeted users",
-      "No operational notification regressions"
+      "Qingdao CN to San Salvador SV with Salvadoran CRM client resolves Import",
+      "Fallback manual operation if country reference is missing",
+      "Borrador maintains operation across reload",
+      "VAT and existing inland cost logic unchanged"
     ]
   },
   "f6F7F8": {
@@ -212,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-VERSION-NOTICES-361",
+  "businessReleaseId": "DH-20261120-PRICING-PERSPECTIVE-364",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
