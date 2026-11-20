@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-IMPORT-COSTS-345",
+  "releaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.3",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.106.4",
+  "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "develop",
-    "master": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod"
+    "develop": "fix/pricing-merchant-haulage-20261120",
+    "master": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master"
   },
-  "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+  "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.3",
-      "mergeState": "production-candidate",
-      "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+      "version": "1.106.4",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
-      "developCandidateBranch": "develop"
+      "developMergeSha": "0dc01f8e61fbddeee5dc8e1f9d499b80762fbb29",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
+      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.3",
-      "mergeState": "production-candidate",
-      "candidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
+      "version": "1.106.4",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-INCOTERM-COSTS-344-345-prod",
-      "developCandidateBranch": "develop"
+      "developMergeSha": "0b6b24165f34fa30a363278cc71e5a6bc38e1701",
+      "masterCandidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
+      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -147,34 +147,36 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Coordinated PATCH promotions 344 + 345: DholeSystem and DholeWeb 1.106.1 → 1.106.3, Pricing 1.26.2 → 1.26.3; other 14 components unchanged.",
-  "mergeState": "production-candidate",
-  "productionDeploymentAuthorized": true,
+  "policyCheck": "PATCH Web/System 1.106.3 → 1.106.4. 15 components unchanged. CI master candidate and staged testing required.",
+  "mergeState": "master-candidate",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Await automated master-candidate CI and production health check; authenticated scenario UAT has not been run"
+    "Confirm authenticated staging Merchant Balboa–San José UAT",
+    "Validate master candidate CI and universal version policy"
   ],
   "validationEvidence": {
-    "unitTests": "staging branches passed .NET and Web CI; master promotion candidate CI pending",
-    "staging": "Staging Web deployment run 44753202437 successful; authenticated UAT pending",
-    "production": "user authorized; deployment not yet verified"
+    "unitTests": "develop CI passed",
+    "masterCandidate": "CI pending",
+    "staging": "authenticated UAT not confirmed",
+    "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Release 344: permit LTL and other explicit Freight regardless of Incoterm, preserve FCL equipment validation",
-    "Release 345: contextual import costs from authoritative Pricing selection; retain strict fallback filtering and manual charge sections"
+    "Selectively promote verified Merchant/Carrier Fixed and Variable Inland pricing fix to master",
+    "Avoid bulk merging diverged develop branch",
+    "Preserve context-specific POE/POD and distinct rate details without double-charge",
+    "Retain REST/SignalR and the other 15 component versions"
   ],
   "stagingValidation": {
-    "status": "automated-deploy-success; authenticated-UAT-pending",
-    "webRun": "44753202437",
+    "status": "requires-live-authenticated-check",
     "scenarios": [
-      "CPT LTL freight preservation",
-      "FOB and CIF import costs across all applicable sections",
-      "FCL multi-port carrier and service restrictions",
-      "Customs-only quotes without automatic freight"
+      "Fixed Merchant Balboa to San José on FCL Screen 6",
+      "Carrier alternative and common destination costs preserved",
+      "No duplicated transport in Screen 7",
+      "Unmatched POE, POD or naviera not loaded"
     ]
   },
   "f6F7F8": {
@@ -229,7 +231,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "businessReleaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
