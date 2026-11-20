@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "releaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.17",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.103.19",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+  "candidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.17",
+      "version": "1.103.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.17",
+      "version": "1.103.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
@@ -128,12 +128,12 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.3",
+      "version": "1.42.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-PERSISTENCE-296-master",
       "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
@@ -158,9 +158,9 @@
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeCRMService",
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeCRMService"
   ],
   "changes": [
     "Allow TIERED_SALE in CRM database constraint",
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
