@@ -1,3 +1,9 @@
+## [1.107.5] - 2026-11-20 (DH-20261120-PRICING-WIZARD-RUNTIME-366 · restaurar formulario Pricing y evitar errores runtime)
+
+- PATCH coordinado Web/System 1.107.4 → 1.107.5: corrige `automaticOperationType is not defined` después de la promoción de la resolución mundial de países, sin revertirla.
+- Validación de presencia de identificadores en los transforms del wizard y comprobación del JavaScript minificado; mantiene import/export manual, IVA según POD, inland y la arquitectura realtime.
+- DholePricingService permanece en 1.26.9. Sin cambios en API, Auth, Config, base de datos, despliegues de backend ni SignalR. CI y pruebas de staging/productivas obligatorias.
+
 ## [1.107.4] - 2026-11-20 (DH-20261120-PRICING-UNIVERSAL-COUNTRY-365 · países y rutas universales de Pricing)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.107.3 → 1.107.4 para resolver países de todas las rutas con ISO 3166-1, códigos ISO2/3, UN/LOCODE y nombres ES/EN/PT/FR, sin listas manuales de destinos.
