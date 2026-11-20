@@ -1,0 +1,34 @@
+{
+  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
+  "type": "PATCH",
+  "date": "2026-11-20",
+  "globalVersion": "1.105.1",
+  "components": [
+    {
+      "component": "DholeWeb",
+      "version": "1.105.1"
+    },
+    {
+      "component": "DholeSystem",
+      "version": "1.105.1"
+    },
+    {
+      "component": "DholeCRMService",
+      "version": "1.42.8",
+      "changed": false
+    }
+  ],
+  "rootCause": "FCL/FTL Vite transform replaces the Pricing cost loader and omitted fetching customer agreements from CRM",
+  "fix": "Require CRM benefits fetch in effective generated loader, check after final transforms, and show number of actually applied preferential rates",
+  "branches": {
+    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop",
+    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master"
+  },
+  "status": "candidate-ci-and-staging-pending",
+  "validations": {
+    "build": "pending",
+    "unitTests": "pending",
+    "staging": "pending",
+    "production": "not yet verified"
+  }
+}
