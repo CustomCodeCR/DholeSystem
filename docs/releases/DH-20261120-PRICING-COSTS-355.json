@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-PRICING-COSTS-355",
+  "date": "2026-11-20",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.106.13",
+  "releaseType": "PATCH",
+  "scope": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "affectedComponents": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "from": "1.106.12",
+      "to": "1.106.13"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "from": "1.106.10",
+      "to": "1.106.13",
+      "scope": "central-manifest"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "unchanged": "1.26.7"
+    }
+  ],
+  "changes": [
+    "Restore all applicable configured charges/surcharges with a catalog fallback for every shipment mode despite Incoterm-specific contextual filtering",
+    "Preserve multi-POL/POE/POD relation matching, selected service and provider filters; respect price bands",
+    "Keep visible catalog charges when CRM preferred-rate lookup fails, but prevent unverified quotes from saving",
+    "Retain existing rate detail sections when Incoterm changes"
+  ],
+  "tests": [
+    "pricingCostRecoveryAllIncoterms20261120.test.ts",
+    "pricingImportContextCosts.test.ts",
+    "pricingExwFcaVariableCosts.test.ts",
+    "Dhole semantic version gate"
+  ],
+  "schemaMigration": false,
+  "realtime": "unchanged: REST, SignalR and Redis Streams remain compatible",
+  "productionDeploymentAuthorized": true,
+  "ci": "pending",
+  "staging": "pending",
+  "authenticatedProductionValidation": "pending",
+  "rollback": "Revert coordinated PATCH commits on Web/System, verify deployment and rate CostIds.",
+  "component": "DholeSystem",
+  "componentVersion": "1.106.13"
+}
