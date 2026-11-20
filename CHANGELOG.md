@@ -1,3 +1,9 @@
+## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · autorización de vencidas exclusiva para vendedores)
+
+- PATCH: promote expired rate supervisor approval policy, already implemented in develop and staged in release 354, to master without overwriting newer commits. Pricing/Superadmin may edit expired quotations directly; sellers still request Roy/José Pablo.
+- Update synchronized metadata: Pricing 1.26.8 → 1.26.9, Web/System 1.106.17 → 1.106.18 (master from 1.106.16). Other 14 components unchanged.
+- Preserve REST/SignalR and audit; staging automation of original change succeeded, CI and production checks of coordinated promotion required.
+
 ## [1.106.17] - 2026-11-20 (DH-20261120-PRICING-INLAND-REGRESSION-360 · contención de regresión inland)
 
 - PATCH: restablece la sincronización de Pantallas 6–7 anterior a 1.106.15/1.106.16 en DholeWeb, evitando mutaciones anticipadas de cargos y borradores durante la carga asíncrona.

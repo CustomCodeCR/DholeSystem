@@ -1,0 +1,20 @@
+{
+  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
+  "ecosystemVersion": "1.106.18",
+  "componentVersions": {
+    "DholeSystem": "1.106.18",
+    "DholeWeb": "1.106.18",
+    "DholePricingService": "1.26.9"
+  },
+  "sourceRelease": "DH-20261120-EXPIRED-ROLE-354",
+  "type": "PATCH",
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "original expiry patch deployed successfully",
+  "changes": [
+    "Privileged staff bypass expired quote approvals; sellers still request management approval",
+    "Promote targeted patch to master while retaining production's existing commits"
+  ],
+  "rollback": "Revert targeted master PRs; no migration.",
+  "productionApprovalOnTargetBranch": "master PR has explicit user authorization; develop remains false for staging gate"
+}
