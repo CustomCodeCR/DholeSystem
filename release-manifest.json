@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.12",
+  "ecosystemVersion": "1.103.13",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+  "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.12",
+      "version": "1.103.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
       "candidateSha": null,
       "developMergeSha": "d07fa9953792e6b171b298414b13165bfe9ca434",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
+      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.12",
+      "version": "1.103.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
       "candidateSha": null,
       "developMergeSha": "1cd8e07e93263b7edd80f862efb1adad57d3588d",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
+      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,7 +146,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: Pricing 1.25.2→1.25.3; System/Web 1.103.11→1.103.12; 14 components unchanged. CI/staging required before promotion to master.",
+  "policyCheck": "PATCH Web/System 1.103.12→1.103.13: filtro general dashboard Ventas, desempeño penalizado por vencimientos, cinco importes. Pricing 1.25.3 y 14 restantes conservan versión. Validar CI/staging antes de master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -159,7 +159,6 @@
     "production": "not deployed"
   },
   "releaseComponents": [
-    "DholePricingService",
     "DholeSystem",
     "DholeWeb"
   ],
@@ -868,5 +867,21 @@
     },
     "authorization": "User explicitly requested master promotion",
     "validation": "CI candidate pending"
+  },
+  "commercialDashboardFilterRelease": {
+    "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+    "releaseType": "PATCH",
+    "previousVersion": "1.103.12",
+    "ecosystemVersion": "1.103.13",
+    "components": {
+      "DholeWeb": "1.103.13",
+      "DholeSystem": "1.103.13"
+    },
+    "unchangedComponents": 15,
+    "scope": "filtros de fecha/vendedor/modalidad unificados, score comercial que penaliza vencidas y cinco categorías monetarias",
+    "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+    "developMerged": true,
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
   }
 }
