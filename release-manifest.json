@@ -3,7 +3,7 @@
   "releaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.106.4",
-  "status": "candidate-master-ci-pending",
+  "status": "master-promotion-approved-staging-uat-unverified",
   "branches": {
     "develop": "fix/pricing-merchant-haulage-20261120",
     "master": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master"
@@ -147,18 +147,18 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.106.3 → 1.106.4. 15 components unchanged. CI master candidate and staged testing required.",
-  "mergeState": "master-candidate",
-  "productionDeploymentAuthorized": false,
+  "policyCheck": "PATCH Web/System 1.106.3 → 1.106.4; 15 components unchanged. User explicitly requested promotion to master after CI; authenticated staging UAT is not verified.",
+  "mergeState": "master-promotion-authorized",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Confirm authenticated staging Merchant Balboa–San José UAT",
-    "Validate master candidate CI and universal version policy"
+    "Authenticated staging UAT still unverified; do not assert production behavior until checked",
+    "Web cross-repository version policy must pass after System master integration"
   ],
   "validationEvidence": {
-    "unitTests": "develop CI passed",
-    "masterCandidate": "CI pending",
-    "staging": "authenticated UAT not confirmed",
-    "production": "not deployed"
+    "unitTests": "DholeWeb master candidate CI passed",
+    "masterCandidate": "System and Web candidate CI passed; Web global version recheck required after System merge",
+    "staging": "UAT autenticada no verificable desde este entorno; no se presenta como superada",
+    "production": "user authorized master release; deployment not yet verified"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -171,7 +171,7 @@
     "Retain REST/SignalR and the other 15 component versions"
   ],
   "stagingValidation": {
-    "status": "requires-live-authenticated-check",
+    "status": "not-verified-explicit-master-promotion",
     "scenarios": [
       "Fixed Merchant Balboa to San José on FCL Screen 6",
       "Carrier alternative and common destination costs preserved",
@@ -973,5 +973,12 @@
     "productionDeploymentAuthorized": false,
     "pricingAutomaticIntegration": "pending",
     "legacyDynamicsBackfill": "pending"
+  },
+  "masterPromotionAuthorization": {
+    "source": "explicit user request to push to master",
+    "date": "2026-11-20",
+    "ci": "master candidate Web and System green except transient version crosscheck pending System first",
+    "staging": "unverified (must not claim UAT passed)",
+    "productionDeploy": "Web push-to-master triggers production workflow"
   }
 }
