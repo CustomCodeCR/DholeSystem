@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+  "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.0",
+  "ecosystemVersion": "1.104.1",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+  "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.0",
+      "version": "1.104.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.0",
+      "version": "1.104.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,10 +67,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.0",
+      "version": "1.26.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
-      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -205,7 +205,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -934,6 +934,18 @@
       "Email"
     ],
     "audit": "revision-scoped request/decision history",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "expiredRateOutboxHotfixRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+    "releaseType": "PATCH",
+    "previousEcosystemVersion": "1.104.0",
+    "ecosystemVersion": "1.104.1",
+    "pricingVersion": "1.26.1",
+    "systemAndWebVersion": "1.104.1",
+    "reason": "Outbox correlation_id varchar(100) protection",
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
