@@ -1,3 +1,8 @@
+## [1.104.5] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-324 · precios preferenciales CRM en las cotizaciones)
+
+- PATCH: DholeWeb aplica automáticamente tarifas preferenciales definidas en CRM únicamente a ventas que coinciden por cuenta, ruta, equipo, naviera, Incoterm, servicio y rubro; costos originales y cotizaciones persistidas se conservan.
+- CRM 1.42.8 publica integración CONNECTED; Web/System 1.104.5. Versión global y manifiesto coordinados; CI, pruebas de integración y staging antes de la promoción a master.
+
 ## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · aprobador nominal desde ventas)
 
 - PATCH: José Pablo, vendedor con autorización nominal, puede revisar y aprobar solicitudes de tarifas vencidas desde Inicio → Dashboard de Ventas; Roy accede desde Inicio. Sin permisos de Pricing ni SuperUsuario adicionales.

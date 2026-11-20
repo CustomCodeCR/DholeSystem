@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.4",
+  "ecosystemVersion": "1.104.5",
   "status": "candidate-ci-and-staging-pending",
-  "branches": [
-    "develop",
-    "master"
-  ],
-  "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "branches": {
+    "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
+    "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master"
+  },
+  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.4",
+      "version": "1.104.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.4",
+      "version": "1.104.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -120,13 +120,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.7",
+      "version": "1.42.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
+      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -135,26 +135,25 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: Global 1.104.2 → 1.104.3; Web catches up from 1.104.1 → 1.104.3 and CRM 1.42.6 → 1.42.7; other components unchanged.",
+  "policyCheck": "PATCH: Global max(1.104.4) → 1.104.5; Web 1.104.3/1.104.4 → 1.104.5, CRM 1.42.7 → 1.42.8; other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging verification pending"
+    "Required CI and staging tests pending"
   ],
   "validationEvidence": {
-    "tests": "CI pending",
+    "tests": "pending CI",
     "staging": "pending",
     "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
-    "Show named internal CRM activity invitees",
-    "Include shared activities in invited internal users' calendars",
-    "Keep attendee details synchronized with SignalR and REST"
+    "Apply existing CRM preferential agreements to new Pricing quote sales by account, carrier, incoterm, POL/POE/POD, equipment, service and cost",
+    "Preserve supplier cost and persisted quote snapshot; expose manual charges; retry CRM on transient failure"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -211,7 +210,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
