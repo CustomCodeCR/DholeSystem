@@ -1,0 +1,15 @@
+{
+  "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.103.13",
+  "previousVersion": "1.103.12",
+  "components": {
+    "DholeSystem": "1.103.13",
+    "DholeWeb": "1.103.13"
+  },
+  "unchangedComponents": 15,
+  "branch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
+  "ci": "pending",
+  "staging": "pending",
+  "productionAuthorized": false
+}

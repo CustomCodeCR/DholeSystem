@@ -1,3 +1,9 @@
+## [1.103.13] - 2026-11-19 (DH-20261119-DASHBOARD-GLOBAL-FILTER-291 · dashboard comercial unificado)
+
+- PATCH: filtros globales por fecha, vendedor y modalidad aplicados al Dashboard de Ventas completo y a sus reportes de Pricing.
+- Desempeño = (abiertas + aceptadas − vencidas) / tarifas cotizadas no canceladas × 100, sin forzar el porcentaje a cero. Ventas por moneda incluye aceptadas, abiertas, enviadas + vencidas y rechazadas; total es la suma.
+- DholeSystem y DholeWeb 1.103.12 → 1.103.13, otros 15 componentes sin modificar. Sin cambios REST, SignalR ni esquema de datos. CI y staging antes de master.
+
 ## [1.103.12] - 2026-11-19 (DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291 · aviso de vencimiento al vendedor)
 
 - PATCH coordinado de DholeSystem y DholeWeb 1.103.11→1.103.12, Pricing 1.25.2→1.25.3. Las otras 14 versiones no cambian.
