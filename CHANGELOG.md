@@ -1,3 +1,10 @@
+## [1.106.2] - 2026-11-20 (DH-20261120-INCOTERM-QUOTED-FREIGHT-344 · flete internacional contratado bajo cualquier Incoterm)
+
+- PATCH coordinado para LTL/LCL/FTL/FCL/aéreo. CPT y demás Incoterms permiten agregar cargos de Transporte Internacional cuando el servicio está contratado; no se confunde responsabilidad comercial con prohibición del rubro.
+- DholePricingService 1.26.2 → 1.26.3: validación de distribución por contenedores únicamente para flete FCL explícito, preservando cotizaciones de sólo cargos aduaneros y el flete en ediciones.
+- DholeWeb/DholeSystem 1.106.1 → 1.106.2: UI conserva las líneas seleccionadas por servicio en todos los Incoterms; se mantiene la compatibilidad REST/SignalR y la composición de cargos terrestres.
+- Manifiesto de los 17 repositorios actualizado; 14 restantes sin cambios binarios. Pruebas CI/staging pendientes y sin despliegue autorizado a producción.
+
 ## [1.106.1] - 2026-11-20 (DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343 · tarifas preferenciales CRM por identidad de cuenta y ruta)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.106.0 → 1.106.1. Pricing utiliza identidad de cuenta CRM en sus cachés e identifica equivalencias de catálogo por ID real (POL, POE, POD y naviera) sin aplicar preferencias ajenas.
