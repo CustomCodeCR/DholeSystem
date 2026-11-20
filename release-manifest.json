@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "releaseId": "DH-20261120-OPERATIONS-IDTRA-FORM-351",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.1",
+  "ecosystemVersion": "1.107.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
     "develop": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
     "master": "pending-coordinated-release"
   },
-  "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+  "candidateBranch": "feature/idtra-global-counter-aperture-full-form-20261120",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.1",
+      "version": "1.107.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+      "candidateBranch": "feature/idtra-global-counter-aperture-full-form-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
@@ -38,9 +38,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.1",
+      "version": "1.107.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/crm-preferenciales-ruta-cuenta-20261120-343",
+      "candidateBranch": "feature/idtra-global-counter-aperture-full-form-20261120",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
@@ -131,35 +131,38 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.14.0",
+      "version": "0.15.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
+      "candidateBranch": "feature/idtra-global-counter-aperture-full-form-20261120",
       "developCandidateBranch": "feature/aperturas-dashboard-tramites-20261119",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.106.0 → 1.106.1; other 15 components unchanged. Coordinated staging required before master.",
+  "policyCheck": "MINOR: System/Web 1.106.1→1.107.0, Operations 0.14.0→0.15.0. Other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI checks and staging route/CRM customer UAT pending"
+    "Live Dynamics IDTRA high-watermark must be synchronized before creating new cases",
+    "Pricing accepted-QUO consumer still not implemented",
+    "CI and authenticated staging UAT pending"
   ],
   "validationEvidence": {
-    "unitTests": "pending GitHub CI",
-    "staging": "pending authenticated UAT",
+    "tests": "pending CI",
+    "staging": "pending",
     "production": "not authorized"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Fix customer-specific cost cache identity in Pricing quotes",
-    "Reconcile CRM preferential route aliases solely by selected catalog IDs",
-    "Apply linked and manual customer sales while preserving provider costs and historical snapshots",
-    "Add regression tests with six FCL preferred charges and mismatch safeguards"
+    "Create global IDTRA12345 formatted identifier with no user series and unbounded display digits",
+    "Guard counter against historical Dynamics reset with audited admin synchronization",
+    "Full-screen manual opening using CRM and Config catalog fields",
+    "Structured JSONB draft with modal validation, multi-equipment, audit, outbox and SignalR"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -216,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "businessReleaseId": "DH-20261120-OPERATIONS-IDTRA-FORM-351",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

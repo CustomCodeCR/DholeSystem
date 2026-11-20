@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.106.1",
-  "ecosystemVersion": "1.106.1",
-  "releaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343",
+  "version": "1.107.0",
+  "ecosystemVersion": "1.107.0",
+  "releaseId": "DH-20261120-OPERATIONS-IDTRA-FORM-351",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343"
+  "businessReleaseId": "DH-20261120-OPERATIONS-IDTRA-FORM-351"
 }

@@ -1,3 +1,11 @@
+## [1.107.0] - 2026-11-20 (DH-20261120-OPERATIONS-IDTRA-FORM-351 · IDTRA único y apertura manual completa)
+
+- MINOR: nuevos IDTRA sin guiones ni series, usando contador transaccional global sincronizado con el histórico Dynamics por admin autorizado; no renumerar expedientes existentes.
+- Trámites abre un formulario completo en página, sin modal, reutilizando CRM/Config/Pricing para ruta, cliente, cargas, equipo múltiple, servicios, proveedores y datos de embarque.
+- El borrador es parcial y editable con concurrencia/auditoría; validación depende de campos y modalidad, sin generar QUO ni importes falsos.
+- Componentes coordinados: DholeSystem/DholeWeb 1.106.1 → 1.107.0, Operations 0.14.0 → 0.15.0; resto sin cambios.
+- Sin despliegue a producción hasta confirmar contador actual de Dynamics y UAT staging. Integración automática de aceptación de QUO sigue pendiente.
+
 ## [1.106.1] - 2026-11-20 (DH-20261120-CRM-PRICING-PREFERRED-ALIAS-343 · tarifas preferenciales CRM por identidad de cuenta y ruta)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.106.0 → 1.106.1. Pricing utiliza identidad de cuenta CRM en sus cachés e identifica equivalencias de catálogo por ID real (POL, POE, POD y naviera) sin aplicar preferencias ajenas.
