@@ -129,12 +129,12 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.42.3",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
+      "mergeState": "unchanged",
+      "candidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
