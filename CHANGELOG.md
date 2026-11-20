@@ -1,3 +1,9 @@
+## [1.103.20] - 2026-11-20 (DH-20261120-CRM-MANUAL-AMOUNT-297 · guardar ítems manuales CRM)
+
+- PATCH: coordina Web/System 1.103.19→1.103.20. Vue v-model number genera valores numéricos y el formulario manual lanzaba TypeError por .trim(), bloqueando POST.
+- El campo ahora acepta los tipos string/number y muestra validaciones sin bloqueo HTML silencioso. Prueba de regresión del guardado con importes Vue.
+- CRM sin cambios; REST y SignalR compatibles. Validación CI/staging antes de producción.
+
 ## [1.103.19] - 2026-11-20 (DH-20261120-CRM-INVITEE-PERSISTENCE-296 · persistencia de invitados CRM)
 
 - PATCH: corrige la propagación de invitados añadidos posteriormente a una actividad comercial hacia los compromisos de agenda vinculados, con persistencia atómica, deduplicación, historial y recordatorios outbox/realtime.

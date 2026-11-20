@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "kind": "patch",
+  "ecosystemVersion": "1.103.20",
+  "summary": "Repair silent manual preferential charge save due to Vue v-model numeric type mismatch",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.19",
+      "version": "1.103.20"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.19",
+      "version": "1.103.20"
+    }
+  ],
+  "branch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
+  "checks": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
+  },
+  "productionDeploymentAuthorized": false
+}

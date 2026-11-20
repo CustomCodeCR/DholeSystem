@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.19",
+  "ecosystemVersion": "1.103.20",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.19",
+      "version": "1.103.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+      "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.19",
+      "version": "1.103.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
-      "candidateSha": null,
+      "candidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop",
+      "candidateSha": "de666d5605111dba14fa3cbb2253548e2c8d2377",
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,28 +146,27 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH paridad dashboard comercial: Web/System 1.103.17→1.103.18 y Pricing 1.25.3→1.25.4; otros 14 servicios sin cambios. Fuente única por sellerUserId incluyendo recibos/asignaciones/última publicación. REST opcional compatible, SignalR intacto; validar CI/staging antes de master.",
+  "policyCheck": "PATCH: Web/System 1.103.19 → 1.103.20, all other services keep their current SemVer. Fix Vue numeric v-model manual preferred item submission exception.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staged Web verification pending"
+    "CI and staging verification pending"
   ],
   "validationEvidence": {
-    "tests": "pending",
-    "staging": "CRM migration completed successfully",
-    "production": "CRM production deployment status pending"
+    "tests": "CI pending",
+    "staging": "pending",
+    "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Fix PostgreSQL check constraint for TIERED_SALE in preferential rates",
-    "Keep pending edits after partial saves and deduplicate source IDs"
+    "Fix manual preferential amount numeric input parsing (avoid .trim TypeError)",
+    "Run regression tests for manual charges and make form validation visible"
   ],
   "stagingValidation": {
-    "status": "CRM migration success"
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -221,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
+  "businessReleaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
