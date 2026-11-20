@@ -1,3 +1,8 @@
+## [1.105.2] - 2026-11-20 (DH-20261120-CRM-PREFERRED-BLOCKS-342 · consolidación de bloques preferenciales CRM)
+
+- PATCH: DholeWeb 1.105.2 reconcilia acuerdos CRM con líneas de Pricing por servicios seleccionados y CostId/identidad del cargo, conserva costos y cotizaciones históricas, y presenta los seis ítems preferenciales de una misma ruta como bloque comercial editable, incluidos los manuales.
+- Pruebas para CIF/40HC/ONE/Caldera/San José, unidades comerciales, moneda y matching seguro; API, SignalR y microservicios sin cambios. CI y staging requeridos antes de master.
+
 ## [1.105.1] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331 · restaurar beneficios preferenciales CRM en Pricing)
 
 - PATCH: reparación en DholeWeb del cargador efectivo de costos generado por Vite: ahora recupera los acuerdos de la cuenta CRM y aplica la venta preferencial por CostId, ruta, naviera, servicio, equipo e Incoterm, sin cambiar el costo del proveedor ni las cotizaciones emitidas.
