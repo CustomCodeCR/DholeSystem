@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.8",
+  "ecosystemVersion": "1.103.11",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.8",
+      "version": "1.103.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+      "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.8",
+      "version": "1.103.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+      "candidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.1",
+      "version": "1.42.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281",
+      "candidateBranch": "fix/DH-20261119-CRM-ACTIVITY-INVITEES-286",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281",
-      "developCandidateBranch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261119-CRM-ACTIVITY-INVITEES-286"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
     "Allow explicitly priced DDP LTL/FTL international road freight without applying FCL container distribution",
