@@ -1,3 +1,9 @@
+## [1.103.16] - 2026-11-19 (DH-20261119-CRM-AGREEMENT-INVITEES-294 · invitados CRM en compromisos)
+
+- PATCH: DholeSystem/DholeWeb 1.103.15 → 1.103.16 y DholeCRMService 1.42.2 → 1.42.3, manifiesto coordinado de 17 repositorios; componentes restantes sin cambios.
+- Las actividades comerciales comparten los invitados con sus seguimientos derivados. Se recuperan memberships históricos seguros y se confirma la persistencia desde la interfaz.
+- Conserva REST, SignalR, outbox/inbox e idempotencia. Compilación, pruebas de integración y staging previos a master; producción requiere autorización.
+
 ## [1.103.15] - 2026-11-19 (DH-20261119-DASHBOARD-TABLE-293 · indicadores de venta y seguimiento filtrable)
 
 - PATCH DholeWeb/DholeSystem 1.103.14 → 1.103.15. Tarjetas de estados comerciales activan el filtro de la tabla de tarifas del dashboard y llevan el scroll hasta ella, sin navegar a la vista Pricing.
