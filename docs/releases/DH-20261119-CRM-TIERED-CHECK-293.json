@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "kind": "patch",
+  "ecosystemVersion": "1.103.16",
+  "summary": "Repair TIERED_SALE constraint and safe partial rate saves",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.14",
+      "version": "1.103.16"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "version": "1.103.16"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.42.2",
+      "version": "1.42.3"
+    }
+  ],
+  "branch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
+  "checks": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
+  },
+  "productionDeploymentAuthorized": false
+}

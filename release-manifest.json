@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
+  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.14",
+  "ecosystemVersion": "1.103.16",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+  "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.14",
+      "version": "1.103.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
+      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
       "candidateSha": null,
-      "developMergeSha": "d07fa9953792e6b171b298414b13165bfe9ca434",
-      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.14",
+      "version": "1.103.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
-      "candidateSha": null,
-      "developMergeSha": "1cd8e07e93263b7edd80f862efb1adad57d3588d",
-      "masterCandidateBranch": "release/DH-20261119-DASHBOARD-GLOBAL-FILTER-291-master",
-      "developCandidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291"
+      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
+      "candidateSha": "5d9a99cc332601bfac270175d4767de53b224452",
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.2",
+      "version": "1.42.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-ACTIVITY-INVITEES-286"
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -146,26 +146,25 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH dashboard comercial: Web/System 1.103.12 en master → 1.103.14 release combinado, desarrollos 1.103.13+1.103.14. (aceptadas−vencidas)/(cotizadas−abiertas). Pricing 1.25.3 y demás servicios se mantienen. CI/staging antes de master.",
+  "policyCheck": "PATCH: DholeWeb/System 1.103.14->1.103.16, CRM 1.42.2->1.42.3, other 14 components unchanged. Validate TIERED_SALE migration staging before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Await staging validation",
-    "Production deployment not explicitly authorized"
+    "CI and staging pending"
   ],
   "validationEvidence": {
-    "tests": "CI succeeded on develop candidate",
-    "staging": "pending",
+    "tests": "pending",
+    "staging": "migration pending",
     "production": "not deployed"
   },
   "releaseComponents": [
-    "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService",
+    "DholeSystem",
+    "DholeWeb"
   ],
   "changes": [
-    "Notify assigned seller in System one day before quotation expires at 09:00 Costa Rica",
-    "Keep Email reminder 5d/3d/1d/6h and independent transactional one-day System outbox/marker",
-    "Notifications Redis/SignalR REST compatibility and safe seller identity"
+    "Allow TIERED_SALE in CRM PostgreSQL CHECK constraint",
+    "Preserve pending rate items on partial save"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -222,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+  "businessReleaseId": "DH-20261119-CRM-TIERED-CHECK-293",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

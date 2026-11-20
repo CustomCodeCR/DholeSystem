@@ -1,3 +1,9 @@
+## [1.103.16] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · reparar 409 en tarifas preferenciales por tramos)
+
+- PATCH: promoción selectiva de CRM 1.42.3 y Web/System 1.103.14→1.103.16. Migración de PostgreSQL actualiza ck_crm_preferential_rate_type e incluye TIERED_SALE.
+- Guardado de costos en Web conserva únicamente los pendientes tras errores parciales. No altera otras funcionalidades de master ni REST/SignalR.
+- Exige CI y staging antes de producción.
+
 ## [1.103.14] - 2026-11-19 (DH-20261119-DASHBOARD-PERFORMANCE-292 · fórmula comercial corregida)
 
 - PATCH: las abiertas se excluyen del total de cotizaciones entregadas; las rechazadas sí permanecen en el denominador y las vencidas restan en el numerador. Desempeño = (aceptadas − vencidas) / (total cotizadas − abiertas) × 100.
