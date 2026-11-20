@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.3",
+  "ecosystemVersion": "1.104.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
+  "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.3",
+      "version": "1.104.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.3",
+      "version": "1.104.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,10 +67,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.1",
+      "version": "1.26.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+      "candidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
+      "developCandidateBranch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-310",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -149,7 +149,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholePricingService"
   ],
   "changes": [
     "Show named internal CRM activity invitees",
@@ -211,7 +211,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+  "businessReleaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -963,6 +963,20 @@
     "ecosystemVersion": "1.104.3",
     "crmVersion": "1.42.7",
     "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "expiredRateSellerApproverAccessRelease": {
+    "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312",
+    "releaseType": "PATCH",
+    "systemWebVersion": "1.104.4",
+    "pricingVersion": "1.26.2",
+    "approvers": [
+      "rsibaja@castrofallas.com",
+      "jmesen@castrofallas.com"
+    ],
+    "route": "/home?expiredApprovals=1",
+    "approvedBy": "Auth identity",
     "staging": "pending",
     "productionDeploymentAuthorized": false
   }
