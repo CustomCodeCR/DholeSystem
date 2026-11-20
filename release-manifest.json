@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
+  "releaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.4",
-  "status": "master-promotion-approved-staging-uat-unverified",
+  "ecosystemVersion": "1.106.5",
+  "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-merchant-haulage-20261120",
-    "master": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master"
+    "develop": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop",
+    "master": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master"
   },
-  "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
+  "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.4",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
+      "version": "1.106.5",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
       "candidateSha": null,
-      "developMergeSha": "0dc01f8e61fbddeee5dc8e1f9d499b80762fbb29",
-      "masterCandidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
-      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.4",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
+      "version": "1.106.5",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
       "candidateSha": null,
-      "developMergeSha": "0b6b24165f34fa30a363278cc71e5a6bc38e1701",
-      "masterCandidateBranch": "release/DH-20261120-PRICING-MERCHANT-HAULAGE-346-master",
-      "developCandidateBranch": "fix/pricing-merchant-haulage-20261120"
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-master",
+      "developCandidateBranch": "fix/DH-20261120-MERCHANT-OPTIONAL-347-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -147,36 +147,35 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.106.3 → 1.106.4; 15 components unchanged. User explicitly requested promotion to master after CI; authenticated staging UAT is not verified.",
-  "mergeState": "master-promotion-authorized",
+  "policyCheck": "PATCH Web/System 1.106.4 → 1.106.5; remaining 15 component versions unchanged. Screen6 loads the same route-matched Optional catalog as Screen7; CI and authenticated staging checks required.",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Authenticated staging UAT still unverified; do not assert production behavior until checked",
-    "Web cross-repository version policy must pass after System master integration"
+    "Confirm CI and global version policy on coordinated branches",
+    "Authenticated staging Balboa → Colon Free Zone Merchant UAT remains pending"
   ],
   "validationEvidence": {
-    "unitTests": "DholeWeb master candidate CI passed",
-    "masterCandidate": "System and Web candidate CI passed; Web global version recheck required after System merge",
-    "staging": "UAT autenticada no verificable desde este entorno; no se presenta como superada",
-    "production": "user authorized master release; deployment not yet verified"
+    "unitTests": "pending GitHub CI",
+    "staging": "pending authenticated UAT",
+    "production": "user explicitly requested master release; deployment not verified"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Selectively promote verified Merchant/Carrier Fixed and Variable Inland pricing fix to master",
-    "Avoid bulk merging diverged develop branch",
-    "Preserve context-specific POE/POD and distinct rate details without double-charge",
-    "Retain REST/SignalR and the other 15 component versions"
+    "Align Screen6 Merchant/Carrier alternative lookup with Screen7 Optional contextual catalog",
+    "Merge CostIds only for current POE/POD/provider context with serial guard",
+    "Keep exclusive haulage selection, no double counting and REST/SignalR compatibility",
+    "Preserve versions of 15 other components"
   ],
   "stagingValidation": {
-    "status": "not-verified-explicit-master-promotion",
+    "status": "pending",
     "scenarios": [
-      "Fixed Merchant Balboa to San José on FCL Screen 6",
-      "Carrier alternative and common destination costs preserved",
-      "No duplicated transport in Screen 7",
-      "Unmatched POE, POD or naviera not loaded"
+      "Balboa → Colon Free Zone Optional Merchant appears in Screen6 and Screen7",
+      "Merchant selection persists into Screen7 exactly once",
+      "Changing POE, POD, naviera or agent excludes previous optional transport",
+      "Other fixed shared charges remain selected"
     ]
   },
   "f6F7F8": {
@@ -231,7 +230,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-MERCHANT-HAULAGE-346",
+  "businessReleaseId": "DH-20261120-MERCHANT-OPTIONAL-SCREEN6-347",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
