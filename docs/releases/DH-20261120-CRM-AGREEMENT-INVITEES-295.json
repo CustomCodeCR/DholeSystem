@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261120-CRM-AGREEMENT-INVITEES-295",
+  "releaseType": "PATCH",
+  "component": "DholeSystem",
+  "previousVersion": "1.103.16",
+  "version": "1.103.17",
+  "ecosystemVersion": "1.103.17",
+  "candidateBranch": "fix/DH-20261120-CRM-AGREEMENT-INVITEES-295",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "affectedComponents": [
+    "DholeCRMService",
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "ci": "pending",
+  "stagingValidation": "pending",
+  "productionDeploymentAuthorized": false
+}
