@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CLIENT-COUNTRY-298",
+  "releaseId": "DH-20261120-PRICING-COUNTRY-OPTIONS-310",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.23",
-  "status": "candidate-ci-and-production-pending",
+  "ecosystemVersion": "1.103.24",
+  "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+  "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-system-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.23",
+      "version": "1.103.24",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-system-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.23",
+      "version": "1.103.24",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-web-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-v23-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-COUNTRY-OPTIONS-310-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -914,8 +914,9 @@
     "productionDeploymentAuthorized": false
   },
   "releaseNotes": [
-    "El usuario puede ingresar país CRM para cotización en Pantalla 3",
-    "POL Vietnam reconocido explícitamente como VN",
-    "Compatibilidad con IVA POD, REST y SignalR existente"
+    "Fix runtime r.pricingQuoteCountryOptions undefined on Create tariff",
+    "Use reactive Config countries directly in both country selectors",
+    "Prevent regressions by inspecting minified Pricing bundle",
+    "No REST, SignalR or backend changes"
   ]
 }
