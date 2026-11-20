@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-SELLER-DASHBOARD-PARITY-295",
+  "releaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.18",
+  "ecosystemVersion": "1.103.19",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+  "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.18",
+      "version": "1.103.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295"
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.18",
+      "version": "1.103.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295"
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.3",
-      "mergeState": "unchanged",
-      "candidateBranch": null,
+      "version": "1.42.5",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": null
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
     "Fix PostgreSQL check constraint for TIERED_SALE in preferential rates",
@@ -221,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-TIERED-CHECK-293",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-PERSISTENCE-296",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
