@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-INVITATIONS-SAVE-290",
+  "releaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.11",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.103.12",
+  "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+  "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.11",
+      "version": "1.103.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
+      "developMergeSha": "d07fa9953792e6b171b298414b13165bfe9ca434",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.11",
+      "version": "1.103.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
+      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-INVITEES-SAVE-290-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-INVITEES-SAVE-290"
+      "developMergeSha": "1cd8e07e93263b7edd80f862efb1adad57d3588d",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,12 +75,12 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.2",
+      "version": "1.25.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developMergeSha": null,
+      "candidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "developCandidateBranch": "fix/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
+      "masterCandidateBranch": "release/DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291-master",
+      "developMergeSha": "95e7ece325968140f3f13a5f5a62b47ae389e435",
       "candidateSha": null
     },
     {
@@ -146,28 +146,30 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeWeb y DholeSystem 1.103.8→1.103.9; 15 servicios restantes conservan sus versiones. Backport selectivo del fix CRM 275 sobre master 284.",
+  "policyCheck": "PATCH: Pricing 1.25.2→1.25.3; System/Web 1.103.11→1.103.12; 14 components unchanged. CI/staging required before promotion to master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI master PR pendiente"
+    "Await staging validation",
+    "Production deployment not explicitly authorized"
   ],
   "validationEvidence": {
-    "tests": "CI master candidate pending; previous 275 CI passed",
-    "staging": "original change validated in staging in release 275",
-    "production": "pending"
+    "tests": "CI succeeded on develop candidate",
+    "staging": "pending",
+    "production": "not deployed"
   },
   "releaseComponents": [
+    "DholePricingService",
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Backport verifiable manual preferential charges from release 275 to master 1.103.8",
-    "Display saved charge amounts next to manual form and verify persistence via CRM GET"
+    "Notify assigned seller in System one day before quotation expires at 09:00 Costa Rica",
+    "Keep Email reminder 5d/3d/1d/6h and independent transactional one-day System outbox/marker",
+    "Notifications Redis/SignalR REST compatibility and safe seller identity"
   ],
   "stagingValidation": {
-    "status": "validated original release 275"
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -221,7 +223,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-PROMOTION-286",
+  "businessReleaseId": "DH-20261119-PRICING-EXPIRY-1D-SYSTEM-291",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
