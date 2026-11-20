@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
+  "releaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.5",
+  "ecosystemVersion": "1.105.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop",
     "master": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+  "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.5",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
       "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.5",
+      "version": "1.105.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
       "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
     },
     {
@@ -139,32 +139,36 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.12.0",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/20261119-operations-role-team-dashboard-254-master",
+      "version": "0.13.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-APERTURES-330-master"
     }
   ],
-  "policyCheck": "PATCH: Global baseline up to 1.104.4 → 1.104.5; Web to 1.104.5 and CRM to 1.42.8. Other components unchanged.",
+  "policyCheck": "MINOR master: System/Web 1.104.5 → 1.105.0; Operations 0.12.0 → 0.13.0; other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Required CI and staging tests pending"
+    "Pricing definitive acceptance event/snapshot and idempotent Operations consumer not implemented",
+    "Staging end-to-end and CI verification pending"
   ],
   "validationEvidence": {
-    "tests": "pending CI",
-    "staging": "pending",
+    "tests": "PR CI pending",
+    "staging": "awaiting staging verification",
     "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeCRMService"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Apply CRM customer-specific preferential sale prices on new Pricing quotations",
-    "Preserve supplier costs and existing quote snapshots; support manual CRM charge and retry"
+    "Manual Aperturas CRM account picker and authorized case creation",
+    "Operations dashboard KPIs for manual and Pricing-origin cases",
+    "Paged Aperturas and Trámites filtering by IDTRA, status and origin",
+    "Single 8-tab Operations expediente navigation for existing data"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -221,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-CRM-PREFERRED-324",
+  "businessReleaseId": "DH-20261120-OPERATIONS-APERTURES-330",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
