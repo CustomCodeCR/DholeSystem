@@ -3,7 +3,7 @@
   "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.106.10",
-  "status": "candidate-production-authorized-ci-and-staging-pending",
+  "status": "candidate-master-authorized-staging-deploy-passed-pr-gates-pending",
   "branches": {
     "develop": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
     "master": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master"
@@ -151,17 +151,16 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Verify DholeWeb staging deployment of commit 8e63d359e6f3 before master merge",
-    "All PR/master CI and version gates must succeed",
-    "Inspect quote e539ec3f-8f6e-4802-8f20-f7012bcd8101 on staging and compare PDF"
+    "Master PR CI/SemVer must pass before merge",
+    "Authenticated E2E check of saved quote e539ec3f-8f6e-4802-8f20-f7012bcd8101 is not covered by staging deployment smoke"
   ],
   "validationEvidence": {
     "pricingCi": "passed",
     "webCi": "passed",
     "systemCi": "passed",
-    "pricingStagingDeploy": "passed",
-    "webStagingDeploy": "pending",
-    "liveQuoteParity": "pending"
+    "pricingStagingDeploy": "passed: 44787835362",
+    "webStagingDeploy": "passed: 44787968542",
+    "authenticatedSavedQuoteParity": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -175,7 +174,7 @@
     "Promote exact patch previously merged to develop, without merging divergent branches"
   ],
   "stagingValidation": {
-    "status": "partial",
+    "status": "deployment-passed-quote-e2e-pending",
     "scenarios": [
       "Review saved quote Carrusel USD 305, IVA 13% = USD 39.65 and totals USD/CRC",
       "Compare API totalTaxUsd/totalTaxCrc with commercialTaxAmount per line and PDF",
@@ -986,7 +985,7 @@
       "DholeWeb"
     ],
     "source": "explicit user request: master ahora",
-    "staging": "Pricing CI and staging workflow passed; Web staging workflow pending at preparation"
+    "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
   },
   "businessReleaseMasterPromotionRequested": true,
   "productionAuthorizationScope": "Explicit user request 'master ahora' for DH-20261120-PRICING-VAT-TOTAL-353 only; no other pending feature release included.",
