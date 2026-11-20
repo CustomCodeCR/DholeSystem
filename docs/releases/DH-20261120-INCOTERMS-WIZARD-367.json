@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261120-INCOTERMS-WIZARD-367",
+  "date": "2026-11-20",
+  "releaseType": "MINOR",
+  "ecosystemVersion": "1.108.0",
+  "target": "develop",
+  "candidateBranch": "feature/DH-20261120-INCOTERMS-WIZARD-367-develop",
+  "scope": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "affectedComponents": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "from": "1.107.5",
+      "to": "1.108.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "from": "1.107.5",
+      "to": "1.108.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "unchanged": "1.26.9"
+    }
+  ],
+  "features": [
+    "All six commercial logistics blocks remain available on P7 for all Incoterms",
+    "P6-P7 no longer advances on failed/stale contextual costs",
+    "Rehydrate P7 edits only for the same cost context",
+    "Draft pickup and warehouse fields persist through Incoterm changes",
+    "Avoid synthetic freight lines unless selected or contracted; CIF/CIP insurance warning"
+  ],
+  "deferred": [
+    "Backend contracts: commercial named place and risk/party per charge",
+    "Insurance documentation and evidence persistence",
+    "P7 remove/override of fixed charges with audit",
+    "Full persisted PDF and multi-POE end-to-end staging verification"
+  ],
+  "tests": [
+    "node --test tests/pricingIncotermsWizardStage367.test.mjs",
+    "pnpm run test:pricing-rate-update",
+    "pnpm run type-check",
+    "pnpm run build",
+    "Staging authenticated nine-screen smoke including saved PDF"
+  ],
+  "stagingValidated": false,
+  "ciValidated": false,
+  "productionDeploymentAuthorized": false,
+  "rollback": "Revert candidate PRs for DholeWeb and DholeSystem; no migration or PricingService changes."
+}
