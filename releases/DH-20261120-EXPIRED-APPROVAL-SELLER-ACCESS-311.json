@@ -1,0 +1,18 @@
+{
+  "releaseId": "DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-311",
+  "releaseType": "PATCH",
+  "previousEcosystemVersion": "1.104.2",
+  "ecosystemVersion": "1.104.3",
+  "components": {
+    "DholeSystem": "1.104.3",
+    "DholeWeb": "1.104.3",
+    "DholePricingService": "1.26.2"
+  },
+  "unchangedComponents": 14,
+  "branch": "fix/DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-311",
+  "staging": "pending",
+  "productionAuthorized": false,
+  "reason": "Seller Jose Pablo is authorized by identity, not Pricing role.",
+  "entrypoint": "/home?expiredApprovals=1",
+  "security": "Only Roy and Jose Pablo may approve per backend Auth user IDs; no pricing scopes granted."
+}
