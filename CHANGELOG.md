@@ -1,3 +1,8 @@
+## [1.104.2] - 2026-11-20 (DH-20261120-PRICING-COUNTRY-OPTIONS-310 · restaurar Crear tarifa)
+
+- PATCH: el wizard de Pricing deja de depender de pricingQuoteCountryOptions en plantilla; las opciones son calculadas desde catalogs.countries, conservando perspectiva comercial y IVA por POD.
+- Pruebas automatizadas de selección de país, minificación y montaje. Web/System 1.104.1→1.104.2, otros 15 componentes sin cambios, SignalR/REST compatibles.
+
 ## [1.104.1] - 2026-11-20 (DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX · revisión de longitud de Outbox)
 
 - PATCH coordinado para autorizaciones de tarifas vencidas: corrige correlación excedida de Notifications Outbox (varchar(100)) y previene fallo de persistencia de eventos de sistema/SignalR/correo.
