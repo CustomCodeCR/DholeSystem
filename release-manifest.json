@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-PERSPECTIVE-364",
+  "releaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.3",
+  "ecosystemVersion": "1.107.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
-    "master": "fix/DH-20261120-PRICING-PERSPECTIVE-364"
+    "develop": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+    "master": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
+  "candidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.3",
+      "version": "1.107.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.3",
+      "version": "1.107.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-PERSPECTIVE-364-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-UNIVERSAL-COUNTRY-365"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,35 +131,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.107.1 (develop) / 1.107.2 (master) -> 1.107.3; other components unchanged.",
+  "policyCheck": "PATCH Web/System 1.107.3 -> 1.107.4. ISO country normalization shared throughout Web Pricing. All other service versions preserved.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI tests and Web Vite/TypeScript build",
-    "Authenticated staging Pricing country and draft regression test",
-    "Master separately authorized after staging"
+    "Web full tests and Vite production build",
+    "Authenticated global route regression in staging",
+    "Production requires explicit authorization after staging"
   ],
   "validationEvidence": {
     "status": "pending",
-    "rootCause": "Explicit El Salvador destination country not resolved from legacy Config label; manual quote direction unavailable"
+    "coverage": "249 ISO countries, ISO-2/ISO-3 metadata, UNLOCODE, localized country names in ES/EN/PT/FR, no guessed city names"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Resolve legacy country labels El Salvador and CRM ISO-2 metadata",
-    "Provide optional manual Import/Export/Transit overriding automatic country-based operation",
-    "Persist manual operation in browser draft, restore from RateDto when editing",
-    "No REST/SignalR/schema changes"
+    "Replace hardcoded per-country Pricing fallback with universal ISO resolver",
+    "Respect Config countryId, country metadata, literal country names and UNLOCODE for POL/POE/POD",
+    "Unify CRM country and Pricing destination ISO resolution without changing VAT and Incoterm rules",
+    "Retain manual Import/Export when any route is unresolved"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Qingdao CN to San Salvador SV with Salvadoran CRM client resolves Import",
-      "Fallback manual operation if country reference is missing",
-      "Borrador maintains operation across reload",
-      "VAT and existing inland cost logic unchanged"
+      "Qingdao -> El Salvador and Europe/Americas/Asia/Africa/Oceania routes",
+      "Multiple Config country metadata formats, ambiguous names and absent catalog",
+      "Automatic import/export from CRM client country and manual fallback",
+      "No regressions in IVA, charges, inland, Incoterm, drafts, realtime"
     ]
   },
   "f6F7F8": {
@@ -214,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-PERSPECTIVE-364",
+  "businessReleaseId": "DH-20261120-PRICING-UNIVERSAL-COUNTRY-365",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
