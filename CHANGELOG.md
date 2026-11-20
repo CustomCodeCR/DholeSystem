@@ -1,3 +1,8 @@
+## [1.103.22] - 2026-11-20 (DH-20261120-CRM-INVITEE-SYNC-309 · persistencia de invitados CRM)
+
+- PATCH: versión coordinada DholeSystem/DholeWeb 1.103.21 → 1.103.22; DholeCRMService 1.42.6. Propaga nuevos invitados a acuerdos pendientes y confirma guardado desde Web.
+- Manifiesto de 17 componentes, sin modificar los no afectados; mantiene outbox, SignalR y REST. Se conserva lo previamente integrado de Pricing/CRM y la autorización de master para producción.
+
 ## [1.103.21] - 2026-11-20 (DH-20261120-PRICING-CLIENT-COUNTRY-298 · desbloqueo país CRM y ruta Vietnam)
 
 - PATCH frontend: el asistente de Pricing acepta la selección explícita del país del cliente en Pantalla 3 cuando CRM no lo tiene, sin alterar la ficha de la cuenta.
