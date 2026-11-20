@@ -1,3 +1,9 @@
+## [1.104.4] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-312 · autorización desde Dashboard de Ventas)
+
+- Funcionalidad compatible: autorización por usuario de Roy o José Pablo para actualizar tarifas vencidas, justificación obligatoria, control de actualización backend, auditoría persistida, System/SignalR y Email mediante Outbox y clave idempotente corregida.
+- José Pablo mantiene el rol vendedor y accede a las aprobaciones desde su Dashboard de Ventas, igual que Roy desde su dashboard; contador de solicitudes vía SignalR y acceso directo /home?expiredApprovals=1.
+- Web/System 1.104.3 → 1.104.4; Pricing 1.25.4 → 1.26.2; otros 14 componentes sin cambios. Release coordinado con CI/staging.
+
 ## [1.104.3] - 2026-11-20 (DH-20261120-CRM-INVITEE-VISIBILITY-323 · promoción a master de invitados en agenda CRM)
 
 - PATCH selectivo de CRM, Web y System: nombres reales de participantes internos, visibilidad de actividades en calendarios de invitados y recarga SignalR tras notificaciones o desconexiones.
