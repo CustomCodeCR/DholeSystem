@@ -1,0 +1,22 @@
+{
+  "releaseId": "DH-20261120-INCOTERM-SAVE-351",
+  "ecosystemVersion": "1.106.8",
+  "date": "2026-11-20",
+  "components": {
+    "DholeWeb": {
+      "from": "1.106.7",
+      "to": "1.106.8"
+    },
+    "DholeSystem": {
+      "from": "1.106.7",
+      "to": "1.106.8"
+    },
+    "DholePricingService": {
+      "unchanged": "1.26.4"
+    }
+  },
+  "issue": "Incoterm edit save runtime ReferenceError",
+  "staging": "pending",
+  "production": "pending",
+  "restSignalRCompatibility": "unchanged"
+}

@@ -1,3 +1,9 @@
+## [1.106.8] - 2026-11-20 (DH-20261120-INCOTERM-SAVE-351 · Guardado Incoterm FOB importación)
+
+- PATCH de Web/System: el transformador de edición de tarifas ya no introduce `freightNotRequiredByIncoterm`, variable inexistente que bloqueaba la operación antes de llamar al API Pricing.
+- Conserva el flete cuando el servicio Transporte Internacional está seleccionado, independientemente del Incoterm, y concilia los detalles persistidos cuando no se contrató transporte. Regresión FOB Shanghái → Caldera → San José.
+- Versiones DholeWeb/DholeSystem 1.106.7 → 1.106.8; DholePricingService permanece en 1.26.4. Actualizado manifiesto de 17 repositorios; compatibilidad REST y SignalR sin cambios. Validaciones de CI/staging necesarias.
+
 ## [1.106.7] - 2026-11-20 (DH-20261120-INCOTERM-IMPORT-350 · Incoterms importación China a Costa Rica)
 
 - PATCH coordinado Pricing/Web/System: los Incoterms aplican las obligaciones desde el país real del cliente, POL China y POD Costa Rica; importaciones no heredan el punto de vista exportador. Resolución de los 11 códigos ICC, con identificadores Config opacos y flete internacional expresamente contratado.
