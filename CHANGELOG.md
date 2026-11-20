@@ -1,3 +1,9 @@
+## [1.104.0] - 2026-11-20 (DH-20261120-EXPIRED-RATE-APPROVAL-298 · autorización de tarifas vencidas)
+
+- MINOR coordinado de DholeSystem, DholeWeb y DholePricingService: tarifas vencidas con justificación obligatoria, autorización nominativa de Roy o José Pablo, registro histórico de solicitudes/decisiones, controles de edición en API y vista de aprobación.
+- Notificaciones durables System/SignalR y Email mediante Notifications Outbox; migración PostgreSQL aditiva. Versions DholeSystem/DholeWeb 1.103.20 → 1.104.0; Pricing 1.25.4 → 1.26.0; resto de componentes sin cambios.
+- Requiere integración en develop, validación de staging y CI antes de master; sin despliegue productivo no autorizado.
+
 ## [1.103.19] - 2026-11-20 (DH-20261120-CRM-INVITEE-PERSISTENCE-296 · persistencia de invitados CRM)
 
 - PATCH: corrige la propagación de invitados añadidos posteriormente a una actividad comercial hacia los compromisos de agenda vinculados, con persistencia atómica, deduplicación, historial y recordatorios outbox/realtime.
