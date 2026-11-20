@@ -1,3 +1,9 @@
+## [1.103.17] - 2026-11-20 (DH-20261120-CRM-AGREEMENT-INVITEES-295 · consistencia invitados CRM)
+
+- PATCH: integra CRM 1.42.4 que hereda y persiste los invitados de compromisos derivados, y conserva Web 1.103.16 que comprueba la persistencia y bloquea sobreescrituras inseguras.
+- DholeSystem/DholeWeb 1.103.16 → 1.103.17; manifiesto de 17 componentes, tres afectados. Se preserva el release de tarifas CRM 1.42.3.
+- CI, integración PostgreSQL y staging obligatorios antes de master; producción requiere autorización.
+
 ## [1.103.16] - 2026-11-19 (DH-20261119-CRM-AGREEMENT-INVITEES-294 · invitados CRM en compromisos)
 
 - PATCH: DholeSystem/DholeWeb 1.103.15 → 1.103.16 y DholeCRMService 1.42.2 → 1.42.3, manifiesto coordinado de 17 repositorios; componentes restantes sin cambios.
