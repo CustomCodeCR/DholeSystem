@@ -1,3 +1,9 @@
+## [1.106.19] - 2026-11-20 (DH-20261120-PRICING-INLAND-CONFLICTS-362 · inland y cargos: resolución de conflictos)
+
+- PATCH de contención coordinado con DholeWeb 1.106.19, sobre la versión master 1.106.18, que retira la sincronización/guardado prematuro de cargos entre las pantallas 6 y 7.
+- Conserva la autorización de vencidas según rol (release 361) y el desbloqueo temporal de Incoterms. DholePricingService 1.26.9 y otros 14 componentes sin cambios.
+- Sin alteraciones de REST, SignalR, migraciones o infraestructura. CI de PR pendiente, sin despliegue de producción autorizado.
+
 ## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · aprobación de vencidas exclusiva para vendedores)
 
 - PATCH coordinado Pricing/Web/System: Master recibe corrección de roles aplicada originalmente en develop como 354. Vendedores solicitan autorización a Roy/José Pablo; Pricing y Superadmin editan tarifas vencidas directamente, sin el modal de solicitud ni el bloqueo HTTP 409.
