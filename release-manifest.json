@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
+  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.15",
+  "ecosystemVersion": "1.106.16",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-    "master": "fix/DH-20261120-PRICING-INLAND-STEP67-357"
+    "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
+    "master": "fix/DH-20261120-PRICING-INLAND-QA-358"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
+  "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.15",
+      "version": "1.106.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
+      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.15",
+      "version": "1.106.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
+      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -68,12 +68,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.8",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-INLAND-STEP67-357",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -130,14 +125,12 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb 1.106.14->1.106.15, DholePricingService 1.26.7->1.26.8, DholeSystem 1.106.11->1.106.15; only three release components; REST/SignalR compatible.",
+  "policyCheck": "PATCH DholeWeb 1.106.15->1.106.16 and DholeSystem 1.106.15->1.106.16, Pricing remains 1.26.8; regression harness only; no REST/SignalR changes",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb and Pricing CI must pass",
-    "DholeSystem and DholeWeb global versions must match on develop",
-    "Validate screen 6->7 inland automatic cost and draft persistence in staging",
-    "Master/production remain forbidden absent staging and explicit production authorization"
+    "DholeWeb CI and build must pass",
+    "Validate screen 6->7 inland and browser reload on staging before any master merge"
   ],
   "validationEvidence": {
     "unitTests": "pending CI",
@@ -147,23 +140,18 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Preserve POE/carrier-specific Merchant and Carrier inland choices while moving from screen 6 to 7",
-    "Restore CostId-matched automatic inland and other optional charges prior to lines recalculation",
-    "Drop stale async optional-cost responses and preserve draft selection",
-    "Version Dhole pricing and global metadata without changing REST or SignalR contracts"
+    "Update web screen 6 Merchant optional regression test harness to include draft persistence mocks"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Screen 6 selects lower-cost inland and shows related charges for selected POE/carrier",
-      "Switch to screen 7 without page reload: charges and selected inland appear with CostId and correct cost/sale",
-      "Return to screen 6 and change Merchant/Carrier; ensure exactly selected inland persists in screen 7",
-      "Switch POE/carrier; no leakage from previous options or late API requests",
-      "Reload a saved draft; selected inland and amounts persist; no duplicated charges"
+      "Screen 6 selects Inland from configured costs",
+      "Screen 7 includes Inland by CostId without hard refresh",
+      "Selected inland persists across browser reload",
+      "No duplicate cost rows on repeated navigation"
     ]
   },
   "f6F7F8": {
@@ -218,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
+  "businessReleaseId": "DH-20261120-PRICING-INLAND-QA-358",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1029,6 +1017,21 @@
     "schemaMigration": false,
     "restCompatible": true,
     "signalRCompatible": true,
+    "productionDeploymentAuthorized": false
+  },
+  "inlandStep67QaRelease": {
+    "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+    "from": {
+      "DholeSystem": "1.106.15",
+      "DholeWeb": "1.106.15"
+    },
+    "to": {
+      "DholeSystem": "1.106.16",
+      "DholeWeb": "1.106.16"
+    },
+    "DholePricingService": "1.26.8",
+    "ci": "pending",
+    "staging": "pending",
     "productionDeploymentAuthorized": false
   }
 }
