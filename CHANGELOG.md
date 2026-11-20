@@ -3,9 +3,14 @@
 - MINOR coordinado Web/System/Operations: Trámites es entrada única para listar, buscar, crear apertura manual con cuenta CRM y ver un resumen en drawer.
 - Cada IDTRA abre expediente de pantalla completa con ocho tabs, permisos por sección/equipo calculados por backend, QUO persistida, etapas, hitos, tareas, doble validación y bitácora privada autorizada.
 - Modificaciones a Aperturas requieren versionado, scope y relación con el trámite; cambios auditados y propagados mediante Outbox/SignalR con reconsulta REST y recuperación ante desconexión.
-- Versiones Web/System 1.105.1 → 1.106.0, Operations 0.13.0 → 0.14.0; restantes 14 componentes se conservan.
+- Versiones Web/System 1.105.2 → 1.106.0, Operations 0.13.0 → 0.14.0; restantes 14 componentes se conservan.
 - La apertura automática desde QUO aceptada, importación de IDTRA históricos Dynamics y workflows avanzados de áreas aún no están implementados.
 - CI y staging pendientes. Producción no autorizada para este release.
+
+## [1.105.2] - 2026-11-20 (DH-20261120-CRM-PREFERRED-BLOCKS-342 · consolidación de bloques preferenciales CRM)
+
+- PATCH: DholeWeb 1.105.2 reconcilia los acuerdos CRM existentes con las líneas de Pricing por servicio cotizado y CostId/identidad del cargo, conserva costos y cotizaciones históricas, y presenta los seis ítems preferenciales de una misma ruta como bloque comercial editable, incluidos los manuales.
+- Incorporadas pruebas de CIF/40HC/ONE/Caldera/San José, unidades comerciales, moneda y matching seguro; API, SignalR y microservicios sin cambios. CI y staging requeridos antes de master.
 
 ## [1.105.1] - 2026-11-20 (DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331 · restaurar beneficios preferenciales CRM en Pricing)
 

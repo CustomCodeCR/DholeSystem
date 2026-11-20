@@ -20,8 +20,8 @@
       "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop"
+      "masterCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -43,8 +43,8 @@
       "candidateBranch": "feature/operations-tramites-drawer-detail-20261120",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331-develop"
+      "masterCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-master",
+      "developCandidateBranch": "fix/DH-20261120-CRM-PREFERRED-BLOCKS-342-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -140,7 +140,7 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "MINOR: System/Web 1.105.1→1.106.0, Operations 0.13.0→0.14.0; other 14 components unchanged. Maintain separate protected-branch promotion after staging.",
+  "policyCheck": "MINOR: System/Web 1.105.2→1.106.0, Operations 0.13.0→0.14.0; other components unchanged. Develop merges before staging.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
