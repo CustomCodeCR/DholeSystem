@@ -1,3 +1,9 @@
+## [1.103.17] - 2026-11-19 (DH-20261119-CRM-TIERED-CHECK-293 · CRM TIERED_SALE y guardados parciales)
+
+- PATCH: coordina CRM 1.42.3 con Web/System 1.103.16→1.103.17, corrigiendo el CHECK PostgreSQL que rechazaba TIERED_SALE con 409.
+- Web mantiene solo los ítems pendientes si falla el lote. Migración CRM validada en staging; se conservan contratos REST, SignalR, eventos y otros servicios.
+- CI y staging del release completo antes de master.
+
 ## [1.103.16] - 2026-11-19 (DH-20261119-CRM-AGREEMENT-INVITEES-294 · invitados CRM en compromisos)
 
 - PATCH: DholeSystem/DholeWeb 1.103.15 → 1.103.16 y DholeCRMService 1.42.2 → 1.42.3, manifiesto coordinado de 17 repositorios; componentes restantes sin cambios.

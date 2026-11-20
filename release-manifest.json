@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-CRM-AGREEMENT-INVITEES-294",
+  "releaseId": "DH-20261119-CRM-TIERED-CHECK-293",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.16",
+  "ecosystemVersion": "1.103.17",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294",
+  "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.16",
+      "version": "1.103.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294",
+      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294"
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.16",
+      "version": "1.103.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294",
+      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-CRM-AGREEMENT-INVITEES-294"
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -130,11 +130,11 @@
       "component": "DholeCRMService",
       "version": "1.42.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-CRM-COMMITMENT-INVITEES-293",
+      "candidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261119-CRM-COMMITMENT-INVITEES-293"
+      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -146,30 +146,28 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Dashboard Ventas: DholeWeb/DholeSystem 1.103.14 → 1.103.15, otros 15 componentes conservan su versión. Tarjetas filtran tabla de seguimiento local y selector de clientes limitado a tarifas del vendedor, fecha, modalidad, estado y búsqueda. CI/staging antes de master.",
+  "policyCheck": "PATCH: DholeWeb/System -> 1.103.17, DholeCRMService 1.42.2->1.42.3. Allow TIERED_SALE in PostgreSQL and preserve partial writes; other services unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending",
-    "Production deployment authorization not provided"
+    "CI and staged Web verification pending"
   ],
   "validationEvidence": {
     "tests": "pending",
-    "staging": "pending",
-    "production": "not deployed"
+    "staging": "CRM migration completed successfully",
+    "production": "CRM production deployment status pending"
   },
   "releaseComponents": [
+    "DholeCRMService",
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": [
-    "Seller dashboard KPI cards filter the authorized quotation table in-place and scroll to its header",
-    "Client selector only includes clients from visible quoted rates after role/date/mode/status/search filters",
-    "No REST, realtime or backend permission changes"
+    "Fix PostgreSQL check constraint for TIERED_SALE in preferential rates",
+    "Keep pending edits after partial saves and deduplicate source IDs"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "CRM migration success"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -223,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-DASHBOARD-TABLE-293",
+  "businessReleaseId": "DH-20261119-CRM-TIERED-CHECK-293",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
