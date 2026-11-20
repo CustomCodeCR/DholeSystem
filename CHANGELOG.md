@@ -1,3 +1,9 @@
+## [1.108.1] - 2026-11-20 (DH-20261120-P7-CHARGES-368 · recuperación de cargos P7 en develop)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.108.0 → 1.108.1, limitado a develop, sin cambios del backend PricingService.
+- Pantalla 7 recupera costos fijos de MAERSK/WWL y otros proveedores mediante los CostIds del catálogo, incluso si la consulta contextual devuelve únicamente opcionales. Se respetan rutas y condiciones, Incoterms y tarifa preferencial.
+- Recuperación de alternativas vacías sin actualizar página, conservando el flete manual. CI/validación de staging necesarios antes de declararlo verificado.
+
 ## [1.108.0] - 2026-11-20 (DH-20261120-INCOTERMS-WIZARD-367 · fase 1 de Incoterms en develop)
 
 - MINOR coordinado DholeSystem/DholeWeb 1.107.5 → 1.108.0. El backend DholePricingService 1.26.9 permanece intacto. Sin autorización de despliegue a producción.
