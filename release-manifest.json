@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-CLIENT-COUNTRY-298",
+  "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.21",
+  "ecosystemVersion": "1.104.0",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/pricing-client-country-route-20261120-v2",
+  "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.21",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-client-country-route-20261120-v2",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,32 +33,24 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.16.2",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/20261119-operations-multi-assignment-role-alias-251",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.21",
+      "version": "1.104.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-client-country-route-20261120-v2",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-CLIENT-COUNTRY-298-master",
-      "developCandidateBranch": "fix/pricing-client-country-route-20261120-v2"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
-      "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -75,10 +67,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.25.4",
+      "version": "1.26.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
-      "developCandidateBranch": "fix/DH-20261119-SELLER-DASHBOARD-PARITY-295",
+      "candidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
+      "developCandidateBranch": "feature/DH-20261120-EXPIRED-RATE-APPROVAL-301",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -129,21 +121,13 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.42.5",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-PERSISTENCE-296"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.12.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-role-team-dashboard-20261119",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     }
   ],
   "policyCheck": "PATCH: Web/System 1.103.19 → 1.103.20, all other services keep their current SemVer. Fix Vue numeric v-model manual preferred item submission exception.",
@@ -159,7 +143,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Fix manual preferential amount numeric input parsing (avoid .trim TypeError)",
@@ -220,7 +205,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "businessReleaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -932,5 +917,25 @@
     "Pantalla 3 permite elegir país del cliente si falta en CRM",
     "POL Vietnam resuelto a VN por etiqueta explícita",
     "REST/SignalR/backend sin cambios"
-  ]
+  ],
+  "expiredRateAuthorizationRelease": {
+    "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
+    "releaseType": "MINOR",
+    "ecosystemVersion": "1.104.0",
+    "pricingVersion": "1.26.0",
+    "systemAndWebVersion": "1.104.0",
+    "authorizers": [
+      "rsibaja@castrofallas.com",
+      "jmesen@castrofallas.com"
+    ],
+    "requestReasonMinChars": 15,
+    "channels": [
+      "System (SignalR)",
+      "Email"
+    ],
+    "audit": "revision-scoped request/decision history",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  }
 }
