@@ -1,3 +1,8 @@
+## [1.104.3] - 2026-11-20 (DH-20261120-EXPIRED-APPROVAL-SELLER-ACCESS-311 · supervisor vendedor con acceso a aprobaciones)
+
+- PATCH: José Pablo, vendedor con autorización nominal de jefatura, puede revisar solicitudes de tarifas vencidas desde Dashboard de Ventas; Roy desde su dashboard. Sin acceso al módulo Pricing ni privilegios SuperUsuario.
+- Acceso directo desde notificación y contador SignalR; API sigue validando Auth. Web/System 1.104.2 → 1.104.3, Pricing 1.26.1 → 1.26.2; otros componentes sin cambios.
+
 ## [1.104.2] - 2026-11-20 (DH-20261120-PRICING-COUNTRY-OPTIONS-310 · restaurar Crear tarifa)
 
 - PATCH: el wizard de Pricing deja de depender de pricingQuoteCountryOptions en plantilla; las opciones son calculadas desde catalogs.countries, conservando perspectiva comercial y IVA por POD.
