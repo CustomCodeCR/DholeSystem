@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.106.9",
-  "ecosystemVersion": "1.106.9",
-  "releaseId": "DH-20261120-LCL-CRC-AGENCY-352",
+  "version": "1.106.10",
+  "ecosystemVersion": "1.106.10",
+  "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261120-LCL-CRC-AGENCY-352"
+  "businessReleaseId": "DH-20261120-PRICING-VAT-TOTAL-353"
 }
