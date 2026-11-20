@@ -1,3 +1,9 @@
+## [1.107.0] - 2026-11-20 (DH-20261120-VERSION-NOTICES-361 · control de avisos de nuevas versiones)
+
+- MINOR coordinado: DholeWeb 1.106.18 → 1.107.0, DholeAuthService 1.16.2 → 1.17.0, DholeNotificationsService 1.7.0 → 1.8.0 y DholeSystem 1.106.18 → 1.107.0.
+- Preferencias globales e individuales, persistencia Auth, Outbox/Redis Streams y SignalR con reconciliación REST y aislamiento por usuario.
+- Promoción aislada desde rama master y no desde develop (evita 1.000+ commits no relacionados); CI, migración y staging E2E obligatorios antes de merge a master.
+
 ## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · aprobación de vencidas exclusiva para vendedores)
 
 - PATCH coordinado Pricing/Web/System: Master recibe corrección de roles aplicada originalmente en develop como 354. Vendedores solicitan autorización a Roy/José Pablo; Pricing y Superadmin editan tarifas vencidas directamente, sin el modal de solicitud ni el bloqueo HTTP 409.
