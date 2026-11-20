@@ -1,3 +1,9 @@
+## [1.106.18] - 2026-11-20 (DH-20261120-PRICING-EXPIRED-MASTER-361 · aprobación de vencidas exclusiva para vendedores)
+
+- PATCH coordinado Pricing/Web/System: Master recibe corrección de roles aplicada originalmente en develop como 354. Vendedores solicitan autorización a Roy/José Pablo; Pricing y Superadmin editan tarifas vencidas directamente, sin el modal de solicitud ni el bloqueo HTTP 409.
+- Pricing 1.26.8 → 1.26.9, Web/System 1.106.16 → 1.106.18; versión por encima de develop 1.106.17. Resto de componentes sin cambios, preservando funcionalidades del master actual.
+- No hay migraciones, se mantienen auditoría, REST, SignalR/Outbox e idempotencia. La promoción a master está solicitada explícitamente; CI y validación posdespliegue obligatorias.
+
 ## [1.106.16] - 2026-11-20 (DH-20261120-PRICING-INLAND-QA-358 · control de calidad del inland 6→7)
 
 - PATCH de DholeWeb/DholeSystem 1.106.15 → 1.106.16: rectifica la prueba aislada del guardado de Merchant/Carrier en Pantalla 6, tras la incorporación del nuevo autoguardado por POE/naviera; Pricing 1.26.8 sin cambios.

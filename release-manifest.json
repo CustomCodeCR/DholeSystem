@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "releaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.16",
-  "status": "candidate-master-authorized-staging-deploy-passed-pr-gates-pending",
+  "ecosystemVersion": "1.106.18",
+  "status": "candidate-ci-staging-verified-previous-release",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-INLAND-QA-358",
-    "master": "release/DH-20261120-PRICING-INLAND-MASTER-359"
+    "develop": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+    "master": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master"
   },
-  "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+  "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.16",
+      "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.16",
+      "version": "1.106.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358"
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.8",
+      "version": "1.26.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-INLAND-QA-358",
-      "masterCandidateBranch": "release/DH-20261120-PRICING-INLAND-MASTER-359",
+      "candidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
+      "masterCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
       "developMergeSha": null,
       "candidateSha": null
     },
@@ -147,18 +147,18 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH targeted promotion: staged DholeWeb/DholeSystem 1.106.16, Pricing 1.26.8; preserve master-only Incoterm temporary-unblock behavior. Other components unchanged.",
+  "policyCheck": "Targeted release: source hotfix 354 already integrated on develop (staging deployments passed) but missing in master; preserve master-only changes. Pricing 1.26.8→1.26.9; Web/System 1.106.16→1.106.18, max develop 1.106.17. Other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Authenticated manual Screen 6→7 inland acceptance still not evidenced; retain rollback plan",
-    "Confirm production deployment and check rate lines after merge"
+    "PR CI must pass all build/version checks",
+    "Monitor automated production deploy after merge",
+    "Authenticate staging/production and smoke-test seller vs Pricing/Superadmin permissions"
   ],
   "validationEvidence": {
-    "unitTests": "passed GitHub CI",
-    "build": "passed GitHub CI",
-    "staging": "Web/Pricing deployment succeeded; authenticated quote 6→7 business acceptance still pending",
-    "production": "master integration explicitly requested"
+    "unitTests": "source release 354 Pricing and Web unit/build PR CI passed; new master PR CI pending",
+    "staging": "source release 354 Pricing/Web automatic staging deploy succeeded",
+    "production": "master hotfix explicitly requested by user; production deploy still to be verified"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -166,17 +166,18 @@
     "DholePricingService"
   ],
   "changes": [
-    "Port staged inland Merchant/Carrier selection and CostId-scoped charges from Screen 6 to Screen 7",
-    "Persist inland by POE and carrier and discard late catalog responses",
-    "Preserve master temporary unblock of Incoterm cargo inclusion without wholesale develop merge"
+    "Pricing update GET/PUT and expired approval policy exempt Pricing scope and Superadmin but require seller manager approval",
+    "Web modal only for sellers; Pricing and Superadmin open edit without interruption",
+    "Preserve new master inland/Incoterm patches; no full branch merge",
+    "Keep SignalR Outbox notifications and revisions"
   ],
   "stagingValidation": {
-    "status": "automated-deploy-passed-manual-e2e-pending",
+    "status": "source-release-staging-passed-automation-manual-role-check-pending",
     "scenarios": [
-      "Screen 6 selects Inland from configured costs",
-      "Screen 7 includes Inland by CostId without hard refresh",
-      "Selected inland persists across browser reload",
-      "No duplicate cost rows on repeated navigation"
+      "Seller expiry opens approval request",
+      "Pricing and Superadmin edit expired quote directly",
+      "Closed/Cancelled are still blocked",
+      "Approve/reject produces System SignalR and Email notifications"
     ]
   },
   "f6F7F8": {
@@ -231,7 +232,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-INLAND-QA-358",
+  "businessReleaseId": "DH-20261120-PRICING-EXPIRED-MASTER-361",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
