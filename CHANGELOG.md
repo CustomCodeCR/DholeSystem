@@ -1,3 +1,8 @@
+## [1.104.2] - 2026-11-20 (DH-20261120-CRM-INVITEE-VISIBILITY-323 · agendas de invitados CRM)
+
+- PATCH coordinado de DholeSystem, DholeWeb y DholeCRMService: nombres reales de participantes internos en actividades, visibilidad de actividades compartidas en agendas de invitados y reconciliación SignalR.
+- DholeSystem/DholeWeb 1.104.1 → 1.104.2, CRM 1.42.6 → 1.42.7, demás componentes sin cambios. API aditiva y compatibilidad REST/SignalR. CI y staging pendientes; producción no autorizada.
+
 ## [1.104.1] - 2026-11-20 (DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX · revisión de longitud de Outbox)
 
 - PATCH coordinado para autorizaciones de tarifas vencidas: corrige correlación excedida de Notifications Outbox (varchar(100)) y previene fallo de persistencia de eventos de sistema/SignalR/correo.

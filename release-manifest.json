@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+  "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.104.1",
+  "ecosystemVersion": "1.104.2",
   "status": "candidate-ci-and-staging-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+  "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.104.1",
+      "version": "1.104.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.104.1",
+      "version": "1.104.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX"
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -120,8 +120,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.5",
-      "mergeState": "unchanged"
+      "version": "1.42.7",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323",
+      "candidateSha": null,
+      "developMergeSha": null,
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/DH-20261120-CRM-INVITEE-VISIBILITY-323"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -130,7 +135,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: Web/System 1.103.19 → 1.103.20, all other services keep their current SemVer. Fix Vue numeric v-model manual preferred item submission exception.",
+  "policyCheck": "PATCH: Web/System 1.104.1 → 1.104.2 and CRM 1.42.6 → 1.42.7; fourteen other components unchanged, CI + staging required.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -144,11 +149,12 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
-    "Fix manual preferential amount numeric input parsing (avoid .trim TypeError)",
-    "Run regression tests for manual charges and make form validation visible"
+    "Show named internal CRM activity invitees",
+    "Include shared activities in invited internal users' calendars",
+    "Keep attendee details synchronized with SignalR and REST"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -205,7 +211,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-EXPIRED-RATE-OUTBOX-HOTFIX",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -914,9 +920,9 @@
     "productionDeploymentAuthorized": false
   },
   "releaseNotes": [
-    "Pantalla 3 permite elegir país del cliente si falta en CRM",
-    "POL Vietnam resuelto a VN por etiqueta explícita",
-    "REST/SignalR/backend sin cambios"
+    "Additive internalUserName on authorized activity participants response",
+    "Scoped read by membership for invited followup/task users",
+    "No new migrations or notifications transport"
   ],
   "expiredRateAuthorizationRelease": {
     "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
@@ -946,6 +952,16 @@
     "pricingVersion": "1.26.1",
     "systemAndWebVersion": "1.104.1",
     "reason": "Outbox correlation_id varchar(100) protection",
+    "ci": "pending",
+    "staging": "pending",
+    "productionDeploymentAuthorized": false
+  },
+  "crmInviteeVisibilityRelease": {
+    "releaseId": "DH-20261120-CRM-INVITEE-VISIBILITY-323",
+    "releaseType": "PATCH",
+    "previousEcosystemVersion": "1.104.1",
+    "ecosystemVersion": "1.104.2",
+    "crmVersion": "1.42.7",
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
