@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261120-P7-FREIGHT-DRAFT-370",
+  "ecosystem": "Dhole",
+  "type": "PATCH",
+  "date": "2026-11-20",
+  "from": "1.108.2",
+  "to": "1.108.3",
+  "target": "develop",
+  "candidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop",
+  "affected": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "pricingServiceUnchanged": true,
+  "productionDeploymentAuthorized": false,
+  "scope": [
+    "Immediate P6 provider freight to P7 even for manually entered FCL 40HC",
+    "Preserve edited CostIds and sales after returning between P6 and P7",
+    "Avoid losing active cost catalogue across POE/carrier draft restoration",
+    "Keep block headers visible and hide blank billing controls; remove sticky overlay"
+  ],
+  "tests": [
+    "node --test tests/pricingScreenSevenFirstEntry370.test.mjs",
+    "Full Pricing integration suite",
+    "Vite transforms and headless Chrome browser smoke"
+  ],
+  "manualAcceptance": [
+    "P6 cost 5500 sale 5800 MAERSK WWL Caldera -> P7 same prices first entry",
+    "Back to P6, forth to P7 -> all same cost lines and manual entries",
+    "P8/P9 PDF consistency"
+  ],
+  "staging": "pending",
+  "ci": "pending",
+  "rollback": "Revert Web/System develop PR; no backend or migration changes"
+}
