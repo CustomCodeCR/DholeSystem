@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-LCL-CRC-AGENCY-352",
+  "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.9",
+  "ecosystemVersion": "1.106.10",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop",
-    "master": "fix/DH-20261120-LCL-CRC-AGENCY-352-master"
+    "develop": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
+    "master": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master"
   },
-  "candidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop",
+  "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.9",
+      "version": "1.106.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-master",
-      "developCandidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.9",
+      "version": "1.106.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop",
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-master",
-      "developCandidateBranch": "fix/DH-20261120-LCL-CRC-AGENCY-352-develop"
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,11 +67,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.4",
+      "version": "1.26.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-develop",
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
+      "candidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
+      "developCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-develop",
+      "masterCandidateBranch": "fix/DH-20261120-PRICING-VAT-TOTAL-353-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -140,12 +140,13 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH DholeWeb/DholeSystem 1.106.8 → 1.106.9: selected Costa Rica customs requested for own LCL is a separately priced quote line; no Pricing API or SignalR contract changes.",
+  "policyCheck": "PATCH: DholePricingService 1.26.4 → 1.26.5; DholeWeb/DholeSystem 1.106.9 → 1.106.10. Recover aggregated VAT for catalog currency codes and historical view-only offers. REST/SignalR unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web CI pricing regression, build and SemVer gates",
-    "Staging: LCL propio Shanghai-Balboa-San José, FCA, Aduanas CRC selected, save and reopen"
+    "Run Pricing .NET unit tests and solution build / CI version gate",
+    "Run Web VAT projection test, pricing regression suite, build and version checks",
+    "Verify live saved tariff and invoice/PDF parity on staging before any master integration"
   ],
   "validationEvidence": {
     "unitTests": "pending CI",
@@ -154,20 +155,22 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Restore selected CRC customs agency charge in own LCL Screen 7 without overwriting consolidation matrix",
-    "Preserve selected service on autosave, save and reopen; avoid duplicate destination charges",
-    "Add regression tests for pricing lookup, weight tiers, fallback, saved Manejos and idempotency"
+    "Normalize commercial USD/CRC currency in RateDto aggregated VAT tax totals, matching the commercial PDF projection",
+    "Fallback to persisted per-line commercialTaxAmount when a legacy Pricing rate snapshot reports zero VAT in read-only offer summary",
+    "Preserve subtotal, utility and margin net of tax; total = subtotal + IVA in USD and CRC",
+    "Regression tests cover opaque catalog currency codes, taxable and untaxed lines, and Vite wizard projection"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Own LCL Shanghai → Balboa → San José, FCA, Agency CRC + International Transport selected",
-      "Screen 7 displays CRC agency matched to Pricing costs and does not alter matrix freight/Manejos",
-      "Draft/save/reopen preserves CRC customs, single occurrence, correct CRC currency, weight-band pricing",
-      "No matching Pricing cost offers editable zero-price line; disallow saving until positively priced"
+      "Open saved FCL tariff e539ec3f-8f6e-4802-8f20-f7012bcd8101 in view-only wizard and compare Carrusel IVA USD 39.65 with summary",
+      "Validate subtotal USD 7,615 + aggregated taxable lines = final USD/CRC total, without affecting utility or margin",
+      "Compare saved commercialTaxAmount per line, totalTaxUsd, totalTaxCrc and quotation PDF",
+      "Repeat on mixed USD/CRC and unmarked charges; verify no duplicate VAT after reload"
     ]
   },
   "f6F7F8": {
@@ -222,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-LCL-CRC-AGENCY-352",
+  "businessReleaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
