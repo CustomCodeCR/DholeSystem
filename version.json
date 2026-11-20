@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.106.6",
-  "ecosystemVersion": "1.106.6",
-  "releaseId": "DH-20261120-MERCHANT-OPTIONS-348",
+  "version": "1.106.7",
+  "ecosystemVersion": "1.106.7",
+  "releaseId": "DH-20261120-INCOTERM-IMPORT-350",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261120-MERCHANT-OPTIONS-348"
+  "businessReleaseId": "DH-20261120-INCOTERM-IMPORT-350"
 }
