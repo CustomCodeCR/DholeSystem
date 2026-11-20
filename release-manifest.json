@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-INCOTERM-IMPORT-350",
+  "releaseId": "DH-20261120-INCOTERM-SAVE-351",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.106.7",
+  "ecosystemVersion": "1.106.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-INCOTERM-IMPORT-350-develop",
-    "master": "fix/DH-20261120-INCOTERM-IMPORT-350-master"
+    "develop": "fix/DH-20261120-INCOTERM-SAVE-351-develop",
+    "master": "fix/DH-20261120-INCOTERM-SAVE-351-master"
   },
-  "candidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
+  "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.106.7",
+      "version": "1.106.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
+      "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-develop"
+      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
+      "developCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.106.7",
+      "version": "1.106.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
+      "candidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-master",
-      "developCandidateBranch": "fix/DH-20261120-INCOTERM-IMPORT-350-develop"
+      "masterCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-master",
+      "developCandidateBranch": "fix/DH-20261120-INCOTERM-SAVE-351-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -140,36 +140,33 @@
       "masterCandidateBranch": null
     }
   ],
-  "policyCheck": "PATCH: importer/exporter Incoterm responsibility matched to CRM country and China POL/Costa Rica POD; coordinated Web/System 1.106.7, Pricing 1.26.4; 14 components unchanged.",
+  "policyCheck": "PATCH Web/System 1.106.7→1.106.8: missing runtime symbol in Incoterm freight edit save, without REST/SignalR changes; Pricing 1.26.4 unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI regression, build, version gates",
-    "Authenticated staging China -> Costa Rica with importer CRM and ICC Incoterms"
+    "Web CI regression, build and version gates",
+    "Staging import FOB edit-save validation"
   ],
   "validationEvidence": {
     "unitTests": "pending CI",
-    "staging": "pending authenticated UAT",
-    "production": "not verified"
+    "staging": "pending",
+    "production": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Normalize all 11 ICC Incoterms with opaque Config IDs in Web",
-    "Resolve China country from POL, Costa Rica country from POD and client CRM",
-    "Apply importer/exporter main carriage responsibility on Pricing edits",
-    "Preserve explicitly contracted freight and REST/SignalR compatibility"
+    "Remove stale freightNotRequiredByIncoterm reference from Vite wizard edit transform",
+    "Use explicit International Transport service to reconcile persisted Freight without removing contracted FOB imports",
+    "Regression tests for save-reference and historical RateDetail reconciliation"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "CN POL / CR POD / CRM client CR => Import",
-      "FOB import exposes main freight; CIF import default buyer excludes, explicit international transport included",
-      "CIF export assigns seller main freight",
-      "China ports with opaque Config code classified CN"
+      "China Shanghai POL / Costa Rica POD / CRM client CR => Import",
+      "FOB import + International Transport service saves explicitly billed freight",
+      "No transport service removes historical Freight but keeps destination charges"
     ]
   },
   "f6F7F8": {
@@ -224,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-INCOTERM-IMPORT-350",
+  "businessReleaseId": "DH-20261120-INCOTERM-SAVE-351",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1015,5 +1012,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed"
+  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed",
+  "releaseMasterIntegrationRequested": true,
+  "releaseProductionDeploymentPolicy": "Master integration requested by user; realtime infrastructure production approval stays false"
 }
