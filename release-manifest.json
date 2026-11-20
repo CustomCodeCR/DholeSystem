@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "releaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.20",
+  "ecosystemVersion": "1.103.22",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+  "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.20",
+      "version": "1.103.22",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.20",
+      "version": "1.103.22",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "candidateSha": "90751e3a10bccd1b372407ffdf05cf48bb1f398d",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-CRM-MANUAL-AMOUNT-297-master",
-      "developCandidateBranch": "fix/DH-20261120-CRM-MANUAL-AMOUNT-297-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -128,13 +128,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.3",
+      "version": "1.42.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
+      "candidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-CRM-TIERED-CHECK-293-v17-master",
-      "developCandidateBranch": "fix/DH-20261119-CRM-TIERED-CHECK-293-v17-develop"
+      "masterCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-master-r2",
+      "developCandidateBranch": "release/DH-20261120-CRM-INVITEE-SYNC-309-develop-r2"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -148,7 +148,7 @@
   ],
   "policyCheck": "PATCH: DholeWeb/DholeSystem 1.103.18→1.103.20. Remaining 15 services unchanged. CRM manual preferred charges numeric v-model TypeError fix; requires CI/staging.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI and staging validation pending"
   ],
@@ -158,8 +158,9 @@
     "production": "not deployed"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": [
     "Avoid .trim on Vue's numeric v-model value before manual CRM POST",
@@ -220,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-CRM-MANUAL-AMOUNT-297",
+  "businessReleaseId": "DH-20261120-CRM-INVITEE-SYNC-309",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
