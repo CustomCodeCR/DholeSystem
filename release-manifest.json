@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-285",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.103.8",
+  "ecosystemVersion": "1.103.9",
   "status": "candidate-ci-and-production-pending",
   "branches": [
     "develop",
     "master"
   ],
-  "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+  "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.103.8",
+      "version": "1.103.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
+      "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.103.8",
+      "version": "1.103.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "candidateSha": null,
+      "candidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+      "candidateSha": "3512d31209c63217870c491478888b9691205438",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261119-PRICING-LTL-DDP-FREIGHT-284-master",
-      "developCandidateBranch": "fix/DH-20261119-PRICING-LTL-DDP-FREIGHT-284"
+      "masterCandidateBranch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+      "developCandidateBranch": "fix/DH-20261119-CRM-MANUAL-BENEFITS-275-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,31 +146,27 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "Selective production PATCH: Pricing 1.25.1→1.25.2 and Web/System 1.103.7→1.103.8. Retain all 14 other production component versions, including CRM; same CI/staging-validated behavior.",
+  "policyCheck": "PATCH: DholeWeb y DholeSystem 1.103.8→1.103.9; 15 servicios restantes conservan sus versiones. Backport selectivo del fix CRM 275 sobre master 284.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "production PR checks pending"
+    "CI master PR pendiente"
   ],
   "validationEvidence": {
-    "tests": "Pricing & Web PR CI success on develop",
-    "staging": "Pricing and Web deploy succeeded",
+    "tests": "CI master candidate pending; previous 275 CI passed",
+    "staging": "original change validated in staging in release 275",
     "production": "pending"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Accept explicitly priced DDP land freight LTL/FTL without FCL container distribution",
-    "Preserve maritime CIF/FCL behavior and master-only modules",
-    "Synchronize Pricing 1.25.2, Web/System 1.103.8"
+    "Backport verifiable manual preferential charges from release 275 to master 1.103.8",
+    "Display saved charge amounts next to manual form and verify persistence via CRM GET"
   ],
   "stagingValidation": {
-    "status": "success",
-    "pricingRun": "https://github.com/CustomCodeCR/DholePricingService/actions/runs/44641370495",
-    "webRun": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/44641444384"
+    "status": "validated original release 275"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -224,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261119-PRICING-LTL-DDP-FREIGHT-284",
+  "businessReleaseId": "DH-20261119-CRM-MANUAL-BENEFITS-285",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

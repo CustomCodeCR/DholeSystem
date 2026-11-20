@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261119-CRM-MANUAL-BENEFITS-285",
+  "kind": "patch",
+  "ecosystemVersion": "1.103.9",
+  "summary": "Backport CRM manual preferential charge persistence confirmation on top of 1.103.8",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.103.8",
+      "version": "1.103.9"
+    },
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.103.8",
+      "version": "1.103.9"
+    }
+  ],
+  "branch": "release/DH-20261119-CRM-MANUAL-BENEFITS-285-master",
+  "checks": {
+    "ci": "pending",
+    "staging": "original release 275 validated",
+    "production": "pending"
+  },
+  "productionDeploymentAuthorized": true
+}

@@ -1,3 +1,9 @@
+## [1.103.9] - 2026-11-19 (DH-20261119-CRM-MANUAL-BENEFITS-285 · backport del guardado de cargos manuales CRM)
+
+- PATCH: sincroniza DholeSystem/DholeWeb 1.103.8→1.103.9; conserva las correcciones posteriores del wizard Pricing y resto del ecosistema.
+- Web muestra los ítems manuales guardados y confirma su persistencia a través de la API CRM antes de limpiar el formulario, sin modificaciones en el servicio CRM ni SignalR.
+- Release en rama intermedia sobre master; validación CI y despliegue automático tras merge a master.
+
 ## [1.103.8] - 2026-11-19 (DH-20261119-PRICING-LTL-DDP-FREIGHT-284 · DDP LTL/FTL a producción)
 
 - PATCH de promoción selectiva Web/System 1.103.7→1.103.8 y DholePricingService 1.25.1→1.25.2: el flete internacional explícito de LTL/FTL bajo DDP no debe rechazarse como distribución FCL. Caso corregido: USD 50/CBM, 33.33 CBM, equipo terrestre 24.
