@@ -70,7 +70,7 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.9",
+      "version": "1.26.8",
       "mergeState": "unchanged"
     },
     {
