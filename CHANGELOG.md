@@ -1,3 +1,9 @@
+## [1.107.1] - 2026-11-20 (DH-20261120-VERSION-NOTICE-500-362 · hotfix preferencias de avisos de versión)
+
+- PATCH coordinado: corrige error 500 al guardar preferencias globales o personales (Npgsql execution strategy + transacción/outbox atómicos).
+- DholeAuthService 1.17.0 → 1.17.1; DholeSystem y DholeWeb 1.107.0 → 1.107.1 por versión global; restantes componentes sin cambios.
+- Validación de staging y CI antes de promoción a master, sin alterar notificaciones comerciales ni permisos.
+
 ## [1.107.0] - 2026-11-20 (DH-20261120-VERSION-NOTICES-361 · configuración de avisos de actualizaciones)
 
 - MINOR coordinado: DholeWeb 1.106.17 → 1.107.0; DholeAuthService 1.16.2 → 1.17.0; DholeSystem 1.106.17 → 1.107.0. Los otros 14 componentes del manifiesto no cambian versión.
