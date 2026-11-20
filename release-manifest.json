@@ -142,7 +142,7 @@
   ],
   "policyCheck": "PATCH Web/System 1.106.7→1.106.8: missing runtime symbol in Incoterm freight edit save, without REST/SignalR changes; Pricing 1.26.4 unchanged.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Web CI regression, build and version gates",
     "Staging import FOB edit-save validation"
@@ -1012,5 +1012,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed"
+  "productionAuthorizationScope": "Only Pricing Merchant/Carrier bugfix requested; infrastructure/realtime F6 production flags stay fail-closed",
+  "releaseMasterIntegrationRequested": true,
+  "releaseProductionDeploymentPolicy": "Master integration requested by user; realtime infrastructure production approval stays false"
 }
