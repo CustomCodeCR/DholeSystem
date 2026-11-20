@@ -16,6 +16,11 @@
       "next": "1.17.0"
     },
     {
+      "repository": "CustomCodeCR/DholeNotificationsService",
+      "previous": "1.7.0",
+      "next": "1.8.0"
+    },
+    {
       "repository": "CustomCodeCR/DholeSystem",
       "previous": "1.106.17",
       "next": "1.107.0"
@@ -26,7 +31,8 @@
     "Authenticated new-version notice preference per current user",
     "SuperUsuario global toggle and per-user override",
     "Global false takes precedence over all per-user preferences",
-    "Auth migration and outbox change event; Web poll reconciliation"
+    "Auth migration and outbox change event; Web poll reconciliation",
+    "Auth event routing into Notifications Redis Streams; idempotent per-user SignalR policy invalidation; no inbox entries"
   ],
   "untouchedServiceNotifications": true,
   "otherComponentsUnchanged": true,
@@ -36,7 +42,8 @@
     "unitTests": "pending",
     "backendMigration": "pending",
     "stagingTwoUsers": "pending",
-    "signalRDelivery": "pending"
+    "signalRDelivery": "pending",
+    "notificationsRealtime": "pending"
   },
   "rollback": "Revert coordinated branches before deployment; reverse Auth migration only after data backup."
 }
