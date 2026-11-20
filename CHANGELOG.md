@@ -1,3 +1,10 @@
+## [1.106.3] - 2026-11-20 (DH-20261120-PRICING-IMPORT-COSTS-345 · costos FCL importación por contexto válido)
+
+- PATCH coordinado DholeWeb/DholeSystem 1.106.2 → 1.106.3. Se muestran costos activos que ya pasaron la verificación real de Pricing por ruta, proveedor, modalidad, servicios e Incoterm, sin descartarlos por snapshots legados de un único puerto.
+- El filtro de respaldo sobre catálogo general conserva coincidencias estrictas para evitar cargos de otras rutas. En Pantalla 7, cargos de origen, documentación y destino no desaparecen por la responsabilidad del comprador según el Incoterm; la selección de Transporte Internacional sigue controlando el flete.
+- Soporte de etapas manuales en ambos asistentes y pruebas de regresión para CIF importación con cargos heterogéneos. DholePricingService continúa en 1.26.3 sin cambios de código; restantes 14 componentes sin cambios.
+- Manifiesto global de 17 componentes actualizado, sin migraciones ni cambios REST/SignalR. CI y staging pendientes; producción no autorizada.
+
 ## [1.106.2] - 2026-11-20 (DH-20261120-INCOTERM-QUOTED-FREIGHT-344 · flete internacional contratado bajo cualquier Incoterm)
 
 - PATCH coordinado para LTL/LCL/FTL/FCL/aéreo. CPT y demás Incoterms permiten agregar cargos de Transporte Internacional cuando el servicio está contratado; no se confunde responsabilidad comercial con prohibición del rubro.
