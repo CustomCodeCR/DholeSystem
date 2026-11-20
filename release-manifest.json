@@ -160,7 +160,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeCRMService"
   ],
   "changes": [
     "Allow explicitly priced DDP LTL/FTL international road freight without applying FCL container distribution",
