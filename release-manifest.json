@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.18",
-  "status": "candidate-master-ci-pending",
+  "ecosystemVersion": "1.108.20",
+  "status": "master-promotion-authorized-ci-gated",
   "branches": {
-    "develop": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
-    "master": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385"
+    "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+    "master": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master"
   },
-  "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.18",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+      "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
+      "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.18",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+      "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
+      "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.17",
+      "version": "1.26.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+      "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
       "developMergeSha": null,
       "candidateSha": null
     },
@@ -150,16 +150,16 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH 1.108.17 -> 1.108.18 Web/System, 1.26.16 -> 1.26.17 PricingService; remaining 14 components unchanged",
+  "policyCheck": "Combined master: System and Web PATCH 1.108.18 -> 1.108.20 (includes 1.108.19 DH-386), PricingService 1.26.17 -> 1.26.18; other 14 unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging required",
-    "Authenticated review of QUO-00000-000745 must be confirmed before production"
+    "El QA manual autenticado de la QUO-00000-000746 aún no se ha verificado; no presentar este caso como aprobado.",
+    "La compilación y las validaciones CI deben permanecer aprobadas antes de cada merge."
   ],
   "validationEvidence": {
-    "status": "candidate-ci-pending",
-    "scope": "P7 saved details; cost tier dimensions; multimodal terrestrial freight"
+    "status": "develop-ci-success;staging-deploy-success;master-candidate-web-and-system-ci-success;pricing-updated-ci-pending;authenticated-e2e-not-performed",
+    "scope": "DH-386 plus DH-387: definitive costs endpoint and immutable original quote financial rows"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -167,20 +167,19 @@
     "DholePricingService"
   ],
   "changes": [
-    "P7 saved details never re-add unselected catalog costs",
-    "Contextual cost request includes weightKg/packages/containerTypeId/storageDays",
-    "Real multimodal terrestrial freight included independently",
-    "Changes on master and develop isolated to intermediate branches"
+    "GET /api/pricing/costs/wizard-bundle only; data.applicable authoritative",
+    "FCL multimodal land Freight independently retained",
+    "Editing existing quotes uses original snapshot and user-driven delta",
+    "Adding Servicio de Aduanas and Seguro de Carga appends only those two services without repricing existing rows"
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "automated-deploy-passed-authenticated-E2E-pending",
     "scenarios": [
-      "QUO-00000-000745 original 12 lines: absent cargos remain absent",
-      "40HC cargo: tier price 350/350, not zero",
-      "28,000 kg: correct WeightKg price bracket and per-kilogram calculation",
-      "Multimodal FCL: separate maritime/terrestrial freight",
-      "New quote includes only selected optional costs",
-      "Back/forward retains manual negotiated amounts"
+      "Original quote unchanged: detail count and cost/sale unchanged",
+      "Add customs and cargo insurance: exactly two lines; no unrelated changes",
+      "Revert service: remove only added lines; original RateDetails retained",
+      "Change Incoterm/carrier/inland/route: only related lines modified",
+      "FCL 40HC MAERSK Balboa: separate terrestrial Freight 2140 and maritime Freight preserved"
     ]
   },
   "f6F7F8": {
@@ -235,7 +234,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "businessReleaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1058,5 +1057,6 @@
       "production": false
     },
     "target": "master"
-  }
+  },
+  "productionDeploymentAuthorizationScope": "El usuario solicitó explícitamente integrar DH-386 y DH-387 en master tras ser informado de que master activa despliegue automático de producción (2026-11-21)."
 }

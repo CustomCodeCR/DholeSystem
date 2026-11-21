@@ -1,3 +1,16 @@
+## [1.108.20] - 2026-11-21 · DH-20261121-QUO-EDIT-DELTA-387
+
+- PATCH: edición diferencial de QUO. Los RateDetails originales se conservan salvo cambios de contexto solicitados; Servicio de Aduanas y Seguro crean únicamente sus propias líneas y mantienen los valores pactados en las restantes.
+- PATCH: candidato master agrupa 1.108.19 DH-386 (wizard-bundle como catálogo único y flete internacional terrestre independiente) y 1.108.20 DH-387 (comparación de contexto y servicios), reduciendo el despliegue de producción a un solo release coordinado.
+- DholeWeb/DholeSystem 1.108.20, PricingService 1.26.18. Historial y versiones intermedias conservadas en CHANGELOG. Verificaciones CI, staging y producción exigidas.
+
+## [1.108.19] - 2026-11-21 · DH-20261121-WIZARD-BUNDLE-ONLY-386
+
+- PATCH coordinado: DholeSystem y DholeWeb 1.108.18 → 1.108.19, DholePricingService 1.26.17 → 1.26.18; los 14 componentes restantes mantienen sus versiones.
+- Fuente definitiva de costos del asistente QUO: /api/pricing/costs/wizard-bundle, sin mezclas desde /costs/select ni inserción de cargos ajenos a data.applicable.
+- FCL multimodal: conserva Flete Internacional Terrestre como línea independiente del flete marítimo por equipo. Edición conserva RateDetails guardados y no reincorpora líneas eliminadas.
+- CI y despliegues de staging aprobados, prueba manual autenticada pendiente. Master se integra mediante ramas de backport, despliegue de producción requiere autorización específica.
+
 ## [1.108.18] - 2026-11-21 · DH-20261121-PRICING-EDIT-TIERS-LAND-385
 
 - PATCH coordinado: DholeSystem/DholeWeb 1.108.17 → 1.108.18, DholePricingService 1.26.16 → 1.26.17; los demás servicios mantienen sus versiones individuales.
