@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-P7-COST-BUNDLE-372",
+  "releaseId": "DH-20261121-P6-P7-SNAPSHOT-373",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.5",
+  "ecosystemVersion": "1.108.6",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+    "develop": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+  "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.5",
+      "version": "1.108.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+      "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop"
+      "developCandidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.5",
+      "version": "1.108.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+      "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop"
+      "developCandidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -135,35 +135,34 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.4 -> 1.108.5; PricingService 1.26.9 -> 1.26.10; develop only",
+  "policyCheck": "PATCH Web/System 1.108.5 -> 1.108.6, PricingService remains 1.26.10; develop only",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing and Web CI build and regression tests",
-    "Authenticated staging MAERSK / WWL 40HC P6 -> first P7 -> P8/P9 smoke, no browser refresh",
-    "Verify CostIds, Inland money and VAT preserved across navigation and route switching"
+    "DholeWeb tests, typecheck/build/headless Chrome",
+    "Authenticated MAERSK Caldera/P6 to P7 staging smoke",
+    "No new lines or modified cost/sale, P8/P9 totals match"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot on staging v1.108.4 where P6 button did not advance and costs required repeated requests",
-    "scope": "single backend GET plus sequential P6/P7 navigation"
+    "source": "User screenshot staging 1.108.5 with P6 Carrier Haulage and 3 cargos but Costos no disponibles on Ir a líneas",
+    "scope": "Use cost snapshot without forced redundant GET"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Single GET /api/pricing/costs/wizard-bundle returns catalog and route-eligible cost rows from one snapshot",
-    "Wizard P6->P7 keeps original Inland Carrier/Merchant and freight, with explicit validation errors",
-    "Vite build transformers FTL/FCL, LTL own Panama and LCL coloader consume the same Pricing cost bundle"
+    "Keep verified P6 displayed, route-specific costs when an additional P6→P7 GET fails or races a watcher",
+    "Validate previous CostIds against active catalog, CRM account, provider, POE and currency before reuse",
+    "Keep Carrier/Merchant inland prices and freight unchanged, without touching Pricing backend or SignalR"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "P6 -> P7 first load Caldera/MAERSK WWL 40HC without multiple Pricing GET requests",
-      "P7 expected applicable fixed and optional CostIds with no duplicates",
-      "Carrier/Merchant inland cost, sale, VAT, billing, P8/P9 PDF match and remain scoped to each option"
+      "Caldera MAERSK 1x40HC choose Carrier P6, P7 opens first click without reload",
+      "Cost and sale fields of inland remain and no duplicate rows",
+      "Merchant/Carrier switch remains scoped, CRM preference and P8/P9 totals unchanged"
     ]
   },
   "f6F7F8": {
@@ -218,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-P7-COST-BUNDLE-372",
+  "businessReleaseId": "DH-20261121-P6-P7-SNAPSHOT-373",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,16 +1046,16 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeSystem": {
-      "from": "1.108.4",
-      "to": "1.108.5"
-    },
     "DholeWeb": {
-      "from": "1.108.4",
-      "to": "1.108.5"
+      "from": "1.108.5",
+      "to": "1.108.6"
+    },
+    "DholeSystem": {
+      "from": "1.108.5",
+      "to": "1.108.6"
     },
     "DholePricingService": {
-      "from": "1.26.9",
+      "from": "1.26.10",
       "to": "1.26.10"
     }
   }

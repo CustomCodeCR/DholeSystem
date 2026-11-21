@@ -1,3 +1,8 @@
+## [1.108.6] - 2026-11-21 (DH-20261121-P6-P7-SNAPSHOT-373 · desbloqueo pantalla 7)
+
+- PATCH de DholeWeb y DholeSystem 1.108.5 → 1.108.6 exclusivo develop. Reutiliza costos de P6 para la misma ruta, agente, cliente y CostId cuando otra carga redundante no termina correctamente; conserva inland Carrier/Merchant, flete, costo y venta.
+- DholePricingService permanece 1.26.10, API /wizard-bundle sin cambios. Los otros 15 componentes no se modifican. CI y staging autenticado pendientes; producción no autorizada.
+
 ## [1.108.5] - 2026-11-21 (DH-20261121-P7-COST-BUNDLE-372 · entrega única de cargos Pricing P7)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.108.4 → 1.108.5 y DholePricingService 1.26.9 → 1.26.10 en develop únicamente; las versiones de los otros 14 componentes se mantienen.
