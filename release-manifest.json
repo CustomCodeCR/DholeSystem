@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-P7-COSTS-391",
+  "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.109.3",
+  "ecosystemVersion": "1.110.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
     "develop": "fix/dh-391-p7-land-ltl-lcl-edit",
     "master": "fix/dh-391-p7-land-ltl-lcl-edit"
   },
-  "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
+  "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.109.3",
+      "version": "1.110.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
+      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.109.3",
+      "version": "1.110.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
+      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
@@ -132,46 +132,38 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.14.0",
-      "mergeState": "unchanged"
+      "version": "0.15.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
+      "candidateSha": null,
+      "developMergeSha": null
     }
   ],
-  "policyCheck": "DholeWeb/DholeSystem PATCH 1.109.2 to 1.109.3; PricingService remains 1.26.19 (no backend change). Branch develop candidate only; master requires separate candidate + CI/staging and authorization.",
+  "policyCheck": "MINOR: System/Web 1.109.3 -> 1.110.0, Operations 0.14.0 -> 0.15.0, all other 14 component versions preserved.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web CI and version policy",
-    "Staging build and real saved QUO P6/P7 validation before production",
-    "Verify master release remains compatible with accessory version 1.109.0"
+    "End-to-end authenticated staging UAT pending",
+    "Pricing accepted QUO event + automatic opening still not implemented",
+    "CRM/SRM catalog selectors and contact verification pending"
   ],
   "validationEvidence": {
-    "status": "candidate-ci-pending",
-    "scope": "Pricing P7 LTL Panama FCA, LCL customs weight tiers, multimodal separate land leg, saved overweight, modality labels",
-    "unitTests": "pending-CI",
-    "stagingTests": "pending"
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "DH-391: resolve Panama-to-Costa Rica LTL four master costs by complete POE/POD and WeightKg bands (including valid zero Gastos tiers), even for FCA",
-    "DH-391: resolve own LCL customs service using independent wizard-bundle request without discarding consolidation matrix",
-    "DH-391: retain independent international land Freight CostId in FCL multimodal, and distinguish maritime, terrestrial and air Freight titles",
-    "DH-391: explicit overweight edit-delta with cargo weight; no implicit repricing of persisted quotations",
-    "Keep existing REST/SignalR contracts; no DB migration"
+    "Global IDTRA counter without user series and no 999999 ceiling",
+    "Full-page manual operations form and versioned edit",
+    "Preserve opening logistics draft JSONB with read-only summary and workflow completeness checks"
   ],
   "stagingValidation": {
-    "status": "pending",
-    "scenarios": [
-      "LTL Panama->Costa Rica FCA: Gastos zero band is displayed and the other three exact WeightKg charges are present",
-      "LCL own: selected CRC customs service draws its WeightKg rate from wizard-bundle and keeps matrix",
-      "Multimodal FCL: both Flete internacional marítimo and Flete internacional terrestre are separate CostIds",
-      "Original QUO remains intact when navigating/editing; newly ticked Sobrepeso gets correct line and price",
-      "Panama 19000-kg excess resolves only from LTL masters when editing, no duplicates",
-      "Land/Air/Maritime Freight names correct and persisted",
-      "CI build, price checks, SignalR contract parity"
-    ]
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -225,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-P7-COSTS-391",
+  "businessReleaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1126,5 +1118,14 @@
     },
     "validation": "CI/staging pending",
     "productionDeploymentAuthorized": false
+  },
+  "operationsManualOpening392": {
+    "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
+    "operationsVersion": "0.15.0",
+    "webVersion": "1.110.0",
+    "systemVersion": "1.110.0",
+    "schemaMigration": "operations_cases.opening_data_json",
+    "pricingAutomaticIntegration": "pending",
+    "productionAuthorized": false
   }
 }
