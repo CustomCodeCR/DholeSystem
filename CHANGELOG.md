@@ -1,3 +1,10 @@
+## [1.110.1] - 2026-11-21 (DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393 · Tramos, Miami LCL y terrestre Panamá)
+
+- PATCH coordinado DholeWeb 1.110.0 → 1.110.1, DholePricingService 1.26.19 → 1.26.20 y DholeSystem 1.110.0 → 1.110.1.
+- Pantalla 7: costos por tramo (agencia, origen) se conservan al guardar/editar; FCL multimodal conserva fletes marítimo y terrestre independientes; LTL Panamá → Costa Rica incluye Flete, Bunker, Gastos, Custodia + Marchamo.
+- Miami LCL utiliza las tarifas comerciales y costos operativos del cotizador_miami.html. No se regeneran cotizaciones históricas sin selección expresa.
+- Manifest central actualizado y ramas intermedias coordinadas. Tests, compilación, staging y revisión de develop pendientes; producción no autorizada.
+
 ## [1.110.0] - 2026-11-21 (DH-20261121-OPERATIONS-OPENING-IDTRA-392 · Apertura manual e IDTRA global)
 
 - MINOR coordinado Web/System/Operations: el usuario ya no indica una serie IDTRA; Operations usa contador global PostgreSQL con formato IDTRA de mínimo 5 dígitos, sin tope de 999999 y sin renombrar históricos.
