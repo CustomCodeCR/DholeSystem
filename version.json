@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.108.20",
-  "ecosystemVersion": "1.108.20",
-  "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
+  "version": "1.109.0",
+  "ecosystemVersion": "1.109.0",
+  "releaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
   "releaseStatus": "candidate-master-ci-pending",
-  "businessReleaseId": "DH-20261121-QUO-EDIT-DELTA-387"
+  "businessReleaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388"
 }
