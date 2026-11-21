@@ -1,3 +1,10 @@
+## [1.108.7] - 2026-11-21 (DH-20261121-INCOTERMS-EDIT-P0-374 · Incoterms y protección financiera edición P0)
+
+- PATCH coordinado de DholeSystem/DholeWeb 1.108.6 → 1.108.7 y DholePricingService 1.26.10 → 1.26.11. Los otros componentes se mantienen.
+- Operación comercial con selección manual opcional en un control compacto; Incoterms filtrados por modalidad y ayuda de requisitos; no filtrar servicios/cargos destructivamente.
+- Protección de edición: si falta un RateDetail.Id de la revisión persistida, se rechaza el snapshot incompleto sin borrar cargos, ventas ni fletes por inferencia de Incoterms.
+- Etapas completas de modificación y cobertura E01–E30 continúan pendientes. Solo develop/staging después de CI; master/producción sin autorización.
+
 ## [1.108.6] - 2026-11-21 (DH-20261121-P6-P7-SNAPSHOT-373 · desbloqueo pantalla 7)
 
 - PATCH de DholeWeb y DholeSystem 1.108.5 → 1.108.6 exclusivo develop. Reutiliza costos de P6 para la misma ruta, agente, cliente y CostId cuando otra carga redundante no termina correctamente; conserva inland Carrier/Merchant, flete, costo y venta.
