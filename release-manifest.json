@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-P7-FREIGHT-DRAFT-370",
+  "releaseId": "DH-20261121-P7-INLAND-HYDRATE-371",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.3",
+  "ecosystemVersion": "1.108.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop",
+    "develop": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop",
+  "candidateBranch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.3",
+      "version": "1.108.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop",
+      "candidateBranch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop"
+      "developCandidateBranch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.3",
+      "version": "1.108.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop",
+      "candidateBranch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261120-P7-FREIGHT-DRAFT-370-develop"
+      "developCandidateBranch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,36 +131,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb and DholeSystem 1.108.2 -> 1.108.3; DholePricingService unchanged. Develop only, no production.",
+  "policyCheck": "PATCH Web/System 1.108.3 -> 1.108.4; no PricingService changes; develop only",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and version policy checks",
-    "Staging authenticated FCL MAERSK / WWL Caldera P6/P7 first and second entry check",
-    "P8/P9 totals and PDF manual validation"
+    "5 Web CI checks, TypeScript/Vite and Chrome smoke",
+    "Manual staging MAERSK / WWL route including first visit and reload action",
+    "Verify retained Inland CostId values, totals in P8 and PDF P9"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshots staging 1.108.2: first P7 hides freight, return P6/P7 loses charge items; unlabeled forms under overlay",
-    "scope": "initial freight and non-destructive navigation"
+    "source": "User reports stale partial P7 costs until browser refresh, Inland data lost during navigation; test pricingP7CatalogInlandMemory371",
+    "scope": "complete P7 first load and route-specific Inland memory"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Build P6 maritime FCL freight lines from current provider cost and sale before stepping into P7",
-    "Preserve alternative's edited CostIds, manual lines and commercial context while refreshing costs",
-    "Refresh cache if freight row missing; reconcile draft catalogue with active cost CostIds",
-    "Show names before empty groups, hide empty billing controls and avoid sticky header overlay"
+    "Await full active CostId catalogue + contextual POE/carrier/agent filter before P7 transition",
+    "Invalidate incomplete alternate cache and discard outdated response serials",
+    "Preserve per-option Inland Carrier/Merchant, prices, billing, VAT and currency across P6/P7 and POE tabs"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "P6 MAERSK 40HC cost 5500 sale 5800 -> first P7 freight included and matching",
-      "P7 cost/agent/inland lines remain with same CostIds and edited prices after backwards/forwards",
-      "P7 empty sections display header and no blank billing form",
-      "P7 review P8/P9 and PDF totals and taxes match"
+      "FCL MAERSK Caldera WWL 40HC P6 -> first P7 shows all applicable charges without browser refresh",
+      "All fixed/optional CostIds from full active catalog and scoped API are available in P7",
+      "Inland Merchant/Carrier cost, sale and VAT survive P6↔P7 and POE/naviera tab changes",
+      "No cross-route or cross-client Inland data bleed, P8/P9 PDF agree with P7"
     ]
   },
   "f6F7F8": {
@@ -215,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-P7-FREIGHT-DRAFT-370",
+  "businessReleaseId": "DH-20261121-P7-INLAND-HYDRATE-371",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
