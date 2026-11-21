@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-INCOTERM-RUNTIME-376",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.9",
+  "target": "develop",
+  "branch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
+  "productionAuthorized": false,
+  "components": {
+    "DholeWeb": {
+      "from": "1.108.8",
+      "to": "1.108.9"
+    },
+    "DholeSystem": {
+      "from": "1.108.8",
+      "to": "1.108.9"
+    },
+    "DholePricingService": {
+      "from": "1.26.11",
+      "to": "1.26.11",
+      "unchanged": true
+    }
+  },
+  "scope": [
+    "Eliminate undefined maritimeOnlyIncoterms reference in Vite-built Pricing wizard by moving matcher to imported, initialized pricingIncotermPerspective function",
+    "Add generated-production-chunk runtime-binding check to build-only so a missing Pricing variable fails CI",
+    "Keep displayed category responsibility and 11 ocean/7 air-land rules; no stored rate changes"
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending"
+  }
+}
