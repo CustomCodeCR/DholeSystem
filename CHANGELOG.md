@@ -1,3 +1,9 @@
+## [1.108.16] - 2026-11-21 · DH-20261121-PRICING-P7-EDIT-SAFETY-383
+
+- PATCH: snapshot de cotizaciones P7 sin rehidratación del maestro ni líneas 0/0.
+- PATCH: tarifas de tramos no generan importes sin contexto, conservando catálogo maestro.
+- DholeSystem/DholeWeb 1.108.16, DholePricingService 1.26.15; otros 14 componentes sin cambios.
+
 ## [1.108.15] - 2026-11-21 · DH-20261121-PRICING-P7-SNAPSHOT-TIERS-382
 
 - PATCH: DholeSystem y DholeWeb 1.108.14→1.108.15; DholePricingService 1.26.13→1.26.14; otros 14 servicios mantienen versión.
