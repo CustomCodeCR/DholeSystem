@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-P7-RESTORE-384",
+  "releaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.17",
+  "ecosystemVersion": "1.108.18",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
-    "master": "release/DH-20261121-PRICING-P7-RESTORE-384-master"
+    "develop": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+    "master": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385"
   },
-  "candidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
+  "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.17",
+      "version": "1.108.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
+      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-master",
-      "developCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop"
+      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.17",
+      "version": "1.108.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
+      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-master",
-      "developCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop"
+      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.16",
+      "version": "1.26.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
-      "developCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-develop",
+      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261121-PRICING-P7-RESTORE-384-master"
+      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -136,16 +136,16 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH 1.108.16 to 1.108.17 Web/System, 1.26.15 to 1.26.16 PricingService; unchanged other 14 services",
+  "policyCheck": "PATCH 1.108.17 -> 1.108.18 Web/System, 1.26.16 -> 1.26.17 PricingService; remaining 14 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging required",
-    "Original QUO 744 authenticated restoration must be confirmed by operator"
+    "Authenticated review of QUO-00000-000745 must be confirmed before production"
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "persisted P7 deletions; revision 1 restore; explicit refresh; supplier matching"
+    "scope": "P7 saved details; cost tier dimensions; multimodal terrestrial freight"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -153,18 +153,20 @@
     "DholePricingService"
   ],
   "changes": [
-    "P7 removedRateDetailIds propagated and persisted",
-    "Historical revision restoration (explicit operator action)",
-    "Refresh contextual costs only on explicit action",
-    "No carrier/agent constrained charges without matching selected context"
+    "P7 saved details never re-add unselected catalog costs",
+    "Contextual cost request includes weightKg/packages/containerTypeId/storageDays",
+    "Real multimodal terrestrial freight included independently",
+    "Changes on master and develop isolated to intermediate branches"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Delete persisted non-freight row; save and reload; removed row stays removed",
-      "Restore revision 1 and save; only historic lines and amounts remain",
-      "Explicit cost refresh calls wizard-bundle without including foreign agent costs",
-      "No phantom customs/insurance lines on existing quote"
+      "QUO-00000-000745 original 12 lines: absent cargos remain absent",
+      "40HC cargo: tier price 350/350, not zero",
+      "28,000 kg: correct WeightKg price bracket and per-kilogram calculation",
+      "Multimodal FCL: separate maritime/terrestrial freight",
+      "New quote includes only selected optional costs",
+      "Back/forward retains manual negotiated amounts"
     ]
   },
   "f6F7F8": {
@@ -219,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-P7-RESTORE-384",
+  "businessReleaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
