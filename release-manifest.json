@@ -3,7 +3,7 @@
   "releaseId": "DH-20261121-PRICING-EDIT-BUNDLE-389",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.109.1",
-  "status": "candidate-ci-pending",
+  "status": "master-promotion-authorized-ci-gated",
   "branches": {
     "develop": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
     "master": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master"
@@ -152,11 +152,11 @@
   ],
   "policyCheck": "PATCH: DholeSystem/DholeWeb 1.109.0 -> 1.109.1 (master Web 1.108.20 is aligned to ecosystem 1.109.1), PricingService unchanged 1.26.18; remaining 14 components unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Web CI and version policy",
-    "Staging build and real saved QUO P6/P7 validation before production",
-    "Verify master release remains compatible with accessory version 1.109.0"
+    "CI de Web y System aprobadas",
+    "Despliegue a staging completado y controles de salud verificados",
+    "Validación autenticada de la QUO real pendiente de repetición tras el despliegue"
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
@@ -1053,5 +1053,5 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "El usuario solicitó explícitamente integrar DH-386 y DH-387 en master tras ser informado de que master activa despliegue automático de producción (2026-11-21)."
+  "productionDeploymentAuthorizationScope": "El usuario solicitó expresamente arreglar el flujo de modificación y subirlo a master y develop (2026-11-21); master tiene despliegue automático. Integración condicionada a CI y despliegue de staging."
 }
