@@ -1,0 +1,20 @@
+{
+  "releaseId": "DH-20261121-PRICING-TIERS-381",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.14",
+  "changes": [
+    "P6 utiliza los importes resueltos de pricingRulesJson, no los ceros del registro maestro",
+    "P7 recalcula tramos al cambiar contenedor o características de carga",
+    "El refresco explícito no reemplaza importes editados por ceros"
+  ],
+  "components": {
+    "DholeSystem": "1.108.14",
+    "DholeWeb": "1.108.14",
+    "DholePricingService": "1.26.13"
+  },
+  "deployment": {
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}

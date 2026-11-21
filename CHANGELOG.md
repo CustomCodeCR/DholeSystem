@@ -1,3 +1,10 @@
+## [1.108.14] - 2026-11-21 (DH-20261121-PRICING-TIERS-381 · montos por tramos)
+
+- PATCH coordinado DholeSystem y DholeWeb 1.108.13 → 1.108.14; DholePricingService se mantiene en 1.26.13 y los otros servicios no cambian.
+- DholeWeb: P6 utiliza costo/venta del tramo de equipo, peso o bultos en lugar del cero de cabecera. Al actualizar costos de una cotización existente se compara contra el importe del tramo sin sobrescribir ediciones manuales.
+- P7 no reutiliza un precio de tramo de otra selección cuando cambia el equipo o condiciones de carga; respeta cargos independientes del usuario.
+- No se modifica el catálogo, estructura de datos, contratos REST ni SignalR. CI y staging deben validarse antes de promover la misma corrección a master; producción no autorizada en este release.
+
 ## [1.108.13] - 2026-11-21 (DH-20261121-PRICING-P7-EDIT-380 · release coordinado P7 seguro/costos/edición)
 
 - PATCH: DholeSystem y DholeWeb 1.108.12 → 1.108.13; DholePricingService 1.26.12 → 1.26.13. Los 14 componentes restantes conservan sus versiones.
