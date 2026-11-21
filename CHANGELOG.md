@@ -1,3 +1,9 @@
+## [1.110.2] - 2026-11-21 · DH-20261121-PRICING-LAST-THREE-FIXES-394 (candidate master)
+
+- Coordinación PATCH System/Web 1.110.1 → 1.110.2 y Pricing 1.26.20 → 1.26.21. Los demás componentes mantienen su versión.
+- Entrega cerrada de tres pendientes: cuatro cargos LTL Panamá, flete terrestre FCL multimodal independiente, y conceptos comerciales LCL Miami.
+- Promoción selectiva en ramas intermedias con manifiesto central, sin importar cambios ajenos de develop.
+
 ## [1.110.1] - 2026-11-21 (DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393 · Promoción de costos logísticos)
 
 - PATCH coordinado de DholeWeb 1.109.3 → 1.110.1, DholeSystem 1.109.3 → 1.110.1 y DholePricingService 1.26.19 → 1.26.20.
