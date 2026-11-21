@@ -1,0 +1,21 @@
+{
+  "releaseId": "DH-20261121-PRICING-P7-EDIT-380",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.13",
+  "changes": [
+    "Seguro de carga",
+    "P7 sin líneas ficticias",
+    "Edición conserva snapshot",
+    "Un solo endpoint costos"
+  ],
+  "components": {
+    "DholeSystem": "1.108.13",
+    "DholeWeb": "1.108.13",
+    "DholePricingService": "1.26.13"
+  },
+  "deployment": {
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}

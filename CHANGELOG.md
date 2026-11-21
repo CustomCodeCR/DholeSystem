@@ -1,3 +1,10 @@
+## [1.108.13] - 2026-11-21 (DH-20261121-PRICING-P7-EDIT-380 · release coordinado P7 seguro/costos/edición)
+
+- PATCH: DholeSystem y DholeWeb 1.108.12 → 1.108.13; DholePricingService 1.26.12 → 1.26.13. Los 14 componentes restantes conservan sus versiones.
+- Web: seguro desde creación con valor declarado; no líneas variables ficticias; edición conserva RateDetails, importes y orden pantalla 7.
+- PricingService: endpoint wizard-bundle unificado del catálogo y cargos, backportado a master sin eliminar REST.
+- Actualizados metadatos y manifiesto central del release. Compilación, CI y staging pendientes; producción sin autorización.
+
 ## [1.108.12] - 2026-11-21 (DH-20261121-FOB-EXPORT-FREIGHT-379 · excluir flete automático de FOB exportador)
 
 - PATCH coordinado DholeSystem y DholeWeb 1.108.11 → 1.108.12. DholePricingService mantiene 1.26.12; otros componentes no cambian.
