@@ -1,3 +1,10 @@
+## [1.109.3] - 2026-11-21 · DH-20261121-P7-COSTS-391 (candidato develop)
+
+- Release PATCH coordinado de DholeWeb 1.109.3 y DholeSystem 1.109.3 (DholePricingService 1.26.19 sin cambios).
+- Se corrigen costos LTL Panamá por peso y la agencia aduanal LCL, separación de flete terrestre en multimodal, selección de sobrepeso al modificar y denominación del flete según modalidad.
+- Se actualiza manifiesto central, rutas de integración y escenarios de QA; sin migración de BD ni cambio incompatible en REST/SignalR.
+- CI/staging pendientes, despliegue a producción no autorizado para DH-391.
+
 ## [1.109.2] - 2026-11-21 · DH-20261121-WIZARD-COSTS-390 (candidato develop)
 
 - Release coordinado: DholePricingService 1.26.19 y DholeWeb 1.109.2; corrección de costos 0/0 legítimos, sobrepeso Panamá con tarifas LTL y cambio explícito de muellaje durante edición.
