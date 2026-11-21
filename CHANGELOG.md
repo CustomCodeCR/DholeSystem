@@ -1,3 +1,9 @@
+## [1.110.2] - 2026-11-21 · DH-20261121-PRICING-LAST-THREE-FIXES-394 (candidate develop)
+
+- PATCH global: DholeSystem/Web 1.110.1 → 1.110.2 y DholePricingService 1.26.20 → 1.26.21; resto de 14 componentes sin cambio.
+- Corrige cuatro rubros LTL Panamá→Costa Rica, el segundo flete terrestre FCL multimodal y cargos omitidos de LCL Miami, manteniendo snapshots históricos.
+- Integración coordinada en ramas intermedias hacia develop primero y master después de validación. Versionamiento y manifiesto central obligatorios.
+
 ## [1.110.1] - 2026-11-21 (DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393 · Tramos, Miami LCL y terrestre Panamá)
 
 - PATCH coordinado DholeWeb 1.110.0 → 1.110.1, DholePricingService 1.26.19 → 1.26.20 y DholeSystem 1.110.0 → 1.110.1.
