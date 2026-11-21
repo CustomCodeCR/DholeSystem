@@ -1,3 +1,9 @@
+## [1.108.4] - 2026-11-21 (DH-20261121-P7-INLAND-HYDRATE-371 · primera carga completa P7 e Inland)
+
+- PATCH coordinado DholeSystem y DholeWeb 1.108.3 → 1.108.4 en develop. Web valida catálogo activo completo + cargos contextuales antes de mostrar P7 y evita cachear consultas incompletas.
+- Conserva Inland por CostId y contexto de ruta, con modo Carrier/Merchant, costo/venta, moneda, IVA y facturación; no copia valores a otras alternativas.
+- Sin modificación de PricingService ni producción. Pruebas CI y smoke autenticado de staging requeridos.
+
 ## [1.108.3] - 2026-11-20 (DH-20261120-P7-FREIGHT-DRAFT-370 · recuperación estable de pantalla 7)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.108.2 → 1.108.3 en develop únicamente. Fix Web: primera entrada P6→P7 conserva flete, segunda entrada no pierde CostIds/ventas; títulos de controles y grupos vacíos corregidos.

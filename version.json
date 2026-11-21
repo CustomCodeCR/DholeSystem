@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.108.3",
-  "ecosystemVersion": "1.108.3",
-  "releaseId": "DH-20261120-P7-FREIGHT-DRAFT-370",
+  "version": "1.108.4",
+  "ecosystemVersion": "1.108.4",
+  "releaseId": "DH-20261121-P7-INLAND-HYDRATE-371",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261120-P7-FREIGHT-DRAFT-370"
+  "businessReleaseId": "DH-20261121-P7-INLAND-HYDRATE-371"
 }
