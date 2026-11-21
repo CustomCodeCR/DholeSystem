@@ -1,0 +1,27 @@
+{
+  "releaseId": "DH-20261121-PRICING-TIERS-381",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.14",
+  "status": "candidate-production-ci-pending",
+  "components": {
+    "DholeSystem": "1.108.14",
+    "DholeWeb": "1.108.14",
+    "DholePricingService": "1.26.13"
+  },
+  "unchangedComponents": 14,
+  "scope": [
+    "ContainerType",
+    "Packages",
+    "WeightKg",
+    "PerKg",
+    "PerExtraDay"
+  ],
+  "validation": {
+    "system": "pending",
+    "web": "pending",
+    "stagingDeployment": "success",
+    "authenticatedStaging": "not-verified",
+    "production": "pending"
+  }
+}
