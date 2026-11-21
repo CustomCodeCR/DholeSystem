@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.109.2",
-  "ecosystemVersion": "1.109.2",
-  "releaseId": "DH-20261121-WIZARD-COSTS-390",
+  "version": "1.109.3",
+  "ecosystemVersion": "1.109.3",
+  "releaseId": "DH-20261121-P7-COSTS-391",
   "releaseStatus": "candidate-master-ci-pending",
-  "businessReleaseId": "DH-20261121-WIZARD-COSTS-390"
+  "businessReleaseId": "DH-20261121-P7-COSTS-391"
 }
