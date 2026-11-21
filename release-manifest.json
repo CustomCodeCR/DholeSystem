@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
+  "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.0",
+  "ecosystemVersion": "1.110.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/dh-391-p7-land-ltl-lcl-edit",
-    "master": "fix/dh-391-p7-land-ltl-lcl-edit"
+    "develop": "fix/DH-393-pricing-tier-miami-panama",
+    "master": "fix/DH-393-pricing-tier-miami-panama"
   },
-  "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
+  "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.0",
+      "version": "1.110.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
+      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
-      "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
+      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.0",
+      "version": "1.110.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
+      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
-      "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
+      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.19",
+      "version": "1.26.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dh-390-wizard-costs",
-      "developCandidateBranch": "fix/dh-390-wizard-costs",
+      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/dh-390-wizard-costs"
+      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -139,7 +139,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "MINOR: System/Web 1.109.3 -> 1.110.0, Operations 0.14.0 -> 0.15.0, all other 14 component versions preserved.",
+  "policyCheck": "PATCH: DholeSystem/Web 1.110.0 -> 1.110.1; DholePricingService 1.26.19 -> 1.26.20; remaining component versions unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -155,7 +155,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholePricingService"
   ],
   "changes": [
     "Global IDTRA counter without user series and no 999999 ceiling",
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
+  "businessReleaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,12 +1047,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.108.20",
-      "newVersion": "1.109.0"
+      "previousVersion": "1.110.0",
+      "newVersion": "1.110.1"
     },
     "DholeWeb": {
-      "previousVersion": "1.108.20",
-      "newVersion": "1.109.0"
+      "previousVersion": "1.110.0",
+      "newVersion": "1.110.1"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.26.19",
+      "newVersion": "1.26.20"
     }
   },
   "pricingP7EditRelease": {
@@ -1127,5 +1131,24 @@
     "schemaMigration": "operations_cases.opening_data_json",
     "pricingAutomaticIntegration": "pending",
     "productionAuthorized": false
+  },
+  "pricingTranchesMiamiPanama393": {
+    "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
+    "globalVersion": "1.110.1",
+    "systemVersion": "1.110.1",
+    "webVersion": "1.110.1",
+    "pricingVersion": "1.26.20",
+    "webRepository": "CustomCodeCR/DholeWeb",
+    "webPullRequest": 990,
+    "pricingRepository": "CustomCodeCR/DholePricingService",
+    "pricingPullRequest": 340,
+    "workflowStatus": "CI-and-staging-pending",
+    "stagingVerified": false,
+    "productionAuthorized": false,
+    "safeguards": [
+      "Preserve historical rate details",
+      "No deployment to production without express approval",
+      "Run coordinated branch and version gates"
+    ]
   }
 }
