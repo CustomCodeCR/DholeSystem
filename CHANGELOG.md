@@ -1,3 +1,9 @@
+## [1.109.0] - 2026-11-21 · DH-20261121-BLOBATAR-ACCESSORIES-388
+
+- MINOR: manifiesto global coordinado con DholeWeb 1.109.0 para accesorios combinables de Blobatar.
+- Nuevas colecciones: Navidad, Halloween, Mes Patrio de Costa Rica y diversión (gorrito de bufón). Persistencia local migrada sin alterar los demás servicios.
+- Las versiones de los otros 15 componentes permanecen registradas sin cambios. CI y staging obligatorios; despliegue de producción requiere autorización expresa.
+
 ## [1.108.20] - 2026-11-21 · DH-20261121-QUO-EDIT-DELTA-387
 
 - PATCH: edición diferencial de QUO. Los RateDetails originales se conservan salvo cambios de contexto solicitados; Servicio de Aduanas y Seguro crean únicamente sus propias líneas y mantienen los valores pactados en las restantes.
