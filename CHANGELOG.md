@@ -1,3 +1,10 @@
+## [1.108.11] - 2026-11-21 (DH-20261121-INCOTERM-RUNTIME-SCOPE-378 · reparar Vite Incoterm wizard)
+
+- PATCH coordinado DholeSystem y DholeWeb 1.108.10 → 1.108.11; DholePricingService mantiene 1.26.12 y los demás componentes permanecen en su versión.
+- Los transforms Vite sobre shouldIncludeOptionalCost ahora se limitan al cuerpo de la función y no borran los helpers de Incoterms, que provocaban ReferenceError de applyIncotermAutomaticChargeGuard en Pantalla 7.
+- El build de Web valida nueve bindings Incoterm en el código final, además de pruebas de regresión y diagnóstico del bundle compilado. Preserva importes, CostIds, Inland y RateDetails históricos. Sin cambios REST ni SignalR.
+- Manifiesto global coordinado. Solo develop/staging después de CI; sin autorización de master o producción. Validación funcional autenticada pendiente.
+
 ## [1.108.10] - 2026-11-21 (DH-20261121-INCOTERM-AUTO-COST-377 · no incluir automáticamente cargos fuera de responsabilidad)
 
 - PATCH coordinado DholeSystem y DholeWeb 1.108.9 → 1.108.10, con DholePricingService 1.26.11 → 1.26.12. Los demás repositorios no cambian.
