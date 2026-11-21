@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-P6-P7-SNAPSHOT-373",
+  "releaseId": "DH-20261121-INCOTERMS-EDIT-P0-374",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.6",
+  "ecosystemVersion": "1.108.7",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
+    "develop": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
+  "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.6",
+      "version": "1.108.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.6",
+      "version": "1.108.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,10 +70,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.10",
+      "version": "1.26.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
-      "developCandidateBranch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,34 +135,36 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.108.5 -> 1.108.6, PricingService remains 1.26.10; develop only",
+  "policyCheck": "PATCH DholeWeb/System 1.108.6 → 1.108.7; DholePricingService 1.26.10 → 1.26.11",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb tests, typecheck/build/headless Chrome",
-    "Authenticated MAERSK Caldera/P6 to P7 staging smoke",
-    "No new lines or modified cost/sale, P8/P9 totals match"
+    "P0 CI regression + .NET tests",
+    "E01–E30 entire edit/modification test matrix pending",
+    "Authenticated staging historical quote save and paper trail pending"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot staging 1.108.5 with P6 Carrier Haulage and 3 cargos but Costos no disponibles on Ir a líneas",
-    "scope": "Use cost snapshot without forced redundant GET"
+    "source": "Specifications uploaded 2026-11-21; user screenshot DholeWeb v1.108.6 mode=view commercial operation layout",
+    "scope": "Initial Incoterms and P0 edit safety, not full specification completion"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholePricingService"
   ],
   "changes": [
-    "Keep verified P6 displayed, route-specific costs when an additional P6→P7 GET fails or races a watcher",
-    "Validate previous CostIds against active catalog, CRM account, provider, POE and currency before reuse",
-    "Keep Carrier/Merchant inland prices and freight unchanged, without touching Pricing backend or SignalR"
+    "Incoterms option filtering: maritime and multimodal 11; air and land 7, historical quote preserved",
+    "Compact commercial operation chip and manual override on P3; Incoterm documentation requirements",
+    "P0 reject incomplete existing quotation snapshots instead of inferring detail deletions; never auto-delete freight from Incoterm"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Caldera MAERSK 1x40HC choose Carrier P6, P7 opens first click without reload",
-      "Cost and sale fields of inland remain and no duplicate rows",
-      "Merchant/Carrier switch remains scoped, CRM preference and P8/P9 totals unchanged"
+      "Air/Land exclude FAS/FOB/CFR/CIF; Multimodal/Maritime include 11",
+      "EXW/FCA place requirements; CIF/CIP insurance documentation without duplicated charge",
+      "Edit existing quote: unchanged line IDs and financial values; incomplete snapshot blocks save",
+      "CRM override persists and operation control is compact"
     ]
   },
   "f6F7F8": {
@@ -217,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-P6-P7-SNAPSHOT-373",
+  "businessReleaseId": "DH-20261121-INCOTERMS-EDIT-P0-374",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,16 +1049,16 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "from": "1.108.5",
-      "to": "1.108.6"
+      "from": "1.108.6",
+      "to": "1.108.7"
     },
     "DholeSystem": {
-      "from": "1.108.5",
-      "to": "1.108.6"
+      "from": "1.108.6",
+      "to": "1.108.7"
     },
     "DholePricingService": {
       "from": "1.26.10",
-      "to": "1.26.10"
+      "to": "1.26.11"
     }
   }
 }
