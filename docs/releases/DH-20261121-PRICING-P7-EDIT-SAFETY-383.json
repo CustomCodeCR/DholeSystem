@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-PRICING-P7-EDIT-SAFETY-383",
+  "ecosystemVersion": "1.108.16",
+  "status": "candidate-master-ci-pending",
+  "components": {
+    "DholeSystem": "1.108.16",
+    "DholeWeb": "1.108.16",
+    "DholePricingService": "1.26.15"
+  },
+  "productionDeploymentAuthorized": false
+}

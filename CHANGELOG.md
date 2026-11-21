@@ -1,3 +1,9 @@
+## [1.108.16] - 2026-11-21 · DH-20261121-PRICING-P7-EDIT-SAFETY-383
+
+- PATCH: edición de RateDetails existentes sin generar cargos de catálogo no seleccionados.
+- PATCH: Pricing omite importes 0/0 por ausencia de tramo y conserva catálogo.
+- Versiones DholeWeb y DholeSystem 1.108.16, PricingService 1.26.15; resto sin cambios.
+
 ## [1.108.15] - 2026-11-21 · DH-20261121-PRICING-P7-SNAPSHOT-TIERS-382
 
 - PATCH: DholeSystem y DholeWeb 1.108.14→1.108.15; DholePricingService 1.26.13→1.26.14; otros 14 servicios mantienen versión.
