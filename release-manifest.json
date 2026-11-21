@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
+  "releaseId": "DH-20261121-PRICING-EDIT-BUNDLE-389",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.109.0",
-  "status": "candidate-develop-ci-pending",
+  "ecosystemVersion": "1.109.1",
+  "status": "candidate-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop",
-    "master": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master"
+    "develop": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
+    "master": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master"
   },
-  "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop",
+  "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.109.0",
+      "version": "1.109.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop",
+      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
-      "developCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop"
+      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master",
+      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.109.0",
+      "version": "1.109.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop",
+      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
-      "developCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop"
+      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master",
+      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -136,34 +136,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "MINOR 1.108.20 -> 1.109.0 System/Web for combinable Blobatar accessories; all other component versions unchanged",
+  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.109.0 -> 1.109.1 (master Web 1.108.20 is aligned to ecosystem 1.109.1), PricingService unchanged 1.26.18; remaining 14 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb compile, avatar regression, semantic version gate and CI required",
-    "Staging browser validation of accessory combinations and legacy migration required",
-    "Explicit production deployment authorization required"
+    "Web CI and version policy",
+    "Staging build and real saved QUO P6/P7 validation before production",
+    "Verify master release remains compatible with accessory version 1.109.0"
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "mascot layered SVG, seasonal collections, per-user persistence"
+    "scope": "saved quote P6 inland and P7 new costs via one wizard-bundle endpoint"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Group Blobatar accessories into Basics, Christmas, Halloween, Costa Rica patriotic month and Fun",
-    "Layer compatible SVG accessories in floating mascot and preview",
-    "Persist multiple local accessories per account with migration from legacy single accessory"
+    "P6 editing a saved quotation always reads context-eligible costs using GET /api/pricing/costs/wizard-bundle",
+    "P7 differential edits fetch wizard-bundle for the exact changed route/agent/services without changing original RateDetails",
+    "Preserve selected inland and independent 40HC sea freight; optionally add only selected Merchant/Carrier inland and own land Freight"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Combine jester hat and headphones without visual collisions",
-      "Switch between seasonal categories; same-slot hats replace one another",
-      "Refresh page and switch users: persist separately, migrate legacy single accessory",
-      "Verify reduced motion, keyboard controls, local profile photo and 58 moods"
+      "Edit QUO P6 initiates /api/pricing/costs/wizard-bundle and shows matched inland Carrier/Merchant",
+      "Edit P7 adds only services/transport costs associated with explicit changes, no unrelated Optional",
+      "Original saved CostId/DetailId and unit cost/sale unchanged",
+      "Independent Flete Internacional Terrestre coexists with maritime FCL Freight",
+      "No lost Inland when navigating back/next; no 0/0 fallback or stale context"
     ]
   },
   "f6F7F8": {
@@ -218,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
+  "businessReleaseId": "DH-20261121-PRICING-EDIT-BUNDLE-389",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
