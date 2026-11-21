@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
+  "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.19",
+  "ecosystemVersion": "1.108.20",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
-    "master": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+    "develop": "fix/DH-20261121-QUO-EDIT-DELTA-387",
+    "master": "backport/DH-20261121-QUO-EDIT-DELTA-387-master"
   },
-  "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+  "candidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.19",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "candidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
-      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+      "masterCandidateBranch": "backport/DH-20261121-QUO-EDIT-DELTA-387-master",
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.19",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "candidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
-      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+      "masterCandidateBranch": "backport/DH-20261121-QUO-EDIT-DELTA-387-master",
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -71,7 +71,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.18",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
       "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
       "candidateSha": null,
@@ -136,38 +136,38 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH 1.108.18 -> 1.108.19 Web/System, 1.26.17 -> 1.26.18 PricingService; remaining 14 components unchanged",
+  "policyCheck": "PATCH 1.108.19 -> 1.108.20 Web/System; PricingService remains 1.26.18; other 14 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb build, unit and runtime tests must pass in CI",
-    "Validate saved QUO edit and new FCL multimodal P7 in staging",
-    "No production deployment without explicit authorization"
+    "Build, regression and CI verification required",
+    "Authenticated staging E2E: quotation edit adds exactly customs and cargo insurance; saved detail costs/sales remain unchanged",
+    "Promote DH-386 first and stage DH-387 before master"
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "wizard-bundle only, applicable authorization, independent terrestrial Freight, preserved RateDetails"
+    "scope": "quote edit explicit delta, pricing snapshot, two service additions"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Wizard creation/edit uses only GET /api/pricing/costs/wizard-bundle for cost reads",
-    "data.applicable is sole source of new charge lines; data.catalog reference-only",
-    "Keep terrestrial Freight CostId independent from equipment/ocean FCL freight",
-    "Existing quotation details preserved; only explicit refresh changes pricing"
+    "Edit QUO from immutable original RateDetail snapshot",
+    "Only explicitly changed service/context may add/remove eligible lines",
+    "Preserve all retained historical DetailId and amounts",
+    "Reversible service deselection with detail ID restoration",
+    "Keep wizard-bundle as single authoritative cost endpoint"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "New FCL multimodal MAERSK Balboa: catalog Freight terrestrial 2140/2140 preserved alongside 40HC sea freight 5300/5800",
-      "Browser network shows no GET /api/pricing/costs/select for create and edit wizard, only wizard-bundle",
-      "No implicit optional charges such as Despacho a bordo; persisted missing charges stay missing",
-      "Quote edit, back/forward, refresh and save preserve CostId, previously selected inland, currency and tier amounts",
-      "WeightKg 28000, 40HC, packages and extra-storage-day price rules",
-      "REST and SignalR unaffected"
+      "Edit unchanged QUO: no extra costs or repricing",
+      "Add Servicio Aduanas and Seguro de Carga: exactly two lines, other prices unchanged",
+      "Remove and re-add one service: no duplicates, original persisted ID retained",
+      "Change carrier/agent/route: add only context-specific applicable lines",
+      "Modality/Incoterm changes: no unrelated optional line additions",
+      "Weight/package/day tiers correct and inland persisted"
     ]
   },
   "f6F7F8": {
@@ -222,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
+  "businessReleaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
