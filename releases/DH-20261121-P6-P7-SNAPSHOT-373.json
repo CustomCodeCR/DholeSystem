@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-P6-P7-SNAPSHOT-373",
+  "ecosystemVersion": "1.108.6",
+  "target": "develop",
+  "branch": "fix/DH-20261121-P6-P7-SNAPSHOT-373-develop",
+  "releaseType": "PATCH",
+  "productionAuthorized": false,
+  "componentVersions": {
+    "DholeWeb": {
+      "from": "1.108.5",
+      "to": "1.108.6"
+    },
+    "DholeSystem": {
+      "from": "1.108.5",
+      "to": "1.108.6"
+    },
+    "DholePricingService": {
+      "from": "1.26.10",
+      "to": "1.26.10"
+    }
+  },
+  "CI": "pending",
+  "staging": "pending"
+}
