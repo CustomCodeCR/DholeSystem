@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-EDIT-BUNDLE-389",
+  "releaseId": "DH-20261121-WIZARD-COSTS-390",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.109.1",
-  "status": "candidate-ci-pending",
+  "ecosystemVersion": "1.109.2",
+  "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
-    "master": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master"
+    "develop": "fix/dh-390-wizard-costs",
+    "master": "fix/dh-390-wizard-costs"
   },
-  "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
+  "candidateBranch": "fix/dh-390-wizard-costs",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.109.1",
+      "version": "1.109.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
+      "candidateBranch": "fix/dh-390-wizard-costs",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop"
+      "masterCandidateBranch": "fix/dh-390-wizard-costs",
+      "developCandidateBranch": "fix/dh-390-wizard-costs"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.109.1",
+      "version": "1.109.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop",
+      "candidateBranch": "fix/dh-390-wizard-costs",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-master",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-BUNDLE-389-develop"
+      "masterCandidateBranch": "fix/dh-390-wizard-costs",
+      "developCandidateBranch": "fix/dh-390-wizard-costs"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.18",
-      "mergeState": "unchanged",
-      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
-      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "version": "1.26.19",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/dh-390-wizard-costs",
+      "developCandidateBranch": "fix/dh-390-wizard-costs",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+      "masterCandidateBranch": "fix/dh-390-wizard-costs"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -136,7 +136,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.109.0 -> 1.109.1 (master Web 1.108.20 is aligned to ecosystem 1.109.1), PricingService unchanged 1.26.18; remaining 14 components unchanged",
+  "policyCheck": "PATCH: DholeSystem 1.109.1 -> 1.109.2, DholeWeb 1.109.1 -> 1.109.2, DholePricingService 1.26.18 -> 1.26.19; 14 remaining components unchanged. Intermediate branch only; CI/staging/master pending.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -146,25 +146,30 @@
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "saved quote P6 inland and P7 new costs via one wizard-bundle endpoint"
+    "scope": "pricing wizard-bundle zero tiers, LCL customs, EXW pickup, LTL Panama, FCL excess and persisted muellaje edits",
+    "unitTests": "pending",
+    "stagingTests": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "P6 editing a saved quotation always reads context-eligible costs using GET /api/pricing/costs/wizard-bundle",
-    "P7 differential edits fetch wizard-bundle for the exact changed route/agent/services without changing original RateDetails",
-    "Preserve selected inland and independent 40HC sea freight; optionally add only selected Merchant/Carrier inland and own land Freight"
+    "PATCH: wizard-bundle returns zero-value Variable pickup/delivery and matched zero-value tier costs",
+    "PATCH: FCL multimodal Panama/CR excess over 19,000 kg per container uses four LTL master costs",
+    "PATCH: saved quote edit replaces selected Anticipado/Redestino through explicit reversible delta; preserves other RateDetails"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Edit QUO P6 initiates /api/pricing/costs/wizard-bundle and shows matched inland Carrier/Merchant",
-      "Edit P7 adds only services/transport costs associated with explicit changes, no unrelated Optional",
-      "Original saved CostId/DetailId and unit cost/sale unchanged",
-      "Independent Flete Internacional Terrestre coexists with maritime FCL Freight",
-      "No lost Inland when navigating back/next; no 0/0 fallback or stale context"
+      "EXW adds editable Recolecta and explicitly selected Entrega without inventing amount",
+      "LCL customs uses configured WeightKg tier pricing and persists RateDetail",
+      "FCA own LTL Panama/CR includes Gastos (0/0 valid band), Custodia+Marchamo, Bunker, and land freight",
+      "Multimodal FCL Panama/CR charges >19000 kg per container only for excess using LTL masters",
+      "Edit Redestino -> Anticipado -> Redestino without duplicate/losing original negotiated CostId/DetailId",
+      "Navigate P6/P7/back without swapping selected inland or losing other quote costs",
+      "Existing REST/SignalR APIs remain compatible"
     ]
   },
   "f6F7F8": {
@@ -219,7 +224,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-EDIT-BUNDLE-389",
+  "businessReleaseId": "DH-20261121-WIZARD-COSTS-390",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1074,5 +1079,35 @@
       "production": false
     },
     "target": "develop"
+  },
+  "pricingWizardCosts390": {
+    "releaseId": "DH-20261121-WIZARD-COSTS-390",
+    "date": "2026-11-21",
+    "ecosystemVersion": "1.109.2",
+    "status": "candidate-develop-ci-pending",
+    "intermediateBranch": "fix/dh-390-wizard-costs",
+    "components": {
+      "DholePricingService": {
+        "previous": "1.26.18",
+        "next": "1.26.19"
+      },
+      "DholeWeb": {
+        "previous": "1.109.1",
+        "next": "1.109.2"
+      },
+      "DholeSystem": {
+        "previous": "1.109.1",
+        "next": "1.109.2"
+      }
+    },
+    "changes": [
+      "Preserve zero-valued variable Pickup/Delivery and valid zero tier charges in wizard-bundle applicable",
+      "Price Panama multimodal FCL 19000-kg excess using four LTL master cost definitions",
+      "Explicit reversible Anticipado/Redestino replacement during quote edit"
+    ],
+    "validation": "pending-CI-and-staging",
+    "productionDeploymentAuthorized": false,
+    "realtimeContractChanged": false,
+    "databaseMigration": false
   }
 }
