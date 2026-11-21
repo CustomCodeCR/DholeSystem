@@ -152,11 +152,11 @@
   ],
   "policyCheck": "Combined master: System and Web PATCH 1.108.18 -> 1.108.20 (includes 1.108.19 DH-386), PricingService 1.26.17 -> 1.26.18; other 14 unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI and same-release version gates must pass",
-    "Stage automated deploy completed but authenticated quote-edit E2E must still be verified",
-    "No production deploy until validation prerequisites have passed"
+    "Master CI and same-release version gates",
+    "Authenticated staging E2E scenario for additional customs and insurance lines",
+    "Production deployment is automatically triggered by master; cannot merge until expressly authorized and staging verification passes"
   ],
   "validationEvidence": {
     "status": "develop-ci-success,stage-build-success,master-candidate-ci-pending",
@@ -1059,5 +1059,5 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "User explicitly requested promotion to master in this conversation; production auto-deploy will only run after all required CI and staging checks"
+  "productionDeploymentAuthorizationScope": "Promoción solicitada a la rama master; despliegue de producción automático requiere validaciones completas y autorización expresa aparte."
 }
