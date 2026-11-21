@@ -1,3 +1,9 @@
+## [1.108.17] - 2026-11-21 · DH-20261121-PRICING-P7-RESTORE-384
+
+- PATCH: corregir eliminación real de líneas en P7 y permitir restaurar revisión original guardando una nueva revisión explícita.
+- PATCH: preservar guardas de snapshot, habilitar consulta contextual solo por actualización expresa y evitar agentes/navieras de otras rutas.
+- Release coordinado DholeSystem/Web 1.108.17 y PricingService 1.26.16; los otros 14 componentes no cambian.
+
 ## [1.108.16] - 2026-11-21 · DH-20261121-PRICING-P7-EDIT-SAFETY-383
 
 - PATCH: snapshot de cotizaciones P7 sin rehidratación del maestro ni líneas 0/0.
