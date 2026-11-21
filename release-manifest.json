@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "releaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.18",
+  "ecosystemVersion": "1.108.19",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
-    "master": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385"
+    "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+    "master": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
   },
-  "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+  "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.18",
+      "version": "1.108.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
+      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.18",
+      "version": "1.108.19",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop"
+      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.17",
+      "version": "1.26.18",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
-      "developCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385-develop",
+      "candidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
+      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385"
+      "masterCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -136,16 +136,17 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH 1.108.17 -> 1.108.18 Web/System, 1.26.16 -> 1.26.17 PricingService; remaining 14 components unchanged",
+  "policyCheck": "PATCH 1.108.18 -> 1.108.19 Web/System, 1.26.17 -> 1.26.18 PricingService; remaining 14 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging required",
-    "Authenticated review of QUO-00000-000745 must be confirmed before production"
+    "DholeWeb build, unit and runtime tests must pass in CI",
+    "Validate saved QUO edit and new FCL multimodal P7 in staging",
+    "No production deployment without explicit authorization"
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "P7 saved details; cost tier dimensions; multimodal terrestrial freight"
+    "scope": "wizard-bundle only, applicable authorization, independent terrestrial Freight, preserved RateDetails"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -153,20 +154,20 @@
     "DholePricingService"
   ],
   "changes": [
-    "P7 saved details never re-add unselected catalog costs",
-    "Contextual cost request includes weightKg/packages/containerTypeId/storageDays",
-    "Real multimodal terrestrial freight included independently",
-    "Changes on master and develop isolated to intermediate branches"
+    "Wizard creation/edit uses only GET /api/pricing/costs/wizard-bundle for cost reads",
+    "data.applicable is sole source of new charge lines; data.catalog reference-only",
+    "Keep terrestrial Freight CostId independent from equipment/ocean FCL freight",
+    "Existing quotation details preserved; only explicit refresh changes pricing"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "QUO-00000-000745 original 12 lines: absent cargos remain absent",
-      "40HC cargo: tier price 350/350, not zero",
-      "28,000 kg: correct WeightKg price bracket and per-kilogram calculation",
-      "Multimodal FCL: separate maritime/terrestrial freight",
-      "New quote includes only selected optional costs",
-      "Back/forward retains manual negotiated amounts"
+      "New FCL multimodal MAERSK Balboa: catalog Freight terrestrial 2140/2140 preserved alongside 40HC sea freight 5300/5800",
+      "Browser network shows no GET /api/pricing/costs/select for create and edit wizard, only wizard-bundle",
+      "No implicit optional charges such as Despacho a bordo; persisted missing charges stay missing",
+      "Quote edit, back/forward, refresh and save preserve CostId, previously selected inland, currency and tier amounts",
+      "WeightKg 28000, 40HC, packages and extra-storage-day price rules",
+      "REST and SignalR unaffected"
     ]
   },
   "f6F7F8": {
@@ -221,7 +222,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "businessReleaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
