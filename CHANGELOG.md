@@ -1,7 +1,7 @@
 ## [1.108.10] - 2026-11-21 (DH-20261121-INCOTERM-AUTO-COST-377 · no incluir automáticamente cargos fuera de responsabilidad)
 
-- PATCH coordinado DholeSystem y DholeWeb 1.108.9 → 1.108.10, sin cambiar DholePricingService 1.26.11 ni los demás repositorios.
-- Pantalla 7 ya no precotiza automáticamente costos ni flete de categorías rojas que corresponden a la otra parte del Incoterm; permanecen disponibles como propuesta con incorporación expresa y scoped por ruta/Incoterm/cliente. El filtro se aplica al estado incluido para totales y guardado, no solo al color.
+- PATCH coordinado DholeSystem y DholeWeb 1.108.9 → 1.108.10, con DholePricingService 1.26.11 → 1.26.12. Los demás repositorios no cambian.
+- Pantalla 7 ya no precotiza automáticamente costos ni flete de categorías rojas que corresponden a la otra parte del Incoterm; permanecen disponibles como propuesta con incorporación expresa y scoped por ruta/Incoterm/cliente. El filtro se aplica al estado incluido para totales y guardado, no solo al color. El backend CreateRate no inventa flete importado cuando P7 no lo incluye.
 - Mantiene cargos y CostIds históricos, manuales o elegidos expresamente. Las categorías mixtas exigen revisión individual en vez de exclusión masiva.
 - Modificación en ramas intermedias e integración exclusivamente a develop tras CI. Staging requiere prueba autenticada. Master y producción no autorizados.
 

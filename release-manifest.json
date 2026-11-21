@@ -70,10 +70,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.11",
+      "version": "1.26.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
-      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,7 +135,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/DholeSystem 1.108.9 -> 1.108.10, PricingService remains 1.26.11",
+  "policyCheck": "PATCH DholeWeb/System 1.108.9 -> 1.108.10 and DholePricingService 1.26.11 -> 1.26.12",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -150,12 +150,14 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
     "New quotations exclude unrequested priced lines in categories assigned to the other Incoterm party (e.g. FOB export freight/destination)",
     "Explicit per-line quote-by-agreement can add non-client contractual services without changing supplier cost, maintaining route/client/incoterm isolation",
-    "Preserve current/historical saved RateDetails, amounts, manual entries and optional user-selected charges. No backend/API/SignalR changes"
+    "Preserve current/historical saved RateDetails, amounts, manual entries and optional user-selected charges. No backend/API/SignalR changes",
+    "CreateRate honors explicit P7 Freight inclusion when source imported FCL rate is selected; no extra freight inferred from source-rate link"
   ],
   "stagingValidation": {
     "status": "pending",
@@ -1058,8 +1060,7 @@
     },
     "DholePricingService": {
       "from": "1.26.11",
-      "to": "1.26.11",
-      "unchanged": true
+      "to": "1.26.12"
     }
   }
 }
