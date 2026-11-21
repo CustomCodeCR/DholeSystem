@@ -1,0 +1,39 @@
+{
+  "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
+  "date": "2026-11-21",
+  "type": "PATCH",
+  "ecosystemVersion": "1.110.1",
+  "components": [
+    {
+      "component": "DholeSystem",
+      "previous": "1.109.3",
+      "version": "1.110.1"
+    },
+    {
+      "component": "DholeWeb",
+      "previous": "1.109.3",
+      "version": "1.110.1"
+    },
+    {
+      "component": "DholePricingService",
+      "previous": "1.26.19",
+      "version": "1.26.20"
+    }
+  ],
+  "branches": {
+    "candidate": "release/dh-393-master",
+    "target": "master",
+    "previouslyIntegrated": "develop"
+  },
+  "relatedPrs": {
+    "DholeWeb": 990,
+    "DholePricingService": 340
+  },
+  "productionDeploymentAuthorized": false,
+  "stagingVerified": false,
+  "notes": [
+    "Preserve selected and historical tiered QUO values",
+    "Do not deploy production without authorization",
+    "Complete CI and staging before coordinated merge"
+  ]
+}
