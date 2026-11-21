@@ -1,0 +1,25 @@
+{
+  "releaseId": "DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "date": "2026-11-21",
+  "type": "PATCH",
+  "component": "DholeSystem",
+  "versionFrom": "1.108.17",
+  "versionTo": "1.108.18",
+  "ecosystemVersion": "1.108.18",
+  "components": {
+    "DholeWeb": {
+      "from": "1.108.17",
+      "to": "1.108.18"
+    },
+    "DholePricingService": {
+      "from": "1.26.16",
+      "to": "1.26.17"
+    }
+  },
+  "branch": "fix/DH-20261121-PRICING-EDIT-TIERS-LAND-385",
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
