@@ -1,3 +1,9 @@
+## [1.108.20] - 2026-11-21 · DH-20261121-QUO-EDIT-DELTA-387
+
+- PATCH: edición diferencial de QUO por comparación contra el original, sin actualización automática de importes ni inserción de costos no solicitados.
+- PATCH: altas y bajas de líneas limitadas a cambios expresos de servicios, modalidad, ruta, naviera/agente, Incoterm, inland y cargos adicionales. Caso inicial Aduanas + Seguro, sin alterar flete marítimo/terrestre, redestino y otros RateDetails originales.
+- Release conjunto DholeWeb 1.108.20 y DholeSystem 1.108.20; DholePricingService mantiene 1.26.18. CI/staging y validación autenticada pendientes.
+
 ## [1.108.19] - 2026-11-21 · DH-20261121-WIZARD-BUNDLE-ONLY-386
 
 - PATCH coordinado: DholeSystem y DholeWeb 1.108.18 → 1.108.19, DholePricingService 1.26.17 → 1.26.18; los 14 componentes restantes mantienen sus versiones.
