@@ -1,3 +1,9 @@
+## [1.108.18] - 2026-11-21 · DH-20261121-PRICING-EDIT-TIERS-LAND-385
+
+- PATCH coordinado: DholeSystem/DholeWeb 1.108.17 → 1.108.18, DholePricingService 1.26.16 → 1.26.17; los demás servicios mantienen sus versiones individuales.
+- Garantizar que la edición de QUO no reincorpora cargos eliminados, que se aplican tramos por contenedor/peso/bultos/días y que el flete internacional terrestre aparece en multimodal cuando corresponde.
+- CI y pruebas staging pendientes; ningún despliegue a producción autorizado. REST y SignalR compatibles.
+
 ## [1.108.17] - 2026-11-21 · DH-20261121-PRICING-P7-RESTORE-384
 
 - PATCH: persistir las eliminaciones de cargos en Pantalla 7 y recuperar la revisión original mediante confirmación explícita.
