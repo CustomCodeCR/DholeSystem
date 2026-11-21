@@ -1,3 +1,9 @@
+## [1.108.9] - 2026-11-21 (DH-20261121-INCOTERM-RUNTIME-376 · Hotfix de montaje Pricing)
+
+- PATCH DholeWeb/DholeSystem 1.108.8 → 1.108.9 en develop. Sustituye la referencia indefinida `maritimeOnlyIncoterms` que bloqueaba el wizard Pricing por función pura del módulo compartido, de modo que transformadores Vite no puedan eliminar ni adelantar la variable local.
+- Se comprueba el bundle generado de producción después de compilar, y una prueba de regresión detecta el error. Filtro modalidad e indicadores Incoterm se preservan, sin modificar cargos, base de datos, backend Pricing ni SignalR.
+- DholePricingService mantiene 1.26.11; otros componentes permanecen igual. Staging luego de CI; no hay autorización master/producción.
+
 ## [1.108.8] - 2026-11-21 (DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375 · categorías de responsabilidad Incoterms)
 
 - PATCH coordinado DholeSystem/DholeWeb 1.108.7 → 1.108.8, sin cambios a DholePricingService 1.26.11 ni a otros servicios.

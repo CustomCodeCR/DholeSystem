@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
+  "releaseId": "DH-20261121-INCOTERM-RUNTIME-376",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.8",
+  "ecosystemVersion": "1.108.9",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
+    "develop": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
+  "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.8",
+      "version": "1.108.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.8",
+      "version": "1.108.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -135,36 +135,35 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/DholeSystem 1.108.7 -> 1.108.8; DholePricingService unchanged 1.26.11",
+  "policyCheck": "PATCH DholeWeb/System 1.108.8 → 1.108.9, PricingService remains 1.26.11",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI must pass on DholeWeb + DholeSystem",
-    "Authenticated staging smoke for FOB export, CIF import, EXW export, DDP import and unchanged persisted RateDetails",
-    "Do not deploy production without explicit authorization"
+    "Web and System CI passing",
+    "Authenticated staging 1.108.9 wizard mount, step three Incoterm change",
+    "Verify no browser ReferenceError, cargo and amounts preserved"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User staging screenshot DholeWeb 1.108.7 2026-11-21 showing Exportación FOB with selected international freight and destination costs",
-    "scope": "UI indication only, not billing responsibility engine or persisted contract migration"
+    "source": "User screenshot DholeWeb staging v1.108.7 with Vue runtime-1 ReferenceError maritimeOnlyIncoterms is not defined",
+    "scope": "Runtime mount fix, not a rewrite of responsibility rules"
   },
   "releaseComponents": [
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Screen 7 highlights Incoterm cost categories ordinarily assigned to the counterparty in red, and explains that explicitly contracted services remain editable and quoted",
-    "Visual only: all six groups preserve persisted charges, CostIds, taxes and prices; hybrid destination/incoterms are marked mixed not no-aplica",
-    "No changes to PricingService REST, SignalR or downstream contracts"
+    "Eliminate undefined maritimeOnlyIncoterms reference in Vite-built Pricing wizard by moving matcher to imported, initialized pricingIncotermPerspective function",
+    "Add generated-production-chunk runtime-binding check to build-only so a missing Pricing variable fails CI",
+    "Keep displayed category responsibility and 11 ocean/7 air-land rules; no stored rate changes"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Export + FOB: Flete, Destino and Entrega appear red with data intact",
-      "Import + FOB: Freight normally corresponds to client",
-      "CIF/CIP: external seller's insurance highlighted without duplicating premium",
-      "Mixed destination and FCA cargo areas never incorrectly marked nonapplicable",
-      "View/edit existing QUO retains rates, inland choice, taxes and all lines without modifying data"
+      "Create quote in staging, step 3 Incoterm dropdown opens without ReferenceError",
+      "Air and Land filter FAS/FOB/CFR/CIF; Multimodal/Maritime retain 11",
+      "Step 7 categories red only when responsibility belongs to other party, no selected charges removed",
+      "Historical QUO read/edit retains saved Incoterm and unchanged financial lines"
     ]
   },
   "f6F7F8": {
@@ -219,7 +218,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
+  "businessReleaseId": "DH-20261121-INCOTERM-RUNTIME-376",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1049,12 +1048,12 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "from": "1.108.7",
-      "to": "1.108.8"
+      "from": "1.108.8",
+      "to": "1.108.9"
     },
     "DholeSystem": {
-      "from": "1.108.7",
-      "to": "1.108.8"
+      "from": "1.108.8",
+      "to": "1.108.9"
     },
     "DholePricingService": {
       "from": "1.26.11",
