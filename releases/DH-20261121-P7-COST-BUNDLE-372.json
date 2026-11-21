@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-P7-COST-BUNDLE-372",
+  "ecosystemVersion": "1.108.5",
+  "releaseType": "PATCH",
+  "date": "2026-11-21",
+  "components": {
+    "DholeSystem": {
+      "from": "1.108.4",
+      "to": "1.108.5"
+    },
+    "DholeWeb": {
+      "from": "1.108.4",
+      "to": "1.108.5"
+    },
+    "DholePricingService": {
+      "from": "1.26.9",
+      "to": "1.26.10"
+    }
+  },
+  "target": "develop",
+  "branch": "fix/DH-20261121-P7-COST-BUNDLE-372-develop",
+  "productionAuthorized": false,
+  "checks": [
+    "DholePricingService CI and contract integration",
+    "DholeWeb type check, build and Pricing tests",
+    "Authenticated staging P6→P7 & P8/P9 and Inland money verification"
+  ],
+  "realtime": "Unchanged SignalR/REST/outbox/inbox"
+}

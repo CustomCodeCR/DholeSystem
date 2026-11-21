@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.108.4",
-  "ecosystemVersion": "1.108.4",
-  "releaseId": "DH-20261121-P7-INLAND-HYDRATE-371",
+  "version": "1.108.5",
+  "ecosystemVersion": "1.108.5",
+  "releaseId": "DH-20261121-P7-COST-BUNDLE-372",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261121-P7-INLAND-HYDRATE-371"
+  "businessReleaseId": "DH-20261121-P7-COST-BUNDLE-372"
 }
