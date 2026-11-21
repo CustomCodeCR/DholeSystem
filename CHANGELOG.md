@@ -1,3 +1,10 @@
+## [1.108.8] - 2026-11-21 (DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375 · categorías de responsabilidad Incoterms)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.108.7 → 1.108.8, sin cambios a DholePricingService 1.26.11 ni a otros servicios.
+- El wizard P7 de tarifas muestra en rojo encabezados de categorías que pertenecen normalmente a la otra parte según Incoterm y operación seleccionada, como Flete Internacional para FOB exportación.
+- Mantiene las categorías y líneas cotizadas visibles, editables y con importes inalterados; los grupos mixtos indican revisión por tramo/lugar y cargos de agente ambiguos permanecen neutrales.
+- Versionamiento, manifiesto y CHANGELOG actualizados. Solo develop/staging tras CI; sin autorización master/producción.
+
 ## [1.108.7] - 2026-11-21 (DH-20261121-INCOTERMS-EDIT-P0-374 · Incoterms y protección financiera edición P0)
 
 - PATCH coordinado de DholeSystem/DholeWeb 1.108.6 → 1.108.7 y DholePricingService 1.26.10 → 1.26.11. Los otros componentes se mantienen.

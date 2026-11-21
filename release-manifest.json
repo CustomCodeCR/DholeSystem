@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERMS-EDIT-P0-374",
+  "releaseId": "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.7",
+  "ecosystemVersion": "1.108.8",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+    "develop": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+  "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.7",
+      "version": "1.108.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.7",
+      "version": "1.108.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -135,36 +135,36 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.6 → 1.108.7; DholePricingService 1.26.10 → 1.26.11",
+  "policyCheck": "PATCH DholeWeb/DholeSystem 1.108.7 -> 1.108.8; DholePricingService unchanged 1.26.11",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "P0 CI regression + .NET tests",
-    "E01–E30 entire edit/modification test matrix pending",
-    "Authenticated staging historical quote save and paper trail pending"
+    "CI must pass on DholeWeb + DholeSystem",
+    "Authenticated staging smoke for FOB export, CIF import, EXW export, DDP import and unchanged persisted RateDetails",
+    "Do not deploy production without explicit authorization"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "Specifications uploaded 2026-11-21; user screenshot DholeWeb v1.108.6 mode=view commercial operation layout",
-    "scope": "Initial Incoterms and P0 edit safety, not full specification completion"
+    "source": "User staging screenshot DholeWeb 1.108.7 2026-11-21 showing Exportación FOB with selected international freight and destination costs",
+    "scope": "UI indication only, not billing responsibility engine or persisted contract migration"
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Incoterms option filtering: maritime and multimodal 11; air and land 7, historical quote preserved",
-    "Compact commercial operation chip and manual override on P3; Incoterm documentation requirements",
-    "P0 reject incomplete existing quotation snapshots instead of inferring detail deletions; never auto-delete freight from Incoterm"
+    "Screen 7 highlights Incoterm cost categories ordinarily assigned to the counterparty in red, and explains that explicitly contracted services remain editable and quoted",
+    "Visual only: all six groups preserve persisted charges, CostIds, taxes and prices; hybrid destination/incoterms are marked mixed not no-aplica",
+    "No changes to PricingService REST, SignalR or downstream contracts"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Air/Land exclude FAS/FOB/CFR/CIF; Multimodal/Maritime include 11",
-      "EXW/FCA place requirements; CIF/CIP insurance documentation without duplicated charge",
-      "Edit existing quote: unchanged line IDs and financial values; incomplete snapshot blocks save",
-      "CRM override persists and operation control is compact"
+      "Export + FOB: Flete, Destino and Entrega appear red with data intact",
+      "Import + FOB: Freight normally corresponds to client",
+      "CIF/CIP: external seller's insurance highlighted without duplicating premium",
+      "Mixed destination and FCA cargo areas never incorrectly marked nonapplicable",
+      "View/edit existing QUO retains rates, inland choice, taxes and all lines without modifying data"
     ]
   },
   "f6F7F8": {
@@ -219,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERMS-EDIT-P0-374",
+  "businessReleaseId": "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1049,16 +1049,17 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "from": "1.108.6",
-      "to": "1.108.7"
+      "from": "1.108.7",
+      "to": "1.108.8"
     },
     "DholeSystem": {
-      "from": "1.108.6",
-      "to": "1.108.7"
+      "from": "1.108.7",
+      "to": "1.108.8"
     },
     "DholePricingService": {
-      "from": "1.26.10",
-      "to": "1.26.11"
+      "from": "1.26.11",
+      "to": "1.26.11",
+      "unchanged": true
     }
   }
 }
