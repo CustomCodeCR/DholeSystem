@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "releaseId": "DH-20261121-FOB-FCL-MASTER-379",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.10",
+  "ecosystemVersion": "1.108.12",
   "status": "candidate-production-ci-pending",
   "branches": {
     "develop": "develop",
-    "master": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378"
+    "master": "release/DH-20261121-FOB-FCL-379-master"
   },
-  "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.10",
+      "version": "1.108.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "masterCandidateBranch": "release/DH-20261121-FOB-FCL-379-master",
       "developCandidateBranch": "develop"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.10",
+      "version": "1.108.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "masterCandidateBranch": "release/DH-20261121-FOB-FCL-379-master",
       "developCandidateBranch": "develop"
     },
     {
@@ -150,37 +150,36 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Master selective backport 1.107.5->1.108.10 Web/System, Pricing 1.26.9->1.26.12",
+  "policyCheck": "PATCH coordinated master promotion DholeWeb and DholeSystem 1.108.10 -> 1.108.12 matching current develop; PricingService unchanged 1.26.12",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "DholeWeb and DholePricingService CI",
-    "Authenticated functional staging acceptance of rates, inland and editing historic QUO",
-    "Master pushes auto-deploy Web/Pricing to production"
+    "Master candidate CI full build/tests + production-minified headless browser smoke",
+    "Verify master-specific pricing modifications and historical edit regression",
+    "Production deployment health and live FOB Export non-billable freight smoke"
   ],
   "validationEvidence": {
-    "status": "pending",
-    "scope": "Selective backport, no broad develop merge"
+    "status": "staging-ci-passed",
+    "source": "DholeWeb develop 1.108.12 CI passed; staging 1.108.12 deployment healthy (run 44917696127)",
+    "scope": "FOB Export FCL generated lines excluded from totals without explicit contract; master selective cherry-pick requires CI"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Incoterm modes and contractual category responsibility without automatic billing for counterparty",
-    "P0 no implicit removal or edit-repricing of persistently stored quote lines",
-    "Imported FCL Freight only included if P7 explicitly selects it",
-    "No broad develop-to-master merge"
+    "Promote only DholeWeb Incoterm runtime scope fix #961 and FOB Export auto FCL billing fix #962, preserve master-specific code",
+    "Scope Vite replacement to helper and assert Incoterm bindings; FCL carrier source remains an unquoted candidate until explicitly added for Export FOB",
+    "No Pricing API, DB migration, or SignalR modifications"
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "deployment-healthy-authenticated-quote-smoke-pending",
     "scenarios": [
-      "FOB export omits foreign-responsibility cargos by default",
-      "Explicit agreement add one line and no hidden extra freight",
-      "Existing edits preserve RateDetail IDs/costs/ventas",
-      "Air/Land 7, Maritime/Multimodal 11",
-      "Minified Pricing wizard renders in production smoke"
+      "FOB Export new FCL: 40HC cost remains available but not billed or posted without explicitly quoted agreement",
+      "FOB Import and CIF Export retain client-responsible freight",
+      "Same historical quotation must keep all persisted RateDetails, CostIds and amounts",
+      "P6->P7 inland Carrier/Merchant persists and no unrequested charges appear",
+      "Browser production bundle mounts without runtime ReferenceError"
     ]
   },
   "f6F7F8": {
@@ -235,7 +234,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "businessReleaseId": "DH-20261121-FOB-FCL-MASTER-379",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

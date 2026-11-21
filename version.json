@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.108.10",
-  "ecosystemVersion": "1.108.10",
-  "releaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "version": "1.108.12",
+  "ecosystemVersion": "1.108.12",
+  "releaseId": "DH-20261121-FOB-FCL-MASTER-379",
   "releaseStatus": "candidate-production-ci-pending",
-  "businessReleaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378"
+  "businessReleaseId": "DH-20261121-FOB-FCL-MASTER-379"
 }
