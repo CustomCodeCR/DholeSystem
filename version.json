@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.109.3",
-  "ecosystemVersion": "1.109.3",
-  "releaseId": "DH-20261121-P7-COSTS-391",
+  "version": "1.110.1",
+  "ecosystemVersion": "1.110.1",
+  "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
   "releaseStatus": "candidate-master-ci-pending",
-  "businessReleaseId": "DH-20261121-P7-COSTS-391"
+  "businessReleaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393"
 }
