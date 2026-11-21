@@ -1,3 +1,9 @@
+## [1.108.20] - 2026-11-21 · DH-20261121-QUO-EDIT-DELTA-387
+
+- PATCH: edición diferencial de QUO. Los RateDetails originales se conservan salvo cambios de contexto solicitados; Servicio de Aduanas y Seguro crean únicamente sus propias líneas y mantienen los valores pactados en las restantes.
+- PATCH: candidato master agrupa 1.108.19 DH-386 (wizard-bundle como catálogo único y flete internacional terrestre independiente) y 1.108.20 DH-387 (comparación de contexto y servicios), reduciendo el despliegue de producción a un solo release coordinado.
+- DholeWeb/DholeSystem 1.108.20, PricingService 1.26.18. Historial y versiones intermedias conservadas en CHANGELOG. Verificaciones CI, staging y producción exigidas.
+
 ## [1.108.19] - 2026-11-21 · DH-20261121-WIZARD-BUNDLE-ONLY-386
 
 - PATCH coordinado: DholeSystem y DholeWeb 1.108.18 → 1.108.19, DholePricingService 1.26.17 → 1.26.18; los 14 componentes restantes mantienen sus versiones.
