@@ -1,0 +1,27 @@
+{
+  "releaseId": "DH-20261121-PRICING-P7-SNAPSHOT-TIERS-382",
+  "releaseType": "PATCH",
+  "date": "2026-11-21",
+  "ecosystemVersion": "1.108.15",
+  "status": "candidate-master-ci-pending",
+  "components": {
+    "DholeWeb": {
+      "previous": "1.108.14",
+      "next": "1.108.15"
+    },
+    "DholeSystem": {
+      "previous": "1.108.14",
+      "next": "1.108.15"
+    },
+    "DholePricingService": {
+      "previous": "1.26.13",
+      "next": "1.26.14"
+    }
+  },
+  "unchangedComponents": 14,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
