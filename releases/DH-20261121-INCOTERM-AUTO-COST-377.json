@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-INCOTERM-AUTO-COST-377",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.10",
+  "target": "develop",
+  "branch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+  "productionAuthorized": false,
+  "components": {
+    "DholeWeb": {
+      "from": "1.108.9",
+      "to": "1.108.10"
+    },
+    "DholeSystem": {
+      "from": "1.108.9",
+      "to": "1.108.10"
+    },
+    "DholePricingService": {
+      "from": "1.26.11",
+      "to": "1.26.11",
+      "unchanged": true
+    }
+  },
+  "scope": [
+    "New quotations exclude unrequested priced lines in categories assigned to the other Incoterm party (e.g. FOB export freight/destination)",
+    "Explicit per-line quote-by-agreement can add non-client contractual services without changing supplier cost, maintaining route/client/incoterm isolation",
+    "Preserve current/historical saved RateDetails, amounts, manual entries and optional user-selected charges. No backend/API/SignalR changes"
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending"
+  }
+}
