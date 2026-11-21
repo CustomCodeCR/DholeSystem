@@ -1,3 +1,13 @@
+## [1.108.12] - 2026-11-21 (DH-20261121-FOB-FCL-MASTER-379 · master alineado con develop)
+
+- PATCH DholeSystem y DholeWeb 1.108.10 → 1.108.12; DholePricingService permanece 1.26.12. Cambio selectivo de hotfixes Incoterm y FCL, no integración masiva de ramas divergentes.
+- Web: conserva las funciones de Incoterms tras Vite, diferencia fletes FCL generados automáticamente de tarifas manuales, excluye de facturación el flete de FOB Exportación salvo selección explícita y acotada de «Cotizar por acuerdo». Mantiene montos de inventario, RateDetails históricos e Inland.
+- Sin cambios de endpoints backend, Redis, SignalR ni base de datos. Manifiesto de 17 componentes actualizado. Producción habilitada por solicitud del usuario de promoción a master; CI y smoke postdeploy obligatorios.
+
+## [1.108.11] - 2026-11-21 (DH-20261121-INCOTERM-RUNTIME-SCOPE-378 · promocionado junto al 1.108.12)
+
+- Evita transformaciones de Vite que borraban applyIncotermAutomaticChargeGuard del wizard, añade comprobaciones de bindings y tests en Web.
+
 ## [1.108.10] - 2026-11-21 (DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378 · backport master Incoterms y modificaciones)
 
 - PATCH coordinado DholeWeb/DholeSystem 1.107.5 → 1.108.10 y Pricing 1.26.9 → 1.26.12, versiones presentes en develop; sin merge masivo ni nuevos servicios.
