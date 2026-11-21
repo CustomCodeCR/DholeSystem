@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-P7-COSTS-391",
+  "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.109.3",
-  "status": "candidate-master-ci-pending",
+  "ecosystemVersion": "1.110.0",
+  "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/dh-391-p7-land-ltl-lcl-edit",
-    "master": "release/dh-391-p7-costs-master"
+    "develop": "develop",
+    "master": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master"
   },
-  "candidateBranch": "release/dh-391-p7-costs-master",
+  "candidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.109.3",
-      "mergeState": "develop-merged-master-candidate",
-      "candidateBranch": "release/dh-391-p7-costs-master",
+      "version": "1.110.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-391-p7-costs-master",
+      "masterCandidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
       "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.109.3",
-      "mergeState": "develop-merged-master-candidate",
-      "candidateBranch": "release/dh-391-p7-costs-master",
+      "version": "1.110.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-391-p7-costs-master",
+      "masterCandidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
       "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
     },
     {
@@ -142,50 +142,39 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.14.0",
+      "version": "0.15.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
+      "candidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
+      "masterCandidateBranch": "release/DH-20261121-OPERATIONS-OPENING-IDTRA-392-master"
     }
   ],
-  "policyCheck": "DholeWeb and DholeSystem PATCH 1.109.2 → 1.109.3. PricingService remains 1.26.19. Develop merged and deploy automated staging passed. Protected master candidate requires explicit production approval.",
+  "policyCheck": "MINOR: System/Web 1.109.3 -> 1.110.0, Operations 0.14.0 -> 0.15.0, all other 14 component versions preserved.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI de Web y System aprobadas",
-    "Despliegue a staging completado y controles de salud verificados",
-    "Validación autenticada de la QUO real pendiente de repetición tras el despliegue"
+    "End-to-end authenticated staging UAT pending",
+    "Pricing accepted QUO event + automatic opening still not implemented",
+    "CRM/SRM catalog selectors and contact verification pending"
   ],
   "validationEvidence": {
-    "status": "ci-passed-staging-deployed-manual-functional-pending",
-    "scope": "Pricing P7 LTL Panama FCA, LCL customs weight tiers, multimodal separate land leg, saved overweight, modality labels",
-    "unitTests": "passed-in-develop",
-    "stagingTests": "automated-deployment-passed; manual-functional-pending"
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not deployed"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "DH-391: resolve Panama-to-Costa Rica LTL four master costs by complete POE/POD and WeightKg bands (including valid zero Gastos tiers), even for FCA",
-    "DH-391: resolve own LCL customs service using independent wizard-bundle request without discarding consolidation matrix",
-    "DH-391: retain independent international land Freight CostId in FCL multimodal, and distinguish maritime, terrestrial and air Freight titles",
-    "DH-391: explicit overweight edit-delta with cargo weight; no implicit repricing of persisted quotations",
-    "Keep existing REST/SignalR contracts; no DB migration"
+    "Global IDTRA counter without user series and no 999999 ceiling",
+    "Full-page manual operations form and versioned edit",
+    "Preserve opening logistics draft JSONB with read-only summary and workflow completeness checks"
   ],
   "stagingValidation": {
-    "status": "automated-deployment-passed-functional-pending",
-    "scenarios": [
-      "LTL Panama->Costa Rica FCA: Gastos zero band is displayed and the other three exact WeightKg charges are present",
-      "LCL own: selected CRC customs service draws its WeightKg rate from wizard-bundle and keeps matrix",
-      "Multimodal FCL: both Flete internacional marítimo and Flete internacional terrestre are separate CostIds",
-      "Original QUO remains intact when navigating/editing; newly ticked Sobrepeso gets correct line and price",
-      "Panama 19000-kg excess resolves only from LTL masters when editing, no duplicates",
-      "Land/Air/Maritime Freight names correct and persisted",
-      "CI build, price checks, SignalR contract parity"
-    ]
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -239,7 +228,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-P7-COSTS-391",
+  "businessReleaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1109,5 +1098,14 @@
     "productionDeploymentAuthorized": false,
     "masterCandidateBranch": "release/dh-391-p7-costs-master",
     "developMerged": true
+  },
+  "operationsManualOpening392": {
+    "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
+    "operationsVersion": "0.15.0",
+    "webVersion": "1.110.0",
+    "systemVersion": "1.110.0",
+    "schemaMigration": "operations_cases.opening_data_json",
+    "pricingAutomaticIntegration": "pending",
+    "productionAuthorized": false
   }
 }

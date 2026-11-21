@@ -1,3 +1,12 @@
+## [1.110.0] - 2026-11-21 (DH-20261121-OPERATIONS-OPENING-IDTRA-392 · Apertura manual e IDTRA global)
+
+- MINOR coordinado Web/System/Operations: el usuario ya no indica una serie IDTRA; Operations usa contador global PostgreSQL con formato IDTRA de mínimo 5 dígitos, sin tope de 999999 y sin renombrar históricos.
+- Trámites abre creación manual en pantalla completa y permite capturar/modificar datos logísticos según modalidad, unidades kg/lb, CBM/CFT, equipos múltiples, servicios, recolecta, WHS e instrucciones. Borradores incompletos quedan pendientes de validación.
+- Migración no destructiva opening_data_json en Operations; ediciones versionadas y auditadas y avisos por Outbox/SignalR.
+- DholeWeb/DholeSystem 1.109.3 → 1.110.0; DholeOperationsService 0.14.0 → 0.15.0. No se tocan las correcciones DH-391 de Pricing.
+- Pendiente integración definitiva de aceptación QUO a apertura automática, catálogos CRM/SRM y pruebas funcionales autenticadas.
+- CI/staging por verificar; producción no autorizada.
+
 ## [1.109.3] - 2026-11-21 · DH-20261121-P7-COSTS-391 (candidato master)
 
 - Release PATCH coordinado de DholeWeb 1.109.3 y DholeSystem 1.109.3 (DholePricingService 1.26.19 sin cambios).
