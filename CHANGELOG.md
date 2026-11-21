@@ -1,3 +1,10 @@
+## [1.108.12] - 2026-11-21 (DH-20261121-FOB-EXPORT-FREIGHT-379 · excluir flete automático de FOB exportador)
+
+- PATCH coordinado DholeSystem y DholeWeb 1.108.11 → 1.108.12. DholePricingService mantiene 1.26.12; otros componentes no cambian.
+- Corrige la reconciliación de flete internacional FCL por equipo, que marcaba como cargo manual un flete generado automáticamente y lo incluía indebidamente en FOB Export P7. El flete 40HC USD 5.500 permanece como costo de proveedor, pero no se factura, contabiliza ni guarda sin selección expresa «Cotizar por acuerdo» fuera del Incoterm.
+- Preserva RateDetails históricos, importes y cargos Inland, separa líneas automáticas de cargos manuales auténticos, invalida excepciones al cambiar el contexto. Reglas normales de FOB Import / CIF Export se mantienen.
+- Prueba pricingIncotermFclBilling379, CI de Web y smoke autenticado obligatorios. Solo develop/staging; master y producción no autorizados. Sin cambios REST, SignalR ni base de datos.
+
 ## [1.108.11] - 2026-11-21 (DH-20261121-INCOTERM-RUNTIME-SCOPE-378 · reparar Vite Incoterm wizard)
 
 - PATCH coordinado DholeSystem y DholeWeb 1.108.10 → 1.108.11; DholePricingService mantiene 1.26.12 y los demás componentes permanecen en su versión.

@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERM-RUNTIME-SCOPE-378",
+  "releaseId": "DH-20261121-FOB-EXPORT-FREIGHT-379",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.11",
+  "ecosystemVersion": "1.108.12",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
+    "develop": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
+  "candidateBranch": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.11",
+      "version": "1.108.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
+      "candidateBranch": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop"
+      "developCandidateBranch": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.11",
+      "version": "1.108.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
+      "candidateBranch": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop"
+      "developCandidateBranch": "fix/DH-20261121-FOB-EXPORT-FREIGHT-379-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -135,37 +135,38 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.10 -> 1.108.11; PricingService remains 1.26.12; 15 other components unchanged",
+  "policyCheck": "PATCH DholeWeb/System 1.108.11 -> 1.108.12; PricingService remains 1.26.12 and other 15 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeSystem CI and DholeWeb full CI including production-minified browser smoke",
-    "Authenticated staging Pricing wizard P3-P7: no ReferenceError when switching Incoterm/operation",
-    "RateDetails edit integrity: historical lines, Inland, currency/cost/sale unchanged"
+    "DholeWeb and DholeSystem CI",
+    "Production Vite compilation and headless Chrome mount",
+    "Authenticated staging FOB Export FCL 40HC P7: USD 5500 absent from included lines, subtotal, PDF and create payload unless explicit agreement",
+    "FOB Import/P7 and historic edit preserve billable freight and persisted details"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot staging 1.108.10 and Firefox console applyIncotermAutomaticChargeGuard is not defined",
-    "scope": "Vite transform replacing shouldIncludeOptionalCost deleted adjacent Incoterm helpers; source remained valid but bundle missing runtime bindings"
+    "source": "User screenshot staging DholeWeb 1.108.11, FOB Export 40HC MAERSK USD 5500 shown despite red section",
+    "scope": "Generated FCL line incorrectly sets included=true/manual=true in Vite and escapes Incoterm auto-charge guard"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Limit screen4 and operational-conditions Vite replacements to only shouldIncludeOptionalCost function body",
-    "Assert nine Incoterm runtime bindings in final transformed Vue source and reject minified bundles retaining unresolved applyIncotermAutomaticChargeGuard",
-    "Regression test preserves outside-Incoterm approval controls; no changes to pricing amounts, saved details, REST, SignalR or backend schema"
+    "Fix system-generated FCL 40HC freight being marked manual and included automatically for exporter under FOB: no out-of-term customer billing without explicit P7 agreement",
+    "Retain original carrier freight cost/sale/source data as available candidates; route/client/Incoterm-scoped explicit acceptance only",
+    "Preserve existing quote RateDetail IDs and monetary amounts; no changes to Pricing API, databases, realtime infrastructure or other services"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Opening Create rate P3/P7 does not cause ReferenceError in browser console",
-      "FOB Export: out-of-term automatic Freight/Destination costs stay excluded unless selected explicitly",
-      "FOB Import and Multimodal: applicable charges and Incoterm controls load immediately without page reload",
-      "P6->P7 inland Carrier/Merchant selection and CostId/cost/sale persist",
-      "Editing historical QUO preserves all saved RateDetail IDs, CostIds and amounts",
-      "Production-style minified bundle and headless browser mount pass CI"
+      "FOB Export new FCL: 40HC freight remains available in P7 candidates but absent from billable lines, totals and POST before explicit acceptance",
+      "Click Add outside Incoterm -> Quote by agreement: only accepted freight enters subtotal and PDF with original USD 5500",
+      "FOB Import/CIF Export FCL: carrier freight auto included when customer is responsible",
+      "Switch client, POE, carrier or Incoterm: previously accepted out-of-term exceptions do not reappear",
+      "Saved QUO edit and seller modification keep all original RateDetail IDs, cost, sale, currency and inland",
+      "Production minified bundle and Chrome smoke pass CI"
     ]
   },
   "f6F7F8": {
@@ -220,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERM-RUNTIME-SCOPE-378",
+  "businessReleaseId": "DH-20261121-FOB-EXPORT-FREIGHT-379",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
