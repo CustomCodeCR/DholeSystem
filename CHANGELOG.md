@@ -1,3 +1,9 @@
+## [1.108.17] - 2026-11-21 · DH-20261121-PRICING-P7-RESTORE-384
+
+- PATCH: persistir las eliminaciones de cargos en Pantalla 7 y recuperar la revisión original mediante confirmación explícita.
+- PATCH: permitir actualizar costos en cotizaciones guardadas y evitar cargos de proveedores ajenos.
+- Release coordinado DholeSystem/DholeWeb 1.108.17, PricingService 1.26.16; restantes 14 sin cambios.
+
 ## [1.108.16] - 2026-11-21 · DH-20261121-PRICING-P7-EDIT-SAFETY-383
 
 - PATCH: edición de RateDetails existentes sin generar cargos de catálogo no seleccionados.
