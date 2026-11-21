@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
+  "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.19",
+  "ecosystemVersion": "1.108.20",
   "status": "candidate-master-ci-pending",
   "branches": {
     "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
@@ -15,13 +15,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.19",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
       "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
-      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.19",
+      "version": "1.108.20",
       "mergeState": "intermediate-only",
       "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
-      "developCandidateBranch": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386"
+      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -150,16 +150,17 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH 1.108.18 -> 1.108.19 Web/System, 1.26.17 -> 1.26.18 PricingService; remaining 14 unchanged",
+  "policyCheck": "Combined master: System and Web PATCH 1.108.18 -> 1.108.20 (includes 1.108.19 DH-386), PricingService 1.26.17 -> 1.26.18; other 14 unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Authenticated UI validation of QUO creation and edit with real wizard-bundle context",
-    "Explicit authorization required for production deployment"
+    "Master candidate CI and same-release version gates must pass",
+    "Stage automated deploy completed but authenticated quote-edit E2E must still be verified",
+    "No production deploy until validation prerequisites have passed"
   ],
   "validationEvidence": {
-    "status": "develop-ci-and-staging-deploy-success;master-ci-pending",
-    "scope": "GET wizard-bundle only, data.applicable, separate terrestrial Freight, preserve persisted RateDetails"
+    "status": "develop-ci-success,stage-build-success,master-candidate-ci-pending",
+    "scope": "DH-386 plus DH-387: definitive costs endpoint and immutable original quote financial rows"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -167,18 +168,19 @@
     "DholePricingService"
   ],
   "changes": [
-    "Wizard creation/edit costs exclusively from GET /api/pricing/costs/wizard-bundle",
-    "data.applicable is the only origin of new cost lines; data.catalog metadata only",
-    "Preserve FCL land Freight CostId separate from ocean Freight",
-    "Keep previously stored quotation RateDetails and selected inland"
+    "GET /api/pricing/costs/wizard-bundle only; data.applicable authoritative",
+    "FCL multimodal land Freight independently retained",
+    "Editing existing quotes uses original snapshot and user-driven delta",
+    "Adding Servicio de Aduanas and Seguro de Carga appends only those two services without repricing existing rows"
   ],
   "stagingValidation": {
-    "status": "deploy-ci-passed-manual-qa-pending",
+    "status": "automated-deploy-passed-authenticated-E2E-pending",
     "scenarios": [
-      "Balboa MAERSK FCL 40HC maritime and terrestrial freight priced separately",
-      "No direct /api/pricing/costs/select reads in create/edit",
-      "No resurrection of deleted quotation charges",
-      "Inland and tier-weight/package/day values persist across navigation and edit"
+      "Original quote unchanged: detail count and cost/sale unchanged",
+      "Add customs and cargo insurance: exactly two lines; no unrelated changes",
+      "Revert service: remove only added lines; original RateDetails retained",
+      "Change Incoterm/carrier/inland/route: only related lines modified",
+      "FCL 40HC MAERSK Balboa: separate terrestrial Freight 2140 and maritime Freight preserved"
     ]
   },
   "f6F7F8": {
@@ -233,7 +235,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-WIZARD-BUNDLE-ONLY-386",
+  "businessReleaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1056,5 +1058,6 @@
       "production": false
     },
     "target": "master"
-  }
+  },
+  "productionDeploymentAuthorizationScope": "User explicitly requested promotion to master in this conversation; production auto-deploy will only run after all required CI and staging checks"
 }
