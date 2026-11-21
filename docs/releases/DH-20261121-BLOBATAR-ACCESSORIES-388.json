@@ -1,0 +1,27 @@
+{
+  "releaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
+  "date": "2026-11-21",
+  "version": "1.109.0",
+  "ecosystemVersion": "1.109.0",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "version": "1.109.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "version": "1.109.0"
+    }
+  ],
+  "unchangedComponents": "15 repositories preserve their pinned release-manifest.json versions",
+  "approval": {
+    "staging": "pending",
+    "production": false
+  },
+  "testing": [
+    "DholeWeb avatar tests",
+    "Typecheck and Vite build",
+    "GitHub CI",
+    "Staging manual browser verification"
+  ]
+}

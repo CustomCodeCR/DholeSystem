@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
+  "releaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.20",
-  "status": "master-promotion-authorized-ci-gated",
+  "ecosystemVersion": "1.109.0",
+  "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
-    "master": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master"
+    "develop": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop",
+    "master": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master"
   },
-  "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+  "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.20",
+      "version": "1.109.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+      "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
-      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
+      "masterCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
+      "developCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.20",
+      "version": "1.109.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
+      "candidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master",
-      "developCandidateBranch": "fix/DH-20261121-QUO-EDIT-DELTA-387"
+      "masterCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-master",
+      "developCandidateBranch": "feature/DH-20261121-BLOBATAR-ACCESSORIES-388-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -150,36 +150,34 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "Combined master: System and Web PATCH 1.108.18 -> 1.108.20 (includes 1.108.19 DH-386), PricingService 1.26.17 -> 1.26.18; other 14 unchanged",
+  "policyCheck": "MINOR 1.108.20 -> 1.109.0 System/Web for combinable Blobatar accessories; all other component versions unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "El QA manual autenticado de la QUO-00000-000746 aún no se ha verificado; no presentar este caso como aprobado.",
-    "La compilación y las validaciones CI deben permanecer aprobadas antes de cada merge."
+    "DholeWeb compile, avatar regression, semantic version gate and CI required",
+    "Staging browser validation of accessory combinations and legacy migration required",
+    "Explicit production deployment authorization required"
   ],
   "validationEvidence": {
-    "status": "develop-ci-success;staging-deploy-success;master-candidate-web-and-system-ci-success;pricing-updated-ci-pending;authenticated-e2e-not-performed",
-    "scope": "DH-386 plus DH-387: definitive costs endpoint and immutable original quote financial rows"
+    "status": "candidate-ci-pending",
+    "scope": "mascot layered SVG, seasonal collections, per-user persistence"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "GET /api/pricing/costs/wizard-bundle only; data.applicable authoritative",
-    "FCL multimodal land Freight independently retained",
-    "Editing existing quotes uses original snapshot and user-driven delta",
-    "Adding Servicio de Aduanas and Seguro de Carga appends only those two services without repricing existing rows"
+    "Group Blobatar accessories into Basics, Christmas, Halloween, Costa Rica patriotic month and Fun",
+    "Layer compatible SVG accessories in floating mascot and preview",
+    "Persist multiple local accessories per account with migration from legacy single accessory"
   ],
   "stagingValidation": {
-    "status": "automated-deploy-passed-authenticated-E2E-pending",
+    "status": "pending",
     "scenarios": [
-      "Original quote unchanged: detail count and cost/sale unchanged",
-      "Add customs and cargo insurance: exactly two lines; no unrelated changes",
-      "Revert service: remove only added lines; original RateDetails retained",
-      "Change Incoterm/carrier/inland/route: only related lines modified",
-      "FCL 40HC MAERSK Balboa: separate terrestrial Freight 2140 and maritime Freight preserved"
+      "Combine jester hat and headphones without visual collisions",
+      "Switch between seasonal categories; same-slot hats replace one another",
+      "Refresh page and switch users: persist separately, migrate legacy single accessory",
+      "Verify reduced motion, keyboard controls, local profile photo and 58 moods"
     ]
   },
   "f6F7F8": {
@@ -234,7 +232,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-QUO-EDIT-DELTA-387",
+  "businessReleaseId": "DH-20261121-BLOBATAR-ACCESSORIES-388",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1028,16 +1026,12 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "from": "1.108.16",
-      "to": "1.108.17"
+      "previousVersion": "1.108.20",
+      "newVersion": "1.109.0"
     },
     "DholeWeb": {
-      "from": "1.108.16",
-      "to": "1.108.17"
-    },
-    "DholePricingService": {
-      "from": "1.26.15",
-      "to": "1.26.16"
+      "previousVersion": "1.108.18",
+      "newVersion": "1.109.0"
     }
   },
   "pricingP7EditRelease": {
