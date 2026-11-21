@@ -138,7 +138,7 @@
   ],
   "policyCheck": "PATCH DholeSystem/Web 1.108.15 → 1.108.16, PricingService 1.26.14 → 1.26.15, 14 other components unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging tests before master",
     "Authenticated QUO-00000-000744 test pending"
@@ -725,7 +725,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "Despliegue de producción solo tras verificación de CI y staging",
+  "productionAuthorizationNote": "User requested this business fix in develop/master; infrastructure productionDeploymentAuthorized remains false per realtime F10 safety policy; business Web/Pricing deploys via master.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -1009,7 +1009,7 @@
   },
   "businessReleaseMasterPromotionRequested": true,
   "productionAuthorizationScope": "Emergency containment staged first; new production deployment requires explicit user authorization.",
-  "releaseMasterIntegrationRequested": false,
+  "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
