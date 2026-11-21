@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
+  "releaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.107.5",
-  "status": "candidate-master-authorized-ci-pending",
+  "ecosystemVersion": "1.108.10",
+  "status": "candidate-production-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261120-PRICING-RUNTIME-366-develop",
-    "master": "fix/DH-20261120-PRICING-RUNTIME-366-master"
+    "develop": "develop",
+    "master": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378"
   },
-  "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
+  "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.107.5",
+      "version": "1.108.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
+      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
+      "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "developCandidateBranch": "develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.107.5",
+      "version": "1.108.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
+      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-RUNTIME-366-develop"
+      "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "developCandidateBranch": "develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.9",
-      "mergeState": "unchanged",
-      "candidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
-      "developCandidateBranch": "hotfix/DH-20261120-PRICING-EXPIRED-MASTER-361-develop",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-EXPIRED-MASTER-361-master",
+      "version": "1.26.12",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "developCandidateBranch": "develop",
+      "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
       "developMergeSha": null,
       "candidateSha": null
     },
@@ -150,39 +150,37 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH v1.107.4 -> v1.107.5 for the same Pricing master promotion explicitly requested by the user; emergency repair of runtime crash after release v1.107.4. DholePricingService 1.26.9 unchanged. Stage build+CI passed; authenticated E2E unverified.",
+  "policyCheck": "Master selective backport 1.107.5->1.108.10 Web/System, Pricing 1.26.9->1.26.12",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master release CI and version synchronization with DholeWeb",
-    "Staging authenticated Pricing wizard E2E could not be verified independently; post-deploy validation required",
-    "Confirm production wizard create/view/edit, manual Import/Export and inland after promotion"
+    "DholeWeb and DholePricingService CI",
+    "Authenticated functional staging acceptance of rates, inland and editing historic QUO",
+    "Master pushes auto-deploy Web/Pricing to production"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "Production v1.107.4 screenshot and console show automaticOperationType is not defined after Vite transform",
-    "integrity": "Source has declaration but production bundle exposed global unbound reference",
-    "authorization": "Follow-up emergency correction of previous explicitly requested master Pricing release 1.107.4",
-    "stageCI": "DholeWeb PR #947 passed all 5 checks and merged develop",
-    "stagingAuthenticatedE2E": "unverified"
+    "scope": "Selective backport, no broad develop merge"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholePricingService"
   ],
   "changes": [
-    "Remove intermediate automaticOperationType and derive operation directly inside Pricing computed",
-    "Prevent shipping missing runtime symbol with transformed Vite and final bundle guards",
-    "Preserve all countries, customs VAT, import/export manual fallback, inland and other production fixes"
+    "Incoterm modes and contractual category responsibility without automatic billing for counterparty",
+    "P0 no implicit removal or edit-repricing of persistently stored quote lines",
+    "Imported FCL Freight only included if P7 explicitly selects it",
+    "No broad develop-to-master merge"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Pricing create wizard mounts for all CRM and countries",
-      "Pricing persisted rate opens view/edit",
-      "Country selection automatic and manual remains correct",
-      "No inland/VAT/cost regresses screens 6-7",
-      "No automaticOperationType in final JavaScript bundle"
+      "FOB export omits foreign-responsibility cargos by default",
+      "Explicit agreement add one line and no hidden extra freight",
+      "Existing edits preserve RateDetail IDs/costs/ventas",
+      "Air/Land 7, Maritime/Multimodal 11",
+      "Minified Pricing wizard renders in production smoke"
     ]
   },
   "f6F7F8": {
@@ -237,7 +235,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261120-PRICING-WIZARD-RUNTIME-366",
+  "businessReleaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1028,5 +1026,19 @@
     "ci": "pending",
     "staging": "pending",
     "productionDeploymentAuthorized": false
+  },
+  "versionChanges": {
+    "DholeWeb": {
+      "from": "1.107.5",
+      "to": "1.108.10"
+    },
+    "DholeSystem": {
+      "from": "1.107.5",
+      "to": "1.108.10"
+    },
+    "DholePricingService": {
+      "from": "1.26.9",
+      "to": "1.26.12"
+    }
   }
 }

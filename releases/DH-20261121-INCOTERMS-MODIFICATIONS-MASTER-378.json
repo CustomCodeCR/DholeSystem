@@ -1,0 +1,39 @@
+{
+  "releaseId": "DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "target": "master",
+  "branch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+  "productionDeploymentAuthorized": false,
+  "components": {
+    "DholeWeb": {
+      "from": "1.107.5",
+      "to": "1.108.10"
+    },
+    "DholeSystem": {
+      "from": "1.107.5",
+      "to": "1.108.10"
+    },
+    "DholePricingService": {
+      "from": "1.26.9",
+      "to": "1.26.12"
+    }
+  },
+  "backportOf": [
+    "DH-20261121-INCOTERMS-EDIT-P0-374",
+    "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
+    "DH-20261121-INCOTERM-RUNTIME-376",
+    "DH-20261121-INCOTERM-AUTO-COST-377"
+  ],
+  "scope": [
+    "Incoterm modes and contractual category responsibility without automatic billing for counterparty",
+    "P0 no implicit removal or edit-repricing of persistently stored quote lines",
+    "Imported FCL Freight only included if P7 explicitly selects it",
+    "No broad develop-to-master merge"
+  ],
+  "validation": {
+    "CI": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  }
+}
