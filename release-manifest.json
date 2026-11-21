@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERM-AUTO-COST-377",
+  "releaseId": "DH-20261121-INCOTERM-RUNTIME-SCOPE-378",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.10",
+  "ecosystemVersion": "1.108.11",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+    "develop": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+  "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.10",
+      "version": "1.108.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.10",
+      "version": "1.108.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-378-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -71,7 +71,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.12",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged",
       "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
@@ -135,38 +135,37 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.9 -> 1.108.10 and DholePricingService 1.26.11 -> 1.26.12",
+  "policyCheck": "PATCH DholeWeb/System 1.108.10 -> 1.108.11; PricingService remains 1.26.12; 15 other components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb and DholeSystem CI",
-    "Authenticated staging new quote FOB Export P7 excludes default freight/destination from totals and POST",
-    "Explicit Add-by-agreement, P8-P9 and historic QUO unchanged"
+    "DholeSystem CI and DholeWeb full CI including production-minified browser smoke",
+    "Authenticated staging Pricing wizard P3-P7: no ReferenceError when switching Incoterm/operation",
+    "RateDetails edit integrity: historical lines, Inland, currency/cost/sale unchanged"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot staging 1.108.9 FOB Export showing red sections but auto-included USD 5,500 freight and HBL destination",
-    "scope": "Auto-inclusion and P7 quote state, not inventory or price catalog filtering"
+    "source": "User screenshot staging 1.108.10 and Firefox console applyIncotermAutomaticChargeGuard is not defined",
+    "scope": "Vite transform replacing shouldIncludeOptionalCost deleted adjacent Incoterm helpers; source remained valid but bundle missing runtime bindings"
   },
   "releaseComponents": [
-    "DholeWeb",
     "DholeSystem",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "New quotations exclude unrequested priced lines in categories assigned to the other Incoterm party (e.g. FOB export freight/destination)",
-    "Explicit per-line quote-by-agreement can add non-client contractual services without changing supplier cost, maintaining route/client/incoterm isolation",
-    "Preserve current/historical saved RateDetails, amounts, manual entries and optional user-selected charges. No backend/API/SignalR changes",
-    "CreateRate honors explicit P7 Freight inclusion when source imported FCL rate is selected; no extra freight inferred from source-rate link"
+    "Limit screen4 and operational-conditions Vite replacements to only shouldIncludeOptionalCost function body",
+    "Assert nine Incoterm runtime bindings in final transformed Vue source and reject minified bundles retaining unresolved applyIncotermAutomaticChargeGuard",
+    "Regression test preserves outside-Incoterm approval controls; no changes to pricing amounts, saved details, REST, SignalR or backend schema"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "FOB Export: P7 no preselected freight/destination lines and no amounts in quote totals",
-      "FOB Import: freight still normally included; FCL 40HC costs and counts intact",
-      "Red block: explicitly add one cost from available catalog, only that CostId included",
-      "Changing POE, client or Incoterm does not retain explicit exception",
-      "View/edit historic QUO keeps all saved lines and prices"
+      "Opening Create rate P3/P7 does not cause ReferenceError in browser console",
+      "FOB Export: out-of-term automatic Freight/Destination costs stay excluded unless selected explicitly",
+      "FOB Import and Multimodal: applicable charges and Incoterm controls load immediately without page reload",
+      "P6->P7 inland Carrier/Merchant selection and CostId/cost/sale persist",
+      "Editing historical QUO preserves all saved RateDetail IDs, CostIds and amounts",
+      "Production-style minified bundle and headless browser mount pass CI"
     ]
   },
   "f6F7F8": {
@@ -221,7 +220,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERM-AUTO-COST-377",
+  "businessReleaseId": "DH-20261121-INCOTERM-RUNTIME-SCOPE-378",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
