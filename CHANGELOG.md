@@ -1,3 +1,10 @@
+## [1.108.15] - 2026-11-21 · DH-20261121-PRICING-P7-SNAPSHOT-TIERS-382
+
+- PATCH: DholeSystem y DholeWeb 1.108.14→1.108.15; DholePricingService 1.26.13→1.26.14; otros 14 servicios mantienen versión.
+- PATCH: Pricing calcula cargos elegibles de Wizard Bundle a partir de las reglas por contenedor, peso, bultos y días adicionales en lugar de devolver el cero del catálogo.
+- PATCH: DholeWeb conserva detalle y precios de las cotizaciones ya guardadas y no agrega opcionales del catálogo a Pantalla 7 durante edición.
+- Pruebas y CI coordinadas en ramas release; staging pendiente. Sin cambios incompatibles de API, base de datos o SignalR.
+
 ## [1.108.14] - 2026-11-21 (DH-20261121-PRICING-TIERS-381 · costos por tramos)
 
 - PATCH coordinado DholeSystem y DholeWeb 1.108.13 → 1.108.14; DholePricingService permanece 1.26.13 y los otros catorce servicios no cambian.
