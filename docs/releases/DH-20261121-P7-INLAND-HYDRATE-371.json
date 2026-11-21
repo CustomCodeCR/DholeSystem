@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-P7-INLAND-HYDRATE-371",
+  "version": "1.108.4",
+  "target": "develop",
+  "branch": "fix/DH-20261121-P7-INLAND-HYDRATE-371-develop",
+  "components": [
+    "DholeWeb",
+    "DholeSystem"
+  ],
+  "pricingServiceUnchanged": true,
+  "productionAuthorized": false,
+  "changes": [
+    "A full active cost catalogue request now accompanies the contextual request before the first P7 build; stale and incomplete caches are not reused",
+    "Do not transition P6→P7 until both Pricing requests and pricing lines are ready",
+    "Memory by route/customer/service/context for Inland Carrier/Merchant flags, CostId, amount, sale, VAT, bill-to, currency",
+    "Inland values restored after Price/POE carrier rebuild, never applied to another context"
+  ],
+  "tests": [
+    "tests/pricingP7CatalogInlandMemory371.test.ts",
+    "Pricing CI, type check and browser smoke"
+  ],
+  "manualValidationPending": [
+    "Caldera MAERSK/WWL 40HC: first P7 fully loaded without reload",
+    "Inland selection and edits retained across P6/P7 and multi-POE",
+    "P8 summary/P9 PDF same values"
+  ],
+  "rollback": "Revert Web/System intermediate PR; no backend changes"
+}
