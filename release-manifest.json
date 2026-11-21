@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-INCOTERM-RUNTIME-376",
+  "releaseId": "DH-20261121-INCOTERM-AUTO-COST-377",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.9",
+  "ecosystemVersion": "1.108.10",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
+    "develop": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
+  "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.9",
+      "version": "1.108.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.9",
+      "version": "1.108.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261121-INCOTERM-RUNTIME-376-develop"
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,10 +70,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.11",
+      "version": "1.26.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
-      "developCandidateBranch": "fix/DH-20261121-INCOTERMS-EDIT-P0-374-develop",
+      "candidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
+      "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -135,35 +135,38 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.8 → 1.108.9, PricingService remains 1.26.11",
+  "policyCheck": "PATCH DholeWeb/System 1.108.9 -> 1.108.10 and DholePricingService 1.26.11 -> 1.26.12",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web and System CI passing",
-    "Authenticated staging 1.108.9 wizard mount, step three Incoterm change",
-    "Verify no browser ReferenceError, cargo and amounts preserved"
+    "DholeWeb and DholeSystem CI",
+    "Authenticated staging new quote FOB Export P7 excludes default freight/destination from totals and POST",
+    "Explicit Add-by-agreement, P8-P9 and historic QUO unchanged"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot DholeWeb staging v1.108.7 with Vue runtime-1 ReferenceError maritimeOnlyIncoterms is not defined",
-    "scope": "Runtime mount fix, not a rewrite of responsibility rules"
+    "source": "User screenshot staging 1.108.9 FOB Export showing red sections but auto-included USD 5,500 freight and HBL destination",
+    "scope": "Auto-inclusion and P7 quote state, not inventory or price catalog filtering"
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
-    "Eliminate undefined maritimeOnlyIncoterms reference in Vite-built Pricing wizard by moving matcher to imported, initialized pricingIncotermPerspective function",
-    "Add generated-production-chunk runtime-binding check to build-only so a missing Pricing variable fails CI",
-    "Keep displayed category responsibility and 11 ocean/7 air-land rules; no stored rate changes"
+    "New quotations exclude unrequested priced lines in categories assigned to the other Incoterm party (e.g. FOB export freight/destination)",
+    "Explicit per-line quote-by-agreement can add non-client contractual services without changing supplier cost, maintaining route/client/incoterm isolation",
+    "Preserve current/historical saved RateDetails, amounts, manual entries and optional user-selected charges. No backend/API/SignalR changes",
+    "CreateRate honors explicit P7 Freight inclusion when source imported FCL rate is selected; no extra freight inferred from source-rate link"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "Create quote in staging, step 3 Incoterm dropdown opens without ReferenceError",
-      "Air and Land filter FAS/FOB/CFR/CIF; Multimodal/Maritime retain 11",
-      "Step 7 categories red only when responsibility belongs to other party, no selected charges removed",
-      "Historical QUO read/edit retains saved Incoterm and unchanged financial lines"
+      "FOB Export: P7 no preselected freight/destination lines and no amounts in quote totals",
+      "FOB Import: freight still normally included; FCL 40HC costs and counts intact",
+      "Red block: explicitly add one cost from available catalog, only that CostId included",
+      "Changing POE, client or Incoterm does not retain explicit exception",
+      "View/edit historic QUO keeps all saved lines and prices"
     ]
   },
   "f6F7F8": {
@@ -218,7 +221,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-INCOTERM-RUNTIME-376",
+  "businessReleaseId": "DH-20261121-INCOTERM-AUTO-COST-377",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1048,17 +1051,16 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "from": "1.108.8",
-      "to": "1.108.9"
+      "from": "1.108.9",
+      "to": "1.108.10"
     },
     "DholeSystem": {
-      "from": "1.108.8",
-      "to": "1.108.9"
+      "from": "1.108.9",
+      "to": "1.108.10"
     },
     "DholePricingService": {
       "from": "1.26.11",
-      "to": "1.26.11",
-      "unchanged": true
+      "to": "1.26.12"
     }
   }
 }
