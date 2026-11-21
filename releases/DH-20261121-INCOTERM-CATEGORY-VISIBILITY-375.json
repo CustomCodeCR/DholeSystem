@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375",
+  "date": "2026-11-21",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.108.8",
+  "branch": "fix/DH-20261121-INCOTERM-CATEGORY-VISIBILITY-375-develop",
+  "target": "develop",
+  "productionAuthorized": false,
+  "components": {
+    "DholeWeb": {
+      "from": "1.108.7",
+      "to": "1.108.8"
+    },
+    "DholeSystem": {
+      "from": "1.108.7",
+      "to": "1.108.8"
+    },
+    "DholePricingService": {
+      "from": "1.26.11",
+      "to": "1.26.11",
+      "unchanged": true
+    }
+  },
+  "scope": [
+    "Screen 7 highlights Incoterm cost categories ordinarily assigned to the counterparty in red, and explains that explicitly contracted services remain editable and quoted",
+    "Visual only: all six groups preserve persisted charges, CostIds, taxes and prices; hybrid destination/incoterms are marked mixed not no-aplica",
+    "No changes to PricingService REST, SignalR or downstream contracts"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending"
+  }
+}
