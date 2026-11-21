@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-WIZARD-COSTS-390",
+  "releaseId": "DH-20261121-P7-COSTS-391",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.109.2",
+  "ecosystemVersion": "1.109.3",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/dh-390-wizard-costs",
-    "master": "fix/dh-390-wizard-costs"
+    "develop": "fix/dh-391-p7-land-ltl-lcl-edit",
+    "master": "fix/dh-391-p7-land-ltl-lcl-edit"
   },
-  "candidateBranch": "fix/dh-390-wizard-costs",
+  "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.109.2",
+      "version": "1.109.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dh-390-wizard-costs",
+      "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/dh-390-wizard-costs",
-      "developCandidateBranch": "fix/dh-390-wizard-costs"
+      "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
+      "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.109.2",
+      "version": "1.109.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dh-390-wizard-costs",
+      "candidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/dh-390-wizard-costs",
-      "developCandidateBranch": "fix/dh-390-wizard-costs"
+      "masterCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit",
+      "developCandidateBranch": "fix/dh-391-p7-land-ltl-lcl-edit"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -136,7 +136,7 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem 1.109.1 -> 1.109.2, DholeWeb 1.109.1 -> 1.109.2, DholePricingService 1.26.18 -> 1.26.19; 14 remaining components unchanged. Intermediate branch only; CI/staging/master pending.",
+  "policyCheck": "DholeWeb/DholeSystem PATCH 1.109.2 to 1.109.3; PricingService remains 1.26.19 (no backend change). Branch develop candidate only; master requires separate candidate + CI/staging and authorization.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -146,30 +146,31 @@
   ],
   "validationEvidence": {
     "status": "candidate-ci-pending",
-    "scope": "pricing wizard-bundle zero tiers, LCL customs, EXW pickup, LTL Panama, FCL excess and persisted muellaje edits",
-    "unitTests": "pending",
+    "scope": "Pricing P7 LTL Panama FCA, LCL customs weight tiers, multimodal separate land leg, saved overweight, modality labels",
+    "unitTests": "pending-CI",
     "stagingTests": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "PATCH: wizard-bundle returns zero-value Variable pickup/delivery and matched zero-value tier costs",
-    "PATCH: FCL multimodal Panama/CR excess over 19,000 kg per container uses four LTL master costs",
-    "PATCH: saved quote edit replaces selected Anticipado/Redestino through explicit reversible delta; preserves other RateDetails"
+    "DH-391: resolve Panama-to-Costa Rica LTL four master costs by complete POE/POD and WeightKg bands (including valid zero Gastos tiers), even for FCA",
+    "DH-391: resolve own LCL customs service using independent wizard-bundle request without discarding consolidation matrix",
+    "DH-391: retain independent international land Freight CostId in FCL multimodal, and distinguish maritime, terrestrial and air Freight titles",
+    "DH-391: explicit overweight edit-delta with cargo weight; no implicit repricing of persisted quotations",
+    "Keep existing REST/SignalR contracts; no DB migration"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "EXW adds editable Recolecta and explicitly selected Entrega without inventing amount",
-      "LCL customs uses configured WeightKg tier pricing and persists RateDetail",
-      "FCA own LTL Panama/CR includes Gastos (0/0 valid band), Custodia+Marchamo, Bunker, and land freight",
-      "Multimodal FCL Panama/CR charges >19000 kg per container only for excess using LTL masters",
-      "Edit Redestino -> Anticipado -> Redestino without duplicate/losing original negotiated CostId/DetailId",
-      "Navigate P6/P7/back without swapping selected inland or losing other quote costs",
-      "Existing REST/SignalR APIs remain compatible"
+      "LTL Panama->Costa Rica FCA: Gastos zero band is displayed and the other three exact WeightKg charges are present",
+      "LCL own: selected CRC customs service draws its WeightKg rate from wizard-bundle and keeps matrix",
+      "Multimodal FCL: both Flete internacional marítimo and Flete internacional terrestre are separate CostIds",
+      "Original QUO remains intact when navigating/editing; newly ticked Sobrepeso gets correct line and price",
+      "Panama 19000-kg excess resolves only from LTL masters when editing, no duplicates",
+      "Land/Air/Maritime Freight names correct and persisted",
+      "CI build, price checks, SignalR contract parity"
     ]
   },
   "f6F7F8": {
@@ -224,7 +225,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-WIZARD-COSTS-390",
+  "businessReleaseId": "DH-20261121-P7-COSTS-391",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -673,7 +674,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "No autorizado para producción: completar CI, staging y obtener autorización explícita antes de integrar DholeWeb a master.",
+  "productionDeploymentAuthorization": null,
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -1109,5 +1110,21 @@
     "productionDeploymentAuthorized": false,
     "realtimeContractChanged": false,
     "databaseMigration": false
+  },
+  "pricingWizardCosts391": {
+    "releaseId": "DH-20261121-P7-COSTS-391",
+    "ecosystemVersion": "1.109.3",
+    "components": {
+      "DholeWeb": {
+        "previous": "1.109.2",
+        "next": "1.109.3"
+      },
+      "DholeSystem": {
+        "previous": "1.109.2",
+        "next": "1.109.3"
+      }
+    },
+    "validation": "CI/staging pending",
+    "productionDeploymentAuthorized": false
   }
 }
