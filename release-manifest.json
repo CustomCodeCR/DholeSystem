@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-P7-EDIT-380",
+  "releaseId": "DH-20261121-PRICING-TIERS-381",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.13",
+  "ecosystemVersion": "1.108.14",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-p7-insurance-edit-380-develop",
+    "develop": "fix/pricing-tiered-costs-381-develop",
     "master": null
   },
-  "candidateBranch": "fix/pricing-p7-insurance-edit-380-develop",
+  "candidateBranch": "fix/pricing-tiered-costs-381-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.13",
+      "version": "1.108.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-p7-insurance-edit-380-develop",
+      "candidateBranch": "fix/pricing-tiered-costs-381-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.13",
+      "version": "1.108.14",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-p7-insurance-edit-380-develop",
+      "candidateBranch": "fix/pricing-tiered-costs-381-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
@@ -71,8 +71,8 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.13",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-p7-insurance-edit-380-develop",
+      "mergeState": "unchanged",
+      "candidateBranch": null,
       "developCandidateBranch": "fix/DH-20261121-INCOTERM-AUTO-COST-377-develop",
       "candidateSha": null,
       "developMergeSha": null
@@ -135,40 +135,36 @@
       "mergeState": "unchanged"
     }
   ],
-  "policyCheck": "PATCH DholeWeb/System 1.108.11 -> 1.108.12; PricingService remains 1.26.12 and other 15 components unchanged",
+  "policyCheck": "PATCH DholeSystem/DholeWeb 1.108.13 → 1.108.14; DholePricingService retains 1.26.13, all other 15 component versions unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI y compilación de DholeWeb y PricingService",
-    "Staging: validar seguro P7, cargos de agencia e Incoterms",
-    "Staging: guardado de modificación sin pérdida/repricing",
-    "Revisar y aprobar release antes de integrar master",
-    "Producción: despliegue no autorizado"
+    "CI/compilación para Web, versión global y System",
+    "Staging: validar costos Cargos en Origen y Servicio de agencia por 20DV/40HC",
+    "Staging: editar cotización con snapshot sin sobrescribir CostId ni ventas manuales",
+    "Prohibido producción sin autorización explícita"
   ],
   "validationEvidence": {
     "status": "pending",
-    "source": "User screenshot staging DholeWeb 1.108.11, FOB Export 40HC MAERSK USD 5500 shown despite red section",
-    "scope": "Generated FCL line incorrectly sets included=true/manual=true in Vite and escapes Incoterm auto-charge guard"
+    "source": "User screenshots Pricing costs rules and authenticated wizard-bundle response",
+    "scope": "Rule-based costs carry zero header amounts while pricingRulesJson contains actual 20DV/40HC values"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Fix system-generated FCL 40HC freight being marked manual and included automatically for exporter under FOB: no out-of-term customer billing without explicit P7 agreement",
-    "Retain original carrier freight cost/sale/source data as available candidates; route/client/Incoterm-scoped explicit acceptance only",
-    "Preserve existing quote RateDetail IDs and monetary amounts; no changes to Pricing API, databases, realtime infrastructure or other services"
+    "P6 AgentCharge cost/sale uses resolved pricingRulesJson tier for selected cargo/equipment, not zero master header",
+    "P7 invalidates tiered automatic rows on cargo/equipment changes while retaining unrelated edited charges",
+    "Explicit persisted-cost refresh compares and applies resolved amount without modifying historical snapshot automatically"
   ],
   "stagingValidation": {
     "status": "pending",
     "scenarios": [
-      "FOB Export new FCL: 40HC freight remains available in P7 candidates but absent from billable lines, totals and POST before explicit acceptance",
-      "Click Add outside Incoterm -> Quote by agreement: only accepted freight enters subtotal and PDF with original USD 5500",
-      "FOB Import/CIF Export FCL: carrier freight auto included when customer is responsible",
-      "Switch client, POE, carrier or Incoterm: previously accepted out-of-term exceptions do not reappear",
-      "Saved QUO edit and seller modification keep all original RateDetail IDs, cost, sale, currency and inland",
-      "Production minified bundle and Chrome smoke pass CI"
+      "20DV Cargos en Origen 670/705, Servicio de agencia 175/175",
+      "40HC Cargos en Origen 740/780, Servicio de agencia 350/350",
+      "Cargo weight/boxes change recalculates applicable tier without resetting unrelated lines",
+      "Existing quotation edit retains CostId, cost/sale manually edited until explicit refresh"
     ]
   },
   "f6F7F8": {
@@ -223,7 +219,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-P7-EDIT-380",
+  "businessReleaseId": "DH-20261121-PRICING-TIERS-381",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
