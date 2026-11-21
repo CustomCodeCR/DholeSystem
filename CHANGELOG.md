@@ -1,3 +1,10 @@
+## [1.108.19] - 2026-11-21 · DH-20261121-WIZARD-BUNDLE-ONLY-386
+
+- PATCH coordinado: DholeSystem y DholeWeb 1.108.18 → 1.108.19, DholePricingService 1.26.17 → 1.26.18; los 14 componentes restantes mantienen sus versiones.
+- Fuente definitiva de costos del asistente QUO: /api/pricing/costs/wizard-bundle, sin mezclas desde /costs/select ni inserción de cargos ajenos a data.applicable.
+- FCL multimodal: conserva la línea propia Flete Internacional Terrestre aunque exista flete marítimo por equipo. Edición conserva los RateDetails guardados y no reincorpora líneas eliminadas.
+- Release candidato en ramas intermedias. Pruebas, CI y staging pendientes; despliegue a producción no autorizado. REST y SignalR compatibles.
+
 ## [1.108.18] - 2026-11-21 · DH-20261121-PRICING-EDIT-TIERS-LAND-385
 
 - PATCH coordinado: DholeSystem/DholeWeb 1.108.17 → 1.108.18, DholePricingService 1.26.16 → 1.26.17; los demás servicios mantienen sus versiones individuales.
