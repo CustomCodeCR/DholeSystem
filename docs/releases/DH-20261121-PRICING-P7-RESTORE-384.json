@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "DH-20261121-PRICING-P7-RESTORE-384",
+  "ecosystemVersion": "1.108.17",
+  "status": "candidate-develop-ci-pending",
+  "components": {
+    "DholeSystem": "1.108.17",
+    "DholeWeb": "1.108.17",
+    "DholePricingService": "1.26.16"
+  },
+  "productionDeploymentAuthorized": false,
+  "stagingValidation": "pending"
+}
