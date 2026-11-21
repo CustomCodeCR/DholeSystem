@@ -1,3 +1,9 @@
+## [1.108.5] - 2026-11-21 (DH-20261121-P7-COST-BUNDLE-372 · entrega única de cargos Pricing P7)
+
+- PATCH coordinado DholeSystem/DholeWeb 1.108.4 → 1.108.5 y DholePricingService 1.26.9 → 1.26.10 en develop únicamente; las versiones de los otros 14 componentes se mantienen.
+- Nuevo endpoint Pricing /api/pricing/costs/wizard-bundle entrega catálogo activo y costos aplicables con CostIds, filtro de ruta y proveedor, Incoterm, servicio y modalidad en una sola respuesta. Web evita consultas duplicadas durante P6→P7, ofrece errores de validación explícitos y conserva Inland y flete por contexto.
+- Registro global de los 17 componentes, sin cambio de otros servicios, SignalR ni base de datos. Pruebas CI y smoke autenticado staging requeridos; producción no autorizada.
+
 ## [1.108.4] - 2026-11-21 (DH-20261121-P7-INLAND-HYDRATE-371 · primera carga completa P7 e Inland)
 
 - PATCH coordinado DholeSystem y DholeWeb 1.108.3 → 1.108.4 en develop. Web valida catálogo activo completo + cargos contextuales antes de mostrar P7 y evita cachear consultas incompletas.
