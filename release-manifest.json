@@ -3,7 +3,7 @@
   "releaseId": "DH-20261121-WIZARD-COSTS-390",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.109.2",
-  "status": "candidate-master-ci-pending",
+  "status": "master-release-authorized",
   "branches": {
     "develop": "fix/dh-390-wizard-costs",
     "master": "release/dh-390-wizard-costs-master"
@@ -152,17 +152,17 @@
   ],
   "policyCheck": "PATCH: DholeSystem 1.109.1 -> 1.109.2, DholeWeb 1.109.1 -> 1.109.2, DholePricingService 1.26.18 -> 1.26.19; 14 remaining components unchanged. Intermediate branch only; CI/staging/master pending.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
     "CI de Web y System aprobadas",
     "Despliegue a staging completado y controles de salud verificados",
     "Validación autenticada de la QUO real pendiente de repetición tras el despliegue"
   ],
   "validationEvidence": {
-    "status": "master-candidate-ci-pending",
+    "status": "ci-staging-automatic-passed-manual-functional-pending",
     "scope": "pricing wizard-bundle zero tiers, LCL customs, EXW pickup, LTL Panama, FCL excess and persisted muellaje edits",
-    "unitTests": "pending",
-    "stagingTests": "pending"
+    "unitTests": "passed-CI",
+    "stagingTests": "automated-deployment-healthy; manual-functional-pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -175,7 +175,7 @@
     "PATCH: saved quote edit replaces selected Anticipado/Redestino through explicit reversible delta; preserves other RateDetails"
   ],
   "stagingValidation": {
-    "status": "pending",
+    "status": "automated-deployment-passed-manual-functional-pending",
     "scenarios": [
       "EXW adds editable Recolecta and explicitly selected Entrega without inventing amount",
       "LCL customs uses configured WeightKg tier pricing and persists RateDetail",
@@ -687,7 +687,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Explicit user authorization in chat on 2026-11-20 to promote requested import-cost and Incoterm fixes to master and production.",
+  "productionDeploymentAuthorization": "Autorización explícita del usuario el 2026-11-21: 'subelo a master' para DH-390.",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -1063,7 +1063,7 @@
     "releaseId": "DH-20261121-WIZARD-COSTS-390",
     "date": "2026-11-21",
     "ecosystemVersion": "1.109.2",
-    "status": "master-candidate-ci-pending",
+    "status": "master-release-authorized",
     "intermediateBranch": "fix/dh-390-wizard-costs",
     "components": {
       "DholePricingService": {
@@ -1084,8 +1084,8 @@
       "Price Panama multimodal FCL 19000-kg excess using four LTL master cost definitions",
       "Explicit reversible Anticipado/Redestino replacement during quote edit"
     ],
-    "validation": "pending-CI-and-staging",
-    "productionDeploymentAuthorized": false,
+    "validation": "CI de DholePricingService, DholeWeb y DholeSystem aprobado; deploy automático staging exitoso (Pricing y Web); validación funcional autenticada no confirmada.",
+    "productionDeploymentAuthorized": true,
     "realtimeContractChanged": false,
     "databaseMigration": false,
     "masterCandidateBranch": "release/dh-390-wizard-costs-master",
