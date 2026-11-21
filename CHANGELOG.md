@@ -1,3 +1,9 @@
+## [1.110.1] - 2026-11-21 (DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393 · Promoción de costos logísticos)
+
+- PATCH coordinado de DholeWeb 1.109.3 → 1.110.1, DholeSystem 1.109.3 → 1.110.1 y DholePricingService 1.26.19 → 1.26.20.
+- Costos por tramo en creación y modificación, LCL comercial Miami según cotizador HTML, FCL multimodal marítimo/terrestre y cuatro cargos de LTL Panamá → Costa Rica.
+- Backport selectivo a master debido a divergencia con develop, sin incluir cambios operativos DH-392 que no pertenecen a este release. Producción condicionada a CI, staging y validaciones del manifiesto central.
+
 ## [1.109.3] - 2026-11-21 · DH-20261121-P7-COSTS-391 (candidato master)
 
 - Release PATCH coordinado de DholeWeb 1.109.3 y DholeSystem 1.109.3 (DholePricingService 1.26.19 sin cambios).
