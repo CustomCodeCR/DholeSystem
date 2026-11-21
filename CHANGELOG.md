@@ -1,3 +1,10 @@
+## [1.108.14] - 2026-11-21 (DH-20261121-PRICING-TIERS-381 · costos por tramos)
+
+- PATCH coordinado DholeSystem y DholeWeb 1.108.13 → 1.108.14; DholePricingService permanece 1.26.13 y los otros catorce servicios no cambian.
+- Costos por condiciones: contenedores, rangos de bultos y peso (incluyendo tarifa por kilogramo), y cobro por días adicionales a los incluidos en almacenamiento fiscal.
+- Pantallas 6/7 de Pricing utilizan el valor de pricingRulesJson y evitan el monto cero de cabecera; invalidan los tramos cuando cambian los datos de la carga sin alterar cargos manuales ni RateDetails históricos.
+- Se realiza backport selectivo desde develop/staging a master con pruebas CI, versionado y manifiesto centralizado. Sin cambios REST, realtime ni datos maestros.
+
 ## [1.108.13] - 2026-11-21 (DH-20261121-PRICING-P7-EDIT-380 · release coordinado P7 seguro/costos/edición)
 
 - PATCH: DholeSystem y DholeWeb 1.108.12 → 1.108.13; DholePricingService 1.26.12 → 1.26.13. Los 14 componentes restantes conservan sus versiones.
