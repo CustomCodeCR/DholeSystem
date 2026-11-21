@@ -1,3 +1,10 @@
+## [1.108.10] - 2026-11-21 (DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378 · backport master Incoterms y modificaciones)
+
+- PATCH coordinado DholeWeb/DholeSystem 1.107.5 → 1.108.10 y Pricing 1.26.9 → 1.26.12, versiones presentes en develop; sin merge masivo ni nuevos servicios.
+- Incoterms: 11 marítimo/multimodal, 7 aéreo/terrestre, operación compacta manual, categorías de responsabilidad en P7, cargos de contraparte no precotizados, acuerdo explícito por línea.
+- Modificaciones: no eliminar RateDetail históricos por ausencia en snapshot y no hacer resync del catálogo sobre QUOs guardadas; el flete importado solo se cobra si P7 lo envía.
+- CI, prueba autenticada en staging y gate de despliegue a producción obligatorios; no hay solicitud de workflow_dispatch de producción.
+
 ## [1.107.5] - 2026-11-20 (DH-20261120-PRICING-WIZARD-RUNTIME-366 · restaurar formulario Pricing y evitar errores runtime)
 
 - PATCH coordinado Web/System 1.107.4 → 1.107.5: corrige `automaticOperationType is not defined` después de la promoción de la resolución mundial de países, sin revertirla.
