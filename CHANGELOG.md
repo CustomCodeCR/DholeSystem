@@ -1,3 +1,9 @@
+## [1.109.2] - 2026-11-21 · DH-20261121-WIZARD-COSTS-390 (candidato develop)
+
+- Release coordinado: DholePricingService 1.26.19 y DholeWeb 1.109.2; corrección de costos 0/0 legítimos, sobrepeso Panamá con tarifas LTL y cambio explícito de muellaje durante edición.
+- Actualiza manifiesto de componentes y versiones; conserva contratos REST/realtime existentes; sin migración de base de datos.
+- Integración develop, CI, staging y batch master pendientes; no autorizado el despliegue de producción.
+
 ## [1.109.1] - 2026-11-21 · DH-20261121-PRICING-EDIT-BUNDLE-389
 
 - PATCH coordinado DholeWeb 1.109.1 / DholeSystem 1.109.1; PricingService conserva 1.26.18 y el contrato GET /api/pricing/costs/wizard-bundle.
