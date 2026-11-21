@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-FOB-FCL-MASTER-379",
+  "releaseId": "DH-20261121-PRICING-P7-EDIT-380",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.108.12",
+  "ecosystemVersion": "1.108.13",
   "status": "candidate-production-ci-pending",
   "branches": {
     "develop": "develop",
-    "master": "release/DH-20261121-FOB-FCL-379-master"
+    "master": "fix/pricing-p7-insurance-edit-380-master"
   },
-  "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
+  "candidateBranch": "fix/pricing-p7-insurance-edit-380-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.108.12",
+      "version": "1.108.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
+      "candidateBranch": "fix/pricing-p7-insurance-edit-380-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261121-FOB-FCL-379-master",
@@ -41,9 +41,9 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.108.12",
+      "version": "1.108.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-FOB-FCL-379-master",
+      "candidateBranch": "fix/pricing-p7-insurance-edit-380-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261121-FOB-FCL-379-master",
@@ -75,9 +75,9 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.12",
+      "version": "1.26.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
+      "candidateBranch": "fix/pricing-p7-insurance-edit-380-master",
       "developCandidateBranch": "develop",
       "masterCandidateBranch": "release/DH-20261121-INCOTERMS-MODIFICATIONS-MASTER-378",
       "developMergeSha": null,
@@ -152,11 +152,13 @@
   ],
   "policyCheck": "PATCH coordinated master promotion DholeWeb and DholeSystem 1.108.10 -> 1.108.12 matching current develop; PricingService unchanged 1.26.12",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI full build/tests + production-minified headless browser smoke",
-    "Verify master-specific pricing modifications and historical edit regression",
-    "Production deployment health and live FOB Export non-billable freight smoke"
+    "CI y compilación de DholeWeb y PricingService",
+    "Staging: validar seguro P7, cargos de agencia e Incoterms",
+    "Staging: guardado de modificación sin pérdida/repricing",
+    "Revisar y aprobar release antes de integrar master",
+    "Producción: despliegue no autorizado"
   ],
   "validationEvidence": {
     "status": "staging-ci-passed",
@@ -165,7 +167,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Promote only DholeWeb Incoterm runtime scope fix #961 and FOB Export auto FCL billing fix #962, preserve master-specific code",
@@ -234,7 +237,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-FOB-FCL-MASTER-379",
+  "businessReleaseId": "DH-20261121-PRICING-P7-EDIT-380",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1027,17 +1030,35 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeWeb": {
-      "from": "1.107.5",
-      "to": "1.108.10"
-    },
     "DholeSystem": {
-      "from": "1.107.5",
-      "to": "1.108.10"
+      "from": "1.108.12",
+      "to": "1.108.13"
+    },
+    "DholeWeb": {
+      "from": "1.108.12",
+      "to": "1.108.13"
     },
     "DholePricingService": {
-      "from": "1.26.9",
-      "to": "1.26.12"
+      "from": "1.26.12",
+      "to": "1.26.13"
     }
+  },
+  "pricingP7EditRelease": {
+    "releaseId": "DH-20261121-PRICING-P7-EDIT-380",
+    "components": [
+      "DholeSystem",
+      "DholeWeb",
+      "DholePricingService"
+    ],
+    "versions": {
+      "DholeSystem": "1.108.13",
+      "DholeWeb": "1.108.13",
+      "DholePricingService": "1.26.13"
+    },
+    "approvals": {
+      "staging": false,
+      "production": false
+    },
+    "target": "master"
   }
 }
