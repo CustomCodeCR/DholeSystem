@@ -3,7 +3,7 @@
   "releaseId": "DH-20261121-QUO-EDIT-DELTA-387",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.108.20",
-  "status": "candidate-master-ci-pending",
+  "status": "master-promotion-authorized-ci-gated",
   "branches": {
     "develop": "fix/DH-20261121-WIZARD-BUNDLE-ONLY-386",
     "master": "backport/DH-20261121-WIZARD-BUNDLE-ONLY-386-master"
@@ -152,14 +152,13 @@
   ],
   "policyCheck": "Combined master: System and Web PATCH 1.108.18 -> 1.108.20 (includes 1.108.19 DH-386), PricingService 1.26.17 -> 1.26.18; other 14 unchanged",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Master CI and same-release version gates",
-    "Authenticated staging E2E scenario for additional customs and insurance lines",
-    "Production deployment is automatically triggered by master; cannot merge until expressly authorized and staging verification passes"
+    "El QA manual autenticado de la QUO-00000-000746 aún no se ha verificado; no presentar este caso como aprobado.",
+    "La compilación y las validaciones CI deben permanecer aprobadas antes de cada merge."
   ],
   "validationEvidence": {
-    "status": "develop-ci-success,stage-build-success,master-candidate-ci-pending",
+    "status": "develop-ci-success;staging-deploy-success;master-candidate-web-and-system-ci-success;pricing-updated-ci-pending;authenticated-e2e-not-performed",
     "scope": "DH-386 plus DH-387: definitive costs endpoint and immutable original quote financial rows"
   },
   "releaseComponents": [
@@ -1059,5 +1058,5 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "Promoción solicitada a la rama master; despliegue de producción automático requiere validaciones completas y autorización expresa aparte."
+  "productionDeploymentAuthorizationScope": "El usuario solicitó explícitamente integrar DH-386 y DH-387 en master tras ser informado de que master activa despliegue automático de producción (2026-11-21)."
 }
