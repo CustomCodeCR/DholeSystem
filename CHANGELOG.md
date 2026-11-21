@@ -1,3 +1,10 @@
+## [1.109.1] - 2026-11-21 · DH-20261121-PRICING-EDIT-BUNDLE-389
+
+- PATCH coordinado DholeWeb 1.109.1 / DholeSystem 1.109.1; PricingService conserva 1.26.18 y el contrato GET /api/pricing/costs/wizard-bundle.
+- La edición de cotizaciones consulta costos aplicables en Pantalla 6 (Naviera/Merchant) y Pantalla 7 (solo delta solicitado), sin recalcular RateDetails persistidos, importar opcionales ajenos ni eliminar flete marítimo.
+- La carga del catálogo no se omite por existir RateId; la carga protege contexto vigente, solicitudes tardías y selection de Inland. REST/SignalR sin cambios incompatibles.
+- Despliegues a staging y producción sujetos a CI, validación de pantalla 6/7 y revisión coordinada de ramas.
+
 ## [1.109.0] - 2026-11-21 · DH-20261121-BLOBATAR-ACCESSORIES-388
 
 - MINOR: manifiesto global coordinado con DholeWeb 1.109.0 para accesorios combinables de Blobatar.
