@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.117.1",
-  "ecosystemVersion": "1.117.1",
-  "releaseId": "DH-20261122-DHOLE-ERP-411",
+  "version": "1.117.2",
+  "ecosystemVersion": "1.117.2",
+  "releaseId": "DH-20261122-DHOLE-ERP-412",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261122-DHOLE-ERP-411"
+  "businessReleaseId": "DH-20261122-DHOLE-ERP-412"
 }
