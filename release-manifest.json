@@ -3,7 +3,7 @@
   "releaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.114.0",
-  "status": "candidate-master-ci-pending",
+  "status": "master-promotion-authorized",
   "branches": {
     "develop": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
     "master": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master"
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.114.0",
-      "mergeState": "master-candidate",
+      "mergeState": "master-promotion-authorized",
       "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
       "candidateSha": null,
       "developMergeSha": "d301b39691f1f5ad177235ccc9f68623b39804d4",
@@ -42,7 +42,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.114.0",
-      "mergeState": "master-candidate",
+      "mergeState": "master-promotion-authorized",
       "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
       "candidateSha": null,
       "developMergeSha": "5a71fb78f6ce840a7380cd5757fe64d373012914",
@@ -152,16 +152,12 @@
     }
   ],
   "policyCheck": "MINOR DholeSystem/DholeWeb 1.113.1 → 1.114.0. All other 15 components unchanged.",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": false,
-  "blockers": [
-    "Master PR CI",
-    "Staging confirmation",
-    "Explicit permission to deploy DH-405 to production"
-  ],
+  "mergeState": "master-promotion-authorized",
+  "productionDeploymentAuthorized": true,
+  "blockers": [],
   "validationEvidence": {
-    "ci": "Web/System candidate CI passed on develop",
-    "staging": "DholeWeb staging deployment pending 45042744451"
+    "ci": "DholeWeb master candidate PR #1013: 6/6 workflows success; DholeSystem PR #777: 2/2 success",
+    "staging": "DholeWeb develop merge 5a71fb78f6ce; staging run #45042744451 completed success"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -686,7 +682,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "User explicitly requested master for Pricing/Operations wizard",
+  "productionDeploymentAuthorization": "DH-405: user explicitly requested master after being informed master triggers Web production deploy.",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -981,20 +977,20 @@
     "legacyDynamicsBackfill": "pending"
   },
   "masterPromotionAuthorization": {
-    "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
+    "releaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
     "authorized": true,
     "scope": [
       "DholeSystem",
       "DholeWeb"
     ],
-    "source": "explicit user request: subelo a master",
-    "staging": "DholeWeb CI and staging workflow success",
+    "source": "user explicit follow-up: subelo a master (2026-11-22)",
+    "staging": "DholeWeb staging workflow #45042744451 succeeded",
     "productionWebAutoDeploy": true
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Not authorized for DH-405: master candidate is prepared for review only; master push would auto-deploy Web to production.",
+  "productionAuthorizationScope": "DH-405: user explicitly requested promotion to master in this follow-up; DholeWeb's production deployment is automatically triggered by master merge. Only DholeWeb and DholeSystem are in this release.",
   "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "DholeWeb master push auto-deploys; production deploy authorized only for this selective DH-404 Web release, no extra repo or infra rollouts.",
+  "releaseProductionDeploymentPolicy": "Authorized: selective DH-405 merge into DholeSystem/master and DholeWeb/master; Web production deploy is automatic. No unrelated service or infrastructure deployments.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
@@ -1030,17 +1026,13 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeSystem": {
-      "previousVersion": "1.110.3",
-      "newVersion": "1.110.5"
-    },
     "DholeWeb": {
-      "previousVersion": "1.110.3",
-      "newVersion": "1.110.5"
+      "previousVersion": "1.113.1",
+      "newVersion": "1.114.0"
     },
-    "DholePricingService": {
-      "previousVersion": "1.26.22",
-      "newVersion": "1.26.24"
+    "DholeSystem": {
+      "previousVersion": "1.113.1",
+      "newVersion": "1.114.0"
     }
   },
   "pricingP7EditRelease": {
@@ -1061,7 +1053,7 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "User authorized DH-404 promotion to master; automated production deploy follows master merge and is not marked completed or authorized by the CI candidate.",
+  "productionDeploymentAuthorizationScope": "DH-405 selective master promotion explicitly authorized by user on 2026-11-22; Web auto-deploy follows merge. Deployment is not considered successful until workflow confirms it.",
   "pricingWizardCosts390": {
     "releaseId": "DH-20261121-WIZARD-COSTS-390",
     "date": "2026-11-21",
