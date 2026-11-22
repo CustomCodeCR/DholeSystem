@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
+  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.6",
+  "ecosystemVersion": "1.111.0",
   "status": "candidate-master-ci-pending",
   "branches": {
     "develop": "fix/pricing-p7-terrestrial-freight-398",
     "master": "release/dh-398-master"
   },
-  "candidateBranch": "release/dh-398-master",
+  "candidateBranch": "release/operations-pricing-wizard-399-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.6",
+      "version": "1.111.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/dh-398-master",
+      "candidateBranch": "release/operations-pricing-wizard-399-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-398-master",
+      "masterCandidateBranch": "release/operations-pricing-wizard-399-master",
       "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.6",
+      "version": "1.111.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/dh-398-master",
+      "candidateBranch": "release/operations-pricing-wizard-399-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-398-master",
+      "masterCandidateBranch": "release/operations-pricing-wizard-399-master",
       "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
@@ -142,40 +142,34 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.14.0",
+      "version": "0.15.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master",
+      "candidateBranch": "release/operations-pricing-wizard-399-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
+      "masterCandidateBranch": "release/operations-pricing-wizard-399-master"
     }
   ],
-  "policyCheck": "PATCH master DholeSystem/DholeWeb 1.110.5→1.110.6 (DH-398); DholePricingService 1.26.24 and remaining service versions unchanged. FCL multimodal P7 recognizes backend-applicable road freight independently of maritime Freight.",
+  "policyCheck": "MINOR Web/System 1.110.6 -> 1.111.0; Operations 0.14.0 -> 0.15.0 on master, no unrelated component changes",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI de Web y System aprobadas",
-    "Despliegue a staging completado y controles de salud verificados",
-    "Validación autenticada de la QUO real pendiente de repetición tras el despliegue",
-    "DH-398 authenticated staging UAT pending; production deployment not authorized"
+    "Master build/CI and production validation pending",
+    "Automatic QUO acceptance to Operations outside this UI release"
   ],
   "validationEvidence": {
-    "status": "candidate-master-ci-pending",
-    "scope": "Pricing P7 LTL Panama FCA, LCL customs weight tiers, multimodal separate land leg, saved overweight, modality labels",
-    "unitTests": "passed-in-develop",
-    "stagingTests": "DH-398 live authenticated UAT pending; existing staging health evidence applies to DH-397 only"
+    "ci": "pending",
+    "staging": "develop release pending verification"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "DH-391: resolve Panama-to-Costa Rica LTL four master costs by complete POE/POD and WeightKg bands (including valid zero Gastos tiers), even for FCA",
-    "DH-391: resolve own LCL customs service using independent wizard-bundle request without discarding consolidation matrix",
-    "DH-391: retain independent international land Freight CostId in FCL multimodal, and distinguish maritime, terrestrial and air Freight titles",
-    "DH-391: explicit overweight edit-delta with cargo weight; no implicit repricing of persisted quotations",
-    "Keep existing REST/SignalR contracts; no DB migration",
-    "DH-398: FCL multimodal P7 terrestrial Freight present from Pricing applicable after asynchronous catalog load"
+    "Shared Pricing wizard stepper between Pricing and Operations",
+    "Operations five-step opening full page",
+    "Pricing catalog selectors reused in Operations with legacy data fallback"
   ],
   "stagingValidation": {
     "status": "automated-deployment-passed-functional-pending",
@@ -241,7 +235,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
+  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -690,7 +684,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": null,
+  "productionDeploymentAuthorization": "User explicitly requested integrating release into master in this conversation",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -1195,5 +1189,17 @@
     "masterCandidateBranch": "release/dh-396-master",
     "productionAuthorized": false,
     "backportOnly": true
+  },
+  "operationsPricingWizard399": {
+    "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+    "webVersion": "1.111.0",
+    "systemVersion": "1.111.0",
+    "operationsVersion": "0.15.0",
+    "pricingFormsShared": true,
+    "masterRequested": true,
+    "automaticQuoIntegration": "pending",
+    "masterRelease": true,
+    "operationsMasterUpgrade": "0.14.0 -> 0.15.0",
+    "productionRequested": true
   }
 }
