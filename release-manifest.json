@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+  "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.4",
+  "ecosystemVersion": "1.110.5",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "fix/DH-396-pricing-real-line-persistence",
+    "develop": "fix/DH-396b-incoterm-guard",
     "master": "release/dh-396-master"
   },
   "candidateBranch": "release/dh-396-master",
@@ -15,13 +15,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.4",
+      "version": "1.110.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/dh-396-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.4",
+      "version": "1.110.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/dh-396-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,10 +75,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.23",
+      "version": "1.26.24",
       "mergeState": "intermediate-only",
       "candidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence",
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard",
       "masterCandidateBranch": "release/dh-396-master",
       "developMergeSha": null,
       "candidateSha": null
@@ -150,7 +150,7 @@
       "masterCandidateBranch": "release/DH-20261120-OPERATIONS-TRAMITES-UX-332-master"
     }
   ],
-  "policyCheck": "PATCH: System/Web 1.110.3 -> 1.110.4, PricingService 1.26.22 -> 1.26.23; other components unchanged. DH-396 mandatory Miami VGM and FCL Panama freight.",
+  "policyCheck": "PATCH master Web/System 1.110.3→1.110.5 and Pricing 1.26.22→1.26.24 including DH-396 and DH-397; others unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -240,7 +240,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+  "businessReleaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1035,15 +1035,15 @@
   "versionChanges": {
     "DholeSystem": {
       "previousVersion": "1.110.3",
-      "newVersion": "1.110.4"
+      "newVersion": "1.110.5"
     },
     "DholeWeb": {
       "previousVersion": "1.110.3",
-      "newVersion": "1.110.4"
+      "newVersion": "1.110.5"
     },
     "DholePricingService": {
       "previousVersion": "1.26.22",
-      "newVersion": "1.26.23"
+      "newVersion": "1.26.24"
     }
   },
   "pricingP7EditRelease": {
@@ -1173,6 +1173,22 @@
     "fixes": [
       "Miami commercial-plan VGM recovered on P7 rebuild/save",
       "Multimodal FCL Panama road Freight retained independently of Bunker and ocean Freight"
+    ],
+    "stagingVerified": false,
+    "masterCandidateBranch": "release/dh-396-master",
+    "productionAuthorized": false,
+    "backportOnly": true
+  },
+  "pricingFinalGuard397": {
+    "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
+    "globalVersion": "1.110.5",
+    "pricingVersion": "1.26.24",
+    "webVersion": "1.110.5",
+    "systemVersion": "1.110.5",
+    "includesPriorRelease396": true,
+    "fixes": [
+      "Miami VGM survives Incoterm guard and is ensured before save",
+      "FCL Panama terrestrial Freight survives Incoterm guard and is ensured before save"
     ],
     "stagingVerified": false,
     "masterCandidateBranch": "release/dh-396-master",
