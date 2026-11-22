@@ -1,3 +1,15 @@
+## [1.113.1] - 2026-11-22 · DH-20261122-OPERATIONS-NO-SERVICES-404 (master: selective operations opening promotion)
+
+- PATCH sobre 1.113.0: eliminar por completo la pantalla 5 de Servicios de la apertura manual y sus campos de recolecta, entrega, agentes, naviera y merchant; conservar el WHS obligatorio en Cliente y ruta para FCA con LCL/LTL.
+- Promoción coordinada de DholeSystem y DholeWeb a 1.113.1 desde master 1.112.1, sin fusionar miles de commits ajenos de develop ni modificar los otros 15 componentes.
+- El usuario autorizó subir DH-404 a master. DholeWeb auto-despliega ante push a master; sin cambios a infraestructura de despliegue ni despliegue de backend.
+- Validado en develop: Web CI, política SemVer, tests de Operaciones, build y despliegue de staging exitoso (run 45038067759). QA manual autenticado en producción por verificar.
+
+## [1.113.0] - 2026-11-22 · DH-20261122-OPERATIONS-UX-403 (base funcional incluida)
+
+- MINOR: paso a un wizard de tres etapas para aperturas manuales con selector de clientes de Pricing, búsquedas CABYS, documentos en Storage, países derivados de ruta, borradores e IDTRA automático sin campo editable.
+- El release 1.113.1 elimina la pantalla de servicios que inicialmente estaba incluida en el paso 1 de 1.113.0.
+
 ## [1.112.1] - 2026-11-22 · DH-20261122-PRICING-OPERATIONS-STEPPER-402 (DholeWeb / DholeSystem · visual Pricing)
 
 - PATCH: Coordinación del encabezado y navegación de Pricing con el componente compartido de Aperturas, conservando borradores múltiples, descarte y autoguardado existentes.
