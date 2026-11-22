@@ -1,3 +1,10 @@
+## [1.110.6] - 2026-11-21 · DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398 (candidate master)
+
+- PATCH: promoción del mismo DH-398 validado en develop: DholeSystem y DholeWeb 1.110.5 → 1.110.6; PricingService mantiene 1.26.24.
+- Pantalla 7 FCL multimodal conserva el flete marítimo y agrega el Flete Internacional Terrestre independiente de USD 2.140 desde el conjunto applicable retornado por Pricing, reconciliado tras cargar la respuesta asíncrona.
+- Protege CostId, relaciones múltiples POE/POD, importe y snapshots persistidos; la regla no duplica Bunker ni elimina cargos anteriores.
+- Se conservan el manifiesto global, las 17 versiones registradas y productionDeploymentAuthorized=false; CI de master y UAT autenticado en staging pendientes.
+
 ## [1.110.5] - 2026-11-21 · DH-20261121-PRICING-VGM-FCL-FINAL-397 (candidate master)
 
 - PATCH global System/Web 1.110.4 → 1.110.5; PricingService 1.26.23 → 1.26.24; resto de versiones sin cambios.
