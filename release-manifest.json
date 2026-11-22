@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
+  "releaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.5",
+  "ecosystemVersion": "1.110.6",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-396b-incoterm-guard",
+    "develop": "fix/pricing-p7-terrestrial-freight-398",
     "master": "release/dh-396-master"
   },
-  "candidateBranch": "fix/DH-396b-incoterm-guard",
+  "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.5",
+      "version": "1.110.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-396b-incoterm-guard",
+      "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
+      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.5",
+      "version": "1.110.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-396b-incoterm-guard",
+      "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
+      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -139,7 +139,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: Web/System 1.110.4→1.110.5, Pricing 1.26.23→1.26.24; other components unchanged; preserve explicit VGM Miami and FCL Panama terrestrial Freight beyond Incoterm guard.",
+  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.110.5→1.110.6; PricingService 1.26.24 and other 14 components unchanged; P7 FCL multimodal shows authoritative terrestrial Freight alongside maritime Freight (DH-398).",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -154,13 +154,13 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
     "Global IDTRA counter without user series and no 999999 ceiling",
     "Full-page manual operations form and versioned edit",
-    "Preserve opening logistics draft JSONB with read-only summary and workflow completeness checks"
+    "Preserve opening logistics draft JSONB with read-only summary and workflow completeness checks",
+    "Fix Pricing P7 applicable multimodal terrestrial Freight with async reconciliation and retained maritime freight"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
+  "businessReleaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
