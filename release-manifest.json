@@ -74,7 +74,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.26.26",
-      "mergeState": "candidate-master-ci-pending",
+      "mergeState": "unchanged",
       "candidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
       "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
       "candidateSha": null,
@@ -161,8 +161,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
