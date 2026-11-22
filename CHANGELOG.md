@@ -1,3 +1,9 @@
+## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410
+
+- MINOR: identidad corporativa de la plataforma interna DHOLE ERP; indicación «dóul» y significado Digital Hub for Operations, Logistics & Ecosystem en DholeWeb.
+- DholeSystem 1.116.0 → 1.117.0; DholeWeb 1.116.0 → 1.117.0; otros 15 componentes sin modificaciones. DHOLE CLOUD, DHOLE X4 y GIO no se actualizan.
+- Master requiere integración previa a develop, CI, staging y aprobación explícita de despliegue, pues el push del frontend a master despliega automáticamente. No se alteran REST, SignalR ni Redis Outbox/Inbox.
+
 ## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
 
 - MINOR: nueva selección de equipo de Aperturas antes de crear IDTRA, con control del pool de dos validadores y reintentos de asignación.
