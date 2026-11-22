@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-PRICING-OPERATIONS-STEPPER-402",
+  "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.112.1",
+  "ecosystemVersion": "1.113.1",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "feature/DH-402-pricing-opening-ui-develop",
-    "master": "release/DH-402-pricing-opening-ui-master"
+    "develop": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+    "master": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master"
   },
-  "candidateBranch": "release/DH-402-pricing-opening-ui-master",
+  "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.112.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-402-pricing-opening-ui-master",
+      "version": "1.113.1",
+      "mergeState": "staging-validated-master-candidate",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-402-pricing-opening-ui-master",
-      "developCandidateBranch": "feature/DH-402-pricing-opening-ui-develop"
+      "developMergeSha": "368bbeefd25b1e782b5f7d34a88c6508dda00ca6",
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
+      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.112.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-402-pricing-opening-ui-master",
+      "version": "1.113.1",
+      "mergeState": "staging-validated-master-candidate",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-402-pricing-opening-ui-master",
-      "developCandidateBranch": "feature/DH-402-pricing-opening-ui-develop"
+      "developMergeSha": "411b7fa56bff672295b62d7d22c661b77d592c9e",
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
+      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,15 +151,16 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
-  "policyCheck": "PATCH DholeSystem y DholeWeb 1.112.0 → 1.112.1; otros 15 componentes sin cambios.",
-  "mergeState": "intermediate-only",
+  "policyCheck": "Coordinated MINOR+PATCH Web/System promotion 1.112.1 → 1.113.0 → 1.113.1; remaining 15 components unchanged.",
+  "mergeState": "master-pr-ci-validation",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI y staging pendientes; despliegue de producción sin autorizar"
+    "Master PR CI required before merge",
+    "Live manual opening smoke test after production deploy"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending"
+    "ci": "DholeWeb DH-404 candidate and DholeSystem CI green on develop",
+    "staging": "DholeWeb deploy 45038067759 success on develop SHA 411b7fa56bff672295b62d7d22c661b77d592c9e; manual case creation not independently verified"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -168,7 +169,8 @@
   "changes": [
     "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
     "Autoguardado, múltiples borradores y descarte conservados",
-    "Motivo de modificación de cotización validado antes de navegar"
+    "Motivo de modificación de cotización validado antes de navegar",
+    "DH-404: manual operations opening reduced to 3 steps, no services stage; retain mandatory FCA WHS in route, CRM selector, CABYS and Storage."
   ],
   "stagingValidation": {
     "status": "automated-deployment-passed-functional-pending",
@@ -234,7 +236,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-OPERATIONS-PARITY-401",
+  "businessReleaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -670,7 +672,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Backport master de GCF ISO 249 y validación CIF sin flete; DholeSystem/DholeWeb 1.97.9; otros componentes sin cambios",
+  "releaseSummary": "Selective DH-403/404 manual opening component promotion to master; no full develop merge.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -978,20 +980,20 @@
     "legacyDynamicsBackfill": "pending"
   },
   "masterPromotionAuthorization": {
-    "releaseId": "DH-20261120-PRICING-VAT-TOTAL-353",
+    "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
     "authorized": true,
     "scope": [
       "DholeSystem",
-      "DholePricingService",
       "DholeWeb"
     ],
-    "source": "explicit user request: master ahora",
-    "staging": "Pricing/Web staging deployments passed, authenticated quote E2E remains pending"
+    "source": "explicit user request: subelo a master",
+    "staging": "DholeWeb CI and staging workflow success",
+    "productionWebAutoDeploy": true
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User explicitly requested subelo a master for the inland Step 6→7 recovery hotfix only. Existing infra realtime release gates unchanged.",
+  "productionAuthorizationScope": "User requested 'subelo a master' for DH-404 on 2026-11-22; auto-production deploy of DholeWeb on master push is in scope. No infrastructure compose or backend deployments authorized.",
   "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Master integration authorized for this Web/System hotfix; production Web push auto deploys. No infrastructure compose changes.",
+  "releaseProductionDeploymentPolicy": "DholeWeb master push auto-deploys; production deploy authorized only for this selective DH-404 Web release, no extra repo or infra rollouts.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
@@ -1058,7 +1060,7 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "El usuario solicitó expresamente arreglar el flujo de modificación y subirlo a master y develop (2026-11-21); master tiene despliegue automático. Integración condicionada a CI y despliegue de staging.",
+  "productionDeploymentAuthorizationScope": "User authorized DH-404 promotion to master; automated production deploy follows master merge and is not marked completed or authorized by the CI candidate.",
   "pricingWizardCosts390": {
     "releaseId": "DH-20261121-WIZARD-COSTS-390",
     "date": "2026-11-21",
