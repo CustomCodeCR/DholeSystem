@@ -1,3 +1,13 @@
+## [1.117.1] - 2026-11-22 · DH-20261122-DHOLE-ERP-411 (master integrated candidate)
+
+- PATCH: DHOLE ERP no tiene pronunciación obligatoria: eliminadas las guías visibles, tooltips y claves de idioma. La sigla corporativa y la marca permanecen.
+- Corregido test:branding en Docker sin .env. Coordinación DholeWeb/DholeSystem 1.117.0 → 1.117.1; el resto de componentes conserva versiones. Validaciones staging necesarias antes de master.
+
+## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410 (branding integrated)
+
+- MINOR: identidad corporativa de la plataforma interna DHOLE ERP: nombre visible en acceso, navegación, metadata, logo y mensajes. Digital Hub for Operations, Logistics & Ecosystem.
+- DholeWeb y DholeSystem 1.116.1 → 1.117.0. Reservados DHOLE CLOUD, DHOLE X4 y GIO. Contratos REST/SignalR, outbox/inbox y rutas sin cambios.
+
 ## [1.116.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-EMAIL-409 (master selective candidate)
 
 - PATCH: plantilla HTML de devolución compatible con Outlook, asunto sin UUID, cliente/ruta/modalidad y motivo claros, botón «Corregir y reenviar solicitud». UUID solo en URL técnica y correlación interna.
