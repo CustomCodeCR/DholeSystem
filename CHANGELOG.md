@@ -1,3 +1,9 @@
+## [1.110.3] - 2026-11-21 · DH-20261121-PRICING-FINAL-POLISH-395 (candidate develop)
+
+- PATCH global: DholeSystem/Web 1.110.2 → 1.110.3; PricingService 1.26.21 → 1.26.22; demás componentes sin cambios.
+- Repara tres últimas incidencias de Pricing: VGM en LCL Miami, Freight terrestre FCL Panamá distinto de Bunker, y edición de tránsito en LTL.
+- Release desde ramas intermedias, integración develop → staging → mismo release a master; CI bloquea fallo de build/versionado.
+
 ## [1.110.2] - 2026-11-21 · DH-20261121-PRICING-LAST-THREE-FIXES-394 (candidate develop)
 
 - PATCH global: DholeSystem/Web 1.110.1 → 1.110.2 y DholePricingService 1.26.20 → 1.26.21; resto de 14 componentes sin cambio.
