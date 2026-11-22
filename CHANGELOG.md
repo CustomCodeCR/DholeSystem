@@ -1,3 +1,9 @@
+## [1.115.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-407
+
+- PATCH coordinado de devoluciones de solicitudes comerciales en Pricing: UX «Devolver tarifa» / «Devuelta por Pricing», motivo obligatorio y revisión del historial íntegro desde Ventas.
+- DholePricingService 1.26.24 → 1.26.25 identifica la solicitud original en notificaciones Email/System y verifica conservación del ID e historial en correcciones y reenvíos; DholeWeb y DholeSystem 1.115.0 → 1.115.1.
+- Otros componentes conservan sus versiones; no hay cambios de esquema, endpoints REST ni arquitectura SignalR/Redis Streams. Integración selectiva por ramas intermedias con CI y staging previos a master.
+
 ## [1.115.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-POLISH-406 (DholeSystem / DholeWeb)
 
 - MINOR: apertura manual con autoguardado local del wizard, creación de IDTRA al confirmar, asignación de validadores por pool operativo, y reintento sin duplicados.
