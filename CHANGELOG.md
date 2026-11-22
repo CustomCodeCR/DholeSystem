@@ -1,3 +1,10 @@
+## [1.114.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-UX-405 (DholeSystem / DholeWeb)
+
+- MINOR de DholeWeb y DholeSystem 1.113.1 → 1.114.0. Rediseño de apertura manual con selector de modalidad sin Multimodal para nuevos trámites, historial multimodal preservado, ejecutivo comercial obtenido desde CRM, contactos operativos seleccionables y estados visuales de condiciones de mercancía/muellaje.
+- Revisión de requisitos contra DholeOperations_Especificacion_v1.2: capturas presentes, pendientes condicionales para Origen y brechas documentadas sin inventar APIs.
+- No se modifican versiones de los otros quince componentes ni los contratos REST, eventos Redis/SignalR o lógica de tarifas; borradores y expedientes previos conservados.
+- CI y staging requeridos antes de master. Producción sin autorización.
+
 ## [1.113.1] - 2026-11-22 · DH-20261122-OPERATIONS-NO-SERVICES-404 (DholeSystem / DholeWeb)
 
 - PATCH: eliminar toda la antigua pantalla Servicios del formulario de apertura manual, incluidos los controles de servicios, recolecta, entrega, agentes, naviera, merchant y observaciones operativas de esa pantalla.

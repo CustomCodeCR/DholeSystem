@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
+  "releaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.113.1",
+  "ecosystemVersion": "1.114.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
-    "master": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
+    "develop": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
+    "master": "feature/DH-20261122-OPERATIONS-OPENING-UX-405"
   },
-  "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+  "candidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.113.1",
+      "version": "1.114.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
-      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.113.1",
+      "version": "1.114.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
-      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -141,13 +141,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
-  "policyCheck": "PATCH DholeSystem and DholeWeb 1.113.0 → 1.113.1; remaining 15 components unchanged, including DholeOperationsService 0.15.1.",
+  "policyCheck": "MINOR 1.113.1 → 1.114.0 for DholeWeb/DholeSystem; remaining 15 components unchanged (including DholeOperationsService).",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Build and automated regressions pending",
-    "Staging smoke tests pending after develop integration",
-    "No production deployment authorization"
+    "Required Web+System CI and automated regressions",
+    "Staging deployment and smoke test before master promotion",
+    "Production deployment authorization not granted for DH-405"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-OPERATIONS-PARITY-401",
+  "businessReleaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -653,7 +653,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pricing returns seller rate requests with mandatory reason; seller sees correction and resubmits same request; system/email outbox notifications.",
+  "releaseSummary": "DH-405 Operations manual opening UX, CRM executive resolution, operational contacts and business requirements audit.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1008,7 +1008,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Emergency containment staged first; new production deployment requires explicit user authorization.",
+  "productionAuthorizationScope": "Not authorized: user requested changes and requirements review, not master or production deployment in this turn.",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
