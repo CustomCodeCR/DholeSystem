@@ -142,7 +142,7 @@
     }
   ],
   "policyCheck": "MINOR: DholeWeb 1.115.1 -> 1.116.0, DholeSystem 1.115.1 -> 1.116.0, DholeOperationsService 0.15.1 -> 0.16.0; all 14 other components unchanged.",
-  "mergeState": "intermediate-ci-pending",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "Backend .NET tests/build",
