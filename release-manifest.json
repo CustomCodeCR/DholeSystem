@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-FINAL-POLISH-395",
+  "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.3",
+  "ecosystemVersion": "1.110.4",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-395-vgm-fcl-land-ltl-transit",
-    "master": "release/dh-395-master"
+    "develop": "fix/DH-396-pricing-real-line-persistence",
+    "master": "release/dh-396-master"
   },
-  "candidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit",
+  "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.3",
+      "version": "1.110.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit",
+      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-395-master",
-      "developCandidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit"
+      "masterCandidateBranch": "release/dh-396-master",
+      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.3",
+      "version": "1.110.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit",
+      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-395-master",
-      "developCandidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit"
+      "masterCandidateBranch": "release/dh-396-master",
+      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.22",
+      "version": "1.26.23",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit",
-      "developCandidateBranch": "fix/DH-395-vgm-fcl-land-ltl-transit",
+      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
+      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-395-master"
+      "masterCandidateBranch": "release/dh-396-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -139,7 +139,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH global: System/Web 1.110.2 -> 1.110.3, Pricing 1.26.21 -> 1.26.22; other services unchanged; VGM Miami, FCL Panama distinct Freight, LTL transit.",
+  "policyCheck": "PATCH: Web/System 1.110.3 -> 1.110.4, PricingService 1.26.22 -> 1.26.23; all other components unchanged; ensure VGM Miami and FCL Panama road line before save.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-FINAL-POLISH-395",
+  "businessReleaseId": "DH-20261121-PRICING-MISSING-LINES-396",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,16 +1047,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.110.2",
-      "newVersion": "1.110.3"
+      "previousVersion": "1.110.3",
+      "newVersion": "1.110.4"
     },
     "DholeWeb": {
-      "previousVersion": "1.110.2",
-      "newVersion": "1.110.3"
+      "previousVersion": "1.110.3",
+      "newVersion": "1.110.4"
     },
     "DholePricingService": {
-      "previousVersion": "1.26.21",
-      "newVersion": "1.26.22"
+      "previousVersion": "1.26.22",
+      "newVersion": "1.26.23"
     }
   },
   "pricingP7EditRelease": {
@@ -1179,6 +1179,24 @@
       "Miami own-LCL VGM retained through matrix restore",
       "FCL Panama land Freight not shadowed by Bunker label",
       "LTL editable transitDays in cargo and P7"
+    ],
+    "stagingVerified": false,
+    "ci": "pending",
+    "productionAuthorized": false,
+    "targetBranches": [
+      "develop",
+      "master"
+    ]
+  },
+  "pricingRequiredLines396": {
+    "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+    "globalVersion": "1.110.4",
+    "pricingVersion": "1.26.23",
+    "webVersion": "1.110.4",
+    "systemVersion": "1.110.4",
+    "fixes": [
+      "LCL Miami VGM from commercial plan on P7 rebuild and pre-save",
+      "FCL Panama land Freight independent of Bunker/ocean persisted through P7 rebuild"
     ],
     "stagingVerified": false,
     "ci": "pending",
