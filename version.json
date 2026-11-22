@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.116.1",
-  "ecosystemVersion": "1.116.1",
-  "releaseId": "DH-20261122-PRICING-RETURN-EMAIL-409",
+  "version": "1.117.0",
+  "ecosystemVersion": "1.117.0",
+  "releaseId": "DH-20261122-DHOLE-ERP-410",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261122-PRICING-RETURN-EMAIL-409"
+  "businessReleaseId": "DH-20261122-DHOLE-ERP-410"
 }

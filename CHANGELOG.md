@@ -1,3 +1,9 @@
+## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410
+
+- MINOR: nombre corporativo de la plataforma interna DHOLE ERP, acompañado de la pronunciación «dóul» y de la expansión Digital Hub for Operations, Logistics & Ecosystem en DholeWeb.
+- Versión global DholeSystem 1.116.1 → 1.117.0; DholeWeb 1.116.1 → 1.117.0; otros 15 componentes sin cambios. DHOLE CLOUD, DHOLE X4 y GIO se reservan para un release futuro.
+- Integración mediante ramas intermedias, CI y staging antes de master. Sin cambios de contratos REST/SignalR/Redis, sin migraciones; master despliega producción automáticamente y no está autorizado.
+
 ## [1.116.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-EMAIL-409
 
 - PATCH coordinado de correos «Devuelta por Pricing»: nueva plantilla HTML amigable con Outlook, sin UUID visible en asunto/cuerpo, cliente/ruta/modalidad claros, motivo destacado y acción directa a corregir y reenviar.
