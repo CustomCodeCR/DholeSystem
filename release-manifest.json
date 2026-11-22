@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-UX-403",
+  "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.113.0",
+  "ecosystemVersion": "1.113.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-OPERATIONS-UX-403",
-    "master": "feature/DH-20261122-OPERATIONS-UX-403"
+    "develop": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+    "master": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
   },
-  "candidateBranch": "feature/DH-20261122-OPERATIONS-UX-403",
+  "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.113.0",
+      "version": "1.113.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-UX-403",
+      "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-UX-403",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-UX-403"
+      "masterCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.113.0",
+      "version": "1.113.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-UX-403",
+      "candidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-UX-403",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-UX-403"
+      "masterCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
+      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -141,13 +141,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
-  "policyCheck": "MINOR DholeSystem and DholeWeb 1.112.1 → 1.113.0; remaining components unchanged, including DholeOperationsService 0.15.1.",
+  "policyCheck": "PATCH DholeSystem and DholeWeb 1.113.0 → 1.113.1; remaining 15 components unchanged, including DholeOperationsService 0.15.1.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI build and regression suite pending on develop",
-    "Staging functional validation pending",
-    "Production deployment not authorized"
+    "Build and automated regressions pending",
+    "Staging smoke tests pending after develop integration",
+    "No production deployment authorization"
   ],
   "validationEvidence": {
     "ci": "pending",
