@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+  "releaseId": "DH-20261122-PRICING-RETURN-EMAIL-409",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.116.0",
+  "ecosystemVersion": "1.116.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-    "master": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+    "develop": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+    "master": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
   },
-  "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+  "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.116.0",
-      "mergeState": "intermediate-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "version": "1.116.1",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.116.0",
-      "mergeState": "intermediate-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "version": "1.116.1",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.25",
+      "version": "1.26.26",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master"
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -157,7 +157,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholePricingService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",

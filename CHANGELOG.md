@@ -1,3 +1,9 @@
+## [1.116.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-EMAIL-409
+
+- PATCH coordinado de correos «Devuelta por Pricing»: nueva plantilla HTML amigable con Outlook, sin UUID visible en asunto/cuerpo, cliente/ruta/modalidad claros, motivo destacado y acción directa a corregir y reenviar.
+- DholeWeb oculta UUID del diálogo; DholePricingService 1.26.25 → 1.26.26; DholeSystem y DholeWeb 1.116.0 → 1.116.1. Los 14 componentes restantes conservan versiones, incluido OperationsService.
+- Sin cambios incompatibles de APIs, SignalR, Redis Outbox/Inbox, histórico ni reglas de estado. CI, pruebas y staging obligatorios; promoción de master separada de la preparación de rama.
+
 ## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
 
 - MINOR: el formulario de Aperturas exige seleccionar equipo operativo antes de crear el trámite y muestra el número de validadores disponibles. El backend acepta asignación restringida del creador y verifica dos validadores distintos, activos, con permisos reales.
