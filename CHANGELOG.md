@@ -1,3 +1,10 @@
+## [1.113.1] - 2026-11-22 · DH-20261122-OPERATIONS-NO-SERVICES-404 (DholeSystem / DholeWeb)
+
+- PATCH: eliminar toda la antigua pantalla Servicios del formulario de apertura manual, incluidos los controles de servicios, recolecta, entrega, agentes, naviera, merchant y observaciones operativas de esa pantalla.
+- Almacén WHS requerido para FCA LCL/LTL se traslada al paso Cliente y ruta sin eliminar la validación del backend.
+- DholeSystem y DholeWeb 1.113.0 → 1.113.1; otros 15 componentes del manifiesto, incluido DholeOperationsService 0.15.1, conservan su versión. Mantiene REST y SignalR sin cambios.
+- Requiere CI y staging antes de master; producción sin autorización.
+
 ## [1.113.0] - 2026-11-22 · DH-20261122-OPERATIONS-UX-403 (DholeSystem / DholeWeb · aperturas manuales)
 
 - MINOR: DholeWeb y DholeSystem 1.112.1 → 1.113.0, con tres etapas de apertura manual alineadas a Pricing y nueva integración visual de cliente CRM, CABYS y respaldo documental.
