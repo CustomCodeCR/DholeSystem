@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
+  "releaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.113.1",
+  "ecosystemVersion": "1.114.0",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404",
-    "master": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master"
+    "develop": "feature/DH-20261122-OPERATIONS-OPENING-UX-405",
+    "master": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master"
   },
-  "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
+  "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.113.1",
-      "mergeState": "staging-validated-master-candidate",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
+      "version": "1.114.0",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
       "candidateSha": null,
-      "developMergeSha": "368bbeefd25b1e782b5f7d34a88c6508dda00ca6",
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
-      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
+      "developMergeSha": "d301b39691f1f5ad177235ccc9f68623b39804d4",
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.113.1",
-      "mergeState": "staging-validated-master-candidate",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
+      "version": "1.114.0",
+      "mergeState": "master-candidate",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
       "candidateSha": null,
-      "developMergeSha": "411b7fa56bff672295b62d7d22c661b77d592c9e",
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-NO-SERVICES-404-master",
-      "developCandidateBranch": "fix/DH-20261122-OPERATIONS-NO-SERVICES-404"
+      "developMergeSha": "5a71fb78f6ce840a7380cd5757fe64d373012914",
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-OPENING-UX-405-master",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-UX-405"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,16 +151,17 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
-  "policyCheck": "Coordinated MINOR+PATCH Web/System promotion 1.112.1 → 1.113.0 → 1.113.1; remaining 15 components unchanged.",
-  "mergeState": "master-pr-ci-validation",
+  "policyCheck": "MINOR DholeSystem/DholeWeb 1.113.1 → 1.114.0. All other 15 components unchanged.",
+  "mergeState": "master-candidate-ci-pending",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master PR CI required before merge",
-    "Live manual opening smoke test after production deploy"
+    "Master PR CI",
+    "Staging confirmation",
+    "Explicit permission to deploy DH-405 to production"
   ],
   "validationEvidence": {
-    "ci": "DholeWeb DH-404 candidate and DholeSystem CI green on develop",
-    "staging": "DholeWeb deploy 45038067759 success on develop SHA 411b7fa56bff672295b62d7d22c661b77d592c9e; manual case creation not independently verified"
+    "ci": "Web/System candidate CI passed on develop",
+    "staging": "DholeWeb staging deployment pending 45042744451"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -236,7 +237,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-OPERATIONS-NO-SERVICES-404",
+  "businessReleaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -672,7 +673,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Selective DH-403/404 manual opening component promotion to master; no full develop merge.",
+  "releaseSummary": "Selective master candidate for Operations UX 405. No unrelated develop changes included.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -991,7 +992,7 @@
     "productionWebAutoDeploy": true
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User requested 'subelo a master' for DH-404 on 2026-11-22; auto-production deploy of DholeWeb on master push is in scope. No infrastructure compose or backend deployments authorized.",
+  "productionAuthorizationScope": "Not authorized for DH-405: master candidate is prepared for review only; master push would auto-deploy Web to production.",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "DholeWeb master push auto-deploys; production deploy authorized only for this selective DH-404 Web release, no extra repo or infra rollouts.",
   "inlandStep67Release": {
