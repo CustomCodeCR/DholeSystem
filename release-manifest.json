@@ -3,7 +3,7 @@
   "releaseId": "DH-20261122-OPERATIONS-OPENING-POLISH-406",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.115.0",
-  "status": "candidate-master-ci-pending",
+  "status": "master-promotion-authorized",
   "branches": {
     "develop": "feature/DH-20261122-OPERATIONS-OPENING-POLISH-406",
     "master": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master"
@@ -16,7 +16,7 @@
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
       "version": "1.115.0",
-      "mergeState": "master-candidate",
+      "mergeState": "master-promotion-authorized",
       "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
       "candidateSha": null,
       "developMergeSha": "38fec4d1d6873cd5e135b8012d63ae5ab6948152",
@@ -42,7 +42,7 @@
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
       "version": "1.115.0",
-      "mergeState": "master-candidate",
+      "mergeState": "master-promotion-authorized",
       "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
       "candidateSha": null,
       "developMergeSha": "c373d8ef1fd6ccce08b7bfc9cfb3d2badf795cb8",
@@ -152,15 +152,14 @@
     }
   ],
   "policyCheck": "MINOR DholeSystem and DholeWeb 1.114.0 → 1.115.0; 15 other components unchanged.",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "master-promotion-authorized",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Staging workflow successful",
-    "Master candidate CI successful"
+    "Master candidate CI required"
   ],
   "validationEvidence": {
-    "ci": "Web/System develop PR CI passed",
-    "staging": "DholeWeb staging build/deploy run 45054863615 pending"
+    "ci": "Web develop PR #1014 all 5 mandatory checks passed; System develop PR #778 passed version policy and deployment gate",
+    "staging": "DholeWeb staging workflow run 45054863615 succeeded on develop merge c373d8ef1fd6ccce08b7bfc9cfb3d2badf795cb8"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -980,20 +979,20 @@
     "legacyDynamicsBackfill": "pending"
   },
   "masterPromotionAuthorization": {
-    "releaseId": "DH-20261122-OPERATIONS-OPENING-UX-405",
+    "releaseId": "DH-20261122-OPERATIONS-OPENING-POLISH-406",
     "authorized": true,
     "scope": [
       "DholeSystem",
       "DholeWeb"
     ],
-    "source": "user explicit follow-up: subelo a master (2026-11-22)",
-    "staging": "DholeWeb staging workflow #45042744451 succeeded",
+    "source": "user explicitly requested modifica master y develop",
+    "staging": "DholeWeb staging run 45054863615 completed success",
     "productionWebAutoDeploy": true
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "DH-406 user requests master/develop; automatic production deploy of Web is allowed after successful staging and PR checks, not yet executed.",
+  "productionAuthorizationScope": "DH-406: user explicitly requested modifying master and develop; selective merge to Web/master triggers authorized automatic Web production deployment. No Operations/backend or infrastructure deploy.",
   "releaseMasterIntegrationRequested": true,
-  "releaseProductionDeploymentPolicy": "Authorized: selective DH-405 merge into DholeSystem/master and DholeWeb/master; Web production deploy is automatic. No unrelated service or infrastructure deployments.",
+  "releaseProductionDeploymentPolicy": "Web auto-deploy on master merge authorized for DH-406 only. No backend or additional services deployed.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
