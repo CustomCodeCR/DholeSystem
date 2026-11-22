@@ -1,3 +1,9 @@
+## [1.117.1] - 2026-11-22 · DH-20261122-DHOLE-ERP-411
+
+- PATCH: eliminar las guías de pronunciación de DHOLE ERP. La marca y la expansión Digital Hub for Operations, Logistics & Ecosystem permanecen, sin pronunciación oficial.
+- Corregir prueba Docker de DholeWeb cuando .env está excluido de la imagen; validar staging antes de integrar master.
+- Versionamiento coordinado DholeWeb 1.117.0 → 1.117.1, DholeSystem 1.117.0 → 1.117.1, ecosistema 1.117.0 → 1.117.1; otros 15 componentes sin cambios.
+
 ## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410
 
 - MINOR: nombre corporativo de la plataforma interna DHOLE ERP, acompañado de la pronunciación «dóul» y de la expansión Digital Hub for Operations, Logistics & Ecosystem en DholeWeb.
