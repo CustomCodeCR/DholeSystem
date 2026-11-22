@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.116.0",
-  "ecosystemVersion": "1.116.0",
-  "releaseId": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-  "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+  "version": "1.116.1",
+  "ecosystemVersion": "1.116.1",
+  "releaseId": "DH-20261122-PRICING-RETURN-EMAIL-409",
+  "releaseStatus": "candidate-master-ci-pending",
+  "businessReleaseId": "DH-20261122-PRICING-RETURN-EMAIL-409"
 }

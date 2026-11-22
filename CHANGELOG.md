@@ -1,3 +1,9 @@
+## [1.116.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-EMAIL-409 (master selective candidate)
+
+- PATCH: plantilla HTML de devolución compatible con Outlook, asunto sin UUID, cliente/ruta/modalidad y motivo claros, botón «Corregir y reenviar solicitud». UUID solo en URL técnica y correlación interna.
+- Eliminar UUID del modal Pricing en DholeWeb. Pricing 1.26.25 → 1.26.26; Web/System 1.116.0 → 1.116.1; otros 14 componentes conservan versiones.
+- Solo ajustes necesarios de Pricing/Web/System, sin combinar modificaciones de otras ramas. Mantiene REST, SignalR, Redis Outbox/Inbox y trazabilidad. Requiere staging y autorización de producción antes del merge master.
+
 ## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
 
 - MINOR: nueva selección de equipo de Aperturas antes de crear IDTRA, con control del pool de dos validadores y reintentos de asignación.
