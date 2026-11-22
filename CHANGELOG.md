@@ -1,3 +1,9 @@
+## [1.112.0] - 2026-11-22 · DH-20261122-OPERATIONS-PARITY-401
+
+- MINOR: coordinación del wizard de apertura manual en DholeWeb y validaciones de equipo en DholeOperationsService.
+- Versiones: DholeSystem/DholeWeb 1.111.1 → 1.112.0; DholeOperationsService 0.15.0 → 0.15.1. Los otros microservicios mantienen versiones existentes y aparecen en el manifiesto global.
+- Sin cambios en DholeApiGateway, rutas REST ni protocolo SignalR. CI y pruebas de staging antes de integrar master; producción sin autorización de despliegue.
+
 ## [1.111.1] - 2026-11-21 · DH-20261121-OPERATIONS-STEPPER-400 (patch visual del wizard compartido)
 
 - PATCH Web/System 1.111.0 → 1.111.1. El componente compartido PricingWizardStepper usa la cantidad real de pasos: 4 columnas para Pricing y 5 para Aperturas en escritorio, sin crear una segunda fila artificial. Móvil conserva su disposición desplazable.
