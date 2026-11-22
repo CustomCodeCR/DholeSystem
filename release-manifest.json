@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+  "releaseId": "DH-20261122-OPERATIONS-PARITY-401",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.111.1",
+  "ecosystemVersion": "1.112.0",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "fix/pricing-p7-terrestrial-freight-398",
-    "master": "release/dh-398-master"
+    "develop": "feature/DH-20261122-OPERATIONS-PARITY-401",
+    "master": "release/DH-20261122-OPERATIONS-PARITY-401-master"
   },
-  "candidateBranch": "release/operations-pricing-stepper-400-master",
+  "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.111.1",
+      "version": "1.112.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/operations-pricing-stepper-400-master",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/operations-pricing-stepper-400-master",
-      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.111.1",
+      "version": "1.112.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/operations-pricing-stepper-400-master",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/operations-pricing-stepper-400-master",
-      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -142,17 +142,18 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.15.0",
+      "version": "0.15.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/operations-pricing-wizard-399-master",
+      "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/operations-pricing-wizard-399-master"
+      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
   "policyCheck": "PATCH Web/System 1.111.0 → 1.111.1; all other 15 components unchanged.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Release master checks pending"
   ],
@@ -162,7 +163,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
     "Responsive shared PricingWizardStepper uses actual 4 or 5 columns on desktop; mobile remains scrollable."
@@ -231,7 +233,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+  "businessReleaseId": "DH-20261122-OPERATIONS-PARITY-401",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1206,5 +1208,26 @@
     "branch": "fix/operations-pricing-stepper-400",
     "masterRequested": true,
     "master": true
+  },
+  "operationsOpeningParity401": {
+    "type": "MINOR",
+    "components": [
+      "DholeSystem",
+      "DholeWeb",
+      "DholeOperationsService"
+    ],
+    "webVersion": "1.112.0",
+    "operationsVersion": "0.15.1",
+    "origin": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-authorized"
+    },
+    "changes": [
+      "Pricing-aligned manual opening wizard",
+      "Operations full-equipment validation for FTL/multimodal",
+      "Pricing container selector and Config catalogs reused"
+    ]
   }
 }
