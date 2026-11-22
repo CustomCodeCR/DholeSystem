@@ -1,3 +1,9 @@
+## [1.110.5] - 2026-11-21 · DH-20261121-PRICING-VGM-FCL-FINAL-397 (candidate master)
+
+- PATCH global System/Web 1.110.4 → 1.110.5; PricingService 1.26.23 → 1.26.24; resto de versiones sin cambios.
+- Cierre de la validación Incoterm para VGM Miami y FCL Panamá independiente, mismo release para staging y master después de CI.
+
+
 ## [1.110.4] - 2026-11-21 · DH-20261121-PRICING-MISSING-LINES-396 (candidate master)
 
 - PATCH global System/Web 1.110.3 → 1.110.4 y Pricing 1.26.22 → 1.26.23. Las versiones de los demás componentes permanecen iguales.
