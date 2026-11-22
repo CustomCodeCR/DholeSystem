@@ -1,3 +1,10 @@
+## [1.113.0] - 2026-11-22 · DH-20261122-OPERATIONS-UX-403 (DholeSystem / DholeWeb · aperturas manuales)
+
+- MINOR: DholeWeb y DholeSystem 1.112.1 → 1.113.0, con tres etapas de apertura manual alineadas a Pricing y nueva integración visual de cliente CRM, CABYS y respaldo documental.
+- Conserva el contrato REST de DholeOperationsService 0.15.1; sus campos técnicos de prioridad/complejidad permanecen como metadatos con valores predeterminados, sin captura manual.
+- El manifiesto de 17 componentes registra las versiones existentes y marca DholeWeb/DholeSystem como candidatos. Los demás componentes permanecen sin cambios.
+- Integrar primero develop, verificar CI/staging y después promover a master el mismo release; producción requiere autorización expresa.
+
 ## [1.112.1] - 2026-11-22 · DH-20261122-PRICING-OPERATIONS-STEPPER-402 (DholeWeb / DholeSystem · visual Pricing)
 
 - PATCH: Coordinación del encabezado y navegación de Pricing con el componente compartido de Aperturas, conservando borradores múltiples, descarte y autoguardado existentes.
