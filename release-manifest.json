@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-OPENING-POLISH-406",
+  "releaseId": "DH-20261122-PRICING-RETURN-407",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.115.0",
-  "status": "master-promotion-authorized",
+  "ecosystemVersion": "1.115.1",
+  "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-OPERATIONS-OPENING-POLISH-406",
-    "master": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master"
+    "develop": "feature/DH-20261122-PRICING-RETURN-407",
+    "master": "release/DH-20261122-PRICING-RETURN-407-master"
   },
-  "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
+  "candidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.115.0",
-      "mergeState": "master-promotion-authorized",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
+      "version": "1.115.1",
+      "mergeState": "candidate-master-ci-pending",
+      "candidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
       "candidateSha": null,
-      "developMergeSha": "38fec4d1d6873cd5e135b8012d63ae5ab6948152",
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-POLISH-406"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.115.0",
-      "mergeState": "master-promotion-authorized",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
+      "version": "1.115.1",
+      "mergeState": "candidate-master-ci-pending",
+      "candidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
       "candidateSha": null,
-      "developMergeSha": "c373d8ef1fd6ccce08b7bfc9cfb3d2badf795cb8",
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-OPENING-POLISH-406-master",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-OPENING-POLISH-406"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.24",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396b-incoterm-guard",
-      "masterCandidateBranch": "release/dh-396-master",
+      "version": "1.26.25",
+      "mergeState": "candidate-master-ci-pending",
+      "candidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
       "developMergeSha": null,
       "candidateSha": null
     },
