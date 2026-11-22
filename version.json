@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.110.4",
-  "ecosystemVersion": "1.110.4",
-  "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+  "version": "1.110.5",
+  "ecosystemVersion": "1.110.5",
+  "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
   "releaseStatus": "candidate-master-ci-pending",
-  "businessReleaseId": "DH-20261121-PRICING-MISSING-LINES-396"
+  "businessReleaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397"
 }
