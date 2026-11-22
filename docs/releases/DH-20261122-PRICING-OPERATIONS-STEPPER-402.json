@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "component": "DholeSystem",
+  "releaseId": "DH-20261122-PRICING-OPERATIONS-STEPPER-402",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.112.1",
+  "branch": "feature/DH-402-pricing-opening-ui-develop",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.112.0",
+      "version": "1.112.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.112.0",
+      "version": "1.112.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeOperationsService",
+      "previousVersion": "0.15.1",
+      "version": "0.15.1",
+      "changed": false
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "previousVersion": "1.26.24",
+      "version": "1.26.24",
+      "changed": false
+    }
+  ],
+  "productionDeploymentAuthorized": false,
+  "ci": "pending",
+  "staging": "pending",
+  "changes": [
+    "Shared Operations/Pricing stepper and Pricing header",
+    "Pricing draft autosave/discard/multiple drafts preserved"
+  ]
+}
