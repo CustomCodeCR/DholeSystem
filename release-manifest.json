@@ -153,7 +153,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
     "Responsive shared PricingWizardStepper uses actual 4 or 5 columns on desktop; mobile remains scrollable."
@@ -213,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+  "businessReleaseId": "DH-20261122-OPERATIONS-PARITY-401",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1234,5 +1235,26 @@
     "operationsVersion": "0.15.0",
     "branch": "fix/operations-pricing-stepper-400",
     "masterRequested": true
+  },
+  "operationsOpeningParity401": {
+    "type": "MINOR",
+    "components": [
+      "DholeWeb",
+      "DholeOperationsService",
+      "DholeSystem"
+    ],
+    "webVersion": "1.112.0",
+    "operationsVersion": "0.15.1",
+    "origin": "feature/DH-20261122-OPERATIONS-PARITY-401",
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-authorized"
+    },
+    "changes": [
+      "Pricing-aligned manual opening wizard",
+      "Operations full-equipment validation for FTL and multimodal",
+      "Pricing container selector and real Config catalogs reused"
+    ]
   }
 }
