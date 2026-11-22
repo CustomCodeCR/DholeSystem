@@ -1,3 +1,11 @@
+## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
+
+- MINOR: el formulario de Aperturas exige seleccionar equipo operativo antes de crear el trámite y muestra el número de validadores disponibles. El backend acepta asignación restringida del creador y verifica dos validadores distintos, activos, con permisos reales.
+- Peso y peso por contenedor/furgón se dejan para Coordinación Origen; Estibable aplica exclusivamente en LCL/LTL. Conserva datos históricos editados.
+- Nuevo resumen agrupado en wizard y drawer de Trámites: cliente/comercial, ruta POL/POE/POD, carga, condiciones, documentos y asignación; mantiene el detalle en pantalla completa.
+- Versión global de ecosistema 1.115.1 → 1.116.0; DholeWeb 1.116.0; DholeOperationsService 0.16.0; los otros 14 componentes sin cambios.
+- Candidato en rama intermedia para develop/staging y master posterior sujeto a autorización expresa para producción.
+
 ## [1.115.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-407
 
 - PATCH coordinado de devoluciones de solicitudes comerciales en Pricing: UX «Devolver tarifa» / «Devuelta por Pricing», motivo obligatorio y revisión del historial íntegro desde Ventas.

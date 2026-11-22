@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-PRICING-RETURN-407",
+  "releaseId": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.115.1",
+  "ecosystemVersion": "1.116.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-PRICING-RETURN-407",
-    "master": "release/DH-20261122-PRICING-RETURN-407-master"
+    "develop": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+    "master": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
   },
-  "candidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+  "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.115.1",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+      "version": "1.116.0",
+      "mergeState": "intermediate-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.115.1",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+      "version": "1.116.0",
+      "mergeState": "intermediate-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -132,22 +132,23 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.15.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
+      "version": "0.16.0",
+      "mergeState": "intermediate-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
     }
   ],
-  "policyCheck": "MINOR: DholeWeb and DholeSystem 1.114.0 -> 1.115.0, remaining 15 components unchanged.",
+  "policyCheck": "MINOR: DholeWeb 1.115.1 -> 1.116.0, DholeSystem 1.115.1 -> 1.116.0, DholeOperationsService 0.15.1 -> 0.16.0; all 14 other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb/DholeSystem candidate CI",
-    "Staging deploy and smoke checks",
-    "Master release branch CI"
+    "Backend .NET tests/build",
+    "DholeWeb prebuild and Vue typecheck",
+    "DholeSystem universal version checks",
+    "staging validation before master"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -156,13 +157,25 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeOperationsService"
   ],
-  "changes": [
-    "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
-    "Autoguardado, múltiples borradores y descarte conservados",
-    "Motivo de modificación de cotización validado antes de navegar"
-  ],
+  "changes": {
+    "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
+    "1": "Autoguardado, múltiples borradores y descarte conservados",
+    "2": "Motivo de modificación de cotización validado antes de navegar",
+    "operationsAssignment408": {
+      "id": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "components": [
+        "DholeOperationsService",
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "frontEndTeamSelection": true,
+      "apertureWeightRemoved": true,
+      "conditionalStackable": true,
+      "structuredSummary": true
+    }
+  },
   "stagingValidation": {
     "status": "pending"
   },
@@ -218,7 +231,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-OPERATIONS-OPENING-POLISH-406",
+  "businessReleaseId": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -654,7 +667,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "DH-406 manual operations opening autosave, Pricing-like equipment cards, origin legend removal, CRM active contacts default and final create + team validation assignment.",
+  "releaseSummary": "DH-408 Aperturas choose team before create, two-person validation eligibility diagnostics, no weight at opening, stackable only LCL/LTL, redesigned summary and case drawer.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1009,7 +1022,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User requested develop/master promotion of DH-406; production Web auto-deploy will occur only after green staging and checks.",
+  "productionAuthorizationScope": "Only development candidate for DH-408; master/production deployment requires explicit approval after staging and CI.",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1048,12 +1061,16 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "previousVersion": "1.114.0",
-      "newVersion": "1.115.0"
+      "previousVersion": "1.115.1",
+      "newVersion": "1.116.0"
     },
     "DholeSystem": {
-      "previousVersion": "1.114.0",
-      "newVersion": "1.115.0"
+      "previousVersion": "1.115.1",
+      "newVersion": "1.116.0"
+    },
+    "DholeOperationsService": {
+      "previousVersion": "0.15.1",
+      "newVersion": "0.16.0"
     }
   },
   "pricingP7EditRelease": {
