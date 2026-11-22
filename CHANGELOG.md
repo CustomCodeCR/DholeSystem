@@ -1,8 +1,18 @@
-## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410
+## [1.117.1] - 2026-11-22 · DH-20261122-DHOLE-ERP-411 (master integrated candidate)
 
-- MINOR: identidad corporativa de la plataforma interna DHOLE ERP; indicación «dóul» y significado Digital Hub for Operations, Logistics & Ecosystem en DholeWeb.
-- DholeSystem 1.116.0 → 1.117.0; DholeWeb 1.116.0 → 1.117.0; otros 15 componentes sin modificaciones. DHOLE CLOUD, DHOLE X4 y GIO no se actualizan.
-- Master requiere integración previa a develop, CI, staging y aprobación explícita de despliegue, pues el push del frontend a master despliega automáticamente. No se alteran REST, SignalR ni Redis Outbox/Inbox.
+- PATCH: DHOLE ERP no tiene pronunciación obligatoria: eliminadas las guías visibles, tooltips y claves de idioma. La sigla corporativa y la marca permanecen.
+- Corregido test:branding en Docker sin .env. Coordinación DholeWeb/DholeSystem 1.117.0 → 1.117.1; el resto de componentes conserva versiones. Validaciones staging necesarias antes de master.
+
+## [1.117.0] - 2026-11-22 · DH-20261122-DHOLE-ERP-410 (branding integrated)
+
+- MINOR: identidad corporativa de la plataforma interna DHOLE ERP: nombre visible en acceso, navegación, metadata, logo y mensajes. Digital Hub for Operations, Logistics & Ecosystem.
+- DholeWeb y DholeSystem 1.116.1 → 1.117.0. Reservados DHOLE CLOUD, DHOLE X4 y GIO. Contratos REST/SignalR, outbox/inbox y rutas sin cambios.
+
+## [1.116.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-EMAIL-409 (master selective candidate)
+
+- PATCH: plantilla HTML de devolución compatible con Outlook, asunto sin UUID, cliente/ruta/modalidad y motivo claros, botón «Corregir y reenviar solicitud». UUID solo en URL técnica y correlación interna.
+- Eliminar UUID del modal Pricing en DholeWeb. Pricing 1.26.25 → 1.26.26; Web/System 1.116.0 → 1.116.1; otros 14 componentes conservan versiones.
+- Solo ajustes necesarios de Pricing/Web/System, sin combinar modificaciones de otras ramas. Mantiene REST, SignalR, Redis Outbox/Inbox y trazabilidad. Requiere staging y autorización de producción antes del merge master.
 
 ## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
 

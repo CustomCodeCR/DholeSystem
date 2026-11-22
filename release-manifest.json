@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-DHOLE-ERP-410",
+  "releaseId": "DH-20261122-DHOLE-ERP-411",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.117.0",
+  "ecosystemVersion": "1.117.1",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-DHOLE-ERP-410",
+    "develop": "feature/DH-20261122-DHOLE-ERP-411",
     "master": "release/DH-20261122-DHOLE-ERP-410-master"
   },
   "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
@@ -15,13 +15,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.117.0",
+      "version": "1.117.1",
       "mergeState": "candidate-master-ci-pending",
       "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
-      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-410"
+      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-411"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.117.0",
+      "version": "1.117.1",
       "mergeState": "candidate-master-ci-pending",
       "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
-      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-410"
+      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-411"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -73,13 +73,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.25",
+      "version": "1.26.26",
       "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261122-PRICING-RETURN-407-master",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-407",
+      "candidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
+      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-407-master"
+      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -147,15 +147,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
     }
   ],
-  "policyCheck": "MINOR: DholeSystem 1.116.0 → 1.117.0; DholeWeb 1.116.0 → 1.117.0 por identidad DHOLE ERP; otros 15 componentes sin cambios.",
+  "policyCheck": "MINOR + PATCH: DHOLE ERP 1.116.1 → 1.117.0 → 1.117.1 en DholeWeb y DholeSystem; los demás componentes mantienen versiones.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "DholeWeb npm run build/type-check",
-    "DholeWeb test:branding y gates SemVer",
-    "DholeSystem manifest validation",
-    "Staging comprobado antes de master",
-    "Master auto-despliega producción: falta aprobación explícita"
+    "DholeWeb CI completo en ambas ramas",
+    "DholeSystem validación de manifiesto",
+    "Staging de develop exitoso antes de master"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -163,7 +161,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -183,21 +182,21 @@
     },
     "branding410": {
       "releaseId": "DH-20261122-DHOLE-ERP-410",
-      "brand": "DHOLE",
-      "platform": "DHOLE ERP",
-      "productType": "Sistema de Gestión Interna",
-      "pronunciation": "dóul",
+      "brand": "DHOLE ERP",
       "acronym": "Digital Hub for Operations, Logistics & Ecosystem",
-      "deferred": [
-        "DHOLE CLOUD",
-        "DHOLE X4",
-        "GIO"
-      ],
-      "technicalContractsChanged": false
+      "pronunciation": "not-prescribed"
+    },
+    "branding411": {
+      "releaseId": "DH-20261122-DHOLE-ERP-411",
+      "pronunciationPolicy": "unrestricted",
+      "guideDisplayed": false,
+      "dockerTestFix": true
     }
   },
   "stagingValidation": {
-    "status": "pending"
+    "status": "pending",
+    "previousFailure": "DH-410 .env file missing in Docker test",
+    "fixedIn": "DH-20261122-DHOLE-ERP-411"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -251,7 +250,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-DHOLE-ERP-410",
+  "businessReleaseId": "DH-20261122-DHOLE-ERP-411",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
