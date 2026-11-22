@@ -152,8 +152,8 @@
     }
   ],
   "policyCheck": "Coordinated MINOR+PATCH Web/System promotion 1.112.1 → 1.113.0 → 1.113.1; remaining 15 components unchanged.",
-  "mergeState": "master-candidate-awaiting-ci",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "master-pr-ci-validation",
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Master PR CI required before merge",
     "Live manual opening smoke test after production deploy"
@@ -1060,7 +1060,7 @@
     },
     "target": "master"
   },
-  "productionDeploymentAuthorizationScope": "El usuario solicitó expresamente arreglar el flujo de modificación y subirlo a master y develop (2026-11-21); master tiene despliegue automático. Integración condicionada a CI y despliegue de staging.",
+  "productionDeploymentAuthorizationScope": "User authorized DH-404 promotion to master; automated production deploy follows master merge and is not marked completed or authorized by the CI candidate.",
   "pricingWizardCosts390": {
     "releaseId": "DH-20261121-WIZARD-COSTS-390",
     "date": "2026-11-21",
