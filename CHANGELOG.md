@@ -1,3 +1,10 @@
+## [1.115.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-POLISH-406 (DholeSystem / DholeWeb)
+
+- MINOR: apertura manual con autoguardado local del wizard, creación de IDTRA al confirmar, asignación de validadores por pool operativo, y reintento sin duplicados.
+- UI de contenedores/furgones reutiliza Pricing con exclusión de tipos repetidos, peso por equipo, selectores de bulto/naturaleza, contactos de CRM preseleccionados y opción de desmarcar.
+- Elimina la leyenda de Coordinación Origen y reemplaza la acción final por «Crear y asignar a equipo». Conserva borradores, data histórica, API REST, realtime SignalR e integración con Config/CRM/Storage.
+- DholeWeb/DholeSystem 1.114.0 → 1.115.0. Otros 15 componentes sin cambios. CI, staging y validaciones requeridos antes del merge a master; Web se despliega automáticamente al integrar master con autorización actual.
+
 ## [1.114.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-UX-405 (DholeSystem / DholeWeb)
 
 - MINOR de DholeWeb y DholeSystem 1.113.1 → 1.114.0. Rediseño de apertura manual con selector de modalidad sin Multimodal para nuevos trámites, historial multimodal preservado, ejecutivo comercial obtenido desde CRM, contactos operativos seleccionables y estados visuales de condiciones de mercancía/muellaje.
