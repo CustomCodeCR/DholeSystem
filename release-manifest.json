@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
+  "releaseId": "DH-20261121-PRICING-LAST-THREE-FIXES-394",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.1",
+  "ecosystemVersion": "1.110.2",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-393-pricing-tier-miami-panama",
-    "master": "fix/DH-393-pricing-tier-miami-panama"
+    "develop": "fix/DH-394-pricing-final-three-cases",
+    "master": "fix/DH-394-pricing-final-three-cases"
   },
-  "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+  "candidateBranch": "fix/DH-394-pricing-final-three-cases",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.1",
+      "version": "1.110.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "candidateBranch": "fix/DH-394-pricing-final-three-cases",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
-      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
+      "masterCandidateBranch": "fix/DH-394-pricing-final-three-cases",
+      "developCandidateBranch": "fix/DH-394-pricing-final-three-cases"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.1",
+      "version": "1.110.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "candidateBranch": "fix/DH-394-pricing-final-three-cases",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
-      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
+      "masterCandidateBranch": "fix/DH-394-pricing-final-three-cases",
+      "developCandidateBranch": "fix/DH-394-pricing-final-three-cases"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.20",
+      "version": "1.26.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-393-pricing-tier-miami-panama",
-      "developCandidateBranch": "fix/DH-393-pricing-tier-miami-panama",
+      "candidateBranch": "fix/DH-394-pricing-final-three-cases",
+      "developCandidateBranch": "fix/DH-394-pricing-final-three-cases",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-393-pricing-tier-miami-panama"
+      "masterCandidateBranch": "fix/DH-394-pricing-final-three-cases"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -139,7 +139,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/Web 1.110.0 -> 1.110.1; DholePricingService 1.26.19 -> 1.26.20; remaining component versions unchanged.",
+  "policyCheck": "PATCH: DholeSystem/Web 1.110.1 -> 1.110.2, Pricing 1.26.20 -> 1.26.21; other components unchanged. Three final pricing defects.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
+  "businessReleaseId": "DH-20261121-PRICING-LAST-THREE-FIXES-394",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,16 +1047,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.110.0",
-      "newVersion": "1.110.1"
+      "previousVersion": "1.110.1",
+      "newVersion": "1.110.2"
     },
     "DholeWeb": {
-      "previousVersion": "1.110.0",
-      "newVersion": "1.110.1"
+      "previousVersion": "1.110.1",
+      "newVersion": "1.110.2"
     },
     "DholePricingService": {
-      "previousVersion": "1.26.19",
-      "newVersion": "1.26.20"
+      "previousVersion": "1.26.20",
+      "newVersion": "1.26.21"
     }
   },
   "pricingP7EditRelease": {
@@ -1150,5 +1150,24 @@
       "No deployment to production without express approval",
       "Run coordinated branch and version gates"
     ]
+  },
+  "pricingFinalThreeFixes394": {
+    "releaseId": "DH-20261121-PRICING-LAST-THREE-FIXES-394",
+    "webVersion": "1.110.2",
+    "pricingVersion": "1.26.21",
+    "systemVersion": "1.110.2",
+    "changes": [
+      "LTL Panama 4 charges via POL to physical POE mapping",
+      "FCL multimodal separate inland freight",
+      "Own LCL Miami missing commercial FAK rows"
+    ],
+    "stagingVerified": false,
+    "ci": "pending",
+    "productionAuthorized": false,
+    "targetBranches": [
+      "develop",
+      "master"
+    ],
+    "sourceBranch": "fix/DH-394-pricing-final-three-cases"
   }
 }
