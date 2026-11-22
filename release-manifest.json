@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
+  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.6",
+  "ecosystemVersion": "1.111.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
     "develop": "fix/pricing-p7-terrestrial-freight-398",
     "master": "release/dh-396-master"
   },
-  "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
+  "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.6",
+      "version": "1.111.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
+      "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
+      "masterCandidateBranch": "feature/operations-pricing-wizard-ui-20261121",
+      "developCandidateBranch": "feature/operations-pricing-wizard-ui-20261121"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.6",
+      "version": "1.111.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-p7-terrestrial-freight-398",
+      "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
+      "masterCandidateBranch": "feature/operations-pricing-wizard-ui-20261121",
+      "developCandidateBranch": "feature/operations-pricing-wizard-ui-20261121"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -139,28 +139,25 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: DholeSystem/DholeWeb 1.110.5→1.110.6; PricingService 1.26.24 and other 14 components unchanged; P7 FCL multimodal shows authoritative terrestrial Freight alongside maritime Freight (DH-398).",
+  "policyCheck": "MINOR System/Web 1.110.6 → 1.111.0; Operations remains 0.15.0; all other 15 component versions retained.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "End-to-end authenticated staging UAT pending",
-    "Pricing accepted QUO event + automatic opening still not implemented",
-    "CRM/SRM catalog selectors and contact verification pending"
+    "CI and staging checks pending",
+    "Pricing accepted QUO automatic Operations opening is separate integration"
   ],
   "validationEvidence": {
     "ci": "pending",
-    "staging": "pending",
-    "production": "not deployed"
+    "staging": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Global IDTRA counter without user series and no 999999 ceiling",
-    "Full-page manual operations form and versioned edit",
-    "Preserve opening logistics draft JSONB with read-only summary and workflow completeness checks",
-    "Fix Pricing P7 applicable multimodal terrestrial Freight with async reconciliation and retained maritime freight"
+    "Shared Pricing wizard stepper between Pricing and Operations",
+    "Operations five-step opening full page",
+    "Pricing catalog selectors reused in Operations with legacy data fallback"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -217,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
+  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1221,5 +1218,14 @@
     "stagingVerified": false,
     "ci": "pending",
     "productionAuthorized": false
+  },
+  "operationsPricingWizard399": {
+    "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+    "webVersion": "1.111.0",
+    "systemVersion": "1.111.0",
+    "operationsVersion": "0.15.0",
+    "pricingFormsShared": true,
+    "masterRequested": true,
+    "automaticQuoIntegration": "pending"
   }
 }

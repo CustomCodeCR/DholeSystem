@@ -1,3 +1,10 @@
+## [1.111.0] - 2026-11-21 · DH-20261121-OPERATIONS-PRICING-UI-399 (Operations UI comparte componentes de Pricing)
+
+- MINOR coordinado DholeWeb/DholeSystem 1.110.6 → 1.111.0; Operations conserva 0.15.0, Pricing conserva su versión y los otros 15 componentes sus versiones actuales.
+- Apertura manual en cinco etapas con navegación visual de Pricing y controles compartidos: PricingWizardStepper extraído del editor de tarifas, PricingLocationSearchSelect para POL/POE/POD/WHS, PricingCrystalMultiSelect para servicios, DhInput/DhSelect/DhCheckbox/DhTextarea y mismos catálogos de Config.
+- Borradores incompletos y edición versionada conservan las referencias ya guardadas; no modifican costos ni líneas comerciales y no cambian el IDTRA generado por PostgreSQL.
+- CI/staging requieren validación; integración automática de QUO aceptada a Operations se mantiene pendiente.
+
 ## [1.110.6] - 2026-11-21 · DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398 (candidate develop)
 
 - PATCH global: DholeSystem/DholeWeb 1.110.5 → 1.110.6; DholePricingService 1.26.24 y otros componentes conservan sus versiones actuales.
