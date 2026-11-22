@@ -1,3 +1,10 @@
+## [1.114.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-UX-405 (master candidate)
+
+- MINOR: operaciones apertura manual con selección solo marítimo, aéreo y terrestre; tarjetas de botones accesibles y mejora del ejecutivo comercial CRM, incluidos contactos operativos reales por ID.
+- Histórico de modalidad Multimodal y borradores preservados. División CRM de solo lectura hasta disponer de contrato. Documento v1.2 de brechas en DholeWeb.
+- DholeWeb/DholeSystem 1.113.1 → 1.114.0; los otros quince componentes no cambian. REST, SignalR y Outbox/Inbox sin cambios.
+- Release selectivo desde master, sin merge general develop. Staging y CI son obligatorios; producción sin autorización en DH-405.
+
 ## [1.113.1] - 2026-11-22 · DH-20261122-OPERATIONS-NO-SERVICES-404 (master: selective operations opening promotion)
 
 - PATCH sobre 1.113.0: eliminar por completo la pantalla 5 de Servicios de la apertura manual y sus campos de recolecta, entrega, agentes, naviera y merchant; conservar el WHS obligatorio en Cliente y ruta para FCA con LCL/LTL.
