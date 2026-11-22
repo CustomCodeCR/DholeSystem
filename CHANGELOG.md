@@ -1,3 +1,9 @@
+## [1.112.1] - 2026-11-22 · DH-20261122-PRICING-OPERATIONS-STEPPER-402 (DholeWeb / DholeSystem · visual Pricing)
+
+- PATCH: Coordinación del encabezado y navegación de Pricing con el componente compartido de Aperturas, conservando borradores múltiples, descarte y autoguardado existentes.
+- DholeSystem y DholeWeb 1.112.0 → 1.112.1; restantes microservicios sin cambios, incluidos DholeOperationsService 0.15.1, DholePricingService 1.26.24 y DholeApiGateway 1.11.0.
+- No modifica REST ni SignalR. CI y staging obligatorios antes de integrar master; producción sin autorización de despliegue.
+
 ## [1.112.0] - 2026-11-22 · DH-20261122-OPERATIONS-PARITY-401
 
 - MINOR: release coordinado de apertura manual alineada con Pricing, con DholeWeb 1.112.0 y DholeOperationsService 0.15.1.
