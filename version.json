@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.111.0",
-  "ecosystemVersion": "1.111.0",
-  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+  "version": "1.111.1",
+  "ecosystemVersion": "1.111.1",
+  "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399"
+  "businessReleaseId": "DH-20261121-OPERATIONS-STEPPER-400"
 }
