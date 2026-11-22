@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+  "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.111.0",
+  "ecosystemVersion": "1.111.1",
   "status": "candidate-master-ci-pending",
   "branches": {
     "develop": "fix/pricing-p7-terrestrial-freight-398",
     "master": "release/dh-398-master"
   },
-  "candidateBranch": "release/operations-pricing-wizard-399-master",
+  "candidateBranch": "release/operations-pricing-stepper-400-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.111.0",
+      "version": "1.111.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/operations-pricing-wizard-399-master",
+      "candidateBranch": "release/operations-pricing-stepper-400-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/operations-pricing-wizard-399-master",
+      "masterCandidateBranch": "release/operations-pricing-stepper-400-master",
       "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
@@ -41,12 +41,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.111.0",
+      "version": "1.111.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/operations-pricing-wizard-399-master",
+      "candidateBranch": "release/operations-pricing-stepper-400-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/operations-pricing-wizard-399-master",
+      "masterCandidateBranch": "release/operations-pricing-stepper-400-master",
       "developCandidateBranch": "fix/pricing-p7-terrestrial-freight-398"
     },
     {
@@ -150,26 +150,22 @@
       "masterCandidateBranch": "release/operations-pricing-wizard-399-master"
     }
   ],
-  "policyCheck": "MINOR Web/System 1.110.6 -> 1.111.0; Operations 0.14.0 -> 0.15.0 on master, no unrelated component changes",
+  "policyCheck": "PATCH Web/System 1.111.0 → 1.111.1; all other 15 components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "Master build/CI and production validation pending",
-    "Automatic QUO acceptance to Operations outside this UI release"
+    "Release master checks pending"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "develop release pending verification"
+    "ci": "candidate",
+    "staging": "develop auto-deploy successful verification required"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Shared Pricing wizard stepper between Pricing and Operations",
-    "Operations five-step opening full page",
-    "Pricing catalog selectors reused in Operations with legacy data fallback"
+    "Responsive shared PricingWizardStepper uses actual 4 or 5 columns on desktop; mobile remains scrollable."
   ],
   "stagingValidation": {
     "status": "automated-deployment-passed-functional-pending",
@@ -235,7 +231,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+  "businessReleaseId": "DH-20261121-OPERATIONS-STEPPER-400",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -684,7 +680,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "User explicitly requested integrating release into master in this conversation",
+  "productionDeploymentAuthorization": "User explicitly requested master for Pricing/Operations wizard",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -1201,5 +1197,14 @@
     "masterRelease": true,
     "operationsMasterUpgrade": "0.14.0 -> 0.15.0",
     "productionRequested": true
+  },
+  "operationsStepper400": {
+    "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+    "webVersion": "1.111.1",
+    "systemVersion": "1.111.1",
+    "operationsVersion": "0.15.0",
+    "branch": "fix/operations-pricing-stepper-400",
+    "masterRequested": true,
+    "master": true
   }
 }

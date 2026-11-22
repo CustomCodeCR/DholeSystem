@@ -1,3 +1,8 @@
+## [1.111.1] - 2026-11-21 · DH-20261121-OPERATIONS-STEPPER-400 (patch visual del wizard compartido)
+
+- PATCH Web/System 1.111.0 → 1.111.1. El componente compartido PricingWizardStepper usa la cantidad real de pasos: 4 columnas para Pricing y 5 para Aperturas en escritorio, sin crear una segunda fila artificial. Móvil conserva su disposición desplazable.
+- Operations 0.15.0 y los otros 14 componentes sin cambios. Pruebas de UI y políticas de versión requeridas antes del batch master.
+
 ## [1.111.0] - 2026-11-21 · DH-20261121-OPERATIONS-PRICING-UI-399 (Operations UI comparte componentes de Pricing)
 
 - MINOR coordinado DholeWeb/DholeSystem 1.110.6 → 1.111.0; Operations conserva 0.15.0, Pricing conserva su versión y los otros 15 componentes sus versiones actuales.
