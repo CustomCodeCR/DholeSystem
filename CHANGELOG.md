@@ -1,3 +1,8 @@
+## [1.110.3] - 2026-11-21 · DH-20261121-PRICING-FINAL-POLISH-395 (candidate master)
+
+- PATCH coordinado: DholeSystem y DholeWeb 1.110.2 → 1.110.3; DholePricingService 1.26.21 → 1.26.22. Resto de componentes mantiene su versión.
+- Tres pendientes finales de Pricing: VGM Miami, FCL Freight independiente de Bunker y días de tránsito editables en LTL. CI y staging obligatorios.
+
 ## [1.110.2] - 2026-11-21 · DH-20261121-PRICING-LAST-THREE-FIXES-394 (candidate master)
 
 - Coordinación PATCH System/Web 1.110.1 → 1.110.2 y Pricing 1.26.20 → 1.26.21. Los demás componentes mantienen su versión.
