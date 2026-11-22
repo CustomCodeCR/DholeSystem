@@ -163,7 +163,8 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
