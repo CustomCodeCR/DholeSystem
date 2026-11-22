@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.110.6",
-  "ecosystemVersion": "1.110.6",
-  "releaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398",
+  "version": "1.111.0",
+  "ecosystemVersion": "1.111.0",
+  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398"
+  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399"
 }
