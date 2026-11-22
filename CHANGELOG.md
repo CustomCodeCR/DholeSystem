@@ -1,3 +1,8 @@
+## [1.110.4] - 2026-11-21 · DH-20261121-PRICING-MISSING-LINES-396 (candidate develop)
+
+- PATCH global System/Web 1.110.3 → 1.110.4 y Pricing 1.26.22 → 1.26.23. Las versiones de los demás componentes permanecen iguales.
+- Reparación de persistencia de VGM LCL Miami y flete terrestre FCL Panamá separados de Bunker y flete marítimo. Pruebas de regresión y promoción develop → staging → master.
+
 ## [1.110.3] - 2026-11-21 · DH-20261121-PRICING-FINAL-POLISH-395 (candidate develop)
 
 - PATCH global: DholeSystem/Web 1.110.2 → 1.110.3; PricingService 1.26.21 → 1.26.22; demás componentes sin cambios.
