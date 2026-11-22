@@ -1,3 +1,10 @@
+## [1.116.0] - 2026-11-22 · DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408
+
+- MINOR: nueva selección de equipo de Aperturas antes de crear IDTRA, con control del pool de dos validadores y reintentos de asignación.
+- Estibable únicamente para LCL/LTL y peso diferido a Coordinación Origen; vista de resumen y drawer reorganizadas por secciones del expediente.
+- Versionamiento global de DholeWeb y DholeSystem 1.115.1 → 1.116.0 y DholeOperationsService 0.15.1 → 0.16.0, otros 14 componentes sin cambios.
+- PR master pendiente de autorización; no se ejecuta despliegue de producción de Web ni Operations hasta recibirla.
+
 ## [1.115.1] - 2026-11-22 · DH-20261122-PRICING-RETURN-407
 
 - PATCH coordinado de devoluciones de solicitudes comerciales en Pricing: UX «Devolver tarifa» / «Devuelta por Pricing», motivo obligatorio y revisión del historial íntegro desde Ventas.
