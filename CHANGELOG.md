@@ -1,3 +1,10 @@
+## [1.115.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-POLISH-406 (selective master candidate)
+
+- MINOR: apertura manual con autoguardado local recuperable, seleccionadores de naturaleza y bultos, tarjetas FCL/FTL similares a Pricing con control de duplicados, cantidad y peso, y contactos operativos de CRM activos por defecto con opción de desmarcar.
+- Crear IDTRA y asignar validadores de Aperturas mediante el pool existente solo al confirmar; reintentos no duplican el registro. Sin leyenda de Coordinación Origen.
+- DholeWeb y DholeSystem 1.114.0 → 1.115.0; 15 componentes restantes sin modificaciones. Conserva REST, SignalR, audit, borradores y expedientes anteriores.
+- Promoción selectiva y coordinada con staging y CI; solicitud del usuario autoriza integrar master, no otros despliegues de infraestructura.
+
 ## [1.114.0] - 2026-11-22 · DH-20261122-OPERATIONS-OPENING-UX-405 (master candidate)
 
 - MINOR: operaciones apertura manual con selección solo marítimo, aéreo y terrestre; tarjetas de botones accesibles y mejora del ejecutivo comercial CRM, incluidos contactos operativos reales por ID.
