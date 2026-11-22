@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPERATIONS-PARITY-401",
+  "releaseId": "DH-20261122-PRICING-OPERATIONS-STEPPER-402",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.112.0",
+  "ecosystemVersion": "1.112.1",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-OPERATIONS-PARITY-401",
-    "master": "release/DH-20261122-OPERATIONS-PARITY-401-master"
+    "develop": "feature/DH-402-pricing-opening-ui-develop",
+    "master": "release/DH-402-pricing-opening-ui-master"
   },
-  "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+  "candidateBranch": "release/DH-402-pricing-opening-ui-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.112.0",
+      "version": "1.112.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+      "candidateBranch": "release/DH-402-pricing-opening-ui-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
+      "masterCandidateBranch": "release/DH-402-pricing-opening-ui-master",
+      "developCandidateBranch": "feature/DH-402-pricing-opening-ui-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.112.0",
+      "version": "1.112.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
+      "candidateBranch": "release/DH-402-pricing-opening-ui-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-OPERATIONS-PARITY-401-master",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
+      "masterCandidateBranch": "release/DH-402-pricing-opening-ui-master",
+      "developCandidateBranch": "feature/DH-402-pricing-opening-ui-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,23 +151,24 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.111.0 → 1.111.1; all other 15 components unchanged.",
+  "policyCheck": "PATCH DholeSystem y DholeWeb 1.112.0 → 1.112.1; otros 15 componentes sin cambios.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Release master checks pending"
+    "CI y staging pendientes; despliegue de producción sin autorizar"
   ],
   "validationEvidence": {
-    "ci": "candidate",
-    "staging": "develop auto-deploy successful verification required"
+    "ci": "pending",
+    "staging": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Responsive shared PricingWizardStepper uses actual 4 or 5 columns on desktop; mobile remains scrollable."
+    "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
+    "Autoguardado, múltiples borradores y descarte conservados",
+    "Motivo de modificación de cotización validado antes de navegar"
   ],
   "stagingValidation": {
     "status": "automated-deployment-passed-functional-pending",
