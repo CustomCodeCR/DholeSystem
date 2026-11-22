@@ -1,3 +1,10 @@
+## [1.110.6] - 2026-11-21 · DH-20261121-PRICING-TERRESTRIAL-FREIGHT-398 (candidate develop)
+
+- PATCH global: DholeSystem/DholeWeb 1.110.5 → 1.110.6; DholePricingService 1.26.24 y otros componentes conservan sus versiones actuales.
+- Coordinación de la corrección FCL multimodal Pantalla 7: respetar costos marcados aplicables por Pricing y restaurar flete internacional terrestre por USD 2.140 como línea independiente del marítimo y del Bunker al terminar la carga asíncrona.
+- Actualización de manifiesto central, candidato de ramas y releaseComponents; cambios limitados a DholeWeb y DholeSystem (documentación/versionamiento).
+- Pruebas CI y staging pendientes; sin autorización de despliegue a producción.
+
 ## [1.110.5] - 2026-11-21 · DH-20261121-PRICING-VGM-FCL-FINAL-397 (candidate develop)
 
 - PATCH global System/Web 1.110.4 → 1.110.5; PricingService 1.26.23 → 1.26.24; resto de versiones sin cambios.
