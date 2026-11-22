@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+  "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.111.0",
+  "ecosystemVersion": "1.111.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
     "develop": "fix/pricing-p7-terrestrial-freight-398",
     "master": "release/dh-396-master"
   },
-  "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
+  "candidateBranch": "fix/operations-pricing-stepper-400",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.111.0",
+      "version": "1.111.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
+      "candidateBranch": "fix/operations-pricing-stepper-400",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/operations-pricing-wizard-ui-20261121",
-      "developCandidateBranch": "feature/operations-pricing-wizard-ui-20261121"
+      "masterCandidateBranch": "fix/operations-pricing-stepper-400",
+      "developCandidateBranch": "fix/operations-pricing-stepper-400"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.111.0",
+      "version": "1.111.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-pricing-wizard-ui-20261121",
+      "candidateBranch": "fix/operations-pricing-stepper-400",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/operations-pricing-wizard-ui-20261121",
-      "developCandidateBranch": "feature/operations-pricing-wizard-ui-20261121"
+      "masterCandidateBranch": "fix/operations-pricing-stepper-400",
+      "developCandidateBranch": "fix/operations-pricing-stepper-400"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -139,12 +139,11 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "MINOR System/Web 1.110.6 → 1.111.0; Operations remains 0.15.0; all other 15 component versions retained.",
+  "policyCheck": "PATCH DholeSystem and DholeWeb 1.111.0 → 1.111.1; 15 other components unchanged, including Operations 0.15.0.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging checks pending",
-    "Pricing accepted QUO automatic Operations opening is separate integration"
+    "CI/staging pending"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -155,9 +154,7 @@
     "DholeWeb"
   ],
   "changes": [
-    "Shared Pricing wizard stepper between Pricing and Operations",
-    "Operations five-step opening full page",
-    "Pricing catalog selectors reused in Operations with legacy data fallback"
+    "Responsive shared PricingWizardStepper uses actual 4 or 5 columns on desktop; mobile remains scrollable."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -214,7 +211,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
+  "businessReleaseId": "DH-20261121-OPERATIONS-STEPPER-400",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1227,5 +1224,13 @@
     "pricingFormsShared": true,
     "masterRequested": true,
     "automaticQuoIntegration": "pending"
+  },
+  "operationsStepper400": {
+    "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+    "webVersion": "1.111.1",
+    "systemVersion": "1.111.1",
+    "operationsVersion": "0.15.0",
+    "branch": "fix/operations-pricing-stepper-400",
+    "masterRequested": true
   }
 }
