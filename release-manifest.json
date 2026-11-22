@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
+  "releaseId": "DH-20261122-OPERATIONS-PARITY-401",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.111.1",
+  "ecosystemVersion": "1.112.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/pricing-p7-terrestrial-freight-398",
-    "master": "release/dh-396-master"
+    "develop": "feature/DH-20261122-OPERATIONS-PARITY-401",
+    "master": "feature/DH-20261122-OPERATIONS-PARITY-401"
   },
-  "candidateBranch": "fix/operations-pricing-stepper-400",
+  "candidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.111.1",
+      "version": "1.112.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-pricing-stepper-400",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/operations-pricing-stepper-400",
-      "developCandidateBranch": "fix/operations-pricing-stepper-400"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.111.1",
+      "version": "1.112.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-pricing-stepper-400",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/operations-pricing-stepper-400",
-      "developCandidateBranch": "fix/operations-pricing-stepper-400"
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -132,11 +132,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.15.0",
+      "version": "0.15.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-idtra-global-full-opening-20261121",
+      "candidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401",
+      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-PARITY-401"
     }
   ],
   "policyCheck": "PATCH DholeSystem and DholeWeb 1.111.0 → 1.111.1; 15 other components unchanged, including Operations 0.15.0.",
