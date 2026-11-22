@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+  "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.110.4",
+  "ecosystemVersion": "1.110.5",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-396-pricing-real-line-persistence",
+    "develop": "fix/DH-396b-incoterm-guard",
     "master": "release/dh-396-master"
   },
-  "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
+  "candidateBranch": "fix/DH-396b-incoterm-guard",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.110.4",
+      "version": "1.110.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
+      "candidateBranch": "fix/DH-396b-incoterm-guard",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.110.4",
+      "version": "1.110.5",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
+      "candidateBranch": "fix/DH-396b-incoterm-guard",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence"
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,10 +70,10 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.23",
+      "version": "1.26.24",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-396-pricing-real-line-persistence",
-      "developCandidateBranch": "fix/DH-396-pricing-real-line-persistence",
+      "candidateBranch": "fix/DH-396b-incoterm-guard",
+      "developCandidateBranch": "fix/DH-396b-incoterm-guard",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "release/dh-396-master"
@@ -139,7 +139,7 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: Web/System 1.110.3 -> 1.110.4, PricingService 1.26.22 -> 1.26.23; all other components unchanged; ensure VGM Miami and FCL Panama road line before save.",
+  "policyCheck": "PATCH: Web/System 1.110.4→1.110.5, Pricing 1.26.23→1.26.24; other components unchanged; preserve explicit VGM Miami and FCL Panama terrestrial Freight beyond Incoterm guard.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -217,7 +217,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261121-PRICING-MISSING-LINES-396",
+  "businessReleaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1047,16 +1047,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.110.3",
-      "newVersion": "1.110.4"
+      "previousVersion": "1.110.4",
+      "newVersion": "1.110.5"
     },
     "DholeWeb": {
-      "previousVersion": "1.110.3",
-      "newVersion": "1.110.4"
+      "previousVersion": "1.110.4",
+      "newVersion": "1.110.5"
     },
     "DholePricingService": {
-      "previousVersion": "1.26.22",
-      "newVersion": "1.26.23"
+      "previousVersion": "1.26.23",
+      "newVersion": "1.26.24"
     }
   },
   "pricingP7EditRelease": {
@@ -1205,5 +1205,21 @@
       "develop",
       "master"
     ]
+  },
+  "pricingFinalGuard397": {
+    "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
+    "globalVersion": "1.110.5",
+    "pricingVersion": "1.26.24",
+    "webVersion": "1.110.5",
+    "systemVersion": "1.110.5",
+    "previousRelease": "DH-20261121-PRICING-MISSING-LINES-396",
+    "fixes": [
+      "Keep own-Miami plan VGM included despite Incoterm other-party detection",
+      "Keep FCL multimodal Panama land Freight included despite Incoterm other-party detection",
+      "Ensure both required lines after Incoterm guard and before rate detail serialization"
+    ],
+    "stagingVerified": false,
+    "ci": "pending",
+    "productionAuthorized": false
   }
 }
