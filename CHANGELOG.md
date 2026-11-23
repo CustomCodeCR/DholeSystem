@@ -1,3 +1,8 @@
+## [1.120.9] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
+
+- PATCH coordinado: comparación de cambios de modalidad/tipo de embarque y protección de CostId/RateDetailId en edición P7, sin eliminación financiera implícita; conserva el release 1.120.8 de IVA POL/POE.
+- Se preservan los otros 15 componentes del ecosistema. Producción autorizada por el solicitante, sujeta a CI completo y validación en staging antes de promoción.
+
 ## [1.120.8] - 2026-11-23
 
 - PATCH DH-20261123-PRICING-VAT-RELEASE-430: release coordinado DholeSystem/DholeWeb para corregir el IVA de Pantalla 7 por POL/POE y por sentido importación/exportación, con multi-POE.

@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
+  "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.8",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.120.9",
+  "status": "candidate-master-pending-staging",
   "branches": {
     "develop": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
-    "master": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2"
+    "master": "release/pricing-modification-422-master-1209"
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2",
+  "candidateBranch": "release/pricing-modification-422-master-1209",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.8",
+      "version": "1.120.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2",
+      "candidateBranch": "release/pricing-modification-422-master-1209",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2",
+      "masterCandidateBranch": "release/pricing-modification-422-master-1209",
       "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
@@ -46,12 +46,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.8",
+      "version": "1.120.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2",
+      "candidateBranch": "release/pricing-modification-422-master-1209",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master-v2",
+      "masterCandidateBranch": "release/pricing-modification-422-master-1209",
       "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
@@ -154,13 +154,12 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RELEASE-430: DholeSystem/DholeWeb 1.120.8 IVA POL/POE; producción sin autorización; integrar develop→staging→master con CI.",
+  "policyCheck": "DholeWeb/DholeSystem master 1.120.8→1.120.9 coordinated release; other 15 components unchanged; ready only after CI/staging gates",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI + version gates",
-    "Staging: IVA POL/POE, import/export, multi-POE y PDF",
-    "Master / producción requieren autorización expresa después de staging"
+    "Web CI and staging release smoke must pass before master integration",
+    "Web production push automatically deploys; verify health and release version"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -172,11 +171,12 @@
     "pricingEditStep6": "pending",
     "pricingSavedLtlEdit": "pending",
     "pricingVat": "pending",
-    "multiPoeVat": "pending"
+    "multiPoeVat": "pending",
+    "pricingModification422": "pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -344,6 +344,14 @@
       ],
       "staging": "pending",
       "productionAuthorized": false
+    },
+    "pricingModification422": {
+      "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+      "version": "1.120.9",
+      "modalityShipmentComparison": true,
+      "savedQuoteRateDetailIntegrity": true,
+      "restRealtimeUnchanged": true,
+      "productionAuthorized": true
     }
   },
   "stagingValidation": {
