@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+  "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.7",
+  "ecosystemVersion": "1.120.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
-    "master": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master"
+    "develop": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
+    "master": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master"
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+  "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-422 DholeSystem and DholeWeb 1.120.6→1.120.7; all other 15 services unchanged; staged integration develop before master.",
+  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RELEASE-430: DHOLE Web y System sincronizados en 1.120.8; IVA por POL/POE y perspectiva comercial. DholePricingService sin cambios. Integrar develop + staging antes de master; despliegue production solo con autorización expresa.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web & System CI/versioning gates",
-    "Real LTL saved quote P6→P7 and change/save staging validation",
-    "Production deployment requires explicit permission for this release"
+    "Validar CI, SemVer y el manifiesto en DholeWeb / DholeSystem 1.120.8",
+    "Verificar staging: IVA recolecta POL, cargos destino POE, flete import/export y alternativos multi-POE",
+    "Promoción master y producción sólo después de staging y autorización expresa"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -167,7 +167,9 @@
     "apiProxy": "pending",
     "catalogCache": "pending",
     "pricingEditStep6": "pending",
-    "pricingSavedLtlEdit": "pending"
+    "pricingSavedLtlEdit": "pending",
+    "pricingVat": "pending",
+    "multiPoeVat": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -406,6 +408,23 @@
       "databaseChanged": false,
       "sharedDHComponentsReused": true,
       "ci": "pending",
+      "staging": "pending",
+      "productionAuthorized": false
+    },
+    "pricingVatRelease430": {
+      "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
+      "version": "1.120.8",
+      "origin": "POL",
+      "destination": "POE",
+      "freightImport": "POE",
+      "freightExport": "POL",
+      "transitFreight": "sin IVA automático",
+      "perAlternativePoe": true,
+      "checkboxReflectsApplicableRate": true,
+      "backendContractChanged": false,
+      "componentsReused": [
+        "DhCheckbox"
+      ],
       "staging": "pending",
       "productionAuthorized": false
     }
