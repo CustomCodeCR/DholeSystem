@@ -18,6 +18,12 @@
       "branch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     },
     {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.119.1",
+      "version": "1.120.0",
+      "branch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+    },
+    {
       "repository": "CustomCodeCR/DholeOperationsService",
       "previousVersion": "0.17.0",
       "version": "0.18.0",
