@@ -1,3 +1,9 @@
+## [1.119.1] - 2026-11-23 · DH-20261123-PRICING-RETURN-MODAL-415
+
+- PATCH: promover selectivamente el botón «Ver devolución» y el historial de Pricing dentro de DhModal en Dashboard comercial.
+- Release global con DholeWeb/DholeSystem 1.119.0 → 1.119.1, 15 componentes sin cambios; se preservan contratos REST, realtime y los commits existentes de master.
+- CI, verificación funcional en staging y controles de despliegue pendientes antes de master.
+
 ## [1.119.0] - 2026-11-22 · DH-20261122-OPS-CASE-OVERVIEW-414
 
 - MINOR: release coordinado de visibilidad y resumen del expediente IDTRA: CRM como fuente de identidad de cliente/ejecutivo, Auth para nombres de operativos, estados por departamento y consulta del superusuario.
