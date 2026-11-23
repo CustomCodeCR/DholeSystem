@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.119.0",
-  "ecosystemVersion": "1.119.0",
-  "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+  "version": "1.119.1",
+  "ecosystemVersion": "1.119.1",
+  "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261122-OPS-CASE-OVERVIEW-414"
+  "businessReleaseId": "DH-20261123-PRICING-RETURN-MODAL-415"
 }
