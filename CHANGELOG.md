@@ -1,3 +1,8 @@
+## [1.120.8] - 2026-11-23
+
+- PATCH DH-20261123-PRICING-VAT-RESTORE-422: IVA por país de POL en origen y recolecta; por POE en destino/entrega; dirección Import/Export para flete, incluyendo opciones multi-POE y edición con relaciones físicas de costos.
+- Reconciliación con release paralelo PRICING-LTL-EDIT-NAV-422. DholeWeb/DholeSystem 1.120.8, sin pérdida del manifiesto vigente. CI y staging antes de master.
+
 ## [1.120.7] - 2026-11-23 · DH-20261123-PRICING-LTL-EDIT-NAV-422
 
 - PATCH DholeSystem/DholeWeb 1.120.6 → 1.120.7: navegación de edición en cotizaciones LTL existentes permite revisar P7 desde P6 sin validaciones de una tarifa nueva.
