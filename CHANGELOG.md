@@ -1,3 +1,10 @@
+## [1.120.3] - 2026-11-23 · DH-20261123-CORS-PREFLIGHT-419
+
+- PATCH coordinado: DholeWeb enruta solicitudes autorizadas de la API bajo el origen propio, comparte caché de catálogos por sesión y mantiene los componentes DH y contratos REST/SignalR intactos.
+- DholeApiGateway añade duración de una hora a las respuestas preflight CORS compatibles; la allowlist y seguridad JWT no cambian.
+- Versiones: DholeSystem/DholeWeb 1.120.2 → 1.120.3; DholeApiGateway 1.11.0 → 1.11.1; 14 servicios restantes sin modificación. Manifiesto central de 17 componentes sincronizado.
+- Desarrollo a ramas intermedias y PR develop/staging; master se promueve solo tras validación y aprobación de producción.
+
 ## [1.120.2] - 2026-11-23 · DH-20261123-PRICING-LTL-NUMERIC-418
 
 - PATCH master selectivo del consolidado LTL propio: corregir error de .trim() previo a POST con valores numéricos de Vue, mostrar errores específicos y asegurar que «Crear ruta» se pueda enviar.

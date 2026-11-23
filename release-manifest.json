@@ -1,33 +1,38 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+  "releaseId": "DH-20261123-CORS-PREFLIGHT-419",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.2",
-  "status": "candidate-master-ci-pending",
+  "ecosystemVersion": "1.120.3",
+  "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
-    "master": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master"
+    "develop": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+    "master": "fix/DH-20261123-CORS-PREFLIGHT-419-master"
   },
-  "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
+  "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.2",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
+      "version": "1.120.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
+      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
-      "version": "1.11.0",
-      "mergeState": "unchanged"
+      "version": "1.11.1",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+      "candidateSha": "3f20712f3aa298f09b982fbd3db75e19dbebcd39",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -41,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.2",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
-      "candidateSha": null,
+      "version": "1.120.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+      "candidateSha": "2ed8f14cb02ab04243c9fee9f867ac3c3ad0ba9c",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
+      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -149,21 +154,27 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH: master deploys only LTL hotfix 417+418, DholeWeb/DholeSystem 1.119.1→1.120.2 (skip incomplete operations release 416); 15 other production components unchanged.",
-  "mergeState": "candidate-master-ci-pending",
-  "productionDeploymentAuthorized": true,
+  "policyCheck": "PATCH DH-419: DholeSystem y DholeWeb 1.120.2→1.120.3, DholeApiGateway 1.11.0→1.11.1; otros 14 servicios sin cambios; integración coordinada develop→staging→master.",
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Confirm CI and tested LTL runtime numeric inputs on staging",
-    "Check POST San José → Tegucigalpa and preservation of San Pedro Sula in production smoke after deploy"
+    "CI GitHub Actions y verificación de versiones para DholeSystem, DholeWeb y DholeApiGateway",
+    "Staging: nginx -t, JWT, Pricing /api/config/catalog-items/select y /by-group, Storage uploads, Hacienda y SignalR",
+    "Staging: confirmar cero preflights para llamadas same-origin y TTL en llamadas cross-origin",
+    "Promoción a master solo tras staging validado y autorización expresa de producción"
   ],
   "validationEvidence": {
     "ci": "pending",
-    "staging": "web-1.120.2-pending",
-    "frontendNumericInput": "pending"
+    "staging": "pending",
+    "frontendNumericInput": "pending",
+    "preflight": "pending",
+    "apiProxy": "pending",
+    "catalogCache": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeApiGateway"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -262,6 +273,20 @@
       "sharedDhComponents": true,
       "productionAuthorized": true,
       "validation": "pending-ci-staging"
+    },
+    "corsPreflight419": {
+      "id": "DH-20261123-CORS-PREFLIGHT-419",
+      "objective": "Eliminar OPTIONS innecesarios de API desde SPA y reutilizar catálogos de Pricing",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholeApiGateway"
+      ],
+      "webVersion": "1.120.3",
+      "gatewayVersion": "1.11.1",
+      "webDevelopCommit": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
+      "gatewayDevelopCommit": "6e8bde709909a16f161f49955a6019a93340e00f",
+      "approval": "production-deploy-not-authorized"
     }
   },
   "stagingValidation": {
