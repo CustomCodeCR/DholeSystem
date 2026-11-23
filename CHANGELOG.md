@@ -1,3 +1,8 @@
+## [1.120.8] - 2026-11-23
+
+- PATCH DH-20261123-PRICING-VAT-RESTORE-422: release coordinado DholeSystem/DholeWeb para IVA por POL/POE, sentido comercial importación/exportación y recuperación del puerto configurado al editar cotizaciones.
+- Sin cambios de contrato REST, bases de datos ni SignalR. Integración develop→staging→master; producción sujeta a autorización y controles obligatorios.
+
 ## [1.120.6] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421 (candidato master)
 
 - PATCH aislado de la navegación P6→P7 al editar flete terrestre de una cotización guardada. No se alteran cargos históricos ni validación al guardar.
