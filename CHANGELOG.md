@@ -1,3 +1,10 @@
+## [1.120.2] - 2026-11-23 · DH-20261123-PRICING-LTL-NUMERIC-418
+
+- PATCH coordinado de DholeWeb: corregir el fallo de validación del formulario LTL por usar .trim() con valores number emitidos por Vue; el botón Crear ruta ya no termina antes de emitir POST sin avisar.
+- Normalizar importes de flete y cargos LTL y mostrar errores de validación específicos; prueba de regresión ejecutable incorporada a compilación CI.
+- Versiones globales DholeWeb y DholeSystem 1.120.1 → 1.120.2; resto de 15 servicios sin cambio. Manifiesto de 17 componentes actualizado.
+- Candidato para desarrollar/staging, no modificar master hasta CI/staging; no despliegue de producción sin autorización.
+
 ## [1.120.1] - 2026-11-23 · DH-20261123-PRICING-LTL-ROUTES-417
 
 - PATCH coordinado: DholeWeb permite crear una nueva ruta LTL desde una tarifa existente, modificando el destino sin sobrescribir el consolidado original.
