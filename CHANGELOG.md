@@ -1,3 +1,10 @@
+## [1.120.4] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-420
+
+- PATCH coordinado DholeSystem y DholeWeb: navegar de Pantalla 6 (flete terrestre) a Pantalla 7 al editar cotización persistida, sin bloquear por validaciones de creación ni modificar cargos guardados.
+- Prueba de regresión del plugin final; se conservan las validaciones de creación/guardado y los componentes DH, REST y SignalR.
+- Versiones DholeSystem/DholeWeb 1.120.3 → 1.120.4; los otros 15 componentes se mantienen; manifiesto de 17 repositorios actualizado.
+- CI/staging pendientes, producción no autorizada.
+
 ## [1.120.3] - 2026-11-23 · DH-20261123-CORS-PREFLIGHT-419
 
 - PATCH coordinado: DholeWeb enruta solicitudes autorizadas de la API bajo el origen propio, comparte caché de catálogos por sesión y mantiene los componentes DH y contratos REST/SignalR intactos.
