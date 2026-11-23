@@ -126,8 +126,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.8",
-      "mergeState": "unchanged"
+      "version": "1.43.0",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -141,7 +146,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "MINOR: DholeWeb/DholeSystem 1.118.0 → 1.119.0 y DholeOperationsService 0.16.0 → 0.17.0. Otros 14 componentes sin cambios. Client/operativo/estados/resumen con acceso real backend.",
+  "policyCheck": "MINOR: DholeWeb/DholeSystem 1.118.0 → 1.119.0, Operations 0.16.0 → 0.17.0, CRM 1.42.8 → 1.43.0; otros 13 componentes sin cambios.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -156,7 +161,8 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholeOperationsService",
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -227,9 +233,10 @@
     "operationsOverview414": {
       "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
       "components": [
-        "DholeOperationsService",
+        "DholeSystem",
         "DholeWeb",
-        "DholeSystem"
+        "DholeOperationsService",
+        "DholeCRMService"
       ],
       "customerAccountFromCrm": true,
       "assignedOperatorsFromAuth": true,
@@ -240,7 +247,8 @@
       "noDatabaseMigration": true,
       "restCompatible": true,
       "realtimePreserved": true,
-      "productionAuthorized": false
+      "productionAuthorized": false,
+      "authorizedCrmBatchLabels": true
     }
   },
   "stagingValidation": {
