@@ -1,3 +1,8 @@
+## [1.120.5] - 2026-11-23
+
+- PATCH DH-20261123-PRICING-POL-POE-VAT-420: reconciliación de IVA por POL/POE con el release simultáneo de Pricing pantalla 6, sin perder sus cambios previos. DholeSystem y DholeWeb alineados a 1.120.5.
+- Manifiesto y pruebas de staging requeridos antes de promover a master.
+
 ## [1.120.4] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-420
 
 - PATCH coordinado DholeSystem y DholeWeb: navegar de Pantalla 6 (flete terrestre) a Pantalla 7 al editar cotización persistida, sin bloquear por validaciones de creación ni modificar cargos guardados.
