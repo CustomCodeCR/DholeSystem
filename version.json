@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.120.2",
-  "ecosystemVersion": "1.120.2",
-  "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+  "version": "1.121.0",
+  "ecosystemVersion": "1.121.0",
+  "releaseId": "DH-20261123-OPS-AUTO-419",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261123-PRICING-LTL-NUMERIC-418"
+  "businessReleaseId": "DH-20261123-OPS-AUTO-419"
 }
