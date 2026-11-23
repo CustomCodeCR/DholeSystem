@@ -3,7 +3,7 @@
   "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.119.0",
-  "status": "candidate-master-ci-pending",
+  "status": "master-release-approved-ci-staging-passed",
   "branches": {
     "develop": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
     "master": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master"
@@ -150,15 +150,15 @@
     }
   ],
   "policyCheck": "DH-414 MINOR master isolated: DholeWeb/System 1.119.0, Operations 0.17.0, CRM 1.43.0; preserve other production components.",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": false,
+  "mergeState": "master-release-approved",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Staging deployment confirmation and UAT for 3 service components",
-    "Master candidate CI and version-policy"
+    "Autenticación y pruebas de interfaz E2E en producción no verificadas; únicamente comprobación de salud automática de despliegue"
   ],
   "validationEvidence": {
-    "ci": "candidate-pending",
-    "staging": "deployment-in-progress"
+    "ci": "passed",
+    "staging": "passed-automated-deployment-health",
+    "authenticatedUiUat": "not-verified"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -216,7 +216,17 @@
     }
   },
   "stagingValidation": {
-    "status": "deployment-in-progress"
+    "status": "passed-automated-deployment-health",
+    "components": [
+      "DholeCRMService",
+      "DholeOperationsService",
+      "DholeWeb"
+    ],
+    "runs": [
+      45094547190,
+      45094553703,
+      45094560081
+    ]
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
