@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261123-PRICING-POL-POE-VAT-420",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.4",
+  "ecosystemVersion": "1.120.5",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
     "develop": "fix/DH-20261123-PRICING-POL-POE-VAT-420-develop",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.4",
+      "version": "1.120.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261123-PRICING-POL-POE-VAT-420-master",
       "candidateSha": null,
@@ -46,7 +46,7 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.4",
+      "version": "1.120.5",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261123-PRICING-POL-POE-VAT-420-master",
       "candidateSha": null,
@@ -154,7 +154,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH DH-20261123-PRICING-POL-POE-VAT-420: DholeSystem y DholeWeb 1.120.3→1.120.4; 15 componentes adicionales sin cambio de versión. Integración develop→staging→master condicionada a CI y validación staging.",
+  "policyCheck": "PATCH DH-20261123-PRICING-POL-POE-VAT-420: DholeSystem / DholeWeb 1.120.3→1.120.5 (coordinado con el release concurrente 1.120.4 en develop); master tras CI y staging.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -290,8 +290,8 @@
     },
     "pricingVatPolPoe420": {
       "releaseId": "DH-20261123-PRICING-POL-POE-VAT-420",
-      "webVersion": "1.120.4",
-      "systemVersion": "1.120.4",
+      "webVersion": "1.120.5",
+      "systemVersion": "1.120.5",
       "originPort": "POL",
       "destinationPort": "POE",
       "chargeSections": {
