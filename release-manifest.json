@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
+  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.4",
+  "ecosystemVersion": "1.120.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-existing-quote-step6-420-develop",
-    "master": "fix/pricing-existing-quote-step6-420-master"
+    "develop": "fix/pricing-existing-quote-step6-421-sync-develop",
+    "master": "fix/pricing-existing-quote-step6-421-master"
   },
-  "candidateBranch": "fix/pricing-existing-quote-step6-420-master",
+  "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.4",
+      "version": "1.120.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-420-develop",
+      "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-420-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-420-develop"
+      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
+      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.4",
+      "version": "1.120.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-420-develop",
-      "candidateSha": "7d6d8930f7b8a91bd5d1c99b62747b20a4e10357",
+      "candidateBranch": "fix/pricing-existing-quote-step6-421-develop",
+      "candidateSha": "d97cf06cf94e98b9eaea266a2cfac66cf35beaf6",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-420-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-420-develop"
+      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
+      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-420: DholeSystem/DholeWeb 1.120.3→1.120.4; remaining 15 components unchanged; PR develop CI and staging before master authorization",
+  "policyCheck": "DholeWeb/DholeSystem 1.120.5→1.120.6, preserved POL/POE VAT release 420 and edited quote DH-421; 15 other components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "GitHub Actions checks must pass in Web and System",
-    "Verify editing existing terrestrial LTL/FTL quotation from P6 to P7, preserving stored line IDs and totals in staging",
-    "Authorize master merge and automatic production deployment separately"
+    "CI Web/System",
+    "Staging: saved terrestrial LTL/FTL quote P6 -> P7, edit/save without losing details",
+    "No master merge without explicit production deploy authorization"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -364,7 +364,26 @@
       "realtimeUnchanged": true,
       "productionAuthorized": false,
       "ci": "pending",
-      "staging": "pending"
+      "staging": "pending",
+      "supersededBy": "DH-20261123-PRICING-EDIT-STEP6-421"
+    },
+    "pricingExistingQuoteEdit421": {
+      "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
+      "components": [
+        "DholeSystem",
+        "DholeWeb"
+      ],
+      "from": "1.120.5",
+      "to": "1.120.6",
+      "preservesConcurrentRelease": "DH-20261123-PRICING-POL-POE-VAT-420",
+      "fix": "Existing terrestrial quote editing navigation P6 to P7 no creation-only requirements",
+      "tests": "pricingExistingQuoteStep6Edit421.test.mjs",
+      "restUnchanged": true,
+      "signalRUnchanged": true,
+      "dbMigration": false,
+      "ci": "pending",
+      "staging": "pending",
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {
@@ -422,7 +441,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
+  "businessReleaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
