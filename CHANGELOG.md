@@ -1,3 +1,10 @@
+## [1.121.0] - 2026-11-23
+
+- Release coordinado: aceptación definitiva de QUO -> creación idempotente de Aperturas/IDTRA.
+- Contratos Pricing/Operations vía Redis Streams, Outbox/Inbox y snapshot comercial independiente.
+- Autoguardado de formularios incompletos en PostgreSQL y recuperación de borradores en DholeWeb.
+- Sin autorización de despliegue a producción.
+
 ## [1.120.6] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421
 
 - PATCH coordinado: navegación al editar cotización terrestre ya guardada, Pantalla 6→7, sin validaciones de creación; persistencia y validación de guardado intactas.
