@@ -1,3 +1,10 @@
+## [1.120.1] - 2026-11-23 · DH-20261123-PRICING-LTL-ROUTES-417
+
+- PATCH coordinado: DholeWeb permite crear una nueva ruta LTL desde una tarifa existente, modificando el destino sin sobrescribir el consolidado original.
+- La acción «Crear otra ruta con estos valores» reutiliza la interfaz DH y conserva importes/cargos; bloquea la duplicación accidental de igual origen, destino y perfil.
+- DholeWeb y DholeSystem 1.120.0 → 1.120.1; DholePricingService y los 14 componentes restantes no cambian. Manifiesto de 17 componentes actualizado.
+- Release candidato en ramas intermedias; validación CI y staging pendiente. Sin integración a master ni despliegue a producción.
+
 ## [1.120.0] - 2026-11-23 · DH-20261123-OPS-APERTURES-P1-416
 
 - MINOR: primera entrega candidata de prioridad 1 Aperturas en DholeOperationsService, con completitud por campo y validaciones condicionales en backend y reconciliación IDTRA histórica.
