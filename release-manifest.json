@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-UI-MOTION-LAB-413",
+  "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.118.0",
+  "ecosystemVersion": "1.119.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-UI-MOTION-LAB-413",
-    "master": "release/DH-20261122-UI-MOTION-LAB-413-master"
+    "develop": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+    "master": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master"
   },
-  "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
+  "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.118.0",
+      "version": "1.119.0",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
+      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-UI-MOTION-LAB-413-master",
-      "developCandidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413"
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.118.0",
+      "version": "1.119.0",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
-      "candidateSha": "919631b17de2bc48f77782fc363a22c31170a70b",
+      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-UI-MOTION-LAB-413-master",
-      "developCandidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413"
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -126,28 +126,33 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.8",
-      "mergeState": "unchanged"
+      "version": "1.43.0",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "candidateSha": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.16.0",
-      "mergeState": "intermediate-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "version": "0.17.0",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "MINOR: DholeSystem y DholeWeb 1.117.2 → 1.118.0 por laboratorio visual aislado; otros 15 componentes conservan version.",
+  "policyCheck": "MINOR: DholeWeb/DholeSystem 1.118.0 → 1.119.0, Operations 0.16.0 → 0.17.0, CRM 1.42.8 → 1.43.0; otros 13 componentes sin cambios.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI del frontend y del manifiesto universal",
-    "Pruebas de compilación y regresión",
-    "Verificación visual en staging y aprobación antes de master"
+    "CI .NET 10 y Vue/TypeScript",
+    "UAT autentificada y validación visual staging",
+    "Autorización explícita de producción antes de master"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -155,7 +160,9 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService",
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -222,6 +229,26 @@
       "backendChanges": false,
       "realtimeContractsChanged": false,
       "productionAuthorized": false
+    },
+    "operationsOverview414": {
+      "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholeOperationsService",
+        "DholeCRMService"
+      ],
+      "customerAccountFromCrm": true,
+      "assignedOperatorsFromAuth": true,
+      "dualValidators": true,
+      "operativeDepartmentStates": true,
+      "superuserReadTabs": true,
+      "sharedDhComponents": true,
+      "noDatabaseMigration": true,
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "productionAuthorized": false,
+      "authorizedCrmBatchLabels": true
     }
   },
   "stagingValidation": {
@@ -279,7 +306,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-UI-MOTION-LAB-413",
+  "businessReleaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
