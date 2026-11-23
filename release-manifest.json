@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261123-PRICING-VAT-RESTORE-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.7",
+  "ecosystemVersion": "1.120.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-VAT-RESTORE-422-develop",
+    "develop": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop",
     "master": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master"
   },
   "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
@@ -15,13 +15,13 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-develop"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-develop"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,13 +154,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RESTORE-422: DholeSystem y DholeWeb 1.120.6→1.120.7; otros 15 servicios y DholeApiGateway sin cambios. develop → staging → master tras validación formal; producción no autorizada.",
+  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RESTORE-422: DholeSystem y DholeWeb 1.120.7→1.120.8; conserva PRICING-LTL-EDIT-NAV-422. Promote develop→staging→master tras CI; no prod deployment autorizado.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI/test/pricing-dh y version policy de DholeWeb y DholeSystem 1.120.7",
-    "Validación staging en pantalla 7 con cotizaciones editadas y nuevas (POL/POE, import/export, multi-POE y PDF)",
-    "No integrar a master antes de staging validado; push a master despliega DholeWeb automáticamente"
+    "CI/version gate DholeWeb+DholeSystem",
+    "Pruebas de pantalla 7 y PDF en staging",
+    "No producción automática sin autorización"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -306,8 +306,8 @@
     },
     "pricingVatRestore422": {
       "releaseId": "DH-20261123-PRICING-VAT-RESTORE-422",
-      "systemVersion": "1.120.7",
-      "webVersion": "1.120.7",
+      "systemVersion": "1.120.8",
+      "webVersion": "1.120.8",
       "components": [
         "DholeWeb",
         "DholeSystem"
@@ -316,12 +316,13 @@
       "destinationVat": "POE",
       "freightImport": "POE",
       "freightExport": "POL",
-      "multiPoe": true,
-      "persistedCostSectionFromConfiguredPort": true,
+      "independentMultiPoe": true,
+      "configuredPortRolePrecedesAmbiguousCostName": true,
+      "persistedCostSectionByRole": true,
       "apiContractsChanged": false,
       "realtimeContractsChanged": false,
-      "manualStagingQA": "pending",
       "ci": "pending",
+      "staging": "pending",
       "productionAuthorized": false
     }
   },
