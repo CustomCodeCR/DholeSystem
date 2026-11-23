@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-OPS-APERTURES-P1-416",
+  "releaseId": "DH-20261123-OPS-QUO-AUTO-P1-417",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.0",
+  "ecosystemVersion": "1.121.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261123-OPS-APERTURES-P1-416",
+    "develop": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
     "master": null
   },
-  "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+  "candidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.0",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
+      "developCandidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.0",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +70,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "version": "1.27.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
+      "developCandidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -137,23 +137,23 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.18.0",
+      "version": "0.19.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feature/DH-20261123-OPS-QUO-AUTO-P1-417"
     }
   ],
-  "policyCheck": "MINOR: Web y System 1.119.1→1.120.0, Operations 0.17.0→0.18.0; 14 servicios restantes sin cambios; staging/CI pendientes.",
+  "policyCheck": "Four services increment SemVer; 13 unchanged; staging only; development CI pending.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI .NET 10 y pruebas unitarias/integración PostgreSQL",
-    "Conciliación del contador IDTRA real en staging antes de ejecutar migración",
-    "Validación REST de campos FCA/WHs/equipos en staging",
-    "Integración Pricing y resto de P1 diferidas, no implementar en master"
+    ".NET PostgreSQL integration + QA CI",
+    "Pricing to Operations Redis delivery verification staging",
+    "Borradores PostgreSQL and protected access validation",
+    "UI and business acceptance E2E staging"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -163,6 +163,7 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
+    "DholePricingService",
     "DholeOperationsService"
   ],
   "changes": {
@@ -290,6 +291,21 @@
         "Pricing review",
         "Origin transfer"
       ]
+    },
+    "apertures417": {
+      "releaseId": "DH-20261123-OPS-QUO-AUTO-P1-417",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholePricingService",
+        "DholeOperationsService"
+      ],
+      "scope": "Accepted commercial QUO Outbox/Inbox to automatic IDTRA plus PostgreSQL drafts",
+      "idempotent": true,
+      "immutableAcceptedQuoteSnapshot": true,
+      "alternativesABSelection": true,
+      "liveStagingValidation": "pending",
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {

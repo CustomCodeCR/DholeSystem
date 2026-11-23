@@ -1,3 +1,7 @@
+## [1.121.0] - 2026-11-23
+
+- Release coordinado Priority 1: QUO A/B aceptada → Operations Outbox/Inbox → IDTRA idempotente y borradores PostgreSQL.
+
 ## [1.120.0] - 2026-11-23 · DH-20261123-OPS-APERTURES-P1-416
 
 - MINOR: primera entrega candidata de prioridad 1 Aperturas en DholeOperationsService, con completitud por campo y validaciones condicionales en backend y reconciliación IDTRA histórica.
