@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
+  "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.1",
+  "ecosystemVersion": "1.120.2",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
+    "develop": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
+  "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.1",
+      "version": "1.120.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.1",
+      "version": "1.120.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,18 +146,18 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.120.0→1.120.1; DholePricingService y 14 componentes más sin cambios; CI y staging pendientes.",
+  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.120.1→1.120.2; resto de 15 servicios sin cambios; validaciones staging pendientes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar compilación Vue/TypeScript y pruebas LTL en CI",
-    "Confirmar creación San José → Tegucigalpa sin modificar San Pedro Sula en staging",
-    "Validar catálogo de destinos SD y permisos de creación en staging"
+    "Verificar test ejecutable del parse numérico LTL y compilación",
+    "Confirmar en staging POST San José → Tegucigalpa con edición de costo/venta/cargos",
+    "Confirmar que la ruta San Pedro Sula y sus precios permanecen intactos"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "postgresIntegration": "not-applicable-to-ui-only-patch"
+    "frontendNumericInput": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -307,6 +307,24 @@
       "sharedDhComponents": true,
       "productionAuthorized": false,
       "validation": "pending-ci-and-staging"
+    },
+    "pricingLtlNumeric418": {
+      "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "rootCause": "Vue native input type=number produces number; .trim threw before POST",
+      "fix": "number|string numeric input parser and variable charges",
+      "visibleValidation": true,
+      "regressionTest": "tests/ltlFormNumbers.test.ts",
+      "backendChanged": false,
+      "dbMigration": false,
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "sharedDhComponents": true,
+      "productionAuthorized": false,
+      "validation": "pending"
     }
   },
   "stagingValidation": {
@@ -364,7 +382,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
+  "businessReleaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
