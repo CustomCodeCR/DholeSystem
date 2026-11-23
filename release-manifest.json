@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+  "releaseId": "DH-20261123-OPS-AUTO-419",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.2",
+  "ecosystemVersion": "1.121.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
+    "develop": "feature/DH-20261123-OPS-AUTO-419",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
+  "candidateBranch": "feature/DH-20261123-OPS-AUTO-419",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.2",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -33,21 +33,18 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.2",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,13 +67,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "version": "1.27.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -100,10 +97,7 @@
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.8.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -127,41 +121,38 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.43.0",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.18.0",
+      "version": "0.19.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419"
     }
   ],
-  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.120.1→1.120.2; resto de 15 servicios sin cambios; validaciones staging pendientes.",
+  "policyCheck": "MINOR release: System/Web 1.120.2→1.121.0, Pricing 1.26.26→1.27.0, Operations 0.18.0→0.19.0; other 13 components unchanged. CI/staging mandatory.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Verificar test ejecutable del parse numérico LTL y compilación",
-    "Confirmar en staging POST San José → Tegucigalpa con edición de costo/venta/cargos",
-    "Confirmar que la ruta San Pedro Sula y sus precios permanecen intactos"
+    "Compile and pass CI in Pricing, Operations, Web, System",
+    "Test accepted A/B QUO once in staging; verify exactly one IDTRA under replay",
+    "Verify incomplete PG draft survives refresh and origin coordination"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "frontendNumericInput": "pending"
+    "e2e": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService",
+    "DholeOperationsService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -323,6 +314,22 @@
       "restCompatible": true,
       "realtimePreserved": true,
       "sharedDhComponents": true,
+      "productionAuthorized": false,
+      "validation": "pending"
+    },
+    "apertures419": {
+      "releaseId": "DH-20261123-OPS-AUTO-419",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholePricingService",
+        "DholeOperationsService"
+      ],
+      "pricingAcceptedQuoteOutbox": true,
+      "operationsPricingInbox": true,
+      "atLeastOnceReplayAndQuoteUniqueKey": true,
+      "postgresDraftAutosave": true,
+      "quoteSnapshot": true,
       "productionAuthorized": false,
       "validation": "pending"
     }
