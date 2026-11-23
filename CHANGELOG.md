@@ -1,3 +1,9 @@
+## [1.120.10] - 2026-11-23 · DH-20261123-OPS-P1-COMPLETE-431
+
+- PATCH ecosistema: release coordinado Pricing, Operations, Web y System para aperturas automáticas desde QUO aceptadas e implementación de borradores persistidos.
+- Manifest con 17 componentes; solo cambian 4, se mantienen 13 sin alteraciones. Revisión en staging obligatoria antes de master.
+- Eventos versionados Outbox/Inbox y autosave servidor; validación E2E, alertas de servicios no cotizados y revisión comercial pendientes.
+
 ## [1.120.9] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
 
 - PATCH: cambios de modalidad y tipo de embarque en el resumen de modificaciones de Ventas; conservar cargos CostId/RateDetailId en edición de P7 y asociar montos al detalle correcto, sin eliminaciones implícitas.
