@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+  "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.119.0",
+  "ecosystemVersion": "1.119.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-    "master": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master"
+    "develop": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
+    "master": "release/DH-20261123-PRICING-RETURN-MODAL-415-master"
   },
-  "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+  "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.119.0",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "version": "1.119.1",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
+      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.119.0",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "version": "1.119.1",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
+      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,13 +146,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "MINOR: DholeWeb/DholeSystem 1.118.0 → 1.119.0, Operations 0.16.0 → 0.17.0, CRM 1.42.8 → 1.43.0; otros 13 componentes sin cambios.",
+  "policyCheck": "PATCH: DholeSystem y DholeWeb 1.119.0 → 1.119.1; los 15 componentes restantes sin cambios; solo interfaz comercial, sin alteraciones REST/SignalR/Redis.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI .NET 10 y Vue/TypeScript",
-    "UAT autentificada y validación visual staging",
-    "Autorización explícita de producción antes de master"
+    "Compilación y pruebas Vue/TypeScript en CI",
+    "Validación visual en staging (tema claro/oscuro, móvil/escritorio)",
+    "Autorización expresa de integración y despliegue en producción"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -160,9 +160,7 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -249,6 +247,27 @@
       "realtimePreserved": true,
       "productionAuthorized": false,
       "authorizedCrmBatchLabels": true
+    },
+    "pricingReturnModal415": {
+      "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "sharedComponent": "DhModal",
+      "button": "Ver devolución",
+      "shows": [
+        "cliente",
+        "ruta",
+        "motivo",
+        "usuario que devolvió",
+        "fecha",
+        "historial"
+      ],
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "backendChanged": false,
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {
@@ -306,7 +325,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+  "businessReleaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
