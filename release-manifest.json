@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.119.1",
+      "version": "1.120.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
+      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
-      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,7 +146,7 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "MINOR: Operations 0.17.0→0.18.0, System/global 1.119.1→1.120.0; 15 restantes sin cambios. CI y staging pendientes.",
+  "policyCheck": "MINOR: Web y System 1.119.1→1.120.0, Operations 0.17.0→0.18.0; 14 servicios restantes sin cambios; staging/CI pendientes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -161,8 +161,9 @@
     "postgresIntegration": "pending"
   },
   "releaseComponents": [
-    "DholeOperationsService",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -278,7 +279,9 @@
         "Completitud condicional backend",
         "Vista previa protegida de estado por campo",
         "IDTRA formato sin ceros forzados",
-        "Conciliación contador histórico en migración no destructiva"
+        "Conciliación contador histórico en migración no destructiva",
+        "Web FCA/WHS all shipment modes",
+        "Web global version synchronization"
       ],
       "deferred": [
         "QUO acceptance Outbox/Inbox",
