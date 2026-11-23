@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
+  "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.6",
+  "ecosystemVersion": "1.120.7",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-existing-quote-step6-421-sync-develop",
-    "master": "fix/pricing-existing-quote-step6-421-master"
+    "develop": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+    "master": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master"
   },
-  "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
+  "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.6",
+      "version": "1.120.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.6",
+      "version": "1.120.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-421-develop",
-      "candidateSha": "d97cf06cf94e98b9eaea266a2cfac66cf35beaf6",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "DholeWeb/DholeSystem 1.120.5→1.120.6, preserved POL/POE VAT release 420 and edited quote DH-421; 15 other components unchanged",
+  "policyCheck": "PATCH DH-422 DholeSystem and DholeWeb 1.120.6→1.120.7; all other 15 services unchanged; staged integration develop before master.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI Web/System",
-    "Staging: saved terrestrial LTL/FTL quote P6 -> P7, edit/save without losing details",
-    "No master merge without explicit production deploy authorization"
+    "Web & System CI/versioning gates",
+    "Real LTL saved quote P6→P7 and change/save staging validation",
+    "Production deployment requires explicit permission for this release"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -166,7 +166,8 @@
     "preflight": "pending",
     "apiProxy": "pending",
     "catalogCache": "pending",
-    "pricingEditStep6": "pending"
+    "pricingEditStep6": "pending",
+    "pricingSavedLtlEdit": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -384,6 +385,29 @@
       "ci": "pending",
       "staging": "pending",
       "productionAuthorized": false
+    },
+    "pricingPersistedLtlEditNavigation422": {
+      "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+      "versions": {
+        "DholeWeb": {
+          "from": "1.120.6",
+          "to": "1.120.7"
+        },
+        "DholeSystem": {
+          "from": "1.120.6",
+          "to": "1.120.7"
+        }
+      },
+      "rootCause": "Last Vite plugin retained new-quote canNext guard ahead of persisted LTL edit navigation",
+      "fix": "Dedicated non-destructive P6→P7 saved LTL path after final transforms",
+      "regression": "tests/pricingPersistedLtlEditNavigation422.test.mjs",
+      "restChanged": false,
+      "realtimeChanged": false,
+      "databaseChanged": false,
+      "sharedDHComponentsReused": true,
+      "ci": "pending",
+      "staging": "pending",
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {
@@ -441,7 +465,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
+  "businessReleaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
