@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-DHOLE-ERP-411",
+  "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.117.1",
-  "status": "candidate-master-ci-pending",
+  "ecosystemVersion": "1.119.0",
+  "status": "master-release-approved-ci-staging-passed",
   "branches": {
-    "develop": "feature/DH-20261122-DHOLE-ERP-411",
-    "master": "release/DH-20261122-DHOLE-ERP-410-master"
+    "develop": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+    "master": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master"
   },
-  "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
+  "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.117.1",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
+      "version": "1.119.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
-      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-411"
+      "developMergeSha": "313e9891be7eca6f56071b0d20c72e4b639de00a",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.117.1",
-      "mergeState": "candidate-master-ci-pending",
-      "candidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
+      "version": "1.119.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-410-master",
-      "developCandidateBranch": "feature/DH-20261122-DHOLE-ERP-411"
+      "developMergeSha": "a064ad93231a92f3cb6215cb1683119c488e0b30",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -129,39 +129,42 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.42.8",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
-      "masterCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-master",
-      "developCandidateBranch": "fix/DH-20261120-PRICING-CRM-PREFERRED-324-develop"
+      "version": "1.43.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "candidateSha": null,
+      "developMergeSha": "6082041bdaa82a24f5236cefba7e4742e6430b53"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.16.0",
-      "mergeState": "intermediate-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+      "version": "0.17.0",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-      "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
+      "developMergeSha": "91daf3200991e10890faa11d34bdf3f2c33f1122",
+      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "MINOR + PATCH: DHOLE ERP 1.116.1 → 1.117.0 → 1.117.1 en DholeWeb y DholeSystem; los demás componentes mantienen versiones.",
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "policyCheck": "DH-414 MINOR master isolated: DholeWeb/System 1.119.0, Operations 0.17.0, CRM 1.43.0; preserve other production components.",
+  "mergeState": "master-release-approved",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "DholeWeb CI completo en ambas ramas",
-    "DholeSystem validación de manifiesto",
-    "Staging de develop exitoso antes de master"
+    "Autenticación y pruebas de interfaz E2E en producción no verificadas; únicamente comprobación de salud automática de despliegue"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending"
+    "ci": "passed",
+    "staging": "passed-automated-deployment-health",
+    "authenticatedUiUat": "not-verified"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService",
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -190,12 +193,40 @@
       "pronunciationPolicy": "unrestricted",
       "guideDisplayed": false,
       "dockerTestFix": true
+    },
+    "operationsOverview414": {
+      "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholeOperationsService",
+        "DholeCRMService"
+      ],
+      "customerAccountFromCrm": true,
+      "assignedOperatorsFromAuth": true,
+      "dualValidators": true,
+      "operativeDepartmentStates": true,
+      "superuserReadTabs": true,
+      "sharedDhComponents": true,
+      "noDatabaseMigration": true,
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "productionAuthorized": false,
+      "authorizedCrmBatchLabels": true
     }
   },
   "stagingValidation": {
-    "status": "pending",
-    "previousFailure": "DH-410 .env file missing in Docker test",
-    "fixedIn": "DH-20261122-DHOLE-ERP-411"
+    "status": "passed-automated-deployment-health",
+    "components": [
+      "DholeCRMService",
+      "DholeOperationsService",
+      "DholeWeb"
+    ],
+    "runs": [
+      45094547190,
+      45094553703,
+      45094560081
+    ]
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -249,7 +280,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-DHOLE-ERP-411",
+  "businessReleaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
