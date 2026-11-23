@@ -1,0 +1,33 @@
+{
+  "releaseId": "DH-20261123-OPS-APERTURES-P1-416",
+  "ecosystem": "Dhole",
+  "ecosystemVersion": "1.120.0",
+  "status": "candidate-develop-ci-pending",
+  "targetBranch": "develop",
+  "productionDeploymentAuthorized": false,
+  "changes": [
+    "Operations IDTRA historical reconciliation",
+    "Apertura completeness and draft read projection",
+    "Conditional field validation"
+  ],
+  "repositories": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.119.1",
+      "version": "1.120.0",
+      "branch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+    },
+    {
+      "repository": "CustomCodeCR/DholeOperationsService",
+      "previousVersion": "0.17.0",
+      "version": "0.18.0",
+      "branch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+    }
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  },
+  "deferredPriorityOne": true
+}
