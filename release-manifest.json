@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
+  "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.8",
+  "ecosystemVersion": "1.120.9",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
-    "master": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master"
+    "develop": "fix/pricing-modification-422-sync-1209",
+    "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
+  "candidateBranch": "fix/pricing-modification-422-sync-1209",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.8",
+      "version": "1.120.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
+      "candidateBranch": "fix/pricing-modification-422-sync-1209",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/pricing-modification-422-sync-1209"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.8",
+      "version": "1.120.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
+      "candidateBranch": "fix/pricing-modification-422-sync-1209",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/pricing-modification-422-sync-1209"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RELEASE-430: DHOLE Web y System sincronizados en 1.120.8; IVA por POL/POE y perspectiva comercial. DholePricingService sin cambios. Integrar develop + staging antes de master; despliegue production solo con autorización expresa.",
+  "policyCheck": "DholeWeb/DholeSystem 1.120.8 → 1.120.9; preserve Pricing VAT release 430 and LTL release 422; other 15 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar CI, SemVer y el manifiesto en DholeWeb / DholeSystem 1.120.8",
-    "Verificar staging: IVA recolecta POL, cargos destino POE, flete import/export y alternativos multi-POE",
-    "Promoción master y producción sólo después de staging y autorización expresa"
+    "Web build and full unit/integration CI must pass",
+    "Validate seller-modification rate details, modality and shipment in staging",
+    "Promote same vetted build to master and verify production deployment"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -169,11 +169,12 @@
     "pricingEditStep6": "pending",
     "pricingSavedLtlEdit": "pending",
     "pricingVat": "pending",
-    "multiPoeVat": "pending"
+    "multiPoeVat": "pending",
+    "pricingModification422": "pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -426,6 +427,16 @@
         "DhCheckbox"
       ],
       "staging": "pending",
+      "productionAuthorized": false
+    },
+    "pricingModification422": {
+      "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+      "version": "1.120.9",
+      "comparisonModalityShipment": true,
+      "preserveSavedRateDetails": true,
+      "orderedDetailIdPayload": true,
+      "dhComponentsReused": true,
+      "restRealtimeContractsUnchanged": true,
       "productionAuthorized": false
     }
   },
