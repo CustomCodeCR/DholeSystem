@@ -1,58 +1,50 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-CORS-PREFLIGHT-419",
+  "releaseId": "DH-20261123-OPS-AUTO-419",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.3",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.121.0",
+  "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+    "develop": "feature/DH-20261123-OPS-AUTO-419-sync",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+  "candidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.3",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-      "candidateSha": "6e8bde709909a16f161f49955a6019a93340e00f",
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.1",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.3",
+      "version": "1.121.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-      "candidateSha": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,13 +67,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "version": "1.27.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -105,10 +97,7 @@
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.8.0",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -132,46 +121,37 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.43.0",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "candidateSha": null,
-      "developMergeSha": null
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.18.0",
+      "version": "0.19.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTO-419-sync"
     }
   ],
-  "policyCheck": "PATCH DH-419: DholeSystem y DholeWeb 1.120.2→1.120.3, DholeApiGateway 1.11.0→1.11.1; otros 14 servicios sin cambios; integración coordinada develop→staging→master.",
+  "policyCheck": "Coordinated minor release of four services, latest develop: System/Web 1.120.3→1.121.0, Pricing 1.26.26→1.27.0, Operations 0.18.0→0.19.0",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI GitHub Actions y verificación de versiones para DholeSystem, DholeWeb y DholeApiGateway",
-    "Staging: nginx -t, JWT, Pricing /api/config/catalog-items/select y /by-group, Storage uploads, Hacienda y SignalR",
-    "Staging: confirmar cero preflights para llamadas same-origin y TTL en llamadas cross-origin",
-    "Promoción a master solo tras staging validado y autorización expresa de producción"
+    "CI all repos",
+    "Staging acceptance, A/B and duplicate E2E",
+    "PostgreSQL autosave survival"
   ],
   "validationEvidence": {
     "ci": "pending",
-    "staging": "pending",
-    "frontendNumericInput": "pending",
-    "preflight": "pending",
-    "apiProxy": "pending",
-    "catalogCache": "pending"
+    "staging": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeApiGateway"
+    "DholePricingService",
+    "DholeOperationsService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -349,6 +329,14 @@
       "webDevelopCommit": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
       "gatewayDevelopCommit": "6e8bde709909a16f161f49955a6019a93340e00f",
       "approval": "production-deploy-not-authorized"
+    },
+    "apertures419": {
+      "releaseId": "DH-20261123-OPS-AUTO-419",
+      "pricingAcceptedQuoteOutbox": true,
+      "operationsPricingInbox": true,
+      "postgresAutosave": true,
+      "selectedQuote": true,
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {

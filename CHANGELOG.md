@@ -1,3 +1,8 @@
+## [1.121.0] - 2026-11-23 · DH-20261123-OPS-AUTO-419
+
+- MINOR: Aperturas automáticas QUO aceptadas, flujo Outbox/Inbox transaccional y borradores incompletos con autoguardado PostgreSQL. Reutiliza componentes DH y mantiene REST/realtime.
+- Release global 1.121.0; Pricing 1.27.0, Operations 0.19.0, Web/System 1.121.0; sin producción, CI y staging obligatorios.
+
 ## [1.120.3] - 2026-11-23 · DH-20261123-CORS-PREFLIGHT-419
 
 - PATCH coordinado: DholeWeb enruta solicitudes autorizadas de la API bajo el origen propio, comparte caché de catálogos por sesión y mantiene los componentes DH y contratos REST/SignalR intactos.

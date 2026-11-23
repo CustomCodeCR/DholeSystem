@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.120.3",
-  "ecosystemVersion": "1.120.3",
-  "releaseId": "DH-20261123-CORS-PREFLIGHT-419",
-  "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261123-CORS-PREFLIGHT-419"
+  "version": "1.121.0",
+  "ecosystemVersion": "1.121.0",
+  "releaseId": "DH-20261123-OPS-AUTO-419",
+  "releaseStatus": "candidate-develop-ci-pending",
+  "businessReleaseId": "DH-20261123-OPS-AUTO-419"
 }
