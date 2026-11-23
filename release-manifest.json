@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
+  "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.6",
+  "ecosystemVersion": "1.120.7",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-existing-quote-step6-421-sync-develop",
-    "master": "fix/pricing-existing-quote-step6-421-master"
+    "develop": "fix/pricing-modification-compare-save-422",
+    "master": null
   },
-  "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
+  "candidateBranch": "fix/pricing-modification-compare-save-422",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.6",
+      "version": "1.120.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
+      "candidateBranch": "fix/pricing-modification-compare-save-422",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/pricing-modification-compare-save-422"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.6",
+      "version": "1.120.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-421-develop",
-      "candidateSha": "d97cf06cf94e98b9eaea266a2cfac66cf35beaf6",
+      "candidateBranch": "fix/pricing-modification-compare-save-422",
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/pricing-modification-compare-save-422"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "DholeWeb/DholeSystem 1.120.5→1.120.6, preserved POL/POE VAT release 420 and edited quote DH-421; 15 other components unchanged",
+  "policyCheck": "DholeWeb/DholeSystem 1.120.6→1.120.7; Pricing amendment comparison and saved RateDetails safe update; remaining 15 services unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI Web/System",
-    "Staging: saved terrestrial LTL/FTL quote P6 -> P7, edit/save without losing details",
-    "No master merge without explicit production deploy authorization"
+    "Run CI tests and Web/System release gate",
+    "Validate staging seller modification mode/shipment changes and saved cost integrity",
+    "No master merge or production deployment without explicit authorization"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -166,7 +166,8 @@
     "preflight": "pending",
     "apiProxy": "pending",
     "catalogCache": "pending",
-    "pricingEditStep6": "pending"
+    "pricingEditStep6": "pending",
+    "pricingModification422": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -383,6 +384,20 @@
       "dbMigration": false,
       "ci": "pending",
       "staging": "pending",
+      "productionAuthorized": false
+    },
+    "pricingModification422": {
+      "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "modalityAndShipmentComparison": true,
+      "persistedRateDetailIdsPreserved": true,
+      "orderedUpdatePayloadIds": true,
+      "existingDhComponentsReused": true,
+      "restAndRealtimeContractsUnchanged": true,
+      "databaseChanges": false,
       "productionAuthorized": false
     }
   },
