@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "Dhole",
+  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+  "kind": "PATCH",
+  "date": "2026-11-23",
+  "ecosystemVersion": "1.120.10",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "previousVersion": "1.120.9",
+      "version": "1.120.10"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "previousVersion": "1.120.9",
+      "version": "1.120.10"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "previousVersion": "1.43.0",
+      "version": "1.43.1"
+    }
+  ],
+  "unchangedComponents": [
+    {
+      "repository": "CustomCodeCR/DholeApiGateway",
+      "version": "1.11.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAuthService",
+      "version": "1.17.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeConfigService",
+      "version": "1.12.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAuditLogsService",
+      "version": "1.5.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeDataExtractionService",
+      "version": "1.8.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "version": "1.26.26"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAIService",
+      "version": "1.8.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeStorageService",
+      "version": "1.5.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeReportsService",
+      "version": "1.7.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeNotificationsService",
+      "version": "1.8.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeContentService",
+      "version": "1.5.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeAgentService",
+      "version": "1.5.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+      "version": "1.5.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeOperationsService",
+      "version": "0.17.0"
+    }
+  ],
+  "changes": [
+    "Historial de cambios de prospectos reutilizando los componentes DH",
+    "Persistencia PostgreSQL en la transacción y seguridad CRM existente",
+    "Alineación DholeWeb/DholeSystem y manifest universal"
+  ],
+  "ci": "develop-ci-success-master-candidate-ci-pending",
+  "staging": "automated-deploy-success-authenticated-e2e-pending",
+  "productionDeploymentAuthorized": false
+}

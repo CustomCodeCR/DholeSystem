@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.9",
+  "ecosystemVersion": "1.120.10",
   "status": "candidate-master-pending-staging",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2",
-    "master": "release/pricing-modification-422-master-1209"
+    "develop": "release/crm-lead-change-history-dh431",
+    "master": "release/DH-20261123-CRM-LEAD-AUDIT-431-master"
   },
-  "candidateBranch": "release/pricing-modification-422-master-1209",
+  "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.9",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/pricing-modification-422-master-1209",
+      "version": "1.120.10",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/pricing-modification-422-master-1209",
+      "developMergeSha": "64f2154a6578263a28caf40b8e0242809319a06d",
+      "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
@@ -46,12 +46,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.9",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "release/pricing-modification-422-master-1209",
-      "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "release/pricing-modification-422-master-1209",
+      "version": "1.120.10",
+      "mergeState": "master-candidate-ci-pending",
+      "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+      "candidateSha": "e4430a1652e9af31d19edaaa434bda5fc17c1c33",
+      "developMergeSha": "27f3ae6d593848dbf3126826f1951b4220d89ac4",
+      "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
     },
     {
@@ -134,13 +134,13 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.43.0",
+      "version": "1.43.1",
       "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+      "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+      "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "candidateSha": null,
-      "developMergeSha": "6082041bdaa82a24f5236cefba7e4742e6430b53"
+      "candidateSha": "dc1fdba976214b30176ea11642d1d0df7e1a6b6b",
+      "developMergeSha": "c6a85da4e3958d868de2ecfc683f653f5257cf6f"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -154,16 +154,17 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "DholeWeb/DholeSystem master 1.120.8→1.120.9 coordinated release; other 15 components unchanged; ready only after CI/staging gates",
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "policyCheck": "Selective DH-431 backport Web and System 1.120.9→1.120.10; CRM 1.43.0→1.43.1; all other component versions remain at master.",
+  "mergeState": "master-candidate-ci-pending",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web CI and staging release smoke must pass before master integration",
-    "Web production push automatically deploys; verify health and release version"
+    "Validate authenticated prospect change history CRUD, actor names, permissions, and conversion in staging",
+    "Confirm branch CI / database migration for master selective backports",
+    "Production deployment not authorized; master pushes automatically deploy Web and CRM"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending",
+    "ci": "develop-and-pull-request-checks-passed-master-candidates-pending",
+    "staging": "web-and-crm-deploy-workflows-success-e2e-pending",
     "frontendNumericInput": "pending",
     "preflight": "pending",
     "apiProxy": "pending",
@@ -172,11 +173,13 @@
     "pricingSavedLtlEdit": "pending",
     "pricingVat": "pending",
     "multiPoeVat": "pending",
-    "pricingModification422": "pending"
+    "pricingModification422": "pending",
+    "crmLeadAudit431": "deploy-success-e2e-pending"
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -352,10 +355,35 @@
       "savedQuoteRateDetailIntegrity": true,
       "restRealtimeUnchanged": true,
       "productionAuthorized": true
+    },
+    "crmLeadAudit431": {
+      "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+      "components": [
+        "DholeWeb",
+        "DholeSystem",
+        "DholeCRMService"
+      ],
+      "changes": [
+        "Prospect change history with before/after actor and timestamp",
+        "PostgreSQL immutable audit and authorization on GET /leads/{id}/change-history",
+        "Separate route history, use shared DH patterns"
+      ],
+      "outboxInboxPreserved": true,
+      "stagingDeployPassed": true,
+      "authenticatedStagingE2E": false,
+      "productionDeploymentAuthorized": false
     }
   },
   "stagingValidation": {
-    "status": "pending"
+    "status": "deploy-workflow-success-e2e-pending",
+    "web": {
+      "sha": "27f3ae6d593848dbf3126826f1951b4220d89ac4",
+      "workflowRun": 45275290987
+    },
+    "crm": {
+      "sha": "c6a85da4e3958d868de2ecfc683f653f5257cf6f",
+      "workflowRun": 45270596287
+    }
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -409,7 +437,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+  "businessReleaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
