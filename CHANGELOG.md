@@ -1,3 +1,9 @@
+## [1.120.5] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421
+
+- PATCH coordinado: edición de flete terrestre de QUO persistida puede continuar P6→P7 y conservar cargos, sin aplicar guardas de creación.
+- Mantiene la versión 1.120.4 ya asignada en DholeWeb/develop a IVA según POL/POE; libera 1.120.5 para esta corrección.
+- DholeSystem y DholeWeb 1.120.4 → 1.120.5, 15 componentes sin cambios; pruebas DH-421 en CI/staging pendientes; producción no autorizada.
+
 ## [1.120.4] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-420
 
 - PATCH coordinado DholeSystem y DholeWeb: navegar de Pantalla 6 (flete terrestre) a Pantalla 7 al editar cotización persistida, sin bloquear por validaciones de creación ni modificar cargos guardados.
