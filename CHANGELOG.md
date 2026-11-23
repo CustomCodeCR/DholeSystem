@@ -1,3 +1,8 @@
+## [1.120.8] - 2026-11-23
+
+- PATCH DH-20261123-PRICING-VAT-RELEASE-430: release coordinado DholeSystem/DholeWeb que habilita el IVA fiscal por POL/POE en la pantalla 7, con recálculo por importación/exportación y alternativas multi-POE.
+- Mantiene REST de Pricing y componentes DH; se requiere verificación staging antes de master y autorización de despliegue producción.
+
 ## [1.120.7] - 2026-11-23 · DH-20261123-PRICING-LTL-EDIT-NAV-422
 
 - PATCH DholeSystem/DholeWeb 1.120.6 → 1.120.7: navegación de edición en cotizaciones LTL existentes permite revisar P7 desde P6 sin validaciones de una tarifa nueva.
