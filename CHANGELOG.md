@@ -1,3 +1,9 @@
+## [1.120.9] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
+
+- PATCH: cambios de modalidad y tipo de embarque en el resumen de modificaciones de Ventas; conservar cargos CostId/RateDetailId en edición de P7 y asociar montos al detalle correcto, sin eliminaciones implícitas.
+- Parte de la base DholeSystem/develop 1.120.8, conserva su corrección previa de IVA POL/POE y las versiones de otros 15 servicios.
+- CI/staging pendientes; master despliega DholeWeb automáticamente y sólo se integrará tras validación.
+
 ## [1.120.8] - 2026-11-23
 
 - PATCH DH-20261123-PRICING-VAT-RELEASE-430: release coordinado DholeSystem/DholeWeb que habilita el IVA fiscal por POL/POE en la pantalla 7, con recálculo por importación/exportación y alternativas multi-POE.
