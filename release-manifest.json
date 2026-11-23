@@ -2,26 +2,26 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.5",
+  "ecosystemVersion": "1.120.6",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-existing-quote-step6-421-develop",
+    "develop": "fix/pricing-existing-quote-step6-421-sync-develop",
     "master": "fix/pricing-existing-quote-step6-421-master"
   },
-  "candidateBranch": "fix/pricing-existing-quote-step6-421-master",
+  "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.5",
+      "version": "1.120.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-existing-quote-step6-421-develop",
+      "candidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
-      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-develop"
+      "developCandidateBranch": "fix/pricing-existing-quote-step6-421-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,10 +46,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.5",
+      "version": "1.120.6",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/pricing-existing-quote-step6-421-develop",
-      "candidateSha": "86b8c5122caf8d9d39ed120cc03590cf72a9b5ca",
+      "candidateSha": "d97cf06cf94e98b9eaea266a2cfac66cf35beaf6",
       "developMergeSha": null,
       "masterCandidateBranch": "fix/pricing-existing-quote-step6-421-master",
       "developCandidateBranch": "fix/pricing-existing-quote-step6-421-develop"
@@ -151,7 +151,7 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-421: DholeSystem/DholeWeb 1.120.4→1.120.5, preserving concurrent VAT release 420; 15 other services unchanged",
+  "policyCheck": "DholeWeb/DholeSystem 1.120.5→1.120.6, preserved POL/POE VAT release 420 and edited quote DH-421; 15 other components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -373,8 +373,8 @@
         "DholeSystem",
         "DholeWeb"
       ],
-      "from": "1.120.4",
-      "to": "1.120.5",
+      "from": "1.120.5",
+      "to": "1.120.6",
       "preservesConcurrentRelease": "DH-20261123-PRICING-POL-POE-VAT-420",
       "fix": "Existing terrestrial quote editing navigation P6 to P7 no creation-only requirements",
       "tests": "pricingExistingQuoteStep6Edit421.test.mjs",
