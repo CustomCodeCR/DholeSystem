@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.9",
+  "ecosystemVersion": "1.120.10",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/pricing-modification-422-sync-1209",
+    "develop": "release/crm-lead-change-history-dh431",
     "master": null
   },
-  "candidateBranch": "fix/pricing-modification-422-sync-1209",
+  "candidateBranch": "release/crm-lead-change-history-dh431",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.9",
+      "version": "1.120.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-modification-422-sync-1209",
+      "candidateBranch": "release/crm-lead-change-history-dh431",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-modification-422-sync-1209"
+      "developCandidateBranch": "release/crm-lead-change-history-dh431"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.9",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-modification-422-sync-1209",
-      "candidateSha": null,
+      "version": "1.120.10",
+      "mergeState": "candidate-develop-ci-pending",
+      "candidateBranch": "fix/crm-lead-change-history-20261123",
+      "candidateSha": "5f1aca883b14f684de71bb1dd53e4ab99df50b77",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-modification-422-sync-1209"
+      "developCandidateBranch": "fix/crm-lead-change-history-20261123"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,12 +131,12 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.43.0",
+      "version": "1.43.1",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "candidateBranch": "fix/crm-lead-change-history-20261123",
+      "developCandidateBranch": "fix/crm-lead-change-history-20261123",
       "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "candidateSha": null,
+      "candidateSha": "fabd20263eb99b48df364ffb7be131ccdea265f4",
       "developMergeSha": null
     },
     {
@@ -151,13 +151,14 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "DholeWeb/DholeSystem 1.120.8 → 1.120.9; preserve Pricing VAT release 430 and LTL release 422; other 15 components unchanged",
+  "policyCheck": "Global release 1.120.10 with prospect change history: Web and System 1.120.9 → 1.120.10; CRM 1.43.0 → 1.43.1; other 14 components unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web build and full unit/integration CI must pass",
-    "Validate seller-modification rate details, modality and shipment in staging",
-    "Promote same vetted build to master and verify production deployment"
+    "CRM .NET CI and migration must pass",
+    "DholeWeb Vue/TypeScript and CRM regression CI must pass",
+    "Validate prospect history CRUD, owner scopes and actor labels in staging",
+    "Promote exactly the validated release to master; production deployment not authorized"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -170,11 +171,13 @@
     "pricingSavedLtlEdit": "pending",
     "pricingVat": "pending",
     "multiPoeVat": "pending",
-    "pricingModification422": "pending"
+    "pricingModification422": "pending",
+    "crmLeadAudit431": "pending"
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
