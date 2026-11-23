@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.120.4",
-  "ecosystemVersion": "1.120.4",
-  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
+  "version": "1.120.5",
+  "ecosystemVersion": "1.120.5",
+  "releaseId": "DH-20261123-PRICING-POL-POE-VAT-420",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261123-PRICING-EDIT-STEP6-420"
+  "businessReleaseId": "DH-20261123-PRICING-POL-POE-VAT-420"
 }
