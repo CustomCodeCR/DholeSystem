@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+  "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.119.1",
+  "ecosystemVersion": "1.120.2",
   "status": "candidate-master-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
-    "master": "release/DH-20261123-PRICING-RETURN-MODAL-415-master"
+    "develop": "fix/DH-20261123-PRICING-LTL-NUMERIC-418",
+    "master": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master"
   },
-  "candidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+  "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.119.1",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+      "version": "1.120.2",
+      "mergeState": "candidate-master-ci-pending",
+      "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
       "candidateSha": null,
-      "developMergeSha": "6eb7458fb23ed9c0988390086c985ccc2bbe2813",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
-      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.119.1",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+      "version": "1.120.2",
+      "mergeState": "candidate-master-ci-pending",
+      "candidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
       "candidateSha": null,
-      "developMergeSha": "9d72e658c1a1f70c676173b093c5f47b81b25aca",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
-      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
+      "developMergeSha": null,
+      "masterCandidateBranch": "release/DH-20261123-PRICING-LTL-NUMERIC-418-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-NUMERIC-418"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -149,17 +149,17 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH: DholeWeb y DholeSystem 1.119.0 → 1.119.1; 15 componentes restantes sin cambio; DhModal de devoluciones sin modificaciones REST/realtime",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": false,
+  "policyCheck": "PATCH: master deploys only LTL hotfix 417+418, DholeWeb/DholeSystem 1.119.1→1.120.2 (skip incomplete operations release 416); 15 other production components unchanged.",
+  "mergeState": "candidate-master-ci-pending",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Comprobar CI completo de candidata master",
-    "Confirmar despliegue y pruebas autenticadas en staging",
-    "Autorizar despliegue producción independiente"
+    "Confirm CI and tested LTL runtime numeric inputs on staging",
+    "Check POST San José → Tegucigalpa and preservation of San Pedro Sula in production smoke after deploy"
   ],
   "validationEvidence": {
     "ci": "pending",
-    "staging": "pending"
+    "staging": "web-1.120.2-pending",
+    "frontendNumericInput": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -233,6 +233,35 @@
       "realtimePreserved": true,
       "backendChanged": false,
       "productionAuthorized": false
+    },
+    "pricingOwnLtlRoutes417": {
+      "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "scope": "LTL route create without overwriting existing",
+      "sharedDhComponents": true,
+      "backendChanged": false,
+      "dbMigration": false,
+      "restCompatible": true,
+      "realtimePreserved": true
+    },
+    "pricingLtlNumeric418": {
+      "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "rootCause": "Vue type=number emits numeric models and .trim before POST crashed",
+      "fix": "safe number|string parsing, specific validation, regression tests",
+      "backendChanged": false,
+      "dbMigration": false,
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "sharedDhComponents": true,
+      "productionAuthorized": true,
+      "validation": "pending-ci-staging"
     }
   },
   "stagingValidation": {
@@ -290,7 +319,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+  "businessReleaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
