@@ -1,3 +1,9 @@
+## [1.120.0] - 2026-11-23 · DH-20261123-OPS-APERTURES-P1-416
+
+- MINOR: primera entrega candidata de prioridad 1 Aperturas en DholeOperationsService, con completitud por campo y validaciones condicionales en backend y reconciliación IDTRA histórica.
+- Solo rama intermedia hacia develop; no es una implementación completa de la prioridad 1. Aceptación QUO, Outbox/Inbox Pricing, autoguardado inicial servidor y transferencias Origen quedan pendientes.
+- DholeSystem/global 1.119.1 → 1.120.0; Operations 0.17.0 → 0.18.0; otros 15 componentes mantienen versión. CI, PostgreSQL/staging y producción sin ejecutar.
+
 ## [1.119.1] - 2026-11-23 · DH-20261123-PRICING-RETURN-MODAL-415
 
 - PATCH coordinado: el dashboard comercial de DholeWeb presenta devoluciones de Pricing mediante DhModal en vez de expandir filas. Incluye motivo, trazabilidad y datos del cliente/ruta, sin nuevos componentes ni cambios de backend.
