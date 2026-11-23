@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-OPS-APERTURES-P1-416",
+  "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.0",
+  "ecosystemVersion": "1.120.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261123-OPS-APERTURES-P1-416",
+    "develop": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
     "master": null
   },
-  "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+  "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.0",
+      "version": "1.120.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.0",
+      "version": "1.120.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-ROUTES-417"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -146,24 +146,22 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "MINOR: Web y System 1.119.1→1.120.0, Operations 0.17.0→0.18.0; 14 servicios restantes sin cambios; staging/CI pendientes.",
+  "policyCheck": "PATCH: DholeWeb/DholeSystem 1.120.0→1.120.1; DholePricingService y 14 componentes más sin cambios; CI y staging pendientes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI .NET 10 y pruebas unitarias/integración PostgreSQL",
-    "Conciliación del contador IDTRA real en staging antes de ejecutar migración",
-    "Validación REST de campos FCA/WHs/equipos en staging",
-    "Integración Pricing y resto de P1 diferidas, no implementar en master"
+    "Validar compilación Vue/TypeScript y pruebas LTL en CI",
+    "Confirmar creación San José → Tegucigalpa sin modificar San Pedro Sula en staging",
+    "Validar catálogo de destinos SD y permisos de creación en staging"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "postgresIntegration": "pending"
+    "postgresIntegration": "not-applicable-to-ui-only-patch"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -290,6 +288,25 @@
         "Pricing review",
         "Origin transfer"
       ]
+    },
+    "pricingOwnLtlRoutes417": {
+      "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "scenario": "Consolidado LTL adicional GAM Costa Rica → Tegucigalpa Honduras",
+      "routeChangeCreatesNew": true,
+      "preserveExistingRoute": true,
+      "explicitDuplicateAction": true,
+      "clientDuplicateGuard": true,
+      "backendChanged": false,
+      "dbMigration": false,
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "sharedDhComponents": true,
+      "productionAuthorized": false,
+      "validation": "pending-ci-and-staging"
     }
   },
   "stagingValidation": {
@@ -347,7 +364,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+  "businessReleaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
