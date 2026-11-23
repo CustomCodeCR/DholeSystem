@@ -1,3 +1,9 @@
+## [1.120.10] - 2026-11-23 · DH-20261123-CRM-LEAD-AUDIT-431
+
+- PATCH coordinado: historial de cambios duradero en Prospectos con actor, fecha, valores anteriores y nuevos. DholeCRMService crea auditorías en la transacción de PostgreSQL; DholeWeb reutiliza el historial visual DH con paginación.
+- Versiones: DholeSystem/DholeWeb 1.120.9 → 1.120.10, DholeCRMService 1.43.0 → 1.43.1; otros 14 componentes conservan sus versiones. Manifiesto central de 17 repositorios sincronizado.
+- CI, migración y pruebas de staging pendientes; integración primero a develop y después a master tras validación. Sin autorización de despliegue a producción.
+
 ## [1.120.9] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
 
 - PATCH: cambios de modalidad y tipo de embarque en el resumen de modificaciones de Ventas; conservar cargos CostId/RateDetailId en edición de P7 y asociar montos al detalle correcto, sin eliminaciones implícitas.
