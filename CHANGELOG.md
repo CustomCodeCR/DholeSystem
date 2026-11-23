@@ -1,3 +1,8 @@
+## [1.120.4] - 2026-11-23
+
+- PATCH DH-20261123-PRICING-POL-POE-VAT-420: release coordinado DholeWeb + DholeSystem para IVA por tramo físico POL/POE, dirección comercial de importación/exportación y opciones multi-POE.
+- Reutiliza contratos REST y componentes DH; pruebas de frontend, CI y validación staging pendientes antes de promoción a master.
+
 ## [1.120.3] - 2026-11-23 · DH-20261123-CORS-PREFLIGHT-419
 
 - PATCH coordinado: DholeWeb enruta solicitudes autorizadas de la API bajo el origen propio, comparte caché de catálogos por sesión y mantiene los componentes DH y contratos REST/SignalR intactos.
