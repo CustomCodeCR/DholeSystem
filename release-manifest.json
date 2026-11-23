@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261122-DHOLE-ERP-412",
+  "releaseId": "DH-20261122-UI-MOTION-LAB-413",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.117.2",
+  "ecosystemVersion": "1.118.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop",
-    "master": "release/DH-20261122-DHOLE-ERP-MEANING-412-master"
+    "develop": "feature/DH-20261122-UI-MOTION-LAB-413",
+    "master": "release/DH-20261122-UI-MOTION-LAB-413-master"
   },
-  "candidateBranch": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop",
+  "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.117.2",
+      "version": "1.118.0",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop",
+      "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-MEANING-412-master",
-      "developCandidateBranch": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop"
+      "masterCandidateBranch": "release/DH-20261122-UI-MOTION-LAB-413-master",
+      "developCandidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -41,13 +41,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.117.2",
+      "version": "1.118.0",
       "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop",
-      "candidateSha": null,
+      "candidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413",
+      "candidateSha": "919631b17de2bc48f77782fc363a22c31170a70b",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-DHOLE-ERP-MEANING-412-master",
-      "developCandidateBranch": "fix/DH-20261122-DHOLE-ERP-MEANING-412-develop"
+      "masterCandidateBranch": "release/DH-20261122-UI-MOTION-LAB-413-master",
+      "developCandidateBranch": "feature/DH-20261122-UI-MOTION-LAB-413"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -141,13 +141,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem y DholeWeb 1.117.1 → 1.117.2 por expansión visible del acrónimo; 15 componentes sin cambios.",
+  "policyCheck": "MINOR: DholeSystem y DholeWeb 1.117.2 → 1.118.0 por laboratorio visual aislado; otros 15 componentes conservan version.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI de frontend y versionamiento universal",
-    "Prueba de branding para significado visible",
-    "Staging exitoso antes de master"
+    "CI del frontend y del manifiesto universal",
+    "Pruebas de compilación y regresión",
+    "Verificación visual en staging y aprobación antes de master"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -207,6 +207,21 @@
         "DholeSystem"
       ],
       "technicalContractsChanged": false
+    },
+    "uiMotionLab413": {
+      "releaseId": "DH-20261122-UI-MOTION-LAB-413",
+      "scope": "DholeWeb laboratorio visual aislado",
+      "route": "/lab/animaciones",
+      "version": "1.118.0",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "interaction": "Spotlight, tarjetas KPI, alternativas Pricing, timeline Operations y notificación con transición",
+      "accessibility": "reduced motion; manual toggle",
+      "backendChanges": false,
+      "realtimeContractsChanged": false,
+      "productionAuthorized": false
     }
   },
   "stagingValidation": {
@@ -264,7 +279,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261122-DHOLE-ERP-412",
+  "businessReleaseId": "DH-20261122-UI-MOTION-LAB-413",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -700,7 +715,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "DH-408 Aperturas choose team before create, two-person validation eligibility diagnostics, no weight at opening, stackable only LCL/LTL, redesigned summary and case drawer.",
+  "releaseSummary": "DH-413: galería interactiva de animaciones en /lab/animaciones para revisión, sin escrituras ni cambios de negocio.",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",

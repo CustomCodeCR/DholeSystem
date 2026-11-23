@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.117.2",
-  "ecosystemVersion": "1.117.2",
-  "releaseId": "DH-20261122-DHOLE-ERP-412",
+  "version": "1.118.0",
+  "ecosystemVersion": "1.118.0",
+  "releaseId": "DH-20261122-UI-MOTION-LAB-413",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261122-DHOLE-ERP-412"
+  "businessReleaseId": "DH-20261122-UI-MOTION-LAB-413"
 }

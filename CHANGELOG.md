@@ -1,3 +1,8 @@
+## [1.118.0] - 2026-11-22 · DH-20261122-UI-MOTION-LAB-413
+
+- MINOR: registrar laboratorio visual experimental aislado de DholeWeb en /lab/animaciones, sin alterar pantallas operativas, datos, APIs ni realtime.
+- Manifiesto de 17 componentes actualizado; DholeSystem y DholeWeb 1.117.2 → 1.118.0, quince servicios sin cambios. Requiere CI y validación en staging; master queda sujeto a aprobación expresa del usuario.
+
 ## [1.117.2] - 2026-11-22 · DH-20261122-DHOLE-ERP-412
 
 - PATCH: mostrar el significado de la marca DHOLE ERP «Digital Hub for Operations, Logistics & Ecosystem» como texto visible en la pantalla de acceso y en el encabezado del menú lateral expandido, no solamente en tooltip.
