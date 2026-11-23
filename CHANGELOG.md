@@ -2,7 +2,7 @@
 
 - MINOR: primera entrega candidata de prioridad 1 Aperturas en DholeOperationsService, con completitud por campo y validaciones condicionales en backend y reconciliación IDTRA histórica.
 - Solo rama intermedia hacia develop; no es una implementación completa de la prioridad 1. Aceptación QUO, Outbox/Inbox Pricing, autoguardado inicial servidor y transferencias Origen quedan pendientes.
-- DholeSystem/global 1.119.1 → 1.120.0; Operations 0.17.0 → 0.18.0; otros 15 componentes mantienen versión. CI, PostgreSQL/staging y producción sin ejecutar.
+- DholeSystem y DholeWeb/global 1.119.1 → 1.120.0; Operations 0.17.0 → 0.18.0; otros 14 componentes mantienen versión. CI, PostgreSQL/staging y producción sin ejecutar.
 
 ## [1.119.1] - 2026-11-23 · DH-20261123-PRICING-RETURN-MODAL-415
 
