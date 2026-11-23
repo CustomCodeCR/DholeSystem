@@ -1,3 +1,9 @@
+## [1.120.7] - 2026-11-23 · DH-20261123-PRICING-LTL-EDIT-NAV-422
+
+- PATCH DholeSystem/DholeWeb 1.120.6 → 1.120.7: navegación de edición en cotizaciones LTL existentes permite revisar P7 desde P6 sin validaciones de una tarifa nueva.
+- No revaloriza, reemplaza ni borra líneas históricas con una simple navegación; mantiene validación de guardado y los contratos REST, SignalR y Outbox/Inbox vigentes.
+- Manifiesto de 17 repositorios actualizado; otros 15 componentes conservan sus versiones individuales. Pendiente CI/staging, no desplegar producción sin autorización expresa.
+
 ## [1.120.6] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421
 
 - PATCH coordinado: navegación al editar cotización terrestre ya guardada, Pantalla 6→7, sin validaciones de creación; persistencia y validación de guardado intactas.
