@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+  "releaseId": "DH-20261123-PRICING-VAT-RESTORE-422",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.7",
+  "ecosystemVersion": "1.120.8",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
-    "master": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master"
+    "develop": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop",
+    "master": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master"
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+  "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.7",
+      "version": "1.120.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop",
+      "candidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LTL-EDIT-NAV-422-develop"
+      "masterCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RESTORE-422-sync-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,13 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-422 DholeSystem and DholeWeb 1.120.6→1.120.7; all other 15 services unchanged; staged integration develop before master.",
+  "policyCheck": "PATCH DH-20261123-PRICING-VAT-RESTORE-422: DholeSystem y DholeWeb 1.120.7→1.120.8; conserva PRICING-LTL-EDIT-NAV-422. Promote develop→staging→master tras CI; no prod deployment autorizado.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web & System CI/versioning gates",
-    "Real LTL saved quote P6→P7 and change/save staging validation",
-    "Production deployment requires explicit permission for this release"
+    "CI/version gate DholeWeb+DholeSystem",
+    "Pruebas de pantalla 7 y PDF en staging",
+    "No producción automática sin autorización"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -167,7 +167,9 @@
     "apiProxy": "pending",
     "catalogCache": "pending",
     "pricingEditStep6": "pending",
-    "pricingSavedLtlEdit": "pending"
+    "pricingSavedLtlEdit": "pending",
+    "pricingVat": "pending",
+    "multiPoeVat": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -405,6 +407,27 @@
       "realtimeChanged": false,
       "databaseChanged": false,
       "sharedDHComponentsReused": true,
+      "ci": "pending",
+      "staging": "pending",
+      "productionAuthorized": false
+    },
+    "pricingVatRestore422": {
+      "releaseId": "DH-20261123-PRICING-VAT-RESTORE-422",
+      "systemVersion": "1.120.8",
+      "webVersion": "1.120.8",
+      "components": [
+        "DholeWeb",
+        "DholeSystem"
+      ],
+      "originVat": "POL",
+      "destinationVat": "POE",
+      "freightImport": "POE",
+      "freightExport": "POL",
+      "independentMultiPoe": true,
+      "configuredPortRolePrecedesAmbiguousCostName": true,
+      "persistedCostSectionByRole": true,
+      "apiContractsChanged": false,
+      "realtimeContractsChanged": false,
       "ci": "pending",
       "staging": "pending",
       "productionAuthorized": false
