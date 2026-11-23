@@ -1,3 +1,15 @@
+## [1.120.2] - 2026-11-23 · DH-20261123-PRICING-LTL-NUMERIC-418
+
+- PATCH master selectivo del consolidado LTL propio: corregir error de .trim() previo a POST con valores numéricos de Vue, mostrar errores específicos y asegurar que «Crear ruta» se pueda enviar.
+- Incluye creación de rutas alternativas por ciudad, preservando San Pedro Sula cuando se agrega Tegucigalpa, y pruebas de regresión de ambos escenarios.
+- Releases LTL 417+418 exclusivamente, sin integrar funciones incompletas de Operations 416 presentes únicamente en develop.
+- Versiones en master: DholeSystem y DholeWeb 1.119.1 → 1.120.2; 15 servicios restantes conservan sus versiones de producción. Manifiesto de 17 componentes actualizado.
+- CI, staging, permiso de producción y health checks son obligatorios previo/post merge.
+
+## [1.120.1] - 2026-11-23 · DH-20261123-PRICING-LTL-ROUTES-417
+
+- PATCH: permitir consolidado LTL adicional por destino, independiente de las rutas actuales. Acción de duplicado con importes/cargos y prevención de actualización accidental de ruta original.
+
 ## [1.119.1] - 2026-11-23 · DH-20261123-PRICING-RETURN-MODAL-415
 
 - PATCH: promover selectivamente el botón «Ver devolución» y el historial de Pricing dentro de DhModal en Dashboard comercial.
