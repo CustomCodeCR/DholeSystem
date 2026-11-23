@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-CORS-PREFLIGHT-419",
+  "releaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.3",
+  "ecosystemVersion": "1.120.4",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-    "master": null
+    "develop": "fix/pricing-existing-quote-step6-420-develop",
+    "master": "fix/pricing-existing-quote-step6-420-master"
   },
-  "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+  "candidateBranch": "fix/pricing-existing-quote-step6-420-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.3",
+      "version": "1.120.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+      "candidateBranch": "fix/pricing-existing-quote-step6-420-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
+      "masterCandidateBranch": "fix/pricing-existing-quote-step6-420-master",
+      "developCandidateBranch": "fix/pricing-existing-quote-step6-420-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.3",
+      "version": "1.120.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-      "candidateSha": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
+      "candidateBranch": "fix/pricing-existing-quote-step6-420-develop",
+      "candidateSha": "7d6d8930f7b8a91bd5d1c99b62747b20a4e10357",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-      "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop"
+      "masterCandidateBranch": "fix/pricing-existing-quote-step6-420-master",
+      "developCandidateBranch": "fix/pricing-existing-quote-step6-420-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,14 +151,13 @@
       "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH DH-419: DholeSystem y DholeWeb 1.120.2→1.120.3, DholeApiGateway 1.11.0→1.11.1; otros 14 servicios sin cambios; integración coordinada develop→staging→master.",
+  "policyCheck": "PATCH DH-420: DholeSystem/DholeWeb 1.120.3→1.120.4; remaining 15 components unchanged; PR develop CI and staging before master authorization",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI GitHub Actions y verificación de versiones para DholeSystem, DholeWeb y DholeApiGateway",
-    "Staging: nginx -t, JWT, Pricing /api/config/catalog-items/select y /by-group, Storage uploads, Hacienda y SignalR",
-    "Staging: confirmar cero preflights para llamadas same-origin y TTL en llamadas cross-origin",
-    "Promoción a master solo tras staging validado y autorización expresa de producción"
+    "GitHub Actions checks must pass in Web and System",
+    "Verify editing existing terrestrial LTL/FTL quotation from P6 to P7, preserving stored line IDs and totals in staging",
+    "Authorize master merge and automatic production deployment separately"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -166,12 +165,12 @@
     "frontendNumericInput": "pending",
     "preflight": "pending",
     "apiProxy": "pending",
-    "catalogCache": "pending"
+    "catalogCache": "pending",
+    "pricingEditStep6": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeApiGateway"
+    "DholeWeb"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -349,6 +348,23 @@
       "webDevelopCommit": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
       "gatewayDevelopCommit": "6e8bde709909a16f161f49955a6019a93340e00f",
       "approval": "production-deploy-not-authorized"
+    },
+    "pricingExistingQuoteEdit420": {
+      "releaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
+      "components": [
+        "DholeSystem",
+        "DholeWeb"
+      ],
+      "priorVersion": "1.120.3",
+      "version": "1.120.4",
+      "fix": "P6 terrestrial quotation edit can navigate to persisted P7 lines without reapplying new-quote guards",
+      "tests": "pricingExistingQuoteStep6Edit420.test.mjs",
+      "backendChanged": false,
+      "dbMigration": false,
+      "realtimeUnchanged": true,
+      "productionAuthorized": false,
+      "ci": "pending",
+      "staging": "pending"
     }
   },
   "stagingValidation": {
@@ -406,7 +422,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+  "businessReleaseId": "DH-20261123-PRICING-EDIT-STEP6-420",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
