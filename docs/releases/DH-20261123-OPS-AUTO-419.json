@@ -1,0 +1,14 @@
+{
+  "releaseId": "DH-20261123-OPS-AUTO-419",
+  "ecosystemVersion": "1.121.0",
+  "repo": "CustomCodeCR/DholeSystem",
+  "branch": "feature/DH-20261123-OPS-AUTO-419-sync",
+  "components": [
+    "DholeSystem",
+    "DholeWeb",
+    "DholePricingService",
+    "DholeOperationsService"
+  ],
+  "stagingValidation": "pending",
+  "productionAuthorized": false
+}
