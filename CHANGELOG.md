@@ -1,3 +1,9 @@
+## [1.119.1] - 2026-11-23 · DH-20261123-PRICING-RETURN-MODAL-415
+
+- PATCH coordinado: el dashboard comercial de DholeWeb presenta devoluciones de Pricing mediante DhModal en vez de expandir filas. Incluye motivo, trazabilidad y datos del cliente/ruta, sin nuevos componentes ni cambios de backend.
+- Ecosistema y versiones de DholeWeb/DholeSystem 1.119.0 → 1.119.1; los 15 componentes restantes conservan sus versiones. Manifiesto central actualizado.
+- Solo ramas intermedias; compilación, pruebas CI y validación staging pendientes. Master y producción no autorizados.
+
 ## [1.119.0] - 2026-11-22 · DH-20261122-OPS-CASE-OVERVIEW-414
 
 - MINOR: release coordinado de visibilidad y resumen del expediente IDTRA: CRM como fuente de identidad de cliente/ejecutivo, Auth para nombres de operativos, estados por departamento y consulta del superusuario.
