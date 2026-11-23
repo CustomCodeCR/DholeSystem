@@ -1,7 +1,7 @@
 ## [1.119.0] - 2026-11-22 · DH-20261122-OPS-CASE-OVERVIEW-414
 
 - MINOR: release coordinado de visibilidad y resumen del expediente IDTRA: CRM como fuente de identidad de cliente/ejecutivo, Auth para nombres de operativos, estados por departamento y consulta del superusuario.
-- Manifiesto universal de 17 componentes: DholeSystem y DholeWeb 1.118.0 → 1.119.0, DholeOperationsService 0.16.0 → 0.17.0; otros 14 sin cambios.
+- Manifiesto universal de 17 componentes: DholeSystem y DholeWeb 1.118.0 → 1.119.0, DholeOperationsService 0.16.0 → 0.17.0 y DholeCRMService 1.42.8 → 1.43.0; otros 13 sin cambios.
 - Integración pendiente de CI y staging; master y despliegue de producción no autorizados.
 
 ## [1.118.0] - 2026-11-22 · DH-20261122-UI-MOTION-LAB-413
