@@ -1,3 +1,9 @@
+## [1.120.7] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
+
+- PATCH coordinado DholeWeb/DholeSystem: mostrar modalidad y tipo de embarque al modificarse la QUO, sin inventar valores originales no verificables.
+- Restaurar la integridad de cargos persistidos en modificaciones de Pricing: conservar CostIds al cambiar datos de carga, mostrar nombres de líneas excluidas y alinear ID/costo/venta en el payload de actualización de Pantalla 7.
+- Release sin cambios en otros 15 componentes, REST, SignalR ni BD. CI y staging pendientes; master y producción no autorizados.
+
 ## [1.120.6] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421
 
 - PATCH coordinado: navegación al editar cotización terrestre ya guardada, Pantalla 6→7, sin validaciones de creación; persistencia y validación de guardado intactas.
