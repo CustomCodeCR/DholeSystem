@@ -1,3 +1,9 @@
+## [1.120.9] - 2026-11-23 · DH-20261123-PRICING-MODIFICATION-422
+
+- PATCH coordinado: comparar cambios solicitados de modalidad y tipo de embarque; recuperar íntegramente los cargos persistidos y asociar cada CostId/RateDetailId a su línea al actualizar Pricing.
+- Usa versión no reutilizada porque 1.120.7 ya corresponde al release LTL de develop y 1.120.8 está reservada en otro candidato. DholeWeb/DholeSystem 1.120.9; otros 15 servicios no modificados.
+- Verificación CI/staging pendiente. Prohibido integrar a master antes de ambas validaciones; push de DholeWeb/master inicia despliegue automático.
+
 ## [1.120.7] - 2026-11-23 · DH-20261123-PRICING-LTL-EDIT-NAV-422
 
 - PATCH DholeSystem/DholeWeb 1.120.6 → 1.120.7: navegación de edición en cotizaciones LTL existentes permite revisar P7 desde P6 sin validaciones de una tarifa nueva.
