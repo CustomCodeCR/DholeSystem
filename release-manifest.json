@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+  "releaseId": "DH-20261123-OPS-APERTURES-P1-416",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.119.1",
+  "ecosystemVersion": "1.120.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
-    "master": "release/DH-20261123-PRICING-RETURN-MODAL-415-master"
+    "develop": "feature/DH-20261123-OPS-APERTURES-P1-416",
+    "master": null
   },
-  "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
+  "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.119.1",
+      "version": "1.120.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415",
+      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261123-PRICING-RETURN-MODAL-415-master",
+      "masterCandidateBranch": null,
       "developCandidateBranch": "feature/DH-20261123-PRICING-RETURN-MODAL-415"
     },
     {
@@ -137,30 +137,32 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.17.0",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+      "version": "0.18.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
     }
   ],
-  "policyCheck": "PATCH: DholeSystem y DholeWeb 1.119.0 → 1.119.1; los 15 componentes restantes sin cambios; solo interfaz comercial, sin alteraciones REST/SignalR/Redis.",
+  "policyCheck": "MINOR: Operations 0.17.0→0.18.0, System/global 1.119.1→1.120.0; 15 restantes sin cambios. CI y staging pendientes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Compilación y pruebas Vue/TypeScript en CI",
-    "Validación visual en staging (tema claro/oscuro, móvil/escritorio)",
-    "Autorización expresa de integración y despliegue en producción"
+    "CI .NET 10 y pruebas unitarias/integración PostgreSQL",
+    "Conciliación del contador IDTRA real en staging antes de ejecutar migración",
+    "Validación REST de campos FCA/WHs/equipos en staging",
+    "Integración Pricing y resto de P1 diferidas, no implementar en master"
   ],
   "validationEvidence": {
     "ci": "pending",
-    "staging": "pending"
+    "staging": "pending",
+    "postgresIntegration": "pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService",
+    "DholeSystem"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -268,6 +270,23 @@
       "realtimePreserved": true,
       "backendChanged": false,
       "productionAuthorized": false
+    },
+    "apertures416": {
+      "releaseId": "DH-20261123-OPS-APERTURES-P1-416",
+      "scope": "Primer lote backend Aperturas",
+      "implemented": [
+        "Completitud condicional backend",
+        "Vista previa protegida de estado por campo",
+        "IDTRA formato sin ceros forzados",
+        "Conciliación contador histórico en migración no destructiva"
+      ],
+      "deferred": [
+        "QUO acceptance Outbox/Inbox",
+        "Autosave nuevo draft a PostgreSQL",
+        "UI",
+        "Pricing review",
+        "Origin transfer"
+      ]
     }
   },
   "stagingValidation": {
