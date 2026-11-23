@@ -1,3 +1,9 @@
+## [1.120.6] - 2026-11-23 · DH-20261123-PRICING-EDIT-STEP6-421 (candidato master)
+
+- PATCH aislado de la navegación P6→P7 al editar flete terrestre de una cotización guardada. No se alteran cargos históricos ni validación al guardar.
+- DholeSystem/DholeWeb pasan de master 1.120.3 al candidato 1.120.6; releases 1.120.4/1.120.5 preservados en develop, sin traer código incompleto a master. Demás 15 componentes sin cambios.
+- CI/staging y autorización expresa de producción requeridos antes de integrar master.
+
 ## [1.120.3] - 2026-11-23 · DH-20261123-CORS-PREFLIGHT-419
 
 - PATCH coordinado: DholeWeb enruta solicitudes autorizadas de la API bajo el origen propio, comparte caché de catálogos por sesión y mantiene los componentes DH y contratos REST/SignalR intactos.
