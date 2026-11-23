@@ -1,4 +1,4 @@
-## [1.120.4] - 2026-11-23
+## [1.120.5] - 2026-11-23
 
 - PATCH DH-20261123-PRICING-POL-POE-VAT-420: release coordinado DholeWeb + DholeSystem para IVA por tramo físico POL/POE, dirección comercial de importación/exportación y opciones multi-POE.
 - Reutiliza contratos REST y componentes DH; pruebas de frontend, CI y validación staging pendientes antes de promoción a master.
