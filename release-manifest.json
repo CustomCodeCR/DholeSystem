@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-SENT-CRM-FIX",
+  "releaseId": "DH-20261124-OPENINGS-IDTRA-GUARD",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.3",
+  "ecosystemVersion": "1.124.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-sent-crm-20261124-develop",
-    "master": "fix/pricing-sent-crm-20261124-master"
+    "develop": "fix/openings-idtra-guard-20261124-develop",
+    "master": "fix/openings-idtra-guard-20261124-master"
   },
-  "candidateBranch": "fix/pricing-sent-crm-20261124-master",
+  "candidateBranch": "fix/openings-idtra-guard-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.3",
+      "version": "1.124.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "candidateBranch": "fix/openings-idtra-guard-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
-      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
+      "masterCandidateBranch": "fix/openings-idtra-guard-20261124-master",
+      "developCandidateBranch": "fix/openings-idtra-guard-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.3",
+      "version": "1.124.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
-      "candidateSha": "1c86799e5116b92036d8d959f624e415202eff67",
+      "candidateBranch": "fix/openings-idtra-guard-20261124-master",
+      "candidateSha": "0ec024d9692e405f5f36b977ea497acd8fe9a88c",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
-      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
+      "masterCandidateBranch": "fix/openings-idtra-guard-20261124-master",
+      "developCandidateBranch": "fix/openings-idtra-guard-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,13 +78,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.5",
+      "version": "1.29.6",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
-      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop",
-      "candidateSha": "4a3d59223a8119a4f02fcf1116b1d51c6149e365",
+      "candidateBranch": "fix/openings-idtra-guard-20261124-master",
+      "developCandidateBranch": "fix/openings-idtra-guard-20261124-develop",
+      "candidateSha": "a6aa8e4043f6712314da522d0a5d3401aaa45277",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master"
+      "masterCandidateBranch": "fix/openings-idtra-guard-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,16 +154,16 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "Selective DH-432 backport: DholeWeb and DholeSystem 1.120.10 → 1.120.11; preserve 15 master component versions.",
+  "policyCheck": "PATCH Pricing 1.29.5 → 1.29.6; Web/System 1.124.3 → 1.124.4. Other component versions retained from base manifest; live verification pending.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI pending",
-    "Authenticated QUO save/reopen in staging not verified; explicitly requested production promotion"
+    "Mandatory CI and staging validation pending",
+    "Notifications deliveries already published to Redis or accepted by SMTP are outside the Pricing Outbox guard"
   ],
   "validationEvidence": {
-    "ci": "develop-pr-passed-master-candidate-pending",
-    "staging": "web-and-crm-deploy-workflows-success-e2e-pending",
+    "ci": "pending",
+    "staging": "pending",
     "frontendNumericInput": "pending",
     "preflight": "pending",
     "apiProxy": "pending",
@@ -174,7 +174,14 @@
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
     "crmLeadAudit431": "deploy-success-e2e-pending",
-    "pricingCargoUnits432": "develop regression and CI passed; authenticated staging E2E not verified"
+    "pricingCargoUnits432": "develop regression and CI passed; authenticated staging E2E not verified",
+    "openingsIdtraGuard": {
+      "ci": "pending",
+      "staging": "pending",
+      "pricing": "1.29.6",
+      "web": "1.124.4",
+      "system": "1.124.4"
+    }
   },
   "releaseComponents": [
     "DholeSystem",
@@ -182,8 +189,8 @@
     "DholeWeb"
   ],
   "changes": [
-    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification.",
-    "Version-only DholeWeb synchronization required by universal version gate."
+    "Suppress openings notifications for current/historical IDTRA before queue and Pricing Outbox publication.",
+    "Report suppressed resend distinctly in DholeWeb."
   ],
   "stagingValidation": {
     "status": "pending"
