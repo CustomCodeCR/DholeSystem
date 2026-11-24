@@ -1,3 +1,11 @@
+## [1.124.1] - 2026-11-24
+
+- Scope operational case access by team and assignee; expose automatic approval and route new manual openings directly to Origin.
+
+## [1.124.0] - 2026-11-24
+
+- MINOR: resumen QUO independiente, semáforo de discrepancias, revisión comercial persistente sin servicios ficticios y contactos CRM por expediente. Prioridad y complejidad internas al pool; se elimina formulario adicional en QUO. Contratos REST compatibles y Outbox/Inbox. CI y UAT pendientes.
+
 ## [1.123.3] - 2026-11-24
 
 - PATCH: pool automático de aperturas pendientes, nuevas e históricas; doble revisión con Auth, carga ponderada, idempotencia, trazabilidad y realtime. Nombres autorizados de validadores y clientes. Sin cambios de roles, sin aprobaciones automáticas. Auth antes de Operations. CI y UAT pendientes.

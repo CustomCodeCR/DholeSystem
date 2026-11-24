@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-POOL",
+  "releaseId": "DH-20261124-OPS-ASSIGNED-WORKFLOW",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.123.3",
+  "ecosystemVersion": "1.124.1",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/operations-automatic-pool-20261124",
+    "develop": "fix/operations-assigned-workflow-20261124",
     "master": null
   },
-  "candidateBranch": "fix/operations-automatic-pool-20261124",
+  "candidateBranch": "fix/operations-assigned-workflow-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.123.3",
+      "version": "1.124.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-automatic-pool-20261124",
+      "candidateBranch": "fix/operations-assigned-workflow-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
+      "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.123.3",
+      "version": "1.124.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-automatic-pool-20261124",
-      "candidateSha": "b86776edcdbd12cdc08b80ce61abdb7e22b82dea",
+      "candidateBranch": "fix/operations-assigned-workflow-20261124",
+      "candidateSha": "74f2838d1f0a0f1ae68ce41d8a82ee3c4107b4a1",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
+      "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -133,32 +133,32 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.44.1",
+      "version": "1.45.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
-      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+      "candidateBranch": "fix/operations-quo-discrepancies-20261124",
+      "developCandidateBranch": "fix/operations-quo-discrepancies-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": null,
+      "candidateSha": "efed630b3d1ebd0854a698761991a0f0ee33a576",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.20.3",
+      "version": "0.21.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-automatic-pool-20261124",
-      "candidateSha": "0c20d0a88ece8e14a9751a1a7db1297cc8398509",
+      "candidateBranch": "fix/operations-assigned-workflow-20261124",
+      "candidateSha": "888e37a7628f018ce5c837b9a137372418c6709b",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
+      "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "System/Web 1.123.2 → 1.123.3; Auth 1.17.1 → 1.17.2; Operations 0.20.2 → 0.20.3; remaining 13 components verified unchanged.",
+  "policyCheck": "System/Web 1.124.0 → 1.124.1; Operations 0.21.0 → 0.21.1; remaining 14 components verified unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI and staging pool/permissions validation",
-    "Auth consumer contract must be deployed before Operations worker"
+    "Mandatory CI build, tests and staging ACL/realtime validation",
+    "Historical manual cases pending validation require reconciliation"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -381,18 +381,183 @@
           "version": "1.44.1"
         }
       ]
+    },
+    "quoteComparison": {
+      "ci": "pending",
+      "staging": "pending",
+      "otherComponentsVerified": [
+        {
+          "component": "DholeApiGateway",
+          "version": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "version": "1.17.2"
+        },
+        {
+          "component": "DholeConfigService",
+          "version": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholePricingService",
+          "version": "1.29.2"
+        },
+        {
+          "component": "DholeAIService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholeStorageService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeReportsService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "version": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeAgentService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "version": "1.5.0"
+        }
+      ]
+    },
+    "assignedWorkflow": {
+      "ci": "pending",
+      "staging": "not-run",
+      "components": [
+        {
+          "component": "DholeSystem",
+          "manifest": "1.124.0",
+          "develop": "1.124.0",
+          "match": true
+        },
+        {
+          "component": "DholeApiGateway",
+          "manifest": "1.11.1",
+          "develop": "1.11.1",
+          "match": true
+        },
+        {
+          "component": "DholeAuthService",
+          "manifest": "1.17.2",
+          "develop": "1.17.2",
+          "match": true
+        },
+        {
+          "component": "DholeWeb",
+          "manifest": "1.124.0",
+          "develop": "1.124.0",
+          "match": true
+        },
+        {
+          "component": "DholeConfigService",
+          "manifest": "1.12.0",
+          "develop": "1.12.0",
+          "match": true
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "manifest": "1.6.0",
+          "develop": "1.6.0",
+          "match": true
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "manifest": "1.9.0",
+          "develop": "1.9.0",
+          "match": true
+        },
+        {
+          "component": "DholePricingService",
+          "manifest": "1.29.2",
+          "develop": "1.29.2",
+          "match": true
+        },
+        {
+          "component": "DholeAIService",
+          "manifest": "1.9.0",
+          "develop": "1.9.0",
+          "match": true
+        },
+        {
+          "component": "DholeStorageService",
+          "manifest": "1.5.0",
+          "develop": "1.5.0",
+          "match": true
+        },
+        {
+          "component": "DholeReportsService",
+          "manifest": "1.8.1",
+          "develop": "1.8.1",
+          "match": true
+        },
+        {
+          "component": "DholeNotificationsService",
+          "manifest": "1.9.1",
+          "develop": "1.9.1",
+          "match": true
+        },
+        {
+          "component": "DholeContentService",
+          "manifest": "1.5.0",
+          "develop": "1.5.0",
+          "match": true
+        },
+        {
+          "component": "DholeAgentService",
+          "manifest": "1.6.0",
+          "develop": "1.6.0",
+          "match": true
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "manifest": "1.5.0",
+          "develop": "1.5.0",
+          "match": true
+        },
+        {
+          "component": "DholeCRMService",
+          "manifest": "1.45.0",
+          "develop": "1.45.0",
+          "match": true
+        },
+        {
+          "component": "DholeOperationsService",
+          "manifest": "0.21.0",
+          "develop": "0.21.0",
+          "match": true
+        }
+      ]
     }
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService",
-    "DholeAuthService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Recover new and historical pending openings with two distinct eligible reviewers, weighted load and tenant-scoped locking",
-    "Internal Auth eligibility contract shares role and scope policy, no role or scope grants",
-    "Expose authorized case reviewer and customer labels and retain existing DH UI"
+    "Case visibility limited to active team and personal assignment, team supervisors or system administrators",
+    "Automatic opening review surfaced in Dashboard and Trámites; dual validation retained",
+    "New manual openings sent directly to Origin with durable pool retry"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -449,7 +614,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-POOL",
+  "businessReleaseId": "DH-20261124-OPS-ASSIGNED-WORKFLOW",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -885,7 +1050,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Automatic pending Aperturas pool and readable assigned user labels",
+  "releaseSummary": "Accepted QUO comparison, commercial semaphore and case-scoped CRM contacts",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1279,20 +1444,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.123.2",
-      "newVersion": "1.123.3"
-    },
-    "DholeAuthService": {
-      "previousVersion": "1.17.1",
-      "newVersion": "1.17.2"
+      "previousVersion": "1.124.0",
+      "newVersion": "1.124.1"
     },
     "DholeWeb": {
-      "previousVersion": "1.123.2",
-      "newVersion": "1.123.3"
+      "previousVersion": "1.124.0",
+      "newVersion": "1.124.1"
     },
     "DholeOperationsService": {
-      "previousVersion": "0.20.2",
-      "newVersion": "0.20.3"
+      "previousVersion": "0.21.0",
+      "newVersion": "0.21.1"
     }
   },
   "pricingP7EditRelease": {
