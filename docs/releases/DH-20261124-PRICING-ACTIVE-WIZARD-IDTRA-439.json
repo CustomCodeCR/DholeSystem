@@ -1,0 +1,50 @@
+{
+  "releaseId": "DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+  "globalVersion": "1.122.2",
+  "semver": "PATCH",
+  "target": "develop",
+  "productionAuthorized": false,
+  "scope": "Pricing P8/P9 routed active wizard",
+  "rootCause": "PricingOverviewView.vue mounts PricingAlternativeWizardCrystal.vue; 1.122.1 patched only PricingRateExistingWizardStable.vue",
+  "changes": [
+    "No manual IDTRA input on acceptance P9 or P8 draft",
+    "No idtraNumber field sent during AcceptedByClient state transition",
+    "Show existing historical Dynamics IDTRA references read only",
+    "Show Operations-generated IDTRA messaging and link to operations cases",
+    "Preserve group A/B option selection and optional other references"
+  ],
+  "components": [
+    {
+      "repo": "DholeWeb",
+      "before": "1.122.1",
+      "after": "1.122.2"
+    },
+    {
+      "repo": "DholeSystem",
+      "before": "1.122.1",
+      "after": "1.122.2"
+    },
+    {
+      "repo": "DholePricingService",
+      "before": "1.28.0",
+      "after": "1.28.0"
+    },
+    {
+      "repo": "DholeOperationsService",
+      "before": "0.19.0",
+      "after": "0.19.0"
+    },
+    {
+      "repo": "DholeCRMService",
+      "before": "1.44.0",
+      "after": "1.44.0"
+    }
+  ],
+  "otherComponentsUnchanged": 12,
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "endToEnd": "pending",
+    "production": "not-authorized"
+  }
+}

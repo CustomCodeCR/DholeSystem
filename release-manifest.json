@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-AUTO-IDTRA-438",
+  "releaseId": "DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.122.1",
+  "ecosystemVersion": "1.122.2",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
+    "develop": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
+  "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.122.1",
+      "version": "1.122.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
+      "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438"
+      "developCandidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.122.1",
+      "version": "1.122.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
+      "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438"
+      "developCandidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -155,9 +155,9 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar CI del cambio de aceptación QUO y el nuevo release 1.122.1",
-    "Verificar en staging el circuito Pricing Outbox -> CRM/Auth -> Operations Inbox -> IDTRA",
-    "Revisar que una QUO aceptada sin CRM asociado no cree datos de cliente ficticios"
+    "Run Web/System CI on coordinated PRs",
+    "Merge to develop and confirm staging Web deployment",
+    "UAT quote acceptance -> event Outbox/Inbox -> verified CRM account -> Operations IDTRA; no claim until observed"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -189,6 +189,16 @@
       "pricingVersion": "1.28.0",
       "operationsVersion": "0.19.0",
       "crmVersion": "1.44.0"
+    },
+    "activePricingWizardIdtra439": {
+      "ci": "pending",
+      "staging": "pending",
+      "prod": "not-authorized",
+      "web": "1.122.2",
+      "system": "1.122.2",
+      "pricing": "1.28.0",
+      "operations": "0.19.0",
+      "crm": "1.44.0"
     }
   },
   "releaseComponents": [
@@ -196,9 +206,10 @@
     "DholeWeb"
   ],
   "changes": [
-    "Pricing P9 acceptance requests no manual IDTRA, Operations generates IDTRA via Outbox/Inbox",
-    "P8 historical Dynamics IDs remain visible read-only",
-    "DholeWeb regression test protects acceptance contract"
+    "Fix Pricing alternative wizard actually mounted by PricingOverviewView",
+    "No manual IDTRA input or idtraNumber in acceptance payload",
+    "Historic IDTRA references read-only on P8, Operations navigation on P9",
+    "Add route-aware regression test to CI"
   ],
   "stagingValidation": {
     "status": "pending"
