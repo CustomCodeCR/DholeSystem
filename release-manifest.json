@@ -51,7 +51,7 @@
       "version": "1.124.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-assigned-workflow-20261124",
-      "candidateSha": "74f2838d1f0a0f1ae68ce41d8a82ee3c4107b4a1",
+      "candidateSha": "9dd6e8e616ee8978326aa242db7a2d1024256aad",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
@@ -441,7 +441,7 @@
       ]
     },
     "assignedWorkflow": {
-      "ci": "pending",
+      "ci": "Operations build-test and version gate passed; Web candidate updated to align prior UI regression checks; full CI pending",
       "staging": "not-run",
       "components": [
         {
