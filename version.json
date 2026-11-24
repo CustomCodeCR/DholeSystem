@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.122.1",
-  "ecosystemVersion": "1.122.1",
-  "releaseId": "DH-20261123-PRICING-AUTO-IDTRA-438",
+  "version": "1.122.2",
+  "ecosystemVersion": "1.122.2",
+  "releaseId": "DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261123-PRICING-AUTO-IDTRA-438"
+  "businessReleaseId": "DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439"
 }
