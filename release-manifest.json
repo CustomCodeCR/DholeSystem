@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-TOPBAR-VERSION",
+  "releaseId": "DH-20261124-TOPBAR-VERSION-CARD",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.24",
+  "ecosystemVersion": "1.124.25",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-topbar-version-20261124",
+    "develop": "fix/dhole-topbar-version-card-20261124",
     "master": "fix/dhole-theme-logo-20261124-master"
   },
   "candidateBranch": "fix/dhole-theme-logo-20261124-master",
@@ -15,10 +15,10 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.24",
+      "version": "1.124.25",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+      "developCandidateBranch": "fix/dhole-topbar-version-card-20261124",
       "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
       "candidateSha": null,
       "developMergeSha": null
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.24",
+      "version": "1.124.25",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "developCandidateBranch": "fix/dhole-topbar-version-20261124",
+      "developCandidateBranch": "fix/dhole-topbar-version-card-20261124",
       "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "candidateSha": "96f0e6f5883b9189a12d6193c7bed55b036028b2",
+      "candidateSha": "a56c638c381022fb21c9ca8d45d4e5ce68d68420",
       "developMergeSha": null
     },
     {
@@ -125,14 +125,14 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.24; remaining 15 components unchanged; no service changes.",
+  "policyCheck": "PATCH Web/System 1.124.25; remaining 15 components unchanged; no service changes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Version relocated to topbar; sidebar free of version; CI/staging pending",
+    "branding": "Shared compact DhCard between notification bell and user profile; responsive fallback; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
