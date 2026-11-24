@@ -1,0 +1,56 @@
+{
+  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+  "ecosystemVersion": "1.124.9",
+  "releaseType": "PATCH",
+  "targetBranch": "develop",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.8",
+      "newVersion": "1.124.9"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.8",
+      "newVersion": "1.124.9"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.7",
+      "newVersion": "1.29.8"
+    }
+  },
+  "verifiedUnchangedVersions": {
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "changes": [
+    "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
+    "Existing workflow, approval, audit and realtime protections preserved"
+  ],
+  "candidateShas": {
+    "DholeWeb": "d3733920a1ca17406d564e696c61e73ad321c082",
+    "DholePricingService": "858ebdd52059fd9234f86f0871e32e0237ee5b97"
+  },
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false,
+  "restContractChanged": false,
+  "realtimeContractChanged": false
+}
