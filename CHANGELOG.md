@@ -1,3 +1,7 @@
+## [1.124.17] - 2026-11-24
+
+- DH-20261124-LCL-EDIT-COST: promoción aislada de la corrección LCL de develop. Web/System 1.124.17; las demás 15 versiones se verificaron contra master. CI develop superado; CI master y staging pendientes de validación.
+
 ## [1.124.16] - 2026-11-24
 
 - DH-20261124-PERSISTED-DETAIL-IDENTITY: promover corrección general de identificadores de cargos históricos y fletes independientes. Web/System 1.124.16; otros componentes sin cambio; CI/staging pendientes.
