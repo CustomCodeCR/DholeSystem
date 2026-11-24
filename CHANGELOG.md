@@ -1,3 +1,7 @@
+## [1.124.18] - 2026-11-24
+
+- DH-20261124-LCL-DIRECT-STEP6-COST: habilitar costo de flete LCL de coloader en modificación directa de pantalla 6. Web/System 1.124.18; otras 15 versiones verificadas en develop. CI y staging pendientes.
+
 ## [1.124.17] - 2026-11-24
 
 - DH-20261124-LCL-EDIT-COST: permitir revisión de líneas LCL ante falla transitoria de costos, normalizar contexto después de hidratación, compartir reconciliaciones y mantener validación antes de guardar. Web/System 1.124.17; las demás 15 versiones se verificaron en develop. CI/staging pendientes.
