@@ -1,0 +1,48 @@
+{
+  "releaseId": "DH-20261124-LCL-EDIT-COST",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.17",
+  "target": "master",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.16",
+      "newVersion": "1.124.17"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.16",
+      "newVersion": "1.124.17"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.16",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.16",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "candidateShas": {
+    "DholeWeb": "4bdab364bc2724f8b685b54ba3ee93ec3e03798b",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Isolated promotion of LCL edit cost patch validated in develop CI; no unrelated develop changes."
+  ],
+  "validation": {
+    "developCI": "passed",
+    "masterCI": "pending",
+    "staging": "live validation not verified",
+    "production": "authorized by user; gated"
+  }
+}
