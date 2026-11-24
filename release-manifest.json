@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-EXACT-SVG-LOGO",
+  "releaseId": "DH-20261124-SIDEBAR-BRAND-MOTION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.21",
+  "ecosystemVersion": "1.124.22",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-exact-svg-20261124",
+    "develop": "fix/dhole-sidebar-brand-motion-20261124",
     "master": null
   },
-  "candidateBranch": "fix/dhole-exact-svg-20261124",
+  "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.21",
+      "version": "1.124.22",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-exact-svg-20261124",
-      "developCandidateBranch": "fix/dhole-exact-svg-20261124",
+      "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+      "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.21",
+      "version": "1.124.22",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-exact-svg-20261124",
-      "developCandidateBranch": "fix/dhole-exact-svg-20261124",
+      "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+      "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "cc6f842bc970028120ee0e90eb8594854e831590",
+      "candidateSha": "efc9febea8c621f5b787cb9554d339a7f796fb0c",
       "developMergeSha": null
     },
     {
@@ -125,14 +125,14 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "Web/System 1.124.21; 15 other components unchanged from prior release manifest; no service changes.",
+  "policyCheck": "PATCH Web/System 1.124.22; 15 other components unchanged from preceding manifest; no service changes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Supplied SVG, CSS theme, original ICO, translated descriptions only in hover tooltip; CI/staging pending",
+    "branding": "Sidebar logo at 85% size, synchronized 300ms transition and reduced-motion support; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"

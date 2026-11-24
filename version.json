@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.21",
-  "ecosystemVersion": "1.124.21",
-  "releaseId": "DH-20261124-EXACT-SVG-LOGO",
+  "version": "1.124.22",
+  "ecosystemVersion": "1.124.22",
+  "releaseId": "DH-20261124-SIDEBAR-BRAND-MOTION",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-EXACT-SVG-LOGO"
+  "businessReleaseId": "DH-20261124-SIDEBAR-BRAND-MOTION"
 }
