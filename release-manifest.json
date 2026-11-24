@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
+  "releaseId": "DH-20261123-PRICING-AUTO-IDTRA-438",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.122.0",
-  "status": "candidate-blocked-pricing-ef-snapshot-and-staging",
+  "ecosystemVersion": "1.122.1",
+  "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "feature/DH-20261123-OPS-AUTOSAVE-434",
+    "develop": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
     "master": null
   },
-  "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+  "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.122.0",
+      "version": "1.122.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.122.0",
+      "version": "1.122.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "candidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-AUTO-IDTRA-438"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -155,11 +155,9 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Pricing #361: Validate Average Import Recovery falla por deriva histórica del snapshot EF de RateRequest/DynamicsQuoteSyncJob; no modificar migraciones no relacionadas sin conciliación.",
-    "Pruebas de integración cruzada Pricing→Redis→CRM→Operations, revisiones Operations→Pricing→Operations y Notifications/AuditLogs aún no verificadas en staging.",
-    "Configurar credenciales reales y seguras Crm:OperationsAcceptance:BaseAddress, InternalServiceKey, OperationsIntegration:ReaderUserId y PricingAcceptance:CompanyId tras revisar contratos en cada entorno.",
-    "Revisar autorizaciones operativas, estados condicionales y QA con usuarios en staging antes de integrar release.",
-    "Sin despliegue ni autorización de producción. No integrar a master."
+    "Validar CI del cambio de aceptación QUO y el nuevo release 1.122.1",
+    "Verificar en staging el circuito Pricing Outbox -> CRM/Auth -> Operations Inbox -> IDTRA",
+    "Revisar que una QUO aceptada sin CRM asociado no cree datos de cliente ficticios"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -181,7 +179,17 @@
     "crmIntegration": "CI passed",
     "webComponents": "Web CI pending latest review-queue commit",
     "crossServiceRedis": "not-run",
-    "authScopedE2E": "not-run"
+    "authScopedE2E": "not-run",
+    "automaticIdtraUi438": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-authorized",
+      "webVersion": "1.122.1",
+      "systemVersion": "1.122.1",
+      "pricingVersion": "1.28.0",
+      "operationsVersion": "0.19.0",
+      "crmVersion": "1.44.0"
+    }
   },
   "releaseComponents": [
     "DholeSystem",
