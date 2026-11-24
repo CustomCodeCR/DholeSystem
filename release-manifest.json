@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OFFICIAL-SQUARE-LOGO",
+  "releaseId": "DH-20261124-EXACT-SVG-LOGO",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.20",
+  "ecosystemVersion": "1.124.21",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-official-logo-20261124",
+    "develop": "fix/dhole-exact-svg-20261124",
     "master": null
   },
-  "candidateBranch": "fix/dhole-theme-logo-20261124",
+  "candidateBranch": "fix/dhole-exact-svg-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.20",
+      "version": "1.124.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-theme-logo-20261124",
-      "developCandidateBranch": "fix/dhole-theme-logo-20261124",
+      "candidateBranch": "fix/dhole-exact-svg-20261124",
+      "developCandidateBranch": "fix/dhole-exact-svg-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.20",
+      "version": "1.124.21",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-official-logo-20261124",
-      "developCandidateBranch": "fix/dhole-official-logo-20261124",
+      "candidateBranch": "fix/dhole-exact-svg-20261124",
+      "developCandidateBranch": "fix/dhole-exact-svg-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "c527a2a668748ab899d93c1c5973b04bfad6967f",
+      "candidateSha": "ca5391ff8dc1510e9d39eec8b798f3fca9282087",
       "developMergeSha": null
     },
     {
@@ -125,14 +125,14 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "Web/System 1.124.20; 15 unchanged component versions verified in preceding candidate on both target branches.",
+  "policyCheck": "Web/System 1.124.21; 15 other components unchanged from prior release manifest; no service changes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Rectangular symbol and square O from official image; shared assets across targets; CI/staging pending",
+    "branding": "Exact supplied SVG, CSS theme colors, transparent original red ICO; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
