@@ -798,8 +798,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
     "Correct EF/Npgsql retry strategy boundary for expiry request and decision.",
