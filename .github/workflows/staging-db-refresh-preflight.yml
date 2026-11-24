@@ -18,12 +18,30 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "Running container inventory (names, images, networks, compose labels only):"
+          docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Networks}}\t{{.Label "com.docker.compose.project"}}\t{{.Label "com.docker.compose.service"}}'
           resolve() {
-            local network="$1" service="$2"
-            local -a ids
-            mapfile -t ids < <(docker ps -q --no-trunc --filter "network=$network" --filter "label=com.docker.compose.service=$service")
+            local network="$1" service="$2" id meta name image project label networks
+            local -a ids=()
+            while IFS= read -r id; do
+              [[ -n "$id" ]] || continue
+              meta="$(docker inspect -f '{{.Name}}|{{.Config.Image}}|{{index .Config.Labels "com.docker.compose.project"}}|{{index .Config.Labels "com.docker.compose.service"}}|{{range $k, $v := .NetworkSettings.Networks}}{{$k}},{{end}}' "$id")"
+              IFS='|' read -r name image project label networks <<< "$meta"
+              [[ ",$networks" == *",$network,"* ]] || continue
+              if [[ "$network" == dhole-staging ]]; then
+                [[ "$project" == dhole-staging-infra && "$label" == "$service" ]] || continue
+              else
+                [[ "$project" != *staging* && "$name" != *staging* && ",$networks" != *,dhole-staging,* ]] || continue
+                case "$service" in
+                  postgres) [[ "$label" == postgres || "$name" == /postgres || "$image" =~ (^|/)postgres(:|@|$) ]] || continue ;;
+                  mongo) [[ "$label" == mongo || "$name" == /mongo || "$image" =~ (^|/)mongo(:|@|$) ]] || continue ;;
+                  redis) [[ "$label" == redis || "$name" == /redis || "$image" =~ (^|/)redis(:|@|$) ]] || continue ;;
+                esac
+              fi
+              ids+=("$id")
+            done < <(docker ps -q --no-trunc)
             if [[ ${#ids[@]} != 1 ]]; then
-              echo "Expected exactly one $network/$service container" >&2
+              echo "Expected exactly one $network/$service container; found ${#ids[@]}" >&2
               return 1
             fi
             printf '%s' "${ids[0]}"
