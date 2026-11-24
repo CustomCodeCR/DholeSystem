@@ -1,3 +1,8 @@
+## [1.124.4] - 2026-11-24 · DH-20261124-OPENINGS-IDTRA-GUARD
+
+- PATCH: Pricing 1.29.5 → 1.29.6; Web/System 1.124.3 → 1.124.4. Omite avisos de Aperturas cuando existe IDTRA actual o histórico, verifica antes de publicar Outbox y comunica omisión en el modal de reenvío. Las notificaciones comerciales se conservan.
+- Manifiesto actualizado; demás versiones conservadas de la rama base. CI, staging y verificación final pendientes; producción no desplegada.
+
 ## [1.124.3] - 2026-11-24 · DH-20261124-PRICING-SENT-CRM-FIX
 
 - PATCH: Pricing 1.29.3 → 1.29.5; System 1.124.2 → 1.124.3. Se corrige la exigencia indebida de cuenta CRM en la transición Sent autorizada por Pricing, sin relajar permisos de CRM exclusivo ni validación de destinatarios vinculados.
