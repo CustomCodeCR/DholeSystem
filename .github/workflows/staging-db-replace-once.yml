@@ -1,0 +1,187 @@
+name: Replace DHOLE staging databases from production (one-time)
+on:
+  push:
+    branches: [maintenance/staging-db-refresh-20261123]
+    paths: [.github/workflows/staging-db-replace-once.yml]
+permissions:
+  contents: read
+concurrency:
+  group: dhole-nightly-prod-to-staging-data
+  cancel-in-progress: false
+jobs:
+  replace:
+    if: github.run_attempt == 1 && github.ref == 'refs/heads/maintenance/staging-db-refresh-20261123'
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 180
+    steps:
+      - name: Clone production DHOLE databases to isolated staging
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          umask 077
+          export LC_ALL=C
+          work="$(mktemp -d "$RUNNER_TEMP/dhole-db-refresh.XXXXXXXX")"
+          stopped=()
+          cutover=0
+          completed=0
+          declare -A shadow old
+          cleanup() {
+            rc=$?
+            if [[ "$completed" == 1 || "$cutover" == 0 ]]; then
+              for id in "${stopped[@]}"; do docker start "$id" >/dev/null || rc=1; done
+              rm -rf "$work"
+            else
+              echo "::error::Refresh interrupted during cutover. Staging applications left stopped; private recovery files retained at $work."
+            fi
+            exit "$rc"
+          }
+          trap cleanup EXIT
+          verify_pair() {
+            local p="$1" s="$2" svc="$3" pn sn
+            pn="$(docker inspect -f '{{range $k,$v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$p")"
+            sn="$(docker inspect -f '{{range $k,$v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$s")"
+            [[ "$p" != "$s" ]]
+            grep -Fxq dhole <<<"$pn"
+            ! grep -Fxq dhole-staging <<<"$pn"
+            grep -Fxq dhole-staging <<<"$sn"
+            ! grep -Fxq dhole <<<"$sn"
+            [[ "$(docker inspect -f '{{index .Config.Labels "com.docker.compose.project"}}' "$s")" == dhole-staging-infra ]]
+            [[ "$(docker inspect -f '{{index .Config.Labels "com.docker.compose.service"}}' "$s")" == "$svc" ]]
+            [[ "$(docker inspect -f '{{.State.Running}}' "$p")" == true ]]
+            [[ "$(docker inspect -f '{{.State.Running}}' "$s")" == true ]]
+            if [[ -n "$(comm -12 <(docker inspect -f '{{range .Mounts}}{{println .Source}}{{end}}' "$p" | sed '/^$/d' | sort -u) <(docker inspect -f '{{range .Mounts}}{{println .Source}}{{end}}' "$s" | sed '/^$/d' | sort -u))" ]]; then
+              echo "::error::Shared production/staging mount for $svc"
+              exit 1
+            fi
+          }
+          PP="$(docker inspect -f '{{.Id}}' postgres)"
+          SP="$(docker inspect -f '{{.Id}}' dhole-staging-infra-postgres-1)"
+          PM="$(docker inspect -f '{{.Id}}' mongo)"
+          SM="$(docker inspect -f '{{.Id}}' dhole-staging-infra-mongo-1)"
+          PR="$(docker inspect -f '{{.Id}}' redis)"
+          SR="$(docker inspect -f '{{.Id}}' dhole-staging-infra-redis-1)"
+          verify_pair "$PP" "$SP" postgres
+          verify_pair "$PM" "$SM" mongo
+          verify_pair "$PR" "$SR" redis
+          for key in DATA_EXTRACTION_EMAIL_ENABLED NOTIFICATIONS_EMAIL_ENABLED; do
+            grep -Eiq "^$key=(false|0)$" /opt/dhole/.env.staging || { echo "::error::Staging email control $key is not disabled"; exit 1; }
+          done
+          pg() {
+            local id="$1"; shift
+            docker exec -i "$id" sh -ec 'exec psql -X -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d postgres "$@"' sh "$@"
+          }
+          mongo_eval() {
+            local id="$1"; shift
+            docker exec "$id" sh -ec 'exec mongosh --quiet --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --eval "$1"' sh "$1"
+          }
+          pg_list() { pg "$1" -Atc "SELECT datname FROM pg_database WHERE datallowconn AND NOT datistemplate AND datname ~ '^dhole_[a-z0-9_]+$' ORDER BY datname"; }
+          mongo_list() { mongo_eval "$1" 'db.adminCommand({listDatabases:1,nameOnly:true}).databases.map(x=>x.name).filter(x=>/^dhole_[a-z0-9_]+$/.test(x)).sort().join(String.fromCharCode(10))'; }
+          pg_list "$PP" > "$work/source-pg"
+          pg_list "$SP" > "$work/target-pg"
+          mongo_list "$PM" > "$work/source-mongo"
+          mongo_list "$SM" > "$work/target-mongo"
+          mapfile -t pg_dbs < "$work/source-pg"
+          mapfile -t stage_pg < "$work/target-pg"
+          mapfile -t mongo_dbs < "$work/source-mongo"
+          mapfile -t stage_mongo < "$work/target-mongo"
+          [[ ${#pg_dbs[@]} -ge 15 && ${#mongo_dbs[@]} -ge 3 ]]
+          grep -Fxq dhole_pricing "$work/source-pg"
+          grep -Fxq dhole_operations "$work/source-pg"
+          grep -Fxq dhole_auth "$work/source-pg"
+          for db in "${pg_dbs[@]}" "${stage_pg[@]}" "${mongo_dbs[@]}" "${stage_mongo[@]}"; do [[ "$db" =~ ^dhole_[a-z0-9_]+$ ]]; done
+          echo "Source: ${#pg_dbs[@]} PostgreSQL databases, ${#mongo_dbs[@]} MongoDB databases."
+          echo "Preparing production dumps and restoring into temporary staging PostgreSQL databases."
+          for db in "${pg_dbs[@]}"; do
+            echo "Preparing $db"
+            docker exec "$PP" sh -ec '
+              exec pg_dump -U "$POSTGRES_USER" -d "$1" -Fc --no-owner --no-privileges \
+                --exclude-table-data="*.sessions" --exclude-table-data="*.session" \
+                --exclude-table-data="*.\"Sessions\"" --exclude-table-data="*.\"Session\"" \
+                --exclude-table-data="*.refresh_tokens" --exclude-table-data="*.refresh_token" \
+                --exclude-table-data="*.\"RefreshTokens\"" --exclude-table-data="*.\"RefreshToken\"" \
+                --exclude-table-data="*.outbox_messages" --exclude-table-data="*.outboxmessages" \
+                --exclude-table-data="*.\"OutboxMessages\"" --exclude-table-data="*.inbox_messages" \
+                --exclude-table-data="*.inboxmessages" --exclude-table-data="*.\"InboxMessages\"" \
+                --exclude-table-data="*.outbox" --exclude-table-data="*.inbox"
+            ' sh "$db" > "$work/$db.dump" 2> "$work/$db.dump.log" || { echo "::error::Production dump failed for $db"; exit 1; }
+            [[ -s "$work/$db.dump" ]]
+            docker exec -i "$SP" pg_restore -l < "$work/$db.dump" >/dev/null
+            tmp="dhrefresh_${GITHUB_RUN_ID}_${db#dhole_}"
+            [[ ${#tmp} -lt 63 ]]
+            shadow["$db"]="$tmp"
+            pg "$SP" -c "CREATE DATABASE \"$tmp\" TEMPLATE template0" >/dev/null
+            docker exec -i "$SP" sh -ec 'exec pg_restore -U "$POSTGRES_USER" -d "$1" --no-owner --no-privileges --exit-on-error --single-transaction' sh "$tmp" < "$work/$db.dump" > "$work/$db.restore.log" 2>&1 || { echo "::error::Temporary PostgreSQL restore failed for $db (original staging databases unchanged)"; exit 1; }
+          done
+          for db in "${mongo_dbs[@]}"; do
+            echo "Preparing MongoDB $db"
+            docker exec "$PM" sh -ec 'exec mongodump --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --db "$1" --archive --gzip' sh "$db" > "$work/$db.mongo.gz" 2> "$work/$db.mongo.log" || { echo "::error::MongoDB dump failed for $db"; exit 1; }
+            [[ -s "$work/$db.mongo.gz" ]]
+            gzip -t "$work/$db.mongo.gz"
+          done
+          # Quiesce only explicitly identified staging applications, never shared infrastructure.
+          mapfile -t apps < <(docker ps -q --no-trunc --filter network=dhole-staging)
+          for id in "${apps[@]}"; do
+            project="$(docker inspect -f '{{index .Config.Labels "com.docker.compose.project"}}' "$id")"
+            service="$(docker inspect -f '{{index .Config.Labels "com.docker.compose.service"}}' "$id")"
+            if [[ "$project" == dhole-staging || "$project" == dhole-dynamics-staging || ( "$project" == dhole-staging-infra && "$service" == hermes-agent-staging ) ]]; then
+              networks="$(docker inspect -f '{{range $k,$v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$id")"
+              ! grep -Fxq dhole <<< "$networks"
+              docker stop -t 30 "$id" >/dev/null
+              stopped+=("$id")
+            fi
+          done
+          [[ ${#stopped[@]} -gt 0 ]]
+          # Keep private MongoDB recovery archives until successful cutover.
+          for db in "${stage_mongo[@]}"; do
+            docker exec "$SM" sh -ec 'exec mongodump --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --db "$1" --archive --gzip' sh "$db" > "$work/stage-$db.mongo.gz" 2> "$work/stage-$db.mongo.log"
+            gzip -t "$work/stage-$db.mongo.gz"
+          done
+          verify_pair "$PP" "$SP" postgres
+          verify_pair "$PM" "$SM" mongo
+          verify_pair "$PR" "$SR" redis
+          cutover=1
+          # Rename old databases first; remove them only after all restores succeed.
+          for db in "${stage_pg[@]}"; do
+            tmp="dhold_${GITHUB_RUN_ID}_${db#dhole_}"
+            [[ ${#tmp} -lt 63 ]]
+            old["$db"]="$tmp"
+            pg "$SP" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='$db' AND pid<>pg_backend_pid()" >/dev/null
+            pg "$SP" -c "ALTER DATABASE \"$db\" RENAME TO \"$tmp\"" >/dev/null
+          done
+          for db in "${pg_dbs[@]}"; do
+            pg "$SP" -c "ALTER DATABASE \"${shadow[$db]}\" RENAME TO \"$db\"" >/dev/null
+            echo "PostgreSQL replaced: $db"
+          done
+          for db in "${stage_mongo[@]}"; do
+            mongo_eval "$SM" "const r=db.getSiblingDB('$db').dropDatabase(); if(!r.ok) throw Error('drop failed');" >/dev/null
+          done
+          for db in "${mongo_dbs[@]}"; do
+            docker exec -i "$SM" sh -ec 'exec mongorestore --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --archive --gzip --nsInclude "$1.*" --stopOnError' sh "$db" < "$work/$db.mongo.gz" > "$work/$db.mongo.restore.log" 2>&1 || { echo "::error::MongoDB restore failed for $db"; exit 1; }
+            mongo_eval "$SM" "const d=db.getSiblingDB('$db'); for(const c of d.getCollectionInfos({type:'collection'})){if(/(^|[_-])(sessions?|refresh[_-]?tokens?|outbox(?:messages)?|inbox(?:messages)?)([_-]|$)/i.test(c.name)) d.getCollection(c.name).deleteMany({});}" >/dev/null
+            echo "MongoDB replaced: $db"
+          done
+          [[ "$(docker exec "$SR" redis-cli FLUSHALL)" == OK ]]
+          [[ "$(docker exec "$SR" redis-cli DBSIZE)" == 0 ]]
+          pg_list "$SP" > "$work/result-pg"
+          mongo_list "$SM" > "$work/result-mongo"
+          diff -q "$work/source-pg" "$work/result-pg" >/dev/null
+          diff -q "$work/source-mongo" "$work/result-mongo" >/dev/null
+          for db in "${pg_dbs[@]}"; do
+            docker exec "$SP" sh -ec 'exec psql -X -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$1" -Atc "SELECT 1"' sh "$db" | grep -Fxq 1
+          done
+          for db in "${stage_pg[@]}"; do
+            pg "$SP" -c "DROP DATABASE \"${old[$db]}\" WITH (FORCE)" >/dev/null
+          done
+          completed=1
+          echo "Verified ${#pg_dbs[@]} PostgreSQL databases, ${#mongo_dbs[@]} MongoDB databases and empty staging Redis."
+          echo "Production was read only; staging applications will restart."
+          {
+            echo '## DHOLE staging database replacement'
+            echo "- PostgreSQL: ${#pg_dbs[@]} databases restored from production"
+            echo "- MongoDB: ${#mongo_dbs[@]} databases restored from production"
+            echo '- Staging Redis: cleared'
+            echo '- Sessions, refresh tokens, and known inbox/outbox data excluded or cleared'
+            echo '- Unrelated PostgreSQL databases and system databases untouched'
+            echo '- Production containers and data were not modified'
+            echo '- Staging applications restarted by cleanup; application migrations/health require verification'
+          } >> "$GITHUB_STEP_SUMMARY"
