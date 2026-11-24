@@ -1,8 +1,8 @@
 ## [1.122.0] - 2026-11-23 · DH-20261123-OPS-AUTOSAVE-434
 
 - MINOR candidato coordinado: Aperturas manuales autoguarda borradores incompletos en PostgreSQL por usuario/empresa con control de concurrencia y copia local para recuperación.
-- Backend Operations incluye migración no destructiva, APIs seguras y evento Outbox de metadatos; frontend DholeWeb reutiliza formulario y componentes DH existentes.
-- SemVer candidato global DholeSystem/DholeWeb 1.120.11 → 1.122.0, Operations 0.18.0 → 0.19.0; otros 14 componentes conservan versiones sin cambios. Manifiesto de 17 repositorios actualizado.
+- Backend Operations incluye migración no destructiva, APIs seguras y evento Outbox de metadatos; frontend DholeWeb reutiliza formulario DH. Pricing publica la aceptación definitiva y snapshot comercial por Outbox (consumer pendiente).
+- SemVer candidato global DholeSystem/DholeWeb 1.120.11 → 1.122.0, Operations 0.18.0 → 0.19.0 y Pricing 1.27.1 → 1.28.0; otros 13 componentes conservan versiones sin cambios. Manifiesto de 17 repositorios actualizado.
 - Entrega parcial de Prioridad 1: pendiente integración con Pricing, CRM, notificaciones, auditoría completa, servicios y transferencia a Origen.
 - CI y staging pendientes; cambios exclusivamente en ramas intermedias, no integrar a master ni producción.
 
