@@ -776,8 +776,7 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
     "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
