@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+  "releaseId": "DH-20261124-PRICING-PANAMA-ROAD-DEDUP",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.9",
+  "ecosystemVersion": "1.124.10",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/global-commercial-actions-1249-develop",
-    "master": "fix/global-commercial-actions-1249-master"
+    "develop": "fix/panama-road-dedup-20261124-develop",
+    "master": "fix/panama-road-dedup-20261124-master"
   },
-  "candidateBranch": "fix/global-commercial-actions-1249-develop",
+  "candidateBranch": "fix/panama-road-dedup-20261124-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.9",
+      "version": "1.124.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/global-commercial-actions-1249-develop",
+      "candidateBranch": "fix/panama-road-dedup-20261124-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
-      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
+      "masterCandidateBranch": "fix/panama-road-dedup-20261124-master",
+      "developCandidateBranch": "fix/panama-road-dedup-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.9",
+      "version": "1.124.10",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/global-commercial-actions-1249-develop",
-      "candidateSha": "d3733920a1ca17406d564e696c61e73ad321c082",
+      "candidateBranch": "fix/panama-road-dedup-20261124-develop",
+      "candidateSha": "796d7b6e5aca8799b036c00583e7224e9b32a908",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
-      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
+      "masterCandidateBranch": "fix/panama-road-dedup-20261124-master",
+      "developCandidateBranch": "fix/panama-road-dedup-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,7 +78,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.8",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/global-commercial-actions-20261124-develop",
       "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
       "candidateSha": "858ebdd52059fd9234f86f0871e32e0237ee5b97",
@@ -153,11 +153,11 @@
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.8→1.124.9; Pricing 1.29.7→1.29.8; other components retained from current target manifest",
+  "policyCheck": "PATCH Web/System 1.124.9 → 1.124.10; 15 remaining component versions checked on develop. 1.124.9 belongs to the independent global commercial release.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI and staging validation pending"
+    "CI and staging validation pending; master not promoted"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -701,12 +701,82 @@
       "staging": "pending",
       "scopeRegression": "pending",
       "realtime": "pending"
+    },
+    "panamaRoadDedup": {
+      "ci": "pending",
+      "staging": "pending",
+      "webCommit": "796d7b6e5aca8799b036c00583e7224e9b32a908",
+      "componentVersionChecks": [
+        {
+          "component": "DholeApiGateway",
+          "actual": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "actual": "1.17.2"
+        },
+        {
+          "component": "DholeConfigService",
+          "actual": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "actual": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "actual": "1.9.0"
+        },
+        {
+          "component": "DholePricingService",
+          "actual": "1.29.8"
+        },
+        {
+          "component": "DholeAIService",
+          "actual": "1.9.0"
+        },
+        {
+          "component": "DholeStorageService",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeReportsService",
+          "actual": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "actual": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeAgentService",
+          "actual": "1.6.0"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeCRMService",
+          "actual": "1.45.0"
+        },
+        {
+          "component": "DholeOperationsService",
+          "actual": "0.21.1"
+        }
+      ],
+      "expectedRoadCount": 1,
+      "expectedFclFreightCount": 1,
+      "expectedCost": 10273,
+      "expectedSale": 11101
     }
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
     "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
