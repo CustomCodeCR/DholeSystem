@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-VERSION-CARD-FIX",
+  "releaseId": "DH-20261124-PRICING-HISTORICAL-EDIT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.26",
+  "ecosystemVersion": "1.124.27",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-version-card-layout-20261124",
-    "master": "fix/dhole-theme-logo-20261124-master"
+    "develop": "fix/20261124-pricing-duplicate-crm",
+    "master": "fix/20261124-pricing-duplicate-crm-master"
   },
-  "candidateBranch": "fix/dhole-theme-logo-20261124-master",
+  "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.26",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "developCandidateBranch": "fix/dhole-version-card-layout-20261124",
-      "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
+      "version": "1.124.27",
+      "mergeState": "master-candidate",
+      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
+      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "055909bc3a432fdac14e21e22a4060b12596047c"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.26",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "developCandidateBranch": "fix/dhole-version-card-layout-20261124",
-      "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "candidateSha": "33f7dc19947c96d687471ca7d1d44f9be562f263",
-      "developMergeSha": null
+      "version": "1.124.27",
+      "mergeState": "master-candidate",
+      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
+      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "candidateSha": "f1d1a5066dea75faf3eca5012d98c253714052e5",
+      "developMergeSha": "f17447357c1796cb3e2ee0348cad7b31feaf7225"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -67,8 +67,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.10",
-      "mergeState": "unchanged-for-this-release"
+      "version": "1.29.11",
+      "mergeState": "master-candidate",
+      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
+      "candidateSha": "ee18cf4e84075ef7cead57c55f057aa58f656e30",
+      "developMergeSha": "8a982cffeeabc2d3e5fefc6d10d4ccd9f91a1e35"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -125,26 +130,26 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.26; remaining 15 components unchanged; no service changes.",
-  "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "policyCheck": "PATCH DholeSystem and DholeWeb 1.124.26 → 1.124.27; DholePricingService 1.29.10 → 1.29.11; remaining components retain master manifest versions.",
+  "mergeState": "master-candidate",
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging validation pending"
+    "CI of master candidate and live staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Correct DhCard title prop collision, compact width and centered version/channel; CI/staging pending",
-    "ci": "pending",
+    "ci": "develop PR checks passed; master candidate pending",
     "staging": "pending",
-    "realtime": "No contracts changed"
+    "realtime": "Existing events and REST contract unchanged; authenticated staging runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Correct EF/Npgsql retry strategy boundary for expiry request and decision.",
-    "Keep history and notification outbox atomic; reconcile ambiguous commits, clear rolled-back tracked outbox state.",
-    "Extend existing transaction CI guard. Web version alignment only."
+    "Preserve CRM account/lead identity in duplicated quotes.",
+    "Stabilize edit-context cost reconciliation with bounded retry.",
+    "Existing copies without CRM link require explicit verified selection."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -201,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-EXPIRED-APPROVAL-TRANSACTION",
+  "businessReleaseId": "DH-20261124-PRICING-HISTORICAL-EDIT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
