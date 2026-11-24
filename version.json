@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.23",
-  "ecosystemVersion": "1.124.23",
-  "releaseId": "DH-20261124-SIDEBAR-VERSION-FOOTER",
+  "version": "1.124.24",
+  "ecosystemVersion": "1.124.24",
+  "releaseId": "DH-20261124-TOPBAR-VERSION",
   "releaseStatus": "master-candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-SIDEBAR-VERSION-FOOTER"
+  "businessReleaseId": "DH-20261124-TOPBAR-VERSION"
 }
