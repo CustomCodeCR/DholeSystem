@@ -229,6 +229,9 @@ services:
       Auth__Client__BaseAddress: ${AUTH_HTTP_URL:-http://auth-api:8080}
       Auth__Client__InternalServiceKeyHeader: "X-Dhole-Service-Key"
       Auth__Client__InternalServiceKey: ${INTERNAL_SERVICE_KEY}
+      # Optional dedicated CRM reader for accepted Pricing quotes. If unset,
+      # CRM may verify the real accepting actor and crm.account.read-all.
+      OperationsIntegration__ReaderUserId: ${OPERATIONS_CRM_READER_USER_ID:-}
       Grpc__Clients__Config__Address: ${CONFIG_GRPC_URL:-http://config-api:8081}
       Integrations__Pricing__BaseUrl: ${PRICING_HTTP_URL:-http://pricing-api:8080}
       Integrations__AuditLogs__BaseUrl: ${AUDITLOGS_HTTP_URL:-http://auditlogs-api:8080}

@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+  "releaseId": "DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.122.2",
+  "ecosystemVersion": "1.122.3",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+    "develop": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+  "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.122.2",
+      "version": "1.122.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439"
+      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.122.2",
+      "version": "1.122.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439",
+      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439"
+      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -131,10 +131,10 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.44.0",
+      "version": "1.44.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
-      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -142,22 +142,22 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.19.0",
+      "version": "0.19.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feat/operations-apertures-p1-20261123",
+      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feat/operations-apertures-p1-20261123"
+      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
     }
   ],
   "policyCheck": "DholeSystem/Web 1.120.11→1.122.0, Ops 0.18.0→0.19.0, Pricing 1.27.1→1.28.0, CRM 1.43.1→1.44.0; other 12 unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Run Web/System CI on coordinated PRs",
-    "Merge to develop and confirm staging Web deployment",
-    "UAT quote acceptance -> event Outbox/Inbox -> verified CRM account -> Operations IDTRA; no claim until observed"
+    "All mandatory PR CI checks",
+    "Stage deployments CRM/Operations/Web and Config reader with active scoped identity",
+    "Verify previously accepted QUO receives real Operations IDTRA or diagnose account/company mismatch"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -199,17 +199,30 @@
       "pricing": "1.28.0",
       "operations": "0.19.0",
       "crm": "1.44.0"
+    },
+    "acceptedQuoteOperations440": {
+      "ci": "pending",
+      "staging": "pending",
+      "integration": "pending",
+      "production": "not-authorized",
+      "operations": "0.19.1",
+      "crm": "1.44.1",
+      "web": "1.122.3",
+      "system": "1.122.3"
     }
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService",
+    "DholeCRMService"
   ],
   "changes": [
-    "Fix Pricing alternative wizard actually mounted by PricingOverviewView",
-    "No manual IDTRA input or idtraNumber in acceptance payload",
-    "Historic IDTRA references read-only on P8, Operations navigation on P9",
-    "Add route-aware regression test to CI"
+    "Operations worker CRM endpoint/key environment correctly provisioned",
+    "Operations staging clones DholeSystem develop",
+    "CRM verified acceptance actor and exact unique active account fallback",
+    "Operations Inbox replays pending acceptance events idempotently",
+    "Pricing active screen9 manual IDTRA removed and unverified state visible"
   ],
   "stagingValidation": {
     "status": "pending"

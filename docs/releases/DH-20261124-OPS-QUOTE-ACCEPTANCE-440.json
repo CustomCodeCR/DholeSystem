@@ -1,0 +1,53 @@
+{
+  "releaseId": "DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+  "target": "develop",
+  "globalBefore": "1.122.2",
+  "globalAfter": "1.122.3",
+  "type": "PATCH",
+  "components": [
+    {
+      "name": "DholeOperationsService",
+      "before": "0.19.0",
+      "after": "0.19.1"
+    },
+    {
+      "name": "DholeCRMService",
+      "before": "1.44.0",
+      "after": "1.44.1"
+    },
+    {
+      "name": "DholeWeb",
+      "before": "1.122.2",
+      "after": "1.122.3"
+    },
+    {
+      "name": "DholeSystem",
+      "before": "1.122.2",
+      "after": "1.122.3"
+    }
+  ],
+  "unchanged": [
+    "DholePricingService 1.28.0",
+    "other 12 services"
+  ],
+  "problems": [
+    "Operations staging cloned System master, unlike develop deployments",
+    "Operations worker lacked CRM operations acceptance base address and internal service key",
+    "CRM endpoint required unconfigured reader identity and quote with CRM accountId",
+    "Pricing displayed manual IDTRA button after accepted status, masking Operations failure"
+  ],
+  "fixes": [
+    "Operations worker receives CRM endpoint/key and optional explicit company ID",
+    "CRM authorizes configured read-all reader or verified accepting actor",
+    "When GUID missing, unique exact active CRM account lookup; no fabricated identity",
+    "Pending Redis acceptance events replay idempotently after dependencies work",
+    "Active Pricing P9 no manual IDTRA and no false confirmation",
+    "Operations staging checkout System develop and check worker configuration"
+  ],
+  "verification": {
+    "ci": "pending",
+    "staging": "pending",
+    "acceptedQuoteEndToEnd": "pending",
+    "production": "not-authorized"
+  }
+}
