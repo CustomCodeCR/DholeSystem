@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261124-OPS-ASSIGNED-WORKFLOW",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.1",
+  "ecosystemVersion": "1.124.2",
   "status": "candidate-develop-ci-pending",
   "branches": {
     "develop": "fix/operations-assigned-workflow-20261124",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.1",
+      "version": "1.124.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-assigned-workflow-20261124",
       "candidateSha": null,
@@ -48,10 +48,10 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.1",
+      "version": "1.124.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-assigned-workflow-20261124",
-      "candidateSha": "9dd6e8e616ee8978326aa242db7a2d1024256aad",
+      "candidateSha": "f43cd10b4f5b1691d81b9ef6b1a26fe6ead07be7",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
@@ -77,11 +77,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.2",
+      "version": "1.29.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "developCandidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "a0bac73ee5a589f9f0409ff1567e569c5ee54234",
+      "candidateBranch": "fix/seller-acceptance-20261124-develop",
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop",
+      "candidateSha": "3e50bef51def1703c67adc43a7568572535ab025",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -147,13 +147,13 @@
       "version": "0.21.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-assigned-workflow-20261124",
-      "candidateSha": "888e37a7628f018ce5c837b9a137372418c6709b",
+      "candidateSha": "5e9fe2412341007fee90e06e2a24762378680505",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "System/Web 1.124.0 → 1.124.1; Operations 0.21.0 → 0.21.1; remaining 14 components verified unchanged.",
+  "policyCheck": "System/Web 1.124.1 → 1.124.2; Operations 0.21.0 → 0.21.1; preserve concurrent Pricing 1.29.3 and remaining components.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -440,111 +440,83 @@
         }
       ]
     },
+    "sellerAcceptanceFix": {
+      "pricingVersion": "1.29.3",
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
     "assignedWorkflow": {
-      "ci": "Operations build-test and version gate passed; Web candidate updated to align prior UI regression checks; full CI pending",
+      "ci": "Previous candidate CI passed; re-run after concurrent seller-acceptance release reconciliation",
       "staging": "not-run",
       "components": [
         {
           "component": "DholeSystem",
-          "manifest": "1.124.0",
-          "develop": "1.124.0",
-          "match": true
+          "version": "1.124.2"
         },
         {
           "component": "DholeApiGateway",
-          "manifest": "1.11.1",
-          "develop": "1.11.1",
-          "match": true
+          "version": "1.11.1"
         },
         {
           "component": "DholeAuthService",
-          "manifest": "1.17.2",
-          "develop": "1.17.2",
-          "match": true
+          "version": "1.17.2"
         },
         {
           "component": "DholeWeb",
-          "manifest": "1.124.0",
-          "develop": "1.124.0",
-          "match": true
+          "version": "1.124.2"
         },
         {
           "component": "DholeConfigService",
-          "manifest": "1.12.0",
-          "develop": "1.12.0",
-          "match": true
+          "version": "1.12.0"
         },
         {
           "component": "DholeAuditLogsService",
-          "manifest": "1.6.0",
-          "develop": "1.6.0",
-          "match": true
+          "version": "1.6.0"
         },
         {
           "component": "DholeDataExtractionService",
-          "manifest": "1.9.0",
-          "develop": "1.9.0",
-          "match": true
+          "version": "1.9.0"
         },
         {
           "component": "DholePricingService",
-          "manifest": "1.29.2",
-          "develop": "1.29.2",
-          "match": true
+          "version": "1.29.3"
         },
         {
           "component": "DholeAIService",
-          "manifest": "1.9.0",
-          "develop": "1.9.0",
-          "match": true
+          "version": "1.9.0"
         },
         {
           "component": "DholeStorageService",
-          "manifest": "1.5.0",
-          "develop": "1.5.0",
-          "match": true
+          "version": "1.5.0"
         },
         {
           "component": "DholeReportsService",
-          "manifest": "1.8.1",
-          "develop": "1.8.1",
-          "match": true
+          "version": "1.8.1"
         },
         {
           "component": "DholeNotificationsService",
-          "manifest": "1.9.1",
-          "develop": "1.9.1",
-          "match": true
+          "version": "1.9.1"
         },
         {
           "component": "DholeContentService",
-          "manifest": "1.5.0",
-          "develop": "1.5.0",
-          "match": true
+          "version": "1.5.0"
         },
         {
           "component": "DholeAgentService",
-          "manifest": "1.6.0",
-          "develop": "1.6.0",
-          "match": true
+          "version": "1.6.0"
         },
         {
           "component": "DholeDynamicsConnectorService",
-          "manifest": "1.5.0",
-          "develop": "1.5.0",
-          "match": true
+          "version": "1.5.0"
         },
         {
           "component": "DholeCRMService",
-          "manifest": "1.45.0",
-          "develop": "1.45.0",
-          "match": true
+          "version": "1.45.0"
         },
         {
           "component": "DholeOperationsService",
-          "manifest": "0.21.0",
-          "develop": "0.21.0",
-          "match": true
+          "version": "0.21.1"
         }
       ]
     }
@@ -1444,12 +1416,12 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.124.0",
-      "newVersion": "1.124.1"
+      "previousVersion": "1.124.1",
+      "newVersion": "1.124.2"
     },
     "DholeWeb": {
-      "previousVersion": "1.124.0",
-      "newVersion": "1.124.1"
+      "previousVersion": "1.124.1",
+      "newVersion": "1.124.2"
     },
     "DholeOperationsService": {
       "previousVersion": "0.21.0",
@@ -1721,5 +1693,37 @@
     "manualNumberChange": true,
     "conflicts": "pending reconciliation; no overwrite",
     "staging": "pending"
+  },
+  "sellerAcceptanceFixRelease": {
+    "id": "DH-20261124-SELLER-ACCEPTANCE-FIX",
+    "pricingVersion": "1.29.3",
+    "pricingSha": "3e50bef51def1703c67adc43a7568572535ab025",
+    "baseBranch": "develop",
+    "globalVersion": "1.124.1",
+    "observedBaseVersions": {
+      "DholeSystem": "1.124.0",
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.2",
+      "DholeWeb": "1.124.0",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.6.0",
+      "DholeDataExtractionService": "1.9.0",
+      "DholePricingService": "1.29.2",
+      "DholeAIService": "1.9.0",
+      "DholeStorageService": "1.5.0",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.5.0",
+      "DholeAgentService": "1.6.0",
+      "DholeDynamicsConnectorService": "1.5.0",
+      "DholeCRMService": "1.45.0",
+      "DholeOperationsService": "0.21.0"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "note": "Only changed components have incremented versions. Unrelated historical manifest discrepancies are recorded, not overwritten."
   }
 }

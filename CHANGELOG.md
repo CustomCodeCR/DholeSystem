@@ -1,6 +1,11 @@
-## [1.124.1] - 2026-11-24
+## [1.124.2] - 2026-11-24
 
 - Scope operational case access by team and assignee; expose automatic approval and route new manual openings directly to Origin.
+
+## [1.124.1] - 2026-11-24 · DH-20261124-SELLER-ACCEPTANCE-FIX
+
+- PATCH coordinado: corrección de aceptación comercial de QUO en Pricing 1.29.2 → 1.29.3; Web/System 1.124.0 → 1.124.1. Se conservan versiones de los componentes no incluidos y se registran las versiones observadas en la rama base.
+- CI y staging obligatorios; producción no desplegada.
 
 ## [1.124.0] - 2026-11-24
 
