@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.123.3",
-  "ecosystemVersion": "1.123.3",
-  "releaseId": "DH-20261124-OPS-POOL",
+  "version": "1.124.0",
+  "ecosystemVersion": "1.124.0",
+  "releaseId": "DH-20261124-OPS-QUO-COMPARE",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261124-OPS-POOL"
+  "businessReleaseId": "DH-20261124-OPS-QUO-COMPARE"
 }
