@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-INLAND-AUTO-SELECTION",
+  "releaseId": "DH-20261124-EXPIRED-REASON-MODAL",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.11",
+  "ecosystemVersion": "1.124.12",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/inland-auto-selection-20261124-develop",
-    "master": "fix/inland-auto-selection-20261124-master"
+    "develop": "fix/expired-rate-reason-modal-20261124-develop",
+    "master": "fix/expired-rate-reason-modal-20261124-master"
   },
-  "candidateBranch": "fix/inland-auto-selection-20261124-master",
+  "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.11",
+      "version": "1.124.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/inland-auto-selection-20261124-master",
+      "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/inland-auto-selection-20261124-master",
-      "developCandidateBranch": "fix/inland-auto-selection-20261124-develop"
+      "masterCandidateBranch": "fix/expired-rate-reason-modal-20261124-master",
+      "developCandidateBranch": "fix/expired-rate-reason-modal-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.11",
+      "version": "1.124.12",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/inland-auto-selection-20261124-master",
-      "candidateSha": "0a22a238e2e5814dd4fb89b1139fc33ee13a284a",
+      "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
+      "candidateSha": "746520ba4f922a42ee5e1dc37ecc02624cf0d208",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/inland-auto-selection-20261124-master",
-      "developCandidateBranch": "fix/inland-auto-selection-20261124-develop"
+      "masterCandidateBranch": "fix/expired-rate-reason-modal-20261124-master",
+      "developCandidateBranch": "fix/expired-rate-reason-modal-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,11 +154,11 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System to 1.124.11; component versions checked against target branch; failed checks remain blockers.",
+  "policyCheck": "PATCH Web/System 1.124.11 → 1.124.12; remaining 15 components retain branch-specific manifest versions.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging validation pending; master not promoted"
+    "CI and staging functional validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -330,6 +330,11 @@
       "staging": "pending",
       "scopeRegression": "pending",
       "realtime": "pending"
+    },
+    "expiredReasonModal": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
     }
   },
   "releaseComponents": [
@@ -337,9 +342,9 @@
     "DholeSystem"
   ],
   "changes": [
-    "Restore automatic inland selection in editable saved quotations without valid choice",
-    "Preserve valid saved choices, read-only mode and historical cost reconciliation",
-    "Do not claim automatic selection until actual choice exists"
+    "Ensure justification textarea remains visible if status lookup fails or returns malformed response.",
+    "Explicit retry and submission error with preserved draft.",
+    "Display generic jefatura, preserving authorized notification recipients and existing REST/SignalR transport."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -396,7 +401,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-INLAND-AUTO-SELECTION",
+  "businessReleaseId": "DH-20261124-EXPIRED-REASON-MODAL",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2128,5 +2133,52 @@
     "restChanged": false,
     "realtimeChanged": false,
     "databaseChanged": false
+  },
+  "expiredReasonModal": {
+    "releaseId": "DH-20261124-EXPIRED-REASON-MODAL",
+    "releaseType": "PATCH",
+    "ecosystemVersion": "1.124.12",
+    "target": "master",
+    "versions": {
+      "DholeSystem": {
+        "previousVersion": "1.124.11",
+        "newVersion": "1.124.12"
+      },
+      "DholeWeb": {
+        "previousVersion": "1.124.11",
+        "newVersion": "1.124.12"
+      }
+    },
+    "unchangedBaselineManifestVersions": {
+      "DholeSystem": "1.124.11",
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeWeb": "1.124.11",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholePricingService": "1.29.8",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "webCandidateSha": "746520ba4f922a42ee5e1dc37ecc02624cf0d208",
+    "changes": [
+      "Ensure justification textarea remains visible if status lookup fails or returns malformed response.",
+      "Explicit retry and submission error with preserved draft.",
+      "Display generic jefatura, preserving authorized notification recipients and existing REST/SignalR transport."
+    ],
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "schemaMigration": false
   }
 }
