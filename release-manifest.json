@@ -155,7 +155,7 @@
   ],
   "policyCheck": "PATCH Web/System 1.124.9 → 1.124.10; 15 remaining component versions checked on develop. 1.124.9 belongs to the independent global commercial release.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending; master not promoted"
   ],
