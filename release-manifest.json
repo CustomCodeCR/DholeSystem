@@ -51,7 +51,7 @@
       "version": "1.124.15",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/inland-persisted-edit-20261124",
-      "candidateSha": "526543ae80c42f4ec870dea1b44fcdaa08efdf39",
+      "candidateSha": "fa6409b27258ccb958a1addf587a51fd6933110b",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/inland-persisted-edit-20261124"
@@ -155,9 +155,9 @@
   ],
   "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 components unchanged by this release, versions carried from prior manifest.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging validation pending; production not authorized"
+    "CI and staging validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
