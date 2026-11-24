@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-EXPIRED-APPROVAL-TRANSACTION",
+  "releaseId": "DH-20261124-INLAND-PERSISTED-EDIT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.14",
+  "ecosystemVersion": "1.124.15",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/expired-approval-transaction-20261124-develop",
-    "master": "fix/expired-approval-transaction-20261124-master"
+    "develop": "fix/inland-persisted-edit-20261124",
+    "master": "fix/inland-persisted-edit-20261124-master"
   },
-  "candidateBranch": "fix/expired-approval-transaction-20261124-master",
+  "candidateBranch": "fix/inland-persisted-edit-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.14",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-approval-transaction-20261124-master",
+      "version": "1.124.15",
+      "mergeState": "intermediate-master-backport",
+      "candidateBranch": "fix/inland-persisted-edit-20261124-master",
       "candidateSha": null,
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-approval-transaction-20261124-master",
-      "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop"
+      "developMergeSha": "48c56f5af10e7314ea8f802ea2c77107d37d46d2",
+      "masterCandidateBranch": "fix/inland-persisted-edit-20261124-master",
+      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.14",
-      "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-approval-transaction-20261124-master",
-      "candidateSha": "a0f2c6bc36cf0e16775311adbc613fef0e020789",
-      "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-approval-transaction-20261124-master",
-      "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop"
+      "version": "1.124.15",
+      "mergeState": "intermediate-master-backport",
+      "candidateBranch": "fix/inland-persisted-edit-20261124-master",
+      "candidateSha": "1382172e4b1d657bf94a95dbf232a567db29f5b0",
+      "developMergeSha": "4c7bfdb82af15ce83f67b2867c0a43ed042a049d",
+      "masterCandidateBranch": "fix/inland-persisted-edit-20261124-master",
+      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -79,7 +79,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.10",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/expired-approval-transaction-20261124-master",
       "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop",
       "candidateSha": "b476c3cf1bef9a05692cc1a705aec2d7915ebfb2",
@@ -154,11 +154,11 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.13 → 1.124.14; Pricing 1.29.9 → 1.29.10; remaining 14 unchanged by release.",
-  "mergeState": "intermediate-only",
+  "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 component versions unchanged on master.",
+  "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, staging and functional seller verification pending"
+    "Live staging validation and master candidate CI pending; realtime production gate remains closed"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -345,12 +345,20 @@
       "ci": "pending",
       "staging": "pending",
       "production": "not-deployed"
+    },
+    "inlandPersistedEdit": {
+      "developPrCi": "passed",
+      "developMerged": true,
+      "masterCi": "pending",
+      "staging": "pending",
+      "expectedCost": 400,
+      "expectedSale": 430,
+      "expectedIndependentRoad": 2140
     }
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
     "Correct EF/Npgsql retry strategy boundary for expiry request and decision.",
