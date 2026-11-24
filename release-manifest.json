@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-LCL-EDIT-COST",
+  "releaseId": "DH-20261124-LCL-DIRECT-STEP6-COST",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.17",
+  "ecosystemVersion": "1.124.18",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/lcl-edit-cost-20261124",
-    "master": "fix/lcl-edit-cost-20261124-master"
+    "develop": "fix/lcl-direct-step6-cost-20261124",
+    "master": "fix/lcl-direct-step6-cost-20261124-master"
   },
-  "candidateBranch": "fix/lcl-edit-cost-20261124-master",
+  "candidateBranch": "fix/lcl-direct-step6-cost-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.17",
+      "version": "1.124.18",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/lcl-edit-cost-20261124-master",
+      "candidateBranch": "fix/lcl-direct-step6-cost-20261124-master",
       "candidateSha": null,
-      "developMergeSha": "f82bea10ec10bee4ea97d08b728db7808a303f49",
-      "masterCandidateBranch": "fix/lcl-edit-cost-20261124-master",
-      "developCandidateBranch": "fix/lcl-edit-cost-20261124"
+      "developMergeSha": "7018943c462c80b7bd44a9c64f68650dcd5664ce",
+      "masterCandidateBranch": "fix/lcl-direct-step6-cost-20261124-master",
+      "developCandidateBranch": "fix/lcl-direct-step6-cost-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.17",
+      "version": "1.124.18",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/lcl-edit-cost-20261124-master",
-      "candidateSha": "4bdab364bc2724f8b685b54ba3ee93ec3e03798b",
-      "developMergeSha": "f6985e3267be14b78bf5a7376c99abaef5e53b2b",
-      "masterCandidateBranch": "fix/lcl-edit-cost-20261124-master",
-      "developCandidateBranch": "fix/lcl-edit-cost-20261124"
+      "candidateBranch": "fix/lcl-direct-step6-cost-20261124-master",
+      "candidateSha": "33df51dccfb29e123f82bef222c077b01e6e139c",
+      "developMergeSha": "72085601f632731418f02265ead0b194a1cab998",
+      "masterCandidateBranch": "fix/lcl-direct-step6-cost-20261124-master",
+      "developCandidateBranch": "fix/lcl-direct-step6-cost-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,7 +154,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.16 → 1.124.17; remaining 15 component versions verified against master and unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.17 → 1.124.18; remaining 15 component versions verified against master and unchanged.",
   "mergeState": "master-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
@@ -371,6 +371,79 @@
       "developMergeShas": {
         "DholeWeb": "f6985e3267be14b78bf5a7376c99abaef5e53b2b",
         "DholeSystem": "f82bea10ec10bee4ea97d08b728db7808a303f49"
+      },
+      "otherComponentsVerified": [
+        {
+          "component": "DholeApiGateway",
+          "version": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "version": "1.17.1"
+        },
+        {
+          "component": "DholeConfigService",
+          "version": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "version": "1.2.1"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholePricingService",
+          "version": "1.29.10"
+        },
+        {
+          "component": "DholeAIService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholeStorageService",
+          "version": "1.2.3"
+        },
+        {
+          "component": "DholeReportsService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "version": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "version": "1.2.1"
+        },
+        {
+          "component": "DholeAgentService",
+          "version": "1.2.2"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "version": "1.4.1"
+        },
+        {
+          "component": "DholeCRMService",
+          "version": "1.43.1"
+        },
+        {
+          "component": "DholeOperationsService",
+          "version": "0.17.0"
+        }
+      ]
+    },
+    "lclDirectStep6Cost20261124": {
+      "developCI": "passed",
+      "developIntegrated": true,
+      "masterCI": "pending",
+      "staging": "live validation not verified",
+      "production": "authorized by user; gated",
+      "developMergeShas": {
+        "DholeWeb": "72085601f632731418f02265ead0b194a1cab998",
+        "DholeSystem": "7018943c462c80b7bd44a9c64f68650dcd5664ce"
       },
       "otherComponentsVerified": [
         {
