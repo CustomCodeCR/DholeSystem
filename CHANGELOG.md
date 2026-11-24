@@ -1,5 +1,10 @@
 ## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
 
+## [1.124.14] - 2026-11-24
+
+- DH-20261124-EXPIRED-APPROVAL-TRANSACTION: corregir transacciones EF/Npgsql de solicitudes y decisiones de vencimiento, conservar historial y Outbox atómicos. Pricing 1.29.10, Web/System 1.124.14.
+
+
 ## [1.124.13] - 2026-11-24
 
 - DH-20261124-EXPIRED-APPROVAL-ACCESS: corregir acceso del vendedor a solicitudes de vencimiento; mostrar registro de motivos y decisiones desde historial de cotización. Pricing 1.29.9, Web/System 1.124.13, demás versiones sin cambios.
