@@ -1,5 +1,9 @@
 ## [1.124.4] - 2026-11-24 · DH-20261124-OPENINGS-IDTRA-GUARD
 
+## [1.124.5] - 2026-11-24
+
+- DH-20261124-SELLER-EXPIRED-RENEWAL: autorización de jefatura aplicada al flujo comercial de actualización de tarifas vencidas, con motivo, historial, Outbox y notificaciones existentes. Pricing 1.29.7, Web 1.124.5, 14 componentes restantes verificados sin cambios. CI/staging pendientes.
+
 - PATCH: Pricing 1.29.5 → 1.29.6; Web/System 1.124.3 → 1.124.4. Omite avisos de Aperturas cuando existe IDTRA actual o histórico, verifica antes de publicar Outbox y comunica omisión en el modal de reenvío. Las notificaciones comerciales se conservan.
 - Manifiesto actualizado; demás versiones conservadas de la rama base. CI, staging y verificación final pendientes; producción no desplegada.
 
