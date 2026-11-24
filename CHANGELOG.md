@@ -1,3 +1,8 @@
+## [1.122.5] - 2026-11-24 · DH-20261124-OPS-IDTRA-STATUS
+
+- PATCH de consulta IDTRA: Pricing lee la apertura real en Operations por QUO padre y alternativa definitiva, con ACL, reintentos y SignalR. No modifica la aceptación ni crea IDTRA en frontend.
+- Web/System 1.122.4 → 1.122.5; versiones de los demás servicios verificadas. CI y UAT pendientes. Producción no autorizada.
+
 ## [1.122.4] - 2026-11-24 · DH-20261124-OPS-WORKSPACE-UI
 
 - PATCH visual Operations: resumen compacto, validaciones y pendientes prioritarios, DhTabs con permisos, DhDataTable para rubros y dashboard, drawer opaco y filtros identificados.
