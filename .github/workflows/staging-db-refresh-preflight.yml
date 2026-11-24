@@ -1,0 +1,64 @@
+name: Staging database refresh preflight
+on:
+  push:
+    branches: [maintenance/staging-db-refresh-20261123]
+    paths: [.github/workflows/staging-db-refresh-preflight.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dhole-nightly-prod-to-staging-data
+  cancel-in-progress: false
+jobs:
+  preflight:
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 10
+    steps:
+      - name: Verify isolated database containers
+        shell: bash
+        run: |
+          set -euo pipefail
+          resolve() {
+            local network="$1" service="$2"
+            local -a ids
+            mapfile -t ids < <(docker ps -q --no-trunc --filter "network=$network" --filter "label=com.docker.compose.service=$service")
+            if [[ ${#ids[@]} != 1 ]]; then
+              echo "Expected exactly one $network/$service container" >&2
+              return 1
+            fi
+            printf '%s' "${ids[0]}"
+          }
+          for svc in postgres mongo redis; do
+            p="$(resolve dhole "$svc")"
+            s="$(resolve dhole-staging "$svc")"
+            [[ "$p" != "$s" ]]
+            [[ "$(docker inspect -f '{{index .Config.Labels "com.docker.compose.project"}}' "$s")" == dhole-staging-infra ]]
+            if docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$s" | grep -Fxq dhole; then
+              echo "Staging $svc is connected to production network" >&2
+              exit 1
+            fi
+            if comm -12 <(docker inspect -f '{{range .Mounts}}{{println .Source}}{{end}}' "$p" | sed '/^$/d' | sort -u) <(docker inspect -f '{{range .Mounts}}{{println .Source}}{{end}}' "$s" | sed '/^$/d' | sort -u) | grep -q .; then
+              echo "Shared mount detected for $svc" >&2
+              exit 1
+            fi
+            echo "$svc: distinct containers and mounts verified"
+            if [[ "$svc" == postgres ]]; then
+              for side in "$p" "$s"; do
+                docker exec "$side" sh -ec 'psql -X -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d postgres -Atc "SELECT datname FROM pg_database WHERE datallowconn AND NOT datistemplate ORDER BY datname"'
+              done
+            fi
+            if [[ "$svc" == mongo ]]; then
+              for side in "$p" "$s"; do
+                docker exec "$side" sh -ec 'command -v mongodump >/dev/null; command -v mongorestore >/dev/null; mongosh --quiet --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --eval "db.adminCommand({listDatabases:1,nameOnly:true}).databases.map(x=>x.name).join(String.fromCharCode(10))"'
+              done
+            fi
+          done
+          echo "Staging environment email controls:"
+          test -r /opt/dhole/.env.staging
+          for key in DATA_EXTRACTION_EMAIL_ENABLED NOTIFICATIONS_EMAIL_ENABLED; do
+            if ! grep -Eiq "^$key=(false|0)$" /opt/dhole/.env.staging; then
+              echo "$key is not explicitly disabled; abort refresh" >&2
+              exit 1
+            fi
+          done
+          echo "No database changes performed."
