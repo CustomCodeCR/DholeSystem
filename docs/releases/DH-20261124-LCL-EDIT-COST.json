@@ -1,0 +1,47 @@
+{
+  "releaseId": "DH-20261124-LCL-EDIT-COST",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.17",
+  "target": "develop",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.16",
+      "newVersion": "1.124.17"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.16",
+      "newVersion": "1.124.17"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.16",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeWeb": "1.124.16",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "candidateShas": {
+    "DholeWeb": "be86ba37043c9066a62beb846770a9cf738efdef",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Normalize LCL edit baseline after hydration; deduplicate in-flight contextual cost requests; allow review of saved lines while catalog validation is pending; retain mandatory save reconciliation."
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  }
+}

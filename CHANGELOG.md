@@ -1,3 +1,7 @@
+## [1.124.17] - 2026-11-24
+
+- DH-20261124-LCL-EDIT-COST: permitir revisión de líneas LCL ante falla transitoria de costos, normalizar contexto después de hidratación, compartir reconciliaciones y mantener validación antes de guardar. Web/System 1.124.17; las demás 15 versiones se verificaron en develop. CI/staging pendientes.
+
 ## [1.124.16] - 2026-11-24
 
 - DH-20261124-PERSISTED-DETAIL-IDENTITY: conservar RateDetailId histórico, evitar fletes duplicados y corregir bloqueo de guardado de revisiones. Web/System 1.124.16; otros componentes sin cambios; CI/staging pendientes.
