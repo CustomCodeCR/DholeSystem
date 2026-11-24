@@ -43,7 +43,7 @@
       "candidateBranch": "fix/dhole-exact-svg-20261124",
       "developCandidateBranch": "fix/dhole-exact-svg-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "ca5391ff8dc1510e9d39eec8b798f3fca9282087",
+      "candidateSha": "cc6f842bc970028120ee0e90eb8594854e831590",
       "developMergeSha": null
     },
     {
@@ -132,7 +132,7 @@
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Exact supplied SVG, CSS theme colors, transparent original red ICO; CI/staging pending",
+    "branding": "Supplied SVG, CSS theme, original ICO, translated descriptions only in hover tooltip; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
