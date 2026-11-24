@@ -1,0 +1,58 @@
+{
+  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+  "ecosystemVersion": "1.124.8",
+  "releaseType": "PATCH",
+  "targetBranch": "master",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.7",
+      "newVersion": "1.124.8"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.7",
+      "newVersion": "1.124.8"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.7",
+      "newVersion": "1.29.8"
+    }
+  },
+  "verifiedUnchangedVersions": {
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "changes": [
+    "Global view-all plus rate-request.create authorizes requesting modifications and expired renewal, acceptance and rejection across sellers",
+    "A/B selection and persisted workflow checks remain; receipt and cancellation remain owner-only",
+    "Delegated requests preserve actor, customer and commercial executive; do not confer ownership",
+    "Existing notifications and realtime reused; mandatory staging and CI pending"
+  ],
+  "candidateShas": {
+    "DholeWeb": "8ec0afdeb4ab1716c74d42d66ae97592dfdebcd9",
+    "DholePricingService": "2d4f79f7777aaa37cfeff1c6e591dc72f6e407a1"
+  },
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false,
+  "restContractChanged": false,
+  "realtimeContractChanged": false
+}
