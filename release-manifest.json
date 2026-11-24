@@ -75,13 +75,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "version": "1.28.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -159,7 +159,8 @@
     "Merge coordinated Web PR after Vue TypeScript and regression CI",
     "Stage and validate draft recovery, concurrency, offline and access control",
     "Full Priority 1 scope remains incomplete: Pricing acceptance Outbox/Inbox and commercial review pending",
-    "Production merge and deploy are not authorized"
+    "Production merge and deploy are not authorized",
+    "Operations no consume aún la aceptación Pricing ni crea IDTRA automáticamente."
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -180,7 +181,8 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholeOperationsService",
+    "DholePricingService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -462,7 +464,8 @@
       "productionAuthorized": false,
       "remainingP1": "not-implemented",
       "originAfterDualValidation": true,
-      "recoveryWorker": true
+      "recoveryWorker": true,
+      "pricingAcceptanceOutbox": true
     }
   },
   "stagingValidation": {
