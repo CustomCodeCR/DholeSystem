@@ -1,3 +1,9 @@
+## [1.123.0] - 2026-11-24 · DH-20261124-OPS-HISTORICAL-IDTRA
+
+- MINOR: importación controlada de QUO aceptadas históricas con IDTRA numérico único y trazabilidad. No se renumeran casos existentes; conflictos, referencias múltiples y datos de aceptación incompletos se reportan para conciliación.
+- Superusuario configura siguiente IDTRA con bloqueo transaccional, control optimista y auditoría. Worker histórico habilitado únicamente en staging, Operations debe desplegar antes que Pricing.
+- Web/System 1.122.5 → 1.123.0; Operations 0.19.1 → 0.20.0; Pricing 1.28.0 → 1.29.0; restantes 13 sin modificación. CI/UAT pendientes; producción no autorizada.
+
 ## [1.122.5] - 2026-11-24 · DH-20261124-OPS-IDTRA-STATUS
 
 - PATCH de consulta IDTRA: Pricing lee la apertura real en Operations por QUO padre y alternativa definitiva, con ACL, reintentos y SignalR. No modifica la aceptación ni crea IDTRA en frontend.

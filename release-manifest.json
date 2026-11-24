@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-IDTRA-STATUS",
+  "releaseId": "DH-20261124-OPS-HISTORICAL-IDTRA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.122.5",
+  "ecosystemVersion": "1.123.0",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/operations-idtra-status-20261124",
+    "develop": "feature/operations-historical-idtra-20261124",
     "master": null
   },
-  "candidateBranch": "fix/operations-idtra-status-20261124",
+  "candidateBranch": "feature/operations-historical-idtra-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.122.5",
+      "version": "1.123.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-status-20261124",
+      "candidateBranch": "feature/operations-historical-idtra-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-idtra-status-20261124"
+      "developCandidateBranch": "feature/operations-historical-idtra-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.122.5",
+      "version": "1.123.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-status-20261124",
-      "candidateSha": "cbd93fb8ca64506ae41cbf25f01e5c683150f979",
+      "candidateBranch": "feature/operations-historical-idtra-20261124",
+      "candidateSha": "1306d2874bce45d2be63a4e4ec6ce683618179b1",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-idtra-status-20261124"
+      "developCandidateBranch": "feature/operations-historical-idtra-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.28.0",
+      "version": "1.29.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
-      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
-      "candidateSha": null,
+      "candidateBranch": "feature/operations-historical-idtra-20261124",
+      "developCandidateBranch": "feature/operations-historical-idtra-20261124",
+      "candidateSha": "9748b874568add288d0a992da4d125c988e71845",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -142,21 +142,23 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.19.1",
+      "version": "0.20.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
-      "candidateSha": null,
+      "candidateBranch": "feature/operations-historical-idtra-20261124",
+      "candidateSha": "69ac0cae3c8770bd4558be08bd885596806ce1a9",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
+      "developCandidateBranch": "feature/operations-historical-idtra-20261124"
     }
   ],
-  "policyCheck": "DholeSystem/Web 1.122.4 → 1.122.5; remaining services verified against develop.",
+  "policyCheck": "Web/System 1.122.5 → 1.123.0, Operations 0.19.1 → 0.20.0, Pricing 1.28.0 → 1.29.0; other 13 unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI",
-    "Staging UAT: verify QUO-00000-000760 actual persisted case; if absent investigate CRM, outbox, inbox and worker logs"
+    "Mandatory CI and .NET integration",
+    "Deploy Operations consumer before Pricing producer",
+    "Staging database inventory, verify historic conflicts and count created",
+    "Multi-IDTRA, ambiguous or missing acceptance provenance require reconciliation; no fabricated records"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -245,16 +247,24 @@
       "ci": "pending",
       "staging": "pending",
       "production": "not-authorized"
+    },
+    "historicalIdtra": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-authorized"
     }
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService",
+    "DholePricingService"
   ],
   "changes": [
-    "Resolve exact parent and accepted option via existing Operations REST API",
-    "Bounded retries and existing SignalR invalidation; direct case link",
-    "No client-side creation or fake IDTRA"
+    "Historical IDTRA snapshot replay from Pricing Outbox to Operations Inbox",
+    "Preserve original numeric historical IDTRA, no duplicates, conflicts retained for reconciliation",
+    "Superuser-only next IDTRA with expected current, reason, transactional lock and audit",
+    "Pricing worker opt-in only in staging"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -311,7 +321,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-IDTRA-STATUS",
+  "businessReleaseId": "DH-20261124-OPS-HISTORICAL-IDTRA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -747,7 +757,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pricing displays real Operations IDTRA for definitive acceptance",
+  "releaseSummary": "Historical IDTRA import and administrative sequence configuration",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1102,7 +1112,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "No production authorization; develop CI and staging required.",
+  "productionAuthorizationScope": "Staging only; no master or production deployment.",
   "releaseMasterIntegrationRequested": false,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1140,13 +1150,21 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeWeb": {
-      "previousVersion": "1.122.4",
-      "newVersion": "1.122.5"
-    },
     "DholeSystem": {
-      "previousVersion": "1.122.4",
-      "newVersion": "1.122.5"
+      "previousVersion": "1.122.5",
+      "newVersion": "1.123.0"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.122.5",
+      "newVersion": "1.123.0"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.28.0",
+      "newVersion": "1.29.0"
+    },
+    "DholeOperationsService": {
+      "previousVersion": "0.19.1",
+      "newVersion": "0.20.0"
     }
   },
   "pricingP7EditRelease": {
@@ -1388,5 +1406,31 @@
     "realtimeContractChanged": false,
     "databaseMigration": false,
     "productionAuthorized": false
+  },
+  "historicalIdtraRelease": {
+    "releaseId": "DH-20261124-OPS-HISTORICAL-IDTRA",
+    "versions": {
+      "DholeSystem": {
+        "previousVersion": "1.122.5",
+        "newVersion": "1.123.0"
+      },
+      "DholeWeb": {
+        "previousVersion": "1.122.5",
+        "newVersion": "1.123.0"
+      },
+      "DholePricingService": {
+        "previousVersion": "1.28.0",
+        "newVersion": "1.29.0"
+      },
+      "DholeOperationsService": {
+        "previousVersion": "0.19.1",
+        "newVersion": "0.20.0"
+      }
+    },
+    "stagingWorkerEnabled": true,
+    "productionWorkerEnabled": false,
+    "manualNumberChange": true,
+    "conflicts": "pending reconciliation; no overwrite",
+    "staging": "pending"
   }
 }
