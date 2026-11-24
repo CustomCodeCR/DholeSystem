@@ -131,12 +131,12 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.43.1",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "fix/crm-lead-change-history-20261123",
-      "developCandidateBranch": "fix/crm-lead-change-history-20261123",
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "candidateSha": "fabd20263eb99b48df364ffb7be131ccdea265f4",
+      "version": "1.44.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "masterCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
@@ -151,7 +151,7 @@
       "developCandidateBranch": "feat/operations-apertures-p1-20261123"
     }
   ],
-  "policyCheck": "DholeSystem/DholeWeb 1.120.11 -> 1.122.0; OperationsService 0.18.0 -> 0.19.0; PricingService 1.27.1 -> 1.28.0; other 13 component versions retained from prior manifest.",
+  "policyCheck": "DholeSystem/Web 1.120.11→1.122.0, Ops 0.18.0→0.19.0, Pricing 1.27.1→1.28.0, CRM 1.43.1→1.44.0; other 12 unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -182,7 +182,8 @@
     "DholeSystem",
     "DholeWeb",
     "DholeOperationsService",
-    "DholePricingService"
+    "DholePricingService",
+    "DholeCRMService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -465,7 +466,8 @@
       "remainingP1": "not-implemented",
       "originAfterDualValidation": true,
       "recoveryWorker": true,
-      "pricingAcceptanceOutbox": true
+      "pricingAcceptanceOutbox": true,
+      "crmIntegrationAccountContract": true
     }
   },
   "stagingValidation": {
