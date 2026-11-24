@@ -1,0 +1,48 @@
+{
+  "releaseId": "DH-20261123-PRICING-AUTO-IDTRA-438",
+  "ecosystemVersion": "1.122.1",
+  "semver": "PATCH",
+  "targetBranch": "develop",
+  "productionAuthorized": false,
+  "previousGlobalVersion": "1.122.0",
+  "components": [
+    {
+      "repository": "CustomCodeCR/DholeSystem",
+      "before": "1.122.0",
+      "after": "1.122.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholeWeb",
+      "before": "1.122.0",
+      "after": "1.122.1"
+    },
+    {
+      "repository": "CustomCodeCR/DholePricingService",
+      "before": "1.28.0",
+      "after": "1.28.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeOperationsService",
+      "before": "0.19.0",
+      "after": "0.19.0"
+    },
+    {
+      "repository": "CustomCodeCR/DholeCRMService",
+      "before": "1.44.0",
+      "after": "1.44.0"
+    }
+  ],
+  "otherEcosystemComponentsUnchanged": 12,
+  "changes": [
+    "Pricing acceptance no longer asks or transmits manually supplied IDTRA",
+    "Wizard pre-acceptance preview only displays historical Dynamics IDTRA values read-only",
+    "Only Operations creates IDTRA after durable definitive QUO acceptance",
+    "Regression test runs in DholeWeb prebuild"
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "crmAuthRedisOperations": "pending",
+    "production": "not-authorized"
+  }
+}
