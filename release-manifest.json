@@ -43,7 +43,7 @@
       "candidateBranch": "fix/dhole-theme-logo-20261124-master",
       "developCandidateBranch": "fix/dhole-topbar-version-card-20261124",
       "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "candidateSha": "a56c638c381022fb21c9ca8d45d4e5ce68d68420",
+      "candidateSha": "6528e3641fb87f71aaf504fa8c562ca453a28d85",
       "developMergeSha": null
     },
     {
@@ -132,7 +132,7 @@
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Shared compact DhCard between notification bell and user profile; responsive fallback; CI/staging pending",
+    "branding": "Shared compact DhCard between notification bell and user profile; centered sidebar logo independent of controls; responsive fallback; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
