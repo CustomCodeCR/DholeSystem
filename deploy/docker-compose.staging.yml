@@ -32,6 +32,7 @@ services:
 
   pricing-workers:
     environment:
+      Pricing__HistoricalIdtra__Enabled: "true"
       Features__UniversalRealtimeEnabled: "true"
       Realtime__Outbox__Enabled: "true"
       Realtime__BatchApproved: "true"
