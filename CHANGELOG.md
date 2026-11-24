@@ -1,3 +1,8 @@
+## [1.124.2] - 2026-11-24 · DH-20261124-SELLER-ACCEPTANCE-FIX
+
+- PATCH coordinado: corrección de aceptación comercial de QUO en Pricing 1.27.1 → 1.29.4; Web/System 1.120.11 → 1.124.2. Se conservan versiones de los componentes no incluidos y se registran las versiones observadas en la rama base.
+- CI y staging obligatorios; producción no desplegada.
+
 ## [1.120.11] - 2026-11-23 · DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432
 
 - PATCH coordinado: DholeWeb evita reinterpretar las medidas LCL/LTL en pulgadas como centímetros al guardar/reabrir y rehidratar datos del POL.
