@@ -151,7 +151,7 @@
       "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
     }
   ],
-  "policyCheck": "DholeSystem/Web 1.122.3 → 1.122.4. All 15 other develop version.json files verified; five stale manifest entries reconciled without changing services.",
+  "policyCheck": "DholeSystem/Web 1.122.3 → 1.122.4. All 15 remaining develop version.json files verified; five already integrated service versions registered as manifest-only releases to satisfy version gate.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -245,7 +245,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeAuditLogsService",
+    "DholeDataExtractionService",
+    "DholeAIService",
+    "DholeNotificationsService",
+    "DholeAgentService"
   ],
   "changes": [
     "Compact IDTRA summary and prioritized validation",
@@ -1358,6 +1363,17 @@
     "restContractChanged": false,
     "realtimeContractChanged": false,
     "staging": "pending",
-    "productionAuthorized": false
+    "productionAuthorized": false,
+    "manifestOnlyReconciliations": [
+      "DholeAuditLogsService",
+      "DholeDataExtractionService",
+      "DholeAIService",
+      "DholeNotificationsService",
+      "DholeAgentService"
+    ],
+    "codeChangedComponents": [
+      "DholeWeb",
+      "DholeSystem"
+    ]
   }
 }
