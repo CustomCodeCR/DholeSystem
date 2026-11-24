@@ -1,0 +1,52 @@
+{
+  "releaseId": "DH-20261124-PERSISTED-DETAIL-IDENTITY",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.16",
+  "target": "master",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.15",
+      "newVersion": "1.124.16"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.15",
+      "newVersion": "1.124.16"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.15",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.15",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "candidateShas": {
+    "DholeWeb": "d24f0016f524c47f0261800e204742ed85663f33",
+    "DholeSystem": null
+  },
+  "developMergeShas": {
+    "DholeWeb": "0bfdace5a3e6dbe63801a48e58f0ef33b2f554f0",
+    "DholeSystem": "0476d300bf8726ef23451dc1a7137aa379b43711"
+  },
+  "changes": [
+    "Preserve historical detail identity and independent road freight."
+  ],
+  "validation": {
+    "developCi": "passed",
+    "masterCi": "pending",
+    "staging": "pending",
+    "production": "user-authorized; gated pending validation"
+  }
+}
