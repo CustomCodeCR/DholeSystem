@@ -1,5 +1,10 @@
 ## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
 
+## [1.124.12] - 2026-11-24
+
+- DH-20261124-EXPIRED-REASON-MODAL: corregir formulario de justificación de vencimiento y manejo de errores; texto genérico de jefatura. Web/System 1.124.12, demás versiones sin cambios.
+
+
 - PATCH Web/System: restablece selección automática de inland Merchant/Naviera en P6 de cotizaciones editables persistidas sin elección válida. Mantiene elección válida, vista de solo lectura y costos históricos. CI/staging pendientes; REST, SignalR y BD sin cambios.
 
 ## [1.124.10] - 2026-11-24 · DH-20261124-PRICING-PANAMA-ROAD-DEDUP
