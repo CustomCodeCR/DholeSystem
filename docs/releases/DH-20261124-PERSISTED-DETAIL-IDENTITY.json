@@ -1,0 +1,47 @@
+{
+  "releaseId": "DH-20261124-PERSISTED-DETAIL-IDENTITY",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.16",
+  "target": "develop",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.15",
+      "newVersion": "1.124.16"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.15",
+      "newVersion": "1.124.16"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.15",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeWeb": "1.124.15",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "candidateShas": {
+    "DholeWeb": "83d12ebd8304e0e032ebcbe60fdc650743bb5b0c",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Preserve historical detail ID, avoid generated alias duplication, correct independent road freight reconciliation and save snapshot consistency."
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-authorized"
+  }
+}
