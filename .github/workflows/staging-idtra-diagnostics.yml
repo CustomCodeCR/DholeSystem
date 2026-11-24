@@ -1,0 +1,45 @@
+name: Staging IDTRA read-only diagnostics
+on:
+  pull_request:
+    branches: [develop]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'diagnostics/staging-idtra-20261124'
+    runs-on: [self-hosted, linux, x64, dhole]
+    timeout-minutes: 5
+    steps:
+      - name: Inspect only staging containers and aggregate counts
+        shell: bash
+        run: |
+          set -euo pipefail
+          for svc in pricing-workers operations-workers operations-api; do
+            mapfile -t ids < <(docker ps -q --filter "label=com.docker.compose.project=dhole-staging" --filter "label=com.docker.compose.service=$svc")
+            echo "$svc running count=${#ids[@]}"
+            [[ ${#ids[@]} == 1 ]] || continue
+            cid="${ids[0]}"
+            docker inspect --format '{{.Config.Image}} {{.State.StartedAt}}' "$cid"
+            if [[ "$svc" == pricing-workers ]]; then
+              docker exec "$cid" sh -c 'printf "historical enabled=%s\n" "${Pricing__HistoricalIdtra__Enabled:-unset}"'
+            fi
+            logs="$(docker logs --since 2h "$cid" 2>&1)"
+            for pattern in 'Historical IDTRA scan' 'Historical IDTRA review required' 'Accepted quotation' 'CRM acceptance identity could not be verified' 'CRM account or executive needs correction' 'Definitive quote acceptance is missing' 'Historical IDTRA is already assigned' 'not committed' 'Inbox poll failed' 'HistoricalIdtraWorker' 'relation .* does not exist' '42703'; do
+              printf '%s: %s\n' "$pattern" "$(grep -Ec "$pattern" <<< "$logs" || true)"
+            done
+            grep -oE 'Historical IDTRA scan: queued=[0-9]+; already queued=[0-9]+; review=[0-9]+' <<< "$logs" | tail -n 3 || true
+          done
+          mapfile -t pg < <(docker ps -q --filter 'label=com.docker.compose.project=dhole-staging-infra' --filter 'label=com.docker.compose.service=postgres')
+          [[ ${#pg[@]} == 1 ]] || { echo 'Staging PostgreSQL not uniquely identified'; exit 1; }
+          pg="${pg[0]}"
+          dbs="$(docker exec "$pg" sh -c 'psql -XAt -U "$POSTGRES_USER" -d postgres -c "SELECT datname FROM pg_database WHERE datallowconn"')"
+          for db in dhole_pricing dhole_operations; do
+            if ! grep -qx "$db" <<< "$dbs"; then echo "$db not found"; continue; fi
+            if [[ "$db" == dhole_pricing ]]; then
+              sql="SELECT status, count(*) FROM pricing.\"RateHeaders\" WHERE NOT is_deleted AND idtra_number IS NOT NULL AND btrim(idtra_number) <> '' GROUP BY status; SELECT status, (accepted_at_utc IS NOT NULL), (updated_by IS NOT NULL), count(*) FROM pricing.\"RateHeaders\" WHERE quo_number='QUO-00000-000759' GROUP BY 1,2,3; SELECT status,count(*) FROM pricing.outbox_messages WHERE correlation_id LIKE 'historical-idtra:%' GROUP BY status;"
+            else
+              sql="SELECT aperture_type,count(*) FROM operations.operations_cases GROUP BY aperture_type; SELECT count(*) FROM operations.operations_cases WHERE idtra='IDTRA999.12958';"
+            fi
+            echo "$db aggregate checks"
+            docker exec -e "DIAG_SQL=$sql" -e "DIAG_DB=$db" "$pg" sh -c 'PGOPTIONS="-c default_transaction_read_only=on" psql -XAt -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$DIAG_DB" -c "$DIAG_SQL"' || true
+          done
