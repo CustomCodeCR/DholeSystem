@@ -40,10 +40,10 @@
       "component": "DholeWeb",
       "version": "1.124.27",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261124-pricing-historical-edit",
-      "developCandidateBranch": "fix/20261124-pricing-historical-edit",
+      "candidateBranch": "fix/20261124-pricing-duplicate-crm",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
       "masterCandidateBranch": null,
-      "candidateSha": "b24cf77ed271c06b88236f5c93802a52d8fde161",
+      "candidateSha": "0d1b35957d2e4285660eb682bfa697d9c67ea371",
       "developMergeSha": null
     },
     {
