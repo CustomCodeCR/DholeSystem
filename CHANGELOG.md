@@ -1,3 +1,7 @@
+## [1.124.6] - 2026-11-24 · DH-20261124-PRICING-LCL-EDIT-NAV
+
+- PATCH: navegación de LCL editable/duplicado P6 → P7 sin naviera; conserva conciliación de costos y validación de guardado. Web/System 1.124.5 → 1.124.6; 15 componentes restantes verificados sin cambios en master. CI/staging pendientes; producción no desplegada.
+
 ## [1.124.3] - 2026-11-24 · DH-20261124-PRICING-SENT-CRM-FIX
 
 ## [1.124.5] - 2026-11-24

@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
+  "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.5",
+  "ecosystemVersion": "1.124.6",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/seller-expired-renewal-20261124-develop",
-    "master": "fix/seller-expired-renewal-20261124-master"
+    "develop": "fix/lcl-edit-p6-p7-20261124-develop",
+    "master": "fix/lcl-edit-p6-p7-20261124-master"
   },
-  "candidateBranch": "fix/seller-expired-renewal-20261124-master",
+  "candidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.5",
-      "mergeState": "develop-merged-master-candidate",
-      "candidateBranch": "fix/seller-expired-renewal-20261124-master",
+      "version": "1.124.6",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
       "candidateSha": null,
-      "developMergeSha": "67391d90b5d4166a9edee836acac9f99911abda5",
-      "masterCandidateBranch": "fix/seller-expired-renewal-20261124-master",
-      "developCandidateBranch": "fix/seller-expired-renewal-20261124-develop"
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
+      "developCandidateBranch": "fix/lcl-edit-p6-p7-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.5",
-      "mergeState": "develop-merged-master-candidate",
-      "candidateBranch": "fix/seller-expired-renewal-20261124-master",
-      "candidateSha": "e901f9caffc1dd176c3a81b2966ff10d352a11cb",
-      "developMergeSha": "763bceaf366df74bdf6ae8a534441f33f37b88d9",
-      "masterCandidateBranch": "fix/seller-expired-renewal-20261124-master",
-      "developCandidateBranch": "fix/seller-expired-renewal-20261124-develop"
+      "version": "1.124.6",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
+      "candidateSha": "8bd5ef1405a1089ee2f51df793fa6f50c5a2fd19",
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
+      "developCandidateBranch": "fix/lcl-edit-p6-p7-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -79,7 +79,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.7",
-      "mergeState": "develop-merged-master-candidate",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/seller-expired-renewal-20261124-master",
       "developCandidateBranch": "fix/seller-expired-renewal-20261124-develop",
       "candidateSha": "aca812a43fbce5289637fc9be2748a5ca4845ca9",
@@ -154,14 +154,14 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH 1.124.5. Master manifest retains unrelated production component versions; staging verification required.",
-  "mergeState": "develop-merged-master-candidate",
+  "policyCheck": "PATCH Web/System 1.124.5 → 1.124.6; 15 other master component versions verified and unchanged.",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Staging deployment and functional verification pending; master CI pending"
+    "Mandatory CI and staging validation pending; master not promoted"
   ],
   "validationEvidence": {
-    "ci": "pending-master",
+    "ci": "pending",
     "staging": "pending",
     "frontendNumericInput": "pending",
     "preflight": "pending",
@@ -179,19 +179,21 @@
       "staging": "pending",
       "ciMaster": "pending",
       "production": "not-deployed"
+    },
+    "pricingLclEditNavigation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
     }
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Seller dashboard and detail reuse supervisor approval modal",
-    "API requires revision-scoped approval before modification source and submit",
-    "Approved expiry renewal can proceed without cargo changes",
-    "Decision route is seller-accessible; other supervisor gets system notification",
-    "Existing one-day email and system reminder worker retained"
+    "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
+    "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
+    "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -1783,5 +1785,58 @@
       "DholeCRMService": "1.43.1",
       "DholeOperationsService": "0.17.0"
     }
+  },
+  "pricingLclEditNavigation": {
+    "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
+    "ecosystemVersion": "1.124.6",
+    "releaseType": "PATCH",
+    "targetBranch": "master",
+    "targetBranches": [
+      "develop",
+      "master"
+    ],
+    "versions": {
+      "DholeSystem": {
+        "previousVersion": "1.124.5",
+        "newVersion": "1.124.6"
+      },
+      "DholeWeb": {
+        "previousVersion": "1.124.5",
+        "newVersion": "1.124.6"
+      }
+    },
+    "verifiedUnchangedVersions": {
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholePricingService": "1.29.7",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "changes": [
+      "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
+      "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
+      "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
+    ],
+    "candidateShas": {
+      "DholeWeb": "8bd5ef1405a1089ee2f51df793fa6f50c5a2fd19"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "schemaMigration": false,
+    "restContractChanged": false,
+    "realtimeContractChanged": false
   }
 }
