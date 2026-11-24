@@ -1,3 +1,7 @@
+## [1.124.16] - 2026-11-24
+
+- DH-20261124-PERSISTED-DETAIL-IDENTITY: promover corrección general de identificadores de cargos históricos y fletes independientes. Web/System 1.124.16; otros componentes sin cambio; CI/staging pendientes.
+
 ## [1.124.15] - 2026-11-24
 
 - DH-20261124-INLAND-PERSISTED-EDIT: promover aisladamente la corrección del Inland persistido integrado en develop. Web/System 1.124.15; demás componentes conservan sus versiones en master. CI de candidato y staging pendientes.
