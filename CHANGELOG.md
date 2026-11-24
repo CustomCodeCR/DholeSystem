@@ -1,3 +1,7 @@
+## [1.124.18] - 2026-11-24
+
+- DH-20261124-LCL-DIRECT-STEP6-COST: promoción aislada de la corrección que desbloquea el costo LCL al entrar directamente a pantalla 6. Web/System 1.124.18; otras 15 versiones verificadas contra master. CI develop superado; CI master y staging pendientes.
+
 ## [1.124.17] - 2026-11-24
 
 - DH-20261124-LCL-EDIT-COST: promoción aislada de la corrección LCL de develop. Web/System 1.124.17; las demás 15 versiones se verificaron contra master. CI develop superado; CI master y staging pendientes de validación.

@@ -1,0 +1,48 @@
+{
+  "releaseId": "DH-20261124-LCL-DIRECT-STEP6-COST",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.18",
+  "target": "master",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.17",
+      "newVersion": "1.124.18"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.17",
+      "newVersion": "1.124.18"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.17",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.17",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "candidateShas": {
+    "DholeWeb": "33df51dccfb29e123f82bef222c077b01e6e139c",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Isolated promotion of direct step 6 existing LCL coloader cost unlocking; preserve read-only, seller and creation restrictions."
+  ],
+  "validation": {
+    "developCI": "passed",
+    "masterCI": "pending",
+    "staging": "live validation not verified",
+    "production": "authorized by user; gated"
+  }
+}
