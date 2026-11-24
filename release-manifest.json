@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
+  "releaseId": "DH-20261124-PRICING-PANAMA-EXCESS-EDIT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.6",
+  "ecosystemVersion": "1.124.7",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/lcl-edit-p6-p7-20261124-develop",
-    "master": "fix/lcl-edit-p6-p7-20261124-master"
+    "develop": "fix/panama-excess-edit-20261124-develop",
+    "master": null
   },
-  "candidateBranch": "fix/lcl-edit-p6-p7-20261124-develop",
+  "candidateBranch": "fix/panama-excess-edit-20261124-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.6",
+      "version": "1.124.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/lcl-edit-p6-p7-20261124-develop",
+      "candidateBranch": "fix/panama-excess-edit-20261124-develop",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
-      "developCandidateBranch": "fix/lcl-edit-p6-p7-20261124-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.6",
+      "version": "1.124.7",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/lcl-edit-p6-p7-20261124-develop",
-      "candidateSha": "2d8dabe2203aa15e1d72b2f00eb8e7a20ecf429a",
+      "candidateBranch": "fix/panama-excess-edit-20261124-develop",
+      "candidateSha": "606051f9508970ad849c0d32c6bae663af469d42",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/lcl-edit-p6-p7-20261124-master",
-      "developCandidateBranch": "fix/lcl-edit-p6-p7-20261124-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -153,11 +153,11 @@
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.5 → 1.124.6; 15 other develop component versions verified and unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.6 → 1.124.7; other component versions recorded from develop where available.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI and staging validation pending; master not promoted"
+    "CI and staging validation pending; master not promoted"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -535,6 +535,95 @@
       "ci": "pending",
       "staging": "pending",
       "production": "not-deployed"
+    },
+    "panamaExcessEdit": {
+      "ci": "pending",
+      "staging": "pending",
+      "webCommit": "606051f9508970ad849c0d32c6bae663af469d42",
+      "expectedChargesUsd": [
+        400,
+        200,
+        165,
+        55
+      ],
+      "componentVersionChecks": [
+        {
+          "component": "DholeApiGateway",
+          "previous": "1.11.1",
+          "actual": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "previous": "1.17.2",
+          "actual": "1.17.2"
+        },
+        {
+          "component": "DholeConfigService",
+          "previous": "1.12.0",
+          "actual": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "previous": "1.6.0",
+          "actual": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "previous": "1.9.0",
+          "actual": "1.9.0"
+        },
+        {
+          "component": "DholePricingService",
+          "previous": "1.29.7",
+          "actual": "1.29.7"
+        },
+        {
+          "component": "DholeAIService",
+          "previous": "1.9.0",
+          "actual": "1.9.0"
+        },
+        {
+          "component": "DholeStorageService",
+          "previous": "1.5.0",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeReportsService",
+          "previous": "1.8.1",
+          "actual": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "previous": "1.9.1",
+          "actual": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "previous": "1.5.0",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeAgentService",
+          "previous": "1.6.0",
+          "actual": "1.6.0"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "previous": "1.5.0",
+          "actual": "1.5.0"
+        },
+        {
+          "component": "DholeCRMService",
+          "previous": "1.45.0",
+          "actual": "1.45.0"
+        },
+        {
+          "component": "DholeOperationsService",
+          "previous": "0.21.1",
+          "actual": "0.21.1"
+        }
+      ],
+      "previousCiFailure": "Merchant/Carrier regression VM missing classifier dependency; test fixture corrected, rerun pending"
     }
   },
   "releaseComponents": [
