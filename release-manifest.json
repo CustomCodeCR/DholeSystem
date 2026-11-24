@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-INLAND-PERSISTED-EDIT",
+  "releaseId": "DH-20261124-PERSISTED-DETAIL-IDENTITY",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.15",
+  "ecosystemVersion": "1.124.16",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/inland-persisted-edit-20261124",
+    "develop": "fix/pricing-persisted-detail-identity-20261124",
     "master": null
   },
-  "candidateBranch": "fix/inland-persisted-edit-20261124",
+  "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.15",
+      "version": "1.124.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/inland-persisted-edit-20261124",
+      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
+      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.15",
+      "version": "1.124.16",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/inland-persisted-edit-20261124",
-      "candidateSha": "fa6409b27258ccb958a1addf587a51fd6933110b",
+      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
+      "candidateSha": "6e1fc046399a54fd44f9b3e7832b4efb09336963",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
+      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -153,11 +153,11 @@
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 components unchanged by this release, versions carried from prior manifest.",
+  "policyCheck": "PATCH Web/System 1.124.15 → 1.124.16; other 15 component versions unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging validation pending; production gate remains closed"
+    "CI and staging validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -794,6 +794,10 @@
       "expectedCost": 400,
       "expectedSale": 430,
       "expectedIndependentRoad": 2140
+    },
+    "persistedDetailIdentity": {
+      "ci": "pending",
+      "staging": "pending"
     }
   },
   "releaseComponents": [
