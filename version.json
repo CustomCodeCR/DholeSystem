@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.6",
-  "ecosystemVersion": "1.124.6",
-  "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
+  "version": "1.124.7",
+  "ecosystemVersion": "1.124.7",
+  "releaseId": "DH-20261124-PRICING-PANAMA-EXCESS-EDIT",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-LCL-EDIT-NAV"
+  "businessReleaseId": "DH-20261124-PRICING-PANAMA-EXCESS-EDIT"
 }
