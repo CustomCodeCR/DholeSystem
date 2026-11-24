@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.120.10",
-  "ecosystemVersion": "1.120.10",
-  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+  "version": "1.120.11",
+  "ecosystemVersion": "1.120.11",
+  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
   "releaseStatus": "candidate-ci-and-staging-pending",
-  "businessReleaseId": "DH-20261123-CRM-LEAD-AUDIT-431"
+  "businessReleaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
 }
