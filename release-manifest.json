@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.2",
-      "mergeState": "unchanged-for-this-release",
-      "candidateBranch": "fix/operations-assigned-workflow-20261124",
-      "candidateSha": "f43cd10b4f5b1691d81b9ef6b1a26fe6ead07be7",
+      "version": "1.124.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/pricing-sent-crm-20261124-develop",
+      "candidateSha": "ccfaa9e7e6aa0c423d38d960d2998da9fc22d74b",
       "developMergeSha": null,
-      "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
+      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -523,10 +523,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService"
+    "DholePricingService",
+    "DholeWeb"
   ],
   "changes": [
-    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification."
+    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification.",
+    "Version-only DholeWeb synchronization required by universal version gate."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -1897,7 +1899,6 @@
     "verifiedUnchangedVersions": {
       "DholeApiGateway": "1.11.1",
       "DholeAuthService": "1.17.2",
-      "DholeWeb": "1.124.2",
       "DholeConfigService": "1.12.0",
       "DholeAuditLogsService": "1.6.0",
       "DholeDataExtractionService": "1.9.0",
@@ -1915,6 +1916,9 @@
     "staging": "pending",
     "production": "not-deployed",
     "restCompatible": true,
-    "outboxCompatible": true
+    "outboxCompatible": true,
+    "webVersion": "1.124.3",
+    "webCandidateSha": "ccfaa9e7e6aa0c423d38d960d2998da9fc22d74b",
+    "previousWebVersion": "1.124.2"
   }
 }

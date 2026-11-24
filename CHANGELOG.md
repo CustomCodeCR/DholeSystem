@@ -1,7 +1,7 @@
 ## [1.124.3] - 2026-11-24 · DH-20261124-PRICING-SENT-CRM-FIX
 
 - PATCH: Pricing 1.29.3 → 1.29.5; System 1.124.2 → 1.124.3. Se corrige la exigencia indebida de cuenta CRM en la transición Sent autorizada por Pricing, sin relajar permisos de CRM exclusivo ni validación de destinatarios vinculados.
-- Versiones de los otros 15 componentes verificadas en develop y conservadas; manifiesto actualizado. CI y staging pendientes; producción no desplegada.
+- Web 1.124.2 → 1.124.3 (solo metadatos de versión, requisito CI). Versiones de los otros 14 componentes verificadas en develop y conservadas; manifiesto actualizado. CI y staging pendientes; producción no desplegada.
 
 ## [1.124.2] - 2026-11-24
 
