@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.123.0",
+      "version": "1.123.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-historical-idtra-20261124",
-      "candidateSha": "1306d2874bce45d2be63a4e4ec6ce683618179b1",
+      "candidateBranch": "fix/historical-idtra-import-20261124",
+      "candidateSha": "5a2014cdaddf18dd2d37a091ddd3d4134ba072b5",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/operations-historical-idtra-20261124"
+      "developCandidateBranch": "fix/historical-idtra-import-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -151,7 +151,7 @@
       "developCandidateBranch": "fix/historical-idtra-import-20261124"
     }
   ],
-  "policyCheck": "System 1.123.0 → 1.123.1; Pricing 1.29.0 → 1.29.1; Operations 0.20.0 → 0.20.1; Web unchanged.",
+  "policyCheck": "System/Web 1.123.0 → 1.123.1; Pricing 1.29.0 → 1.29.1; Operations 0.20.0 → 0.20.1.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -262,7 +262,8 @@
   "releaseComponents": [
     "DholeSystem",
     "DholeOperationsService",
-    "DholePricingService"
+    "DholePricingService",
+    "DholeWeb"
   ],
   "changes": [
     "Pricing retry strategy and per-record isolation",
@@ -1163,6 +1164,10 @@
     "DholeOperationsService": {
       "previousVersion": "0.20.0",
       "newVersion": "0.20.1"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.123.0",
+      "newVersion": "1.123.1"
     }
   },
   "pricingP7EditRelease": {
