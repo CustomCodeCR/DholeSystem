@@ -81,7 +81,7 @@
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/global-commercial-actions-20261124-develop",
       "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
-      "candidateSha": "a3a894f34599ed0aecc267bf373e37a41d586ede",
+      "candidateSha": "7e9389f9571a6e71ed727db07edff2a6a29ce3c5",
       "developMergeSha": null,
       "masterCandidateBranch": "fix/global-commercial-actions-20261124-master"
     },
@@ -2198,7 +2198,7 @@
     ],
     "candidateShas": {
       "DholeWeb": "cae55d71d3559df54cf6caf4f8ccfaad4bb41dc7",
-      "DholePricingService": "a3a894f34599ed0aecc267bf373e37a41d586ede"
+      "DholePricingService": "7e9389f9571a6e71ed727db07edff2a6a29ce3c5"
     },
     "validation": {
       "ci": "pending",
