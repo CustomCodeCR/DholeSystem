@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-EXPIRED-REASON-MODAL",
+  "releaseId": "DH-20261124-EXPIRED-APPROVAL-ACCESS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.12",
+  "ecosystemVersion": "1.124.13",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/expired-rate-reason-modal-20261124-develop",
-    "master": "fix/expired-rate-reason-modal-20261124-master"
+    "develop": "fix/expired-approval-access-20261124-develop",
+    "master": "fix/expired-approval-access-20261124-master"
   },
-  "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
+  "candidateBranch": "fix/expired-approval-access-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.12",
+      "version": "1.124.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
+      "candidateBranch": "fix/expired-approval-access-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-rate-reason-modal-20261124-master",
-      "developCandidateBranch": "fix/expired-rate-reason-modal-20261124-develop"
+      "masterCandidateBranch": "fix/expired-approval-access-20261124-master",
+      "developCandidateBranch": "fix/expired-approval-access-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.12",
+      "version": "1.124.13",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-rate-reason-modal-20261124-master",
-      "candidateSha": "746520ba4f922a42ee5e1dc37ecc02624cf0d208",
+      "candidateBranch": "fix/expired-approval-access-20261124-master",
+      "candidateSha": "3e73c73018e2f3bb1d5ecc7ca12a481a352d1162",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-rate-reason-modal-20261124-master",
-      "developCandidateBranch": "fix/expired-rate-reason-modal-20261124-develop"
+      "masterCandidateBranch": "fix/expired-approval-access-20261124-master",
+      "developCandidateBranch": "fix/expired-approval-access-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,13 +78,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.8",
-      "mergeState": "unchanged-for-this-release",
-      "candidateBranch": "fix/global-commercial-actions-20261124-master",
-      "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
-      "candidateSha": "2567dd7e58cf5772e40c8d9fe958ea6ed0e0e5b2",
+      "version": "1.29.9",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/expired-approval-access-20261124-master",
+      "developCandidateBranch": "fix/expired-approval-access-20261124-develop",
+      "candidateSha": "e1ba9dfe1011cb9582632dca8e105afc289a6f6e",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/global-commercial-actions-20261124-master"
+      "masterCandidateBranch": "fix/expired-approval-access-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,7 +154,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.11 → 1.124.12; remaining 15 components retain branch-specific manifest versions.",
+  "policyCheck": "PATCH Web/System 1.124.12 → 1.124.13; Pricing 1.29.8 → 1.29.9; remaining 14 unchanged by this release.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -335,16 +335,23 @@
       "ci": "pending",
       "staging": "pending",
       "production": "not-deployed"
+    },
+    "expiredApprovalAccess": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
     }
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
-    "Ensure justification textarea remains visible if status lookup fails or returns malformed response.",
-    "Explicit retry and submission error with preserved draft.",
-    "Display generic jefatura, preserving authorized notification recipients and existing REST/SignalR transport."
+    "Narrow GET/POST expiry approval middleware exemption; endpoint ownership and request scopes still enforced.",
+    "Persist revision-scoped reason and decision through existing transaction and System/Email Outbox.",
+    "Expose read-only expiry approval history in seller and Pricing quotation detail; realtime refresh.",
+    "Regression tests for middleware and UI."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -401,7 +408,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-EXPIRED-REASON-MODAL",
+  "businessReleaseId": "DH-20261124-EXPIRED-APPROVAL-ACCESS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1231,16 +1238,16 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "previousVersion": "1.115.1",
-      "newVersion": "1.116.0"
+      "previousVersion": "1.124.12",
+      "newVersion": "1.124.13"
     },
     "DholeSystem": {
-      "previousVersion": "1.115.1",
-      "newVersion": "1.116.0"
+      "previousVersion": "1.124.12",
+      "newVersion": "1.124.13"
     },
-    "DholeOperationsService": {
-      "previousVersion": "0.15.1",
-      "newVersion": "0.16.0"
+    "DholePricingService": {
+      "previousVersion": "1.29.8",
+      "newVersion": "1.29.9"
     }
   },
   "pricingP7EditRelease": {
@@ -2173,6 +2180,62 @@
       "Ensure justification textarea remains visible if status lookup fails or returns malformed response.",
       "Explicit retry and submission error with preserved draft.",
       "Display generic jefatura, preserving authorized notification recipients and existing REST/SignalR transport."
+    ],
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "schemaMigration": false
+  },
+  "expiredApprovalAccess": {
+    "releaseId": "DH-20261124-EXPIRED-APPROVAL-ACCESS",
+    "releaseType": "PATCH",
+    "ecosystemVersion": "1.124.13",
+    "target": "master",
+    "versions": {
+      "DholeWeb": {
+        "previousVersion": "1.124.12",
+        "newVersion": "1.124.13"
+      },
+      "DholeSystem": {
+        "previousVersion": "1.124.12",
+        "newVersion": "1.124.13"
+      },
+      "DholePricingService": {
+        "previousVersion": "1.29.8",
+        "newVersion": "1.29.9"
+      }
+    },
+    "unchangedBaselineManifestVersions": {
+      "DholeSystem": "1.124.12",
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeWeb": "1.124.12",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholePricingService": "1.29.8",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "candidateShas": {
+      "DholeWeb": "3e73c73018e2f3bb1d5ecc7ca12a481a352d1162",
+      "DholePricingService": "e1ba9dfe1011cb9582632dca8e105afc289a6f6e",
+      "DholeSystem": null
+    },
+    "changes": [
+      "Narrow GET/POST expiry approval middleware exemption; endpoint ownership and request scopes still enforced.",
+      "Persist revision-scoped reason and decision through existing transaction and System/Email Outbox.",
+      "Expose read-only expiry approval history in seller and Pricing quotation detail; realtime refresh.",
+      "Regression tests for middleware and UI."
     ],
     "validation": {
       "ci": "pending",

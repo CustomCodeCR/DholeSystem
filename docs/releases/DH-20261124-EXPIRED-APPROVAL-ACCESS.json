@@ -1,0 +1,56 @@
+{
+  "releaseId": "DH-20261124-EXPIRED-APPROVAL-ACCESS",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.13",
+  "target": "master",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.12",
+      "newVersion": "1.124.13"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.12",
+      "newVersion": "1.124.13"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.8",
+      "newVersion": "1.29.9"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.12",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.12",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.8",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "candidateShas": {
+    "DholeWeb": "3e73c73018e2f3bb1d5ecc7ca12a481a352d1162",
+    "DholePricingService": "e1ba9dfe1011cb9582632dca8e105afc289a6f6e",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Narrow GET/POST expiry approval middleware exemption; endpoint ownership and request scopes still enforced.",
+    "Persist revision-scoped reason and decision through existing transaction and System/Email Outbox.",
+    "Expose read-only expiry approval history in seller and Pricing quotation detail; realtime refresh.",
+    "Regression tests for middleware and UI."
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false
+}
