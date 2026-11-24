@@ -1,3 +1,7 @@
+## [1.124.16] - 2026-11-24
+
+- DH-20261124-PERSISTED-DETAIL-IDENTITY: conservar RateDetailId histórico, evitar fletes duplicados y corregir bloqueo de guardado de revisiones. Web/System 1.124.16; otros componentes sin cambios; CI/staging pendientes.
+
 ## [1.124.15] - 2026-11-24
 
 - DH-20261124-INLAND-PERSISTED-EDIT: corregir recuperación del Inland persistido durante modificación de cotizaciones. Web/System 1.124.15, demás componentes sin cambio; CI y staging pendientes.
