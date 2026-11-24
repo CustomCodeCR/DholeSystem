@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-SIDEBAR-BRAND-MOTION",
+  "releaseId": "DH-20261124-SIDEBAR-VERSION-FOOTER",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.22",
+  "ecosystemVersion": "1.124.23",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-sidebar-brand-motion-20261124",
+    "develop": "fix/dhole-sidebar-version-footer-20261124",
     "master": null
   },
   "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.22",
+      "version": "1.124.23",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
       "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.22",
+      "version": "1.124.23",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
-      "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+      "candidateBranch": "fix/dhole-sidebar-version-footer-20261124",
+      "developCandidateBranch": "fix/dhole-sidebar-version-footer-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "efc9febea8c621f5b787cb9554d339a7f796fb0c",
+      "candidateSha": "f56d81690e34fe01600eccc5d67d06b99998a470",
       "developMergeSha": null
     },
     {
@@ -125,14 +125,14 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.22; 15 other components unchanged from preceding manifest; no service changes.",
+  "policyCheck": "PATCH Web/System 1.124.23; 15 other components unchanged from preceding manifest; no service changes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Sidebar logo at 85% size, synchronized 300ms transition and reduced-motion support; CI/staging pending",
+    "branding": "Version relocated to fixed sidebar footer, compact info icon and tooltip; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
