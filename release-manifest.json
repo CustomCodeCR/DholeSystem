@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "releaseId": "DH-20261124-PRICING-SENT-CRM-FIX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.11",
-  "status": "master-candidate-ci-pending",
+  "ecosystemVersion": "1.124.3",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
-    "master": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master"
+    "develop": "fix/pricing-sent-crm-20261124-develop",
+    "master": "fix/pricing-sent-crm-20261124-master"
   },
-  "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+  "candidateBranch": "fix/pricing-sent-crm-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.11",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+      "version": "1.124.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
       "candidateSha": null,
-      "developMergeSha": "b3bd54d118b63d5bbb9810a42efb29bd4d548b87",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
       "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
       "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
@@ -38,7 +38,7 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.1",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
       "candidateSha": null,
       "developMergeSha": null
@@ -46,19 +46,19 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.11",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "candidateSha": "98360c8cac30ad3edc2ad2800c4cf5f17a99c867",
-      "developMergeSha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "version": "1.124.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "candidateSha": "1c86799e5116b92036d8d959f624e415202eff67",
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
       "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
       "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
@@ -66,49 +66,49 @@
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.5.0",
-      "mergeState": "unchanged"
+      "version": "1.2.1",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
-      "mergeState": "unchanged"
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "unchanged",
-      "candidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "candidateSha": null,
+      "version": "1.29.5",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop",
+      "candidateSha": "4a3d59223a8119a4f02fcf1116b1d51c6149e365",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
-      "mergeState": "unchanged"
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
-      "version": "1.5.0",
-      "mergeState": "unchanged"
+      "version": "1.2.3",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
-      "version": "1.7.0",
-      "mergeState": "unchanged"
+      "version": "1.8.1",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.8.0",
-      "mergeState": "intermediate-only",
+      "version": "1.9.1",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
       "candidateSha": null,
       "developMergeSha": null
@@ -116,26 +116,26 @@
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
-      "version": "1.5.0",
-      "mergeState": "unchanged"
+      "version": "1.2.1",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.5.0",
-      "mergeState": "unchanged"
+      "version": "1.2.2",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
-      "version": "1.5.0",
-      "mergeState": "unchanged"
+      "version": "1.4.1",
+      "mergeState": "unchanged-for-this-release"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.43.1",
-      "mergeState": "master-candidate-ci-pending",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
@@ -146,7 +146,7 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.17.0",
-      "mergeState": "master-candidate-ci-pending",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
       "candidateSha": null,
       "developMergeSha": "91daf3200991e10890faa11d34bdf3f2c33f1122",
@@ -155,8 +155,8 @@
     }
   ],
   "policyCheck": "Selective DH-432 backport: DholeWeb and DholeSystem 1.120.10 → 1.120.11; preserve 15 master component versions.",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Master candidate CI pending",
     "Authenticated QUO save/reopen in staging not verified; explicitly requested production promotion"
@@ -178,218 +178,15 @@
   },
   "releaseComponents": [
     "DholeSystem",
+    "DholePricingService",
     "DholeWeb"
   ],
-  "changes": {
-    "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
-    "1": "Autoguardado, múltiples borradores y descarte conservados",
-    "2": "Motivo de modificación de cotización validado antes de navegar",
-    "operationsAssignment408": {
-      "id": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
-      "components": [
-        "DholeOperationsService",
-        "DholeWeb",
-        "DholeSystem"
-      ],
-      "frontEndTeamSelection": true,
-      "apertureWeightRemoved": true,
-      "conditionalStackable": true,
-      "structuredSummary": true
-    },
-    "branding410": {
-      "releaseId": "DH-20261122-DHOLE-ERP-410",
-      "brand": "DHOLE ERP",
-      "acronym": "Digital Hub for Operations, Logistics & Ecosystem",
-      "pronunciation": "not-prescribed"
-    },
-    "branding411": {
-      "releaseId": "DH-20261122-DHOLE-ERP-411",
-      "pronunciationPolicy": "unrestricted",
-      "guideDisplayed": false,
-      "dockerTestFix": true
-    },
-    "operationsOverview414": {
-      "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
-      "components": [
-        "DholeSystem",
-        "DholeWeb",
-        "DholeOperationsService",
-        "DholeCRMService"
-      ],
-      "customerAccountFromCrm": true,
-      "assignedOperatorsFromAuth": true,
-      "dualValidators": true,
-      "operativeDepartmentStates": true,
-      "superuserReadTabs": true,
-      "sharedDhComponents": true,
-      "noDatabaseMigration": true,
-      "restCompatible": true,
-      "realtimePreserved": true,
-      "productionAuthorized": false,
-      "authorizedCrmBatchLabels": true
-    },
-    "pricingReturnModal415": {
-      "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
-      "components": [
-        "DholeWeb",
-        "DholeSystem"
-      ],
-      "sharedComponent": "DhModal",
-      "button": "Ver devolución",
-      "shows": [
-        "cliente",
-        "ruta",
-        "motivo",
-        "usuario",
-        "fecha",
-        "historial"
-      ],
-      "restCompatible": true,
-      "realtimePreserved": true,
-      "backendChanged": false,
-      "productionAuthorized": false
-    },
-    "pricingOwnLtlRoutes417": {
-      "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
-      "components": [
-        "DholeWeb",
-        "DholeSystem"
-      ],
-      "scope": "LTL route create without overwriting existing",
-      "sharedDhComponents": true,
-      "backendChanged": false,
-      "dbMigration": false,
-      "restCompatible": true,
-      "realtimePreserved": true
-    },
-    "pricingLtlNumeric418": {
-      "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
-      "components": [
-        "DholeWeb",
-        "DholeSystem"
-      ],
-      "rootCause": "Vue type=number emits numeric models and .trim before POST crashed",
-      "fix": "safe number|string parsing, specific validation, regression tests",
-      "backendChanged": false,
-      "dbMigration": false,
-      "restCompatible": true,
-      "realtimePreserved": true,
-      "sharedDhComponents": true,
-      "productionAuthorized": true,
-      "validation": "pending-ci-staging"
-    },
-    "corsPreflight419": {
-      "id": "DH-20261123-CORS-PREFLIGHT-419",
-      "objective": "Eliminar OPTIONS innecesarios de API desde SPA y reutilizar catálogos de Pricing",
-      "components": [
-        "DholeSystem",
-        "DholeWeb",
-        "DholeApiGateway"
-      ],
-      "webVersion": "1.120.3",
-      "gatewayVersion": "1.11.1",
-      "webDevelopCommit": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
-      "gatewayDevelopCommit": "6e8bde709909a16f161f49955a6019a93340e00f",
-      "approval": "production-deploy-not-authorized"
-    },
-    "pricingExistingQuoteEdit421": {
-      "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
-      "componentVersions": {
-        "DholeSystem": "1.120.6",
-        "DholeWeb": "1.120.6"
-      },
-      "masterBasedOn": "1.120.3",
-      "selectiveBackport": true,
-      "restUnchanged": true,
-      "realtimeUnchanged": true,
-      "databaseUnchanged": true,
-      "productionAuthorized": false,
-      "ci": "pending",
-      "staging": "pending"
-    },
-    "pricingPersistedLtlEditNavigation422": {
-      "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
-      "versions": {
-        "DholeWeb": {
-          "from": "1.120.6",
-          "to": "1.120.7"
-        },
-        "DholeSystem": {
-          "from": "1.120.6",
-          "to": "1.120.7"
-        }
-      },
-      "rootCause": "Last Vite plugin retained new-quote canNext guard ahead of persisted LTL edit navigation",
-      "fix": "Dedicated non-destructive P6→P7 saved LTL path after final transforms",
-      "regression": "tests/pricingPersistedLtlEditNavigation422.test.mjs",
-      "restChanged": false,
-      "realtimeChanged": false,
-      "databaseChanged": false,
-      "sharedDHComponentsReused": true,
-      "ci": "pending",
-      "staging": "pending",
-      "productionAuthorized": false
-    },
-    "pricingVatRelease430": {
-      "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
-      "version": "1.120.8",
-      "origin": "POL",
-      "destination": "POE",
-      "freightImport": "POE",
-      "freightExport": "POL",
-      "transitFreight": "sin IVA automático",
-      "perAlternativePoe": true,
-      "checkboxReflectsApplicableRate": true,
-      "backendContractChanged": false,
-      "componentsReused": [
-        "DhCheckbox"
-      ],
-      "staging": "pending",
-      "productionAuthorized": false
-    },
-    "pricingModification422": {
-      "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
-      "version": "1.120.9",
-      "modalityShipmentComparison": true,
-      "savedQuoteRateDetailIntegrity": true,
-      "restRealtimeUnchanged": true,
-      "productionAuthorized": true
-    },
-    "crmLeadAudit431": {
-      "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
-      "components": [
-        "DholeWeb",
-        "DholeSystem",
-        "DholeCRMService"
-      ],
-      "changes": [
-        "Prospect change history with before/after actor and timestamp",
-        "PostgreSQL immutable audit and authorization on GET /leads/{id}/change-history",
-        "Separate route history, use shared DH patterns"
-      ],
-      "outboxInboxPreserved": true,
-      "stagingDeployPassed": true,
-      "authenticatedStagingE2E": false,
-      "productionDeploymentAuthorized": false
-    },
-    "pricingCargoUnits432": {
-      "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
-      "components": [
-        "DholeSystem",
-        "DholeWeb"
-      ],
-      "regression": "Five Miami cargo lines retain 68.248 CFT",
-      "restCompatible": true,
-      "realtimePreserved": true,
-      "productionAuthorized": true,
-      "stagingAuthenticatedE2E": false
-    }
-  },
+  "changes": [
+    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification.",
+    "Version-only DholeWeb synchronization required by universal version gate."
+  ],
   "stagingValidation": {
-    "status": "authenticated-e2e-not-verified",
-    "web": {
-      "sha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62"
-    }
+    "status": "pending"
   },
   "f6F7F8": {
     "status": "deferred-to-staging-by-explicit-user-authorization",
@@ -1485,5 +1282,404 @@
       "Operations full-equipment validation for FTL and multimodal",
       "Pricing container selector and real Config catalogs reused"
     ]
+  },
+  "pricingSentCrmFix": {
+    "releaseId": "DH-20261124-PRICING-SENT-CRM-FIX",
+    "previousManifest": {
+      "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "ecosystemVersion": "1.120.11",
+      "status": "master-candidate-ci-pending",
+      "branches": {
+        "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+        "master": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master"
+      },
+      "releaseComponents": [
+        "DholeSystem",
+        "DholeWeb"
+      ],
+      "changes": {
+        "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
+        "1": "Autoguardado, múltiples borradores y descarte conservados",
+        "2": "Motivo de modificación de cotización validado antes de navegar",
+        "operationsAssignment408": {
+          "id": "DH-20261122-OPERATIONS-ASSIGNMENT-SUMMARY-408",
+          "components": [
+            "DholeOperationsService",
+            "DholeWeb",
+            "DholeSystem"
+          ],
+          "frontEndTeamSelection": true,
+          "apertureWeightRemoved": true,
+          "conditionalStackable": true,
+          "structuredSummary": true
+        },
+        "branding410": {
+          "releaseId": "DH-20261122-DHOLE-ERP-410",
+          "brand": "DHOLE ERP",
+          "acronym": "Digital Hub for Operations, Logistics & Ecosystem",
+          "pronunciation": "not-prescribed"
+        },
+        "branding411": {
+          "releaseId": "DH-20261122-DHOLE-ERP-411",
+          "pronunciationPolicy": "unrestricted",
+          "guideDisplayed": false,
+          "dockerTestFix": true
+        },
+        "operationsOverview414": {
+          "releaseId": "DH-20261122-OPS-CASE-OVERVIEW-414",
+          "components": [
+            "DholeSystem",
+            "DholeWeb",
+            "DholeOperationsService",
+            "DholeCRMService"
+          ],
+          "customerAccountFromCrm": true,
+          "assignedOperatorsFromAuth": true,
+          "dualValidators": true,
+          "operativeDepartmentStates": true,
+          "superuserReadTabs": true,
+          "sharedDhComponents": true,
+          "noDatabaseMigration": true,
+          "restCompatible": true,
+          "realtimePreserved": true,
+          "productionAuthorized": false,
+          "authorizedCrmBatchLabels": true
+        },
+        "pricingReturnModal415": {
+          "releaseId": "DH-20261123-PRICING-RETURN-MODAL-415",
+          "components": [
+            "DholeWeb",
+            "DholeSystem"
+          ],
+          "sharedComponent": "DhModal",
+          "button": "Ver devolución",
+          "shows": [
+            "cliente",
+            "ruta",
+            "motivo",
+            "usuario",
+            "fecha",
+            "historial"
+          ],
+          "restCompatible": true,
+          "realtimePreserved": true,
+          "backendChanged": false,
+          "productionAuthorized": false
+        },
+        "pricingOwnLtlRoutes417": {
+          "releaseId": "DH-20261123-PRICING-LTL-ROUTES-417",
+          "components": [
+            "DholeWeb",
+            "DholeSystem"
+          ],
+          "scope": "LTL route create without overwriting existing",
+          "sharedDhComponents": true,
+          "backendChanged": false,
+          "dbMigration": false,
+          "restCompatible": true,
+          "realtimePreserved": true
+        },
+        "pricingLtlNumeric418": {
+          "releaseId": "DH-20261123-PRICING-LTL-NUMERIC-418",
+          "components": [
+            "DholeWeb",
+            "DholeSystem"
+          ],
+          "rootCause": "Vue type=number emits numeric models and .trim before POST crashed",
+          "fix": "safe number|string parsing, specific validation, regression tests",
+          "backendChanged": false,
+          "dbMigration": false,
+          "restCompatible": true,
+          "realtimePreserved": true,
+          "sharedDhComponents": true,
+          "productionAuthorized": true,
+          "validation": "pending-ci-staging"
+        },
+        "corsPreflight419": {
+          "id": "DH-20261123-CORS-PREFLIGHT-419",
+          "objective": "Eliminar OPTIONS innecesarios de API desde SPA y reutilizar catálogos de Pricing",
+          "components": [
+            "DholeSystem",
+            "DholeWeb",
+            "DholeApiGateway"
+          ],
+          "webVersion": "1.120.3",
+          "gatewayVersion": "1.11.1",
+          "webDevelopCommit": "5de27be0671aa36097171012d4ad3e667d4e1bf9",
+          "gatewayDevelopCommit": "6e8bde709909a16f161f49955a6019a93340e00f",
+          "approval": "production-deploy-not-authorized"
+        },
+        "pricingExistingQuoteEdit421": {
+          "releaseId": "DH-20261123-PRICING-EDIT-STEP6-421",
+          "componentVersions": {
+            "DholeSystem": "1.120.6",
+            "DholeWeb": "1.120.6"
+          },
+          "masterBasedOn": "1.120.3",
+          "selectiveBackport": true,
+          "restUnchanged": true,
+          "realtimeUnchanged": true,
+          "databaseUnchanged": true,
+          "productionAuthorized": false,
+          "ci": "pending",
+          "staging": "pending"
+        },
+        "pricingPersistedLtlEditNavigation422": {
+          "releaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+          "versions": {
+            "DholeWeb": {
+              "from": "1.120.6",
+              "to": "1.120.7"
+            },
+            "DholeSystem": {
+              "from": "1.120.6",
+              "to": "1.120.7"
+            }
+          },
+          "rootCause": "Last Vite plugin retained new-quote canNext guard ahead of persisted LTL edit navigation",
+          "fix": "Dedicated non-destructive P6→P7 saved LTL path after final transforms",
+          "regression": "tests/pricingPersistedLtlEditNavigation422.test.mjs",
+          "restChanged": false,
+          "realtimeChanged": false,
+          "databaseChanged": false,
+          "sharedDHComponentsReused": true,
+          "ci": "pending",
+          "staging": "pending",
+          "productionAuthorized": false
+        },
+        "pricingVatRelease430": {
+          "releaseId": "DH-20261123-PRICING-VAT-RELEASE-430",
+          "version": "1.120.8",
+          "origin": "POL",
+          "destination": "POE",
+          "freightImport": "POE",
+          "freightExport": "POL",
+          "transitFreight": "sin IVA automático",
+          "perAlternativePoe": true,
+          "checkboxReflectsApplicableRate": true,
+          "backendContractChanged": false,
+          "componentsReused": [
+            "DhCheckbox"
+          ],
+          "staging": "pending",
+          "productionAuthorized": false
+        },
+        "pricingModification422": {
+          "releaseId": "DH-20261123-PRICING-MODIFICATION-422",
+          "version": "1.120.9",
+          "modalityShipmentComparison": true,
+          "savedQuoteRateDetailIntegrity": true,
+          "restRealtimeUnchanged": true,
+          "productionAuthorized": true
+        },
+        "crmLeadAudit431": {
+          "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+          "components": [
+            "DholeWeb",
+            "DholeSystem",
+            "DholeCRMService"
+          ],
+          "changes": [
+            "Prospect change history with before/after actor and timestamp",
+            "PostgreSQL immutable audit and authorization on GET /leads/{id}/change-history",
+            "Separate route history, use shared DH patterns"
+          ],
+          "outboxInboxPreserved": true,
+          "stagingDeployPassed": true,
+          "authenticatedStagingE2E": false,
+          "productionDeploymentAuthorized": false
+        },
+        "pricingCargoUnits432": {
+          "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+          "components": [
+            "DholeSystem",
+            "DholeWeb"
+          ],
+          "regression": "Five Miami cargo lines retain 68.248 CFT",
+          "restCompatible": true,
+          "realtimePreserved": true,
+          "productionAuthorized": true,
+          "stagingAuthenticatedE2E": false
+        }
+      },
+      "components": [
+        {
+          "repository": "CustomCodeCR/DholeSystem",
+          "component": "DholeSystem",
+          "version": "1.120.11",
+          "mergeState": "master-candidate-ci-pending",
+          "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+          "candidateSha": null,
+          "developMergeSha": "b3bd54d118b63d5bbb9810a42efb29bd4d548b87",
+          "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+          "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+        },
+        {
+          "repository": "CustomCodeCR/DholeApiGateway",
+          "component": "DholeApiGateway",
+          "version": "1.11.1",
+          "mergeState": "intermediate-only",
+          "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+          "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
+          "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
+          "candidateSha": "3f20712f3aa298f09b982fbd3db75e19dbebcd39",
+          "developMergeSha": null
+        },
+        {
+          "repository": "CustomCodeCR/DholeAuthService",
+          "component": "DholeAuthService",
+          "version": "1.17.1",
+          "mergeState": "intermediate-only",
+          "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
+          "candidateSha": null,
+          "developMergeSha": null
+        },
+        {
+          "repository": "CustomCodeCR/DholeWeb",
+          "component": "DholeWeb",
+          "version": "1.120.11",
+          "mergeState": "master-candidate-ci-pending",
+          "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+          "candidateSha": "98360c8cac30ad3edc2ad2800c4cf5f17a99c867",
+          "developMergeSha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62",
+          "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+          "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+        },
+        {
+          "repository": "CustomCodeCR/DholeConfigService",
+          "component": "DholeConfigService",
+          "version": "1.12.0",
+          "mergeState": "intermediate-only",
+          "candidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
+          "masterCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-master",
+          "developCandidateBranch": "feature/DH-20261118-CRM-PROSPECT-235-config-develop"
+        },
+        {
+          "repository": "CustomCodeCR/DholeAuditLogsService",
+          "component": "DholeAuditLogsService",
+          "version": "1.5.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeDataExtractionService",
+          "component": "DholeDataExtractionService",
+          "version": "1.8.1",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholePricingService",
+          "component": "DholePricingService",
+          "version": "1.26.26",
+          "mergeState": "unchanged",
+          "candidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
+          "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+          "candidateSha": null,
+          "developMergeSha": null,
+          "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+        },
+        {
+          "repository": "CustomCodeCR/DholeAIService",
+          "component": "DholeAIService",
+          "version": "1.8.1",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeStorageService",
+          "component": "DholeStorageService",
+          "version": "1.5.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeReportsService",
+          "component": "DholeReportsService",
+          "version": "1.7.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeNotificationsService",
+          "component": "DholeNotificationsService",
+          "version": "1.8.0",
+          "mergeState": "intermediate-only",
+          "candidateBranch": "release/DH-20261120-VERSION-NOTICES-361-master",
+          "candidateSha": null,
+          "developMergeSha": null
+        },
+        {
+          "repository": "CustomCodeCR/DholeContentService",
+          "component": "DholeContentService",
+          "version": "1.5.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeAgentService",
+          "component": "DholeAgentService",
+          "version": "1.5.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+          "component": "DholeDynamicsConnectorService",
+          "version": "1.5.0",
+          "mergeState": "unchanged"
+        },
+        {
+          "repository": "CustomCodeCR/DholeCRMService",
+          "component": "DholeCRMService",
+          "version": "1.43.1",
+          "mergeState": "master-candidate-ci-pending",
+          "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+          "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+          "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414",
+          "candidateSha": "dc1fdba976214b30176ea11642d1d0df7e1a6b6b",
+          "developMergeSha": "c6a85da4e3958d868de2ecfc683f653f5257cf6f"
+        },
+        {
+          "repository": "CustomCodeCR/DholeOperationsService",
+          "component": "DholeOperationsService",
+          "version": "0.17.0",
+          "mergeState": "master-candidate-ci-pending",
+          "candidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+          "candidateSha": null,
+          "developMergeSha": "91daf3200991e10890faa11d34bdf3f2c33f1122",
+          "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
+          "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
+        }
+      ],
+      "stagingValidation": {
+        "status": "authenticated-e2e-not-verified",
+        "web": {
+          "sha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62"
+        }
+      }
+    },
+    "previousPricingVersion": "1.29.4",
+    "pricingVersion": "1.29.5",
+    "globalVersion": "1.124.3",
+    "target": "master",
+    "pricingCandidateSha": "4a3d59223a8119a4f02fcf1116b1d51c6149e365",
+    "verifiedUnchangedVersions": {
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed",
+    "restCompatible": true,
+    "outboxCompatible": true,
+    "webVersion": "1.124.3",
+    "webCandidateSha": "1c86799e5116b92036d8d959f624e415202eff67",
+    "previousWebVersion": "1.124.2"
   }
 }
