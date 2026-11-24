@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.10",
+  "ecosystemVersion": "1.120.11",
   "status": "candidate-ci-and-staging-pending",
   "branches": {
-    "develop": "release/crm-lead-change-history-dh431",
+    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
     "master": null
   },
-  "candidateBranch": "release/crm-lead-change-history-dh431",
+  "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.10",
+      "version": "1.120.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "release/crm-lead-change-history-dh431",
+      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "release/crm-lead-change-history-dh431"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.10",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "fix/crm-lead-change-history-20261123",
-      "candidateSha": "5f1aca883b14f684de71bb1dd53e4ab99df50b77",
+      "version": "1.120.11",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/crm-lead-change-history-20261123"
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
