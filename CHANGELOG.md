@@ -1,3 +1,9 @@
+## [1.122.4] - 2026-11-24 · DH-20261124-OPS-WORKSPACE-UI
+
+- PATCH visual Operations: resumen compacto, validaciones y pendientes prioritarios, DhTabs con permisos, DhDataTable para rubros y dashboard, drawer opaco y filtros identificados.
+- DholeSystem/Web 1.122.3 → 1.122.4. Las 15 versiones de los servicios restantes fueron consultadas en develop; se corrigen cinco entradas desactualizadas del manifiesto sin modificar sus repositorios.
+- CI, compilación y validación visual staging pendientes. Producción no autorizada.
+
 ## [1.122.3] - 2026-11-24 · DH-20261124-OPS-QUOTE-ACCEPTANCE-440
 
 - PATCH crítico: corrige infraestructura del circuito QUO aceptada → IDTRA. Operations staging ahora clona System develop, y configura correctamente el HTTP/clave CRM para el Inbox. CRM consulta cuenta por GUID o nombre exacto único con credencial interna y lector autorizado por Auth.
