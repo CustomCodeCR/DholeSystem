@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-PANAMA-EXCESS-EDIT",
+  "releaseId": "DH-20261124-PRICING-PANAMA-PERSISTED-SAVE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.7",
+  "ecosystemVersion": "1.124.8",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/panama-excess-edit-20261124-develop",
-    "master": "fix/panama-excess-edit-20261124-master"
+    "develop": "fix/panama-persisted-save-20261124-develop",
+    "master": "fix/panama-persisted-save-20261124-master"
   },
-  "candidateBranch": "fix/panama-excess-edit-20261124-master",
+  "candidateBranch": "fix/panama-persisted-save-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.7",
+      "version": "1.124.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-excess-edit-20261124-master",
+      "candidateBranch": "fix/panama-persisted-save-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-excess-edit-20261124-master",
-      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
+      "masterCandidateBranch": "fix/panama-persisted-save-20261124-master",
+      "developCandidateBranch": "fix/panama-persisted-save-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.7",
+      "version": "1.124.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-excess-edit-20261124-master",
-      "candidateSha": "0128af0761fbb30560f6a83abbcead25ff013b19",
+      "candidateBranch": "fix/panama-persisted-save-20261124-master",
+      "candidateSha": "a9e88e96945e64ba335d579e805a263478563c84",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-excess-edit-20261124-master",
-      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
+      "masterCandidateBranch": "fix/panama-persisted-save-20261124-master",
+      "developCandidateBranch": "fix/panama-persisted-save-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,7 +154,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.6 → 1.124.7; other master component versions verified where available.",
+  "policyCheck": "PATCH Web/System 1.124.7 → 1.124.8; all 15 remaining master component versions verified and unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
@@ -252,6 +252,78 @@
           "actual": "0.17.0"
         }
       ]
+    },
+    "panamaPersistedSave": {
+      "ci": "pending",
+      "staging": "pending",
+      "webCommit": "a9e88e96945e64ba335d579e805a263478563c84",
+      "developCandidate": "173ae97ddfeb37eb37ce87055d3c96dc3370b6a6",
+      "componentVersionChecks": [
+        {
+          "component": "DholeApiGateway",
+          "actual": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "actual": "1.17.1"
+        },
+        {
+          "component": "DholeConfigService",
+          "actual": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "actual": "1.2.1"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "actual": "1.8.1"
+        },
+        {
+          "component": "DholePricingService",
+          "actual": "1.29.7"
+        },
+        {
+          "component": "DholeAIService",
+          "actual": "1.8.1"
+        },
+        {
+          "component": "DholeStorageService",
+          "actual": "1.2.3"
+        },
+        {
+          "component": "DholeReportsService",
+          "actual": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "actual": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "actual": "1.2.1"
+        },
+        {
+          "component": "DholeAgentService",
+          "actual": "1.2.2"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "actual": "1.4.1"
+        },
+        {
+          "component": "DholeCRMService",
+          "actual": "1.43.1"
+        },
+        {
+          "component": "DholeOperationsService",
+          "actual": "0.17.0"
+        }
+      ],
+      "expectedRoadCost": 2140,
+      "expectedRoadSale": 2140,
+      "expectedExcessFreightCost": 400,
+      "expectedExcessFreightSale": 560
     }
   },
   "releaseComponents": [
