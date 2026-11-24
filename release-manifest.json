@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.10",
-  "status": "candidate-master-pending-staging",
+  "ecosystemVersion": "1.120.11",
+  "status": "master-candidate-ci-pending",
   "branches": {
-    "develop": "release/crm-lead-change-history-dh431",
-    "master": "release/DH-20261123-CRM-LEAD-AUDIT-431-master"
+    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+    "master": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master"
   },
-  "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+  "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.10",
+      "version": "1.120.11",
       "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
+      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
       "candidateSha": null,
-      "developMergeSha": "64f2154a6578263a28caf40b8e0242809319a06d",
-      "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
+      "developMergeSha": "b3bd54d118b63d5bbb9810a42efb29bd4d548b87",
+      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.10",
+      "version": "1.120.11",
       "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
-      "candidateSha": "e4430a1652e9af31d19edaaa434bda5fc17c1c33",
-      "developMergeSha": "27f3ae6d593848dbf3126826f1951b4220d89ac4",
-      "masterCandidateBranch": "release/DH-20261123-CRM-LEAD-AUDIT-431-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-VAT-RELEASE-430-develop-v2"
+      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+      "candidateSha": "98360c8cac30ad3edc2ad2800c4cf5f17a99c867",
+      "developMergeSha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62",
+      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,16 +154,15 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "Selective DH-431 backport Web and System 1.120.9→1.120.10; CRM 1.43.0→1.43.1; all other component versions remain at master.",
+  "policyCheck": "Selective DH-432 backport: DholeWeb and DholeSystem 1.120.10 → 1.120.11; preserve 15 master component versions.",
   "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Validate authenticated prospect change history CRUD, actor names, permissions, and conversion in staging",
-    "Confirm branch CI / database migration for master selective backports",
-    "Production deployment not authorized; master pushes automatically deploy Web and CRM"
+    "Master candidate CI pending",
+    "Authenticated QUO save/reopen in staging not verified; explicitly requested production promotion"
   ],
   "validationEvidence": {
-    "ci": "develop-and-pull-request-checks-passed-master-candidates-pending",
+    "ci": "develop-pr-passed-master-candidate-pending",
     "staging": "web-and-crm-deploy-workflows-success-e2e-pending",
     "frontendNumericInput": "pending",
     "preflight": "pending",
@@ -174,12 +173,12 @@
     "pricingVat": "pending",
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
-    "crmLeadAudit431": "deploy-success-e2e-pending"
+    "crmLeadAudit431": "deploy-success-e2e-pending",
+    "pricingCargoUnits432": "develop regression and CI passed; authenticated staging E2E not verified"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeCRMService"
+    "DholeWeb"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -372,17 +371,24 @@
       "stagingDeployPassed": true,
       "authenticatedStagingE2E": false,
       "productionDeploymentAuthorized": false
+    },
+    "pricingCargoUnits432": {
+      "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "components": [
+        "DholeSystem",
+        "DholeWeb"
+      ],
+      "regression": "Five Miami cargo lines retain 68.248 CFT",
+      "restCompatible": true,
+      "realtimePreserved": true,
+      "productionAuthorized": true,
+      "stagingAuthenticatedE2E": false
     }
   },
   "stagingValidation": {
-    "status": "deploy-workflow-success-e2e-pending",
+    "status": "authenticated-e2e-not-verified",
     "web": {
-      "sha": "27f3ae6d593848dbf3126826f1951b4220d89ac4",
-      "workflowRun": 45275290987
-    },
-    "crm": {
-      "sha": "c6a85da4e3958d868de2ecfc683f653f5257cf6f",
-      "workflowRun": 45270596287
+      "sha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62"
     }
   },
   "f6F7F8": {
@@ -437,7 +443,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-CRM-LEAD-AUDIT-431",
+  "businessReleaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1036,7 +1042,7 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionAuthorization": "user explicitly authorized deployment; realtime flags kept false",
+  "productionAuthorization": "User explicitly requested master promotion of DH-432 only",
   "pricingRateRequestReturnPromotion": {
     "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
     "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
@@ -1228,7 +1234,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only development candidate for DH-408; master/production deployment requires explicit approval after staging and CI.",
+  "productionAuthorizationScope": "DH-432 Web and System selective promotion only; no unrelated service or infrastructure changes",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
