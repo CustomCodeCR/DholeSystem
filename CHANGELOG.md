@@ -1,3 +1,7 @@
+## [1.124.9] - 2026-11-24 · DH-20261124-GLOBAL-COMMERCIAL-ACTIONS
+
+- PATCH coordinado: Web/System 1.124.9, Pricing 1.29.8. Gestión comercial global sin alterar titularidad. CI/staging antes de master.
+
 ## [1.124.8] - 2026-11-24 · DH-20261124-PRICING-PANAMA-PERSISTED-SAVE
 
 - PATCH Web/System: conserva identidad histórica del tramo CFZ–GAM y venta del excedente al guardar, reconcilia antes de serializar y deja Auto Pricing como cálculo explícito para cotizaciones guardadas. CI/staging pendientes; producción no desplegada.
