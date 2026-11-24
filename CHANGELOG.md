@@ -1,10 +1,11 @@
 ## [1.122.0] - 2026-11-23 · DH-20261123-OPS-AUTOSAVE-434
 
-- MINOR candidato coordinado: Aperturas manuales autoguarda borradores incompletos en PostgreSQL por usuario/empresa con control de concurrencia y copia local para recuperación.
-- Backend Operations incluye migración no destructiva, APIs seguras y evento Outbox de metadatos; frontend DholeWeb reutiliza formulario DH. Pricing publica la aceptación definitiva y snapshot comercial por Outbox (consumer pendiente).
-- SemVer candidato global DholeSystem/DholeWeb 1.120.11 → 1.122.0, Operations 0.18.0 → 0.19.0 y Pricing 1.27.1 → 1.28.0; otros 13 componentes conservan versiones sin cambios. Manifiesto de 17 repositorios actualizado.
-- Entrega parcial de Prioridad 1: pendiente integración con Pricing, CRM, notificaciones, auditoría completa, servicios y transferencia a Origen.
-- CI y staging pendientes; cambios exclusivamente en ramas intermedias, no integrar a master ni producción.
+- MINOR candidato coordinado: Aperturas manuales autoguarda borradores incompletos en PostgreSQL por usuario/empresa, con control de concurrencia y respaldo local. Validación, IDTRA histórico, estados por campo y conversiones ya existentes se reutilizan.
+- Pricing publica aceptación definitiva de la opción A/B vía Outbox; Operations consume eventos Redis mediante Inbox, resuelve cuenta/ejecutivo mediante CRM+Auth, crea IDTRA idempotente con snapshot comercial inmutable, lista de servicios y múltiples equipos/cantidades.
+- Operations detecta servicios no cotizados con semáforo amarillo y solicitudes comerciales; Pricing incorpora bandeja/decisiones y devuelve resolución a Operations sin modificar importes originales. Dos aprobaciones de Aperturas transfieren a Origen con recuperación de asignación.
+- Web integra ambas bandejas con componentes DH; no crea librería visual paralela. Auth, Storage, Notifications y AuditLogs reutilizan contratos/infraestructura existentes; flujos cruzados no verificados.
+- Versiones candidatas: DholeSystem/Web 1.120.11 → 1.122.0, Operations 0.18.0 → 0.19.0, Pricing 1.27.1 → 1.28.0 y CRM 1.43.1 → 1.44.0; otros 12 componentes sin cambios. Manifiesto central de 17 repositorios actualizado.
+- CI de Operations, CRM y System superó comprobaciones. Pricing compila y prueba, pero su control de snapshot EF detecta deriva histórica en RateRequest/DynamicsQuoteSyncJob y bloquea release; Web CI de última revisión pendiente. No se ha probado staging ni integración real Redis; PRs borrador, develop/master intactos.
 
 ## [1.120.11] - 2026-11-23 · DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432
 
