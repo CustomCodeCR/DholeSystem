@@ -174,7 +174,8 @@
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
     "crmLeadAudit431": "pending",
-    "operationsDraftAutosave434": "candidate-ci-pending"
+    "operationsDraftAutosave434": "candidate-ci-pending",
+    "originIntegration": "pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -459,7 +460,9 @@
       "realtimeOutboxMetadata": true,
       "tests": "candidate-not-yet-validated",
       "productionAuthorized": false,
-      "remainingP1": "not-implemented"
+      "remainingP1": "not-implemented",
+      "originAfterDualValidation": true,
+      "recoveryWorker": true
     }
   },
   "stagingValidation": {
