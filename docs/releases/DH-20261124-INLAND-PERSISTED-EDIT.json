@@ -33,7 +33,7 @@
     "DholeOperationsService": "0.21.1"
   },
   "candidateShas": {
-    "DholeWeb": "526543ae80c42f4ec870dea1b44fcdaa08efdf39",
+    "DholeWeb": "fa6409b27258ccb958a1addf587a51fd6933110b",
     "DholeSystem": null
   },
   "changes": [
@@ -42,6 +42,6 @@
   "validation": {
     "ci": "pending",
     "staging": "pending",
-    "production": "not-authorized"
+    "production": "authorized-pending-ci-staging"
   }
 }
