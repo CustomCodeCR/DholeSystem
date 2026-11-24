@@ -1,3 +1,10 @@
+## [1.122.2] - 2026-11-23 · DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439
+
+- PATCH corrige el componente activo del wizard de Pricing: la ruta /pricing/rates/:rateId/wizard monta PricingOverviewView → PricingAlternativeWizardCrystal, no PricingRateExistingWizardStable que se corrigió en 1.122.1.
+- Pantallas 8/9: IDTRA histórico es solo lectura, aceptación comercial no pide ni transmite IDTRA manual, lista de Trámites para consultar apertura Operations tras aceptación; conserva A/B, otras referencias y contratos REST.
+- PRs coordinados Web/System: 1.122.1 → 1.122.2. Pricing, Operations, CRM y demás 12 servicios no cambian de versión. Tests de regresión comprueban el componente efectivamente montado, sin modificar los componentes DH ni introducir variantes visuales.
+- Staging requiere build/despliegue satisfactorio y UAT del flujo Pricing → Redis → CRM/Auth → Operations. master y producción intactos.
+
 ## [1.122.1] - 2026-11-23 · DH-20261123-PRICING-AUTO-IDTRA-438
 
 - PATCH: Pricing elimina la entrada manual de IDTRA al aceptar la QUO y la captura de IDTRA desde el borrador. Operations conserva la responsabilidad exclusiva del consecutivo automático tras la aceptación definitiva de cliente por Outbox/Inbox.
