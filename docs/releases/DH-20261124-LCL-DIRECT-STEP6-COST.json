@@ -1,0 +1,47 @@
+{
+  "releaseId": "DH-20261124-LCL-DIRECT-STEP6-COST",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.18",
+  "target": "develop",
+  "versions": {
+    "DholeWeb": {
+      "previousVersion": "1.124.17",
+      "newVersion": "1.124.18"
+    },
+    "DholeSystem": {
+      "previousVersion": "1.124.17",
+      "newVersion": "1.124.18"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.17",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeWeb": "1.124.17",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholePricingService": "1.29.10",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "candidateShas": {
+    "DholeWeb": "1e041503409851478efe0812203d3eaa6d43b71a",
+    "DholeSystem": null
+  },
+  "changes": [
+    "Unlock the actual DhInput disabled binding for hydrated existing LCL coloader quote edits; retain creation, read-only and seller restrictions. Mandatory prebuild regression."
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  }
+}
