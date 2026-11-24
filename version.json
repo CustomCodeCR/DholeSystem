@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.17",
-  "ecosystemVersion": "1.124.17",
-  "releaseId": "DH-20261124-LCL-EDIT-COST",
+  "version": "1.124.18",
+  "ecosystemVersion": "1.124.18",
+  "releaseId": "DH-20261124-LCL-DIRECT-STEP6-COST",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-LCL-EDIT-COST"
+  "businessReleaseId": "DH-20261124-LCL-DIRECT-STEP6-COST"
 }
