@@ -1,3 +1,10 @@
+## [1.122.3] - 2026-11-24 · DH-20261124-OPS-QUOTE-ACCEPTANCE-440
+
+- PATCH crítico: corrige infraestructura del circuito QUO aceptada → IDTRA. Operations staging ahora clona System develop, y configura correctamente el HTTP/clave CRM para el Inbox. CRM consulta cuenta por GUID o nombre exacto único con credencial interna y lector autorizado por Auth.
+- Aceptaciones ya persistidas se reprocesan desde Redis pending con idempotencia por QUO padre. Nunca inventar cuenta, ejecutivo, empresa ni alterar costos originales. Si faltan datos verificables se conserva el evento pendiente.
+- Pricing P9 no ofrece asignación manual de IDTRA tras aceptar; interfaz informa que Operations aún debe verificar la generación. Tests activos de wizard y controles de CI actualizados.
+- Versiones: DholeSystem/Web 1.122.2 → 1.122.3, Operations 0.19.0 → 0.19.1, CRM 1.44.0 → 1.44.1; Pricing 1.28.0 y otros 12 sin cambios. develop/staging sujetos a pruebas y despliegue; producción no autorizada.
+
 ## [1.122.2] - 2026-11-23 · DH-20261124-PRICING-ACTIVE-WIZARD-IDTRA-439
 
 - PATCH corrige el componente activo del wizard de Pricing: la ruta /pricing/rates/:rateId/wizard monta PricingOverviewView → PricingAlternativeWizardCrystal, no PricingRateExistingWizardStable que se corrigió en 1.122.1.
