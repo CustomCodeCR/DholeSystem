@@ -1,3 +1,7 @@
+## [1.124.24] - 2026-11-24
+
+- DH-20261124-TOPBAR-VERSION: trasladar versión a la barra superior y liberar sidebar. Web/System 1.124.24; demás componentes sin cambios. CI/staging pendientes.
+
 ## [1.124.23] - 2026-11-24
 
 - DH-20261124-SIDEBAR-VERSION-FOOTER: mover la versión del sistema al pie fijo del sidebar y mostrarla con tooltip en modo compacto. Web/System 1.124.23; demás componentes sin cambios. CI/staging pendientes.
