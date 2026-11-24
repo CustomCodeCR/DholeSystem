@@ -3,7 +3,7 @@
   "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.122.0",
-  "status": "candidate-feature-branch-ci-pending",
+  "status": "candidate-blocked-pricing-ef-snapshot-and-staging",
   "branches": {
     "develop": "feature/DH-20261123-OPS-AUTOSAVE-434",
     "master": null
@@ -155,16 +155,15 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Merge Operations #51 then confirm PostgreSQL migration, API and integration tests",
-    "Merge coordinated Web PR after Vue TypeScript and regression CI",
-    "Stage and validate draft recovery, concurrency, offline and access control",
-    "Full Priority 1 scope remains incomplete: Pricing acceptance Outbox/Inbox and commercial review pending",
-    "Production merge and deploy are not authorized",
-    "Operations no consume aún la aceptación Pricing ni crea IDTRA automáticamente."
+    "Pricing #361: Validate Average Import Recovery falla por deriva histórica del snapshot EF de RateRequest/DynamicsQuoteSyncJob; no modificar migraciones no relacionadas sin conciliación.",
+    "Pruebas de integración cruzada Pricing→Redis→CRM→Operations, revisiones Operations→Pricing→Operations y Notifications/AuditLogs aún no verificadas en staging.",
+    "Configurar credenciales reales y seguras Crm:OperationsAcceptance:BaseAddress, InternalServiceKey, OperationsIntegration:ReaderUserId y PricingAcceptance:CompanyId tras revisar contratos en cada entorno.",
+    "Revisar autorizaciones operativas, estados condicionales y QA con usuarios en staging antes de integrar release.",
+    "Sin despliegue ni autorización de producción. No integrar a master."
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending",
+    "ci": "partial-green-pricing-model-drift-fail",
+    "staging": "not-run",
     "frontendNumericInput": "pending",
     "preflight": "pending",
     "apiProxy": "pending",
@@ -175,8 +174,14 @@
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
     "crmLeadAudit431": "pending",
-    "operationsDraftAutosave434": "candidate-ci-pending",
-    "originIntegration": "pending"
+    "operationsDraftAutosave434": "CI build-and-test passed",
+    "originIntegration": "CI build-and-test passed; staging unverified",
+    "pricingAcceptanceEvent": "dotnet-build-tests passed; EF snapshot drift check failed",
+    "pricingOperationsReview": "dotnet-build-tests passed; EF snapshot drift check failed",
+    "crmIntegration": "CI passed",
+    "webComponents": "Web CI pending latest review-queue commit",
+    "crossServiceRedis": "not-run",
+    "authScopedE2E": "not-run"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -453,21 +458,34 @@
       "components": [
         "DholeSystem",
         "DholeWeb",
-        "DholeOperationsService"
+        "DholeOperationsService",
+        "DholePricingService",
+        "DholeCRMService"
       ],
-      "postgreSqlPersistedDraft": true,
+      "manualOpeningAutosavePostgres": true,
       "optimisticConcurrency": true,
-      "teamNotRequiredForDraft": true,
-      "idtraNotCreatedByDraft": true,
-      "restCompatible": true,
-      "realtimeOutboxMetadata": true,
-      "tests": "candidate-not-yet-validated",
-      "productionAuthorized": false,
-      "remainingP1": "not-implemented",
-      "originAfterDualValidation": true,
-      "recoveryWorker": true,
-      "pricingAcceptanceOutbox": true,
-      "crmIntegrationAccountContract": true
+      "draftsWithoutTeam": true,
+      "pricingDefinitiveAcceptanceOutbox": true,
+      "selectedAlternativeAndCommercialSnapshot": true,
+      "acceptanceIdtraPostgresUnique": true,
+      "pricingInboxIdempotent": true,
+      "crmAuthVerifiedLookup": true,
+      "quoteOriginalPreserved": true,
+      "extraServicesYellowAlerts": true,
+      "operationsToPricingReview": true,
+      "pricingReviewDecisions": true,
+      "pricingResolutionInbox": true,
+      "automaticOriginTransfer": true,
+      "originRecoveryWorker": true,
+      "webSharedDhComponents": true,
+      "status": "feature-branch-implementation-ci-partial-integration-unverified",
+      "untouchedRepositories": [
+        "DholeNotificationsService",
+        "DholeStorageService",
+        "DholeAuditLogsService",
+        "DholeAuthService"
+      ],
+      "externalAuthAndNotifications": "reuse existing contracts; end-to-end approval/notification coverage pending"
     }
   },
   "stagingValidation": {
