@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+  "releaseId": "DH-20261124-INLAND-AUTO-SELECTION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.9",
+  "ecosystemVersion": "1.124.11",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/global-commercial-actions-1249-develop",
-    "master": "fix/global-commercial-actions-1249-master"
+    "develop": "fix/inland-auto-selection-20261124-develop",
+    "master": "fix/inland-auto-selection-20261124-master"
   },
-  "candidateBranch": "fix/global-commercial-actions-1249-master",
+  "candidateBranch": "fix/inland-auto-selection-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.9",
+      "version": "1.124.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/global-commercial-actions-1249-master",
+      "candidateBranch": "fix/inland-auto-selection-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
-      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
+      "masterCandidateBranch": "fix/inland-auto-selection-20261124-master",
+      "developCandidateBranch": "fix/inland-auto-selection-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.9",
+      "version": "1.124.11",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/global-commercial-actions-1249-master",
-      "candidateSha": "9782e07a4928533d939ea3504d37cef0af719575",
+      "candidateBranch": "fix/inland-auto-selection-20261124-master",
+      "candidateSha": "0a22a238e2e5814dd4fb89b1139fc33ee13a284a",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
-      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
+      "masterCandidateBranch": "fix/inland-auto-selection-20261124-master",
+      "developCandidateBranch": "fix/inland-auto-selection-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -79,7 +79,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.8",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/global-commercial-actions-20261124-master",
       "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
       "candidateSha": "2567dd7e58cf5772e40c8d9fe958ea6ed0e0e5b2",
@@ -154,11 +154,11 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.8→1.124.9; Pricing 1.29.7→1.29.8; other components retained from current target manifest",
+  "policyCheck": "PATCH Web/System to 1.124.11; component versions checked against target branch; failed checks remain blockers.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI and staging validation pending"
+    "CI and staging validation pending; master not promoted"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -334,12 +334,12 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
-    "Existing workflow, approval, audit and realtime protections preserved"
+    "Restore automatic inland selection in editable saved quotations without valid choice",
+    "Preserve valid saved choices, read-only mode and historical cost reconciliation",
+    "Do not claim automatic selection until actual choice exists"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -396,7 +396,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+  "businessReleaseId": "DH-20261124-INLAND-AUTO-SELECTION",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2040,5 +2040,93 @@
     "schemaMigration": false,
     "restContractChanged": false,
     "realtimeContractChanged": false
+  },
+  "inlandAutoSelectionRelease": {
+    "releaseId": "DH-20261124-INLAND-AUTO-SELECTION",
+    "branch": "master",
+    "webCandidateSha": "0a22a238e2e5814dd4fb89b1139fc33ee13a284a",
+    "componentVersionChecks": [
+      {
+        "component": "DholeApiGateway",
+        "previousManifest": "1.11.1",
+        "actual": "1.11.1"
+      },
+      {
+        "component": "DholeAuthService",
+        "previousManifest": "1.17.1",
+        "actual": "1.17.1"
+      },
+      {
+        "component": "DholeConfigService",
+        "previousManifest": "1.12.0",
+        "actual": "1.12.0"
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "previousManifest": "1.2.1",
+        "actual": "1.2.1"
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "previousManifest": "1.8.1",
+        "actual": "1.8.1"
+      },
+      {
+        "component": "DholePricingService",
+        "previousManifest": "1.29.8",
+        "actual": "1.29.8"
+      },
+      {
+        "component": "DholeAIService",
+        "previousManifest": "1.8.1",
+        "actual": "1.8.1"
+      },
+      {
+        "component": "DholeStorageService",
+        "previousManifest": "1.2.3",
+        "actual": "1.2.3"
+      },
+      {
+        "component": "DholeReportsService",
+        "previousManifest": "1.8.1",
+        "actual": "1.8.1"
+      },
+      {
+        "component": "DholeNotificationsService",
+        "previousManifest": "1.9.1",
+        "actual": "1.9.1"
+      },
+      {
+        "component": "DholeContentService",
+        "previousManifest": "1.2.1",
+        "actual": "1.2.1"
+      },
+      {
+        "component": "DholeAgentService",
+        "previousManifest": "1.2.2",
+        "actual": "1.2.2"
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "previousManifest": "1.4.1",
+        "actual": "1.4.1"
+      },
+      {
+        "component": "DholeCRMService",
+        "previousManifest": "1.43.1",
+        "actual": "1.43.1"
+      },
+      {
+        "component": "DholeOperationsService",
+        "previousManifest": "0.17.0",
+        "actual": "0.17.0"
+      }
+    ],
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed",
+    "restChanged": false,
+    "realtimeChanged": false,
+    "databaseChanged": false
   }
 }
