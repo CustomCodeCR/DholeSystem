@@ -145,7 +145,7 @@
       "version": "0.20.0",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/operations-historical-idtra-20261124",
-      "candidateSha": "69ac0cae3c8770bd4558be08bd885596806ce1a9",
+      "candidateSha": "63e2a4c153bdab108c22fe713751c2e5c716a81b",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "feature/operations-historical-idtra-20261124"
@@ -249,7 +249,7 @@
       "production": "not-authorized"
     },
     "historicalIdtra": {
-      "ci": "pending",
+      "ci": "web-and-pricing-passed; final-operations-regression-pending",
       "staging": "pending",
       "production": "not-authorized"
     }
