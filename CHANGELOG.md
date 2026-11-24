@@ -1,3 +1,7 @@
+## [1.124.26] - 2026-11-24
+
+- DH-20261124-VERSION-CARD-FIX: corregir tamaño y contenido duplicado del card de versión de Topbar. Web/System 1.124.26; demás componentes sin cambios. CI/staging pendientes.
+
 ## [1.124.25] - 2026-11-24
 
 - DH-20261124-TOPBAR-VERSION-CARD: versión dentro de DhCard compacto entre notificaciones y usuario. Web/System 1.124.25; demás componentes sin cambios. Logo del sidebar centrado respecto al card completo. CI/staging pendientes.
