@@ -155,7 +155,7 @@
   ],
   "policyCheck": "PATCH Web/System 1.124.7→1.124.8; Pricing 1.29.7→1.29.8; 14 other components verified unchanged on develop",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "Mandatory CI and staging validation pending"
   ],
@@ -1489,7 +1489,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "User explicitly requested master; only after CI and staging validation",
+  "productionAuthorizationScope": "User authorized master; realtime production flag remains fail-closed; business promotion only after CI and staging",
   "releaseMasterIntegrationRequested": false,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
