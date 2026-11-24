@@ -51,7 +51,7 @@
       "version": "1.124.0",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-quo-discrepancies-20261124",
-      "candidateSha": "5b5a321a6a9250cf196c98f311314232756bb112",
+      "candidateSha": "3f0527022882a504fb0bdc990fad0798581dc0ae",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-quo-discrepancies-20261124"
@@ -147,7 +147,7 @@
       "version": "0.21.0",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-quo-discrepancies-20261124",
-      "candidateSha": "d8515a0f25b482dfe9f83376548881ed72af2a36",
+      "candidateSha": "7afb33fab84c53fc8e135a65eb3f9a396ea2edd4",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-quo-discrepancies-20261124"
