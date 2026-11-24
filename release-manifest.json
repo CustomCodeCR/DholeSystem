@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-PANAMA-PERSISTED-SAVE",
+  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.8",
+  "ecosystemVersion": "1.124.9",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/panama-persisted-save-20261124-develop",
-    "master": "fix/panama-persisted-save-20261124-master"
+    "develop": "fix/global-commercial-actions-1249-develop",
+    "master": "fix/global-commercial-actions-1249-master"
   },
-  "candidateBranch": "fix/panama-persisted-save-20261124-master",
+  "candidateBranch": "fix/global-commercial-actions-1249-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.8",
+      "version": "1.124.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-persisted-save-20261124-master",
+      "candidateBranch": "fix/global-commercial-actions-1249-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-persisted-save-20261124-master",
-      "developCandidateBranch": "fix/panama-persisted-save-20261124-develop"
+      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
+      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.8",
+      "version": "1.124.9",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-persisted-save-20261124-master",
-      "candidateSha": "a9e88e96945e64ba335d579e805a263478563c84",
+      "candidateBranch": "fix/global-commercial-actions-1249-master",
+      "candidateSha": "9782e07a4928533d939ea3504d37cef0af719575",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-persisted-save-20261124-master",
-      "developCandidateBranch": "fix/panama-persisted-save-20261124-develop"
+      "masterCandidateBranch": "fix/global-commercial-actions-1249-master",
+      "developCandidateBranch": "fix/global-commercial-actions-1249-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,13 +78,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.7",
-      "mergeState": "unchanged-for-this-release",
-      "candidateBranch": "fix/seller-expired-renewal-20261124-master",
-      "developCandidateBranch": "fix/seller-expired-renewal-20261124-develop",
-      "candidateSha": "aca812a43fbce5289637fc9be2748a5ca4845ca9",
-      "developMergeSha": "d4042cba4624fe8677a4a3a3831bd4eeea4e2876",
-      "masterCandidateBranch": "fix/seller-expired-renewal-20261124-master"
+      "version": "1.29.8",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/global-commercial-actions-20261124-master",
+      "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
+      "candidateSha": "2567dd7e58cf5772e40c8d9fe958ea6ed0e0e5b2",
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/global-commercial-actions-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,11 +154,11 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.7 → 1.124.8; all 15 remaining master component versions verified and unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.8→1.124.9; Pricing 1.29.7→1.29.8; other components retained from current target manifest",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging validation pending; master not promoted"
+    "Mandatory CI and staging validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -324,16 +324,22 @@
       "expectedRoadSale": 2140,
       "expectedExcessFreightCost": 400,
       "expectedExcessFreightSale": 560
+    },
+    "globalCommercialActions": {
+      "ci": "pending",
+      "staging": "pending",
+      "scopeRegression": "pending",
+      "realtime": "pending"
     }
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
-    "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
-    "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
-    "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
+    "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
+    "Existing workflow, approval, audit and realtime protections preserved"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -390,7 +396,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
+  "businessReleaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1181,7 +1187,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "DH-432 Web and System selective promotion only; no unrelated service or infrastructure changes",
+  "productionAuthorizationScope": "User authorized business promotion to master after CI and staging; realtime fail-closed flag remains false",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1969,6 +1975,62 @@
     ],
     "candidateShas": {
       "DholeWeb": "8bd5ef1405a1089ee2f51df793fa6f50c5a2fd19"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "schemaMigration": false,
+    "restContractChanged": false,
+    "realtimeContractChanged": false
+  },
+  "globalCommercialActionsRelease": {
+    "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+    "ecosystemVersion": "1.124.9",
+    "releaseType": "PATCH",
+    "targetBranch": "master",
+    "targetBranches": [
+      "develop",
+      "master"
+    ],
+    "versions": {
+      "DholeSystem": {
+        "previousVersion": "1.124.8",
+        "newVersion": "1.124.9"
+      },
+      "DholeWeb": {
+        "previousVersion": "1.124.8",
+        "newVersion": "1.124.9"
+      },
+      "DholePricingService": {
+        "previousVersion": "1.29.7",
+        "newVersion": "1.29.8"
+      }
+    },
+    "verifiedUnchangedVersions": {
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "changes": [
+      "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
+      "Existing workflow, approval, audit and realtime protections preserved"
+    ],
+    "candidateShas": {
+      "DholeWeb": "9782e07a4928533d939ea3504d37cef0af719575",
+      "DholePricingService": "2567dd7e58cf5772e40c8d9fe958ea6ed0e0e5b2"
     },
     "validation": {
       "ci": "pending",
