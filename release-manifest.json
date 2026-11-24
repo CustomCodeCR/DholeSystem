@@ -51,7 +51,7 @@
       "version": "1.123.3",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-automatic-pool-20261124",
-      "candidateSha": "e16befe75e2d5d99001ac79f47682f830fe92ae9",
+      "candidateSha": "b86776edcdbd12cdc08b80ce61abdb7e22b82dea",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-automatic-pool-20261124"
@@ -147,7 +147,7 @@
       "version": "0.20.3",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-automatic-pool-20261124",
-      "candidateSha": "4339619f70524ec17216ead3cfcbf1ba8dc93714",
+      "candidateSha": "0c20d0a88ece8e14a9751a1a7db1297cc8398509",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-automatic-pool-20261124"
