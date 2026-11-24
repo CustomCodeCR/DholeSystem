@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-IDTRA-DESC",
+  "releaseId": "DH-20261124-OPS-POOL",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.123.2",
+  "ecosystemVersion": "1.123.3",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/operations-idtra-desc-20261124",
+    "develop": "fix/operations-automatic-pool-20261124",
     "master": null
   },
-  "candidateBranch": "fix/operations-idtra-desc-20261124",
+  "candidateBranch": "fix/operations-automatic-pool-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.123.2",
+      "version": "1.123.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-desc-20261124",
+      "candidateBranch": "fix/operations-automatic-pool-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-idtra-desc-20261124"
+      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -37,22 +37,24 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.17.1",
+      "version": "1.17.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261120-VERSION-NOTICE-500-362-develop",
-      "candidateSha": null,
-      "developMergeSha": null
+      "candidateBranch": "fix/operations-automatic-pool-20261124",
+      "candidateSha": "86560e75ece4f797ce9ae113285018e457ce1760",
+      "developMergeSha": null,
+      "developCandidateBranch": "fix/operations-automatic-pool-20261124",
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.123.2",
+      "version": "1.123.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "c2dbbdb27ba79118e68b91d66296fb1eac25940a",
+      "candidateBranch": "fix/operations-automatic-pool-20261124",
+      "candidateSha": "b86776edcdbd12cdc08b80ce61abdb7e22b82dea",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-idtra-desc-20261124"
+      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -142,20 +144,21 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.20.2",
+      "version": "0.20.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "b817529f81a9a8de309dd6cb034d85cf52e8e53e",
+      "candidateBranch": "fix/operations-automatic-pool-20261124",
+      "candidateSha": "0c20d0a88ece8e14a9751a1a7db1297cc8398509",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-idtra-desc-20261124"
+      "developCandidateBranch": "fix/operations-automatic-pool-20261124"
     }
   ],
-  "policyCheck": "System/Web 1.123.1 → 1.123.2; Operations 0.20.1 → 0.20.2; Pricing 1.29.1 → 1.29.2; remaining 13 component versions verified unchanged.",
+  "policyCheck": "System/Web 1.123.2 → 1.123.3; Auth 1.17.1 → 1.17.2; Operations 0.20.2 → 0.20.3; remaining 13 components verified unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging verification"
+    "Mandatory CI and staging pool/permissions validation",
+    "Auth consumer contract must be deployed before Operations worker"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -320,19 +323,76 @@
       "staging": "pending",
       "case": "QUO-00000-000758",
       "expectedSnapshotCosts": 7
+    },
+    "automaticPool": {
+      "ci": "pending",
+      "staging": "pending",
+      "otherComponentsVerified": [
+        {
+          "component": "DholeApiGateway",
+          "version": "1.11.1"
+        },
+        {
+          "component": "DholeConfigService",
+          "version": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholePricingService",
+          "version": "1.29.2"
+        },
+        {
+          "component": "DholeAIService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholeStorageService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeReportsService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "version": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeAgentService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeCRMService",
+          "version": "1.44.1"
+        }
+      ]
     }
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeOperationsService",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeAuthService",
+    "DholeWeb"
   ],
   "changes": [
-    "Order by stored SequenceNumber descending before pagination, with deterministic tie-breakers",
-    "Preserve filters, ACL, existing IDTRAs and realtime refresh; recent-opening dashboard remains chronological",
-    "Return primary QUO number and render accepted option links, commercial metadata and complete immutable cost snapshot with existing financial scope",
-    "Resolve catalog labels and hide technical identifiers in Operations; enrich new Pricing snapshots"
+    "Recover new and historical pending openings with two distinct eligible reviewers, weighted load and tenant-scoped locking",
+    "Internal Auth eligibility contract shares role and scope policy, no role or scope grants",
+    "Expose authorized case reviewer and customer labels and retain existing DH UI"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -389,7 +449,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-IDTRA-DESC",
+  "businessReleaseId": "DH-20261124-OPS-POOL",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -825,7 +885,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Descending IDTRA order, readable quote links and original commercial snapshot",
+  "releaseSummary": "Automatic pending Aperturas pool and readable assigned user labels",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1219,20 +1279,20 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "previousVersion": "1.123.1",
-      "newVersion": "1.123.2"
+      "previousVersion": "1.123.2",
+      "newVersion": "1.123.3"
+    },
+    "DholeAuthService": {
+      "previousVersion": "1.17.1",
+      "newVersion": "1.17.2"
     },
     "DholeWeb": {
-      "previousVersion": "1.123.1",
-      "newVersion": "1.123.2"
+      "previousVersion": "1.123.2",
+      "newVersion": "1.123.3"
     },
     "DholeOperationsService": {
-      "previousVersion": "0.20.1",
-      "newVersion": "0.20.2"
-    },
-    "DholePricingService": {
-      "previousVersion": "1.29.1",
-      "newVersion": "1.29.2"
+      "previousVersion": "0.20.2",
+      "newVersion": "0.20.3"
     }
   },
   "pricingP7EditRelease": {

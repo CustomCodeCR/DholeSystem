@@ -1,3 +1,7 @@
+## [1.123.3] - 2026-11-24
+
+- PATCH: pool automático de aperturas pendientes, nuevas e históricas; doble revisión con Auth, carga ponderada, idempotencia, trazabilidad y realtime. Nombres autorizados de validadores y clientes. Sin cambios de roles, sin aprobaciones automáticas. Auth antes de Operations. CI y UAT pendientes.
+
 ## [1.123.2] - 2026-11-24
 
 - Recuperar los rubros del snapshot aceptado, mostrar número real de QUO, resolver nombres de Incoterm y moneda, ocultar UUID y códigos técnicos, enriquecer snapshots futuros. Pricing 1.29.1 → 1.29.2. Conserva permisos financieros y revisión histórica.
