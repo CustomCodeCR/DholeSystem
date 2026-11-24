@@ -1,3 +1,35 @@
+## [1.124.26] - 2026-11-24
+
+- DH-20261124-VERSION-CARD-FIX: corregir tamaño y contenido duplicado del card de versión de Topbar. Web/System 1.124.26; demás componentes sin cambios. CI/staging pendientes.
+
+## [1.124.25] - 2026-11-24
+
+- DH-20261124-TOPBAR-VERSION-CARD: versión dentro de DhCard compacto entre notificaciones y usuario. Web/System 1.124.25; demás componentes sin cambios. Logo del sidebar centrado respecto al card completo. CI/staging pendientes.
+
+## [1.124.24] - 2026-11-24
+
+- DH-20261124-TOPBAR-VERSION: trasladar versión a la barra superior y liberar sidebar. Web/System 1.124.24; demás componentes sin cambios. CI/staging pendientes.
+
+## [1.124.23] - 2026-11-24
+
+- DH-20261124-SIDEBAR-VERSION-FOOTER: mover la versión del sistema al pie fijo del sidebar y mostrarla con tooltip en modo compacto. Web/System 1.124.23; demás componentes sin cambios. CI/staging pendientes.
+
+## [1.124.22] - 2026-11-24
+
+- DH-20261124-SIDEBAR-BRAND-MOTION: transición animada del logo al expandir/colapsar sidebar y reducción de 15%. Web/System 1.124.22; demás componentes sin cambios. CI/staging pendientes.
+
+## [1.124.21] - 2026-11-24
+
+- DH-20261124-EXACT-SVG-LOGO: SVG exacto entregado por el usuario, colores CSS y favicon original #A90E19. Web/System 1.124.21; demás componentes sin cambios. Descripciones de marca solo al pasar el mouse sobre el logo. CI/staging pendientes.
+
+## [1.124.20] - 2026-11-24
+
+- DH-20261124-OFFICIAL-SQUARE-LOGO: logo oficial rectangular, O cuadrada y favicon rojo transparente. Web/System 1.124.20; restantes componentes sin cambios. CI/staging pendientes.
+
+## [1.124.19] - 2026-11-24
+
+- DH-20261124-THEME-LOGO: logotipo SVG transparente vinculado al tema y favicon ICO rojo original. Web/System 1.124.19; restantes 15 versiones comprobadas en master sin cambios. CI y staging pendientes.
+
 ## [1.124.17] - 2026-11-24
 
 - DH-20261124-LCL-EDIT-COST: promoción aislada de la corrección LCL de develop. Web/System 1.124.17; las demás 15 versiones se verificaron contra master. CI develop superado; CI master y staging pendientes de validación.
