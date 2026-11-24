@@ -1,3 +1,9 @@
+## [1.122.1] - 2026-11-23 · DH-20261123-PRICING-AUTO-IDTRA-438
+
+- PATCH: Pricing elimina la entrada manual de IDTRA al aceptar la QUO y la captura de IDTRA desde el borrador. Operations conserva la responsabilidad exclusiva del consecutivo automático tras la aceptación definitiva de cliente por Outbox/Inbox.
+- Valores históricos de Dynamics en la QUO siguen disponibles en solo lectura, sin alterar el contrato REST ni las tablas existentes. Se agrega regresión automatizada de aceptación comercial.
+- DholeWeb/DholeSystem 1.122.0 → 1.122.1; otros 15 componentes sin modificación de versión. CI y staging sujetos a validación en develop. Sin despliegue a producción.
+
 ## [1.122.0] - 2026-11-23 · DH-20261123-OPS-AUTOSAVE-434
 
 - MINOR candidato coordinado: Aperturas manuales autoguarda borradores incompletos en PostgreSQL por usuario/empresa, con control de concurrencia y respaldo local. Validación, IDTRA histórico, estados por campo y conversiones ya existentes se reutilizan.
