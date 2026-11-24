@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.11",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.122.0",
+  "status": "candidate-feature-branch-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+    "develop": "feature/DH-20261123-OPS-AUTOSAVE-434",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.11",
+      "version": "1.122.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.11",
+      "version": "1.122.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -142,23 +142,24 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.18.0",
+      "version": "0.19.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feat/operations-apertures-p1-20261123",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feat/operations-apertures-p1-20261123"
     }
   ],
-  "policyCheck": "Global release 1.120.10 with prospect change history: Web and System 1.120.9 → 1.120.10; CRM 1.43.0 → 1.43.1; other 14 components unchanged",
+  "policyCheck": "DholeSystem 1.120.11 -> 1.122.0; DholeWeb 1.120.11 -> 1.122.0; Operations 0.18.0 -> 0.19.0; other 14 component versions retained from prior manifest",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CRM .NET CI and migration must pass",
-    "DholeWeb Vue/TypeScript and CRM regression CI must pass",
-    "Validate prospect history CRUD, owner scopes and actor labels in staging",
-    "Promote exactly the validated release to master; production deployment not authorized"
+    "Merge Operations #51 then confirm PostgreSQL migration, API and integration tests",
+    "Merge coordinated Web PR after Vue TypeScript and regression CI",
+    "Stage and validate draft recovery, concurrency, offline and access control",
+    "Full Priority 1 scope remains incomplete: Pricing acceptance Outbox/Inbox and commercial review pending",
+    "Production merge and deploy are not authorized"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -172,12 +173,13 @@
     "pricingVat": "pending",
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
-    "crmLeadAudit431": "pending"
+    "crmLeadAudit431": "pending",
+    "operationsDraftAutosave434": "candidate-ci-pending"
   },
   "releaseComponents": [
-    "DholeWeb",
     "DholeSystem",
-    "DholeCRMService"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -441,6 +443,23 @@
       "dhComponentsReused": true,
       "restRealtimeContractsUnchanged": true,
       "productionAuthorized": false
+    },
+    "operationsDraftAutosave434": {
+      "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholeOperationsService"
+      ],
+      "postgreSqlPersistedDraft": true,
+      "optimisticConcurrency": true,
+      "teamNotRequiredForDraft": true,
+      "idtraNotCreatedByDraft": true,
+      "restCompatible": true,
+      "realtimeOutboxMetadata": true,
+      "tests": "candidate-not-yet-validated",
+      "productionAuthorized": false,
+      "remainingP1": "not-implemented"
     }
   },
   "stagingValidation": {
