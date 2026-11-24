@@ -1,3 +1,10 @@
+## [1.120.11] - 2026-11-23 · DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432
+
+- PATCH coordinado: DholeWeb evita reinterpretar las medidas LCL/LTL en pulgadas como centímetros al guardar/reabrir y rehidratar datos del POL.
+- Regresión con cinco tarimas Miami: volumen físico 68.248 CFT conservado; payload REST sigue normalizado en cm y visualización respeta unidades seleccionadas.
+- Versión global DholeSystem/DholeWeb 1.120.10 → 1.120.11. Otros 15 componentes mantienen sus versiones individuales; manifiesto central de 17 repositorios actualizado.
+- Promoción selectiva a master expresamente autorizada por el usuario; CI de develop aprobado, CI master y prueba autenticada de staging pendientes. Se conservan las versiones de los otros 15 servicios de producción.
+
 ## [1.120.10] - 2026-11-23 · DH-20261123-CRM-LEAD-AUDIT-431
 
 - PATCH coordinado y selectivo: DholeWeb incorpora historial de cambios de Prospectos, separado de historial de rutas, y CRM agrega auditoría persistente PostgreSQL con actor, fecha, campos antes/después, autorización y paginación.
