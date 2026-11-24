@@ -1,3 +1,7 @@
+## [1.124.27] - 2026-11-24
+
+- DH-20261124-PRICING-HISTORICAL-EDIT: corrección coordinada de duplicación CRM y reconciliación de costos de cotizaciones existentes. Web/System 1.124.27, Pricing 1.29.11; CI, staging y promoción pendientes.
+
 ## [1.124.26] - 2026-11-24
 
 - DH-20261124-VERSION-CARD-FIX: corregir tamaño y contenido duplicado del card de versión de Topbar. Web/System 1.124.26; demás componentes sin cambios. CI/staging pendientes.
