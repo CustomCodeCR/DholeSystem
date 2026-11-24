@@ -1,3 +1,7 @@
+## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
+
+- PATCH Web/System: restablece selección automática de inland Merchant/Naviera en P6 de cotizaciones editables persistidas sin elección válida. Mantiene elección válida, vista de solo lectura y costos históricos. CI/staging pendientes; REST, SignalR y BD sin cambios.
+
 ## [1.124.10] - 2026-11-24 · DH-20261124-PRICING-PANAMA-ROAD-DEDUP
 
 - PATCH Web/System: elimina alias automáticos del tramo terrestre histórico CFZ–GAM (incluidos los vinculados al catálogo), evita regeneración y conserva excedente. Alinea la identidad e importes del snapshot antes de guardar. CI/staging pendientes.
