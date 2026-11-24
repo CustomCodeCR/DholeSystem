@@ -21,14 +21,14 @@ jobs:
             cid="${ids[0]}"
             docker inspect --format '{{.Config.Image}} {{.State.StartedAt}}' "$cid"
             if [[ "$svc" == pricing-workers ]]; then
-              docker exec "$cid" sh -c 'printf "historical enabled=%s\n" "${Pricing__HistoricalIdtra__Enabled:-unset}"'
+              docker inspect --format '{{range .Config.Env}}{{println .}}{{end}}' "$cid" | grep '^Pricing__HistoricalIdtra__Enabled=' || true
             fi
-            logs="$(docker logs --since 2h "$cid" 2>&1)"
+            logs="$(docker logs --since 2h "$cid" 2>&1 || true)"
             for pattern in 'Historical IDTRA scan' 'Historical IDTRA review required' 'Accepted quotation' 'CRM acceptance identity could not be verified' 'CRM account or executive needs correction' 'Definitive quote acceptance is missing' 'Historical IDTRA is already assigned' 'not committed' 'Inbox poll failed' 'HistoricalIdtraWorker' 'relation .* does not exist' '42703'; do
               printf '%s: %s\n' "$pattern" "$(grep -Ec "$pattern" <<< "$logs" || true)"
             done
             echo 'Exception types, SQL states and stack locations (no payloads)'
-            grep -oE '(System\.[A-Za-z.]+Exception|Npgsql\.[A-Za-z.]+Exception|Microsoft\.[A-Za-z.]+Exception): [^[:cntrl:]]{0,220}' <<< "$logs" | sed -E 's/(Detail:|Parameters:|ConnectionString:|Password=).*$/[redacted]/I' | sort -u | head -n 25 || true
+            grep -oE '(System\.[A-Za-z.]+Exception|Npgsql\.[A-Za-z.]+Exception|Microsoft\.[A-Za-z.]+Exception): [^[:cntrl:]]{0,180}' <<< "$logs" | grep -viE 'password|connectionstring|token|secret|detail:|parameters:' | sort -u | head -n 25 || true
             grep -oE 'SqlState: [0-9A-Z]{5}|ConstraintName: [a-zA-Z0-9_]+|TableName: [a-zA-Z0-9_]+|at Dhole\.[A-Za-z0-9_.]+' <<< "$logs" | sort -u | head -n 35 || true
             grep -oE 'Historical IDTRA scan: queued=[0-9]+; already queued=[0-9]+; review=[0-9]+' <<< "$logs" | tail -n 3 || true
           done
