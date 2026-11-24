@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.11",
-  "status": "candidate-ci-and-staging-pending",
+  "ecosystemVersion": "1.122.0",
+  "status": "candidate-blocked-pricing-ef-snapshot-and-staging",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+    "develop": "feature/DH-20261123-OPS-AUTOSAVE-434",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.11",
+      "version": "1.122.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.11",
+      "version": "1.122.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,13 +75,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
+      "version": "1.28.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -131,38 +131,39 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.43.1",
-      "mergeState": "candidate-develop-ci-pending",
-      "candidateBranch": "fix/crm-lead-change-history-20261123",
-      "developCandidateBranch": "fix/crm-lead-change-history-20261123",
-      "masterCandidateBranch": "release/DH-20261122-OPS-CASE-OVERVIEW-414-master",
-      "candidateSha": "fabd20263eb99b48df364ffb7be131ccdea265f4",
+      "version": "1.44.0",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "developCandidateBranch": "feature/DH-20261123-OPS-AUTOSAVE-434",
+      "masterCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.18.0",
+      "version": "0.19.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416",
+      "candidateBranch": "feat/operations-apertures-p1-20261123",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "feature/DH-20261123-OPS-APERTURES-P1-416"
+      "developCandidateBranch": "feat/operations-apertures-p1-20261123"
     }
   ],
-  "policyCheck": "Global release 1.120.10 with prospect change history: Web and System 1.120.9 → 1.120.10; CRM 1.43.0 → 1.43.1; other 14 components unchanged",
+  "policyCheck": "DholeSystem/Web 1.120.11→1.122.0, Ops 0.18.0→0.19.0, Pricing 1.27.1→1.28.0, CRM 1.43.1→1.44.0; other 12 unchanged",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CRM .NET CI and migration must pass",
-    "DholeWeb Vue/TypeScript and CRM regression CI must pass",
-    "Validate prospect history CRUD, owner scopes and actor labels in staging",
-    "Promote exactly the validated release to master; production deployment not authorized"
+    "Pricing #361: Validate Average Import Recovery falla por deriva histórica del snapshot EF de RateRequest/DynamicsQuoteSyncJob; no modificar migraciones no relacionadas sin conciliación.",
+    "Pruebas de integración cruzada Pricing→Redis→CRM→Operations, revisiones Operations→Pricing→Operations y Notifications/AuditLogs aún no verificadas en staging.",
+    "Configurar credenciales reales y seguras Crm:OperationsAcceptance:BaseAddress, InternalServiceKey, OperationsIntegration:ReaderUserId y PricingAcceptance:CompanyId tras revisar contratos en cada entorno.",
+    "Revisar autorizaciones operativas, estados condicionales y QA con usuarios en staging antes de integrar release.",
+    "Sin despliegue ni autorización de producción. No integrar a master."
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending",
+    "ci": "partial-green-pricing-model-drift-fail",
+    "staging": "not-run",
     "frontendNumericInput": "pending",
     "preflight": "pending",
     "apiProxy": "pending",
@@ -172,11 +173,21 @@
     "pricingVat": "pending",
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
-    "crmLeadAudit431": "pending"
+    "crmLeadAudit431": "pending",
+    "operationsDraftAutosave434": "CI build-and-test passed",
+    "originIntegration": "CI build-and-test passed; staging unverified",
+    "pricingAcceptanceEvent": "dotnet-build-tests passed; EF snapshot drift check failed",
+    "pricingOperationsReview": "dotnet-build-tests passed; EF snapshot drift check failed",
+    "crmIntegration": "CI passed",
+    "webComponents": "Web CI pending latest review-queue commit",
+    "crossServiceRedis": "not-run",
+    "authScopedE2E": "not-run"
   },
   "releaseComponents": [
-    "DholeWeb",
     "DholeSystem",
+    "DholeWeb",
+    "DholeOperationsService",
+    "DholePricingService",
     "DholeCRMService"
   ],
   "changes": {
@@ -441,6 +452,40 @@
       "dhComponentsReused": true,
       "restRealtimeContractsUnchanged": true,
       "productionAuthorized": false
+    },
+    "operationsDraftAutosave434": {
+      "releaseId": "DH-20261123-OPS-AUTOSAVE-434",
+      "components": [
+        "DholeSystem",
+        "DholeWeb",
+        "DholeOperationsService",
+        "DholePricingService",
+        "DholeCRMService"
+      ],
+      "manualOpeningAutosavePostgres": true,
+      "optimisticConcurrency": true,
+      "draftsWithoutTeam": true,
+      "pricingDefinitiveAcceptanceOutbox": true,
+      "selectedAlternativeAndCommercialSnapshot": true,
+      "acceptanceIdtraPostgresUnique": true,
+      "pricingInboxIdempotent": true,
+      "crmAuthVerifiedLookup": true,
+      "quoteOriginalPreserved": true,
+      "extraServicesYellowAlerts": true,
+      "operationsToPricingReview": true,
+      "pricingReviewDecisions": true,
+      "pricingResolutionInbox": true,
+      "automaticOriginTransfer": true,
+      "originRecoveryWorker": true,
+      "webSharedDhComponents": true,
+      "status": "feature-branch-implementation-ci-partial-integration-unverified",
+      "untouchedRepositories": [
+        "DholeNotificationsService",
+        "DholeStorageService",
+        "DholeAuditLogsService",
+        "DholeAuthService"
+      ],
+      "externalAuthAndNotifications": "reuse existing contracts; end-to-end approval/notification coverage pending"
     }
   },
   "stagingValidation": {
