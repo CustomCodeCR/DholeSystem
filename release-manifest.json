@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-THEME-LOGO",
+  "releaseId": "DH-20261124-OFFICIAL-SQUARE-LOGO",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.19",
+  "ecosystemVersion": "1.124.20",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-theme-logo-20261124",
+    "develop": "fix/dhole-official-logo-20261124",
     "master": "fix/dhole-theme-logo-20261124-master"
   },
   "candidateBranch": "fix/dhole-theme-logo-20261124-master",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.19",
+      "version": "1.124.20",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/dhole-theme-logo-20261124-master",
       "developCandidateBranch": "fix/dhole-theme-logo-20261124",
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.19",
+      "version": "1.124.20",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "developCandidateBranch": "fix/dhole-theme-logo-20261124",
+      "developCandidateBranch": "fix/dhole-official-logo-20261124",
       "masterCandidateBranch": "fix/dhole-theme-logo-20261124-master",
-      "candidateSha": "01c889c9106b4eba69e5d73ee6df5b40628910c9",
+      "candidateSha": "374226184eb96a12201dde9af924651511eeb515",
       "developMergeSha": null
     },
     {
@@ -125,17 +125,17 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web 1.124.18 → 1.124.19; System 1.124.17 → 1.124.19; remaining 15 component versions verified against master unchanged.",
+  "policyCheck": "Web/System 1.124.20; 15 unchanged component versions verified in preceding candidate on both target branches.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Same logo, CSS, ICO and targeted regression assets as develop candidate",
+    "branding": "Rectangular symbol and square O from official image; shared assets across targets; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
-    "realtime": "No realtime contract changes"
+    "realtime": "No contracts changed"
   },
   "releaseComponents": [
     "DholeSystem",
