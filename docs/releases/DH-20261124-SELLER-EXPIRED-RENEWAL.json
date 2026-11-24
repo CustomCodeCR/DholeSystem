@@ -1,0 +1,94 @@
+{
+  "releaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
+  "ecosystemVersion": "1.124.5",
+  "releaseType": "PATCH",
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.4",
+      "newVersion": "1.124.5"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.4",
+      "newVersion": "1.124.5"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.6",
+      "newVersion": "1.29.7"
+    }
+  },
+  "verifiedUnchangedDevelopVersions": {
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "changes": [
+    "Seller dashboard and detail reuse supervisor approval modal",
+    "API requires revision-scoped approval before modification source and submit",
+    "Approved expiry renewal can proceed without cargo changes",
+    "Decision route is seller-accessible; other supervisor gets system notification",
+    "Existing one-day email and system reminder worker retained"
+  ],
+  "authorizers": [
+    "rsibaja@castrofallas.com",
+    "jmesen@castrofallas.com"
+  ],
+  "channels": [
+    "System via SignalR",
+    "Email via Notifications Outbox"
+  ],
+  "candidateShas": {
+    "DholePricingService": "1e729525a0f630687730d2b7b1011fce62f7e70a",
+    "DholeWeb": "e7d2408c200432b3cdde1e1cdbf4ebce667ba024"
+  },
+  "validation": {
+    "ciDevelop": "passed",
+    "staging": "pending",
+    "ciMaster": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false,
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "masterCandidateShas": {
+    "DholeSystem": null,
+    "DholeWeb": "e901f9caffc1dd176c3a81b2966ff10d352a11cb",
+    "DholePricingService": "aca812a43fbce5289637fc9be2748a5ca4845ca9"
+  },
+  "developMergeShas": {
+    "DholeSystem": "67391d90b5d4166a9edee836acac9f99911abda5",
+    "DholeWeb": "763bceaf366df74bdf6ae8a534441f33f37b88d9",
+    "DholePricingService": "d4042cba4624fe8677a4a3a3831bd4eeea4e2876"
+  },
+  "masterBaselineManifestVersions": {
+    "DholeSystem": "1.124.3",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.3",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.5",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  }
+}
