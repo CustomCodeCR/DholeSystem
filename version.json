@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.19",
-  "ecosystemVersion": "1.124.19",
-  "releaseId": "DH-20261124-THEME-LOGO",
+  "version": "1.124.20",
+  "ecosystemVersion": "1.124.20",
+  "releaseId": "DH-20261124-OFFICIAL-SQUARE-LOGO",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-THEME-LOGO"
+  "businessReleaseId": "DH-20261124-OFFICIAL-SQUARE-LOGO"
 }
