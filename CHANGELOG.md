@@ -1,3 +1,11 @@
+## [1.124.20] - 2026-11-24
+
+- DH-20261124-OFFICIAL-SQUARE-LOGO: logo oficial rectangular, O cuadrada y favicon rojo transparente. Web/System 1.124.20; restantes componentes sin cambios. CI/staging pendientes.
+
+## [1.124.19] - 2026-11-24
+
+- DH-20261124-THEME-LOGO: logotipo SVG transparente vinculado al tema y favicon ICO rojo original. Web/System 1.124.19; restantes 15 versiones comprobadas en develop sin cambios. CI y staging pendientes.
+
 ## [1.124.18] - 2026-11-24
 
 - DH-20261124-LCL-DIRECT-STEP6-COST: habilitar costo de flete LCL de coloader en modificación directa de pantalla 6. Web/System 1.124.18; otras 15 versiones verificadas en develop. CI y staging pendientes.
