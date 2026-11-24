@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "releaseId": "DH-20261124-SELLER-ACCEPTANCE-FIX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.120.11",
-  "status": "master-candidate-ci-pending",
+  "ecosystemVersion": "1.124.2",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
-    "master": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master"
+    "develop": "fix/seller-acceptance-20261124-develop",
+    "master": "fix/seller-acceptance-20261124-master"
   },
-  "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+  "candidateBranch": "fix/seller-acceptance-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.120.11",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
+      "version": "1.124.2",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/seller-acceptance-20261124-master",
       "candidateSha": null,
-      "developMergeSha": "b3bd54d118b63d5bbb9810a42efb29bd4d548b87",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/seller-acceptance-20261124-master",
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.120.11",
-      "mergeState": "master-candidate-ci-pending",
-      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "candidateSha": "98360c8cac30ad3edc2ad2800c4cf5f17a99c867",
-      "developMergeSha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "version": "1.124.2",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/seller-acceptance-20261124-master",
+      "candidateSha": null,
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/seller-acceptance-20261124-master",
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,13 +78,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.26.26",
-      "mergeState": "unchanged",
-      "candidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master",
-      "developCandidateBranch": "feature/DH-20261122-PRICING-RETURN-EMAIL-409",
-      "candidateSha": null,
+      "version": "1.29.4",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/seller-acceptance-20261124-master",
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop",
+      "candidateSha": "43cfea92e92714c30b5cdc8d847ad18563920096",
       "developMergeSha": null,
-      "masterCandidateBranch": "release/DH-20261122-PRICING-RETURN-EMAIL-409-master"
+      "masterCandidateBranch": "fix/seller-acceptance-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,12 +154,13 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "Selective DH-432 backport: DholeWeb and DholeSystem 1.120.10 → 1.120.11; preserve 15 master component versions.",
-  "mergeState": "master-candidate-ci-pending",
-  "productionDeploymentAuthorized": true,
+  "policyCheck": "Selective Pricing PATCH; Web/System version alignment; retain 14 unaffected manifest entries; observed base versions recorded separately.",
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI pending",
-    "Authenticated QUO save/reopen in staging not verified; explicitly requested production promotion"
+    "Mandatory CI and authenticated staging acceptance validation",
+    "Develop must pass before production promotion",
+    "Existing master manifest drift in unrelated components; observed versions recorded without changing their release versions"
   ],
   "validationEvidence": {
     "ci": "develop-pr-passed-master-candidate-pending",
@@ -174,11 +175,18 @@
     "multiPoeVat": "pending",
     "pricingModification422": "pending",
     "crmLeadAudit431": "deploy-success-e2e-pending",
-    "pricingCargoUnits432": "develop regression and CI passed; authenticated staging E2E not verified"
+    "pricingCargoUnits432": "develop regression and CI passed; authenticated staging E2E not verified",
+    "sellerAcceptanceFix": {
+      "pricingVersion": "1.29.4",
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    }
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": {
     "0": "Pricing reutiliza diseño de cabecera de Aperturas y PricingWizardStepper",
@@ -443,7 +451,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432",
+  "businessReleaseId": "DH-20261124-SELLER-ACCEPTANCE-FIX",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1485,5 +1493,37 @@
       "Operations full-equipment validation for FTL and multimodal",
       "Pricing container selector and real Config catalogs reused"
     ]
+  },
+  "sellerAcceptanceFixRelease": {
+    "id": "DH-20261124-SELLER-ACCEPTANCE-FIX",
+    "pricingVersion": "1.29.4",
+    "pricingSha": "43cfea92e92714c30b5cdc8d847ad18563920096",
+    "baseBranch": "master",
+    "globalVersion": "1.124.2",
+    "observedBaseVersions": {
+      "DholeSystem": "1.120.11",
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeWeb": "1.120.11",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholePricingService": "1.27.1",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "note": "Only changed components have incremented versions. Unrelated historical manifest discrepancies are recorded, not overwritten."
   }
 }
