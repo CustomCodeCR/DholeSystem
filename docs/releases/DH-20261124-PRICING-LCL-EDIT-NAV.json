@@ -1,0 +1,53 @@
+{
+  "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
+  "ecosystemVersion": "1.124.6",
+  "releaseType": "PATCH",
+  "targetBranch": "develop",
+  "targetBranches": [
+    "develop",
+    "master"
+  ],
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.5",
+      "newVersion": "1.124.6"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.5",
+      "newVersion": "1.124.6"
+    }
+  },
+  "verifiedUnchangedVersions": {
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholePricingService": "1.29.7",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "changes": [
+    "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
+    "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
+    "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
+  ],
+  "candidateShas": {
+    "DholeWeb": "2d8dabe2203aa15e1d72b2f00eb8e7a20ecf429a"
+  },
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false,
+  "restContractChanged": false,
+  "realtimeContractChanged": false
+}
