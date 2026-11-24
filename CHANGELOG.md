@@ -1,3 +1,7 @@
+## [1.124.8] - 2026-11-24 · DH-20261124-PRICING-PANAMA-PERSISTED-SAVE
+
+- PATCH Web/System: conserva identidad histórica del tramo CFZ–GAM y venta del excedente al guardar, reconcilia antes de serializar y deja Auto Pricing como cálculo explícito para cotizaciones guardadas. CI/staging pendientes; producción no desplegada.
+
 ## [1.124.7] - 2026-11-24 · DH-20261124-PRICING-PANAMA-EXCESS-EDIT
 
 - PATCH Web/System: conserva los cargos históricos del excedente FCL Panamá al editar y separa su flete de la selección Merchant/Naviera. Regresión de 2.000 kg excedentes y cuatro cargos. Sin cambio de API, base de datos ni realtime. CI y staging pendientes.
