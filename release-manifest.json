@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-EXPIRED-APPROVAL-TRANSACTION",
+  "releaseId": "DH-20261124-INLAND-PERSISTED-EDIT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.14",
+  "ecosystemVersion": "1.124.15",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/expired-approval-transaction-20261124-develop",
-    "master": "fix/expired-approval-transaction-20261124-master"
+    "develop": "fix/inland-persisted-edit-20261124",
+    "master": null
   },
-  "candidateBranch": "fix/expired-approval-transaction-20261124-develop",
+  "candidateBranch": "fix/inland-persisted-edit-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.14",
+      "version": "1.124.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-approval-transaction-20261124-develop",
+      "candidateBranch": "fix/inland-persisted-edit-20261124",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-approval-transaction-20261124-master",
-      "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.14",
+      "version": "1.124.15",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/expired-approval-transaction-20261124-develop",
-      "candidateSha": "4f8c5c5396d58560923893fe330a6bf1eddfb0f4",
+      "candidateBranch": "fix/inland-persisted-edit-20261124",
+      "candidateSha": "526543ae80c42f4ec870dea1b44fcdaa08efdf39",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/expired-approval-transaction-20261124-master",
-      "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop"
+      "masterCandidateBranch": null,
+      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,7 +78,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.10",
-      "mergeState": "intermediate-only",
+      "mergeState": "unchanged-for-this-release",
       "candidateBranch": "fix/expired-approval-transaction-20261124-develop",
       "developCandidateBranch": "fix/expired-approval-transaction-20261124-develop",
       "candidateSha": "f674eade2651edee877d5ea7143d218082c6a868",
@@ -153,11 +153,11 @@
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.13 → 1.124.14; Pricing 1.29.9 → 1.29.10; remaining 14 unchanged by release.",
+  "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 components unchanged by this release, versions carried from prior manifest.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, staging and functional seller verification pending"
+    "CI and staging validation pending; production not authorized"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -787,6 +787,13 @@
       "ci": "pending",
       "staging": "pending",
       "production": "not-deployed"
+    },
+    "inlandPersistedEdit": {
+      "ci": "pending",
+      "staging": "pending",
+      "expectedCost": 400,
+      "expectedSale": 430,
+      "expectedIndependentRoad": 2140
     }
   },
   "releaseComponents": [
