@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.2",
-      "mergeState": "unchanged-for-this-release",
-      "candidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "candidateSha": "98360c8cac30ad3edc2ad2800c4cf5f17a99c867",
-      "developMergeSha": "c8d53dd4a6524bad64d2cbd0ad68f5af2ea5ce62",
-      "masterCandidateBranch": "release/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432-master",
-      "developCandidateBranch": "fix/DH-20261123-PRICING-LCL-INCH-PERSISTENCE-432"
+      "version": "1.124.3",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "candidateSha": "1c86799e5116b92036d8d959f624e415202eff67",
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/pricing-sent-crm-20261124-master",
+      "developCandidateBranch": "fix/pricing-sent-crm-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -178,10 +178,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService"
+    "DholePricingService",
+    "DholeWeb"
   ],
   "changes": [
-    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification."
+    "Correct Sent CRM permission regression in Pricing; preserve linked account and explicit recipient verification.",
+    "Version-only DholeWeb synchronization required by universal version gate."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -1658,7 +1660,6 @@
     "verifiedUnchangedVersions": {
       "DholeApiGateway": "1.11.1",
       "DholeAuthService": "1.17.1",
-      "DholeWeb": "1.124.2",
       "DholeConfigService": "1.12.0",
       "DholeAuditLogsService": "1.2.1",
       "DholeDataExtractionService": "1.8.1",
@@ -1676,6 +1677,9 @@
     "staging": "pending",
     "production": "not-deployed",
     "restCompatible": true,
-    "outboxCompatible": true
+    "outboxCompatible": true,
+    "webVersion": "1.124.3",
+    "webCandidateSha": "1c86799e5116b92036d8d959f624e415202eff67",
+    "previousWebVersion": "1.124.2"
   }
 }
