@@ -1,5 +1,10 @@
 ## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
 
+## [1.124.13] - 2026-11-24
+
+- DH-20261124-EXPIRED-APPROVAL-ACCESS: corregir acceso del vendedor a solicitudes de vencimiento; mostrar registro de motivos y decisiones desde historial de cotización. Pricing 1.29.9, Web/System 1.124.13, demás versiones sin cambios.
+
+
 ## [1.124.12] - 2026-11-24
 
 - DH-20261124-EXPIRED-REASON-MODAL: corregir formulario de justificación de vencimiento y manejo de errores; texto genérico de jefatura. Web/System 1.124.12, demás versiones sin cambios.
