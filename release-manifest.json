@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PERSISTED-DETAIL-IDENTITY",
+  "releaseId": "DH-20261124-LCL-EDIT-COST",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.16",
+  "ecosystemVersion": "1.124.17",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-persisted-detail-identity-20261124",
+    "develop": "fix/lcl-edit-cost-20261124",
     "master": null
   },
-  "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
+  "candidateBranch": "fix/lcl-edit-cost-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.16",
+      "version": "1.124.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
+      "candidateBranch": "fix/lcl-edit-cost-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
+      "developCandidateBranch": "fix/lcl-edit-cost-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.16",
+      "version": "1.124.17",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
-      "candidateSha": "6e1fc046399a54fd44f9b3e7832b4efb09336963",
+      "candidateBranch": "fix/lcl-edit-cost-20261124",
+      "candidateSha": "be86ba37043c9066a62beb846770a9cf738efdef",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
+      "developCandidateBranch": "fix/lcl-edit-cost-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -153,7 +153,7 @@
       "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.15 → 1.124.16; other 15 component versions unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.16 → 1.124.17; 15 other component versions verified in develop and unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -798,6 +798,73 @@
     "persistedDetailIdentity": {
       "ci": "pending",
       "staging": "pending"
+    },
+    "lclEditCost20261124": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed",
+      "otherComponentsVerified": [
+        {
+          "component": "DholeApiGateway",
+          "version": "1.11.1"
+        },
+        {
+          "component": "DholeAuthService",
+          "version": "1.17.2"
+        },
+        {
+          "component": "DholeConfigService",
+          "version": "1.12.0"
+        },
+        {
+          "component": "DholeAuditLogsService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholePricingService",
+          "version": "1.29.10"
+        },
+        {
+          "component": "DholeAIService",
+          "version": "1.9.0"
+        },
+        {
+          "component": "DholeStorageService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeReportsService",
+          "version": "1.8.1"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "version": "1.9.1"
+        },
+        {
+          "component": "DholeContentService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeAgentService",
+          "version": "1.6.0"
+        },
+        {
+          "component": "DholeDynamicsConnectorService",
+          "version": "1.5.0"
+        },
+        {
+          "component": "DholeCRMService",
+          "version": "1.45.0"
+        },
+        {
+          "component": "DholeOperationsService",
+          "version": "0.21.1"
+        }
+      ]
     }
   },
   "releaseComponents": [
