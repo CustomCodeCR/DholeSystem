@@ -49,7 +49,7 @@
       "version": "1.123.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "603af3686416c8d3f452b05fae7cbe0c87e2e8b7",
+      "candidateSha": "ddad034a1ea551607c049f2d7b2760ff1f56378d",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-idtra-desc-20261124"
@@ -75,11 +75,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.1",
+      "version": "1.29.2",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/historical-idtra-import-20261124",
-      "developCandidateBranch": "fix/historical-idtra-import-20261124",
-      "candidateSha": "9b1b5deb8655de0bcb8989d80d5d99ede38703af",
+      "candidateBranch": "fix/operations-idtra-desc-20261124",
+      "developCandidateBranch": "fix/operations-idtra-desc-20261124",
+      "candidateSha": "a0bac73ee5a589f9f0409ff1567e569c5ee54234",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -145,13 +145,13 @@
       "version": "0.20.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "4738a41e128b37ab932fbbaf67f6acab8329e6f8",
+      "candidateSha": "43077182d509ea11609bd22d4cfbd3f6ba015bf2",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-idtra-desc-20261124"
     }
   ],
-  "policyCheck": "System/Web 1.123.1 → 1.123.2; Operations 0.20.1 → 0.20.2; remaining 14 components verified unchanged.",
+  "policyCheck": "System/Web 1.123.1 → 1.123.2; Operations 0.20.1 → 0.20.2; Pricing 1.29.1 → 1.29.2; remaining 13 component versions verified unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -282,10 +282,6 @@
           "version": "1.9.0"
         },
         {
-          "component": "DholePricingService",
-          "version": "1.29.1"
-        },
-        {
           "component": "DholeAIService",
           "version": "1.9.0"
         },
@@ -318,16 +314,25 @@
           "version": "1.44.1"
         }
       ]
+    },
+    "operationsReadableQuote": {
+      "ci": "pending",
+      "staging": "pending",
+      "case": "QUO-00000-000758",
+      "expectedSnapshotCosts": 7
     }
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeOperationsService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Order by stored SequenceNumber descending before pagination, with deterministic tie-breakers",
-    "Preserve filters, ACL, existing IDTRAs and realtime refresh; recent-opening dashboard remains chronological"
+    "Preserve filters, ACL, existing IDTRAs and realtime refresh; recent-opening dashboard remains chronological",
+    "Return primary QUO number and render accepted option links, commercial metadata and complete immutable cost snapshot with existing financial scope",
+    "Resolve catalog labels and hide technical identifiers in Operations; enrich new Pricing snapshots"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -820,7 +825,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Numeric descending IDTRA order in case list",
+  "releaseSummary": "Descending IDTRA order, readable quote links and original commercial snapshot",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1224,6 +1229,10 @@
     "DholeOperationsService": {
       "previousVersion": "0.20.1",
       "newVersion": "0.20.2"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.1",
+      "newVersion": "1.29.2"
     }
   },
   "pricingP7EditRelease": {

@@ -1,5 +1,7 @@
 ## [1.123.2] - 2026-11-24
 
+- Recuperar los rubros del snapshot aceptado, mostrar número real de QUO, resolver nombres de Incoterm y moneda, ocultar UUID y códigos técnicos, enriquecer snapshots futuros. Pricing 1.29.1 → 1.29.2. Conserva permisos financieros y revisión histórica.
+
 - PATCH: orden descendente numérico de IDTRA en Trámites desde PostgreSQL antes de paginar, con filtros y permisos intactos. Sin renumeración de expedientes. Verificadas las versiones de los 17 componentes.
 
 ## [1.123.1] - 2026-11-24
