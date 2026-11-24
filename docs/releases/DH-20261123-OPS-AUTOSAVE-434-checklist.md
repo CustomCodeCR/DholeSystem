@@ -2,7 +2,7 @@
 
 **Corte de revisión:** 2026-11-23. **Target único:** `develop`; no tocar `master`, staging no probado, despliegue no autorizado. Este documento registra código preparado en ramas, **NO una implementación validada en staging**.
 
-**PRs coordinados (draft):** Operations #51, Web #1067, Pricing #361, CRM #202, System #831.
+**PRs coordinados (candidatos para integración en `develop`):** Operations #51, Web #1067, Pricing #361, CRM #202, System #831.
 
 ## Matriz de los 18 puntos
 
@@ -35,19 +35,19 @@
 - **Web/System 1.120.11→1.122.0:** UI DH, autoguardado, alertas, Pricing review y manifiesto de 17 componentes.
 - **Auth, Notifications, Storage y AuditLogs:** **no hubo cambio de código** en estas ramas; se usan contratos/scopes/Outbox/auditoría existentes. No declarar validado el circuito real de avisos/Storage/auditoría o crear permisos nominales automáticamente.
 
-## Bloqueos obligatorios para merge
+## Validaciones antes de dar por completadas las pruebas en staging
 
-1. **Pricing CI ROJO:** el gate `Validate Average Import Recovery` detectó deriva del modelo EF Core respecto al snapshot en campos históricos de `RateRequest` y `DynamicsQuoteSyncJob`, además del nuevo modelo de revisiones. El diagnóstico CI muestra diferencias sin saltarse la validación. No regenerar migraciones masivas destructivas para eludirlo.
+1. **Pricing CI RESUELTO:** se alineó el snapshot EF Core con el modelo vigente y se corrigió el nombre de la clave primaria en la nueva tabla de revisiones. `Validate Average Import Recovery`, pruebas .NET, multiselección y política de versiones en verde. No se añadió una migración de borrado de tablas existentes.
 2. **Entorno por configurar:** `Crm:OperationsAcceptance:BaseAddress`, `Crm:OperationsAcceptance:InternalServiceKey`, `OperationsIntegration:ReaderUserId`, `PricingAcceptance:CompanyId`, Redis Streams y API Gateway. Identidades de Auth se asignan manualmente tras comprobarlas, nunca por email hardcoded.
 3. **E2E sin ejecutar:** aceptación por comercial o Pricing, subQUO A/B; duplicados/eventos reordenados; workflow QUO→CRM→IDTRA→2 validadores→Origen; conflicto de borrador, sin equipo; alerta/revisión/resolución; SignalR desconectado; auditoría; seguridad por roles, notas privadas y contactos. Validar en staging.
-4. **Sin release coordinado a develop** mientras el gate falle o existan funciones incompletas; `master` y producción sin modificaciones.
+4. **Integración a `develop` pendiente en este corte:** requiere fusionar los cinco PR y comprobar su despliegue en staging. `master` y producción sin modificaciones.
 
 ## Pruebas verificadas
 
 - Operations: workflow **Dhole Operations Build and Test** verde en el último código de integración antes del corte de documentación, incluye pruebas PostgreSQL de IDTRA, Inbox y asignación Origen.
 - Web: **Dhole Web CI**, versionado y suites de UI verde tras incorporar interfaces DH de revisiones.
 - CRM: dotnet CI/contratos y versionado verdes.
-- Pricing: dotnet build/tests y Pricing rate multi-select verdes; gate EF Core ROJO.
+- Pricing: dotnet build/tests, Pricing rate multi-select, versionado y gate EF Core VERDES.
 - System: manifiesto y políticas de versionamiento verdes.
 - Staging: **NO EJECUTADO**. Master y despliegue: **NO AUTORIZADOS**.
 
