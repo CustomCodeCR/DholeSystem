@@ -1,0 +1,47 @@
+{
+  "releaseId": "DH-20261124-EXPIRED-REASON-MODAL",
+  "releaseType": "PATCH",
+  "ecosystemVersion": "1.124.12",
+  "target": "master",
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.11",
+      "newVersion": "1.124.12"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.11",
+      "newVersion": "1.124.12"
+    }
+  },
+  "unchangedBaselineManifestVersions": {
+    "DholeSystem": "1.124.11",
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.1",
+    "DholeWeb": "1.124.11",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.2.1",
+    "DholeDataExtractionService": "1.8.1",
+    "DholePricingService": "1.29.8",
+    "DholeAIService": "1.8.1",
+    "DholeStorageService": "1.2.3",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.2.1",
+    "DholeAgentService": "1.2.2",
+    "DholeDynamicsConnectorService": "1.4.1",
+    "DholeCRMService": "1.43.1",
+    "DholeOperationsService": "0.17.0"
+  },
+  "webCandidateSha": "746520ba4f922a42ee5e1dc37ecc02624cf0d208",
+  "changes": [
+    "Ensure justification textarea remains visible if status lookup fails or returns malformed response.",
+    "Explicit retry and submission error with preserved draft.",
+    "Display generic jefatura, preserving authorized notification recipients and existing REST/SignalR transport."
+  ],
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false
+}
