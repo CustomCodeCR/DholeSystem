@@ -51,7 +51,7 @@
       "version": "1.124.7",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/panama-excess-edit-20261124-develop",
-      "candidateSha": "358ef5203c884d95821ec891cecbe011c2e6c2b9",
+      "candidateSha": "606051f9508970ad849c0d32c6bae663af469d42",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
@@ -539,7 +539,7 @@
     "panamaExcessEdit": {
       "ci": "pending",
       "staging": "pending",
-      "webCommit": "358ef5203c884d95821ec891cecbe011c2e6c2b9",
+      "webCommit": "606051f9508970ad849c0d32c6bae663af469d42",
       "expectedChargesUsd": [
         400,
         200,
@@ -622,7 +622,8 @@
           "previous": "0.21.1",
           "actual": "0.21.1"
         }
-      ]
+      ],
+      "previousCiFailure": "Merchant/Carrier regression VM missing classifier dependency; test fixture corrected, rerun pending"
     }
   },
   "releaseComponents": [
