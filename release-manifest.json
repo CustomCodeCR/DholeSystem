@@ -51,7 +51,7 @@
       "version": "1.124.16",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/pricing-persisted-detail-identity-20261124",
-      "candidateSha": "83d12ebd8304e0e032ebcbe60fdc650743bb5b0c",
+      "candidateSha": "6e1fc046399a54fd44f9b3e7832b4efb09336963",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
