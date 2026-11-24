@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-INLAND-PERSISTED-EDIT",
+  "releaseId": "DH-20261124-PERSISTED-DETAIL-IDENTITY",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.15",
+  "ecosystemVersion": "1.124.16",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/inland-persisted-edit-20261124",
-    "master": "fix/inland-persisted-edit-20261124-master"
+    "develop": "fix/pricing-persisted-detail-identity-20261124",
+    "master": "fix/pricing-persisted-detail-identity-20261124-master"
   },
-  "candidateBranch": "fix/inland-persisted-edit-20261124-master",
+  "candidateBranch": "fix/pricing-persisted-detail-identity-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.15",
+      "version": "1.124.16",
       "mergeState": "intermediate-master-backport",
-      "candidateBranch": "fix/inland-persisted-edit-20261124-master",
+      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124-master",
       "candidateSha": null,
-      "developMergeSha": "48c56f5af10e7314ea8f802ea2c77107d37d46d2",
-      "masterCandidateBranch": "fix/inland-persisted-edit-20261124-master",
-      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
+      "developMergeSha": "0476d300bf8726ef23451dc1a7137aa379b43711",
+      "masterCandidateBranch": "fix/pricing-persisted-detail-identity-20261124-master",
+      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.15",
+      "version": "1.124.16",
       "mergeState": "intermediate-master-backport",
-      "candidateBranch": "fix/inland-persisted-edit-20261124-master",
-      "candidateSha": "1382172e4b1d657bf94a95dbf232a567db29f5b0",
-      "developMergeSha": "4c7bfdb82af15ce83f67b2867c0a43ed042a049d",
-      "masterCandidateBranch": "fix/inland-persisted-edit-20261124-master",
-      "developCandidateBranch": "fix/inland-persisted-edit-20261124"
+      "candidateBranch": "fix/pricing-persisted-detail-identity-20261124-master",
+      "candidateSha": "d24f0016f524c47f0261800e204742ed85663f33",
+      "developMergeSha": "0bfdace5a3e6dbe63801a48e58f0ef33b2f554f0",
+      "masterCandidateBranch": "fix/pricing-persisted-detail-identity-20261124-master",
+      "developCandidateBranch": "fix/pricing-persisted-detail-identity-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -154,7 +154,7 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 component versions unchanged on master.",
+  "policyCheck": "PATCH Web/System 1.124.15 → 1.124.16; other 15 component versions unchanged.",
   "mergeState": "intermediate-master-backport",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -354,6 +354,12 @@
       "expectedCost": 400,
       "expectedSale": 430,
       "expectedIndependentRoad": 2140
+    },
+    "persistedDetailIdentity": {
+      "developPrCi": "passed",
+      "developMerged": true,
+      "masterCi": "pending",
+      "staging": "pending"
     }
   },
   "releaseComponents": [
