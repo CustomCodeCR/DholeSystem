@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-TOPBAR-VERSION",
+  "releaseId": "DH-20261124-TOPBAR-VERSION-CARD",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.24",
+  "ecosystemVersion": "1.124.25",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dhole-topbar-version-20261124",
+    "develop": "fix/dhole-topbar-version-card-20261124",
     "master": null
   },
-  "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+  "candidateBranch": "fix/dhole-topbar-version-card-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.24",
+      "version": "1.124.25",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
-      "developCandidateBranch": "fix/dhole-sidebar-brand-motion-20261124",
+      "candidateBranch": "fix/dhole-topbar-version-card-20261124",
+      "developCandidateBranch": "fix/dhole-topbar-version-card-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.24",
+      "version": "1.124.25",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/dhole-topbar-version-20261124",
-      "developCandidateBranch": "fix/dhole-topbar-version-20261124",
+      "candidateBranch": "fix/dhole-topbar-version-card-20261124",
+      "developCandidateBranch": "fix/dhole-topbar-version-card-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "f75b24c2f3ea715f4c0538e1ab5827bc39fbf35f",
+      "candidateSha": "5a59bffae453d3f55f0ffb4d2922b09996e4935a",
       "developMergeSha": null
     },
     {
@@ -125,14 +125,14 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.24; remaining 15 components unchanged; no service changes.",
+  "policyCheck": "PATCH Web/System 1.124.25; remaining 15 components unchanged; no service changes.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging validation pending"
   ],
   "validationEvidence": {
-    "branding": "Version relocated to topbar; sidebar free of version; CI/staging pending",
+    "branding": "Shared compact DhCard between notification bell and user profile; responsive fallback; CI/staging pending",
     "ci": "pending",
     "staging": "pending",
     "realtime": "No contracts changed"
