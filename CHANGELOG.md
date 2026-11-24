@@ -1,3 +1,7 @@
+## [1.124.10] - 2026-11-24 · DH-20261124-PRICING-PANAMA-ROAD-DEDUP
+
+- PATCH Web/System: elimina alias automáticos del tramo terrestre histórico CFZ–GAM (incluidos los vinculados al catálogo), evita regeneración y conserva excedente. Alinea la identidad e importes del snapshot antes de guardar. CI/staging pendientes.
+
 ## [1.124.9] - 2026-11-24 · DH-20261124-GLOBAL-COMMERCIAL-ACTIONS
 
 - PATCH coordinado: Web/System 1.124.9, Pricing 1.29.8. Gestión comercial global sin alterar titularidad. CI/staging antes de master.
