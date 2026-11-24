@@ -1,3 +1,7 @@
+## [1.123.2] - 2026-11-24
+
+- PATCH: orden descendente numérico de IDTRA en Trámites desde PostgreSQL antes de paginar, con filtros y permisos intactos. Sin renumeración de expedientes. Verificadas las versiones de los 17 componentes.
+
 ## [1.123.1] - 2026-11-24
 
 - PATCH: corregir reinicios del importador histórico por estrategia Npgsql y rechazos de rubros de QUO mediante snapshot inmutable y tarea de conciliación. Diagnóstico staging: 182 aceptadas con IDTRA, 0 históricas importadas. Validación pendiente.
