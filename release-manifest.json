@@ -151,7 +151,7 @@
       "developCandidateBranch": "feat/operations-apertures-p1-20261123"
     }
   ],
-  "policyCheck": "DholeSystem 1.120.11 -> 1.122.0; DholeWeb 1.120.11 -> 1.122.0; Operations 0.18.0 -> 0.19.0; other 14 component versions retained from prior manifest",
+  "policyCheck": "DholeSystem/DholeWeb 1.120.11 -> 1.122.0; OperationsService 0.18.0 -> 0.19.0; PricingService 1.27.1 -> 1.28.0; other 13 component versions retained from prior manifest.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
