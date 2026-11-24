@@ -1,3 +1,7 @@
+## [1.124.15] - 2026-11-24
+
+- DH-20261124-INLAND-PERSISTED-EDIT: promover aisladamente la corrección del Inland persistido integrado en develop. Web/System 1.124.15; demás componentes conservan sus versiones en master. CI de candidato y staging pendientes.
+
 ## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
 
 ## [1.124.14] - 2026-11-24
