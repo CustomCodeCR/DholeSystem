@@ -1,3 +1,7 @@
+## [1.124.21] - 2026-11-24
+
+- DH-20261124-EXACT-SVG-LOGO: SVG exacto entregado por el usuario, colores CSS y favicon original #A90E19. Web/System 1.124.21; demás componentes sin cambios. Descripciones de marca solo al pasar el mouse sobre el logo. CI/staging pendientes.
+
 ## [1.124.20] - 2026-11-24
 
 - DH-20261124-OFFICIAL-SQUARE-LOGO: logo oficial rectangular, O cuadrada y favicon rojo transparente. Web/System 1.124.20; restantes componentes sin cambios. CI/staging pendientes.
