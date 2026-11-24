@@ -1,3 +1,7 @@
+## [1.124.11] - 2026-11-24 · DH-20261124-INLAND-AUTO-SELECTION
+
+- PATCH Web/System: restablece selección automática de inland Merchant/Naviera en P6 de cotizaciones editables persistidas sin elección válida. Mantiene elección válida, vista de solo lectura y costos históricos. CI/staging pendientes; REST, SignalR y BD sin cambios.
+
 ## [1.124.9] - 2026-11-24 · DH-20261124-GLOBAL-COMMERCIAL-ACTIONS
 
 - PATCH coordinado: Web/System 1.124.9, Pricing 1.29.8. Gestión comercial global sin alterar titularidad. CI/staging antes de master.
