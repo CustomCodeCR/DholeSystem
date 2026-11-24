@@ -155,9 +155,9 @@
   ],
   "policyCheck": "PATCH Web/System 1.124.14 → 1.124.15; remaining 15 components unchanged by this release, versions carried from prior manifest.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging validation pending"
+    "CI and staging validation pending; production gate remains closed"
   ],
   "validationEvidence": {
     "ci": "pending",
