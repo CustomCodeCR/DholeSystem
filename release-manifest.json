@@ -49,7 +49,7 @@
       "version": "1.123.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "ddad034a1ea551607c049f2d7b2760ff1f56378d",
+      "candidateSha": "c2dbbdb27ba79118e68b91d66296fb1eac25940a",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-idtra-desc-20261124"
@@ -145,7 +145,7 @@
       "version": "0.20.2",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "43077182d509ea11609bd22d4cfbd3f6ba015bf2",
+      "candidateSha": "b817529f81a9a8de309dd6cb034d85cf52e8e53e",
       "developMergeSha": null,
       "masterCandidateBranch": null,
       "developCandidateBranch": "fix/operations-idtra-desc-20261124"
