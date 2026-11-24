@@ -1,3 +1,7 @@
+## [1.124.8] - 2026-11-24 · DH-20261124-GLOBAL-COMMERCIAL-ACTIONS
+
+- PATCH coordinado: DholeWeb/DholeSystem 1.124.7 → 1.124.8; DholePricingService 1.29.7 → 1.29.8. Gestión comercial global autorizada: modificaciones, renovaciones, aceptar/rechazar. Conserva titularidad, estados, aprobación de vencimiento y notificaciones. CI/staging pendientes antes de master.
+
 ## [1.124.7] - 2026-11-24 · DH-20261124-PRICING-PANAMA-EXCESS-EDIT
 
 - PATCH Web/System: conserva los cargos históricos del excedente FCL Panamá al editar y separa su flete de la selección Merchant/Naviera. Regresión de 2.000 kg excedentes y cuatro cargos. Sin cambio de API, base de datos ni realtime. CI y staging pendientes.
