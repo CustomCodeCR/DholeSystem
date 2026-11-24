@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+  "releaseId": "DH-20261124-OPS-WORKSPACE-UI",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.122.3",
+  "ecosystemVersion": "1.122.4",
   "status": "candidate-develop-ci-pending",
   "branches": {
-    "develop": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+    "develop": "fix/operations-workspace-ui-20261124",
     "master": null
   },
-  "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+  "candidateBranch": "fix/operations-workspace-ui-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.122.3",
+      "version": "1.122.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+      "candidateBranch": "fix/operations-workspace-ui-20261124",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
+      "developCandidateBranch": "fix/operations-workspace-ui-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.122.3",
+      "version": "1.122.4",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
-      "candidateSha": null,
+      "candidateBranch": "fix/operations-workspace-ui-20261124",
+      "candidateSha": "b1441104785c2ba0832ebcb8537c770ea9a28f35",
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
+      "developCandidateBranch": "fix/operations-workspace-ui-20261124"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -63,13 +63,13 @@
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
-      "version": "1.5.0",
+      "version": "1.6.0",
       "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
-      "version": "1.8.1",
+      "version": "1.9.0",
       "mergeState": "unchanged"
     },
     {
@@ -86,7 +86,7 @@
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
-      "version": "1.8.1",
+      "version": "1.9.0",
       "mergeState": "unchanged"
     },
     {
@@ -104,7 +104,7 @@
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
-      "version": "1.8.0",
+      "version": "1.9.1",
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
       "candidateSha": null,
@@ -119,7 +119,7 @@
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
-      "version": "1.5.0",
+      "version": "1.6.0",
       "mergeState": "unchanged"
     },
     {
@@ -151,13 +151,13 @@
       "developCandidateBranch": "fix/DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
     }
   ],
-  "policyCheck": "DholeSystem/Web 1.120.11→1.122.0, Ops 0.18.0→0.19.0, Pricing 1.27.1→1.28.0, CRM 1.43.1→1.44.0; other 12 unchanged",
+  "policyCheck": "DholeSystem/Web 1.122.3 → 1.122.4. All 15 remaining develop version.json files verified; five already integrated service versions registered as manifest-only releases to satisfy version gate.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "All mandatory PR CI checks",
-    "Stage deployments CRM/Operations/Web and Config reader with active scoped identity",
-    "Verify previously accepted QUO receives real Operations IDTRA or diagnose account/company mismatch"
+    "Mandatory CI, type-check and build",
+    "Staging visual verification of shared drawer/tabs and Operations flows",
+    "Unresolved prior Pricing EF snapshot drift must be assessed before production"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -209,20 +209,53 @@
       "crm": "1.44.1",
       "web": "1.122.3",
       "system": "1.122.3"
+    },
+    "operationsWorkspaceUi441": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-authorized",
+      "reconciledManifestEntries": [
+        {
+          "component": "DholeAuditLogsService",
+          "previousManifest": "1.5.0",
+          "verifiedDevelop": "1.6.0"
+        },
+        {
+          "component": "DholeDataExtractionService",
+          "previousManifest": "1.8.1",
+          "verifiedDevelop": "1.9.0"
+        },
+        {
+          "component": "DholeAIService",
+          "previousManifest": "1.8.1",
+          "verifiedDevelop": "1.9.0"
+        },
+        {
+          "component": "DholeNotificationsService",
+          "previousManifest": "1.8.0",
+          "verifiedDevelop": "1.9.1"
+        },
+        {
+          "component": "DholeAgentService",
+          "previousManifest": "1.5.0",
+          "verifiedDevelop": "1.6.0"
+        }
+      ]
     }
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService",
-    "DholeCRMService"
+    "DholeAuditLogsService",
+    "DholeDataExtractionService",
+    "DholeAIService",
+    "DholeNotificationsService",
+    "DholeAgentService"
   ],
   "changes": [
-    "Operations worker CRM endpoint/key environment correctly provisioned",
-    "Operations staging clones DholeSystem develop",
-    "CRM verified acceptance actor and exact unique active account fallback",
-    "Operations Inbox replays pending acceptance events idempotently",
-    "Pricing active screen9 manual IDTRA removed and unverified state visible"
+    "Compact IDTRA summary and prioritized validation",
+    "Shared DhTabs with ACL and DhDataTable for costs/dashboard",
+    "Opaque shared drawer and clearer case filters"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -279,7 +312,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261123-PRICING-LTL-EDIT-NAV-422",
+  "businessReleaseId": "DH-20261124-OPS-WORKSPACE-UI",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -715,7 +748,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "DH-413: galería interactiva de animaciones en /lab/animaciones para revisión, sin escrituras ni cambios de negocio.",
+  "releaseSummary": "Operations workspace visual correction",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1069,9 +1102,9 @@
     "pricingAutomaticIntegration": "pending",
     "legacyDynamicsBackfill": "pending"
   },
-  "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "Only development candidate for DH-408; master/production deployment requires explicit approval after staging and CI.",
-  "releaseMasterIntegrationRequested": true,
+  "businessReleaseMasterPromotionRequested": false,
+  "productionAuthorizationScope": "No production authorization for this release; develop CI and staging must pass.",
+  "releaseMasterIntegrationRequested": false,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
@@ -1109,16 +1142,12 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "previousVersion": "1.115.1",
-      "newVersion": "1.116.0"
+      "previousVersion": "1.122.3",
+      "newVersion": "1.122.4"
     },
     "DholeSystem": {
-      "previousVersion": "1.115.1",
-      "newVersion": "1.116.0"
-    },
-    "DholeOperationsService": {
-      "previousVersion": "0.15.1",
-      "newVersion": "0.16.0"
+      "previousVersion": "1.122.3",
+      "newVersion": "1.122.4"
     }
   },
   "pricingP7EditRelease": {
@@ -1320,6 +1349,31 @@
       "Pricing-aligned manual opening wizard",
       "Operations full-equipment validation for FTL and multimodal",
       "Pricing container selector and real Config catalogs reused"
+    ]
+  },
+  "operationsWorkspaceUi441": {
+    "releaseId": "DH-20261124-OPS-WORKSPACE-UI",
+    "ecosystemVersion": "1.122.4",
+    "scope": [
+      "DholeWeb",
+      "DholeSystem"
+    ],
+    "webCommit": "b1441104785c2ba0832ebcb8537c770ea9a28f35",
+    "databaseMigration": false,
+    "restContractChanged": false,
+    "realtimeContractChanged": false,
+    "staging": "pending",
+    "productionAuthorized": false,
+    "manifestOnlyReconciliations": [
+      "DholeAuditLogsService",
+      "DholeDataExtractionService",
+      "DholeAIService",
+      "DholeNotificationsService",
+      "DholeAgentService"
+    ],
+    "codeChangedComponents": [
+      "DholeWeb",
+      "DholeSystem"
     ]
   }
 }

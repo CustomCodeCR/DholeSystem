@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.122.3",
-  "ecosystemVersion": "1.122.3",
-  "releaseId": "DH-20261124-OPS-QUOTE-ACCEPTANCE-440",
+  "version": "1.122.4",
+  "ecosystemVersion": "1.122.4",
+  "releaseId": "DH-20261124-OPS-WORKSPACE-UI",
   "releaseStatus": "candidate-develop-ci-pending",
-  "businessReleaseId": "DH-20261124-OPS-QUOTE-ACCEPTANCE-440"
+  "businessReleaseId": "DH-20261124-OPS-WORKSPACE-UI"
 }
