@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-PANAMA-EXCESS-EDIT",
+  "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.7",
+  "ecosystemVersion": "1.124.8",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/panama-excess-edit-20261124-develop",
-    "master": "fix/panama-excess-edit-20261124-master"
+    "develop": "fix/global-commercial-actions-20261124-develop",
+    "master": "fix/global-commercial-actions-20261124-master"
   },
-  "candidateBranch": "fix/panama-excess-edit-20261124-master",
+  "candidateBranch": "fix/global-commercial-actions-20261124-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.7",
+      "version": "1.124.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-excess-edit-20261124-master",
+      "candidateBranch": "fix/global-commercial-actions-20261124-master",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-excess-edit-20261124-master",
-      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
+      "masterCandidateBranch": "fix/global-commercial-actions-20261124-master",
+      "developCandidateBranch": "fix/global-commercial-actions-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -46,13 +46,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.7",
+      "version": "1.124.8",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/panama-excess-edit-20261124-master",
-      "candidateSha": "0128af0761fbb30560f6a83abbcead25ff013b19",
+      "candidateBranch": "fix/global-commercial-actions-20261124-master",
+      "candidateSha": "8ec0afdeb4ab1716c74d42d66ae97592dfdebcd9",
       "developMergeSha": null,
-      "masterCandidateBranch": "fix/panama-excess-edit-20261124-master",
-      "developCandidateBranch": "fix/panama-excess-edit-20261124-develop"
+      "masterCandidateBranch": "fix/global-commercial-actions-20261124-master",
+      "developCandidateBranch": "fix/global-commercial-actions-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -78,13 +78,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.7",
-      "mergeState": "unchanged-for-this-release",
-      "candidateBranch": "fix/seller-expired-renewal-20261124-master",
-      "developCandidateBranch": "fix/seller-expired-renewal-20261124-develop",
-      "candidateSha": "aca812a43fbce5289637fc9be2748a5ca4845ca9",
-      "developMergeSha": "d4042cba4624fe8677a4a3a3831bd4eeea4e2876",
-      "masterCandidateBranch": "fix/seller-expired-renewal-20261124-master"
+      "version": "1.29.8",
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/global-commercial-actions-20261124-master",
+      "developCandidateBranch": "fix/global-commercial-actions-20261124-develop",
+      "candidateSha": "2d4f79f7777aaa37cfeff1c6e591dc72f6e407a1",
+      "developMergeSha": null,
+      "masterCandidateBranch": "fix/global-commercial-actions-20261124-master"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,11 +154,11 @@
       "developCandidateBranch": "feature/DH-20261122-OPS-CASE-OVERVIEW-414"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.6 → 1.124.7; other master component versions verified where available.",
+  "policyCheck": "PATCH Web/System 1.124.7→1.124.8; Pricing 1.29.7→1.29.8; 14 other components verified unchanged on master",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and staging validation pending; master not promoted"
+    "Mandatory CI and staging validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -252,16 +252,24 @@
           "actual": "0.17.0"
         }
       ]
+    },
+    "globalCommercialActions": {
+      "ci": "pending",
+      "staging": "pending",
+      "scopeRegression": "pending",
+      "realtime": "pending"
     }
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholePricingService"
   ],
   "changes": [
-    "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
-    "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
-    "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
+    "Global view-all plus rate-request.create authorizes requesting modifications and expired renewal, acceptance and rejection across sellers",
+    "A/B selection and persisted workflow checks remain; receipt and cancellation remain owner-only",
+    "Delegated requests preserve actor, customer and commercial executive; do not confer ownership",
+    "Existing notifications and realtime reused; mandatory staging and CI pending"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -318,7 +326,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
+  "businessReleaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1109,7 +1117,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "DH-432 Web and System selective promotion only; no unrelated service or infrastructure changes",
+  "productionAuthorizationScope": "User explicitly requested master; only after CI and staging validation",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1897,6 +1905,64 @@
     ],
     "candidateShas": {
       "DholeWeb": "8bd5ef1405a1089ee2f51df793fa6f50c5a2fd19"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "schemaMigration": false,
+    "restContractChanged": false,
+    "realtimeContractChanged": false
+  },
+  "globalCommercialActionsRelease": {
+    "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
+    "ecosystemVersion": "1.124.8",
+    "releaseType": "PATCH",
+    "targetBranch": "master",
+    "targetBranches": [
+      "develop",
+      "master"
+    ],
+    "versions": {
+      "DholeSystem": {
+        "previousVersion": "1.124.7",
+        "newVersion": "1.124.8"
+      },
+      "DholeWeb": {
+        "previousVersion": "1.124.7",
+        "newVersion": "1.124.8"
+      },
+      "DholePricingService": {
+        "previousVersion": "1.29.7",
+        "newVersion": "1.29.8"
+      }
+    },
+    "verifiedUnchangedVersions": {
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.1",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.2.1",
+      "DholeDataExtractionService": "1.8.1",
+      "DholeAIService": "1.8.1",
+      "DholeStorageService": "1.2.3",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.2.1",
+      "DholeAgentService": "1.2.2",
+      "DholeDynamicsConnectorService": "1.4.1",
+      "DholeCRMService": "1.43.1",
+      "DholeOperationsService": "0.17.0"
+    },
+    "changes": [
+      "Global view-all plus rate-request.create authorizes requesting modifications and expired renewal, acceptance and rejection across sellers",
+      "A/B selection and persisted workflow checks remain; receipt and cancellation remain owner-only",
+      "Delegated requests preserve actor, customer and commercial executive; do not confer ownership",
+      "Existing notifications and realtime reused; mandatory staging and CI pending"
+    ],
+    "candidateShas": {
+      "DholeWeb": "8ec0afdeb4ab1716c74d42d66ae97592dfdebcd9",
+      "DholePricingService": "2d4f79f7777aaa37cfeff1c6e591dc72f6e407a1"
     },
     "validation": {
       "ci": "pending",
