@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.8",
-  "ecosystemVersion": "1.124.8",
-  "releaseId": "DH-20261124-PRICING-PANAMA-PERSISTED-SAVE",
+  "version": "1.124.10",
+  "ecosystemVersion": "1.124.10",
+  "releaseId": "DH-20261124-PRICING-PANAMA-ROAD-DEDUP",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-PANAMA-PERSISTED-SAVE"
+  "businessReleaseId": "DH-20261124-PRICING-PANAMA-ROAD-DEDUP"
 }

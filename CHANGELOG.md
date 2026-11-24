@@ -1,3 +1,7 @@
+## [1.124.10] - 2026-11-24 · DH-20261124-PRICING-PANAMA-ROAD-DEDUP
+
+- PATCH Web/System: elimina alias automáticos del tramo terrestre histórico CFZ–GAM (incluidos los vinculados al catálogo), evita regeneración y conserva excedente. Alinea la identidad e importes del snapshot antes de guardar. CI/staging pendientes.
+
 ## [1.124.8] - 2026-11-24 · DH-20261124-PRICING-PANAMA-PERSISTED-SAVE
 
 - PATCH Web/System: conserva identidad histórica del tramo CFZ–GAM y venta del excedente al guardar, reconcilia antes de serializar y deja Auto Pricing como cálculo explícito para cotizaciones guardadas. CI/staging pendientes; producción no desplegada.
