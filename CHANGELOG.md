@@ -1,3 +1,8 @@
+## [1.124.1] - 2026-11-24 · DH-20261124-SELLER-ACCEPTANCE-FIX
+
+- PATCH coordinado: corrección de aceptación comercial de QUO en Pricing 1.29.2 → 1.29.3; Web/System 1.124.0 → 1.124.1. Se conservan versiones de los componentes no incluidos y se registran las versiones observadas en la rama base.
+- CI y staging obligatorios; producción no desplegada.
+
 ## [1.124.0] - 2026-11-24
 
 - MINOR: resumen QUO independiente, semáforo de discrepancias, revisión comercial persistente sin servicios ficticios y contactos CRM por expediente. Prioridad y complejidad internas al pool; se elimina formulario adicional en QUO. Contratos REST compatibles y Outbox/Inbox. CI y UAT pendientes.

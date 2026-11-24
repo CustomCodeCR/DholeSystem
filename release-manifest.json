@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-QUO-COMPARE",
+  "releaseId": "DH-20261124-SELLER-ACCEPTANCE-FIX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.0",
-  "status": "candidate-develop-ci-pending",
+  "ecosystemVersion": "1.124.1",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-quo-discrepancies-20261124",
-    "master": null
+    "develop": "fix/seller-acceptance-20261124-develop",
+    "master": "fix/seller-acceptance-20261124-master"
   },
-  "candidateBranch": "fix/operations-quo-discrepancies-20261124",
+  "candidateBranch": "fix/seller-acceptance-20261124-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.0",
+      "version": "1.124.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-quo-discrepancies-20261124",
+      "candidateBranch": "fix/seller-acceptance-20261124-develop",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-quo-discrepancies-20261124"
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -48,13 +48,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.0",
+      "version": "1.124.1",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-quo-discrepancies-20261124",
-      "candidateSha": "3f0527022882a504fb0bdc990fad0798581dc0ae",
+      "candidateBranch": "fix/seller-acceptance-20261124-develop",
+      "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null,
-      "developCandidateBranch": "fix/operations-quo-discrepancies-20261124"
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -77,11 +77,11 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.2",
+      "version": "1.29.3",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-idtra-desc-20261124",
-      "developCandidateBranch": "fix/operations-idtra-desc-20261124",
-      "candidateSha": "a0bac73ee5a589f9f0409ff1567e569c5ee54234",
+      "candidateBranch": "fix/seller-acceptance-20261124-develop",
+      "developCandidateBranch": "fix/seller-acceptance-20261124-develop",
+      "candidateSha": "3e50bef51def1703c67adc43a7568572535ab025",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -153,12 +153,11 @@
       "developCandidateBranch": "fix/operations-quo-discrepancies-20261124"
     }
   ],
-  "policyCheck": "System/Web 1.123.3 → 1.124.0; CRM 1.44.1 → 1.45.0; Operations 0.20.3 → 0.21.0; remaining 13 components verified unchanged.",
+  "policyCheck": "Selective Pricing PATCH; Web/System version alignment; retain 14 unaffected manifest entries; observed base versions recorded separately.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Mandatory CI and staging end-to-end validation",
-    "CRM contact contract before Operations; new additive migration; verify Pricing review round trip"
+    "Mandatory CI and authenticated staging acceptance validation"
   ],
   "validationEvidence": {
     "ci": "partial-green-pricing-model-drift-fail",
@@ -439,13 +438,18 @@
           "version": "1.5.0"
         }
       ]
+    },
+    "sellerAcceptanceFix": {
+      "pricingVersion": "1.29.3",
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
     }
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeOperationsService",
-    "DholeCRMService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
     "Immutable accepted quote summary and comparison with operational fields; independent discrepancy review persistence, version and fingerprint, existing Pricing event contract",
@@ -507,7 +511,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-QUO-COMPARE",
+  "businessReleaseId": "DH-20261124-SELLER-ACCEPTANCE-FIX",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -1618,5 +1622,37 @@
     "manualNumberChange": true,
     "conflicts": "pending reconciliation; no overwrite",
     "staging": "pending"
+  },
+  "sellerAcceptanceFixRelease": {
+    "id": "DH-20261124-SELLER-ACCEPTANCE-FIX",
+    "pricingVersion": "1.29.3",
+    "pricingSha": "3e50bef51def1703c67adc43a7568572535ab025",
+    "baseBranch": "develop",
+    "globalVersion": "1.124.1",
+    "observedBaseVersions": {
+      "DholeSystem": "1.124.0",
+      "DholeApiGateway": "1.11.1",
+      "DholeAuthService": "1.17.2",
+      "DholeWeb": "1.124.0",
+      "DholeConfigService": "1.12.0",
+      "DholeAuditLogsService": "1.6.0",
+      "DholeDataExtractionService": "1.9.0",
+      "DholePricingService": "1.29.2",
+      "DholeAIService": "1.9.0",
+      "DholeStorageService": "1.5.0",
+      "DholeReportsService": "1.8.1",
+      "DholeNotificationsService": "1.9.1",
+      "DholeContentService": "1.5.0",
+      "DholeAgentService": "1.6.0",
+      "DholeDynamicsConnectorService": "1.5.0",
+      "DholeCRMService": "1.45.0",
+      "DholeOperationsService": "0.21.0"
+    },
+    "validation": {
+      "ci": "pending",
+      "staging": "pending",
+      "production": "not-deployed"
+    },
+    "note": "Only changed components have incremented versions. Unrelated historical manifest discrepancies are recorded, not overwritten."
   }
 }
