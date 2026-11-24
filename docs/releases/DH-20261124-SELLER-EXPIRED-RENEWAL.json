@@ -1,0 +1,64 @@
+{
+  "releaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
+  "ecosystemVersion": "1.124.5",
+  "releaseType": "PATCH",
+  "versions": {
+    "DholeSystem": {
+      "previousVersion": "1.124.4",
+      "newVersion": "1.124.5"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.124.4",
+      "newVersion": "1.124.5"
+    },
+    "DholePricingService": {
+      "previousVersion": "1.29.6",
+      "newVersion": "1.29.7"
+    }
+  },
+  "verifiedUnchangedDevelopVersions": {
+    "DholeApiGateway": "1.11.1",
+    "DholeAuthService": "1.17.2",
+    "DholeConfigService": "1.12.0",
+    "DholeAuditLogsService": "1.6.0",
+    "DholeDataExtractionService": "1.9.0",
+    "DholeAIService": "1.9.0",
+    "DholeStorageService": "1.5.0",
+    "DholeReportsService": "1.8.1",
+    "DholeNotificationsService": "1.9.1",
+    "DholeContentService": "1.5.0",
+    "DholeAgentService": "1.6.0",
+    "DholeDynamicsConnectorService": "1.5.0",
+    "DholeCRMService": "1.45.0",
+    "DholeOperationsService": "0.21.1"
+  },
+  "changes": [
+    "Seller dashboard and detail reuse supervisor approval modal",
+    "API requires revision-scoped approval before modification source and submit",
+    "Approved expiry renewal can proceed without cargo changes",
+    "Decision route is seller-accessible; other supervisor gets system notification",
+    "Existing one-day email and system reminder worker retained"
+  ],
+  "authorizers": [
+    "rsibaja@castrofallas.com",
+    "jmesen@castrofallas.com"
+  ],
+  "channels": [
+    "System via SignalR",
+    "Email via Notifications Outbox"
+  ],
+  "candidateShas": {
+    "DholePricingService": "1e729525a0f630687730d2b7b1011fce62f7e70a",
+    "DholeWeb": "e7d2408c200432b3cdde1e1cdbf4ebce667ba024"
+  },
+  "validation": {
+    "ci": "pending",
+    "staging": "pending",
+    "production": "not-deployed"
+  },
+  "schemaMigration": false,
+  "targetBranches": [
+    "develop",
+    "master"
+  ]
+}
