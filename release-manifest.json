@@ -5,10 +5,10 @@
   "ecosystemVersion": "1.130.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feat/all-status-quotation-export-20261125",
+    "develop": "feature/all-status-quotation-export-20261125",
     "master": null
   },
-  "candidateBranch": "feat/all-status-quotation-export-20261125",
+  "candidateBranch": "feature/all-status-quotation-export-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -19,8 +19,8 @@
       "previousVersion": "1.129.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
+      "candidateBranch": "feature/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -48,8 +48,8 @@
       "previousVersion": "1.129.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
+      "candidateBranch": "feature/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
       "candidateSha": "bc71baad3a36409e54d6345efe261092a129b587",
       "developMergeSha": null
@@ -85,8 +85,8 @@
       "previousVersion": "1.31.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
+      "candidateBranch": "feature/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
       "candidateSha": "03b59bc227919abd2b00221b521a3e6236e8cad3",
       "developMergeSha": null
