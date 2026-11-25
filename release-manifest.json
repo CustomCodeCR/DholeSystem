@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE",
+  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.31",
+  "ecosystemVersion": "1.124.32",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-air-agent-save-20261124",
+    "develop": "fix/pricing-air-quantity-save-20261124",
     "master": null
   },
-  "candidateBranch": "fix/pricing-air-agent-save-20261124",
+  "candidateBranch": "fix/pricing-air-quantity-save-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.31",
+      "version": "1.124.32",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-air-agent-save-20261124",
-      "developCandidateBranch": "fix/pricing-air-agent-save-20261124",
+      "candidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -40,12 +40,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.31",
+      "version": "1.124.32",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-air-agent-save-20261124",
-      "developCandidateBranch": "fix/pricing-air-agent-save-20261124",
+      "candidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "2e290fc4229a755f61e61a9ae415772bfaaa6264",
+      "candidateSha": "e824e6f695c83a622b9f08f774b7c7ed9c0d4f73",
       "developMergeSha": null
     },
     {
@@ -140,7 +140,7 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.30 → 1.124.31; other components unchanged for this release.",
+  "policyCheck": "PATCH Web/System 1.124.31 → 1.124.32; other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -149,15 +149,15 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing REST/realtime contracts unchanged; runtime validation pending"
+    "realtime": "Existing REST/realtime contracts unchanged; runtime verification pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Air existing quote agent-only valid change saves reviewed details without live cost repricing.",
-    "Prevent automatic agent replacement on unchanged existing route; preserve other context validations."
+    "Preserve reviewed negotiated air quote unit amounts when an eligible agent and/or cargo quantities change, including weight, packages and pallets.",
+    "Keep existing billing-quantity calculation and structural-context validations; explicit removals remain respected."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -214,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE",
+  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
