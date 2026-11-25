@@ -1,3 +1,7 @@
+## [1.131.0] - 2026-11-25
+
+- Coordinate origin agent filtering, shared DH selectors, compact summary and bidirectional manual IDTRA/QUO linkage. CI and staging pending.
+
 ## [1.130.1] - 2026-11-25
 
 - Coordinate opening capture correction: service catalog, providers, observations, grouped completeness and CRM executive validation. Web 1.130.1, Operations 0.25.3; preserve quotation export release. CI/staging pending.
