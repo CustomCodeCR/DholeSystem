@@ -43,7 +43,7 @@
       "candidateBranch": "fix/20261124-pricing-cost-context-relink",
       "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
       "masterCandidateBranch": null,
-      "candidateSha": "aa3f6e675e07eb47ef8364220723f62660705845",
+      "candidateSha": "36d65c959dc0abbbb39af87e75f272e2702e55dd",
       "developMergeSha": null
     },
     {
@@ -148,7 +148,8 @@
   "changes": [
     "Preserve operation when reselecting the persisted CRM client.",
     "Do not invalidate persisted physical cost context when recovering CRM link.",
-    "Reuse verified P7 context on P8 save and settle in-flight context changes; never bypass validation on genuine changed context."
+    "Reuse verified P7 context on P8 save and settle in-flight context changes; never bypass validation on genuine changed context.",
+    "Recover a previously missing CRM link during existing quote hydration, before capturing the cost context; retain explicit selection only for ambiguous identities."
   ],
   "stagingValidation": {
     "status": "pending"
