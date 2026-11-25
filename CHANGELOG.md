@@ -1,3 +1,7 @@
+## [1.130.0] - 2026-11-25
+
+- Promote staged all-status quotation export (Web 1.130.0, Pricing 1.32.0); verified all 17 production baseline versions. Staging automated checks successful; authenticated manual Excel check and master CI pending. Explicit master authorization.
+
 ## [1.127.5] - 2026-11-25
 
 - DH-20261125-SIDEBAR-COMPACT-BRAND: isolated compact sidebar SVG and alignment correction. DholeWeb and DholeSystem versioned together; remaining component versions preserved. CI/staging pending.
