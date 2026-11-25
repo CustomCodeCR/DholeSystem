@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
+  "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.5",
-  "status": "candidate-ci-staging-pending",
+  "ecosystemVersion": "1.130.0",
+  "status": "master-candidate-ci-pending",
   "branches": {
-    "develop": "fix/sidebar-compact-brand-20261125",
-    "master": "release/sidebar-compact-brand-20261125-master"
+    "develop": "feature/all-status-quotation-export-20261125",
+    "master": "release/all-status-quotation-export-20261125-master"
   },
-  "candidateBranch": "release/sidebar-compact-brand-20261125-master",
+  "candidateBranch": "release/all-status-quotation-export-20261125-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "previousVersion": "1.127.0",
-      "version": "1.127.5",
-      "mergeState": "intermediate-only",
+      "version": "1.130.0",
+      "previousVersion": "1.127.5",
+      "mergeState": "master-candidate",
       "versionVerified": true,
-      "candidateBranch": "release/sidebar-compact-brand-20261125-master",
-      "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
-      "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
+      "candidateBranch": "release/all-status-quotation-export-20261125-master",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "1572826e28bf4ed6a8045f5a13a20fc089f69a48"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -44,15 +44,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "previousVersion": "1.127.0",
-      "version": "1.127.5",
-      "mergeState": "intermediate-only",
+      "version": "1.130.0",
+      "previousVersion": "1.127.5",
+      "mergeState": "master-candidate",
       "versionVerified": true,
-      "candidateBranch": "release/sidebar-compact-brand-20261125-master",
-      "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
-      "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
-      "candidateSha": "195afc2b25fd43ceeed6e69d0b4470440cd4f844",
-      "developMergeSha": null
+      "candidateBranch": "release/all-status-quotation-export-20261125-master",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+      "candidateSha": "20964b97de9ac36812a5acbaee3dd29356c40ad1",
+      "developMergeSha": "9bf2b2134e5eaa99212215362d150e1b79bddab9"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -81,10 +81,15 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.13",
+      "version": "1.32.0",
       "previousVersion": "1.29.13",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "master-candidate",
+      "versionVerified": true,
+      "candidateBranch": "release/all-status-quotation-export-20261125-master",
+      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+      "candidateSha": "4662990f6e594a0f6bfd2814498c6bd1d1c51234",
+      "developMergeSha": "656bd328692d7026861ebdba255d1733e069a002"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -159,27 +164,30 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH: isolated frontend branding correction; preserve all other component versions.",
-  "mergeState": "intermediate-only",
+  "policyCheck": "pending",
+  "mergeState": "master-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI and authenticated staging validation pending; master promotion requires both."
+    "Master CI pending; authenticated manual XLSX validation not performed"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending",
-    "realtime": "No changes to REST or realtime contracts; runtime regression validation pending."
+    "ci": "Develop PR build/test and semantic gates passed",
+    "staging": "Automated deploy and health/client quote report smoke checks successful; manual authenticated export pending",
+    "realtime": "Read-only export; existing SignalR list refresh preserved",
+    "pricingStagingRun": "https://github.com/CustomCodeCR/DholePricingService/actions/runs/45690454341",
+    "webStagingRun": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/45690476243"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Use bundled SVG for compact sidebar mask; preserve original shape, theme and animation.",
-    "Compact card padding adjusted; no new visual component."
+    "Promote the tested 23-column commercial report export, all or selected statuses, creation dates, search and Excel autofilter. Preserve unrelated master features."
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "automated-passed",
+    "manualAuthenticatedExport": "not-run"
   },
   "f6F7F8": {
     "status": "pending",
@@ -232,7 +240,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
+  "businessReleaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -644,16 +652,8 @@
     "productionDeploymentAuthorized": false
   },
   "productionDeployment": {
-    "authorizedOn": "2026-11-13",
-    "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
-    "services": [
-      "DholeAuthService",
-      "DholeCRMService",
-      "DholeWeb"
-    ],
-    "authorization": "User requested immediate deployment",
-    "status": "authorized-by-user-but-pending-ci-staging",
-    "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
+    "status": "authorized-master-ci-pending",
+    "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -668,7 +668,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "DH-408 Aperturas choose team before create, two-person validation eligibility diagnostics, no weight at opening, stackable only LCL/LTL, redesigned summary and case drawer.",
+  "releaseSummary": "Promote staged all-status quotation export only",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -681,7 +681,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": null,
+  "productionDeploymentAuthorization": "Explicit user request: subelo a master",
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -740,7 +740,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "User requested this business fix in develop/master; infrastructure productionDeploymentAuthorized remains false per realtime F10 safety policy; business Web/Pricing deploys via master.",
+  "productionAuthorizationNote": "Explicit user instruction to promote to master on 2026-11-25; production CI required.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -2951,5 +2951,162 @@
     "branch": "release/sidebar-compact-brand-20261125-master",
     "productionPromotionRequested": true,
     "rollback": "Revert coordinated PRs; no migration."
+  },
+  "previousSidebarCompactBrandRelease": {
+    "releaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
+    "ecosystemVersion": "1.127.5",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "previousVersion": "1.127.0",
+        "version": "1.127.5",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "release/sidebar-compact-brand-20261125-master",
+        "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
+        "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.1",
+        "previousVersion": "1.17.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "previousVersion": "1.127.0",
+        "version": "1.127.5",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "release/sidebar-compact-brand-20261125-master",
+        "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
+        "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
+        "candidateSha": "195afc2b25fd43ceeed6e69d0b4470440cd4f844",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.29.13",
+        "previousVersion": "1.29.13",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.2.3",
+        "previousVersion": "1.2.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.2.2",
+        "previousVersion": "1.2.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.4.1",
+        "previousVersion": "1.4.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.43.1",
+        "previousVersion": "1.43.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.17.0",
+        "previousVersion": "0.17.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "changes": [
+      "Use bundled SVG for compact sidebar mask; preserve original shape, theme and animation.",
+      "Compact card padding adjusted; no new visual component."
+    ]
   }
 }
