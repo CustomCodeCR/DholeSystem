@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+  "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.126.3",
+  "ecosystemVersion": "1.127.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/own-lcl-wizard-bundle-20261125",
+    "develop": "feature/pricing-booking-request-shipper-20261125",
     "master": null
   },
-  "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+  "candidateBranch": "feature/pricing-booking-request-shipper-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.126.3",
-      "previousVersion": "1.126.2",
+      "version": "1.127.0",
+      "previousVersion": "1.126.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+      "candidateBranch": "feature/pricing-booking-request-shipper-20261125",
+      "developCandidateBranch": "feature/pricing-booking-request-shipper-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.126.3",
-      "previousVersion": "1.126.2",
+      "version": "1.127.0",
+      "previousVersion": "1.126.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+      "candidateBranch": "feature/pricing-booking-request-shipper-20261125",
+      "developCandidateBranch": "feature/pricing-booking-request-shipper-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "afaa36d9fac7c69d411773723c605adee6671dc4",
+      "candidateSha": "a4ff5d1669144cde6b9a5842b492b2d17f9c83ad",
       "developMergeSha": null
     },
     {
@@ -82,14 +82,9 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.31.3",
-      "previousVersion": "1.31.2",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "eb7b0deb744cef90fc1c58e1d054baeb33647f49",
-      "developMergeSha": null
+      "previousVersion": "1.31.3",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -164,7 +159,7 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH: shared wizard bundle; unchanged component versions carried forward.",
+  "policyCheck": "MINOR: optional additional Pricing document category; unchanged component versions carried forward.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -173,16 +168,14 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing event and SignalR contracts unchanged; runtime pending"
+    "realtime": "Existing Storage and realtime contracts unchanged"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
     "DholeWeb"
   ],
   "changes": [
-    "Use hydrated wizard-bundle cost query and selected IDs for own LCL destination preview/create/update.",
-    "Keep approved scoped fallback explicit; no unrelated staging code."
+    "Add optional Booking Request Shipper category in Pricing screen 4 using existing Storage upload."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -238,7 +231,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+  "businessReleaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2209,7 +2202,7 @@
       "Expose commercial metadata and capture pickup data with shared DH components"
     ]
   },
-  "productionPromotionRequested": true,
+  "productionPromotionRequested": false,
   "previousApprovedReferenceBaseline": {
     "releaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
     "ecosystemVersion": "1.126.1",
@@ -2533,5 +2526,176 @@
       "staging": "pending",
       "realtime": "REST/SignalR and event contracts unchanged; runtime pending"
     }
+  },
+  "previousBookingRequestShipperBaseline": {
+    "releaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+    "ecosystemVersion": "1.126.3",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.126.3",
+        "previousVersion": "1.126.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.2",
+        "previousVersion": "1.17.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.126.3",
+        "previousVersion": "1.126.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "afaa36d9fac7c69d411773723c605adee6671dc4",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.31.3",
+        "previousVersion": "1.31.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "eb7b0deb744cef90fc1c58e1d054baeb33647f49",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "previousVersion": "1.45.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.23.0",
+        "previousVersion": "0.23.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "changes": [
+      "Use hydrated wizard-bundle cost query and selected IDs for own LCL destination preview/create/update.",
+      "Keep approved scoped fallback explicit; no unrelated staging code."
+    ],
+    "productionPromotionRequested": true
+  },
+  "pricingBookingRequestShipperRelease": {
+    "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
+    "version": "1.127.0",
+    "webSha": "a4ff5d1669144cde6b9a5842b492b2d17f9c83ad",
+    "branch": "feature/pricing-booking-request-shipper-20261125",
+    "productionAuthorized": false,
+    "rollback": "Revert coordinated PRs; no migration."
   }
 }
