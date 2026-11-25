@@ -1,34 +1,35 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
+  "releaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.126.0",
+  "ecosystemVersion": "1.126.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/operations-commercial-completeness-20261124",
+    "develop": "fix/own-lcl-maersk-balboa-20261125",
     "master": null
   },
-  "candidateBranch": "feature/operations-commercial-completeness-20261124",
+  "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.126.0",
+      "version": "1.126.1",
+      "previousVersion": "1.126.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-commercial-completeness-20261124",
-      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+      "versionVerified": true,
+      "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null,
-      "versionVerified": true,
-      "previousVersion": "1.125.0"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
+      "previousVersion": "1.11.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -36,26 +37,28 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.2",
+      "previousVersion": "1.17.2",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.126.0",
+      "version": "1.126.1",
+      "previousVersion": "1.126.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-commercial-completeness-20261124",
-      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
-      "masterCandidateBranch": null,
-      "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
-      "developMergeSha": null,
       "versionVerified": true,
-      "previousVersion": "1.125.0"
+      "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "824e882018fb185609cb3c1aa951a2a86897dbb8",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
+      "previousVersion": "1.12.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -63,6 +66,7 @@
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.6.0",
+      "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -70,26 +74,28 @@
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.9.0",
+      "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.31.0",
+      "version": "1.31.1",
+      "previousVersion": "1.31.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "previousVersion": "1.30.0",
-      "candidateSha": "f16946e2c55f9f8c2c299d5c93b873db2d9aa286",
-      "candidateBranch": "feature/operations-commercial-completeness-20261124",
-      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+      "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "masterCandidateBranch": null,
+      "candidateSha": "eca3d72b6d32bb81509e3303f866356cd73998bd",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.9.0",
+      "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -97,6 +103,7 @@
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.5.0",
+      "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -104,6 +111,7 @@
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.8.1",
+      "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -111,6 +119,7 @@
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.9.1",
+      "previousVersion": "1.9.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -118,6 +127,7 @@
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.5.0",
+      "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -125,6 +135,7 @@
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.6.0",
+      "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -132,6 +143,7 @@
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.5.0",
+      "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -139,6 +151,7 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.45.0",
+      "previousVersion": "1.45.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -146,41 +159,30 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.23.0",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "previousVersion": "0.22.0",
-      "candidateBranch": "feature/operations-commercial-completeness-20261124",
-      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
-      "masterCandidateBranch": null,
-      "candidateSha": "35e521b604b03076868d6d785e282b2a354b72f6",
-      "developMergeSha": null
+      "previousVersion": "0.23.0",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     }
   ],
-  "policyCheck": "MINOR: additive compatible commercial and operational contracts. Verified baseline versions for all 17 components. Web/System share global SemVer.",
+  "policyCheck": "PATCH: Pricing/Web/System hotfix; all 17 baseline component versions checked against develop.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging validation pending for final candidate SHAs",
-    "Merchant and supplier by row are not persisted on inspected RateHeader/RateDetail contracts; do not infer providers or overwrite historical snapshots",
-    "Historical snapshots require verified accepted revision and separate reconciliation for data absent at capture",
-    "Remaining modal/Incoterm/route and CRM contract coverage must be validated against actual cases"
+    "CI and authenticated staging matrix validation pending"
   ],
   "validationEvidence": {
-    "ci": "pending final candidates",
+    "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing Redis Outbox/Inbox and SignalR/REST contracts retained; authenticated runtime pending"
+    "realtime": "Existing event and SignalR contracts retained; runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService",
     "DholePricingService"
   ],
   "changes": [
-    "Preserve additional verified Pricing logistics, terms and provider references in accepted QUO snapshot without altering the accepted version",
-    "Consume canonical Pricing quantity and monetary subtotals with historical fallbacks and enforce financial scopes",
-    "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
-    "Expose commercial metadata and capture pickup data with shared DH components"
+    "Resolve approved Maersk Balboa charges across recreated IDs, normalize aliases and respect shipment modes",
+    "Load draft pricing lines from backend, surface failed previews and reject stale responses"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -236,7 +238,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
+  "businessReleaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2039,5 +2041,173 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated candidate PRs in develop; no schema migration. Existing v1 acceptance payload fields remain compatible.",
     "previousReleaseId": "DH-20261124-OPS-MULTI-IDTRA"
-  }
+  },
+  "previousOwnLclHotfixBaseline": {
+    "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
+    "ecosystemVersion": "1.126.0",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.126.0",
+        "mergeState": "intermediate-only",
+        "candidateBranch": "feature/operations-commercial-completeness-20261124",
+        "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+        "masterCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null,
+        "versionVerified": true,
+        "previousVersion": "1.125.0"
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.126.0",
+        "mergeState": "intermediate-only",
+        "candidateBranch": "feature/operations-commercial-completeness-20261124",
+        "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+        "masterCandidateBranch": null,
+        "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
+        "developMergeSha": null,
+        "versionVerified": true,
+        "previousVersion": "1.125.0"
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.31.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "previousVersion": "1.30.0",
+        "candidateSha": "f16946e2c55f9f8c2c299d5c93b873db2d9aa286",
+        "candidateBranch": "feature/operations-commercial-completeness-20261124",
+        "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+        "masterCandidateBranch": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.23.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "previousVersion": "0.22.0",
+        "candidateBranch": "feature/operations-commercial-completeness-20261124",
+        "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
+        "masterCandidateBranch": null,
+        "candidateSha": "35e521b604b03076868d6d785e282b2a354b72f6",
+        "developMergeSha": null
+      }
+    ],
+    "blockers": [
+      "CI and authenticated staging validation pending for final candidate SHAs",
+      "Merchant and supplier by row are not persisted on inspected RateHeader/RateDetail contracts; do not infer providers or overwrite historical snapshots",
+      "Historical snapshots require verified accepted revision and separate reconciliation for data absent at capture",
+      "Remaining modal/Incoterm/route and CRM contract coverage must be validated against actual cases"
+    ],
+    "validationEvidence": {
+      "ci": "pending final candidates",
+      "staging": "pending",
+      "realtime": "Existing Redis Outbox/Inbox and SignalR/REST contracts retained; authenticated runtime pending"
+    },
+    "changes": [
+      "Preserve additional verified Pricing logistics, terms and provider references in accepted QUO snapshot without altering the accepted version",
+      "Consume canonical Pricing quantity and monetary subtotals with historical fallbacks and enforce financial scopes",
+      "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
+      "Expose commercial metadata and capture pickup data with shared DH components"
+    ]
+  },
+  "productionPromotionRequested": true
 }
