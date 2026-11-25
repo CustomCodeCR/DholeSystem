@@ -56,7 +56,7 @@
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "5efe634a57dffa4e54387beae9a52df56e05992a",
+      "candidateSha": "4559a0d53e75133f5ed7033d034550320a37da13",
       "developMergeSha": null
     },
     {
@@ -176,7 +176,7 @@
     "CI on rebased candidates and authenticated staging validation pending; deploy Auth before Operations."
   ],
   "validationEvidence": {
-    "ci": "Prior Auth/Operations checks passed; Web regression assertion and Compose validation corrected; new CI pending.",
+    "ci": "Compose and manifest checks passed; Web case event compatibility corrected; latest checks pending.",
     "staging": "pending",
     "realtime": "Existing durable events; same-origin WebSocket and reconciliation; runtime validation pending."
   },
