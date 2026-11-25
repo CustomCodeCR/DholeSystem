@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.29",
-  "ecosystemVersion": "1.124.29",
-  "releaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK",
+  "version": "1.124.30",
+  "ecosystemVersion": "1.124.30",
+  "releaseId": "DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK"
+  "businessReleaseId": "DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION"
 }
