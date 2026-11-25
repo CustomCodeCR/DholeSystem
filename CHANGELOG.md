@@ -1,3 +1,7 @@
+## [1.124.29] - 2026-11-24
+
+- DH-20261124-PRICING-COST-CONTEXT-RELINK: separar el vínculo CRM de la reconciliación de costos persistidos y reutilizar la verificación de P7 en P8. DholeWeb/System 1.124.29; Pricing 1.29.11. CI y staging pendientes.
+
 ## [1.124.28] - 2026-11-24
 
 - DH-20261124-PRICING-DUPLICATE-RELINK: recuperación del vínculo CRM perdido al editar duplicaciones existentes. DholeWeb/System 1.124.28; Pricing 1.29.11 sin cambios en develop. CI y validación staging pendientes.

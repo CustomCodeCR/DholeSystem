@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-DUPLICATE-RELINK",
+  "releaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.28",
+  "ecosystemVersion": "1.124.29",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/20261124-pricing-duplicate-relink",
+    "develop": "fix/20261124-pricing-cost-context-relink",
     "master": null
   },
-  "candidateBranch": "fix/20261124-pricing-duplicate-relink",
+  "candidateBranch": "fix/20261124-pricing-cost-context-relink",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.28",
+      "version": "1.124.29",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261124-pricing-duplicate-relink",
-      "developCandidateBranch": "fix/20261124-pricing-duplicate-relink",
+      "candidateBranch": "fix/20261124-pricing-cost-context-relink",
+      "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -38,12 +38,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.28",
+      "version": "1.124.29",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/20261124-pricing-duplicate-relink",
-      "developCandidateBranch": "fix/20261124-pricing-duplicate-relink",
+      "candidateBranch": "fix/20261124-pricing-cost-context-relink",
+      "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
       "masterCandidateBranch": null,
-      "candidateSha": "9892eeec681763dae8457510449783735e87bc3b",
+      "candidateSha": "36d65c959dc0abbbb39af87e75f272e2702e55dd",
       "developMergeSha": null
     },
     {
@@ -130,25 +130,26 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.27 → 1.124.28; Pricing remains 1.29.11 in develop and other components unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.28 → 1.124.29; Pricing 1.29.11 and other components unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging edit verification pending",
-    "Pricing 1.29.11 master promotion pending"
+    "CI, staging and authenticated quote edit verification pending"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "No new events or API contracts; existing quote update path retained"
+    "realtime": "Existing REST and realtime contracts retained; runtime verification pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Recover missing CRM identity on saved duplicate using a complete exact match and matching commercial executive, then verify by ID.",
-    "Persist recovered identity through normal quote update; ambiguous matches require explicit selection."
+    "Preserve operation when reselecting the persisted CRM client.",
+    "Do not invalidate persisted physical cost context when recovering CRM link.",
+    "Reuse verified P7 context on P8 save and settle in-flight context changes; never bypass validation on genuine changed context.",
+    "Recover a previously missing CRM link during existing quote hydration, before capturing the cost context; retain explicit selection only for ambiguous identities."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -205,7 +206,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-DUPLICATE-RELINK",
+  "businessReleaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
