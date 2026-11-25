@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.127.4",
-  "ecosystemVersion": "1.127.4",
-  "releaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
+  "version": "1.127.5",
+  "ecosystemVersion": "1.127.5",
+  "releaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-OPS-ORIGIN-HANDOFF"
+  "businessReleaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND"
 }

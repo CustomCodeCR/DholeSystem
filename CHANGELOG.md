@@ -1,3 +1,7 @@
+## [1.127.5] - 2026-11-25
+
+- DH-20261125-SIDEBAR-COMPACT-BRAND: isolated compact sidebar SVG and alignment correction. DholeWeb and DholeSystem versioned together; remaining component versions preserved. CI/staging pending.
+
 ## [1.127.4] - 2026-11-25
 
 - Coordinate Origin handoff SignalR, System and Email notifications, retaining Pricing IDTRA release 1.127.3. Web/System 1.127.4, Operations 0.23.2, Auth 1.17.3. CI/staging pending; no production authorization.
