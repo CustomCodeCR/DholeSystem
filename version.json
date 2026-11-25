@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.130.1",
-  "ecosystemVersion": "1.130.1",
-  "releaseId": "DH-20261125-OPS-OPENING-CAPTURE",
+  "version": "1.132.0",
+  "ecosystemVersion": "1.132.0",
+  "releaseId": "DH-20261125-OPS-PRIORITY1-13-18",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-OPS-OPENING-CAPTURE"
+  "businessReleaseId": "DH-20261125-OPS-PRIORITY1-13-18"
 }
