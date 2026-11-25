@@ -1,3 +1,7 @@
+## [1.127.5] - 2026-11-25
+
+- DH-20261125-SIDEBAR-COMPACT-BRAND: isolated compact sidebar SVG and alignment correction. DholeWeb and DholeSystem versioned together; remaining component versions preserved. CI/staging pending.
+
 ## [1.127.0] - 2026-11-25
 
 - DH-20261125-BOOKING-REQUEST-SHIPPER: add optional Booking Request Shipper document category in Pricing via existing Storage workflow. DholeWeb 1.127.0; CI and staging pending.

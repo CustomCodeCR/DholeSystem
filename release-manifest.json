@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
+  "releaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.0",
-  "status": "master-candidate-ci-staging-pending",
+  "ecosystemVersion": "1.127.5",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/booking-request-shipper-develop-20261125",
-    "master": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master"
+    "develop": "fix/sidebar-compact-brand-20261125",
+    "master": "release/sidebar-compact-brand-20261125-master"
   },
-  "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+  "candidateBranch": "release/sidebar-compact-brand-20261125-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.0",
-      "previousVersion": "1.124.35",
+      "previousVersion": "1.127.0",
+      "version": "1.127.5",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
-      "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
-      "masterCandidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+      "candidateBranch": "release/sidebar-compact-brand-20261125-master",
+      "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
+      "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
       "candidateSha": null,
-      "developMergeSha": "7a4d9cb0b030fec441493b563c4d10c6a872919c"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -44,15 +44,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.0",
-      "previousVersion": "1.124.35",
+      "previousVersion": "1.127.0",
+      "version": "1.127.5",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
-      "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
-      "masterCandidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
-      "candidateSha": "5de62adf465f60019041b683054625dc618b0063",
-      "developMergeSha": "0bad54c66d555649972ab146568246c90d6f9d4e"
+      "candidateBranch": "release/sidebar-compact-brand-20261125-master",
+      "developCandidateBranch": "fix/sidebar-compact-brand-20261125",
+      "masterCandidateBranch": "release/sidebar-compact-brand-20261125-master",
+      "candidateSha": "195afc2b25fd43ceeed6e69d0b4470440cd4f844",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -159,23 +159,24 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "MINOR: optional additional Pricing document category; master baseline preserved.",
+  "policyCheck": "PATCH: isolated frontend branding correction; preserve all other component versions.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
+  "productionDeploymentAuthorized": true,
   "blockers": [
-    "Master CI and authenticated staging validation pending"
+    "CI and authenticated staging validation pending; master promotion requires both."
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing Storage and realtime contracts unchanged"
+    "realtime": "No changes to REST or realtime contracts; runtime regression validation pending."
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Add optional Booking Request Shipper category in Pricing screen 4 using existing Storage upload."
+    "Use bundled SVG for compact sidebar mask; preserve original shape, theme and animation.",
+    "Compact card padding adjusted; no new visual component."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -231,7 +232,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
+  "businessReleaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2760,6 +2761,194 @@
     "version": "1.127.0",
     "webSha": "5de62adf465f60019041b683054625dc618b0063",
     "branch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+    "productionPromotionRequested": true,
+    "rollback": "Revert coordinated PRs; no migration."
+  },
+  "previousSidebarCompactBrandBaseline": {
+    "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
+    "ecosystemVersion": "1.127.0",
+    "status": "master-candidate-ci-staging-pending",
+    "branches": {
+      "develop": "fix/booking-request-shipper-develop-20261125",
+      "master": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master"
+    },
+    "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.127.0",
+        "previousVersion": "1.124.35",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+        "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
+        "masterCandidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+        "candidateSha": null,
+        "developMergeSha": "7a4d9cb0b030fec441493b563c4d10c6a872919c"
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.1",
+        "previousVersion": "1.17.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.127.0",
+        "previousVersion": "1.124.35",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+        "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
+        "masterCandidateBranch": "release/DH-20261125-BOOKING-REQUEST-SHIPPER-master",
+        "candidateSha": "5de62adf465f60019041b683054625dc618b0063",
+        "developMergeSha": "0bad54c66d555649972ab146568246c90d6f9d4e"
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.29.13",
+        "previousVersion": "1.29.13",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.2.3",
+        "previousVersion": "1.2.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.2.2",
+        "previousVersion": "1.2.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.4.1",
+        "previousVersion": "1.4.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.43.1",
+        "previousVersion": "1.43.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.17.0",
+        "previousVersion": "0.17.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "policyCheck": "MINOR: optional additional Pricing document category; master baseline preserved.",
+    "mergeState": "intermediate-only",
+    "productionDeploymentAuthorized": false,
+    "blockers": [
+      "Master CI and authenticated staging validation pending"
+    ],
+    "validationEvidence": {
+      "ci": "pending",
+      "staging": "pending",
+      "realtime": "Existing Storage and realtime contracts unchanged"
+    },
+    "releaseComponents": [
+      "DholeSystem",
+      "DholeWeb"
+    ],
+    "changes": [
+      "Add optional Booking Request Shipper category in Pricing screen 4 using existing Storage upload."
+    ],
+    "stagingValidation": {
+      "status": "pending"
+    },
+    "businessReleaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER"
+  },
+  "sidebarCompactBrandRelease": {
+    "releaseId": "DH-20261125-SIDEBAR-COMPACT-BRAND",
+    "version": "1.127.5",
+    "webSha": "195afc2b25fd43ceeed6e69d0b4470440cd4f844",
+    "branch": "release/sidebar-compact-brand-20261125-master",
     "productionPromotionRequested": true,
     "rollback": "Revert coordinated PRs; no migration."
   }
