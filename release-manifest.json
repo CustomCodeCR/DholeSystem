@@ -88,7 +88,7 @@
       "candidateBranch": "feat/all-status-quotation-export-20261125",
       "developCandidateBranch": "feat/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "e507fd505955d04133d12f2325fc0e301f48c23a",
+      "candidateSha": "03b59bc227919abd2b00221b521a3e6236e8cad3",
       "developMergeSha": null
     },
     {
@@ -173,7 +173,8 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Read-only export; existing SignalR list refresh preserved"
+    "realtime": "Read-only export; existing SignalR list refresh preserved",
+    "regressionTests": "Web request parameter test; Pricing status mapping, invalid status and 23-column XLSX schema tests added; results pending"
   },
   "releaseComponents": [
     "DholeSystem",
