@@ -51,7 +51,7 @@
       "candidateBranch": "fix/operations-pricing-parity-20261125",
       "developCandidateBranch": "fix/operations-pricing-parity-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "912d5ed72c8a749d5b6ca0e9c15bd47c8cb750e6",
+      "candidateSha": "426fe2ccdb3324992d06fe481fa942b5fd5c9338",
       "developMergeSha": null
     },
     {
@@ -3065,6 +3065,11 @@
     "validation": {
       "ci": "pending",
       "staging": "pending"
+    },
+    "pullRequests": {
+      "DholeWeb": 1158,
+      "DholeOperationsService": 65,
+      "DholeSystem": 919
     }
   }
 }
