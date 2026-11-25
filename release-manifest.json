@@ -47,7 +47,7 @@
       "candidateBranch": "fix/operations-multi-idtra-20261124",
       "developCandidateBranch": "fix/operations-multi-idtra-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "dd11b40e60016e0b34c06c625848f4883588fe8f",
+      "candidateSha": "051a72d5bc70b8adc3496bcbe7959fb20ab98f2f",
       "developMergeSha": null,
       "versionVerified": true,
       "previousVersion": "1.124.34"
@@ -152,7 +152,7 @@
       "candidateBranch": "fix/operations-multi-idtra-20261124",
       "developCandidateBranch": "fix/operations-multi-idtra-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "e493b4e6087270729c6e5a7850f2f2c706e9c532",
+      "candidateSha": "66af4b5a017190592f34f6fb8349468b8121091a",
       "developMergeSha": null
     }
   ],
@@ -161,7 +161,8 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and staging pending",
-    "Source identifier conflicts require reconciliation; shared commercial values are not per-case financial allocations"
+    "Source identifier conflicts require reconciliation; shared commercial values are not per-case financial allocations",
+    "Staging authenticated navigation and Origin transfer verification pending; historical route without explicit country requires reconciliation"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -177,7 +178,9 @@
   "changes": [
     "Parse comma-separated explicit IDTRAs and publish one durable event per unique identifier",
     "Allow multiple Operations cases for the same selected QUO with independent snapshots and global IDTRA uniqueness",
-    "Preserve one automatic case for ordinary accepted quotes; reconcile shared commercial data"
+    "Preserve one automatic case for ordinary accepted quotes; reconcile shared commercial data",
+    "Close approved case and reuse Operations workspace tab; server-side DH pagination and synchronized department/team selection",
+    "Recover pending Origin assignments using configured USA/FCL/LCL-AIR routing and authorized weighted pool"
   ],
   "stagingValidation": {
     "status": "pending"
