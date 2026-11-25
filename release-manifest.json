@@ -166,7 +166,7 @@
   ],
   "policyCheck": "PATCH: Pricing/Web/System hotfix; all 17 baseline component versions checked against develop.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": true,
+  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI and authenticated staging matrix validation pending"
   ],
@@ -2208,5 +2208,6 @@
       "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
       "Expose commercial metadata and capture pickup data with shared DH components"
     ]
-  }
+  },
+  "productionPromotionRequested": true
 }
