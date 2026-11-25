@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-PRICING-LIST-OPERATIONS-IDTRA",
+  "releaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.3",
+  "ecosystemVersion": "1.127.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-list-operations-idtra-20261125",
+    "develop": "fix/operations-origin-handoff-realtime-20261125",
     "master": null
   },
-  "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
+  "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.3",
-      "previousVersion": "1.127.2",
+      "version": "1.127.4",
+      "previousVersion": "1.127.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
-      "developCandidateBranch": "fix/pricing-list-operations-idtra-20261125",
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -36,22 +36,27 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "previousVersion": "1.17.2",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "69edeff7efb7d2ddd548e9478a5996883c427671",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.3",
-      "previousVersion": "1.127.2",
+      "version": "1.127.4",
+      "previousVersion": "1.127.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
-      "developCandidateBranch": "fix/pricing-list-operations-idtra-20261125",
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "1559cce219b9785339fdcb1c065f667dc1af47aa",
+      "candidateSha": "4559a0d53e75133f5ed7033d034550320a37da13",
       "developMergeSha": null
     },
     {
@@ -153,31 +158,39 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.23.1",
+      "version": "0.23.2",
       "previousVersion": "0.23.1",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "d73591a0e8b8673a275478e525dbd8fc2f8ca6ea",
+      "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: compatible IDTRA reconciliation in Pricing list; all 17 develop baseline component versions verified.",
+  "policyCheck": "PATCH: preserve Pricing IDTRA release 1.127.3 and coordinate Origin handoff realtime and notifications.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging verification pending"
+    "CI on rebased candidates and authenticated staging validation pending; deploy Auth before Operations."
   ],
   "validationEvidence": {
-    "ci": "pending",
+    "ci": "Compose and manifest checks passed; Web case event compatibility corrected; latest checks pending.",
     "staging": "pending",
-    "realtime": "Existing Operations dashboard hub and list invalidation reused; runtime verification pending."
+    "realtime": "Existing durable events; same-origin WebSocket and reconciliation; runtime validation pending."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeAuthService",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Resolve accepted quotation IDTRAs from authorized Operations cases for the selected commercial option; support multiple IDs and historical references.",
-    "Remove obsolete manual assignment from the automatic list workflow and reconcile via existing SignalR and REST.",
-    "Reuse existing Pricing list design in desktop and mobile."
+    "Persist separate System and Email requests for assigned Origin operator with distinct idempotency keys.",
+    "Resolve Auth email and audit missing address.",
+    "Refresh dashboard and list through existing authorized Operations SignalR hub.",
+    "Preserve Pricing IDTRA changes and harden Dynamics Compose CI pipeline."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -233,7 +246,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-PRICING-LIST-OPERATIONS-IDTRA",
+  "businessReleaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

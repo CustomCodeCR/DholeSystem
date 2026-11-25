@@ -39,14 +39,23 @@ jobs:
           ASPNETCORE_ENVIRONMENT: ${{ matrix.target }}
         run: |
           set -euo pipefail
-          docker compose -f deploy/docker-compose.dynamics.yml -p "ci-dynamics-${ASPNETCORE_ENVIRONMENT,,}" config -q
+          compose=(docker compose -f deploy/docker-compose.dynamics.yml -p "ci-dynamics-${ASPNETCORE_ENVIRONMENT,,}")
+          "${compose[@]}" config -q
+          services=$("${compose[@]}" config --services)
           for service in dynamics-api dynamics-worker dynamics-migrate dynamics-key-init; do
-            docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx "$service"
+            grep -qx "$service" <<< "$services"
           done
-          ! docker compose -f deploy/docker-compose.dynamics.yml config --services | grep -qx dynamics-postgres
+          if grep -qx dynamics-postgres <<< "$services"; then
+            echo "::error::Unexpected dedicated Dynamics PostgreSQL service"
+            exit 1
+          fi
           grep -q "DYNAMICS_AUTH_MODE: Dhole" deploy/docker-compose.dynamics.yml
           grep -q 'Gateway__Routes__13__Prefix: "/api/dynamics-connector"' deploy/docker-compose.services.yml
           grep -q 'Gateway__Routes__14__Prefix: "/api/dynamics-admin"' deploy/docker-compose.services.yml
           grep -q 'Gateway__Routes__14__StripPrefix: "true"' deploy/docker-compose.services.yml
-          ! docker compose -f deploy/docker-compose.dynamics.yml config | grep -q 'published: "5432"'
+          rendered=$("${compose[@]}" config)
+          if grep -q 'published: "5432"' <<< "$rendered"; then
+            echo "::error::Unexpected published PostgreSQL port"
+            exit 1
+          fi
           echo "Existing Dhole PostgreSQL, separate connector DB, DholeAuth and both gateway routes validated."
