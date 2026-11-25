@@ -1,3 +1,7 @@
+## [1.124.33] - 2026-11-25
+
+- DH-20261125-OWN-LCL-MAERSK-BALBOA: isolated master backport of Pricing 1.29.12 and Web 1.124.33; all 17 baseline versions verified. CI and authenticated staging pending; no production integration yet.
+
 ## [1.124.32] - 2026-11-24
 
 - DH-20261124-PRICING-AIR-QUANTITY-SAVE: conservar precios unitarios negociados al editar agente válido y peso/bultos/tarimas de cotizaciones aéreas existentes; cantidades recalculadas con el flujo existente y validación de cambios estructurales mantenida. DholeWeb/System 1.124.32; otros servicios sin cambios. CI y staging pendientes.

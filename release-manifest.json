@@ -1,25 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+  "releaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.32",
-  "status": "master-candidate-ci-staging-pending",
+  "ecosystemVersion": "1.124.33",
+  "status": "candidate-master-backport-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-air-quantity-save-20261124",
-    "master": "release/pricing-air-quantity-save-1.124.32-master"
+    "develop": "fix/own-lcl-maersk-balboa-20261125",
+    "master": "release/own-lcl-maersk-balboa-20261125-master"
   },
-  "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+  "candidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.32",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
-      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
-      "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+      "version": "1.124.33",
+      "previousVersion": "1.124.32",
+      "mergeState": "intermediate-master-backport",
+      "versionVerified": true,
+      "candidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "masterCandidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -27,6 +29,7 @@
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
+      "previousVersion": "1.11.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -34,24 +37,28 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.1",
+      "previousVersion": "1.17.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.32",
-      "mergeState": "master-candidate",
-      "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
-      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
-      "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
-      "candidateSha": "a5d3ac0133b84c8e363061f2a5e326a85f9044bc",
+      "version": "1.124.33",
+      "previousVersion": "1.124.32",
+      "mergeState": "intermediate-master-backport",
+      "versionVerified": true,
+      "candidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "masterCandidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
+      "candidateSha": "7f16da260f33874924ba9585d7ecb820a2ee6e1c",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
+      "previousVersion": "1.12.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -59,6 +66,7 @@
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.2.1",
+      "previousVersion": "1.2.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -66,20 +74,28 @@
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
+      "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.11",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "version": "1.29.12",
+      "previousVersion": "1.29.11",
+      "mergeState": "intermediate-master-backport",
+      "versionVerified": true,
+      "candidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
+      "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
+      "masterCandidateBranch": "release/own-lcl-maersk-balboa-20261125-master",
+      "candidateSha": "070c8b52dfdb9f1a8cb3262e2d89b403c991d31c",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
+      "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -87,6 +103,7 @@
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.2.3",
+      "previousVersion": "1.2.3",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -94,6 +111,7 @@
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.8.1",
+      "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -101,6 +119,7 @@
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.9.1",
+      "previousVersion": "1.9.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -108,6 +127,7 @@
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.2.1",
+      "previousVersion": "1.2.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -115,6 +135,7 @@
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.2.2",
+      "previousVersion": "1.2.2",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -122,6 +143,7 @@
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.4.1",
+      "previousVersion": "1.4.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -129,6 +151,7 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.43.1",
+      "previousVersion": "1.43.1",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     },
@@ -136,28 +159,30 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.17.0",
+      "previousVersion": "0.17.0",
       "mergeState": "unchanged-for-this-release",
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.31 → 1.124.32; other components unchanged.",
-  "mergeState": "master-candidate",
-  "productionDeploymentAuthorized": true,
+  "policyCheck": "PATCH: isolated master backport, all 17 master component versions verified; no staged Operations code included.",
+  "mergeState": "intermediate-master-backport",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging quote save verification pending"
+    "CI and authenticated staging validation pending; no production integration authorized before validation"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing REST/realtime contracts unchanged; runtime verification pending"
+    "realtime": "Existing event and SignalR contracts retained; runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Preserve reviewed negotiated air quote unit amounts when an eligible agent and/or cargo quantities change, including weight, packages and pallets.",
-    "Keep existing billing-quantity calculation and structural-context validations; explicit removals remain respected."
+    "Resolve approved Maersk Balboa charges across recreated IDs, normalize aliases and respect shipment modes",
+    "Load draft pricing lines from backend, surface failed previews and reject stale responses"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -214,7 +239,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+  "businessReleaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2104,5 +2129,152 @@
       "production": "not-deployed"
     },
     "schemaMigration": false
-  }
+  },
+  "previousOwnLclHotfixBaseline": {
+    "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+    "ecosystemVersion": "1.124.32",
+    "status": "master-candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.124.32",
+        "mergeState": "master-candidate",
+        "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+        "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+        "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.124.32",
+        "mergeState": "master-candidate",
+        "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+        "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+        "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+        "candidateSha": "a5d3ac0133b84c8e363061f2a5e326a85f9044bc",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.29.11",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.2.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.2.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.4.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.43.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.17.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "blockers": [
+      "CI and authenticated staging quote save verification pending"
+    ],
+    "validationEvidence": {
+      "ci": "pending",
+      "staging": "pending",
+      "realtime": "Existing REST/realtime contracts unchanged; runtime verification pending"
+    },
+    "changes": [
+      "Preserve reviewed negotiated air quote unit amounts when an eligible agent and/or cargo quantities change, including weight, packages and pallets.",
+      "Keep existing billing-quantity calculation and structural-context validations; explicit removals remain respected."
+    ]
+  },
+  "productionPromotionRequested": true
 }

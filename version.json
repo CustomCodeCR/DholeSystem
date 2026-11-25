@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.32",
-  "ecosystemVersion": "1.124.32",
-  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+  "version": "1.124.33",
+  "ecosystemVersion": "1.124.33",
+  "releaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
   "releaseStatus": "master-candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE"
+  "businessReleaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA"
 }
