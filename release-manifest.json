@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+  "releaseId": "DH-20261125-OWN-LCL-DRAWER",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.34",
-  "status": "candidate-master-backport-ci-staging-pending",
+  "ecosystemVersion": "1.124.35",
+  "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/own-lcl-wizard-bundle-20261125",
-    "master": "release/own-lcl-wizard-bundle-20261125-master"
+    "develop": "fix/own-lcl-drawer-20261125",
+    "master": "fix/own-lcl-drawer-20261125-master"
   },
-  "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+  "candidateBranch": "fix/own-lcl-drawer-20261125-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.34",
-      "previousVersion": "1.124.33",
-      "mergeState": "intermediate-master-backport",
+      "version": "1.124.35",
+      "previousVersion": "1.124.34",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+      "candidateBranch": "fix/own-lcl-drawer-20261125-master",
+      "developCandidateBranch": "fix/own-lcl-drawer-20261125",
+      "masterCandidateBranch": "fix/own-lcl-drawer-20261125-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.34",
-      "previousVersion": "1.124.33",
-      "mergeState": "intermediate-master-backport",
+      "version": "1.124.35",
+      "previousVersion": "1.124.34",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
-      "candidateSha": "297786ebb39b712435d787af3322cd882008ec15",
+      "candidateBranch": "fix/own-lcl-drawer-20261125-master",
+      "developCandidateBranch": "fix/own-lcl-drawer-20261125",
+      "masterCandidateBranch": "fix/own-lcl-drawer-20261125-master",
+      "candidateSha": "41c44ebbb7f4c37fb8231783e993689bd9a5f820",
       "developMergeSha": null
     },
     {
@@ -82,14 +82,9 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.13",
-      "previousVersion": "1.29.12",
-      "mergeState": "intermediate-master-backport",
-      "versionVerified": true,
-      "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
-      "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
-      "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
-      "candidateSha": "6dd5dbfb3dc00f5aa36a82ef52164785646ce492",
-      "developMergeSha": null
+      "previousVersion": "1.29.13",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -164,33 +159,135 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH: shared wizard bundle; unchanged component versions carried forward.",
-  "mergeState": "intermediate-master-backport",
+  "policyCheck": "PATCH: isolated master candidate with identical own-LCL view; no unrelated staging changes.",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging validation pending"
+    "Develop integration, CI and authenticated staging validation required before master promotion"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing event and SignalR contracts unchanged; runtime pending"
+    "realtime": "Existing REST/event contracts unchanged; runtime pending",
+    "baselineVersionChecks": [
+      {
+        "component": "DholeSystem",
+        "expected": "1.124.34",
+        "actual": "1.124.34",
+        "verified": true
+      },
+      {
+        "component": "DholeApiGateway",
+        "expected": "1.11.1",
+        "actual": "1.11.1",
+        "verified": true
+      },
+      {
+        "component": "DholeAuthService",
+        "expected": "1.17.1",
+        "actual": "1.17.1",
+        "verified": true
+      },
+      {
+        "component": "DholeWeb",
+        "expected": "1.124.34",
+        "actual": "1.124.34",
+        "verified": true
+      },
+      {
+        "component": "DholeConfigService",
+        "expected": "1.12.0",
+        "actual": "1.12.0",
+        "verified": true
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "expected": "1.2.1",
+        "actual": "1.2.1",
+        "verified": true
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "expected": "1.8.1",
+        "actual": "1.8.1",
+        "verified": true
+      },
+      {
+        "component": "DholePricingService",
+        "expected": "1.29.13",
+        "actual": "1.29.13",
+        "verified": true
+      },
+      {
+        "component": "DholeAIService",
+        "expected": "1.8.1",
+        "actual": "1.8.1",
+        "verified": true
+      },
+      {
+        "component": "DholeStorageService",
+        "expected": "1.2.3",
+        "actual": "1.2.3",
+        "verified": true
+      },
+      {
+        "component": "DholeReportsService",
+        "expected": "1.8.1",
+        "actual": "1.8.1",
+        "verified": true
+      },
+      {
+        "component": "DholeNotificationsService",
+        "expected": "1.9.1",
+        "actual": "1.9.1",
+        "verified": true
+      },
+      {
+        "component": "DholeContentService",
+        "expected": "1.2.1",
+        "actual": "1.2.1",
+        "verified": true
+      },
+      {
+        "component": "DholeAgentService",
+        "expected": "1.2.2",
+        "actual": "1.2.2",
+        "verified": true
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "expected": "1.4.1",
+        "actual": "1.4.1",
+        "verified": true
+      },
+      {
+        "component": "DholeCRMService",
+        "expected": "1.43.1",
+        "actual": "1.43.1",
+        "verified": true
+      },
+      {
+        "component": "DholeOperationsService",
+        "expected": "0.17.0",
+        "actual": "0.17.0",
+        "verified": true
+      }
+    ]
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholePricingService",
     "DholeWeb"
   ],
   "changes": [
-    "Use hydrated wizard-bundle cost query and selected IDs for own LCL destination preview/create/update.",
-    "Keep approved scoped fallback explicit; no unrelated staging code."
+    "Shared DhDrawer and DhTabs with data, costs/sales, FOB by country, linked quotes and fixed footer.",
+    "Identical source blob in Web develop and master candidates."
   ],
   "stagingValidation": {
     "status": "pending"
   },
   "f6F7F8": {
-    "status": "deferred-to-staging-by-explicit-user-authorization",
-    "formalGatesPassed": false,
-    "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
+    "status": "pending",
+    "formalGatesPassed": false
   },
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -239,7 +336,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+  "businessReleaseId": "DH-20261125-OWN-LCL-DRAWER",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -2438,5 +2535,172 @@
       "staging": "pending",
       "realtime": "Existing event and SignalR contracts retained; runtime pending"
     }
+  },
+  "previousOwnLclDrawerBaseline": {
+    "releaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
+    "ecosystemVersion": "1.124.34",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.124.34",
+        "previousVersion": "1.124.33",
+        "mergeState": "intermediate-master-backport",
+        "versionVerified": true,
+        "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.1",
+        "previousVersion": "1.17.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.124.34",
+        "previousVersion": "1.124.33",
+        "mergeState": "intermediate-master-backport",
+        "versionVerified": true,
+        "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "candidateSha": "297786ebb39b712435d787af3322cd882008ec15",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.29.13",
+        "previousVersion": "1.29.12",
+        "mergeState": "intermediate-master-backport",
+        "versionVerified": true,
+        "candidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "developCandidateBranch": "fix/own-lcl-wizard-bundle-20261125",
+        "masterCandidateBranch": "release/own-lcl-wizard-bundle-20261125-master",
+        "candidateSha": "6dd5dbfb3dc00f5aa36a82ef52164785646ce492",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.2.3",
+        "previousVersion": "1.2.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.2.2",
+        "previousVersion": "1.2.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.4.1",
+        "previousVersion": "1.4.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.43.1",
+        "previousVersion": "1.43.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.17.0",
+        "previousVersion": "0.17.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "validationEvidence": {
+      "ci": "pending",
+      "staging": "pending",
+      "realtime": "Existing event and SignalR contracts unchanged; runtime pending"
+    },
+    "branches": {
+      "develop": "fix/own-lcl-wizard-bundle-20261125",
+      "master": "release/own-lcl-wizard-bundle-20261125-master"
+    },
+    "status": "candidate-master-backport-ci-staging-pending"
   }
 }

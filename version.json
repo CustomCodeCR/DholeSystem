@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.34",
-  "ecosystemVersion": "1.124.34",
-  "releaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE",
-  "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-OWN-LCL-WIZARD-BUNDLE"
+  "version": "1.124.35",
+  "ecosystemVersion": "1.124.35",
+  "releaseId": "DH-20261125-OWN-LCL-DRAWER",
+  "releaseStatus": "master-candidate-ci-staging-pending",
+  "businessReleaseId": "DH-20261125-OWN-LCL-DRAWER"
 }
