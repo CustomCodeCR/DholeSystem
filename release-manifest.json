@@ -31,7 +31,7 @@
       "version": "1.11.1",
       "previousVersion": "1.11.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -39,7 +39,7 @@
       "version": "1.17.3",
       "previousVersion": "1.17.3",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
@@ -60,7 +60,7 @@
       "version": "1.12.0",
       "previousVersion": "1.12.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -68,7 +68,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -76,7 +76,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -84,7 +84,7 @@
       "version": "1.31.3",
       "previousVersion": "1.31.3",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -92,7 +92,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -100,7 +100,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -108,7 +108,7 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -116,7 +116,7 @@
       "version": "1.9.1",
       "previousVersion": "1.9.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -124,7 +124,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -132,7 +132,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -140,7 +140,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -148,7 +148,7 @@
       "version": "1.45.0",
       "previousVersion": "1.45.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": false
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -3090,6 +3090,11 @@
     "validation": {
       "ci": "pending",
       "staging": "pending"
+    },
+    "pullRequests": {
+      "DholeWeb": 1160,
+      "DholeOperationsService": 66,
+      "DholeSystem": 921
     }
   }
 }
