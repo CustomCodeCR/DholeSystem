@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "releaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.3",
+  "ecosystemVersion": "1.127.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
     "develop": "fix/operations-origin-handoff-realtime-20261125",
@@ -15,8 +15,8 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.3",
-      "previousVersion": "1.127.2",
+      "version": "1.127.4",
+      "previousVersion": "1.127.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
@@ -43,20 +43,20 @@
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "8104a146cb42ae188c8b22bd804555b73fd93fed",
+      "candidateSha": "69edeff7efb7d2ddd548e9478a5996883c427671",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.3",
-      "previousVersion": "1.127.2",
+      "version": "1.127.4",
+      "previousVersion": "1.127.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "bc2ce97dd2c8c6f310ea8f9a0d3f2b6556344c79",
+      "candidateSha": "5efe634a57dffa4e54387beae9a52df56e05992a",
       "developMergeSha": null
     },
     {
@@ -165,20 +165,20 @@
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "77c60414cc3a0c8d17f4513e44547ce50bb906b2",
+      "candidateSha": "d73591a0e8b8673a275478e525dbd8fc2f8ca6ea",
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: compatible Origin assignment notifications and Operations SignalR; all 17 develop baseline versions verified.",
+  "policyCheck": "PATCH: preserve Pricing IDTRA release 1.127.3 and coordinate Origin handoff realtime and notifications.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Web and System CI reruns and authenticated staging validation pending; deploy Auth before Operations."
+    "CI on rebased candidates and authenticated staging validation pending; deploy Auth before Operations."
   ],
   "validationEvidence": {
-    "ci": "Auth and Operations passed; Web regression assertions updated and Dynamics compose validation hardened; reruns pending.",
+    "ci": "Prior Auth/Operations checks passed; Web regression assertion and Compose validation corrected; new CI pending.",
     "staging": "pending",
-    "realtime": "Existing durable Operations event and dashboard hub retained; same-origin WebSocket routing and reconnect reconciliation added; runtime validation pending."
+    "realtime": "Existing durable events; same-origin WebSocket and reconciliation; runtime validation pending."
   },
   "releaseComponents": [
     "DholeSystem",
@@ -187,9 +187,10 @@
     "DholeOperationsService"
   ],
   "changes": [
-    "Persist separate System and Email requests per assigned Origin operator using the existing Notifications stream and channel-specific idempotency keys.",
-    "Resolve registered email through existing internal Auth eligibility endpoint; audit missing email without blocking assignment.",
-    "Subscribe Operations case list to the same authorized dashboard invalidation; use same-origin gateway WebSocket routing and reconcile after reconnect."
+    "Persist separate System and Email requests for assigned Origin operator with distinct idempotency keys.",
+    "Resolve Auth email and audit missing address.",
+    "Refresh dashboard and list through existing authorized Operations SignalR hub.",
+    "Preserve Pricing IDTRA changes and harden Dynamics Compose CI pipeline."
   ],
   "stagingValidation": {
     "status": "pending"

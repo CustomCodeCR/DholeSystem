@@ -1,6 +1,10 @@
+## [1.127.4] - 2026-11-25
+
+- Coordinate Origin handoff SignalR, System and Email notifications, retaining Pricing IDTRA release 1.127.3. Web/System 1.127.4, Operations 0.23.2, Auth 1.17.3. CI/staging pending; no production authorization.
+
 ## [1.127.3] - 2026-11-25
 
-- Coordinate DholeWeb 1.127.3, DholeOperationsService 0.23.2 and DholeAuthService 1.17.3 for Origin handoff SignalR, System and Email notifications. All 17 component baseline versions verified. CI and authenticated staging pending; deploy Auth before Operations. Production not authorized.
+- PATCH: reconciliación del IDTRA de Operations en listado de Pricing para QUO aceptadas, alternativas y múltiples expedientes. DholeWeb y DholeSystem 1.127.2 → 1.127.3; 15 servicios sin cambios, versiones base verificadas. CI/staging pendientes.
 
 ## [1.127.2] - 2026-11-25
 
