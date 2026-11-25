@@ -1,3 +1,7 @@
+## [1.127.1] - 2026-11-25
+
+- DH-20261125-PRICING-WIZARD-CONTEXT-P6: DholeWeb and DholeSystem 1.127.0 → 1.127.1. Preserve the canonical Pricing wizard context to accept current MSC Caldera Merchant/Carrier costs and reject stale alternatives. All 17 component baseline versions verified. No REST/realtime contract changes. CI/staging pending; develop only.
+
 ## [1.127.0] - 2026-11-25
 
 - DH-20261125-BOOKING-REQUEST-SHIPPER: add optional Booking Request Shipper document category in Pricing via existing Storage workflow. DholeWeb 1.127.0; CI and staging pending.
