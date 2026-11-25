@@ -1,3 +1,7 @@
+## [1.130.0] - 2026-11-25
+
+- MINOR: coordina exportación de cotizaciones por todos los estados, DholeWeb 1.130.0 y DholePricingService 1.32.0. Verificadas 17 versiones base; CI y staging pendientes.
+
 ## [1.129.3] - 2026-11-25
 
 - Coordinate individual aperture field validation in DholeWeb 1.129.3 and DholeOperationsService 0.25.2. All 17 develop baseline versions verified; CI and authenticated staging pending. Production not authorized.

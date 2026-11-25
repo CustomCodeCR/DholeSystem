@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-FIELD-VALIDATION",
+  "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.129.3",
+  "ecosystemVersion": "1.130.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-field-validation-20261125",
+    "develop": "feat/all-status-quotation-export-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-field-validation-20261125",
+  "candidateBranch": "feat/all-status-quotation-export-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.129.3",
-      "previousVersion": "1.129.2",
+      "version": "1.130.0",
+      "previousVersion": "1.129.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-field-validation-20261125",
-      "developCandidateBranch": "fix/operations-field-validation-20261125",
+      "candidateBranch": "feat/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.129.3",
-      "previousVersion": "1.129.2",
+      "version": "1.130.0",
+      "previousVersion": "1.129.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-field-validation-20261125",
-      "developCandidateBranch": "fix/operations-field-validation-20261125",
+      "candidateBranch": "feat/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "0aa7b1d3f215952e5d45852e708ea617f140321a",
+      "candidateSha": "bc71baad3a36409e54d6345efe261092a129b587",
       "developMergeSha": null
     },
     {
@@ -81,10 +81,15 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.31.3",
+      "version": "1.32.0",
       "previousVersion": "1.31.3",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "feat/all-status-quotation-export-20261125",
+      "developCandidateBranch": "feat/all-status-quotation-export-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "e507fd505955d04133d12f2325fc0e301f48c23a",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -154,14 +159,9 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.25.2",
-      "previousVersion": "0.25.1",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/operations-field-validation-20261125",
-      "developCandidateBranch": "fix/operations-field-validation-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "5e2617c43d7678c141d408e96b0070b3e0f39a4d",
-      "developMergeSha": null
+      "previousVersion": "0.25.2",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     }
   ],
   "policyCheck": "pending",
@@ -173,16 +173,16 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing case SignalR invalidation preserved; runtime pending"
+    "realtime": "Read-only export; existing SignalR list refresh preserved"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholePricingService"
   ],
   "changes": [
-    "Classify individual required, deferred and non-applicable opening fields using server policy",
-    "Show opening field status with existing DH badges in manual preview and persisted case; gate approval on no blockers"
+    "Use existing commercial workbook for rates, all states or selected states; creation dates and search preserved; no pagination.",
+    "Existing commercial report default and basic report API remain compatible."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -238,7 +238,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-FIELD-VALIDATION",
+  "businessReleaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -650,8 +650,8 @@
     "productionDeploymentAuthorized": false
   },
   "productionDeployment": {
-    "status": "not-authorized",
-    "releaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS"
+    "status": "authorized-requested-awaiting-staging",
+    "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -666,7 +666,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pickup opening completeness correction",
+  "releaseSummary": "All-status quotation export",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -738,7 +738,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "User requested develop only.",
+  "productionAuthorizationNote": "User requested develop and master; production promotion remains gated by staging.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -3096,5 +3096,167 @@
       "DholeOperationsService": 66,
       "DholeSystem": 921
     }
+  },
+  "previousOperationsFieldValidationRelease": {
+    "releaseId": "DH-20261125-OPS-FIELD-VALIDATION",
+    "ecosystemVersion": "1.129.3",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.129.3",
+        "previousVersion": "1.129.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-field-validation-20261125",
+        "developCandidateBranch": "fix/operations-field-validation-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.3",
+        "previousVersion": "1.17.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.129.3",
+        "previousVersion": "1.129.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-field-validation-20261125",
+        "developCandidateBranch": "fix/operations-field-validation-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "0aa7b1d3f215952e5d45852e708ea617f140321a",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.31.3",
+        "previousVersion": "1.31.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "previousVersion": "1.45.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.25.2",
+        "previousVersion": "0.25.1",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-field-validation-20261125",
+        "developCandidateBranch": "fix/operations-field-validation-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "5e2617c43d7678c141d408e96b0070b3e0f39a4d",
+        "developMergeSha": null
+      }
+    ],
+    "changes": [
+      "Classify individual required, deferred and non-applicable opening fields using server policy",
+      "Show opening field status with existing DH badges in manual preview and persisted case; gate approval on no blockers"
+    ]
   }
 }
