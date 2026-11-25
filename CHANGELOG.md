@@ -1,3 +1,7 @@
+## [1.124.34] - 2026-11-25
+
+- DH-20261125-OWN-LCL-WIZARD-BUNDLE: coordinate Pricing 1.29.13 and Web 1.124.34; same wizard bundle for own LCL destination charges. CI and staging pending.
+
 ## [1.124.33] - 2026-11-25
 
 - DH-20261125-OWN-LCL-MAERSK-BALBOA: isolated master backport of Pricing 1.29.12 and Web 1.124.33; all 17 baseline versions verified. CI and authenticated staging pending; no production integration yet.
