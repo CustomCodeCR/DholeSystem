@@ -160,7 +160,7 @@
       "candidateBranch": "fix/operations-field-validation-20261125",
       "developCandidateBranch": "fix/operations-field-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "d1458a522037ec0ddbb517a87cf057afc2fe1917",
+      "candidateSha": "5e2617c43d7678c141d408e96b0070b3e0f39a4d",
       "developMergeSha": null
     }
   ],
