@@ -1,3 +1,7 @@
+## [1.127.0] - 2026-11-25
+
+- DH-20261125-BOOKING-REQUEST-SHIPPER: add optional Booking Request Shipper document category in Pricing via existing Storage workflow. DholeWeb 1.127.0; CI and staging pending.
+
 ## [1.124.35] - 2026-11-25
 
 - DH-20261125-OWN-LCL-DRAWER: backport aislado DholeWeb/DholeSystem 1.124.34 → 1.124.35; mismo drawer de staging; no promover antes de validación de develop y CI.
