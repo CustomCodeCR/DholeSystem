@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
+  "releaseId": "DH-20261125-OPS-OPENING-CAPTURE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.130.0",
+  "ecosystemVersion": "1.130.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/all-status-quotation-export-20261125",
+    "develop": "fix/operations-opening-capture-20261125",
     "master": null
   },
-  "candidateBranch": "feature/all-status-quotation-export-20261125",
+  "candidateBranch": "fix/operations-opening-capture-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.130.0",
-      "previousVersion": "1.129.3",
+      "version": "1.130.1",
+      "previousVersion": "1.130.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "candidateBranch": "fix/operations-opening-capture-20261125",
+      "developCandidateBranch": "fix/operations-opening-capture-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.130.0",
-      "previousVersion": "1.129.3",
+      "version": "1.130.1",
+      "previousVersion": "1.130.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "candidateBranch": "fix/operations-opening-capture-20261125",
+      "developCandidateBranch": "fix/operations-opening-capture-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "bc71baad3a36409e54d6345efe261092a129b587",
+      "candidateSha": "08cbba7910ca3c0eb602e1805f179e04fd234815",
       "developMergeSha": null
     },
     {
@@ -82,8 +82,8 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.32.0",
-      "previousVersion": "1.31.3",
-      "mergeState": "intermediate-only",
+      "previousVersion": "1.32.0",
+      "mergeState": "unchanged-for-this-release",
       "versionVerified": true,
       "candidateBranch": "feature/all-status-quotation-export-20261125",
       "developCandidateBranch": "feature/all-status-quotation-export-20261125",
@@ -158,10 +158,15 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.25.2",
+      "version": "0.25.3",
       "previousVersion": "0.25.2",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-opening-capture-20261125",
+      "developCandidateBranch": "fix/operations-opening-capture-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "94389fa7f61a0af7c6d231d6b9fff70b87c1c47f",
+      "developMergeSha": null
     }
   ],
   "policyCheck": "pending",
@@ -173,17 +178,17 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Read-only export; existing SignalR list refresh preserved",
-    "regressionTests": "Web request parameter test; Pricing status mapping, invalid status and 23-column XLSX schema tests added; results pending"
+    "realtime": "Existing case events and drafts preserved; runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeOperationsService"
   ],
   "changes": [
-    "Use existing commercial workbook for rates, all states or selected states; creation dates and search preserved; no pagination.",
-    "Existing commercial report default and basic report API remain compatible."
+    "Opening capture services, providers and observations",
+    "Grouped completeness and CRM executive",
+    "Validate Config selections and persist manual case services"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -239,7 +244,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
+  "businessReleaseId": "DH-20261125-OPS-OPENING-CAPTURE",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
