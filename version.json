@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.27",
-  "ecosystemVersion": "1.124.27",
-  "releaseId": "DH-20261124-PRICING-HISTORICAL-EDIT",
+  "version": "1.124.28",
+  "ecosystemVersion": "1.124.28",
+  "releaseId": "DH-20261124-PRICING-DUPLICATE-RELINK",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-HISTORICAL-EDIT"
+  "businessReleaseId": "DH-20261124-PRICING-DUPLICATE-RELINK"
 }
