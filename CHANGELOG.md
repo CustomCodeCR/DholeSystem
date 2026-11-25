@@ -1,3 +1,7 @@
+## [1.127.0] - 2026-11-25
+
+- DH-20261125-BOOKING-REQUEST-SHIPPER: add optional Booking Request Shipper document category in Pricing via existing Storage workflow. DholeWeb 1.127.0; CI and staging pending.
+
 ## [1.126.4] - 2026-11-25
 
 - DH-20261125-OWN-LCL-DRAWER: DholeWeb/DholeSystem 1.126.3 → 1.126.4; editor LCL propio con DhDrawer, DhTabs y pie fijo. Los servicios conservan sus versiones; CI y staging pendientes.
