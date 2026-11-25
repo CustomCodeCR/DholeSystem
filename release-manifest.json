@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-OPENING-REALTIME",
+  "releaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.2",
+  "ecosystemVersion": "1.127.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-opening-realtime-20261125",
+    "develop": "fix/operations-origin-handoff-realtime-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-opening-realtime-20261125",
+  "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.2",
-      "previousVersion": "1.127.1",
+      "version": "1.127.3",
+      "previousVersion": "1.127.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -36,22 +36,27 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.17.2",
+      "version": "1.17.3",
       "previousVersion": "1.17.2",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "8104a146cb42ae188c8b22bd804555b73fd93fed",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.2",
-      "previousVersion": "1.127.1",
+      "version": "1.127.3",
+      "previousVersion": "1.127.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "f903649ca2d876f1c0b410559659d241fc8c2bfd",
+      "candidateSha": "a7ace678b39ac2e5a21616f9a3cb2f0cf2a17073",
       "developMergeSha": null
     },
     {
@@ -153,37 +158,38 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.23.1",
-      "previousVersion": "0.23.0",
+      "version": "0.23.2",
+      "previousVersion": "0.23.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "eca10fc544738678e33616966bf33984528118ee",
+      "candidateSha": "77c60414cc3a0c8d17f4513e44547ce50bb906b2",
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: compatible Operations dashboard SignalR and assigned reviewer notification; all 17 develop baseline versions verified.",
+  "policyCheck": "PATCH: compatible Origin assignment notifications and Operations SignalR; all 17 develop baseline versions verified.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated two-session staging validation pending"
+    "CI and authenticated two-session staging validation pending; Auth must be deployed before Operations."
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing Operations Hub extended with authorized dashboard invalidation; notification Outbox reuses existing stream and stable business key. Runtime smoke pending."
+    "realtime": "Existing durable Operations event and dashboard hub retained; same-origin WebSocket routing and reconnect reconciliation added; runtime validation pending."
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
+    "DholeAuthService",
     "DholeOperationsService"
   ],
   "changes": [
-    "Operations dashboard subscribes to existing authenticated Hub, debounced REST refresh and reconnect reconciliation.",
-    "Automatic Aperturas assignment publishes a System notification solely to its assigned reviewer; no legacy pair replay or acceptance older than 24 hours.",
-    "Retry-safe inbox fanout; no new DH visual components or REST changes."
+    "Persist separate System and Email requests per assigned Origin operator using the existing Notifications stream and channel-specific idempotency keys.",
+    "Resolve registered email through existing internal Auth eligibility endpoint; audit missing email without blocking assignment.",
+    "Subscribe Operations case list to the same authorized dashboard invalidation; use same-origin gateway WebSocket routing and reconcile after reconnect."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -239,7 +245,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-OPENING-REALTIME",
+  "businessReleaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

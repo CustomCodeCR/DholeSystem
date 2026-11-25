@@ -1,3 +1,7 @@
+## [1.127.3] - 2026-11-25
+
+- Coordinate DholeWeb 1.127.3, DholeOperationsService 0.23.2 and DholeAuthService 1.17.3 for Origin handoff SignalR, System and Email notifications. All 17 component baseline versions verified. CI and authenticated staging pending; deploy Auth before Operations. Production not authorized.
+
 ## [1.127.2] - 2026-11-25
 
 - Coordinate DholeWeb 1.127.2, DholeOperationsService 0.23.1 and DholeSystem 1.127.2 for Operations opening dashboard realtime and assigned reviewer System notifications. All 17 baseline component versions checked; CI and authenticated staging pending, production not authorized.
