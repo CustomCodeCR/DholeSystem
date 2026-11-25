@@ -1,3 +1,7 @@
+## [1.126.4] - 2026-11-25
+
+- DH-20261125-OWN-LCL-DRAWER: DholeWeb/DholeSystem 1.126.3 → 1.126.4; editor LCL propio con DhDrawer, DhTabs y pie fijo. Los servicios conservan sus versiones; CI y staging pendientes.
+
 ## [1.126.3] - 2026-11-25
 
 - DH-20261125-OWN-LCL-WIZARD-BUNDLE: coordinate Pricing 1.31.3 and Web 1.126.3; same wizard bundle for own LCL destination charges. CI and staging pending.
