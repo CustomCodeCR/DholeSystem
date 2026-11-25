@@ -47,7 +47,7 @@
       "candidateBranch": "feature/operations-commercial-completeness-20261124",
       "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "23477dd4246a4af4135a7030d5e784c0537ba16d",
+      "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
       "developMergeSha": null,
       "versionVerified": true,
       "previousVersion": "1.125.0"
@@ -2008,7 +2008,7 @@
       "DholeWeb": {
         "previous": "1.125.0",
         "next": "1.126.0",
-        "candidateSha": "23477dd4246a4af4135a7030d5e784c0537ba16d",
+        "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
         "pullRequest": 1139
       },
       "DholeOperationsService": {
