@@ -1,3 +1,7 @@
+## [1.132.2] - 2026-11-25
+
+- DH-20261125-FTL-EDIT-P6-P7: sincroniza Web/System, registra las 17 versiones del ecosistema verificadas en develop y prepara la corrección FTL P6 → P7. CI y staging pendientes; master no integrado.
+
 ## [1.132.1] - 2026-11-25
 - Coordinate DholeWeb 1.132.1 and DholeOperationsService 0.27.1 opening/Origin corrections; 14 other component versions verified unchanged against develop.
 - Staging and CI pending; no production authorization.
