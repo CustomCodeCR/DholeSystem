@@ -1,3 +1,7 @@
+## [1.124.30] - 2026-11-24
+
+- DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION: coordinar DholeWeb/System 1.124.30, normalizar contexto de cotización existente y diagnóstico de guardado; conservar validación de cambios reales. Demás microservicios sin modificaciones. CI y staging pendientes.
+
 ## [1.124.29] - 2026-11-24
 
 - DH-20261124-PRICING-COST-CONTEXT-RELINK: separar el vínculo CRM de la reconciliación de costos persistidos y reutilizar la verificación de P7 en P8. DholeWeb/System 1.124.29; Pricing 1.29.11. CI y staging pendientes.
