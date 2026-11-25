@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-MULTI-IDTRA",
+  "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.125.0",
+  "ecosystemVersion": "1.126.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-multi-idtra-20261124",
+    "develop": "feature/operations-commercial-completeness-20261124",
     "master": null
   },
-  "candidateBranch": "fix/operations-multi-idtra-20261124",
+  "candidateBranch": "feature/operations-commercial-completeness-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.125.0",
+      "version": "1.126.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-multi-idtra-20261124",
-      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
+      "candidateBranch": "feature/operations-commercial-completeness-20261124",
+      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
       "versionVerified": true,
-      "previousVersion": "1.124.34"
+      "previousVersion": "1.125.0"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -42,15 +42,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.125.0",
+      "version": "1.126.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-multi-idtra-20261124",
-      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
+      "candidateBranch": "feature/operations-commercial-completeness-20261124",
+      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "051a72d5bc70b8adc3496bcbe7959fb20ab98f2f",
+      "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
       "developMergeSha": null,
       "versionVerified": true,
-      "previousVersion": "1.124.34"
+      "previousVersion": "1.125.0"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -76,13 +76,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.30.0",
+      "version": "1.31.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "previousVersion": "1.29.11",
-      "candidateSha": "0635b6593a54a26bf3b8f5889901d87ccef3a1d9",
-      "candidateBranch": "fix/operations-multi-idtra-20261124",
-      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
+      "previousVersion": "1.30.0",
+      "candidateSha": "f16946e2c55f9f8c2c299d5c93b873db2d9aa286",
+      "candidateBranch": "feature/operations-commercial-completeness-20261124",
+      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
       "masterCandidateBranch": null,
       "developMergeSha": null
     },
@@ -145,42 +145,42 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.22.0",
+      "version": "0.23.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "previousVersion": "0.21.3",
-      "candidateBranch": "fix/operations-multi-idtra-20261124",
-      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
+      "previousVersion": "0.22.0",
+      "candidateBranch": "feature/operations-commercial-completeness-20261124",
+      "developCandidateBranch": "feature/operations-commercial-completeness-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "7f7b117ea9e4f345a27528e86f43da1854b01776",
+      "candidateSha": "35e521b604b03076868d6d785e282b2a354b72f6",
       "developMergeSha": null
     }
   ],
-  "policyCheck": "MINOR: multiple explicit IDTRAs per accepted QUO; Pricing 1.30.0, Operations 0.22.0, Web/System 1.125.0; unchanged other services.",
+  "policyCheck": "MINOR: additive compatible commercial and operational contracts. Verified baseline versions for all 17 components. Web/System share global SemVer.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending",
-    "Source identifier conflicts require reconciliation; shared commercial values are not per-case financial allocations",
-    "Staging authenticated navigation and Origin transfer verification pending; historical route without explicit country requires reconciliation"
+    "CI and authenticated staging validation pending for final candidate SHAs",
+    "Merchant and supplier by row are not persisted on inspected RateHeader/RateDetail contracts; do not infer providers or overwrite historical snapshots",
+    "Historical snapshots require verified accepted revision and separate reconciliation for data absent at capture",
+    "Remaining modal/Incoterm/route and CRM contract coverage must be validated against actual cases"
   ],
   "validationEvidence": {
-    "ci": "pending",
+    "ci": "pending final candidates",
     "staging": "pending",
-    "realtime": "Existing accepted-quote outbox/inbox and case-created events; runtime pending"
+    "realtime": "Existing Redis Outbox/Inbox and SignalR/REST contracts retained; authenticated runtime pending"
   },
   "releaseComponents": [
-    "DholeOperationsService",
-    "DholePricingService",
+    "DholeSystem",
     "DholeWeb",
-    "DholeSystem"
+    "DholeOperationsService",
+    "DholePricingService"
   ],
   "changes": [
-    "Parse comma-separated explicit IDTRAs and publish one durable event per unique identifier",
-    "Allow multiple Operations cases for the same selected QUO with independent snapshots and global IDTRA uniqueness",
-    "Preserve one automatic case for ordinary accepted quotes; reconcile shared commercial data",
-    "Close approved case and reuse Operations workspace tab; server-side DH pagination and synchronized department/team selection",
-    "Recover pending Origin assignments using configured USA/FCL/LCL-AIR routing and authorized weighted pool"
+    "Preserve additional verified Pricing logistics, terms and provider references in accepted QUO snapshot without altering the accepted version",
+    "Consume canonical Pricing quantity and monetary subtotals with historical fallbacks and enforce financial scopes",
+    "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
+    "Expose commercial metadata and capture pickup data with shared DH components"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -236,7 +236,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-MULTI-IDTRA",
+  "businessReleaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -672,7 +672,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Accepted QUO comparison, commercial semaphore and case-scoped CRM contacts",
+  "releaseSummary": "Accepted QUO inheritance and conditional aperture validation improvements",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -744,7 +744,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "User requested this business fix in develop/master; infrastructure productionDeploymentAuthorized remains false per realtime F10 safety policy; business Web/Pricing deploys via master.",
+  "productionAuthorizationNote": "User requested develop only.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -835,7 +835,7 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionAuthorization": "user explicitly authorized deployment; realtime flags kept false",
+  "productionAuthorization": "Not authorized for this release",
   "pricingRateRequestReturnPromotion": {
     "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
     "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
@@ -1027,7 +1027,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "User authorized business promotion to master after CI and staging; realtime fail-closed flag remains false",
+  "productionAuthorizationScope": "Staging only; no master integration or production deployment.",
   "releaseMasterIntegrationRequested": false,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1065,17 +1065,21 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeWeb": {
-      "previousVersion": "1.124.13",
-      "newVersion": "1.124.14"
-    },
     "DholeSystem": {
-      "previousVersion": "1.124.13",
-      "newVersion": "1.124.14"
+      "previousVersion": "1.125.0",
+      "newVersion": "1.126.0"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.125.0",
+      "newVersion": "1.126.0"
+    },
+    "DholeOperationsService": {
+      "previousVersion": "0.22.0",
+      "newVersion": "0.23.0"
     },
     "DholePricingService": {
-      "previousVersion": "1.29.9",
-      "newVersion": "1.29.10"
+      "previousVersion": "1.30.0",
+      "newVersion": "1.31.0"
     }
   },
   "pricingP7EditRelease": {
@@ -1990,5 +1994,50 @@
       "production": "not-deployed"
     },
     "schemaMigration": false
+  },
+  "operationsCommercialCompletenessRelease": {
+    "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
+    "target": "develop",
+    "versions": {
+      "DholeSystem": {
+        "previous": "1.125.0",
+        "next": "1.126.0",
+        "candidateSha": null,
+        "pullRequest": null
+      },
+      "DholeWeb": {
+        "previous": "1.125.0",
+        "next": "1.126.0",
+        "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
+        "pullRequest": 1139
+      },
+      "DholeOperationsService": {
+        "previous": "0.22.0",
+        "next": "0.23.0",
+        "candidateSha": "35e521b604b03076868d6d785e282b2a354b72f6",
+        "pullRequest": 61
+      },
+      "DholePricingService": {
+        "previous": "1.30.0",
+        "next": "1.31.0",
+        "candidateSha": "f16946e2c55f9f8c2c299d5c93b873db2d9aa286",
+        "pullRequest": 382
+      }
+    },
+    "changes": [
+      "Preserve additional verified Pricing logistics, terms and provider references in accepted QUO snapshot without altering the accepted version",
+      "Consume canonical Pricing quantity and monetary subtotals with historical fallbacks and enforce financial scopes",
+      "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
+      "Expose commercial metadata and capture pickup data with shared DH components"
+    ],
+    "blockers": [
+      "CI and authenticated staging validation pending for final candidate SHAs",
+      "Merchant and supplier by row are not persisted on inspected RateHeader/RateDetail contracts; do not infer providers or overwrite historical snapshots",
+      "Historical snapshots require verified accepted revision and separate reconciliation for data absent at capture",
+      "Remaining modal/Incoterm/route and CRM contract coverage must be validated against actual cases"
+    ],
+    "productionAuthorized": false,
+    "rollback": "Revert coordinated candidate PRs in develop; no schema migration. Existing v1 acceptance payload fields remain compatible.",
+    "previousReleaseId": "DH-20261124-OPS-MULTI-IDTRA"
   }
 }

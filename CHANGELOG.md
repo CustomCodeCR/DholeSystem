@@ -1,3 +1,7 @@
+## [1.126.0] - 2026-11-24
+
+- Coordinate Pricing 1.31.0, Operations 0.23.0 and Web 1.126.0 for additive accepted-quote inheritance and conditional validation; preserve all unchanged component versions. Staging only, CI and authenticated verification pending. Missing historical supplier/merchant references remain unresolved, without fabricating data.
+
 - Correct approval exit and workspace tabs; use DH pagination; route approved openings to USA/FCL/LCL-AIR Origin teams and recover existing pending assignments.
 
 ## [1.125.0] - 2026-11-24
