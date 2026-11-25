@@ -1,6 +1,10 @@
-## [1.129.4] - 2026-11-25
+## [1.130.1] - 2026-11-25
 
-- Coordinate opening capture correction: service catalog, providers, observations, grouped completeness and CRM executive validation. Web 1.129.4, Operations 0.25.3; CI/staging pending.
+- Coordinate opening capture correction: service catalog, providers, observations, grouped completeness and CRM executive validation. Web 1.130.1, Operations 0.25.3; preserve quotation export release. CI/staging pending.
+
+## [1.130.0] - 2026-11-25
+
+- MINOR: coordina exportación de cotizaciones por todos los estados, DholeWeb 1.130.0 y DholePricingService 1.32.0. Verificadas 17 versiones base; CI y staging pendientes.
 
 ## [1.129.3] - 2026-11-25
 
