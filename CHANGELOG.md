@@ -1849,6 +1849,12 @@
 
 # Changelog
 
+## [1.128.0] - 2026-11-25 · DH-20261125-OPS-OPENING-VALIDATION
+
+- MINOR: candidato coordinado DholeWeb 1.128.0 y DholeOperationsService 0.24.0 para validaciones de apertura manual.
+- Sin cambios a master; CI y pruebas de staging pendientes.
+
+
 ## [1.19.4] - 2026-11-10
 
 - PATCH DH-20261110-CRM-HISTORICAL-ACTIVITIES-075: incorpora DholeWeb 1.19.4 y DholeCRMService 1.9.1 para guardar actividades CRM en fechas pasadas como completadas, sin alterar recordatorios futuros ni enviar avisos retroactivos.

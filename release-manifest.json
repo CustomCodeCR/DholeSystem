@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
+  "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.4",
+  "ecosystemVersion": "1.128.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-origin-handoff-realtime-20261125",
+    "develop": "fix/operations-opening-validation-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+  "candidateBranch": "fix/operations-opening-validation-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.4",
-      "previousVersion": "1.127.3",
+      "version": "1.128.0",
+      "previousVersion": "1.127.4",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
-      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "candidateBranch": "fix/operations-opening-validation-20261125",
+      "developCandidateBranch": "fix/operations-opening-validation-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -37,26 +37,21 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.3",
-      "previousVersion": "1.17.2",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
-      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "69edeff7efb7d2ddd548e9478a5996883c427671",
-      "developMergeSha": null
+      "previousVersion": "1.17.3",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.4",
-      "previousVersion": "1.127.3",
+      "version": "1.128.0",
+      "previousVersion": "1.127.4",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
-      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "candidateBranch": "fix/operations-opening-validation-20261125",
+      "developCandidateBranch": "fix/operations-opening-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "4559a0d53e75133f5ed7033d034550320a37da13",
+      "candidateSha": "159f9eee0549cb8433835e7d641920d53aa75076",
       "developMergeSha": null
     },
     {
@@ -158,28 +153,22 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.23.2",
-      "previousVersion": "0.23.1",
+      "version": "0.24.0",
+      "previousVersion": "0.23.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
-      "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
+      "candidateBranch": "fix/operations-opening-validation-20261125",
+      "developCandidateBranch": "fix/operations-opening-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "d73591a0e8b8673a275478e525dbd8fc2f8ca6ea",
+      "candidateSha": "c7d1b654df54d240378e107de08088f515a8adb2",
       "developMergeSha": null
     }
   ],
   "policyCheck": "PATCH: preserve Pricing IDTRA release 1.127.3 and coordinate Origin handoff realtime and notifications.",
   "mergeState": "intermediate-only",
-  "productionDeploymentAuthorized": false,
   "blockers": [
     "CI on rebased candidates and authenticated staging validation pending; deploy Auth before Operations."
   ],
-  "validationEvidence": {
-    "ci": "Compose and manifest checks passed; Web case event compatibility corrected; latest checks pending.",
-    "staging": "pending",
-    "realtime": "Existing durable events; same-origin WebSocket and reconciliation; runtime validation pending."
-  },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
@@ -192,9 +181,6 @@
     "Refresh dashboard and list through existing authorized Operations SignalR hub.",
     "Preserve Pricing IDTRA changes and harden Dynamics Compose CI pipeline."
   ],
-  "stagingValidation": {
-    "status": "pending"
-  },
   "f6F7F8": {
     "status": "pending",
     "formalGatesPassed": false
@@ -216,27 +202,6 @@
     "DholeSystem",
     "DholeApiGateway"
   ],
-  "stagingCatalogPilot": {
-    "enabledOnlyInStaging": true,
-    "scope": "config.catalog-list,pricing.cost-list,pricing.rate-list,crm.accountlist,crm.leadlist",
-    "hub": "/api/notifications/hub",
-    "catalogSignalGuid": "00000000-0000-4000-8000-000000000042",
-    "authorizedWsEndToEndValidated": false,
-    "productionApproved": false,
-    "notes": "Read-only owner ACL per collection; CRM visibility filtered by user. Two-session E2E for Config, Pricing and CRM pending; other entities require additional producer/list bindings."
-  },
-  "stagingRealtimeAudit": {
-    "checks": [
-      "public index bundle matches staging container",
-      "anonymous public and internal SignalR negotiate return authorization denial",
-      "Config/Notifications runtime feature flags on staging only",
-      "Notifications Config consumer group exists in staging Redis"
-    ],
-    "status": "initial-runtime-audit-pass-2026-11-10-readonly",
-    "productionDeploymentAuthorized": false,
-    "authenticatedCrossUserDeliveryVerified": false,
-    "streamConsumerLagPendingVerification": true
-  },
   "historicalQuoteCatalogRelease": {
     "releaseId": "DH-20261109-CRM-LEGACY-QUO-CATALOG-055",
     "components": {
@@ -247,22 +212,6 @@
     "status": "candidate-develop-staging-pending"
   },
   "businessReleaseId": "DH-20261125-OPS-ORIGIN-HANDOFF",
-  "stagingCollectionRealtime": {
-    "scope": "crm account/lead and pricing rate/cost",
-    "hub": "/api/notifications/hub",
-    "ownerAclRoutes": [
-      "/api/crm/accounts/realtime-access",
-      "/api/crm/leads/realtime-access",
-      "/api/pricing/rates/realtime-access",
-      "/api/pricing/costs/realtime-access"
-    ],
-    "metadataOnly": true,
-    "durableOutbox": true,
-    "featureFlags": "staging only",
-    "browserTwoUsersVerified": false,
-    "productionDeploymentAuthorized": false,
-    "notes": "Owner ACL 404 corrected. Additional domain resources require per-module realtime producer and screen bindings; user-data ACL and dirty-form protection remain mandatory."
-  },
   "historicalQuoteLinkSyncRelease": {
     "releaseId": "DH-20261109-CRM-QUO-LINK-SYNC-056",
     "web": "1.16.1",
@@ -301,15 +250,6 @@
     "testsPassed": false,
     "productionDeploymentAuthorized": false
   },
-  "crmPricingLinkedQuoteRelease": {
-    "releaseId": "DH-20261110-CRM-QUO-LIVE-057",
-    "versions": {
-      "DholeSystem": "1.17.1",
-      "DholeWeb": "1.17.1",
-      "DholePricingService": "1.9.3"
-    },
-    "status": "candidate-staging-pending"
-  },
   "crmLegacySuperAdminRelease": {
     "releaseId": "DH-20261110-CRM-QUO-SUPERADMIN-058",
     "components": {
@@ -336,15 +276,6 @@
       "No regression Castro Fallas / REST / realtime"
     ],
     "rollback": "Revert release PRs; no database migration."
-  },
-  "crmQuoteStatusLocalizationRelease": {
-    "releaseId": "DH-20261110-CRM-QUO-STATUS-061",
-    "components": {
-      "DholeWeb": "1.17.8",
-      "DholeSystem": "1.17.8"
-    },
-    "status": "candidate-staging-pending",
-    "scope": "Display status enum translations in CRM without changing Pricing server state"
   },
   "crmAccountTaxIdSearchRelease": {
     "releaseId": "DH-20261110-CRM-ACCOUNT-SEARCH-064",
@@ -397,16 +328,6 @@
       "/api/crm/followups/{id}/parent-activity"
     ],
     "status": "candidate-ci-staging-pending"
-  },
-  "pricingLegacyTariffVisibilityRelease": {
-    "releaseId": "DH-20261110-CRM-HIDE-TARIFARIO-067",
-    "pricingRepository": "CustomCodeCR/DholePricingService",
-    "pricingFrom": "1.9.10",
-    "pricingTo": "1.9.11",
-    "scope": "CRM / Cuentas / Cotizaciones: excluir clientes históricos que contienen TARIFARIO únicamente del catálogo sin vincular",
-    "behavior": "Filtro en SQL antes de Count/Skip/Take; no elimina datos ni altera tarifas vinculadas",
-    "staging": "pending",
-    "productionAuthorized": false
   },
   "crmAdminCalendarRelease": {
     "releaseId": "DH-20261110-CRM-ADMIN-CALENDAR-069",
@@ -507,29 +428,6 @@
     "schemaMigration": false,
     "productionDeploymentAuthorized": false
   },
-  "crmSpecificProceduresRelease": {
-    "releaseId": "DH-20261110-CRM-ACCOUNT-PROCEDURES-080",
-    "ecosystemVersion": "1.22.0",
-    "componentVersions": {
-      "DholeCRMService": {
-        "from": "1.10.0",
-        "to": "1.11.0"
-      },
-      "DholeWeb": {
-        "from": "1.21.0",
-        "to": "1.22.0"
-      },
-      "DholeSystem": {
-        "from": "1.21.0",
-        "to": "1.22.0"
-      }
-    },
-    "feature": "Multiple account-specific procedures (name, detail, assigned team), account-scoped REST CRUD and responsive accordion",
-    "schemaMigration": "20261111030000_AddAccountSpecificProcedures",
-    "realtime": "Reuse crm.account.updated.v1 with existing transactional Outbox/SignalR when enabled",
-    "status": "candidate-intermediate-ci-staging-pending",
-    "productionDeploymentAuthorized": false
-  },
   "crmLeadQuoParityRelease": {
     "releaseId": "DH-20261110-CRM-LEAD-QUO-PARITY-082",
     "ecosystemVersion": "1.23.0",
@@ -569,17 +467,6 @@
     },
     "productionDeploymentAuthorized": false,
     "rollback": "Revert coordinated pull requests; no database migration"
-  },
-  "crmSpecificProcedureAttachmentsRelease": {
-    "releaseId": "DH-20261111-CRM-PROCEDURE-ATTACHMENTS-085",
-    "ecosystemVersion": "1.27.0",
-    "components": {
-      "DholeSystem": "1.27.0",
-      "DholeCRMService": "1.15.0",
-      "DholeWeb": "1.27.0"
-    },
-    "approval": "ci-and-staging-pending",
-    "productionDeploymentAuthorized": false
   },
   "crmAgreementListRelease": {
     "releaseId": "DH-20261111-CRM-AGREEMENT-LIST-085",
@@ -657,32 +544,6 @@
     "backendUnchanged": true,
     "productionDeploymentAuthorized": false
   },
-  "productionDeployment": {
-    "authorizedOn": "2026-11-13",
-    "releaseId": "DH-20261113-PRODUCTION-DEPLOY-SKIP-135",
-    "services": [
-      "DholeAuthService",
-      "DholeCRMService",
-      "DholeWeb"
-    ],
-    "authorization": "User requested immediate deployment",
-    "status": "authorized-by-user-but-pending-ci-staging",
-    "rollback": "Revert corresponding master PRs and restore prior component images if health checks fail"
-  },
-  "crmAgendaNotesRelease": {
-    "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
-    "webFrom": "1.48.4",
-    "webTo": "1.49.0",
-    "crmFrom": "1.28.3",
-    "crmTo": "1.28.4",
-    "systemFrom": "1.48.4",
-    "systemTo": "1.49.0",
-    "sourceBranch": "feature/crm-agenda-client-seller-notes-136-develop",
-    "backendContractUnchanged": true,
-    "productionDeploymentAuthorized": false,
-    "staging": "pending"
-  },
-  "releaseSummary": "Fix Pricing P6 wizard-bundle context and restore Merchant/Carrier options",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -695,7 +556,6 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": null,
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",
@@ -754,7 +614,6 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "User requested develop only.",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -790,23 +649,6 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "gcfCifRelease": {
-    "releaseId": "DH-20261119-GCF-CIF-268",
-    "version": "1.98.1",
-    "originBranch": "fix/DH-20261119-GCF-CIF-268",
-    "status": "candidate-ci-and-staging-pending",
-    "components": [
-      "DholeWeb",
-      "DholeSystem"
-    ],
-    "acceptance": [
-      "249 ISO country codes materialized in metadata on save",
-      "GCF offered for unmatched POL",
-      "CIF import duplicated without ocean freight",
-      "FOB import freight guard remains"
-    ],
-    "productionAuthorized": false
-  },
   "clientCountryOperationRelease": {
     "releaseId": "DH-20261119-PRICING-CLIENT-COUNTRY-PROD-271",
     "globalVersion": "1.102.0",
@@ -825,70 +667,6 @@
     },
     "status": "pending CI/staging"
   },
-  "pricingRateRequestReturnRelease": {
-    "releaseId": "DH-20261119-PRICING-RETURN-REQUEST-271",
-    "globalVersion": "1.101.0",
-    "componentVersions": {
-      "DholePricingService": "1.25.0",
-      "DholeWeb": "1.101.0",
-      "DholeSystem": "1.101.0"
-    },
-    "backendBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-    "webBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-    "systemBranch": "feature/DH-20261119-PRICING-RETURN-REQUEST-271-develop",
-    "expectedOutcomes": [
-      "Pricing can return unlinked open request with a non-empty 10–1000 char reason and active lease",
-      "Seller gets System and Email events via durable outbox",
-      "Seller dashboard displays reason and edit/resubmit of original request",
-      "Open queue receives corrected request again"
-    ],
-    "stagingValidation": "pending",
-    "productionDeploymentAuthorized": false
-  },
-  "productionAuthorization": "Not authorized for this release",
-  "pricingRateRequestReturnPromotion": {
-    "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
-    "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
-    "componentVersions": {
-      "DholeWeb": "1.103.0",
-      "DholeSystem": "1.103.0",
-      "DholePricingService": "1.25.1"
-    },
-    "sourceRelease": "DH-20261119-PRICING-RETURN-REQUEST-271",
-    "sourceStaging": {
-      "pricing": "success",
-      "web": "success"
-    },
-    "authorization": "User expressly requested master promotion",
-    "infrastructureDeploymentAuthorized": false,
-    "productionDeployTriggeredByMasterMerge": true
-  },
-  "pricingWizardRouteOperationHotfixRelease": {
-    "releaseId": "DH-20261119-WIZARD-ROUTE-REF-273",
-    "components": [
-      "DholeSystem",
-      "DholeWeb"
-    ],
-    "previousVersion": "1.103.0",
-    "version": "1.103.1",
-    "webCandidateSha": "3e9d606c61aecb6aad7d8f8f0b1ace684128a10b",
-    "branch": "fix/DH-20261119-WIZARD-ROUTE-REF-273-develop",
-    "validation": "pending CI and staging",
-    "productionDeploymentAuthorized": false
-  },
-  "pricingWizardRouteRuntimeFixRelease": {
-    "releaseId": "DH-20261119-WIZARD-ROUTE-RUNTIME-274",
-    "version": "1.103.2",
-    "previousVersion": "1.103.1",
-    "components": [
-      "DholeSystem",
-      "DholeWeb"
-    ],
-    "branch": "fix/DH-20261119-WIZARD-ROUTE-RUNTIME-274-develop",
-    "webCandidateSha": "c09150e8ebd5297d93d3a5153a970d85aded6c92",
-    "validation": "CI/staging pending",
-    "productionDeploymentAuthorized": false
-  },
   "crmFollowupEditingRelease": {
     "releaseId": "DH-20261119-CRM-FOLLOWUP-EDIT-281",
     "releaseType": "PATCH",
@@ -901,38 +679,6 @@
     "description": "Versioned editing of CRM followups and reminders with audit, invitation preservation and durable re-enqueue",
     "branch": "feature/DH-20261119-CRM-FOLLOWUP-EDIT-281-system-sync",
     "stagingValidation": "pending",
-    "productionDeploymentAuthorized": false
-  },
-  "commercialDashboardFilterRelease": {
-    "releaseId": "DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
-    "releaseType": "PATCH",
-    "previousVersion": "1.103.12",
-    "ecosystemVersion": "1.103.13",
-    "components": {
-      "DholeWeb": "1.103.13",
-      "DholeSystem": "1.103.13"
-    },
-    "otherComponentsUnchanged": 15,
-    "scope": "Filtro global Ventas fechas/vendedor/modalidad, desempeño negativo vencimientos y cinco categorías de importes.",
-    "candidateBranch": "feature/DH-20261119-DASHBOARD-GLOBAL-FILTER-291",
-    "ci": "pending",
-    "staging": "pending",
-    "productionDeploymentAuthorized": false
-  },
-  "commercialPerformanceCorrectionRelease": {
-    "releaseId": "DH-20261119-DASHBOARD-PERFORMANCE-292",
-    "previousVersion": "1.103.13",
-    "ecosystemVersion": "1.103.14",
-    "type": "PATCH",
-    "components": {
-      "DholeSystem": "1.103.14",
-      "DholeWeb": "1.103.14"
-    },
-    "otherComponentsUnchanged": 15,
-    "formula": "(AcceptedByClient - Expired)/(Sent + AcceptedByClient + RejectedByClient + Expired)*100",
-    "branch": "fix/DH-20261119-DASHBOARD-PERFORMANCE-292",
-    "ci": "pending",
-    "staging": "pending",
     "productionDeploymentAuthorized": false
   },
   "sellerDashboardPortfolioParityRelease": {
@@ -954,11 +700,6 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "releaseNotes": [
-    "Preserve canonical full Pricing context through runtime source transforms; retain equipment, cargo and CRM identity.",
-    "Reject stale wizard-bundle responses explicitly and use backend contextual haulage rows instead of discarding successful responses.",
-    "Regression coverage for MSC Caldera, multiple POE/carrier changes and saved context; no REST, realtime, DB or shared component changes."
-  ],
   "expiredRateAuthorizationRelease": {
     "releaseId": "DH-20261120-EXPIRED-RATE-APPROVAL-301",
     "releaseType": "MINOR",
@@ -1015,17 +756,6 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "preferentialPricingRuntimeRelease": {
-    "releaseId": "DH-20261120-PRICING-CRM-PREFERRED-RUNTIME-331",
-    "rootCause": "pricingFtlLandCostsFix source replacement omitted loadCustomerPreferentialRates()",
-    "componentVersions": {
-      "DholeWeb": "1.105.1",
-      "DholeSystem": "1.105.1",
-      "DholeCRMService": "1.42.8"
-    },
-    "stagingValidation": "pending",
-    "productionValidation": "pending"
-  },
   "operationsTramitesWorkspaceRelease": {
     "releaseId": "DH-20261120-OPERATIONS-TRAMITES-UX-332",
     "web": "1.106.0",
@@ -1037,9 +767,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "Staging only; no master integration or production deployment.",
   "releaseMasterIntegrationRequested": false,
-  "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
     "from": {
@@ -1084,70 +812,6 @@
       "newVersion": "1.127.1"
     }
   },
-  "pricingP7EditRelease": {
-    "releaseId": "DH-20261121-PRICING-P7-EDIT-380",
-    "components": [
-      "DholeSystem",
-      "DholeWeb",
-      "DholePricingService"
-    ],
-    "versions": {
-      "DholeSystem": "1.108.13",
-      "DholeWeb": "1.108.13",
-      "DholePricingService": "1.26.13"
-    },
-    "approvals": {
-      "staging": false,
-      "production": false
-    },
-    "target": "develop"
-  },
-  "pricingWizardCosts390": {
-    "releaseId": "DH-20261121-WIZARD-COSTS-390",
-    "date": "2026-11-21",
-    "ecosystemVersion": "1.109.2",
-    "status": "candidate-develop-ci-pending",
-    "intermediateBranch": "fix/dh-390-wizard-costs",
-    "components": {
-      "DholePricingService": {
-        "previous": "1.26.18",
-        "next": "1.26.19"
-      },
-      "DholeWeb": {
-        "previous": "1.109.1",
-        "next": "1.109.2"
-      },
-      "DholeSystem": {
-        "previous": "1.109.1",
-        "next": "1.109.2"
-      }
-    },
-    "changes": [
-      "Preserve zero-valued variable Pickup/Delivery and valid zero tier charges in wizard-bundle applicable",
-      "Price Panama multimodal FCL 19000-kg excess using four LTL master cost definitions",
-      "Explicit reversible Anticipado/Redestino replacement during quote edit"
-    ],
-    "validation": "pending-CI-and-staging",
-    "productionDeploymentAuthorized": false,
-    "realtimeContractChanged": false,
-    "databaseMigration": false
-  },
-  "pricingWizardCosts391": {
-    "releaseId": "DH-20261121-P7-COSTS-391",
-    "ecosystemVersion": "1.109.3",
-    "components": {
-      "DholeWeb": {
-        "previous": "1.109.2",
-        "next": "1.109.3"
-      },
-      "DholeSystem": {
-        "previous": "1.109.2",
-        "next": "1.109.3"
-      }
-    },
-    "validation": "CI/staging pending",
-    "productionDeploymentAuthorized": false
-  },
   "operationsManualOpening392": {
     "releaseId": "DH-20261121-OPERATIONS-OPENING-IDTRA-392",
     "operationsVersion": "0.15.0",
@@ -1156,105 +820,6 @@
     "schemaMigration": "operations_cases.opening_data_json",
     "pricingAutomaticIntegration": "pending",
     "productionAuthorized": false
-  },
-  "pricingTranchesMiamiPanama393": {
-    "releaseId": "DH-20261121-PRICING-TRANCHE-MIAMI-PANAMA-393",
-    "globalVersion": "1.110.1",
-    "systemVersion": "1.110.1",
-    "webVersion": "1.110.1",
-    "pricingVersion": "1.26.20",
-    "webRepository": "CustomCodeCR/DholeWeb",
-    "webPullRequest": 990,
-    "pricingRepository": "CustomCodeCR/DholePricingService",
-    "pricingPullRequest": 340,
-    "workflowStatus": "CI-and-staging-pending",
-    "stagingVerified": false,
-    "productionAuthorized": false,
-    "safeguards": [
-      "Preserve historical rate details",
-      "No deployment to production without express approval",
-      "Run coordinated branch and version gates"
-    ]
-  },
-  "pricingFinalThreeFixes394": {
-    "releaseId": "DH-20261121-PRICING-LAST-THREE-FIXES-394",
-    "webVersion": "1.110.2",
-    "pricingVersion": "1.26.21",
-    "systemVersion": "1.110.2",
-    "changes": [
-      "LTL Panama 4 charges via POL to physical POE mapping",
-      "FCL multimodal separate inland freight",
-      "Own LCL Miami missing commercial FAK rows"
-    ],
-    "stagingVerified": false,
-    "ci": "pending",
-    "productionAuthorized": false,
-    "targetBranches": [
-      "develop",
-      "master"
-    ],
-    "sourceBranch": "fix/DH-394-pricing-final-three-cases"
-  },
-  "pricingFinalPolish395": {
-    "releaseId": "DH-20261121-PRICING-FINAL-POLISH-395",
-    "webVersion": "1.110.3",
-    "pricingVersion": "1.26.22",
-    "systemVersion": "1.110.3",
-    "changes": [
-      "Miami own-LCL VGM retained through matrix restore",
-      "FCL Panama land Freight not shadowed by Bunker label",
-      "LTL editable transitDays in cargo and P7"
-    ],
-    "stagingVerified": false,
-    "ci": "pending",
-    "productionAuthorized": false,
-    "targetBranches": [
-      "develop",
-      "master"
-    ]
-  },
-  "pricingRequiredLines396": {
-    "releaseId": "DH-20261121-PRICING-MISSING-LINES-396",
-    "globalVersion": "1.110.4",
-    "pricingVersion": "1.26.23",
-    "webVersion": "1.110.4",
-    "systemVersion": "1.110.4",
-    "fixes": [
-      "LCL Miami VGM from commercial plan on P7 rebuild and pre-save",
-      "FCL Panama land Freight independent of Bunker/ocean persisted through P7 rebuild"
-    ],
-    "stagingVerified": false,
-    "ci": "pending",
-    "productionAuthorized": false,
-    "targetBranches": [
-      "develop",
-      "master"
-    ]
-  },
-  "pricingFinalGuard397": {
-    "releaseId": "DH-20261121-PRICING-VGM-FCL-FINAL-397",
-    "globalVersion": "1.110.5",
-    "pricingVersion": "1.26.24",
-    "webVersion": "1.110.5",
-    "systemVersion": "1.110.5",
-    "previousRelease": "DH-20261121-PRICING-MISSING-LINES-396",
-    "fixes": [
-      "Keep own-Miami plan VGM included despite Incoterm other-party detection",
-      "Keep FCL multimodal Panama land Freight included despite Incoterm other-party detection",
-      "Ensure both required lines after Incoterm guard and before rate detail serialization"
-    ],
-    "stagingVerified": false,
-    "ci": "pending",
-    "productionAuthorized": false
-  },
-  "operationsPricingWizard399": {
-    "releaseId": "DH-20261121-OPERATIONS-PRICING-UI-399",
-    "webVersion": "1.111.0",
-    "systemVersion": "1.111.0",
-    "operationsVersion": "0.15.0",
-    "pricingFormsShared": true,
-    "masterRequested": true,
-    "automaticQuoIntegration": "pending"
   },
   "operationsStepper400": {
     "releaseId": "DH-20261121-OPERATIONS-STEPPER-400",
@@ -1382,202 +947,6 @@
     },
     "note": "Only changed components have incremented versions. Unrelated historical manifest discrepancies are recorded, not overwritten."
   },
-  "pricingSentCrmFix": {
-    "releaseId": "DH-20261124-PRICING-SENT-CRM-FIX",
-    "previousManifest": {
-      "releaseId": "DH-20261124-OPS-ASSIGNED-WORKFLOW",
-      "ecosystemVersion": "1.124.2",
-      "status": "candidate-develop-ci-pending",
-      "branches": {
-        "develop": "fix/operations-assigned-workflow-20261124",
-        "master": null
-      },
-      "releaseComponents": [
-        "DholeSystem",
-        "DholeWeb",
-        "DholeOperationsService"
-      ],
-      "changes": [
-        "Case visibility limited to active team and personal assignment, team supervisors or system administrators",
-        "Automatic opening review surfaced in Dashboard and Trámites; dual validation retained",
-        "New manual openings sent directly to Origin with durable pool retry"
-      ],
-      "components": [
-        {
-          "repository": "CustomCodeCR/DholeSystem",
-          "component": "DholeSystem",
-          "version": "1.124.2",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/operations-assigned-workflow-20261124",
-          "candidateSha": null,
-          "developMergeSha": null,
-          "masterCandidateBranch": null,
-          "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
-        },
-        {
-          "repository": "CustomCodeCR/DholeApiGateway",
-          "component": "DholeApiGateway",
-          "version": "1.11.1",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-          "developCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-develop",
-          "masterCandidateBranch": "fix/DH-20261123-CORS-PREFLIGHT-419-master",
-          "candidateSha": "6e8bde709909a16f161f49955a6019a93340e00f",
-          "developMergeSha": null
-        },
-        {
-          "repository": "CustomCodeCR/DholeAuthService",
-          "component": "DholeAuthService",
-          "version": "1.17.2",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/operations-automatic-pool-20261124",
-          "candidateSha": "86560e75ece4f797ce9ae113285018e457ce1760",
-          "developMergeSha": null,
-          "developCandidateBranch": "fix/operations-automatic-pool-20261124",
-          "masterCandidateBranch": null
-        },
-        {
-          "repository": "CustomCodeCR/DholeWeb",
-          "component": "DholeWeb",
-          "version": "1.124.2",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/operations-assigned-workflow-20261124",
-          "candidateSha": "f43cd10b4f5b1691d81b9ef6b1a26fe6ead07be7",
-          "developMergeSha": null,
-          "masterCandidateBranch": null,
-          "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
-        },
-        {
-          "repository": "CustomCodeCR/DholeConfigService",
-          "component": "DholeConfigService",
-          "version": "1.12.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeAuditLogsService",
-          "component": "DholeAuditLogsService",
-          "version": "1.6.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeDataExtractionService",
-          "component": "DholeDataExtractionService",
-          "version": "1.9.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholePricingService",
-          "component": "DholePricingService",
-          "version": "1.29.3",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/seller-acceptance-20261124-develop",
-          "developCandidateBranch": "fix/seller-acceptance-20261124-develop",
-          "candidateSha": "3e50bef51def1703c67adc43a7568572535ab025",
-          "developMergeSha": null,
-          "masterCandidateBranch": null
-        },
-        {
-          "repository": "CustomCodeCR/DholeAIService",
-          "component": "DholeAIService",
-          "version": "1.9.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeStorageService",
-          "component": "DholeStorageService",
-          "version": "1.5.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeReportsService",
-          "component": "DholeReportsService",
-          "version": "1.8.1",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeNotificationsService",
-          "component": "DholeNotificationsService",
-          "version": "1.9.1",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "feature/DH-20261120-VERSION-NOTICES-361",
-          "candidateSha": null,
-          "developMergeSha": null
-        },
-        {
-          "repository": "CustomCodeCR/DholeContentService",
-          "component": "DholeContentService",
-          "version": "1.5.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeAgentService",
-          "component": "DholeAgentService",
-          "version": "1.6.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeDynamicsConnectorService",
-          "component": "DholeDynamicsConnectorService",
-          "version": "1.5.0",
-          "mergeState": "unchanged"
-        },
-        {
-          "repository": "CustomCodeCR/DholeCRMService",
-          "component": "DholeCRMService",
-          "version": "1.45.0",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/operations-quo-discrepancies-20261124",
-          "developCandidateBranch": "fix/operations-quo-discrepancies-20261124",
-          "masterCandidateBranch": null,
-          "candidateSha": "efed630b3d1ebd0854a698761991a0f0ee33a576",
-          "developMergeSha": null
-        },
-        {
-          "repository": "CustomCodeCR/DholeOperationsService",
-          "component": "DholeOperationsService",
-          "version": "0.21.1",
-          "mergeState": "intermediate-only",
-          "candidateBranch": "fix/operations-assigned-workflow-20261124",
-          "candidateSha": "5e9fe2412341007fee90e06e2a24762378680505",
-          "developMergeSha": null,
-          "masterCandidateBranch": null,
-          "developCandidateBranch": "fix/operations-assigned-workflow-20261124"
-        }
-      ],
-      "stagingValidation": {
-        "status": "pending"
-      }
-    },
-    "previousPricingVersion": "1.29.3",
-    "pricingVersion": "1.29.5",
-    "globalVersion": "1.124.3",
-    "target": "develop",
-    "pricingCandidateSha": "b2ce5523aebc0185e81e80e636628e84e310692c",
-    "verifiedUnchangedVersions": {
-      "DholeApiGateway": "1.11.1",
-      "DholeAuthService": "1.17.2",
-      "DholeConfigService": "1.12.0",
-      "DholeAuditLogsService": "1.6.0",
-      "DholeDataExtractionService": "1.9.0",
-      "DholeAIService": "1.9.0",
-      "DholeStorageService": "1.5.0",
-      "DholeReportsService": "1.8.1",
-      "DholeNotificationsService": "1.9.1",
-      "DholeContentService": "1.5.0",
-      "DholeAgentService": "1.6.0",
-      "DholeDynamicsConnectorService": "1.5.0",
-      "DholeCRMService": "1.45.0",
-      "DholeOperationsService": "0.21.1"
-    },
-    "ci": "pending",
-    "staging": "pending",
-    "production": "not-deployed",
-    "restCompatible": true,
-    "outboxCompatible": true,
-    "webVersion": "1.124.3",
-    "webCandidateSha": "ccfaa9e7e6aa0c423d38d960d2998da9fc22d74b",
-    "previousWebVersion": "1.124.2"
-  },
   "sellerExpiredRenewal": {
     "releaseId": "DH-20261124-SELLER-EXPIRED-RENEWAL",
     "ecosystemVersion": "1.124.5",
@@ -1641,115 +1010,6 @@
       "develop",
       "master"
     ]
-  },
-  "pricingLclEditNavigation": {
-    "releaseId": "DH-20261124-PRICING-LCL-EDIT-NAV",
-    "ecosystemVersion": "1.124.6",
-    "releaseType": "PATCH",
-    "targetBranch": "develop",
-    "targetBranches": [
-      "develop",
-      "master"
-    ],
-    "versions": {
-      "DholeSystem": {
-        "previousVersion": "1.124.5",
-        "newVersion": "1.124.6"
-      },
-      "DholeWeb": {
-        "previousVersion": "1.124.5",
-        "newVersion": "1.124.6"
-      }
-    },
-    "verifiedUnchangedVersions": {
-      "DholeApiGateway": "1.11.1",
-      "DholeAuthService": "1.17.2",
-      "DholeConfigService": "1.12.0",
-      "DholeAuditLogsService": "1.6.0",
-      "DholeDataExtractionService": "1.9.0",
-      "DholePricingService": "1.29.7",
-      "DholeAIService": "1.9.0",
-      "DholeStorageService": "1.5.0",
-      "DholeReportsService": "1.8.1",
-      "DholeNotificationsService": "1.9.1",
-      "DholeContentService": "1.5.0",
-      "DholeAgentService": "1.6.0",
-      "DholeDynamicsConnectorService": "1.5.0",
-      "DholeCRMService": "1.45.0",
-      "DholeOperationsService": "0.21.1"
-    },
-    "changes": [
-      "Hydrated LCL editable/duplicated quotation advances P6 to P7 without carrier or new tariff selection",
-      "Validate agent, currency, finite nonnegative freight amounts; apply existing DH-387 reconciliation",
-      "Preserve persisted lines, decimal values, REST/realtime contracts and save guards"
-    ],
-    "candidateShas": {
-      "DholeWeb": "2d8dabe2203aa15e1d72b2f00eb8e7a20ecf429a"
-    },
-    "validation": {
-      "ci": "pending",
-      "staging": "pending",
-      "production": "not-deployed"
-    },
-    "schemaMigration": false,
-    "restContractChanged": false,
-    "realtimeContractChanged": false
-  },
-  "globalCommercialActionsRelease": {
-    "releaseId": "DH-20261124-GLOBAL-COMMERCIAL-ACTIONS",
-    "ecosystemVersion": "1.124.9",
-    "releaseType": "PATCH",
-    "targetBranch": "develop",
-    "targetBranches": [
-      "develop",
-      "master"
-    ],
-    "versions": {
-      "DholeSystem": {
-        "previousVersion": "1.124.8",
-        "newVersion": "1.124.9"
-      },
-      "DholeWeb": {
-        "previousVersion": "1.124.8",
-        "newVersion": "1.124.9"
-      },
-      "DholePricingService": {
-        "previousVersion": "1.29.7",
-        "newVersion": "1.29.8"
-      }
-    },
-    "verifiedUnchangedVersions": {
-      "DholeApiGateway": "1.11.1",
-      "DholeAuthService": "1.17.2",
-      "DholeConfigService": "1.12.0",
-      "DholeAuditLogsService": "1.6.0",
-      "DholeDataExtractionService": "1.9.0",
-      "DholeAIService": "1.9.0",
-      "DholeStorageService": "1.5.0",
-      "DholeReportsService": "1.8.1",
-      "DholeNotificationsService": "1.9.1",
-      "DholeContentService": "1.5.0",
-      "DholeAgentService": "1.6.0",
-      "DholeDynamicsConnectorService": "1.5.0",
-      "DholeCRMService": "1.45.0",
-      "DholeOperationsService": "0.21.1"
-    },
-    "changes": [
-      "Global commercial scope allows modifications, expiry renewal and accept/reject across sellers, including alternatives; keep ownership and receipt/cancellation restrictions",
-      "Existing workflow, approval, audit and realtime protections preserved"
-    ],
-    "candidateShas": {
-      "DholeWeb": "d3733920a1ca17406d564e696c61e73ad321c082",
-      "DholePricingService": "858ebdd52059fd9234f86f0871e32e0237ee5b97"
-    },
-    "validation": {
-      "ci": "pending",
-      "staging": "pending",
-      "production": "not-deployed"
-    },
-    "schemaMigration": false,
-    "restContractChanged": false,
-    "realtimeContractChanged": false
   },
   "inlandAutoSelectionRelease": {
     "releaseId": "DH-20261124-INLAND-AUTO-SELECTION",
@@ -1997,51 +1257,6 @@
     },
     "schemaMigration": false
   },
-  "operationsCommercialCompletenessRelease": {
-    "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
-    "target": "develop",
-    "versions": {
-      "DholeSystem": {
-        "previous": "1.125.0",
-        "next": "1.126.0",
-        "candidateSha": null,
-        "pullRequest": null
-      },
-      "DholeWeb": {
-        "previous": "1.125.0",
-        "next": "1.126.0",
-        "candidateSha": "9ccee99934dd8277c5c23e33b4cc63ab0ffde3e6",
-        "pullRequest": 1139
-      },
-      "DholeOperationsService": {
-        "previous": "0.22.0",
-        "next": "0.23.0",
-        "candidateSha": "35e521b604b03076868d6d785e282b2a354b72f6",
-        "pullRequest": 61
-      },
-      "DholePricingService": {
-        "previous": "1.30.0",
-        "next": "1.31.0",
-        "candidateSha": "f16946e2c55f9f8c2c299d5c93b873db2d9aa286",
-        "pullRequest": 382
-      }
-    },
-    "changes": [
-      "Preserve additional verified Pricing logistics, terms and provider references in accepted QUO snapshot without altering the accepted version",
-      "Consume canonical Pricing quantity and monetary subtotals with historical fallbacks and enforce financial scopes",
-      "Correct conditional FCA / maritime-only Incoterm / ROAD / AIR / consolidation / pickup and volume validation",
-      "Expose commercial metadata and capture pickup data with shared DH components"
-    ],
-    "blockers": [
-      "CI and authenticated staging validation pending for final candidate SHAs",
-      "Merchant and supplier by row are not persisted on inspected RateHeader/RateDetail contracts; do not infer providers or overwrite historical snapshots",
-      "Historical snapshots require verified accepted revision and separate reconciliation for data absent at capture",
-      "Remaining modal/Incoterm/route and CRM contract coverage must be validated against actual cases"
-    ],
-    "productionAuthorized": false,
-    "rollback": "Revert coordinated candidate PRs in develop; no schema migration. Existing v1 acceptance payload fields remain compatible.",
-    "previousReleaseId": "DH-20261124-OPS-MULTI-IDTRA"
-  },
   "previousOwnLclHotfixBaseline": {
     "releaseId": "DH-20261124-OPS-COMMERCIAL-COMPLETENESS",
     "ecosystemVersion": "1.126.0",
@@ -2209,7 +1424,6 @@
       "Expose commercial metadata and capture pickup data with shared DH components"
     ]
   },
-  "productionPromotionRequested": false,
   "previousApprovedReferenceBaseline": {
     "releaseId": "DH-20261125-OWN-LCL-MAERSK-BALBOA",
     "ecosystemVersion": "1.126.1",
@@ -2858,199 +2072,5 @@
       "No pricing formula, API or database changes."
     ]
   },
-  "pricingBookingRequestShipperRelease": {
-    "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
-    "version": "1.127.0",
-    "webSha": "452bf11fac4ae8fcbb469394cb9af73ae5edc34d",
-    "branch": "fix/booking-request-shipper-develop-20261125",
-    "productionAuthorized": false,
-    "rollback": "Revert coordinated PRs; no migration."
-  },
-  "previousPricingWizardContextP6Baseline": {
-    "releaseId": "DH-20261125-BOOKING-REQUEST-SHIPPER",
-    "ecosystemVersion": "1.127.0",
-    "status": "candidate-ci-staging-pending",
-    "components": [
-      {
-        "repository": "CustomCodeCR/DholeSystem",
-        "component": "DholeSystem",
-        "version": "1.127.0",
-        "previousVersion": "1.126.4",
-        "mergeState": "intermediate-only",
-        "versionVerified": true,
-        "candidateBranch": "fix/booking-request-shipper-develop-20261125",
-        "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
-        "masterCandidateBranch": null,
-        "candidateSha": null,
-        "developMergeSha": null
-      },
-      {
-        "repository": "CustomCodeCR/DholeApiGateway",
-        "component": "DholeApiGateway",
-        "version": "1.11.1",
-        "previousVersion": "1.11.1",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeAuthService",
-        "component": "DholeAuthService",
-        "version": "1.17.2",
-        "previousVersion": "1.17.2",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeWeb",
-        "component": "DholeWeb",
-        "version": "1.127.0",
-        "previousVersion": "1.126.4",
-        "mergeState": "intermediate-only",
-        "versionVerified": true,
-        "candidateBranch": "fix/booking-request-shipper-develop-20261125",
-        "developCandidateBranch": "fix/booking-request-shipper-develop-20261125",
-        "masterCandidateBranch": null,
-        "candidateSha": "452bf11fac4ae8fcbb469394cb9af73ae5edc34d",
-        "developMergeSha": null
-      },
-      {
-        "repository": "CustomCodeCR/DholeConfigService",
-        "component": "DholeConfigService",
-        "version": "1.12.0",
-        "previousVersion": "1.12.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeAuditLogsService",
-        "component": "DholeAuditLogsService",
-        "version": "1.6.0",
-        "previousVersion": "1.6.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeDataExtractionService",
-        "component": "DholeDataExtractionService",
-        "version": "1.9.0",
-        "previousVersion": "1.9.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholePricingService",
-        "component": "DholePricingService",
-        "version": "1.31.3",
-        "previousVersion": "1.31.3",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeAIService",
-        "component": "DholeAIService",
-        "version": "1.9.0",
-        "previousVersion": "1.9.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeStorageService",
-        "component": "DholeStorageService",
-        "version": "1.5.0",
-        "previousVersion": "1.5.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeReportsService",
-        "component": "DholeReportsService",
-        "version": "1.8.1",
-        "previousVersion": "1.8.1",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeNotificationsService",
-        "component": "DholeNotificationsService",
-        "version": "1.9.1",
-        "previousVersion": "1.9.1",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeContentService",
-        "component": "DholeContentService",
-        "version": "1.5.0",
-        "previousVersion": "1.5.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeAgentService",
-        "component": "DholeAgentService",
-        "version": "1.6.0",
-        "previousVersion": "1.6.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
-        "component": "DholeDynamicsConnectorService",
-        "version": "1.5.0",
-        "previousVersion": "1.5.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeCRMService",
-        "component": "DholeCRMService",
-        "version": "1.45.0",
-        "previousVersion": "1.45.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      },
-      {
-        "repository": "CustomCodeCR/DholeOperationsService",
-        "component": "DholeOperationsService",
-        "version": "0.23.0",
-        "previousVersion": "0.23.0",
-        "mergeState": "unchanged-for-this-release",
-        "versionVerified": true
-      }
-    ],
-    "changes": [
-      "Add optional Booking Request Shipper category in Pricing screen 4 using existing Storage upload."
-    ]
-  },
-  "pricingWizardContextP6Release": {
-    "releaseId": "DH-20261125-PRICING-WIZARD-CONTEXT-P6",
-    "version": "1.127.1",
-    "webSha": "e29caa63d4229ea830a17814b96dc190d4946102",
-    "branch": "fix/pricing-wizard-context-p6-20261125",
-    "verifiedBaselineVersions": {
-      "DholeSystem": "1.127.0",
-      "DholeApiGateway": "1.11.1",
-      "DholeAuthService": "1.17.2",
-      "DholeWeb": "1.127.0",
-      "DholeConfigService": "1.12.0",
-      "DholeAuditLogsService": "1.6.0",
-      "DholeDataExtractionService": "1.9.0",
-      "DholePricingService": "1.31.3",
-      "DholeAIService": "1.9.0",
-      "DholeStorageService": "1.5.0",
-      "DholeReportsService": "1.8.1",
-      "DholeNotificationsService": "1.9.1",
-      "DholeContentService": "1.5.0",
-      "DholeAgentService": "1.6.0",
-      "DholeDynamicsConnectorService": "1.5.0",
-      "DholeCRMService": "1.45.0",
-      "DholeOperationsService": "0.23.0"
-    },
-    "validation": {
-      "ci": "pending",
-      "staging": "pending"
-    },
-    "productionAuthorized": false,
-    "rollback": "Revert coordinated PRs; no migration."
-  }
+  "notes": "Candidate for develop only. Frontend and manual creation policy changes; full CI, catalog authority, multimodal per-leg rules and staging validation pending. No production authorization."
 }
