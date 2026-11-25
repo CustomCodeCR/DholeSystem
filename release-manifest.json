@@ -51,7 +51,7 @@
       "candidateBranch": "fix/operations-summary-quote-link-20261125",
       "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "f63fbcbe8df64b529ad223a9378cbdc4594053c0",
+      "candidateSha": "176b91a7d92fe3f2ca8597704074cc721042d201",
       "developMergeSha": null
     },
     {
@@ -165,7 +165,7 @@
       "candidateBranch": "fix/operations-summary-quote-link-20261125",
       "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "d21ba0bfd1f2258116c98e2f0511e54b9a659df0",
+      "candidateSha": "1f7d1381804ddaeed8a256fbdc2e2ffdb13a63ae",
       "developMergeSha": null
     }
   ],
