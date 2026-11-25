@@ -43,7 +43,7 @@
       "candidateBranch": "fix/20261124-pricing-cost-context-relink",
       "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
       "masterCandidateBranch": null,
-      "candidateSha": "650d9182d6d7d8d5922bb972a8f1fc51ac1fd140",
+      "candidateSha": "aa3f6e675e07eb47ef8364220723f62660705845",
       "developMergeSha": null
     },
     {
