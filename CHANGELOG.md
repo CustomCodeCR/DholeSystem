@@ -1849,6 +1849,11 @@
 
 # Changelog
 
+## [1.129.0] - 2026-11-25 · DH-20261125-OPS-PRICING-PARITY
+
+- MINOR: paridad de apertura manual con Pricing en ruta, sentido, recolecta/entrega y FCA; Operations 0.25.0. Sin autorización de producción.
+
+
 ## [1.128.0] - 2026-11-25 · DH-20261125-OPS-OPENING-VALIDATION
 
 - MINOR: candidato coordinado DholeWeb 1.128.0 y DholeOperationsService 0.24.0 para validaciones de apertura manual.
