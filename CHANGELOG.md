@@ -1,3 +1,7 @@
+## [1.124.32] - 2026-11-24
+
+- DH-20261124-PRICING-AIR-QUANTITY-SAVE: conservar precios unitarios negociados al editar agente válido y peso/bultos/tarimas de cotizaciones aéreas existentes; cantidades recalculadas con el flujo existente y validación de cambios estructurales mantenida. DholeWeb/System 1.124.32; otros servicios sin cambios. CI y staging pendientes.
+
 ## [1.124.31] - 2026-11-24
 
 - DH-20261124-PRICING-AIR-AGENT-SAVE: corrección aislada del guardado de cotizaciones aéreas al modificar exclusivamente un agente válido; conservar costos negociados y evitar sustituciones automáticas. DholeWeb/System 1.124.31; otros servicios sin cambios. CI y staging pendientes.
