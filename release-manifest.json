@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE",
+  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.31",
+  "ecosystemVersion": "1.124.32",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-air-agent-save-20261124",
-    "master": "release/pricing-air-agent-save-1.124.31-master"
+    "develop": "fix/pricing-air-quantity-save-20261124",
+    "master": "release/pricing-air-quantity-save-1.124.32-master"
   },
-  "candidateBranch": "release/pricing-air-agent-save-1.124.31-master",
+  "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.31",
+      "version": "1.124.32",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/pricing-air-agent-save-1.124.31-master",
-      "developCandidateBranch": "fix/pricing-air-agent-save-20261124",
-      "masterCandidateBranch": "release/pricing-air-agent-save-1.124.31-master",
+      "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -40,12 +40,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.31",
+      "version": "1.124.32",
       "mergeState": "master-candidate",
-      "candidateBranch": "release/pricing-air-agent-save-1.124.31-master",
-      "developCandidateBranch": "fix/pricing-air-agent-save-20261124",
-      "masterCandidateBranch": "release/pricing-air-agent-save-1.124.31-master",
-      "candidateSha": "d6b859e430cb11fc9775a6c9a07709ed31e95c1f",
+      "candidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "masterCandidateBranch": "release/pricing-air-quantity-save-1.124.32-master",
+      "candidateSha": "a5d3ac0133b84c8e363061f2a5e326a85f9044bc",
       "developMergeSha": null
     },
     {
@@ -140,7 +140,7 @@
       "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.30 → 1.124.31; other components unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.31 → 1.124.32; other components unchanged.",
   "mergeState": "master-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
@@ -156,8 +156,8 @@
     "DholeWeb"
   ],
   "changes": [
-    "Air existing quote agent-only valid change saves reviewed details without live cost repricing.",
-    "Prevent automatic agent replacement on unchanged existing route; preserve other context validations."
+    "Preserve reviewed negotiated air quote unit amounts when an eligible agent and/or cargo quantities change, including weight, packages and pallets.",
+    "Keep existing billing-quantity calculation and structural-context validations; explicit removals remain respected."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -214,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE",
+  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
