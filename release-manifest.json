@@ -51,7 +51,7 @@
       "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "73e51ee9106f8016b478397451ee1f330fdd33c9",
+      "candidateSha": "824e882018fb185609cb3c1aa951a2a86897dbb8",
       "developMergeSha": null
     },
     {
@@ -88,7 +88,7 @@
       "candidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "developCandidateBranch": "fix/own-lcl-maersk-balboa-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "c0b107233d741ae5e2ccc40639729d9622c49266",
+      "candidateSha": "eca3d72b6d32bb81509e3303f866356cd73998bd",
       "developMergeSha": null
     },
     {
