@@ -1,3 +1,7 @@
+## [1.125.0] - 2026-11-24
+
+- DH-20261124-OPS-MULTI-IDTRA: materializar cada IDTRA explícito separado por comas de una QUO aceptada, con idempotencia y revisión independiente. Pricing 1.30.0, Operations 0.22.0, Web/System 1.125.0. CI y staging pendientes; sin producción.
+
 ## [1.124.34] - 2026-11-24
 
 - DH-20261124-OPS-SINGLE-APPROVAL: una única revisión de Aperturas, pool por carga y envío inmediato a Coordinación Origen. Operations 0.21.3; Web/System 1.124.34. Sustituye el candidato previo de doble validación. CI y staging pendientes.
