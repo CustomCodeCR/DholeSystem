@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-HISTORICAL-EDIT",
+  "releaseId": "DH-20261124-PRICING-DUPLICATE-RELINK",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.27",
+  "ecosystemVersion": "1.124.28",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/20261124-pricing-duplicate-crm",
-    "master": "fix/20261124-pricing-duplicate-crm-master"
+    "develop": "fix/20261124-pricing-duplicate-relink",
+    "master": "fix/20261124-pricing-duplicate-relink-master"
   },
-  "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+  "candidateBranch": "fix/20261124-pricing-duplicate-relink-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.27",
+      "version": "1.124.28",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
-      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
-      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
+      "candidateBranch": "fix/20261124-pricing-duplicate-relink-master",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-relink",
+      "masterCandidateBranch": "fix/20261124-pricing-duplicate-relink-master",
       "candidateSha": null,
-      "developMergeSha": "055909bc3a432fdac14e21e22a4060b12596047c"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -38,13 +38,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.27",
+      "version": "1.124.28",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
-      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
-      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
-      "candidateSha": "f1d1a5066dea75faf3eca5012d98c253714052e5",
-      "developMergeSha": "f17447357c1796cb3e2ee0348cad7b31feaf7225"
+      "candidateBranch": "fix/20261124-pricing-duplicate-relink-master",
+      "developCandidateBranch": "fix/20261124-pricing-duplicate-relink",
+      "masterCandidateBranch": "fix/20261124-pricing-duplicate-relink-master",
+      "candidateSha": "7a5e2ddceb9a4460dcb140eb61318856f1ed64ec",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -68,7 +68,7 @@
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.11",
-      "mergeState": "master-candidate",
+      "mergeState": "unchanged-for-this-release",
       "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
       "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
       "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
@@ -130,26 +130,24 @@
       "mergeState": "unchanged-for-this-release"
     }
   ],
-  "policyCheck": "PATCH DholeSystem and DholeWeb 1.124.26 → 1.124.27; DholePricingService 1.29.10 → 1.29.11; remaining components retain master manifest versions.",
+  "policyCheck": "PATCH Web/System 1.124.27 → 1.124.28; Pricing remains 1.29.11 and other components unchanged.",
   "mergeState": "master-candidate",
   "productionDeploymentAuthorized": true,
   "blockers": [
-    "CI of master candidate and live staging validation pending"
+    "CI and staging validation of relink pending"
   ],
   "validationEvidence": {
-    "ci": "develop PR checks passed; master candidate pending",
+    "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing events and REST contract unchanged; authenticated staging runtime pending"
+    "realtime": "No new events or API contracts; existing quote update path retained"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholePricingService"
+    "DholeWeb"
   ],
   "changes": [
-    "Preserve CRM account/lead identity in duplicated quotes.",
-    "Stabilize edit-context cost reconciliation with bounded retry.",
-    "Existing copies without CRM link require explicit verified selection."
+    "Recover missing CRM identity on saved duplicate using a complete exact match and matching commercial executive, then verify by ID.",
+    "Persist recovered identity through normal quote update; ambiguous matches require explicit selection."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -206,7 +204,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-HISTORICAL-EDIT",
+  "businessReleaseId": "DH-20261124-PRICING-DUPLICATE-RELINK",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

@@ -1,3 +1,7 @@
+## [1.124.28] - 2026-11-24
+
+- DH-20261124-PRICING-DUPLICATE-RELINK: candidato aislado para recuperación del vínculo CRM de duplicados existentes. DholeWeb/System 1.124.28; Pricing 1.29.11. CI y staging pendientes.
+
 ## [1.124.27] - 2026-11-24
 
 - DH-20261124-PRICING-HISTORICAL-EDIT: candidato de promoción aislada del hotfix integrado en develop. Conserva vínculos CRM en duplicación y corrige reconciliación de costos en edición. CI de candidato y validación staging pendientes.
