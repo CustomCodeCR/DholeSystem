@@ -1,3 +1,7 @@
+## [1.124.29] - 2026-11-24
+
+- DH-20261124-PRICING-COST-CONTEXT-RELINK: candidato aislado para separar identidad CRM y reconciliación de costos persistidos. DholeWeb/System 1.124.29; Pricing 1.29.11. CI y staging pendientes.
+
 ## [1.124.28] - 2026-11-24
 
 - DH-20261124-PRICING-DUPLICATE-RELINK: candidato aislado para recuperación del vínculo CRM de duplicados existentes. DholeWeb/System 1.124.28; Pricing 1.29.11. CI y staging pendientes.
