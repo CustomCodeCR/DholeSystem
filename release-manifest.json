@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-PRICING-WIZARD-CONTEXT-P6",
+  "releaseId": "DH-20261125-OPS-OPENING-REALTIME",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.1",
+  "ecosystemVersion": "1.127.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-wizard-context-p6-20261125",
+    "develop": "fix/operations-opening-realtime-20261125",
     "master": null
   },
-  "candidateBranch": "fix/pricing-wizard-context-p6-20261125",
+  "candidateBranch": "fix/operations-opening-realtime-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.1",
-      "previousVersion": "1.127.0",
+      "version": "1.127.2",
+      "previousVersion": "1.127.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-wizard-context-p6-20261125",
-      "developCandidateBranch": "fix/pricing-wizard-context-p6-20261125",
+      "candidateBranch": "fix/operations-opening-realtime-20261125",
+      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.1",
-      "previousVersion": "1.127.0",
+      "version": "1.127.2",
+      "previousVersion": "1.127.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-wizard-context-p6-20261125",
-      "developCandidateBranch": "fix/pricing-wizard-context-p6-20261125",
+      "candidateBranch": "fix/operations-opening-realtime-20261125",
+      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "e29caa63d4229ea830a17814b96dc190d4946102",
+      "candidateSha": "f903649ca2d876f1c0b410559659d241fc8c2bfd",
       "developMergeSha": null
     },
     {
@@ -153,31 +153,37 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.23.0",
+      "version": "0.23.1",
       "previousVersion": "0.23.0",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-opening-realtime-20261125",
+      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "eca10fc544738678e33616966bf33984528118ee",
+      "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH: fix compatible Pricing wizard context handling; all 17 develop versions checked.",
+  "policyCheck": "PATCH: compatible Operations dashboard SignalR and assigned reviewer notification; all 17 develop baseline versions verified.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging validation pending"
+    "CI and authenticated two-session staging validation pending"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing REST/SignalR/Redis/Outbox contracts unchanged; runtime smoke pending"
+    "realtime": "Existing Operations Hub extended with authorized dashboard invalidation; notification Outbox reuses existing stream and stable business key. Runtime smoke pending."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Preserve canonical full Pricing context through runtime source transforms; retain equipment, cargo and CRM identity.",
-    "Reject stale wizard-bundle responses explicitly and use backend contextual haulage rows instead of discarding successful responses.",
-    "Regression coverage for MSC Caldera, multiple POE/carrier changes and saved context; no REST, realtime, DB or shared component changes."
+    "Operations dashboard subscribes to existing authenticated Hub, debounced REST refresh and reconnect reconciliation.",
+    "Automatic Aperturas assignment publishes a System notification solely to its assigned reviewer; no legacy pair replay or acceptance older than 24 hours.",
+    "Retry-safe inbox fanout; no new DH visual components or REST changes."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -233,7 +239,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-PRICING-WIZARD-CONTEXT-P6",
+  "businessReleaseId": "DH-20261125-OPS-OPENING-REALTIME",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

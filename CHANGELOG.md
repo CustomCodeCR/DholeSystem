@@ -1,3 +1,7 @@
+## [1.127.2] - 2026-11-25
+
+- Coordinate DholeWeb 1.127.2, DholeOperationsService 0.23.1 and DholeSystem 1.127.2 for Operations opening dashboard realtime and assigned reviewer System notifications. All 17 baseline component versions checked; CI and authenticated staging pending, production not authorized.
+
 ## [1.127.1] - 2026-11-25
 
 - DH-20261125-PRICING-WIZARD-CONTEXT-P6: DholeWeb and DholeSystem 1.127.0 → 1.127.1. Preserve the canonical Pricing wizard context to accept current MSC Caldera Merchant/Carrier costs and reject stale alternatives. All 17 component baseline versions verified. No REST/realtime contract changes. CI/staging pending; develop only.
