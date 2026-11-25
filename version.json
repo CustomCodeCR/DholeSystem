@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.129.0",
-  "ecosystemVersion": "1.129.0",
-  "releaseId": "DH-20261125-OPS-PRICING-PARITY",
+  "version": "1.129.1",
+  "ecosystemVersion": "1.129.1",
+  "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-OPS-PRICING-PARITY"
+  "businessReleaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS"
 }

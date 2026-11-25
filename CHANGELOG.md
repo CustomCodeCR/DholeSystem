@@ -1849,6 +1849,11 @@
 
 # Changelog
 
+## [1.129.1] - 2026-11-25 · DH-20261125-OPS-OPERATIONAL-LOCATIONS
+
+- PATCH: ubicaciones operativas sin asignación de responsable del costo; DholeWeb 1.129.1. Sin autorización de producción.
+
+
 ## [1.129.0] - 2026-11-25 · DH-20261125-OPS-PRICING-PARITY
 
 - MINOR: paridad de apertura manual con Pricing en ruta, sentido, recolecta/entrega y FCA; Operations 0.25.0. Sin autorización de producción.

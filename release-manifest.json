@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-PRICING-PARITY",
+  "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.129.0",
+  "ecosystemVersion": "1.129.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-pricing-parity-20261125",
+    "develop": "fix/operations-hide-commercial-billing-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-pricing-parity-20261125",
+  "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.129.0",
-      "previousVersion": "1.128.0",
+      "version": "1.129.1",
+      "previousVersion": "1.129.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-pricing-parity-20261125",
-      "developCandidateBranch": "fix/operations-pricing-parity-20261125",
+      "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
+      "developCandidateBranch": "fix/operations-hide-commercial-billing-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.129.0",
-      "previousVersion": "1.128.0",
+      "version": "1.129.1",
+      "previousVersion": "1.129.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-pricing-parity-20261125",
-      "developCandidateBranch": "fix/operations-pricing-parity-20261125",
+      "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
+      "developCandidateBranch": "fix/operations-hide-commercial-billing-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "426fe2ccdb3324992d06fe481fa942b5fd5c9338",
+      "candidateSha": "47059128dac05fc0bb6a58d40eb15bda60ace727",
       "developMergeSha": null
     },
     {
@@ -154,14 +154,9 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.25.0",
-      "previousVersion": "0.24.0",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/operations-pricing-parity-20261125",
-      "developCandidateBranch": "fix/operations-pricing-parity-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "608a5e75d1ad31044b14ac2b055e71787c72e4c2",
-      "developMergeSha": null
+      "previousVersion": "0.25.0",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     }
   ],
   "policyCheck": "pending",
@@ -177,14 +172,11 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Route by Pricing terminal type; no POD for air or road",
-    "CRM client country and route determine commercial direction, with explicit override like Pricing",
-    "Reuse Pricing inland location component and global FCA warehouse",
-    "No standalone multimodal option; historical data preserved"
+    "Hide commercial billing party in Operations pickup/delivery",
+    "Reuse shared location component; preserve Pricing behavior"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -240,7 +232,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-PRICING-PARITY",
+  "businessReleaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -653,7 +645,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261125-OPS-PRICING-PARITY"
+    "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -668,7 +660,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Operations Pricing parity",
+  "releaseSummary": "Operational locations without billing assignment",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -3037,7 +3029,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "Manual opening V3; V2 and historical rules preserved. CI and staging pending.",
+  "notes": "PATCH Operations location form. CI and staging pending.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -3070,6 +3062,19 @@
       "DholeWeb": 1158,
       "DholeOperationsService": 65,
       "DholeSystem": 919
+    }
+  },
+  "operationsOperationalLocationsRelease": {
+    "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
+    "ecosystemVersion": "1.129.1",
+    "productionAuthorized": false,
+    "validation": {
+      "ci": "pending",
+      "staging": "pending"
+    },
+    "pullRequests": {
+      "DholeWeb": 1159,
+      "DholeSystem": 920
     }
   }
 }
