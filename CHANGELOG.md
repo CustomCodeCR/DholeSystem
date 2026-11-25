@@ -1,3 +1,7 @@
+## [1.127.3] - 2026-11-25
+
+- PATCH: reconciliación del IDTRA de Operations en listado de Pricing para QUO aceptadas, alternativas y múltiples expedientes. DholeWeb y DholeSystem 1.127.2 → 1.127.3; 15 servicios sin cambios, versiones base verificadas. CI/staging pendientes.
+
 ## [1.127.2] - 2026-11-25
 
 - Coordinate DholeWeb 1.127.2, DholeOperationsService 0.23.1 and DholeSystem 1.127.2 for Operations opening dashboard realtime and assigned reviewer System notifications. All 17 baseline component versions checked; CI and authenticated staging pending, production not authorized.

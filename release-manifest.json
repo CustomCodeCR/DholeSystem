@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-OPENING-REALTIME",
+  "releaseId": "DH-20261125-PRICING-LIST-OPERATIONS-IDTRA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.127.2",
+  "ecosystemVersion": "1.127.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-opening-realtime-20261125",
+    "develop": "fix/pricing-list-operations-idtra-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-opening-realtime-20261125",
+  "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.127.2",
-      "previousVersion": "1.127.1",
+      "version": "1.127.3",
+      "previousVersion": "1.127.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
+      "developCandidateBranch": "fix/pricing-list-operations-idtra-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.127.2",
-      "previousVersion": "1.127.1",
+      "version": "1.127.3",
+      "previousVersion": "1.127.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
+      "candidateBranch": "fix/pricing-list-operations-idtra-20261125",
+      "developCandidateBranch": "fix/pricing-list-operations-idtra-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "f903649ca2d876f1c0b410559659d241fc8c2bfd",
+      "candidateSha": "1559cce219b9785339fdcb1c065f667dc1af47aa",
       "developMergeSha": null
     },
     {
@@ -154,36 +154,30 @@
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.23.1",
-      "previousVersion": "0.23.0",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-realtime-20261125",
-      "developCandidateBranch": "fix/operations-opening-realtime-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "eca10fc544738678e33616966bf33984528118ee",
-      "developMergeSha": null
+      "previousVersion": "0.23.1",
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH: compatible Operations dashboard SignalR and assigned reviewer notification; all 17 develop baseline versions verified.",
+  "policyCheck": "PATCH: compatible IDTRA reconciliation in Pricing list; all 17 develop baseline component versions verified.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated two-session staging validation pending"
+    "CI and authenticated staging verification pending"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing Operations Hub extended with authorized dashboard invalidation; notification Outbox reuses existing stream and stable business key. Runtime smoke pending."
+    "realtime": "Existing Operations dashboard hub and list invalidation reused; runtime verification pending."
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb",
-    "DholeOperationsService"
+    "DholeWeb"
   ],
   "changes": [
-    "Operations dashboard subscribes to existing authenticated Hub, debounced REST refresh and reconnect reconciliation.",
-    "Automatic Aperturas assignment publishes a System notification solely to its assigned reviewer; no legacy pair replay or acceptance older than 24 hours.",
-    "Retry-safe inbox fanout; no new DH visual components or REST changes."
+    "Resolve accepted quotation IDTRAs from authorized Operations cases for the selected commercial option; support multiple IDs and historical references.",
+    "Remove obsolete manual assignment from the automatic list workflow and reconcile via existing SignalR and REST.",
+    "Reuse existing Pricing list design in desktop and mobile."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -239,7 +233,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-OPENING-REALTIME",
+  "businessReleaseId": "DH-20261125-PRICING-LIST-OPERATIONS-IDTRA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
