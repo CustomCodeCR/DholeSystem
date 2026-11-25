@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPERATIONS-SEQUENTIAL-APERTURES",
+  "releaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.33",
+  "ecosystemVersion": "1.124.34",
   "status": "candidate-ci-staging-pending",
   "branches": {
     "develop": "fix/operations-sequential-apertures-20261124",
@@ -15,7 +15,7 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.33",
+      "version": "1.124.34",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-sequential-apertures-20261124",
       "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
@@ -42,12 +42,12 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.33",
+      "version": "1.124.34",
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/operations-sequential-apertures-20261124",
       "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "df4eca6eddeef89aa88c945c959607eb06ac18b5",
+      "candidateSha": "4b128fdacc4d39ef943a91df32c7788e77c8111d",
       "developMergeSha": null,
       "versionVerified": true,
       "previousVersion": "1.124.32"
@@ -139,18 +139,18 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.21.2",
+      "version": "0.21.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "previousVersion": "0.21.1",
       "candidateBranch": "fix/operations-sequential-apertures-20261124",
       "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "b9117479a83d93138a7dd27b8af98d38c13cd482",
+      "candidateSha": "ff4615f0f7a53d1d7f5a7d67b0fb60d743128aed",
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.32 to 1.124.33; Operations 0.21.1 to 0.21.2; others unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.32 to 1.124.34; Operations 0.21.1 to 0.21.3; replaces unreleased dual-review candidate; others unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
@@ -168,8 +168,8 @@
     "DholeSystem"
   ],
   "changes": [
-    "Sequential two-person review, weighted active workload, existing untouched assignment reconciliation",
-    "Operator-specific dashboard and approval authorization",
+    "Single-person aperture approval and direct Origin handoff, including reconciliation of legacy pending and previously approved openings",
+    "Weighted active assignment, operator-specific dashboard and approval authorization",
     "Accepted quote snapshot attachment references in DH case views"
   ],
   "stagingValidation": {
@@ -226,7 +226,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPERATIONS-SEQUENTIAL-APERTURES",
+  "businessReleaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

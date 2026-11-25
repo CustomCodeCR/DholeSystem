@@ -1,3 +1,7 @@
+## [1.124.34] - 2026-11-24
+
+- DH-20261124-OPS-SINGLE-APPROVAL: una única revisión de Aperturas, pool por carga y envío inmediato a Coordinación Origen. Operations 0.21.3; Web/System 1.124.34. Sustituye el candidato previo de doble validación. CI y staging pendientes.
+
 ## [1.124.33] - 2026-11-24
 
 - DH-20261124-OPERATIONS-SEQUENTIAL-APERTURES: asignación secuencial de validadores, acceso a cola personal y documentos referenciados desde Pricing. Operations 0.21.2; Web/System 1.124.33. CI, staging y conciliación de adjuntos históricos pendientes. Sin promoción a producción.
