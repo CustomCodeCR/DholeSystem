@@ -51,7 +51,7 @@
       "candidateBranch": "fix/operations-opening-validation-20261125",
       "developCandidateBranch": "fix/operations-opening-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "159f9eee0549cb8433835e7d641920d53aa75076",
+      "candidateSha": "bd891ea8e1e1bf7860eb296567044f6cbd2d293b",
       "developMergeSha": null
     },
     {
@@ -160,7 +160,7 @@
       "candidateBranch": "fix/operations-opening-validation-20261125",
       "developCandidateBranch": "fix/operations-opening-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "c7d1b654df54d240378e107de08088f515a8adb2",
+      "candidateSha": "06c0658159eace6e2cbdab776e728fa0bb5677ea",
       "developMergeSha": null
     }
   ],
@@ -168,8 +168,9 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and staging pending",
-    "Authoritative Config route verification and complete multimodal validation pending"
+    "Latest CI and authenticated staging validation pending",
+    "Multimodal per-leg capture and complete Incoterm responsibility matrix pending",
+    "Confirm direction from CRM country and route; candidate uses explicit selection"
   ],
   "validationEvidence": {
     "ci": "pending",
@@ -183,7 +184,8 @@
   ],
   "changes": [
     "Filter locations by modality; remove incompatible equipment and port handling",
-    "Require estimated weight, air dimensions and applicable volume; distinguish FCA collection and WHS"
+    "Require estimated weight, air dimensions and applicable volume; distinguish FCA collection and WHS",
+    "Verify selected route/equipment identity, active status, type and label via authenticated Config select lookup"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -3037,11 +3039,25 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "Candidate for develop only. Frontend and manual creation policy changes; full CI, catalog authority, multimodal per-leg rules and staging validation pending. No production authorization.",
+  "notes": "Candidate for develop only. Actual Config validation added for new manual route and equipment. Multimodal per-leg rules and full Incoterm matrix pending. No production authorization.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
     "status": "candidate-ci-staging-pending",
-    "productionAuthorized": false
+    "productionAuthorized": false,
+    "pullRequests": {
+      "DholeWeb": 1157,
+      "DholeOperationsService": 64,
+      "DholeSystem": 918
+    },
+    "validation": {
+      "ci": "pending latest candidate",
+      "staging": "not-run"
+    },
+    "pending": [
+      "multimodal per leg",
+      "complete Incoterm responsibility matrix",
+      "CRM country-derived direction"
+    ]
   }
 }
