@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
+  "releaseId": "DH-20261124-OPS-MULTI-IDTRA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.34",
+  "ecosystemVersion": "1.125.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-sequential-apertures-20261124",
+    "develop": "fix/operations-multi-idtra-20261124",
     "master": null
   },
-  "candidateBranch": "fix/operations-sequential-apertures-20261124",
+  "candidateBranch": "fix/operations-multi-idtra-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.34",
+      "version": "1.125.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-sequential-apertures-20261124",
-      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
+      "candidateBranch": "fix/operations-multi-idtra-20261124",
+      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
       "versionVerified": true,
-      "previousVersion": "1.124.32"
+      "previousVersion": "1.124.34"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -42,15 +42,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.34",
+      "version": "1.125.0",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/operations-sequential-apertures-20261124",
-      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
+      "candidateBranch": "fix/operations-multi-idtra-20261124",
+      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "4b128fdacc4d39ef943a91df32c7788e77c8111d",
+      "candidateSha": "051a72d5bc70b8adc3496bcbe7959fb20ab98f2f",
       "developMergeSha": null,
       "versionVerified": true,
-      "previousVersion": "1.124.32"
+      "previousVersion": "1.124.34"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -76,9 +76,15 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.29.11",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "version": "1.30.0",
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "previousVersion": "1.29.11",
+      "candidateSha": "0635b6593a54a26bf3b8f5889901d87ccef3a1d9",
+      "candidateBranch": "fix/operations-multi-idtra-20261124",
+      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
+      "masterCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -139,38 +145,42 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.21.3",
+      "version": "0.22.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "previousVersion": "0.21.1",
-      "candidateBranch": "fix/operations-sequential-apertures-20261124",
-      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
+      "previousVersion": "0.21.3",
+      "candidateBranch": "fix/operations-multi-idtra-20261124",
+      "developCandidateBranch": "fix/operations-multi-idtra-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "ff4615f0f7a53d1d7f5a7d67b0fb60d743128aed",
+      "candidateSha": "7f7b117ea9e4f345a27528e86f43da1854b01776",
       "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.32 to 1.124.34; Operations 0.21.1 to 0.21.3; replaces unreleased dual-review candidate; others unchanged.",
+  "policyCheck": "MINOR: multiple explicit IDTRAs per accepted QUO; Pricing 1.30.0, Operations 0.22.0, Web/System 1.125.0; unchanged other services.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging validation pending",
-    "Historical documents absent from accepted snapshots require source reconciliation"
+    "CI and staging pending",
+    "Source identifier conflicts require reconciliation; shared commercial values are not per-case financial allocations",
+    "Staging authenticated navigation and Origin transfer verification pending; historical route without explicit country requires reconciliation"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing outbox contracts retained; cross-user runtime verification pending"
+    "realtime": "Existing accepted-quote outbox/inbox and case-created events; runtime pending"
   },
   "releaseComponents": [
     "DholeOperationsService",
+    "DholePricingService",
     "DholeWeb",
     "DholeSystem"
   ],
   "changes": [
-    "Single-person aperture approval and direct Origin handoff, including reconciliation of legacy pending and previously approved openings",
-    "Weighted active assignment, operator-specific dashboard and approval authorization",
-    "Accepted quote snapshot attachment references in DH case views"
+    "Parse comma-separated explicit IDTRAs and publish one durable event per unique identifier",
+    "Allow multiple Operations cases for the same selected QUO with independent snapshots and global IDTRA uniqueness",
+    "Preserve one automatic case for ordinary accepted quotes; reconcile shared commercial data",
+    "Close approved case and reuse Operations workspace tab; server-side DH pagination and synchronized department/team selection",
+    "Recover pending Origin assignments using configured USA/FCL/LCL-AIR routing and authorized weighted pool"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -226,7 +236,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
+  "businessReleaseId": "DH-20261124-OPS-MULTI-IDTRA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
