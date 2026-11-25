@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-OPENING-CAPTURE",
+  "releaseId": "DH-20261125-OPS-SUMMARY-QUOTE-LINK",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.130.1",
+  "ecosystemVersion": "1.131.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-opening-capture-20261125",
+    "develop": "fix/operations-summary-quote-link-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-opening-capture-20261125",
+  "candidateBranch": "fix/operations-summary-quote-link-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.130.1",
-      "previousVersion": "1.130.0",
+      "version": "1.131.0",
+      "previousVersion": "1.130.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-capture-20261125",
-      "developCandidateBranch": "fix/operations-opening-capture-20261125",
+      "candidateBranch": "fix/operations-summary-quote-link-20261125",
+      "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.130.1",
-      "previousVersion": "1.130.0",
+      "version": "1.131.0",
+      "previousVersion": "1.130.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-capture-20261125",
-      "developCandidateBranch": "fix/operations-opening-capture-20261125",
+      "candidateBranch": "fix/operations-summary-quote-link-20261125",
+      "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "08cbba7910ca3c0eb602e1805f179e04fd234815",
+      "candidateSha": "f02fe408519a646522ccf2118ad268792c688e43",
       "developMergeSha": null
     },
     {
@@ -81,14 +81,14 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.32.0",
+      "version": "1.33.0",
       "previousVersion": "1.32.0",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/all-status-quotation-export-20261125",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+      "candidateBranch": "fix/operations-summary-quote-link-20261125",
+      "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "03b59bc227919abd2b00221b521a3e6236e8cad3",
+      "candidateSha": "2a4998058a7d748ece7af14d157b486ad49a6d85",
       "developMergeSha": null
     },
     {
@@ -158,14 +158,14 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.25.3",
-      "previousVersion": "0.25.2",
+      "version": "0.26.0",
+      "previousVersion": "0.25.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-capture-20261125",
-      "developCandidateBranch": "fix/operations-opening-capture-20261125",
+      "candidateBranch": "fix/operations-summary-quote-link-20261125",
+      "developCandidateBranch": "fix/operations-summary-quote-link-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "94389fa7f61a0af7c6d231d6b9fff70b87c1c47f",
+      "candidateSha": "d21ba0bfd1f2258116c98e2f0511e54b9a659df0",
       "developMergeSha": null
     }
   ],
@@ -178,17 +178,18 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing case events and drafts preserved; runtime pending"
+    "realtime": "Existing Redis Outbox/Inbox and SignalR invalidation; runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService"
+    "DholeOperationsService",
+    "DholePricingService"
   ],
   "changes": [
-    "Opening capture services, providers and observations",
-    "Grouped completeness and CRM executive",
-    "Validate Config selections and persist manual case services"
+    "Origin-country agent filtering and shared searchable DH controls",
+    "Compact operational summary with separate commercial snapshot",
+    "Bidirectional accepted QUO to existing manual IDTRA link with durable events"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -244,7 +245,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-OPENING-CAPTURE",
+  "businessReleaseId": "DH-20261125-OPS-SUMMARY-QUOTE-LINK",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
