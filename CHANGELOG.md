@@ -1,3 +1,7 @@
+## [1.124.30] - 2026-11-24
+
+- DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION: candidato aislado a master de DholeWeb/System 1.124.30; CI de develop aprobado, versiones de los 15 servicios restantes verificadas; staging funcional y CI de master pendientes.
+
 ## [1.124.29] - 2026-11-24
 
 - DH-20261124-PRICING-COST-CONTEXT-RELINK: candidato aislado para separar identidad CRM y reconciliación de costos persistidos. DholeWeb/System 1.124.29; Pricing 1.29.11. CI y staging pendientes.
