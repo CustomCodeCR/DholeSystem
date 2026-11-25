@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS",
+  "releaseId": "DH-20261125-OPS-FIELD-VALIDATION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.129.2",
+  "ecosystemVersion": "1.129.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-pickup-completeness-20261125",
+    "develop": "fix/operations-field-validation-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-pickup-completeness-20261125",
+  "candidateBranch": "fix/operations-field-validation-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.129.2",
-      "previousVersion": "1.129.1",
+      "version": "1.129.3",
+      "previousVersion": "1.129.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-pickup-completeness-20261125",
-      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
+      "candidateBranch": "fix/operations-field-validation-20261125",
+      "developCandidateBranch": "fix/operations-field-validation-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -44,14 +44,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.129.2",
-      "previousVersion": "1.129.1",
+      "version": "1.129.3",
+      "previousVersion": "1.129.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-pickup-completeness-20261125",
-      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
+      "candidateBranch": "fix/operations-field-validation-20261125",
+      "developCandidateBranch": "fix/operations-field-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "9d0553c9b4fbe05e958511d5f593df282961fcf7",
+      "candidateSha": "0aa7b1d3f215952e5d45852e708ea617f140321a",
       "developMergeSha": null
     },
     {
@@ -153,14 +153,14 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.25.1",
-      "previousVersion": "0.25.0",
+      "version": "0.25.2",
+      "previousVersion": "0.25.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-pickup-completeness-20261125",
-      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
+      "candidateBranch": "fix/operations-field-validation-20261125",
+      "developCandidateBranch": "fix/operations-field-validation-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "f4504c54c6e8dcc667ac56cbfe67b87fda4e1974",
+      "candidateSha": "5e2617c43d7678c141d408e96b0070b3e0f39a4d",
       "developMergeSha": null
     }
   ],
@@ -173,7 +173,7 @@
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing contract preserved; runtime pending"
+    "realtime": "Existing case SignalR invalidation preserved; runtime pending"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -181,8 +181,8 @@
     "DholeOperationsService"
   ],
   "changes": [
-    "Remove pickup contact and time window from manual opening and completeness gates",
-    "Show pickup, delivery and WHS in review without unused POD columns"
+    "Classify individual required, deferred and non-applicable opening fields using server policy",
+    "Show opening field status with existing DH badges in manual preview and persisted case; gate approval on no blockers"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -238,7 +238,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS",
+  "businessReleaseId": "DH-20261125-OPS-FIELD-VALIDATION",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",

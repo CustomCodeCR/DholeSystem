@@ -1,3 +1,7 @@
+## [1.129.3] - 2026-11-25
+
+- Coordinate individual aperture field validation in DholeWeb 1.129.3 and DholeOperationsService 0.25.2. All 17 develop baseline versions verified; CI and authenticated staging pending. Production not authorized.
+
 ## [1.127.4] - 2026-11-25
 
 - Coordinate Origin handoff SignalR, System and Email notifications, retaining Pricing IDTRA release 1.127.3. Web/System 1.127.4, Operations 0.23.2, Auth 1.17.3. CI/staging pending; no production authorization.
