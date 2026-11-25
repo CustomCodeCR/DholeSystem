@@ -1,3 +1,7 @@
+## [1.132.0] - 2026-11-25
+
+- MINOR: candidato parcial de Operations prioridad 1 (13–18), Web 1.132.0 y Operations 0.27.0. Se registran las 17 versiones base reales; integración bloqueada por criterios pendientes, CI y staging. Producción no autorizada.
+
 ## [1.130.1] - 2026-11-25
 
 - Coordinate opening capture correction: service catalog, providers, observations, grouped completeness and CRM executive validation. Web 1.130.1, Operations 0.25.3; preserve quotation export release. CI/staging pending.
