@@ -1,3 +1,7 @@
+## [1.124.33] - 2026-11-24
+
+- DH-20261124-OPERATIONS-SEQUENTIAL-APERTURES: asignación secuencial de validadores, acceso a cola personal y documentos referenciados desde Pricing. Operations 0.21.2; Web/System 1.124.33. CI, staging y conciliación de adjuntos históricos pendientes. Sin promoción a producción.
+
 ## [1.124.32] - 2026-11-24
 
 - DH-20261124-PRICING-AIR-QUANTITY-SAVE: conservar precios unitarios negociados al editar agente válido y peso/bultos/tarimas de cotizaciones aéreas existentes; cantidades recalculadas con el flujo existente y validación de cambios estructurales mantenida. DholeWeb/System 1.124.32; otros servicios sin cambios. CI y staging pendientes.
