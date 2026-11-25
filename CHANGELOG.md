@@ -1,3 +1,7 @@
+## [1.124.28] - 2026-11-24
+
+- DH-20261124-PRICING-DUPLICATE-RELINK: recuperación del vínculo CRM perdido al editar duplicaciones existentes. DholeWeb/System 1.124.28; Pricing 1.29.11 sin cambios en develop. CI y validación staging pendientes.
+
 ## [1.124.27] - 2026-11-24
 
 - DH-20261124-PRICING-HISTORICAL-EDIT: corrección coordinada de duplicación CRM y reconciliación de costos de cotizaciones existentes. Web/System 1.124.27, Pricing 1.29.11; CI, staging y promoción pendientes.
