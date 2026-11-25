@@ -1,3 +1,7 @@
+## [1.124.31] - 2026-11-24
+
+- DH-20261124-PRICING-AIR-AGENT-SAVE: guardar revisión aérea cuando únicamente cambia a un agente válido, conservar líneas negociadas y evitar cambios automáticos del agente. DholeWeb/System 1.124.31; demás servicios sin cambios. CI/staging pendientes.
+
 ## [1.124.30] - 2026-11-24
 
 - DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION: coordinar DholeWeb/System 1.124.30, normalizar contexto de cotización existente y diagnóstico de guardado; conservar validación de cambios reales. Demás microservicios sin modificaciones. CI y staging pendientes.
