@@ -1,3 +1,7 @@
+## [1.129.4] - 2026-11-25
+
+- Coordinate opening capture correction: service catalog, providers, observations, grouped completeness and CRM executive validation. Web 1.129.4, Operations 0.25.3; CI/staging pending.
+
 ## [1.129.3] - 2026-11-25
 
 - Coordinate individual aperture field validation in DholeWeb 1.129.3 and DholeOperationsService 0.25.2. All 17 develop baseline versions verified; CI and authenticated staging pending. Production not authorized.
