@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
+  "releaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.129.1",
+  "ecosystemVersion": "1.129.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-hide-commercial-billing-20261125",
+    "develop": "fix/operations-pickup-completeness-20261125",
     "master": null
   },
-  "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
+  "candidateBranch": "fix/operations-pickup-completeness-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.129.1",
-      "previousVersion": "1.129.0",
+      "version": "1.129.2",
+      "previousVersion": "1.129.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
-      "developCandidateBranch": "fix/operations-hide-commercial-billing-20261125",
+      "candidateBranch": "fix/operations-pickup-completeness-20261125",
+      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
       "masterCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null
@@ -31,7 +31,7 @@
       "version": "1.11.1",
       "previousVersion": "1.11.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -39,19 +39,19 @@
       "version": "1.17.3",
       "previousVersion": "1.17.3",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.129.1",
-      "previousVersion": "1.129.0",
+      "version": "1.129.2",
+      "previousVersion": "1.129.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-hide-commercial-billing-20261125",
-      "developCandidateBranch": "fix/operations-hide-commercial-billing-20261125",
+      "candidateBranch": "fix/operations-pickup-completeness-20261125",
+      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "47059128dac05fc0bb6a58d40eb15bda60ace727",
+      "candidateSha": "9d0553c9b4fbe05e958511d5f593df282961fcf7",
       "developMergeSha": null
     },
     {
@@ -60,7 +60,7 @@
       "version": "1.12.0",
       "previousVersion": "1.12.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -68,7 +68,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -76,7 +76,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -84,7 +84,7 @@
       "version": "1.31.3",
       "previousVersion": "1.31.3",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -92,7 +92,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -100,7 +100,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -108,7 +108,7 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -116,7 +116,7 @@
       "version": "1.9.1",
       "previousVersion": "1.9.1",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -124,7 +124,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -132,7 +132,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -140,7 +140,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -148,15 +148,20 @@
       "version": "1.45.0",
       "previousVersion": "1.45.0",
       "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "versionVerified": false
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.25.0",
+      "version": "0.25.1",
       "previousVersion": "0.25.0",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "fix/operations-pickup-completeness-20261125",
+      "developCandidateBranch": "fix/operations-pickup-completeness-20261125",
+      "masterCandidateBranch": null,
+      "candidateSha": "f4504c54c6e8dcc667ac56cbfe67b87fda4e1974",
+      "developMergeSha": null
     }
   ],
   "policyCheck": "pending",
@@ -172,11 +177,12 @@
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Hide commercial billing party in Operations pickup/delivery",
-    "Reuse shared location component; preserve Pricing behavior"
+    "Remove pickup contact and time window from manual opening and completeness gates",
+    "Show pickup, delivery and WHS in review without unused POD columns"
   ],
   "stagingValidation": {
     "status": "pending"
@@ -232,7 +238,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS",
+  "businessReleaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -645,7 +651,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261125-OPS-OPERATIONAL-LOCATIONS"
+    "releaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -660,7 +666,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Operational locations without billing assignment",
+  "releaseSummary": "Pickup opening completeness correction",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -3029,7 +3035,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "PATCH Operations location form. CI and staging pending.",
+  "notes": "PATCH Operations opening review and completeness; historical data preserved. CI and staging pending.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -3075,6 +3081,15 @@
     "pullRequests": {
       "DholeWeb": 1159,
       "DholeSystem": 920
+    }
+  },
+  "operationsPickupCompletenessRelease": {
+    "releaseId": "DH-20261125-OPS-PICKUP-COMPLETENESS",
+    "ecosystemVersion": "1.129.2",
+    "productionAuthorized": false,
+    "validation": {
+      "ci": "pending",
+      "staging": "pending"
     }
   }
 }

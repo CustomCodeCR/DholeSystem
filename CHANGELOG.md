@@ -1849,6 +1849,11 @@
 
 # Changelog
 
+## [1.129.2] - 2026-11-25 · DH-20261125-OPS-PICKUP-COMPLETENESS
+
+- PATCH: revisión de apertura y completitud sin contacto ni ventana de recolecta; Operations 0.25.1. Sin autorización de producción.
+
+
 ## [1.129.1] - 2026-11-25 · DH-20261125-OPS-OPERATIONAL-LOCATIONS
 
 - PATCH: ubicaciones operativas sin asignación de responsable del costo; DholeWeb 1.129.1. Sin autorización de producción.
