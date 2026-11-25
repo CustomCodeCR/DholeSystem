@@ -1,27 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+  "releaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.32",
+  "ecosystemVersion": "1.124.34",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-air-quantity-save-20261124",
+    "develop": "fix/operations-sequential-apertures-20261124",
     "master": null
   },
-  "candidateBranch": "fix/pricing-air-quantity-save-20261124",
+  "candidateBranch": "fix/operations-sequential-apertures-20261124",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.32",
+      "version": "1.124.34",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-air-quantity-save-20261124",
-      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "candidateBranch": "fix/operations-sequential-apertures-20261124",
+      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "versionVerified": true,
+      "previousVersion": "1.124.32"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -40,13 +42,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.32",
+      "version": "1.124.34",
       "mergeState": "intermediate-only",
-      "candidateBranch": "fix/pricing-air-quantity-save-20261124",
-      "developCandidateBranch": "fix/pricing-air-quantity-save-20261124",
+      "candidateBranch": "fix/operations-sequential-apertures-20261124",
+      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
       "masterCandidateBranch": null,
-      "candidateSha": "e824e6f695c83a622b9f08f774b7c7ed9c0d4f73",
-      "developMergeSha": null
+      "candidateSha": "4b128fdacc4d39ef943a91df32c7788e77c8111d",
+      "developMergeSha": null,
+      "versionVerified": true,
+      "previousVersion": "1.124.32"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -135,37 +139,45 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.21.1",
-      "mergeState": "unchanged-for-this-release",
-      "versionVerified": true
+      "version": "0.21.3",
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "previousVersion": "0.21.1",
+      "candidateBranch": "fix/operations-sequential-apertures-20261124",
+      "developCandidateBranch": "fix/operations-sequential-apertures-20261124",
+      "masterCandidateBranch": null,
+      "candidateSha": "ff4615f0f7a53d1d7f5a7d67b0fb60d743128aed",
+      "developMergeSha": null
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.31 → 1.124.32; other components unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.32 to 1.124.34; Operations 0.21.1 to 0.21.3; replaces unreleased dual-review candidate; others unchanged.",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging quote save verification pending"
+    "CI and authenticated staging validation pending",
+    "Historical documents absent from accepted snapshots require source reconciliation"
   ],
   "validationEvidence": {
     "ci": "pending",
     "staging": "pending",
-    "realtime": "Existing REST/realtime contracts unchanged; runtime verification pending"
+    "realtime": "Existing outbox contracts retained; cross-user runtime verification pending"
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeWeb"
+    "DholeOperationsService",
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "Preserve reviewed negotiated air quote unit amounts when an eligible agent and/or cargo quantities change, including weight, packages and pallets.",
-    "Keep existing billing-quantity calculation and structural-context validations; explicit removals remain respected."
+    "Single-person aperture approval and direct Origin handoff, including reconciliation of legacy pending and previously approved openings",
+    "Weighted active assignment, operator-specific dashboard and approval authorization",
+    "Accepted quote snapshot attachment references in DH case views"
   ],
   "stagingValidation": {
     "status": "pending"
   },
   "f6F7F8": {
-    "status": "deferred-to-staging-by-explicit-user-authorization",
-    "formalGatesPassed": false,
-    "reason": "Develop integration permitted before F6-F8 live evidence; tests remain unapproved"
+    "status": "pending",
+    "formalGatesPassed": false
   },
   "businessPatchRelease": {
     "releaseId": "DH-20261112-CRM-REMINDER-CONTEXT-124",
@@ -214,7 +226,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
+  "businessReleaseId": "DH-20261124-OPS-SINGLE-APPROVAL",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
