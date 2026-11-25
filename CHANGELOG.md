@@ -1,3 +1,7 @@
+## [1.124.31] - 2026-11-24
+
+- DH-20261124-PRICING-AIR-AGENT-SAVE: corrección aislada del guardado de cotizaciones aéreas al modificar exclusivamente un agente válido; conservar costos negociados y evitar sustituciones automáticas. DholeWeb/System 1.124.31; otros servicios sin cambios. CI y staging pendientes.
+
 ## [1.124.30] - 2026-11-24
 
 - DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION: candidato aislado a master de DholeWeb/System 1.124.30; CI de develop aprobado, versiones de los 15 servicios restantes verificadas; staging funcional y CI de master pendientes.
