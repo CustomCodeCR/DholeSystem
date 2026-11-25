@@ -56,7 +56,7 @@
       "candidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "developCandidateBranch": "fix/operations-origin-handoff-realtime-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "a7ace678b39ac2e5a21616f9a3cb2f0cf2a17073",
+      "candidateSha": "bc2ce97dd2c8c6f310ea8f9a0d3f2b6556344c79",
       "developMergeSha": null
     },
     {
@@ -173,10 +173,10 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated two-session staging validation pending; Auth must be deployed before Operations."
+    "Web and System CI reruns and authenticated staging validation pending; deploy Auth before Operations."
   ],
   "validationEvidence": {
-    "ci": "pending",
+    "ci": "Auth and Operations passed; Web regression assertions updated and Dynamics compose validation hardened; reruns pending.",
     "staging": "pending",
     "realtime": "Existing durable Operations event and dashboard hub retained; same-origin WebSocket routing and reconnect reconciliation added; runtime validation pending."
   },
