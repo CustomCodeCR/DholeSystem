@@ -51,7 +51,7 @@
       "candidateBranch": "feature/operations-priority1-13-18-20261125",
       "developCandidateBranch": "feature/operations-priority1-13-18-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "f85a5881d208f8cba68b3f154fe2fefc70e431b5",
+      "candidateSha": "ffa57e3331bf266d95bf874e0fb1b7831dd509a7",
       "developMergeSha": null
     },
     {
@@ -160,7 +160,7 @@
       "candidateBranch": "feature/operations-priority1-13-18-20261125",
       "developCandidateBranch": "feature/operations-priority1-13-18-20261125",
       "masterCandidateBranch": null,
-      "candidateSha": "e7cba9526e569fe54177faa8ce819d2cb35a6926",
+      "candidateSha": "e28f240ef7c7ff4d411592574936bc328ee49ac0",
       "developMergeSha": null
     }
   ],
