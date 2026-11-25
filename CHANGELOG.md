@@ -1,3 +1,7 @@
+## [1.126.1] - 2026-11-25
+
+- DH-20261125-OWN-LCL-MAERSK-BALBOA: coordinate Pricing 1.31.1 and Web 1.126.1; verify baseline component versions; Maersk Balboa destination and draft tariff API. CI and staging pending.
+
 ## [1.126.0] - 2026-11-24
 
 - Coordinate Pricing 1.31.0, Operations 0.23.0 and Web 1.126.0 for additive accepted-quote inheritance and conditional validation; preserve all unchanged component versions. Staging only, CI and authenticated verification pending. Missing historical supplier/merchant references remain unresolved, without fabricating data.
