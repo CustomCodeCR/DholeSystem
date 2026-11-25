@@ -1,3 +1,7 @@
+## [1.126.2] - 2026-11-25
+
+- DH-20261125-OWN-LCL-APPROVED-REFERENCE: coordinate Pricing 1.31.2 and Web 1.126.2; approved Maersk Balboa reference fallback with explicit provenance. CI and staging pending.
+
 ## [1.126.1] - 2026-11-25
 
 - DH-20261125-OWN-LCL-MAERSK-BALBOA: coordinate Pricing 1.31.1 and Web 1.126.1; verify baseline component versions; Maersk Balboa destination and draft tariff API. CI and staging pending.
