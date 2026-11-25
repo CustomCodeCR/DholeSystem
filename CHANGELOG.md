@@ -1,3 +1,7 @@
+## [1.132.2] - 2026-11-25
+
+- DH-20261125-FTL-EDIT-P6-P7: candidato aislado de master, conserva las versiones de los otros 15 componentes verificadas en master y los archivos de corrección y pruebas idénticos a develop. Integración, CI y staging pendientes.
+
 ## [1.130.0] - 2026-11-25
 
 - Promote staged all-status quotation export (Web 1.130.0, Pricing 1.32.0); verified all 17 production baseline versions. Staging automated checks successful; authenticated manual Excel check and master CI pending. Explicit master authorization.
