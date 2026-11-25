@@ -1,155 +1,163 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK",
+  "releaseId": "DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.124.29",
+  "ecosystemVersion": "1.124.30",
   "status": "master-candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/20261124-pricing-cost-context-relink",
-    "master": "fix/20261124-pricing-cost-context-relink-master"
+    "develop": "fix/pricing-edit-context-normalization-20261124",
+    "master": "release/pricing-edit-context-1.124.30-master"
   },
-  "candidateBranch": "fix/20261124-pricing-cost-context-relink-master",
+  "candidateBranch": "release/pricing-edit-context-1.124.30-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.124.29",
+      "version": "1.124.30",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/20261124-pricing-cost-context-relink-master",
-      "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
-      "masterCandidateBranch": "fix/20261124-pricing-cost-context-relink-master",
+      "candidateBranch": "release/pricing-edit-context-1.124.30-master",
+      "developCandidateBranch": "fix/pricing-edit-context-normalization-20261124",
+      "masterCandidateBranch": "release/pricing-edit-context-1.124.30-master",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": "6a5bffd0f93e2cdfcd4d8e319e245d7ec30b8335"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.17.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.124.29",
+      "version": "1.124.30",
       "mergeState": "master-candidate",
-      "candidateBranch": "fix/20261124-pricing-cost-context-relink-master",
-      "developCandidateBranch": "fix/20261124-pricing-cost-context-relink",
-      "masterCandidateBranch": "fix/20261124-pricing-cost-context-relink-master",
-      "candidateSha": "10c699952ba0ce045f09f96108a8c74af0dbbfde",
-      "developMergeSha": null
+      "candidateBranch": "release/pricing-edit-context-1.124.30-master",
+      "developCandidateBranch": "fix/pricing-edit-context-normalization-20261124",
+      "masterCandidateBranch": "release/pricing-edit-context-1.124.30-master",
+      "candidateSha": "b0a7b334f63fe885d4f3559887418e12004eea86",
+      "developMergeSha": "5c235ccb5b6dad87980378c8b60ab6d168ada154"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
       "component": "DholeAuditLogsService",
       "version": "1.2.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.29.11",
       "mergeState": "unchanged-for-this-release",
-      "masterCandidateBranch": "fix/20261124-pricing-duplicate-crm-master",
-      "candidateBranch": "fix/20261124-pricing-duplicate-crm-master",
-      "developCandidateBranch": "fix/20261124-pricing-duplicate-crm",
-      "candidateSha": "ee18cf4e84075ef7cead57c55f057aa58f656e30",
-      "developMergeSha": "8a982cffeeabc2d3e5fefc6d10d4ccd9f91a1e35"
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
       "component": "DholeStorageService",
       "version": "1.2.3",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
       "component": "DholeReportsService",
       "version": "1.8.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
       "component": "DholeNotificationsService",
       "version": "1.9.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
       "component": "DholeContentService",
       "version": "1.2.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
       "component": "DholeAgentService",
       "version": "1.2.2",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
       "component": "DholeDynamicsConnectorService",
       "version": "1.4.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.43.1",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.17.0",
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged-for-this-release",
+      "versionVerified": true
     }
   ],
-  "policyCheck": "PATCH Web/System 1.124.28 → 1.124.29; Pricing 1.29.11 and other components unchanged.",
+  "policyCheck": "PATCH Web/System 1.124.29 → 1.124.30; all 15 other master component versions verified unchanged.",
   "mergeState": "master-candidate",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI, staging and authenticated quote edit verification pending"
+    "Authenticated staging quotation save not verified",
+    "Master CI pending; Web version gate requires matching System master"
   ],
   "validationEvidence": {
-    "ci": "pending",
-    "staging": "pending",
-    "realtime": "Existing REST and realtime contracts retained; runtime verification pending"
+    "ci": "develop PR CI successful; master pending",
+    "staging": "pending; version endpoint not accessible from current environment",
+    "realtime": "Existing REST/realtime contracts retained; staging runtime verification pending"
   },
   "releaseComponents": [
     "DholeSystem",
     "DholeWeb"
   ],
   "changes": [
-    "Preserve operation when reselecting the persisted CRM client.",
-    "Do not invalidate persisted physical cost context when recovering CRM link.",
-    "Reuse verified P7 context on P8 save and settle in-flight context changes; never bypass validation on genuine changed context.",
-    "Recover a previously missing CRM link during existing quote hydration, before capturing the cost context; retain explicit selection only for ambiguous identities."
+    "Promote isolated verified develop patch for equivalent quote IDs, residual maritime sources and precise validation feedback."
   ],
   "stagingValidation": {
     "status": "pending"
@@ -206,7 +214,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261124-PRICING-COST-CONTEXT-RELINK",
+  "businessReleaseId": "DH-20261124-PRICING-EDIT-CONTEXT-NORMALIZATION",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
