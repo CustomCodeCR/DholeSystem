@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.124.31",
-  "ecosystemVersion": "1.124.31",
-  "releaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE",
+  "version": "1.124.32",
+  "ecosystemVersion": "1.124.32",
+  "releaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE",
   "releaseStatus": "master-candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261124-PRICING-AIR-AGENT-SAVE"
+  "businessReleaseId": "DH-20261124-PRICING-AIR-QUANTITY-SAVE"
 }
