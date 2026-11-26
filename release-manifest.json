@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-APERTURA-ORIGIN-FIX",
+  "releaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.132.1",
+  "ecosystemVersion": "1.132.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-apertura-origin-20261125",
-    "master": null
+    "develop": "fix/ftl-persisted-agent-p6-20261125-develop",
+    "master": "fix/ftl-persisted-agent-p6-20261125-master"
   },
-  "candidateBranch": "fix/operations-apertura-origin-20261125",
+  "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.132.1",
-      "previousVersion": "1.132.0",
+      "version": "1.132.2",
+      "previousVersion": "1.132.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-apertura-origin-20261125",
-      "developCandidateBranch": "fix/operations-apertura-origin-20261125",
-      "masterCandidateBranch": null,
+      "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "developCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "masterCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -31,7 +31,7 @@
       "version": "1.11.1",
       "previousVersion": "1.11.1",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -39,19 +39,19 @@
       "version": "1.17.3",
       "previousVersion": "1.17.3",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.132.1",
-      "previousVersion": "1.132.0",
+      "version": "1.132.2",
+      "previousVersion": "1.132.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-apertura-origin-20261125",
-      "developCandidateBranch": "fix/operations-apertura-origin-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "e87b9ec53d45e9976b0ceb18d9ab2c95fd5c1412",
+      "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "developCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "masterCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
+      "candidateSha": "6df7bfcf0c81216db275d7f9e6d8281ff71bf43b",
       "developMergeSha": null
     },
     {
@@ -60,7 +60,7 @@
       "version": "1.12.0",
       "previousVersion": "1.12.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -68,7 +68,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -76,7 +76,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -84,7 +84,7 @@
       "version": "1.33.0",
       "previousVersion": "1.33.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -92,7 +92,7 @@
       "version": "1.9.0",
       "previousVersion": "1.9.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -100,7 +100,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -108,7 +108,7 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -116,7 +116,7 @@
       "version": "1.9.1",
       "previousVersion": "1.9.1",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -124,7 +124,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -132,7 +132,7 @@
       "version": "1.6.0",
       "previousVersion": "1.6.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -140,7 +140,7 @@
       "version": "1.5.0",
       "previousVersion": "1.5.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -148,45 +148,42 @@
       "version": "1.45.0",
       "previousVersion": "1.45.0",
       "versionVerified": true,
-      "mergeState": "unchanged-for-this-release"
+      "mergeState": "unchanged"
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.27.1",
-      "previousVersion": "0.27.0",
-      "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/operations-apertura-origin-20261125",
-      "developCandidateBranch": "fix/operations-apertura-origin-20261125",
-      "masterCandidateBranch": null,
-      "candidateSha": "ae230d0074c360ef19df7a275fee7a9952c7bfd3",
-      "developMergeSha": null
+      "previousVersion": "0.27.1",
+      "mergeState": "unchanged",
+      "versionVerified": true
     }
   ],
   "policyCheck": "pending",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging tests pending",
-    "Previous priority 1 individual equipment and explicit service review criteria remain incomplete or unverified"
+    "CI build and regression tests pending",
+    "Authenticated staging validation pending",
+    "Master merge must follow successful staging"
   ],
   "validationEvidence": {
     "status": "pending",
-    "componentVersionsVerifiedAgainstDevelop": true
+    "componentVersionsVerifiedAgainst": "develop",
+    "componentVersionsVerified": true,
+    "regressionTestsAdded": true
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeOperationsService",
     "DholeSystem"
   ],
   "changes": [
-    "Aperturas assigned reviewer operational editing",
-    "Origin planning ETD, ETA and consolidation",
-    "Shared catalog service labels and compact DH validation"
+    "Retain exact persisted FTL agent in view/edit with unchanged origin",
+    "P6 to P7 local review even when catalog context reconciliation is pending; preserve save verification"
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "pending",
+    "authenticated": true
   },
   "f6F7F8": {
     "status": "pending"
@@ -238,7 +235,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-APERTURA-ORIGIN-FIX",
+  "businessReleaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -651,7 +648,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261125-OPS-PRIORITY1-13-18"
+    "releaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -666,7 +663,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Separate estimated and actual cargo weight; restrict real weight capture to origin. Preserve original measurement units and normalized values; require discrepancy review justification.",
+  "releaseSummary": "FTL persisted agent restoration and P6 navigation",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -829,7 +826,7 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionAuthorization": "Not authorized for this release",
+  "productionAuthorization": "No explicit production deployment authorization",
   "pricingRateRequestReturnPromotion": {
     "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
     "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
@@ -1019,8 +1016,8 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "Staging only; no master integration or production deployment.",
-  "releaseMasterIntegrationRequested": false,
+  "productionAuthorizationScope": "Develop integration and master backport requested; production deployment not authorized",
+  "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
@@ -1058,12 +1055,12 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "previousVersion": "1.127.0",
-      "newVersion": "1.127.1"
+      "previousVersion": "1.132.1",
+      "newVersion": "1.132.2"
     },
     "DholeSystem": {
-      "previousVersion": "1.127.0",
-      "newVersion": "1.127.1"
+      "previousVersion": "1.132.1",
+      "newVersion": "1.132.2"
     }
   },
   "pricingP7EditRelease": {
@@ -3430,5 +3427,189 @@
       "CI and authenticated staging tests not run/verified.",
       "Existing develop baseline mismatch: DholeWeb 1.131.0, DholeSystem 1.130.1."
     ]
+  },
+  "previousFtlPersistedAgentBaseline": {
+    "releaseId": "DH-20261125-OPS-APERTURA-ORIGIN-FIX",
+    "ecosystemVersion": "1.132.1",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.132.1",
+        "previousVersion": "1.132.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-apertura-origin-20261125",
+        "developCandidateBranch": "fix/operations-apertura-origin-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.3",
+        "previousVersion": "1.17.3",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.132.1",
+        "previousVersion": "1.132.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-apertura-origin-20261125",
+        "developCandidateBranch": "fix/operations-apertura-origin-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "e87b9ec53d45e9976b0ceb18d9ab2c95fd5c1412",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.33.0",
+        "previousVersion": "1.33.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "previousVersion": "1.45.0",
+        "versionVerified": true,
+        "mergeState": "unchanged-for-this-release"
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.27.1",
+        "previousVersion": "0.27.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-apertura-origin-20261125",
+        "developCandidateBranch": "fix/operations-apertura-origin-20261125",
+        "masterCandidateBranch": null,
+        "candidateSha": "ae230d0074c360ef19df7a275fee7a9952c7bfd3",
+        "developMergeSha": null
+      }
+    ],
+    "releaseComponents": [
+      "DholeWeb",
+      "DholeOperationsService",
+      "DholeSystem"
+    ],
+    "blockers": [
+      "CI and authenticated staging tests pending",
+      "Previous priority 1 individual equipment and explicit service review criteria remain incomplete or unverified"
+    ],
+    "productionDeployment": {
+      "status": "not-authorized",
+      "releaseId": "DH-20261125-OPS-PRIORITY1-13-18"
+    }
+  },
+  "ftlPersistedAgentP6Release": {
+    "id": "DH-20261125-FTL-PERSISTED-AGENT-P6",
+    "scope": "DholeWeb and DholeSystem",
+    "baseline": "develop",
+    "webCandidateSha": "6df7bfcf0c81216db275d7f9e6d8281ff71bf43b",
+    "regressionTests": [
+      "tests/pricingFtlEditPreservationFinal.test.ts",
+      "tests/pricingFtlPersistedAgentP6.test.mjs"
+    ],
+    "restContract": "unchanged",
+    "realtimeContract": "unchanged",
+    "productionDeployment": "not-authorized"
   }
 }
