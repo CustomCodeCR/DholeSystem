@@ -1,3 +1,7 @@
+## [1.132.2] - 2026-11-25
+
+- PATCH: DH-20261125-FTL-PERSISTED-AGENT-P6. DholeWeb y DholeSystem 1.130.0 → 1.132.2; las 15 versiones de los demás componentes permanecen sin cambios, verificadas en master. Recuperación histórica de agente FTL y navegación P6/P7. CI y staging autenticado pendientes; master solo después de staging. Sin despliegue de producción autorizado.
+
 ## [1.130.0] - 2026-11-25
 
 - Promote staged all-status quotation export (Web 1.130.0, Pricing 1.32.0); verified all 17 production baseline versions. Staging automated checks successful; authenticated manual Excel check and master CI pending. Explicit master authorization.
