@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.137.2",
-  "ecosystemVersion": "1.137.2",
-  "releaseId": "DH-20261126-MANUAL-QUO-FIRST",
+  "version": "1.137.3",
+  "ecosystemVersion": "1.137.3",
+  "releaseId": "DH-20261126-PRICING-MULTIPLE-IDTRA",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261126-MANUAL-QUO-FIRST"
+  "businessReleaseId": "DH-20261126-PRICING-MULTIPLE-IDTRA"
 }
