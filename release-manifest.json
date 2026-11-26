@@ -5,10 +5,10 @@
   "ecosystemVersion": "1.134.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feat/ops-manual-whs-routing-20261126",
+    "develop": "feature/ops-manual-whs-routing-20261126",
     "master": null
   },
-  "candidateBranch": "feat/ops-manual-whs-routing-20261126",
+  "candidateBranch": "feature/ops-manual-whs-routing-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -19,8 +19,8 @@
       "previousVersion": "1.133.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
-      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "candidateBranch": "feature/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feature/ops-manual-whs-routing-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -55,9 +55,9 @@
       "previousVersion": "1.133.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
-      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
-      "candidateSha": "3b6ed6d6eac21609efddeb90163632cfcad19442",
+      "candidateBranch": "feature/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feature/ops-manual-whs-routing-20261126",
+      "candidateSha": "603e0eee4bd5d2c45a7df82a1d96cc46089616bf",
       "developMergeSha": null
     },
     {
@@ -211,8 +211,8 @@
       "previousVersion": "0.28.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
-      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "candidateBranch": "feature/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feature/ops-manual-whs-routing-20261126",
       "candidateSha": "49adbbc5ce40babbad9a94931a203ab2e0dbacf9",
       "developMergeSha": null
     }
