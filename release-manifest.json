@@ -57,7 +57,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/manual-quo-first-20261126",
       "developCandidateBranch": "fix/manual-quo-first-20261126",
-      "candidateSha": "5454a85a9ed6d2ed0a277bbb630b5e518a33393f",
+      "candidateSha": "4a24feefcaf5edc922bdf225beac344865967a5b",
       "developMergeSha": null
     },
     {
@@ -236,7 +236,8 @@
   ],
   "changes": [
     "Manual opening QUO search appears first, no client/modality prerequisite.",
-    "Selecting a compatible accepted QUO fills missing CRM account and shipment modality through existing components, preserves existing selections and existing transactional linking."
+    "Selecting a compatible accepted QUO fills missing CRM account and shipment modality through existing components, preserves existing selections and existing transactional linking.",
+    "Fetch full quote detail before linking; hydrate catalog-backed POL/POE/POD, Incoterm, operation, carrier/agent/WHS, cargo estimates, equipment, services and inland points; recover legacy selected-quote drafts; report unmapped catalog fields; preserve actual weight for Origin."
   ],
   "stagingValidation": {
     "status": "pending",
