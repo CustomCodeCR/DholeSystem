@@ -1,3 +1,9 @@
+## [1.133.0] - 2026-11-25
+
+- Candidate adds optional PO and invoice references in Origin planning; coordinated release remains blocked pending complete commercial and operational workflows.
+
+- Candidato parcial DH-20261125-OPS-MANUAL-BASICS: DholeWeb 1.133.0, DholeOperationsService 0.28.0 y DholeSystem 1.133.0. Validación básica de apertura manual v5. Pendientes estado inicial, equipo/operativo, aceptación y revinculación bidireccional QUO, CI y staging. No integrar ni desplegar.
+
 ## [1.132.3] - 2026-11-25
 
 - PATCH: DH-20261125-FTL-CUSTOMS-SCOPE. Web/System 1.132.2 → 1.132.3; otros 15 componentes verificados sin cambios en develop. Separar aduanas exterior/CRC y preservar importes negociados FTL en edición exclusiva de agente. CI y staging pendientes.

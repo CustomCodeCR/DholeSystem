@@ -1,27 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-FTL-CUSTOMS-SCOPE",
+  "releaseId": "DH-20261125-OPS-MANUAL-BASICS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.132.3",
+  "ecosystemVersion": "1.133.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-customs-scope-ftl-20261125-develop",
-    "master": "fix/pricing-customs-scope-ftl-20261125-master"
+    "develop": "feature/ops-manual-opening-basics-20261125",
+    "master": null
   },
-  "candidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
+  "candidateBranch": "feature/ops-manual-opening-basics-20261125",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.132.3",
-      "previousVersion": "1.132.2",
+      "version": "1.133.0",
+      "previousVersion": "1.132.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "developCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "masterCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-master",
+      "candidateBranch": "feature/ops-manual-opening-basics-20261125",
+      "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -44,14 +43,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.132.3",
-      "previousVersion": "1.132.2",
+      "version": "1.133.0",
+      "previousVersion": "1.132.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "developCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "masterCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-master",
-      "candidateSha": "1eacff6851d99874c5b0a4e93a42bb0e31225df2",
+      "candidateBranch": "feature/ops-manual-opening-basics-20261125",
+      "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
+      "candidateSha": "02ab47bd34cf1f4643f9aef92f0aec35590f57e2",
       "developMergeSha": null
     },
     {
@@ -153,36 +151,71 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.27.1",
+      "version": "0.28.0",
       "previousVersion": "0.27.1",
-      "mergeState": "unchanged",
-      "versionVerified": true
+      "mergeState": "intermediate-only",
+      "versionVerified": true,
+      "candidateBranch": "feature/ops-manual-opening-basics-20261125",
+      "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
+      "candidateSha": "79a3673d71d246d59e391f86ad128858d2f43c8b",
+      "developMergeSha": null
     }
   ],
   "policyCheck": "pending",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI build and regression tests pending",
-    "Authenticated staging validation pending"
+    "Partial implementation: initial Pre-alert/Transit/Origin status and eligible team/operator selection pending",
+    "Pricing acceptance from opening, multi-quote reassignment and reliable cross-service reconciliation pending",
+    "CI build, unit and integration tests pending",
+    "Authenticated staging and realtime validation pending"
   ],
   "validationEvidence": {
     "status": "pending",
     "componentVersionsVerifiedAgainst": "develop",
     "componentVersionsVerified": true,
-    "regressionTestsAdded": true
+    "regressionTestsAdded": true,
+    "fullRequestImplemented": false,
+    "previousCiFailuresCorrectedInCandidate": [
+      "Web regression assertions updated for renamed step and conditional controls",
+      "Operations MSBuild assembly version synchronized to 0.28.0"
+    ],
+    "operationsPreviousCandidate": {
+      "sha": "3b1cb7d0eb6ca28455620607ff57c7591d950bc3",
+      "buildTest": "success",
+      "versionGate": "success"
+    },
+    "originReferencesImplemented": true,
+    "operationsLatestCandidate": {
+      "sha": "79a3673d71d246d59e391f86ad128858d2f43c8b",
+      "buildTest": "success",
+      "versionGate": "success"
+    },
+    "developBaselineReconciled": {
+      "DholeWeb": "1531e43cf1cbf1aef8ad20a9e791ee62f54ad365",
+      "DholeSystem": "ca20f33680f24ff7ea47fa4aa9708e0ce6216b3b"
+    },
+    "webLatestCorrection": "Regression test for deferred stackability; CI pending",
+    "systemPreviousCandidate": {
+      "sha": "ea879b1b26333ab8d334a437f25cd4281e4170bf",
+      "versionGate": "success",
+      "manifestGate": "success",
+      "dynamicsValidation": "success",
+      "formalPromotion": "skipped"
+    }
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholeOperationsService",
     "DholeSystem"
   ],
   "changes": [
-    "Separate CUSTOMS_FOREIGN and CUSTOMS_CR validation",
-    "Preserve negotiated FTL details for eligible agent-only edits"
+    "Simplify manual opening form and validation v5: WHS for LCL/LTL; carrier for FCL; require package count and volume; defer detailed cargo and inland planning.",
+    "Preserve legacy validation and editing. This candidate is PARTIAL and must not be merged until initial state, assignment and bidirectional QUO acceptance/relinking are implemented and tested."
   ],
   "stagingValidation": {
     "status": "pending",
-    "authenticated": true
+    "authenticated": false
   },
   "f6F7F8": {
     "status": "pending"
@@ -1053,13 +1086,17 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeWeb": {
-      "previousVersion": "1.132.2",
-      "newVersion": "1.132.3"
-    },
     "DholeSystem": {
-      "previousVersion": "1.132.2",
-      "newVersion": "1.132.3"
+      "previousVersion": "1.132.3",
+      "newVersion": "1.133.0"
+    },
+    "DholeWeb": {
+      "previousVersion": "1.132.3",
+      "newVersion": "1.133.0"
+    },
+    "DholeOperationsService": {
+      "previousVersion": "0.27.1",
+      "newVersion": "0.28.0"
     }
   },
   "pricingP7EditRelease": {
@@ -3779,5 +3816,19 @@
     ],
     "restContract": "unchanged",
     "realtimeContract": "unchanged"
+  },
+  "previousOpsManualBasicsBaseline": {
+    "releaseId": "DH-20261125-FTL-CUSTOMS-SCOPE",
+    "ecosystemVersion": "1.132.3",
+    "changes": [
+      "Separate CUSTOMS_FOREIGN and CUSTOMS_CR validation",
+      "Preserve negotiated FTL details for eligible agent-only edits"
+    ],
+    "validationEvidence": {
+      "status": "pending",
+      "componentVersionsVerifiedAgainst": "develop",
+      "componentVersionsVerified": true,
+      "regressionTestsAdded": true
+    }
   }
 }
