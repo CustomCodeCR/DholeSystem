@@ -1,3 +1,7 @@
+## [1.136.0] - 2026-11-26
+
+- MINOR: DH-20261126-OPS-WHS-AGENT-RECONCILED. DholeWeb/System 1.135.0 → 1.136.0; Operations 0.29.0 → 0.30.0. Other 14 component versions verified unchanged in develop. Preserves the 1.135.0 Pricing category report release; WHS agent-first selection and explicit Config ownership validation. CI and staging pending; existing WHS ownership configuration required.
+
 ## [1.135.0] - 2026-11-26
 
 - MINOR: DH-20261126-PRICING-CATEGORY-REPORT. DholeSystem/Web 1.134.1 → 1.135.0; Pricing 1.33.0 → 1.34.0; Auth 1.17.3 → 1.18.0. Other 13 component versions verified against develop, unchanged. Dedicated category export scope, nine operational columns, commercial report backward compatible. CI and authenticated staging pending; production not authorized.
