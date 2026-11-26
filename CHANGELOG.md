@@ -1,3 +1,7 @@
+## [1.132.3] - 2026-11-25
+
+- PATCH: DH-20261125-FTL-CUSTOMS-SCOPE. Web/System 1.132.2 → 1.132.3; otros 15 componentes verificados sin cambios en develop. Separar aduanas exterior/CRC y preservar importes negociados FTL en edición exclusiva de agente. CI y staging pendientes.
+
 ## [1.132.2] - 2026-11-25
 
 - PATCH: DH-20261125-FTL-PERSISTED-AGENT-P6. DholeWeb y DholeSystem 1.132.1 → 1.132.2; las 15 versiones de los demás componentes permanecen sin cambios, verificadas en develop. Recuperación histórica de agente FTL y navegación P6/P7. CI y staging autenticado pendientes; master solo después de staging. Sin despliegue de producción autorizado.
