@@ -5,10 +5,10 @@
   "ecosystemVersion": "1.135.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feat/pricing-category-report-scope-20261126",
+    "develop": "feature/pricing-category-report-scope-20261126",
     "master": null
   },
-  "candidateBranch": "feat/pricing-category-report-scope-20261126",
+  "candidateBranch": "feature/pricing-category-report-scope-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
@@ -19,8 +19,8 @@
       "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/pricing-category-report-scope-20261126",
-      "developCandidateBranch": "feat/pricing-category-report-scope-20261126",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -43,8 +43,8 @@
       "previousVersion": "1.17.3",
       "versionVerified": true,
       "mergeState": "intermediate-only",
-      "candidateBranch": "feat/pricing-category-report-scope-20261126",
-      "developCandidateBranch": "feat/pricing-category-report-scope-20261126",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
       "candidateSha": "30f70bc272b7519c99c6ee897cb1c7492f327b30",
       "developMergeSha": null
     },
@@ -55,8 +55,8 @@
       "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feat/pricing-category-report-scope-20261126",
-      "developCandidateBranch": "feat/pricing-category-report-scope-20261126",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
       "candidateSha": "4b42bef639658dd294a71bd592159c9091469d40",
       "developMergeSha": null
     },
@@ -103,8 +103,8 @@
       "previousVersion": "1.33.0",
       "versionVerified": true,
       "mergeState": "intermediate-only",
-      "candidateBranch": "feat/pricing-category-report-scope-20261126",
-      "developCandidateBranch": "feat/pricing-category-report-scope-20261126",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
       "candidateSha": "a9f34270268fd78ad10e5812d76f3e4ac74d4401",
       "developMergeSha": null
     },
