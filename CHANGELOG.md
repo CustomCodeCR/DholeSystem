@@ -1,3 +1,7 @@
+## [1.135.0] - 2026-11-26
+
+- MINOR: DH-20261126-OPS-WHS-AGENT. DholeWeb/System 1.134.1 → 1.135.0; Operations 0.29.0 → 0.30.0; 14 componentes restantes verificados sin cambios. Vinculación explícita WHS-agente en Config, filtro de apertura manual y validación de identidad en el servidor. Configurar las asociaciones reales de los WHS existentes antes de uso. CI y staging pendientes.
+
 ## [1.134.1] - 2026-11-26
 
 - PATCH: DH-20261126-OPS-WHS-DROPDOWN-LAYER. DholeWeb/System 1.134.0 → 1.134.1; 15 componentes restantes verificados sin cambios en develop (Operations 0.29.0). WHS dropdown escapes its DH card when open; no REST, routing or realtime changes. CI and staging pending.
