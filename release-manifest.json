@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-WHS-DROPDOWN-LAYER",
+  "releaseId": "DH-20261126-OPS-WHS-AGENT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.134.1",
+  "ecosystemVersion": "1.135.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/ops-whs-dropdown-layer-20261126",
+    "develop": "feature/ops-whs-agent-20261126",
     "master": null
   },
-  "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
+  "candidateBranch": "feature/ops-whs-agent-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.134.1",
-      "previousVersion": "1.134.0",
+      "version": "1.135.0",
+      "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "developCandidateBranch": "fix/ops-whs-dropdown-layer-20261126",
+      "candidateBranch": "feature/ops-whs-agent-20261126",
+      "developCandidateBranch": "feature/ops-whs-agent-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.134.1",
-      "previousVersion": "1.134.0",
+      "version": "1.135.0",
+      "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "developCandidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "candidateSha": "d9a5db56558b62a0315755b84e19bf5dd6d9dab4",
+      "candidateBranch": "feature/ops-whs-agent-20261126",
+      "developCandidateBranch": "feature/ops-whs-agent-20261126",
+      "candidateSha": "9c502be144e3154d61d0335a108eadfba2af30a2",
       "developMergeSha": null
     },
     {
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.29.0",
+      "version": "0.30.0",
       "previousVersion": "0.29.0",
-      "mergeState": "unchanged",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "candidateBranch": "feature/ops-whs-agent-20261126",
+      "developCandidateBranch": "feature/ops-whs-agent-20261126",
+      "candidateSha": "3fd54918f40c56eabe4cbfd1c6cd2fd6f635c01e",
       "developMergeSha": null
     }
   ],
@@ -222,7 +222,8 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI checks pending",
-    "Authenticated staging visual and realtime regression pending"
+    "Authenticated staging and realtime regression pending",
+    "Existing warehouse-agent associations must be configured and verified"
   ],
   "validationEvidence": {
     "status": "pending",
@@ -232,11 +233,13 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Allow open WHS dropdown to escape DH card clipping and stack above sibling cards; restore on close.",
-    "No REST, routing or realtime contract changes."
+    "Config catalog editor stores explicit agentId in WHS metadata.",
+    "Manual opening selects agent first, restricts WHS by ownership, preserves selection and clears incompatible warehouses.",
+    "Operations validates linked catalog identities on creation; earlier versions retain historical behavior."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -292,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-WHS-DROPDOWN-LAYER",
+  "businessReleaseId": "DH-20261126-OPS-WHS-AGENT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -720,7 +723,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "WHS selector card overflow and stacking fix",
+  "releaseSummary": "Agent-first manual WHS selection and explicit Config ownership",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1112,12 +1115,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "from": "1.134.0",
-      "to": "1.134.1"
+      "from": "1.134.1",
+      "to": "1.135.0"
     },
     "DholeWeb": {
-      "from": "1.134.0",
-      "to": "1.134.1"
+      "from": "1.134.1",
+      "to": "1.135.0"
+    },
+    "DholeOperationsService": {
+      "from": "0.29.0",
+      "to": "0.30.0"
     }
   },
   "pricingP7EditRelease": {
@@ -3089,7 +3096,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "PATCH; CI and authenticated staging visual regression pending.",
+  "notes": "New manual openings v7 require linked active agent/warehouse; configure existing catalog links with verified owners.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -3959,6 +3966,80 @@
       {
         "component": "DholeWeb",
         "version": "1.134.0"
+      },
+      {
+        "component": "DholeConfigService",
+        "version": "1.12.0"
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholePricingService",
+        "version": "1.33.0"
+      },
+      {
+        "component": "DholeAIService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholeStorageService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeReportsService",
+        "version": "1.8.1"
+      },
+      {
+        "component": "DholeNotificationsService",
+        "version": "1.9.1"
+      },
+      {
+        "component": "DholeContentService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeAgentService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeCRMService",
+        "version": "1.45.0"
+      },
+      {
+        "component": "DholeOperationsService",
+        "version": "0.29.0"
+      }
+    ]
+  },
+  "previousWhsAgentBaseline": {
+    "releaseId": "DH-20261126-OPS-WHS-DROPDOWN-LAYER",
+    "ecosystemVersion": "1.134.1",
+    "components": [
+      {
+        "component": "DholeSystem",
+        "version": "1.134.1"
+      },
+      {
+        "component": "DholeApiGateway",
+        "version": "1.11.1"
+      },
+      {
+        "component": "DholeAuthService",
+        "version": "1.17.3"
+      },
+      {
+        "component": "DholeWeb",
+        "version": "1.134.1"
       },
       {
         "component": "DholeConfigService",
