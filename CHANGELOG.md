@@ -1,3 +1,7 @@
+## [1.135.0] - 2026-11-26
+
+- MINOR: DH-20261126-PRICING-CATEGORY-REPORT. DholeSystem/Web 1.134.1 → 1.135.0; Pricing 1.33.0 → 1.34.0; Auth 1.17.3 → 1.18.0. Other 13 component versions verified against develop, unchanged. Dedicated category export scope, nine operational columns, commercial report backward compatible. CI and authenticated staging pending; production not authorized.
+
 ## [1.134.1] - 2026-11-26
 
 - PATCH: DH-20261126-OPS-WHS-DROPDOWN-LAYER. DholeWeb/System 1.134.0 → 1.134.1; 15 componentes restantes verificados sin cambios en develop (Operations 0.29.0). WHS dropdown escapes its DH card when open; no REST, routing or realtime changes. CI and staging pending.
