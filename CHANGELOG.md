@@ -1,3 +1,7 @@
+## [1.137.0] - 2026-11-26
+
+- MINOR (WIP, no integrar): DH-20261126-OPS-QUO-OPENING. Candidato coordinado Web 1.137.0 y Operations 0.31.0. Pricing sin cambios. Pendientes aceptación de QUO no aceptada, pruebas CI y staging.
+
 ## [1.136.2] - 2026-11-26
 
 - PATCH: DH-20261126-OPS-WHS-AGENT-METADATA. DholeWeb/System 1.136.1 → 1.136.2; Operations 0.30.1 → 0.30.2. Other 14 component versions verified unchanged in develop. Correct warehouse ownership using existing agent codes and names; distinguish same-city WHS, preserve physical IDs and catalog data. CI and staging pending.

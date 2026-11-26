@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.136.2",
-  "ecosystemVersion": "1.136.2",
-  "releaseId": "DH-20261126-OPS-WHS-AGENT-METADATA",
-  "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261126-OPS-WHS-AGENT-METADATA"
+  "version": "1.137.0",
+  "ecosystemVersion": "1.137.0",
+  "releaseId": "DH-20261126-OPS-QUO-OPENING",
+  "releaseStatus": "candidate-incomplete-ci-staging-pending",
+  "businessReleaseId": "DH-20261126-OPS-QUO-OPENING"
 }
