@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-WHS-DROPDOWN-LAYER",
+  "releaseId": "DH-20261126-PRICING-CATEGORY-REPORT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.134.1",
+  "ecosystemVersion": "1.135.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/ops-whs-dropdown-layer-20261126",
+    "develop": "feature/pricing-category-report-scope-20261126",
     "master": null
   },
-  "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
+  "candidateBranch": "feature/pricing-category-report-scope-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.134.1",
-      "previousVersion": "1.134.0",
+      "version": "1.135.0",
+      "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "developCandidateBranch": "fix/ops-whs-dropdown-layer-20261126",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,25 +39,25 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.17.3",
+      "version": "1.18.0",
       "previousVersion": "1.17.3",
       "versionVerified": true,
-      "mergeState": "unchanged",
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
+      "candidateSha": "30f70bc272b7519c99c6ee897cb1c7492f327b30",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.134.1",
-      "previousVersion": "1.134.0",
+      "version": "1.135.0",
+      "previousVersion": "1.134.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "developCandidateBranch": "fix/ops-whs-dropdown-layer-20261126",
-      "candidateSha": "d9a5db56558b62a0315755b84e19bf5dd6d9dab4",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
+      "candidateSha": "4b42bef639658dd294a71bd592159c9091469d40",
       "developMergeSha": null
     },
     {
@@ -99,13 +99,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.33.0",
+      "version": "1.34.0",
       "previousVersion": "1.33.0",
       "versionVerified": true,
-      "mergeState": "unchanged",
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/pricing-category-report-scope-20261126",
+      "developCandidateBranch": "feature/pricing-category-report-scope-20261126",
+      "candidateSha": "a9f34270268fd78ad10e5812d76f3e4ac74d4401",
       "developMergeSha": null
     },
     {
@@ -221,8 +221,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI checks pending",
-    "Authenticated staging visual and realtime regression pending"
+    "CI build and regression checks pending",
+    "Authenticated staging report and realtime/security regression pending"
   ],
   "validationEvidence": {
     "status": "pending",
@@ -232,11 +232,13 @@
   },
   "releaseComponents": [
     "DholeWeb",
+    "DholePricingService",
+    "DholeAuthService",
     "DholeSystem"
   ],
   "changes": [
-    "Allow open WHS dropdown to escape DH card clipping and stack above sibling cards; restore on close.",
-    "No REST, routing or realtime contract changes."
+    "Dedicated pricing.rate.report.export scope for category XLSX; full commercial report retains existing access.",
+    "Nine requested columns, status filters and existing pagination-independent query; existing REST export remains compatible."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -292,7 +294,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-WHS-DROPDOWN-LAYER",
+  "businessReleaseId": "DH-20261126-PRICING-CATEGORY-REPORT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
