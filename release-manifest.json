@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-STAGING-DOCKER-DNS",
+  "releaseId": "DH-20261126-MANUAL-QUO-FIRST",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.137.1",
+  "ecosystemVersion": "1.137.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/staging-docker-dns-20261126",
+    "develop": "fix/manual-quo-first-20261126",
     "master": null
   },
-  "candidateBranch": "fix/staging-docker-dns-20261126",
+  "candidateBranch": "fix/manual-quo-first-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.137.1",
-      "previousVersion": "1.137.0",
+      "version": "1.137.2",
+      "previousVersion": "1.137.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/staging-docker-dns-20261126",
-      "developCandidateBranch": "fix/staging-docker-dns-20261126",
+      "candidateBranch": "fix/manual-quo-first-20261126",
+      "developCandidateBranch": "fix/manual-quo-first-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.137.1",
-      "previousVersion": "1.137.0",
+      "version": "1.137.2",
+      "previousVersion": "1.137.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/staging-docker-dns-20261126",
-      "developCandidateBranch": "fix/staging-docker-dns-20261126",
-      "candidateSha": "5fd4af30670c176fc0ed5305cc8023fc0efcdf05",
+      "candidateBranch": "fix/manual-quo-first-20261126",
+      "developCandidateBranch": "fix/manual-quo-first-20261126",
+      "candidateSha": "5454a85a9ed6d2ed0a277bbb630b5e518a33393f",
       "developMergeSha": null
     },
     {
@@ -221,8 +221,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and actual staging runner DNS/build/deployment verification pending.",
-    "Earlier QUO acceptance of not-yet-accepted quotations still pending."
+    "CI and authenticated staging verification pending.",
+    "Automatic acceptance of not-yet-accepted quotes still pending."
   ],
   "validationEvidence": {
     "status": "pending",
@@ -235,9 +235,8 @@
     "DholeSystem"
   ],
   "changes": [
-    "Staging-only Docker DNS probe and scoped host fallback, including BuildKit-specific registry DNS errors.",
-    "Preserve dependency cache; prune only old build cache under disk pressure; no global container or image prune.",
-    "No package dependency, runtime network, REST or realtime changes."
+    "Manual opening QUO search appears first, no client/modality prerequisite.",
+    "Selecting a compatible accepted QUO fills missing CRM account and shipment modality through existing components, preserves existing selections and existing transactional linking."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -293,7 +292,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-STAGING-DOCKER-DNS",
+  "businessReleaseId": "DH-20261126-MANUAL-QUO-FIRST",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -4757,5 +4756,220 @@
       "DholeOperationsService": "1e8488c04fa2a2995646ac8499ad36567d0fc462"
     },
     "stagingValidation": "Web image build failed on npm DNS; authenticated verification pending"
+  },
+  "previousStagingDnsRelease": {
+    "releaseId": "DH-20261126-STAGING-DOCKER-DNS",
+    "ecosystemVersion": "1.137.1",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.137.1",
+        "previousVersion": "1.137.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/staging-docker-dns-20261126",
+        "developCandidateBranch": "fix/staging-docker-dns-20261126",
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.18.0",
+        "previousVersion": "1.18.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.137.1",
+        "previousVersion": "1.137.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/staging-docker-dns-20261126",
+        "developCandidateBranch": "fix/staging-docker-dns-20261126",
+        "candidateSha": "5fd4af30670c176fc0ed5305cc8023fc0efcdf05",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.34.0",
+        "previousVersion": "1.34.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "previousVersion": "1.45.0",
+        "versionVerified": true,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.31.0",
+        "previousVersion": "0.31.0",
+        "mergeState": "unchanged",
+        "versionVerified": true,
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      }
+    ],
+    "developMergeShas": {
+      "DholeWeb": "d49e2b0a1dd755ebbfd03fa1feefb44182a37316",
+      "DholeSystem": "fdfcb0a48bf66db375f564fa167badbcb3e64f20"
+    },
+    "stagingValidation": "User screenshot confirms Web 1.137.1 is visible; authenticated QUO functionality not fully validated."
   }
 }
