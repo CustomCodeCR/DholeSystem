@@ -1,3 +1,7 @@
+## [1.137.3] - 2026-11-26
+
+- PATCH: DH-20261126-PRICING-MULTIPLE-IDTRA. Pricing P9 presenta IDTRAs confirmados en una tarjeta DH independiente con contador, apertura manual/automática, estado, equipo y navegación individual; expansión para más de tres expedientes, referencias históricas separadas y sin duplicar coincidencias exactas; vinculación manual en tarjeta independiente. Conserva permisos, contratos y refresco realtime. CI y staging pendientes.
+
 ## [1.137.2] - 2026-11-26
 
 - PATCH: DH-20261126-MANUAL-QUO-FIRST. Buscador de QUO aceptadas al inicio de la apertura manual, sin exigir cliente ni modalidad previos; selección explícita y consulta del detalle de Pricing para precargar cliente, modalidad, Incoterm, POL/POE/POD, naviera, agente, WHS, bultos, peso estimado, volumen, equipos, servicios y ubicaciones inland disponibles; recuperación de borradores antiguos y botón de recarga. Respeta datos ya elegidos, permisos y vínculo transaccional existente. Aceptación automática de otras QUO fuera de este incremento; CI y staging pendientes.
