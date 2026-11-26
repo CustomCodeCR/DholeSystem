@@ -3,7 +3,7 @@
   "releaseId": "DH-20261126-OPS-PERMISSION-MATRIX",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.138.0",
-  "status": "draft-incomplete-ci-staging-pending",
+  "status": "candidate-incomplete-ci-staging-pending",
   "branches": {
     "develop": "feature/operations-permission-matrix-20261126",
     "master": null
