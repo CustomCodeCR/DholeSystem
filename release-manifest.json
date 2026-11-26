@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-OPS-MANUAL-REVIEW",
+  "releaseId": "DH-20261126-OPS-MANUAL-WHS-ROUTING",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.133.1",
+  "ecosystemVersion": "1.134.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/ops-manual-review-20261125",
+    "develop": "feat/ops-manual-whs-routing-20261126",
     "master": null
   },
-  "candidateBranch": "fix/ops-manual-review-20261125",
+  "candidateBranch": "feat/ops-manual-whs-routing-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.133.1",
-      "previousVersion": "1.133.0",
+      "version": "1.134.0",
+      "previousVersion": "1.133.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-manual-review-20261125",
-      "developCandidateBranch": "fix/ops-manual-review-20261125",
+      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.133.1",
-      "previousVersion": "1.133.0",
+      "version": "1.134.0",
+      "previousVersion": "1.133.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-manual-review-20261125",
-      "developCandidateBranch": "fix/ops-manual-review-20261125",
-      "candidateSha": "fbb11ece7e7750e7e42e68be01a96f7456bf02f7",
+      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "candidateSha": "3b6ed6d6eac21609efddeb90163632cfcad19442",
       "developMergeSha": null
     },
     {
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.28.0",
+      "version": "0.29.0",
       "previousVersion": "0.28.0",
-      "mergeState": "unchanged",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "candidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "developCandidateBranch": "feat/ops-manual-whs-routing-20261126",
+      "candidateSha": "49adbbc5ce40babbad9a94931a203ab2e0dbacf9",
       "developMergeSha": null
     }
   ],
@@ -222,7 +222,8 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI checks pending",
-    "Authenticated staging and realtime regression verification pending"
+    "Authenticated staging and realtime regression verification pending",
+    "Verify eligible operator membership for newly cataloged regional, transit and land pools"
   ],
   "validationEvidence": {
     "status": "pending",
@@ -232,11 +233,13 @@
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholeSystem"
+    "DholeSystem",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Manual opening review uses existing DH cards, labeled opening-only fields, and only actual local/server blockers.",
-    "Preserve historical/automatic editing review, backend authorization, validation, realtime and commercial contracts. No API change."
+    "Manual opening WHS V6 for LCL/LTL and FCA FCL/FTL; catalog validation and legacy compatibility.",
+    "DH controls and layout; expected origin team shown before submission.",
+    "Origin team routing and weighted eligible assignment; preserve realtime Outbox and retry."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -292,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-OPS-MANUAL-REVIEW",
+  "businessReleaseId": "DH-20261126-OPS-MANUAL-WHS-ROUTING",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -720,7 +723,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Pricing P7 customs service scope and FTL negotiated details",
+  "releaseSummary": "Manual Operations opening WHS, shared DH UX and origin team routing",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -792,7 +795,7 @@
     ],
     "deployStatus": "Not deployed; master gated"
   },
-  "productionAuthorizationNote": "User requested develop and master; production promotion remains gated by staging.",
+  "productionAuthorizationNote": "No production promotion authorized",
   "operationsRoleTeamDashboardRelease": {
     "releaseId": "DH-20261119-OPS-ROLE-TEAM-DASHBOARD-254",
     "globalVersion": "1.96.0",
@@ -1073,8 +1076,8 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": false,
-  "productionAuthorizationScope": "Develop integration and master backport requested; staging first",
-  "releaseMasterIntegrationRequested": true,
+  "productionAuthorizationScope": "Develop candidate only; staging validation required",
+  "releaseMasterIntegrationRequested": false,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",
@@ -1111,13 +1114,17 @@
     "productionDeploymentAuthorized": false
   },
   "versionChanges": {
-    "DholeWeb": {
-      "previousVersion": "1.133.0",
-      "newVersion": "1.133.1"
-    },
     "DholeSystem": {
-      "previousVersion": "1.133.0",
-      "newVersion": "1.133.1"
+      "from": "1.133.1",
+      "to": "1.134.0"
+    },
+    "DholeWeb": {
+      "from": "1.133.1",
+      "to": "1.134.0"
+    },
+    "DholeOperationsService": {
+      "from": "0.28.0",
+      "to": "0.29.0"
     }
   },
   "pricingP7EditRelease": {
@@ -3089,7 +3096,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "PATCH Operations opening review and completeness; historical data preserved. CI and staging pending.",
+  "notes": "Candidate; CI, staging and eligible pool membership validation pending.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -3865,5 +3872,79 @@
       "Pricing acceptance from opening, multi-quote reassignment and reliable cross-service reconciliation pending"
     ],
     "stagingValidation": "not independently verified"
+  },
+  "previousManualWhsRoutingBaseline": {
+    "releaseId": "DH-20261125-OPS-MANUAL-REVIEW",
+    "ecosystemVersion": "1.133.1",
+    "components": [
+      {
+        "component": "DholeSystem",
+        "version": "1.133.1"
+      },
+      {
+        "component": "DholeApiGateway",
+        "version": "1.11.1"
+      },
+      {
+        "component": "DholeAuthService",
+        "version": "1.17.3"
+      },
+      {
+        "component": "DholeWeb",
+        "version": "1.133.1"
+      },
+      {
+        "component": "DholeConfigService",
+        "version": "1.12.0"
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholePricingService",
+        "version": "1.33.0"
+      },
+      {
+        "component": "DholeAIService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholeStorageService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeReportsService",
+        "version": "1.8.1"
+      },
+      {
+        "component": "DholeNotificationsService",
+        "version": "1.9.1"
+      },
+      {
+        "component": "DholeContentService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeAgentService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeCRMService",
+        "version": "1.45.0"
+      },
+      {
+        "component": "DholeOperationsService",
+        "version": "0.28.0"
+      }
+    ]
   }
 }
