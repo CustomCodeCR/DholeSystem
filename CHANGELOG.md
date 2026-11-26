@@ -1,3 +1,7 @@
+## [1.137.1] - 2026-11-26
+
+- PATCH: DH-20261126-STAGING-DOCKER-DNS. Staging conserva la caché de Docker y prueba DNS desde la imagen Node; usa red host únicamente si la red bridge falla y host resuelve npm. No cambia DNS global, producción, dependencias ni contratos REST/realtime. CI y staging pendientes. La aceptación de QUO aún no aceptadas sigue pendiente.
+
 ## [1.137.0] - 2026-11-26
 
 - MINOR (WIP, no integrar): DH-20261126-OPS-QUO-OPENING. Candidato coordinado Web 1.137.0 y Operations 0.31.0. Pricing sin cambios. Pendientes aceptación de QUO no aceptada, pruebas CI y staging.
