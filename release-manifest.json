@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
+  "releaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.130.0",
-  "status": "master-candidate-ci-pending",
+  "ecosystemVersion": "1.132.2",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/all-status-quotation-export-20261125",
-    "master": "release/all-status-quotation-export-20261125-master"
+    "develop": "fix/ftl-persisted-agent-p6-20261125-develop",
+    "master": "fix/ftl-persisted-agent-p6-20261125-master"
   },
-  "candidateBranch": "release/all-status-quotation-export-20261125-master",
+  "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.130.0",
-      "previousVersion": "1.127.5",
-      "mergeState": "master-candidate",
+      "version": "1.132.2",
+      "previousVersion": "1.130.0",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/all-status-quotation-export-20261125-master",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
-      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+      "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
+      "developCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "masterCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
       "candidateSha": null,
-      "developMergeSha": "1572826e28bf4ed6a8045f5a13a20fc089f69a48"
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
       "previousVersion": "1.11.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -38,28 +38,28 @@
       "component": "DholeAuthService",
       "version": "1.17.1",
       "previousVersion": "1.17.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.130.0",
-      "previousVersion": "1.127.5",
-      "mergeState": "master-candidate",
+      "version": "1.132.2",
+      "previousVersion": "1.130.0",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "release/all-status-quotation-export-20261125-master",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
-      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
-      "candidateSha": "20964b97de9ac36812a5acbaee3dd29356c40ad1",
-      "developMergeSha": "9bf2b2134e5eaa99212215362d150e1b79bddab9"
+      "candidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
+      "developCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-develop",
+      "masterCandidateBranch": "fix/ftl-persisted-agent-p6-20261125-master",
+      "candidateSha": "01a9aa4b99aaab188589609f4cb9e653597d7ef6",
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
       "previousVersion": "1.12.0",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -67,7 +67,7 @@
       "component": "DholeAuditLogsService",
       "version": "1.2.1",
       "previousVersion": "1.2.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -75,28 +75,23 @@
       "component": "DholeDataExtractionService",
       "version": "1.8.1",
       "previousVersion": "1.8.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.32.0",
-      "previousVersion": "1.29.13",
-      "mergeState": "master-candidate",
-      "versionVerified": true,
-      "candidateBranch": "release/all-status-quotation-export-20261125-master",
-      "developCandidateBranch": "feature/all-status-quotation-export-20261125",
-      "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
-      "candidateSha": "4662990f6e594a0f6bfd2814498c6bd1d1c51234",
-      "developMergeSha": "656bd328692d7026861ebdba255d1733e069a002"
+      "previousVersion": "1.32.0",
+      "mergeState": "unchanged",
+      "versionVerified": true
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
       "component": "DholeAIService",
       "version": "1.8.1",
       "previousVersion": "1.8.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -104,7 +99,7 @@
       "component": "DholeStorageService",
       "version": "1.2.3",
       "previousVersion": "1.2.3",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -112,7 +107,7 @@
       "component": "DholeReportsService",
       "version": "1.8.1",
       "previousVersion": "1.8.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -120,7 +115,7 @@
       "component": "DholeNotificationsService",
       "version": "1.9.1",
       "previousVersion": "1.9.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -128,7 +123,7 @@
       "component": "DholeContentService",
       "version": "1.2.1",
       "previousVersion": "1.2.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -136,7 +131,7 @@
       "component": "DholeAgentService",
       "version": "1.2.2",
       "previousVersion": "1.2.2",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -144,7 +139,7 @@
       "component": "DholeDynamicsConnectorService",
       "version": "1.4.1",
       "previousVersion": "1.4.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -152,7 +147,7 @@
       "component": "DholeCRMService",
       "version": "1.43.1",
       "previousVersion": "1.43.1",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     },
     {
@@ -160,34 +155,35 @@
       "component": "DholeOperationsService",
       "version": "0.17.0",
       "previousVersion": "0.17.0",
-      "mergeState": "unchanged-for-this-release",
+      "mergeState": "unchanged",
       "versionVerified": true
     }
   ],
   "policyCheck": "pending",
-  "mergeState": "master-candidate",
-  "productionDeploymentAuthorized": true,
+  "mergeState": "intermediate-only",
+  "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master CI pending; authenticated manual XLSX validation not performed"
+    "CI build and regression tests pending",
+    "Authenticated staging validation pending",
+    "Master merge must follow successful staging"
   ],
   "validationEvidence": {
-    "ci": "Develop PR build/test and semantic gates passed",
-    "staging": "Automated deploy and health/client quote report smoke checks successful; manual authenticated export pending",
-    "realtime": "Read-only export; existing SignalR list refresh preserved",
-    "pricingStagingRun": "https://github.com/CustomCodeCR/DholePricingService/actions/runs/45690454341",
-    "webStagingRun": "https://github.com/CustomCodeCR/DholeWeb/actions/runs/45690476243"
+    "status": "pending",
+    "componentVersionsVerifiedAgainst": "master",
+    "componentVersionsVerified": true,
+    "regressionTestsAdded": true
   },
   "releaseComponents": [
-    "DholeSystem",
     "DholeWeb",
-    "DholePricingService"
+    "DholeSystem"
   ],
   "changes": [
-    "Promote the tested 23-column commercial report export, all or selected statuses, creation dates, search and Excel autofilter. Preserve unrelated master features."
+    "Retain exact persisted FTL agent in view/edit with unchanged origin",
+    "P6 to P7 local review even when catalog context reconciliation is pending; preserve save verification"
   ],
   "stagingValidation": {
-    "status": "automated-passed",
-    "manualAuthenticatedExport": "not-run"
+    "status": "pending",
+    "authenticated": true
   },
   "f6F7F8": {
     "status": "pending",
@@ -240,7 +236,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
+  "businessReleaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -652,8 +648,8 @@
     "productionDeploymentAuthorized": false
   },
   "productionDeployment": {
-    "status": "authorized-master-ci-pending",
-    "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT"
+    "status": "not-authorized",
+    "releaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -668,7 +664,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Promote staged all-status quotation export only",
+  "releaseSummary": "FTL persisted agent restoration and P6 navigation",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -831,7 +827,7 @@
     "stagingValidation": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionAuthorization": "User explicitly requested master promotion of DH-432 only",
+  "productionAuthorization": "No explicit production deployment authorization",
   "pricingRateRequestReturnPromotion": {
     "releaseId": "DH-20261119-PRICING-RETURN-PROMOTION-272",
     "description": "Pricing can return an incorrect seller request with a required reason, send system/email notification and allow seller correction and resubmission.",
@@ -1023,7 +1019,7 @@
     "legacyDynamicsBackfill": "pending"
   },
   "businessReleaseMasterPromotionRequested": true,
-  "productionAuthorizationScope": "User authorized business promotion to master after CI and staging; realtime fail-closed flag remains false",
+  "productionAuthorizationScope": "Develop integration and master backport requested; production deployment not authorized",
   "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
@@ -1062,16 +1058,12 @@
   },
   "versionChanges": {
     "DholeWeb": {
-      "previousVersion": "1.124.13",
-      "newVersion": "1.124.14"
+      "previousVersion": "1.130.0",
+      "newVersion": "1.132.2"
     },
     "DholeSystem": {
-      "previousVersion": "1.124.13",
-      "newVersion": "1.124.14"
-    },
-    "DholePricingService": {
-      "previousVersion": "1.29.9",
-      "newVersion": "1.29.10"
+      "previousVersion": "1.130.0",
+      "newVersion": "1.132.2"
     }
   },
   "pricingP7EditRelease": {
@@ -3108,5 +3100,188 @@
       "Use bundled SVG for compact sidebar mask; preserve original shape, theme and animation.",
       "Compact card padding adjusted; no new visual component."
     ]
+  },
+  "previousFtlPersistedAgentBaseline": {
+    "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT",
+    "ecosystemVersion": "1.130.0",
+    "status": "master-candidate-ci-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.130.0",
+        "previousVersion": "1.127.5",
+        "mergeState": "master-candidate",
+        "versionVerified": true,
+        "candidateBranch": "release/all-status-quotation-export-20261125-master",
+        "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+        "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+        "candidateSha": null,
+        "developMergeSha": "1572826e28bf4ed6a8045f5a13a20fc089f69a48"
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.17.1",
+        "previousVersion": "1.17.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.130.0",
+        "previousVersion": "1.127.5",
+        "mergeState": "master-candidate",
+        "versionVerified": true,
+        "candidateBranch": "release/all-status-quotation-export-20261125-master",
+        "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+        "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+        "candidateSha": "20964b97de9ac36812a5acbaee3dd29356c40ad1",
+        "developMergeSha": "9bf2b2134e5eaa99212215362d150e1b79bddab9"
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.32.0",
+        "previousVersion": "1.29.13",
+        "mergeState": "master-candidate",
+        "versionVerified": true,
+        "candidateBranch": "release/all-status-quotation-export-20261125-master",
+        "developCandidateBranch": "feature/all-status-quotation-export-20261125",
+        "masterCandidateBranch": "release/all-status-quotation-export-20261125-master",
+        "candidateSha": "4662990f6e594a0f6bfd2814498c6bd1d1c51234",
+        "developMergeSha": "656bd328692d7026861ebdba255d1733e069a002"
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.2.3",
+        "previousVersion": "1.2.3",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.2.1",
+        "previousVersion": "1.2.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.2.2",
+        "previousVersion": "1.2.2",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.4.1",
+        "previousVersion": "1.4.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.43.1",
+        "previousVersion": "1.43.1",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.17.0",
+        "previousVersion": "0.17.0",
+        "mergeState": "unchanged-for-this-release",
+        "versionVerified": true
+      }
+    ],
+    "releaseComponents": [
+      "DholeSystem",
+      "DholeWeb",
+      "DholePricingService"
+    ],
+    "blockers": [
+      "Master CI pending; authenticated manual XLSX validation not performed"
+    ],
+    "productionDeployment": {
+      "status": "authorized-master-ci-pending",
+      "releaseId": "DH-20261125-ALL-STATUS-QUOTATION-EXPORT"
+    }
+  },
+  "ftlPersistedAgentP6Release": {
+    "id": "DH-20261125-FTL-PERSISTED-AGENT-P6",
+    "scope": "DholeWeb and DholeSystem",
+    "baseline": "master",
+    "webCandidateSha": "01a9aa4b99aaab188589609f4cb9e653597d7ef6",
+    "regressionTests": [
+      "tests/pricingFtlEditPreservationFinal.test.ts",
+      "tests/pricingFtlPersistedAgentP6.test.mjs"
+    ],
+    "restContract": "unchanged",
+    "realtimeContract": "unchanged",
+    "productionDeployment": "not-authorized"
   }
 }
