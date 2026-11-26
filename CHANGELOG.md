@@ -1,3 +1,7 @@
+## [1.134.1] - 2026-11-26
+
+- PATCH: DH-20261126-OPS-WHS-DROPDOWN-LAYER. DholeWeb/System 1.134.0 → 1.134.1; 15 componentes restantes verificados sin cambios en develop (Operations 0.29.0). WHS dropdown escapes its DH card when open; no REST, routing or realtime changes. CI and staging pending.
+
 ## [1.134.0] - 2026-11-26
 
 - MINOR: DH-20261126-OPS-MANUAL-WHS-ROUTING. DholeWeb/System 1.133.1 → 1.134.0; Operations 0.28.0 → 0.29.0. WHS según embarque e Incoterm, UX DH de aperturas y enrutamiento automático por tránsito, región y modalidad con pool. Versiones de los otros 14 componentes verificadas sin cambios en develop. CI, staging y configuración de miembros pendientes; no promover a master.
