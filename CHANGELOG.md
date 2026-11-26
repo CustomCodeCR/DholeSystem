@@ -1,3 +1,7 @@
+## [1.139.0] - 2026-11-26
+
+- MINOR candidato coordinado de Auth, Operations y Web: scopes efectivos automáticos por equipo, proyección independiente y revocación selectiva, Outbox/Redis Streams, reconciliación y actualización de permisos. CI y staging pendientes. Sin promoción a producción.
+
 ## [1.138.0] - 2026-11-26
 
 - MINOR candidato coordinado de Auth, Operations y Web: registra scopes faltantes, expone perfiles de equipo y completa estados de Origen seleccionados. Pricing/CRM sin cambios en este incremento. Membresías y grants efectivos, CI, staging y alcance operativo restante pendientes. No promover a producción.
