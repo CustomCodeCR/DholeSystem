@@ -1,3 +1,7 @@
+## [1.137.2] - 2026-11-26
+
+- PATCH: DH-20261126-MANUAL-QUO-FIRST. Buscador de QUO aceptadas al inicio de la apertura manual, sin exigir cliente ni modalidad previos; selección explícita y consulta del detalle de Pricing para precargar cliente, modalidad, Incoterm, POL/POE/POD, naviera, agente, WHS, bultos, peso estimado, volumen, equipos, servicios y ubicaciones inland disponibles; recuperación de borradores antiguos y botón de recarga. Respeta datos ya elegidos, permisos y vínculo transaccional existente. Aceptación automática de otras QUO fuera de este incremento; CI y staging pendientes.
+
 ## [1.137.1] - 2026-11-26
 
 - PATCH: DH-20261126-STAGING-DOCKER-DNS. Staging conserva la caché de Docker y prueba DNS desde la imagen Node; usa red host únicamente si la red bridge falla y host resuelve npm. No cambia DNS global, producción, dependencias ni contratos REST/realtime. CI y staging pendientes. La aceptación de QUO aún no aceptadas sigue pendiente.

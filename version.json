@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.137.1",
-  "ecosystemVersion": "1.137.1",
-  "releaseId": "DH-20261126-STAGING-DOCKER-DNS",
+  "version": "1.137.2",
+  "ecosystemVersion": "1.137.2",
+  "releaseId": "DH-20261126-MANUAL-QUO-FIRST",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261126-STAGING-DOCKER-DNS"
+  "businessReleaseId": "DH-20261126-MANUAL-QUO-FIRST"
 }
