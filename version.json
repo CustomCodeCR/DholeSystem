@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.133.0",
-  "ecosystemVersion": "1.133.0",
-  "releaseId": "DH-20261125-OPS-MANUAL-BASICS",
+  "version": "1.133.1",
+  "ecosystemVersion": "1.133.1",
+  "releaseId": "DH-20261125-OPS-MANUAL-REVIEW",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-OPS-MANUAL-BASICS"
+  "businessReleaseId": "DH-20261125-OPS-MANUAL-REVIEW"
 }
