@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-WHS-AGENT-RECONCILED",
+  "releaseId": "DH-20261126-OPS-WHS-LEGACY-OPTIONS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.136.0",
+  "ecosystemVersion": "1.136.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/ops-whs-agent-reconciled-20261126",
+    "develop": "fix/ops-whs-legacy-options-20261126",
     "master": null
   },
-  "candidateBranch": "feature/ops-whs-agent-reconciled-20261126",
+  "candidateBranch": "fix/ops-whs-legacy-options-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.136.0",
-      "previousVersion": "1.135.0",
+      "version": "1.136.1",
+      "previousVersion": "1.136.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/ops-whs-agent-reconciled-20261126",
-      "developCandidateBranch": "feature/ops-whs-agent-reconciled-20261126",
+      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.136.0",
-      "previousVersion": "1.135.0",
+      "version": "1.136.1",
+      "previousVersion": "1.136.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/ops-whs-agent-reconciled-20261126",
-      "developCandidateBranch": "feature/ops-whs-agent-reconciled-20261126",
-      "candidateSha": "ba631fa878e0012d1f0d7f8a552d66c72b03a244",
+      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "candidateSha": "fcc8033f5c1c1841bca44630c10ae4d3a2d37793",
       "developMergeSha": null
     },
     {
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.30.0",
-      "previousVersion": "0.29.0",
+      "version": "0.30.1",
+      "previousVersion": "0.30.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/ops-whs-agent-reconciled-20261126",
-      "developCandidateBranch": "feature/ops-whs-agent-reconciled-20261126",
-      "candidateSha": "e1984bf662a58e129e3deff0ef023c0199e2b8fd",
+      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "candidateSha": "d09038396d42358e010f6431cd08ccb2bf75e99a",
       "developMergeSha": null
     }
   ],
@@ -222,8 +222,7 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "CI checks pending",
-    "Authenticated staging and realtime regression pending",
-    "Existing warehouse-agent associations must be configured and verified"
+    "Authenticated staging and realtime regression pending"
   ],
   "validationEvidence": {
     "status": "pending",
@@ -237,10 +236,10 @@
     "DholeOperationsService"
   ],
   "changes": [
-    "Config catalog editor stores explicit agentId in WHS metadata.",
-    "Manual opening selects origin agent first, restricts WHS by ownership, clears incompatible warehouses.",
-    "Operations validates linked catalog identities; previous validation versions remain compatible.",
-    "Preserve Pricing category report changes already integrated."
+    "Always render WHS selector for new manual openings.",
+    "Include matching linked WHS and unowned historical WHS of matching or unidentified country; label unowned entries explicitly.",
+    "Operations validates active IDs and allows unowned legacy WHS, rejects conflicting or malformed ownership.",
+    "No Config mutation, no REST or realtime changes."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -296,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-WHS-AGENT-RECONCILED",
+  "businessReleaseId": "DH-20261126-OPS-WHS-LEGACY-OPTIONS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -724,7 +723,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Agent-first manual WHS selection and explicit Config ownership, reconciled after Pricing report release",
+  "releaseSummary": "Restore historical WHS selector without falsely attributing ownership",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1116,16 +1115,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "from": "1.135.0",
-      "to": "1.136.0"
+      "from": "1.136.0",
+      "to": "1.136.1"
     },
     "DholeWeb": {
-      "from": "1.135.0",
-      "to": "1.136.0"
+      "from": "1.136.0",
+      "to": "1.136.1"
     },
     "DholeOperationsService": {
-      "from": "0.29.0",
-      "to": "0.30.0"
+      "from": "0.30.0",
+      "to": "0.30.1"
     }
   },
   "pricingP7EditRelease": {
@@ -3097,7 +3096,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "New manual openings v7 require linked active agent and warehouse; configure existing catalog links with verified owners.",
+  "notes": "Agent-first flow; explicitly linked WHS prioritized; unowned WHS can be used for the individual opening without changing the global owner.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -4105,6 +4104,102 @@
     "changes": [
       "Dedicated pricing.rate.report.export scope for category XLSX; full commercial report retains existing access.",
       "Nine requested columns, status filters and existing pagination-independent query; existing REST export remains compatible."
+    ],
+    "validationEvidence": {
+      "status": "pending",
+      "componentVersionsVerifiedAgainst": "develop",
+      "componentVersionsVerified": true,
+      "regressionTestsAdded": true
+    },
+    "stagingValidation": {
+      "status": "pending",
+      "authenticated": false
+    }
+  },
+  "previousWhsLegacyOptionsBaseline": {
+    "releaseId": "DH-20261126-OPS-WHS-AGENT-RECONCILED",
+    "ecosystemVersion": "1.136.0",
+    "components": [
+      {
+        "component": "DholeSystem",
+        "version": "1.136.0"
+      },
+      {
+        "component": "DholeApiGateway",
+        "version": "1.11.1"
+      },
+      {
+        "component": "DholeAuthService",
+        "version": "1.18.0"
+      },
+      {
+        "component": "DholeWeb",
+        "version": "1.136.0"
+      },
+      {
+        "component": "DholeConfigService",
+        "version": "1.12.0"
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholePricingService",
+        "version": "1.34.0"
+      },
+      {
+        "component": "DholeAIService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholeStorageService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeReportsService",
+        "version": "1.8.1"
+      },
+      {
+        "component": "DholeNotificationsService",
+        "version": "1.9.1"
+      },
+      {
+        "component": "DholeContentService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeAgentService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeCRMService",
+        "version": "1.45.0"
+      },
+      {
+        "component": "DholeOperationsService",
+        "version": "0.30.0"
+      }
+    ],
+    "status": "candidate-ci-staging-pending",
+    "releaseComponents": [
+      "DholeWeb",
+      "DholeSystem",
+      "DholeOperationsService"
+    ],
+    "changes": [
+      "Config catalog editor stores explicit agentId in WHS metadata.",
+      "Manual opening selects origin agent first, restricts WHS by ownership, clears incompatible warehouses.",
+      "Operations validates linked catalog identities; previous validation versions remain compatible.",
+      "Preserve Pricing category report changes already integrated."
     ],
     "validationEvidence": {
       "status": "pending",
