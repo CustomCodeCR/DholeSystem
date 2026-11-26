@@ -49,7 +49,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/ops-manual-opening-basics-20261125",
       "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
-      "candidateSha": "1c6f482c07081bdc0332917697efa80a69eacf29",
+      "candidateSha": "70dec69d1162d590e5f8e9b049f39cd94d139fb3",
       "developMergeSha": null
     },
     {
@@ -157,7 +157,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/ops-manual-opening-basics-20261125",
       "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
-      "candidateSha": "3b1cb7d0eb6ca28455620607ff57c7591d950bc3",
+      "candidateSha": "79a3673d71d246d59e391f86ad128858d2f43c8b",
       "developMergeSha": null
     }
   ],
@@ -179,7 +179,13 @@
     "previousCiFailuresCorrectedInCandidate": [
       "Web regression assertions updated for renamed step and conditional controls",
       "Operations MSBuild assembly version synchronized to 0.28.0"
-    ]
+    ],
+    "operationsPreviousCandidate": {
+      "sha": "3b1cb7d0eb6ca28455620607ff57c7591d950bc3",
+      "buildTest": "success",
+      "versionGate": "success"
+    },
+    "originReferencesImplemented": true
   },
   "releaseComponents": [
     "DholeWeb",
