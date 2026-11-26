@@ -1,3 +1,7 @@
+## [1.133.1] - 2026-11-25
+
+- PATCH: DH-20261125-OPS-MANUAL-REVIEW. Web/System 1.133.0 → 1.133.1; 15 demás componentes verificados sin cambios en develop. Resumen exclusivo de datos básicos para apertura manual y validación bloqueante. API y realtime existentes conservados; CI y staging pendientes.
+
 ## [1.133.0] - 2026-11-25
 
 - Candidate adds optional PO and invoice references in Origin planning; coordinated release remains blocked pending complete commercial and operational workflows.
