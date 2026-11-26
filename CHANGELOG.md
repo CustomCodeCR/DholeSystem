@@ -1,3 +1,7 @@
+## [1.138.0] - 2026-11-26
+
+- MINOR candidato coordinado de Auth, Operations y Web: registra scopes faltantes, expone perfiles de equipo y completa estados de Origen seleccionados. Pricing/CRM sin cambios en este incremento. Membresías y grants efectivos, CI, staging y alcance operativo restante pendientes. No promover a producción.
+
 ## [1.137.4] - 2026-11-26
 
 - Coordinated DholeWeb Operations summary and drawer usability patch; preserve component versions and realtime contracts. CI and authenticated staging pending.
