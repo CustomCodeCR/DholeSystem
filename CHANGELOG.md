@@ -1,3 +1,7 @@
+## [1.136.2] - 2026-11-26
+
+- PATCH: DH-20261126-OPS-WHS-AGENT-METADATA. DholeWeb/System 1.136.1 → 1.136.2; Operations 0.30.1 → 0.30.2. Other 14 component versions verified unchanged in develop. Correct warehouse ownership using existing agent codes and names; distinguish same-city WHS, preserve physical IDs and catalog data. CI and staging pending.
+
 ## [1.136.1] - 2026-11-26
 
 - PATCH: DH-20261126-OPS-WHS-LEGACY-OPTIONS. DholeWeb/System 1.136.0 → 1.136.1; Operations 0.30.0 → 0.30.1. Other 14 component versions verified unchanged in develop. Restore legacy WHS selection after agent selection; explicit conflicting ownership remains prohibited and no ownership is inferred or updated in Config. CI and staging pending.
