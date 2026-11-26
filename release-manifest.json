@@ -45,7 +45,7 @@
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/operations-automatic-team-scopes-20261126",
       "developCandidateBranch": "feature/operations-automatic-team-scopes-20261126",
-      "candidateSha": "ed0f3c7bb0d7b18bfdcb6ae2d197d944ebca25bc",
+      "candidateSha": "2c07862affe08b3d2dbbd5d0060403a405c19c36",
       "developMergeSha": null
     },
     {
@@ -240,7 +240,8 @@
     "Automatically derive effective scopes from active team membership for Aperturas and Origin.",
     "Separate derived grants from direct and role grants; reconcile existing memberships and revoke only obsolete derived scopes.",
     "Persist membership invalidation with Operations Outbox and consume Redis Streams with retry and periodic reconciliation; Auth commits projection, revision checkpoint and targeted permission-refresh event.",
-    "Replace manual assignment hint in the DH team UI."
+    "Replace manual assignment hint in the DH team UI.",
+    "Auth user permissions UI now uses the same effective scope computation as JWT issuance."
   ],
   "stagingValidation": {
     "status": "pending",
