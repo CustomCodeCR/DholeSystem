@@ -1,3 +1,7 @@
+## [1.134.0] - 2026-11-26
+
+- MINOR: DH-20261126-OPS-MANUAL-WHS-ROUTING. DholeWeb/System 1.133.1 → 1.134.0; Operations 0.28.0 → 0.29.0. WHS según embarque e Incoterm, UX DH de aperturas y enrutamiento automático por tránsito, región y modalidad con pool. Versiones de los otros 14 componentes verificadas sin cambios en develop. CI, staging y configuración de miembros pendientes; no promover a master.
+
 ## [1.133.1] - 2026-11-25
 
 - PATCH: DH-20261125-OPS-MANUAL-REVIEW. Web/System 1.133.0 → 1.133.1; 15 demás componentes verificados sin cambios en develop. Resumen exclusivo de datos básicos para apertura manual y validación bloqueante. API y realtime existentes conservados; CI y staging pendientes.
