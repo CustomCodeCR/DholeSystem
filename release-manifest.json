@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-WHS-LEGACY-OPTIONS",
+  "releaseId": "DH-20261126-OPS-WHS-AGENT-METADATA",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.136.1",
+  "ecosystemVersion": "1.136.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/ops-whs-legacy-options-20261126",
+    "develop": "fix/ops-whs-agent-metadata-20261126",
     "master": null
   },
-  "candidateBranch": "fix/ops-whs-legacy-options-20261126",
+  "candidateBranch": "fix/ops-whs-agent-metadata-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.136.1",
-      "previousVersion": "1.136.0",
+      "version": "1.136.2",
+      "previousVersion": "1.136.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
-      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
+      "candidateBranch": "fix/ops-whs-agent-metadata-20261126",
+      "developCandidateBranch": "fix/ops-whs-agent-metadata-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.136.1",
-      "previousVersion": "1.136.0",
+      "version": "1.136.2",
+      "previousVersion": "1.136.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
-      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
-      "candidateSha": "fcc8033f5c1c1841bca44630c10ae4d3a2d37793",
+      "candidateBranch": "fix/ops-whs-agent-metadata-20261126",
+      "developCandidateBranch": "fix/ops-whs-agent-metadata-20261126",
+      "candidateSha": "97391b26e199eaf21b3d5426b50f6782af3daa62",
       "developMergeSha": null
     },
     {
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.30.1",
-      "previousVersion": "0.30.0",
+      "version": "0.30.2",
+      "previousVersion": "0.30.1",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/ops-whs-legacy-options-20261126",
-      "developCandidateBranch": "fix/ops-whs-legacy-options-20261126",
-      "candidateSha": "d09038396d42358e010f6431cd08ccb2bf75e99a",
+      "candidateBranch": "fix/ops-whs-agent-metadata-20261126",
+      "developCandidateBranch": "fix/ops-whs-agent-metadata-20261126",
+      "candidateSha": "371caf76b8527e9b908a8182deb5dbdfb478b40a",
       "developMergeSha": null
     }
   ],
@@ -236,10 +236,10 @@
     "DholeOperationsService"
   ],
   "changes": [
-    "Always render WHS selector for new manual openings.",
-    "Include matching linked WHS and unowned historical WHS of matching or unidentified country; label unowned entries explicitly.",
-    "Operations validates active IDs and allows unowned legacy WHS, rejects conflicting or malformed ownership.",
-    "No Config mutation, no REST or realtime changes."
+    "Resolve existing WHS agentCode(s) and agentName(s) in addition to agentId.",
+    "Filter other owners and label distinct same-city warehouses by owner and code when needed.",
+    "Validate WHS against verified active Config agent identity on server.",
+    "Regression tests for Xiamen WWL and RS ownership; no REST or realtime changes."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -295,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-WHS-LEGACY-OPTIONS",
+  "businessReleaseId": "DH-20261126-OPS-WHS-AGENT-METADATA",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -723,7 +723,7 @@
     "productionDeploymentAuthorized": false,
     "staging": "pending"
   },
-  "releaseSummary": "Restore historical WHS selector without falsely attributing ownership",
+  "releaseSummary": "Correct existing WHS agent ownership metadata recognition",
   "crmFollowupHistoryRelease": {
     "releaseId": "DH-20261114-CRM-RECORD-FOLLOWUPS-142",
     "webVersion": "1.53.0",
@@ -1115,16 +1115,16 @@
   },
   "versionChanges": {
     "DholeSystem": {
-      "from": "1.136.0",
-      "to": "1.136.1"
+      "from": "1.136.1",
+      "to": "1.136.2"
     },
     "DholeWeb": {
-      "from": "1.136.0",
-      "to": "1.136.1"
+      "from": "1.136.1",
+      "to": "1.136.2"
     },
     "DholeOperationsService": {
-      "from": "0.30.0",
-      "to": "0.30.1"
+      "from": "0.30.1",
+      "to": "0.30.2"
     }
   },
   "pricingP7EditRelease": {
@@ -3096,7 +3096,7 @@
     "productionAuthorized": false,
     "rollback": "Revert coordinated PRs; no migration."
   },
-  "notes": "Agent-first flow; explicitly linked WHS prioritized; unowned WHS can be used for the individual opening without changing the global owner.",
+  "notes": "Explicit ID first, then registered codes and names. Preserve truly unassigned WHS and physical records; no Config mutation.",
   "operationsOpeningValidationRelease": {
     "releaseId": "DH-20261125-OPS-OPENING-VALIDATION",
     "ecosystemVersion": "1.128.0",
@@ -4200,6 +4200,102 @@
       "Manual opening selects origin agent first, restricts WHS by ownership, clears incompatible warehouses.",
       "Operations validates linked catalog identities; previous validation versions remain compatible.",
       "Preserve Pricing category report changes already integrated."
+    ],
+    "validationEvidence": {
+      "status": "pending",
+      "componentVersionsVerifiedAgainst": "develop",
+      "componentVersionsVerified": true,
+      "regressionTestsAdded": true
+    },
+    "stagingValidation": {
+      "status": "pending",
+      "authenticated": false
+    }
+  },
+  "previousWhsAgentMetadataBaseline": {
+    "releaseId": "DH-20261126-OPS-WHS-LEGACY-OPTIONS",
+    "ecosystemVersion": "1.136.1",
+    "components": [
+      {
+        "component": "DholeSystem",
+        "version": "1.136.1"
+      },
+      {
+        "component": "DholeApiGateway",
+        "version": "1.11.1"
+      },
+      {
+        "component": "DholeAuthService",
+        "version": "1.18.0"
+      },
+      {
+        "component": "DholeWeb",
+        "version": "1.136.1"
+      },
+      {
+        "component": "DholeConfigService",
+        "version": "1.12.0"
+      },
+      {
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholePricingService",
+        "version": "1.34.0"
+      },
+      {
+        "component": "DholeAIService",
+        "version": "1.9.0"
+      },
+      {
+        "component": "DholeStorageService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeReportsService",
+        "version": "1.8.1"
+      },
+      {
+        "component": "DholeNotificationsService",
+        "version": "1.9.1"
+      },
+      {
+        "component": "DholeContentService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeAgentService",
+        "version": "1.6.0"
+      },
+      {
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0"
+      },
+      {
+        "component": "DholeCRMService",
+        "version": "1.45.0"
+      },
+      {
+        "component": "DholeOperationsService",
+        "version": "0.30.1"
+      }
+    ],
+    "status": "candidate-ci-staging-pending",
+    "releaseComponents": [
+      "DholeWeb",
+      "DholeSystem",
+      "DholeOperationsService"
+    ],
+    "changes": [
+      "Always render WHS selector for new manual openings.",
+      "Include matching linked WHS and unowned historical WHS of matching or unidentified country; label unowned entries explicitly.",
+      "Operations validates active IDs and allows unowned legacy WHS, rejects conflicting or malformed ownership.",
+      "No Config mutation, no REST or realtime changes."
     ],
     "validationEvidence": {
       "status": "pending",
