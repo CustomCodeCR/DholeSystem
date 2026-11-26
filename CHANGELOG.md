@@ -1,3 +1,7 @@
+## [1.133.0] - 2026-11-25
+
+- Candidato parcial DH-20261125-OPS-MANUAL-BASICS: DholeWeb 1.133.0, DholeOperationsService 0.28.0 y DholeSystem 1.133.0. Validación básica de apertura manual v5. Pendientes estado inicial, equipo/operativo, aceptación y revinculación bidireccional QUO, CI y staging. No integrar ni desplegar.
+
 ## [1.132.2] - 2026-11-25
 
 - PATCH: DH-20261125-FTL-PERSISTED-AGENT-P6. DholeWeb y DholeSystem 1.132.1 → 1.132.2; las 15 versiones de los demás componentes permanecen sin cambios, verificadas en develop. Recuperación histórica de agente FTL y navegación P6/P7. CI y staging autenticado pendientes; master solo después de staging. Sin despliegue de producción autorizado.

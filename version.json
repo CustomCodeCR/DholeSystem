@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.132.2",
-  "ecosystemVersion": "1.132.2",
-  "releaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6",
+  "version": "1.133.0",
+  "ecosystemVersion": "1.133.0",
+  "releaseId": "DH-20261125-OPS-MANUAL-BASICS",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261125-FTL-PERSISTED-AGENT-P6"
+  "businessReleaseId": "DH-20261125-OPS-MANUAL-BASICS"
 }
