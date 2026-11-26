@@ -49,7 +49,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/ops-manual-opening-basics-20261125",
       "developCandidateBranch": "feature/ops-manual-opening-basics-20261125",
-      "candidateSha": "87d51108f680d171e99820d2b17d9c95cbbcfa66",
+      "candidateSha": "02ab47bd34cf1f4643f9aef92f0aec35590f57e2",
       "developMergeSha": null
     },
     {
@@ -194,6 +194,14 @@
     "developBaselineReconciled": {
       "DholeWeb": "1531e43cf1cbf1aef8ad20a9e791ee62f54ad365",
       "DholeSystem": "ca20f33680f24ff7ea47fa4aa9708e0ce6216b3b"
+    },
+    "webLatestCorrection": "Regression test for deferred stackability; CI pending",
+    "systemPreviousCandidate": {
+      "sha": "ea879b1b26333ab8d334a437f25cd4281e4170bf",
+      "versionGate": "success",
+      "manifestGate": "success",
+      "dynamicsValidation": "success",
+      "formalPromotion": "skipped"
     }
   },
   "releaseComponents": [
