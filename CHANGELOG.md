@@ -1,3 +1,7 @@
+## [1.135.0] - 2026-11-26
+
+- MINOR: DH-20261126-PRICING-CATEGORY-REPORT. Promoción selectiva del reporte de tarifas por categoría: DholeSystem/Web 1.132.3 → 1.135.0; Pricing 1.32.0 → 1.34.0; Auth 1.17.1 → 1.18.0. Otros 13 componentes verificados contra master sin cambios. Staging automatizado exitoso; CI master y QA autenticada pendientes.
+
 ## [1.132.3] - 2026-11-25
 
 - PATCH: DH-20261125-FTL-CUSTOMS-SCOPE. Web/System 1.132.2 → 1.132.3; otros 15 componentes verificados sin cambios en master. Separar aduanas exterior/CRC y preservar importes negociados FTL en edición exclusiva de agente. CI y staging pendientes.
