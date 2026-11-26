@@ -1,3 +1,7 @@
+## [1.136.1] - 2026-11-26
+
+- PATCH: DH-20261126-OPS-WHS-LEGACY-OPTIONS. DholeWeb/System 1.136.0 → 1.136.1; Operations 0.30.0 → 0.30.1. Other 14 component versions verified unchanged in develop. Restore legacy WHS selection after agent selection; explicit conflicting ownership remains prohibited and no ownership is inferred or updated in Config. CI and staging pending.
+
 ## [1.136.0] - 2026-11-26
 
 - MINOR: DH-20261126-OPS-WHS-AGENT-RECONCILED. DholeWeb/System 1.135.0 → 1.136.0; Operations 0.29.0 → 0.30.0. Other 14 component versions verified unchanged in develop. Preserves the 1.135.0 Pricing category report release; WHS agent-first selection and explicit Config ownership validation. CI and staging pending; existing WHS ownership configuration required.
