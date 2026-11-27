@@ -1,3 +1,6 @@
+## [1.145.8] - 2026-11-27
+- Coordinate Operations opening UI and validation corrections; Pricing staging deployment retry after registry DNS failure.
+
 ## [1.145.7] - 2026-11-27
 
 - Coordinate DholeWeb saved-quote cargo insurance recovery; unchanged Pricing API and other component versions. Candidate CI and staging pending.
