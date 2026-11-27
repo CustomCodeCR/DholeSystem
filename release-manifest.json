@@ -1,28 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-OPERATIONS-DIVISION-UX",
+  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.1",
+  "ecosystemVersion": "1.145.2",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/operations-division-ux-20261127",
-    "master": null
+    "develop": "fix/seller-cargo-insurance-20261127-develop",
+    "master": "hotfix/seller-cargo-insurance-20261127-master"
   },
-  "candidateBranch": "feature/operations-division-ux-20261127",
+  "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.1",
-      "previousVersion": "1.145.0",
+      "version": "1.145.2",
+      "previousVersion": "1.145.1",
       "mergeState": "intermediate-only",
-      "versionVerified": false,
-      "candidateBranch": "feature/operations-division-ux-20261127",
-      "developCandidateBranch": "feature/operations-division-ux-20261127",
+      "versionVerified": true,
+      "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -34,7 +35,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -46,19 +48,21 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.1",
-      "previousVersion": "1.145.0",
+      "version": "1.145.2",
+      "previousVersion": "1.145.1",
       "mergeState": "intermediate-only",
-      "versionVerified": false,
-      "candidateBranch": "feature/operations-division-ux-20261127",
-      "developCandidateBranch": "feature/operations-division-ux-20261127",
-      "candidateSha": "0b4e339e36d31385a35a7caefbce85fb050fa444",
-      "developMergeSha": null
+      "versionVerified": true,
+      "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "candidateSha": "3da082ffc23e778bd38381143de9ce1b8ff673a8",
+      "developMergeSha": null,
+      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -70,7 +74,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -82,7 +87,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -94,7 +100,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
@@ -106,7 +113,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -118,7 +126,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -130,7 +139,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -142,7 +152,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -154,7 +165,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -166,7 +178,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -178,7 +191,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -190,7 +204,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -202,7 +217,8 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -214,18 +230,19 @@
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
-      "developMergeSha": null
+      "developMergeSha": null,
+      "masterCandidateBranch": null
     }
   ],
   "policyCheck": "pending",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Candidate CI and authenticated staging visual/realtime validation pending."
+    "CI and authenticated staging validation pending"
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
-    "componentVersionsVerified": false,
+    "componentVersionsVerified": true,
     "regressionTestsAdded": true
   },
   "releaseComponents": [
@@ -233,7 +250,7 @@
     "DholeSystem"
   ],
   "changes": [
-    "Operations opening division and recipient UX uses existing DH controls, division choice cards and searchable selection; grouped recipients and recovery controls. No API or database change."
+    "Normalize effective seller services and reconcile missing insurance on existing quotations without replacing negotiated line items."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -289,7 +306,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-OPS-QUOTE-SCOPES",
+  "businessReleaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -702,7 +719,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261126-OPS-SUMMARY-CONTROL-CENTER"
+    "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -1071,7 +1088,7 @@
   },
   "businessReleaseMasterPromotionRequested": false,
   "productionAuthorizationScope": "Develop candidate; staging validation required",
-  "releaseMasterIntegrationRequested": false,
+  "releaseMasterIntegrationRequested": true,
   "releaseProductionDeploymentPolicy": "Do not merge to master / deploy production before release validation and user approval.",
   "inlandStep67Release": {
     "releaseId": "DH-20261120-PRICING-INLAND-STEP67-357",

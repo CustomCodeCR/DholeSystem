@@ -1,3 +1,7 @@
+## [1.145.2] - 2026-11-27
+
+- PATCH: DH-20261127-SELLER-CARGO-INSURANCE. Web/System 1.145.1 → 1.145.2; reconcile missing cargo insurance for seller amendments using effective service IDs and declared cargo value. Preserve historical line items. CI, component verification and staging pending.
+
 ## [1.144.0] - 2026-11-27
 
 ## [1.145.1] - 2026-11-27
