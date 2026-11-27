@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.145.7",
-  "ecosystemVersion": "1.145.7",
-  "releaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE",
+  "version": "1.145.8",
+  "ecosystemVersion": "1.145.8",
+  "releaseId": "DH-20261127-OPERATIONS-OPENING-CONTROLS",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE"
+  "businessReleaseId": "DH-20261127-OPERATIONS-OPENING-CONTROLS"
 }
