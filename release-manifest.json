@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
+  "releaseId": "DH-20261127-PRICING-HOSTED-BUILD",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.146.4",
+  "ecosystemVersion": "1.146.5",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/dynamics-ftl-26-7ton-20261127",
+    "develop": "fix/pricing-hosted-build-20261127",
     "master": "fix/dynamics-ftl-26-7ton-20261127-master"
   },
   "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
@@ -15,12 +15,12 @@
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.146.4",
+      "version": "1.146.5",
       "previousVersion": "1.145.7",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
-      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/pricing-hosted-build-20261127",
       "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
       "candidateSha": null,
       "developMergeSha": null,
@@ -57,14 +57,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.146.4",
+      "version": "1.146.5",
       "previousVersion": "1.145.7",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
-      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/pricing-hosted-build-20261127",
       "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
-      "candidateSha": "003c26735984352ca897b1c8536f6c98329e8e1f",
+      "candidateSha": "1171615b3a9e2666267e5d43b54e669342929413",
       "developMergeSha": null,
       "masterMergeSha": null
     },
@@ -113,15 +113,15 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.35.2",
+      "version": "1.35.3",
       "previousVersion": "1.34.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
       "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
       "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
-      "candidateSha": "73a856db57dede7152af32ccd659867a919ce95d",
+      "candidateSha": "e0319ae87c7f4ad8a6a4d85a5eabf901368bf7b7",
       "masterMergeSha": null,
-      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/pricing-hosted-build-20261127",
       "developMergeSha": null
     },
     {
@@ -256,11 +256,11 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "Master candidate CI and authenticated staging validation pending.",
-    "New mapping CI and authenticated staging retry validation pending."
+    "New mapping CI and authenticated staging retry validation pending.",
+    "Pricing hosted build and staging not yet verified."
   ],
   "validationEvidence": {
-    "status": "pending-candidate-ci",
-    "regressionTestsAdded": true
+    "status": "pending-candidate-ci"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -268,8 +268,8 @@
     "DholePricingService"
   ],
   "changes": [
-    "Explicit 26PIES7TONFTL -> 26\" FTL category alias, preserving original equipment description and totals.",
-    "Selective promotion; Web metadata only; existing REST and realtime paths unchanged."
+    "Selective promotion of explicit 26PIES7TONFTL mapping and hosted Pricing build with verified image handoff.",
+    "Retain production Dynamics credential, mapping, health checks and REST/realtime."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -325,7 +325,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
+  "businessReleaseId": "DH-20261127-PRICING-HOSTED-BUILD",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -3579,5 +3579,55 @@
     "blockers": [
       "Master candidate CI and authenticated staging validation pending."
     ]
+  },
+  "pricingHostedBuildPreviousRelease": {
+    "releaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
+    "ecosystemVersion": "1.146.4",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.146.4",
+        "previousVersion": "1.145.7",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+        "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "candidateSha": null,
+        "developMergeSha": null,
+        "masterMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.146.4",
+        "previousVersion": "1.145.7",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+        "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "candidateSha": "003c26735984352ca897b1c8536f6c98329e8e1f",
+        "developMergeSha": null,
+        "masterMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.35.2",
+        "previousVersion": "1.34.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+        "candidateSha": "73a856db57dede7152af32ccd659867a919ce95d",
+        "masterMergeSha": null,
+        "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+        "developMergeSha": null
+      }
+    ],
+    "stagingPricingRun": 46080242116,
+    "stagingPricingResult": "NuGet connectivity failure"
   }
 }
