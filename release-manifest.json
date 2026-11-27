@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
       "developCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
-      "candidateSha": "c5086a79a3f7fd08ae6779c59e782ce72b6fe265",
+      "candidateSha": "fa440ff62f0edd71225908361c3d591c0514ffe8",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
