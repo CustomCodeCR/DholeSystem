@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "d7eddcf6339801f4e378963a2255cb5ac37845ce",
+      "candidateSha": "1661c09d049712f2640b45c7045a2ef7253bfc8b",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
