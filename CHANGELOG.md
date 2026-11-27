@@ -1,3 +1,7 @@
+## [1.146.2] - 2026-11-27
+
+- Coordinate staging hosted image build and verified artifact transfer for Operations and Web; preserve production workflows. CI and staging pending.
+
 ## [1.146.1] - 2026-11-27
 - Coordinate accepted quote opening field parity and service-gated delivery; CI and staging pending.
 
