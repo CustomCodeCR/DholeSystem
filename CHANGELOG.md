@@ -1,3 +1,7 @@
+## [1.143.0] - 2026-11-27
+
+- MINOR candidato parcial: registra Auth 1.23.0 y Web 1.143.0; permisos de creación de gerencia/jefatura, conversiones bidireccionales y CABYS en aperturas manuales. Los demás componentes permanecen sin cambios. No integra el release completo; CI y staging pendientes; producción no autorizada.
+
 ## [1.142.0] - 2026-11-26
 
 - MINOR candidato: registra el incremento independiente de UX de comparación comercial con componentes DH y notificación individual por correo de Aperturas. HOLD y recotización automáticos se excluyen de este incremento. CI y staging pendientes; producción no autorizada.
