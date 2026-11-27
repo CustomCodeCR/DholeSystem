@@ -201,7 +201,7 @@
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/crm-account-divisions-20261127",
       "developCandidateBranch": "feature/crm-account-divisions-20261127",
-      "candidateSha": "0011467154bcd91731e82fdb77d7d8032244aaf3",
+      "candidateSha": "02071f920b49960d58315c1bdab4b3dfcd5c950a",
       "developMergeSha": null
     },
     {
