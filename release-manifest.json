@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
+  "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.2",
+  "ecosystemVersion": "1.145.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/seller-cargo-insurance-20261127-develop",
-    "master": "hotfix/seller-cargo-insurance-20261127-master"
+    "develop": "fix/seller-insurance-draft-reconcile-20261127",
+    "master": "fix/seller-insurance-draft-reconcile-20261127-master"
   },
-  "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
+  "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.2",
-      "previousVersion": "1.135.0",
+      "version": "1.145.3",
+      "previousVersion": "1.145.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
-      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
-      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
+      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
+      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
+      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterMergeSha": null
@@ -57,14 +57,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.2",
-      "previousVersion": "1.135.0",
+      "version": "1.145.3",
+      "previousVersion": "1.145.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
-      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
-      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
-      "candidateSha": "2cdab1490ec6ff830eea0cf19ed1616786894f7f",
+      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
+      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
+      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
+      "candidateSha": "7fdd864430b18bbf332965b6cd18d92ef6e64013",
       "developMergeSha": null,
       "masterMergeSha": null
     },
@@ -255,7 +255,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Develop integration and authenticated staging validation pending"
+    "CI and staging validation pending"
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
@@ -267,7 +267,7 @@
     "DholeSystem"
   ],
   "changes": [
-    "Selective promotion of seller cargo insurance reconciliation without unrelated staging changes."
+    "Isolate seller amendment draft storage by request; apply requested data after restoration; restore missing declared-value insurance independent of catalog response."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -323,7 +323,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
+  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -736,7 +736,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE"
+    "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
