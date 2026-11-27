@@ -1,3 +1,7 @@
+## [1.146.5] - 2026-11-27
+
+- DH-20261127-PRICING-HOSTED-BUILD: hosted Pricing build, migration validation and verified artifact handoff; Pricing 1.35.3 and Web metadata only. CI/staging pending.
+
 ## [1.146.4] - 2026-11-27
 
 - DH-20261127-DYNAMICS-FTL-26-7TON: explicit Dynamics equipment alias for 26 pies / 7 TON FTL. Pricing 1.35.2; Web version metadata only. CI and staging pending; no production deployment authorized.
