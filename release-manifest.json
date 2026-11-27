@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "1661c09d049712f2640b45c7045a2ef7253bfc8b",
+      "candidateSha": "dbdffff89f8c5e646ac9820d44bd45d60b2d32a1",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -112,7 +112,7 @@
       "mergeState": "intermediate-only",
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "4144331cc39d6902c45ffe84309bd3103a877cd2",
+      "candidateSha": "1a050bed1a5237161c9e08dd671c1235dac78036",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -229,7 +229,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "102526e0cadff5a29b6286e82725c0570c42730a",
+      "candidateSha": "72bef6a0c0869abe651c530febf09608b2817573",
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
@@ -238,8 +238,8 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Candidate CI, coordinated develop integration and authenticated staging validation pending",
-    "No source values invented for IMO or consolidated number"
+    "Candidate CI and authenticated staging validation pending.",
+    "LTL has route tariffs, not a physical departure catalog."
   ],
   "validationEvidence": {
     "componentVersionMetadataRead": {
@@ -261,7 +261,8 @@
       "DholePricingService": "1.35.1"
     },
     "ci": "pending",
-    "staging": "pending"
+    "staging": "pending",
+    "regressionTestsAdded": true
   },
   "releaseComponents": [
     "DholeSystem",
@@ -272,7 +273,8 @@
   "changes": [
     "Restore IMO, stackability, overweight, pickup and consolidated number in manual and automatic Operations openings",
     "Preserve explicit false and unknown values; use accepted QUO data where available",
-    "Show pickup only for EXW or pickup service; consolidated number only for LCL/LTL"
+    "Show pickup only for EXW or pickup service; consolidated number only for LCL/LTL",
+    "Use actual own-LCL consolidation names and stable IDs in Operations, including Origin; cost-free catalog under operations.pricing.quote.read; hydrate exact accepted QUO links via transactional outbox. LTL tariff routes are not actual consolidation records; retain explicit LTL reference."
   ],
   "stagingValidation": {
     "status": "pending"
