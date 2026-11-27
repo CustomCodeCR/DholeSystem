@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-REALTIME-HOLD",
+  "releaseId": "DH-20261126-OPS-COMPARISON-OPENING-NOTICES",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.142.0",
-  "status": "candidate-wip-partial-ci-staging-pending",
+  "status": "candidate-ci-staging-pending",
   "branches": {
     "develop": "feature/operations-realtime-hold-20261126",
     "master": null
@@ -57,7 +57,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/operations-realtime-hold-20261126",
       "developCandidateBranch": "feature/operations-realtime-hold-20261126",
-      "candidateSha": "95f59e80c6c29936614e40cd77f81ecb319c9e3c",
+      "candidateSha": "42d08ed34b0e8471dc012752a38f0bbdb603fde4",
       "developMergeSha": null
     },
     {
@@ -213,7 +213,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/operations-realtime-hold-20261126",
       "developCandidateBranch": "feature/operations-realtime-hold-20261126",
-      "candidateSha": "f445c74bfa022652bf240b29a5025344a1ffb120",
+      "candidateSha": "8017061c36fc33730dc06691b387e957c1dfc262",
       "developMergeSha": null
     }
   ],
@@ -221,16 +221,13 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Incomplete feature: automatic HOLD, commercial field criticality, automatic recotization and pool coverage of remaining teams not implemented.",
-    "Pricing and Auth changes remain pending.",
-    "Authenticated staging and UI validation pending."
+    "CI validation of revised candidate and authenticated staging validation pending"
   ],
   "validationEvidence": {
-    "status": "partial",
+    "status": "pending-final-candidate-ci",
     "componentVersionsVerified": false,
     "regressionTestsAdded": true,
-    "operationsCI": "success on f445c74bfa022652bf240b29a5025344a1ffb120",
-    "webCI": "success on 95f59e80c6c29936614e40cd77f81ecb319c9e3c"
+    "previousFeatureCI": "Web and Operations tests passed before isolated release metadata and UI cleanup"
   },
   "releaseComponents": [
     "DholeSystem",
@@ -295,7 +292,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-REALTIME-HOLD",
+  "businessReleaseId": "DH-20261126-OPS-COMPARISON-OPENING-NOTICES",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -6053,5 +6050,14 @@
       }
     ],
     "status": "candidate-ci-staging-pending"
-  }
+  },
+  "scope": [
+    "DholeWeb commercial comparison with DH components and manual commercial review context",
+    "DholeOperationsService individual automatic opening assignment email plus existing system notification"
+  ],
+  "excludedScope": [
+    "Automatic HOLD rules and recotization",
+    "General pool extension",
+    "New Pricing and Auth contracts, requester exposure"
+  ]
 }

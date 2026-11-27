@@ -1,6 +1,6 @@
 ## [1.142.0] - 2026-11-26
 
-- MINOR candidato WIP: registro central de Web y Operations para UX comercial y correo de Aperturas. HOLD automático, recotización, Pricing/Auth y validación integral pendientes. No integrar como release completo ni promover a producción.
+- MINOR candidato: registra el incremento independiente de UX de comparación comercial con componentes DH y notificación individual por correo de Aperturas. HOLD y recotización automáticos se excluyen de este incremento. CI y staging pendientes; producción no autorizada.
 
 ## [1.141.0] - 2026-11-26
 
