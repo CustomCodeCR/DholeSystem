@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.145.3",
-  "ecosystemVersion": "1.145.3",
-  "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
+  "version": "1.145.4",
+  "ecosystemVersion": "1.145.4",
+  "releaseId": "DH-20261127-SELLER-INSURANCE-CURRENCY",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-DRAFT"
+  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-CURRENCY"
 }
