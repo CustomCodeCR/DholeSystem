@@ -1,3 +1,7 @@
+## [1.145.7] - 2026-11-27
+
+- Coordinate DholeWeb saved-quote cargo insurance recovery; unchanged Pricing API and other component versions. Candidate CI and staging pending.
+
 ## [1.145.6] - 2026-11-27
 - Include own-LCL consolidation catalog/name and identity persistence in the existing unpublished opening essential-fields patch.
 - PATCH: DH-20261127-OPENING-ESSENTIAL-FIELDS. Restore five essential opening fields in Web, Operations and Pricing; preserve explicit negative and unknown values; coordinate develop candidate, CI and staging pending.
