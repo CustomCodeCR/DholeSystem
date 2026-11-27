@@ -5,6 +5,6 @@
   "version": "1.142.0",
   "ecosystemVersion": "1.142.0",
   "releaseId": "DH-20261126-OPS-REALTIME-HOLD",
-  "releaseStatus": "wip-partial-ci-staging-pending",
+  "releaseStatus": "candidate-wip-partial-ci-staging-pending",
   "businessReleaseId": "DH-20261126-OPS-REALTIME-HOLD"
 }

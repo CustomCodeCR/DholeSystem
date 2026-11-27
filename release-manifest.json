@@ -3,7 +3,7 @@
   "releaseId": "DH-20261126-OPS-REALTIME-HOLD",
   "ecosystem": "Dhole",
   "ecosystemVersion": "1.142.0",
-  "status": "wip-partial-ci-staging-pending",
+  "status": "candidate-wip-partial-ci-staging-pending",
   "branches": {
     "develop": "feature/operations-realtime-hold-20261126",
     "master": null
@@ -223,7 +223,6 @@
   "blockers": [
     "Incomplete feature: automatic HOLD, commercial field criticality, automatic recotization and pool coverage of remaining teams not implemented.",
     "Pricing and Auth changes remain pending.",
-    "Web/System CI check previously returned HTTP 404; candidate branch prepared, rerun required.",
     "Authenticated staging and UI validation pending."
   ],
   "validationEvidence": {
@@ -231,7 +230,7 @@
     "componentVersionsVerified": false,
     "regressionTestsAdded": true,
     "operationsCI": "success on f445c74bfa022652bf240b29a5025344a1ffb120",
-    "webCI": "partial; version cross-repository check failed, build pending"
+    "webCI": "success on 95f59e80c6c29936614e40cd77f81ecb319c9e3c"
   },
   "releaseComponents": [
     "DholeSystem",
