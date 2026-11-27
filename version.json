@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.146.3",
-  "ecosystemVersion": "1.146.3",
-  "releaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
+  "version": "1.146.4",
+  "ecosystemVersion": "1.146.4",
+  "releaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS"
+  "businessReleaseId": "DH-20261127-DYNAMICS-FTL-26-7TON"
 }
