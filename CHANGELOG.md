@@ -1,3 +1,7 @@
+## [1.146.4] - 2026-11-27
+
+- DH-20261127-DYNAMICS-FTL-26-7TON: explicit Dynamics equipment alias for 26 pies / 7 TON FTL. Pricing 1.35.2; Web version metadata only. CI and staging pending; no production deployment authorized.
+
 ## [1.146.3] - 2026-11-27
 
 - PATCH: align opening edit serialization with Operations measurement validation for historical unknown cargo volume; preserve Origin-owned weight and equipment details. Web 1.146.3, Operations 0.39.3; CI and staging pending.

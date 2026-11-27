@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
+  "releaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.146.3",
+  "ecosystemVersion": "1.146.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-opening-measurements-20261127",
+    "develop": "fix/dynamics-ftl-26-7ton-20261127",
     "master": null
   },
-  "candidateBranch": "fix/operations-opening-measurements-20261127",
+  "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.146.3",
-      "previousVersion": "1.146.2",
+      "version": "1.146.4",
+      "previousVersion": "1.146.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-measurements-20261127",
-      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
@@ -36,7 +37,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
@@ -49,20 +51,22 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.146.3",
-      "previousVersion": "1.146.2",
+      "version": "1.146.4",
+      "previousVersion": "1.146.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-measurements-20261127",
-      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
-      "candidateSha": "c2ce7a1261be8fea7888d644c94e03d575b6d38b",
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "candidateSha": "22a1690a4fc997a197aa09adfcbadfd500053529",
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
@@ -75,7 +79,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -88,7 +93,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -101,20 +107,22 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.35.1",
+      "version": "1.35.2",
       "previousVersion": "1.35.1",
       "versionVerified": true,
-      "mergeState": "unchanged",
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "mergeState": "intermediate-only",
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "candidateSha": "84339cd5926a687ced8016266603404d6e4fa039",
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -127,7 +135,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -140,7 +149,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -153,7 +163,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -166,7 +177,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -179,7 +191,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -192,7 +205,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -205,7 +219,8 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -218,20 +233,22 @@
       "developCandidateBranch": null,
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.39.3",
-      "previousVersion": "0.39.2",
-      "mergeState": "intermediate-only",
+      "previousVersion": "0.39.3",
+      "mergeState": "unchanged",
       "versionVerified": true,
-      "candidateBranch": "fix/operations-opening-measurements-20261127",
-      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
-      "candidateSha": "8abcc810d746673cfc106aea20f760210d652753",
+      "candidateBranch": null,
+      "developCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": null
+      "masterCandidateBranch": null,
+      "masterMergeSha": null
     }
   ],
   "policyCheck": "pending",
@@ -240,20 +257,21 @@
   "blockers": [
     "Hosted build and artifact transfer CI/staging not yet validated; server DNS remains unresolved.",
     "Historical opening reconciliation and authenticated SignalR validation pending.",
-    "New release CI, authenticated opening PATCH and SignalR staging validation pending."
+    "New release CI, authenticated opening PATCH and SignalR staging validation pending.",
+    "New Dynamics mapping CI and authenticated staging retry validation pending."
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
     "regressionTestsAdded": true
   },
   "releaseComponents": [
+    "DholeSystem",
     "DholeWeb",
-    "DholeOperationsService",
-    "DholeSystem"
+    "DholePricingService"
   ],
   "changes": [
-    "Accept legacy zero volume as unspecified on existing opening PATCH; strict manual creation and invalid measurements remain rejected.",
-    "Omit Origin-owned measurement keys from Web opening writes; retain existing REST, audit and realtime paths."
+    "Explicit 26PIES7TONFTL -> 26\" FTL category alias, preserving original equipment description and totals.",
+    "Web metadata only; existing retry, REST and realtime paths unchanged."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -309,7 +327,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
+  "businessReleaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -7004,5 +7022,56 @@
       ]
     },
     "rollback": "Revert coordinated changes via new versioned candidate; do not roll back Origin data."
+  },
+  "previousReleaseSnapshot": {
+    "releaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
+    "ecosystemVersion": "1.146.3",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.146.3",
+        "previousVersion": "1.146.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-opening-measurements-20261127",
+        "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+        "candidateSha": null,
+        "developMergeSha": null,
+        "masterCandidateBranch": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.146.3",
+        "previousVersion": "1.146.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-opening-measurements-20261127",
+        "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+        "candidateSha": "c2ce7a1261be8fea7888d644c94e03d575b6d38b",
+        "developMergeSha": null,
+        "masterCandidateBranch": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.39.3",
+        "previousVersion": "0.39.2",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/operations-opening-measurements-20261127",
+        "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+        "candidateSha": "8abcc810d746673cfc106aea20f760210d652753",
+        "developMergeSha": null,
+        "masterCandidateBranch": null
+      }
+    ],
+    "blockers": [
+      "Hosted build and artifact transfer CI/staging not yet validated; server DNS remains unresolved.",
+      "Historical opening reconciliation and authenticated SignalR validation pending.",
+      "New release CI, authenticated opening PATCH and SignalR staging validation pending."
+    ]
   }
 }
