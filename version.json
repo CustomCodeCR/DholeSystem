@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.145.6",
-  "ecosystemVersion": "1.145.6",
-  "releaseId": "DH-20261127-OPENING-ESSENTIAL-FIELDS",
+  "version": "1.145.7",
+  "ecosystemVersion": "1.145.7",
+  "releaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-OPENING-ESSENTIAL-FIELDS"
+  "businessReleaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE"
 }
