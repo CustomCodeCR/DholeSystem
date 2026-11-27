@@ -1,3 +1,7 @@
+## [1.145.3] - 2026-11-27
+
+- PATCH: DH-20261127-SELLER-INSURANCE-DRAFT. Web/System 1.145.2 → 1.145.3; isolate seller amendment drafts and recover requested insurance after restoration. CI, component verification and staging pending.
+
 ## [1.145.2] - 2026-11-27
 
 - PATCH: DH-20261127-SELLER-CARGO-INSURANCE. Selective Web/System promotion 1.135.0 → 1.145.2. Preserve production baseline for other components. Staging, CI and component verification pending.
