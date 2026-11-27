@@ -1,3 +1,6 @@
+## [1.146.1] - 2026-11-27
+- Coordinate accepted quote opening field parity and service-gated delivery; CI and staging pending.
+
 ## [1.146.0] - 2026-11-27
 - Coordinate the compact Operations drawer, full summary, related IDTRA projection and scoped communication history. Candidate only; CI and staging pending.
 
