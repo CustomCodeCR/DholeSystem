@@ -1,3 +1,6 @@
+## [1.145.6] - 2026-11-27
+- PATCH: DH-20261127-OPENING-ESSENTIAL-FIELDS. Restore five essential opening fields in Web, Operations and Pricing; preserve explicit negative and unknown values; coordinate develop candidate, CI and staging pending.
+
 ## [1.145.4] - 2026-11-27
 
 ## [1.145.5] - 2026-11-27
