@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-CRM-ACCOUNT-DIVISIONS",
+  "releaseId": "DH-20261127-OPERATIONS-DIVISION-UX",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.0",
+  "ecosystemVersion": "1.145.1",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/crm-account-divisions-20261127",
+    "develop": "feature/operations-division-ux-20261127",
     "master": null
   },
-  "candidateBranch": "feature/crm-account-divisions-20261127",
+  "candidateBranch": "feature/operations-division-ux-20261127",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.0",
-      "previousVersion": "1.144.0",
+      "version": "1.145.1",
+      "previousVersion": "1.145.0",
       "mergeState": "intermediate-only",
       "versionVerified": false,
-      "candidateBranch": "feature/crm-account-divisions-20261127",
-      "developCandidateBranch": "feature/crm-account-divisions-20261127",
+      "candidateBranch": "feature/operations-division-ux-20261127",
+      "developCandidateBranch": "feature/operations-division-ux-20261127",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -51,13 +51,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.0",
-      "previousVersion": "1.144.0",
+      "version": "1.145.1",
+      "previousVersion": "1.145.0",
       "mergeState": "intermediate-only",
       "versionVerified": false,
-      "candidateBranch": "feature/crm-account-divisions-20261127",
-      "developCandidateBranch": "feature/crm-account-divisions-20261127",
-      "candidateSha": "48b3021018ced7b24b0b6cb3789a668c9f6fcf25",
+      "candidateBranch": "feature/operations-division-ux-20261127",
+      "developCandidateBranch": "feature/operations-division-ux-20261127",
+      "candidateSha": "0b4e339e36d31385a35a7caefbce85fb050fa444",
       "developMergeSha": null
     },
     {
@@ -196,24 +196,24 @@
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
       "version": "1.47.0",
-      "previousVersion": "1.46.0",
-      "versionVerified": false,
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/crm-account-divisions-20261127",
-      "developCandidateBranch": "feature/crm-account-divisions-20261127",
-      "candidateSha": "02071f920b49960d58315c1bdab4b3dfcd5c950a",
+      "previousVersion": "1.47.0",
+      "versionVerified": true,
+      "mergeState": "unchanged",
+      "candidateBranch": null,
+      "developCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
       "version": "0.38.0",
-      "previousVersion": "0.37.0",
-      "mergeState": "intermediate-only",
-      "versionVerified": false,
-      "candidateBranch": "feature/crm-account-divisions-20261127",
-      "developCandidateBranch": "feature/crm-account-divisions-20261127",
-      "candidateSha": "4285456e08cee97b9c8fc4a529c634716bff7ce4",
+      "previousVersion": "0.38.0",
+      "mergeState": "unchanged",
+      "versionVerified": true,
+      "candidateBranch": null,
+      "developCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null
     }
   ],
@@ -221,7 +221,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Coordinated CI and authenticated staging validation pending."
+    "Candidate CI and authenticated staging visual/realtime validation pending."
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
@@ -229,15 +229,11 @@
     "regressionTestsAdded": true
   },
   "releaseComponents": [
-    "DholeSystem",
-    "DholeCRMService",
-    "DholeOperationsService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeSystem"
   ],
   "changes": [
-    "CRM account divisions retain fiscal identity and scoped operational contact membership; PostgreSQL migration required.",
-    "Operations validates account/division ownership, selected contacts, and canonical division name; preserves case ACL and audit/outbox.",
-    "Web reuses DH components for account division management and opening selection; account version invalidation refreshes contact directory."
+    "Operations opening division and recipient UX uses existing DH controls, division choice cards and searchable selection; grouped recipients and recovery controls. No API or database change."
   ],
   "stagingValidation": {
     "status": "pending",

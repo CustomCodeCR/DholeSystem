@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.145.0",
-  "ecosystemVersion": "1.145.0",
-  "releaseId": "DH-20261127-CRM-ACCOUNT-DIVISIONS",
+  "version": "1.145.1",
+  "ecosystemVersion": "1.145.1",
+  "releaseId": "DH-20261127-OPERATIONS-DIVISION-UX",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-CRM-ACCOUNT-DIVISIONS"
+  "businessReleaseId": "DH-20261127-OPERATIONS-DIVISION-UX"
 }

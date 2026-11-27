@@ -1,5 +1,9 @@
 ## [1.144.0] - 2026-11-27
 
+## [1.145.1] - 2026-11-27
+- Coordinate Operations opening division and recipient UX refinement; backend versions unchanged.
+
+
 ## [1.145.0] - 2026-11-27
 - Coordinate CRM account divisions and operational contact membership across CRM, Operations and Web. Staging CI and authenticated validation pending.
 
