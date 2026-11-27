@@ -1,3 +1,7 @@
+## [1.142.0] - 2026-11-26
+
+- MINOR candidato: registra el incremento independiente de UX de comparación comercial con componentes DH y notificación individual por correo de Aperturas. HOLD y recotización automáticos se excluyen de este incremento. CI y staging pendientes; producción no autorizada.
+
 ## [1.141.0] - 2026-11-26
 
 - MINOR candidato: registro coordinado de roles de negocio y permisos de Operations para Auth, Web y Operations. Se mantienen 13 componentes sin cambios; CI, cobertura funcional y staging pendientes.

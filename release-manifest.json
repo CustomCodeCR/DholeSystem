@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-AUTH-ROLES-SCOPES",
+  "releaseId": "DH-20261126-OPS-COMPARISON-OPENING-NOTICES",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.141.0",
+  "ecosystemVersion": "1.142.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/operations-auth-roles-scopes-20261126",
+    "develop": "feature/operations-realtime-hold-20261126",
     "master": null
   },
-  "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
+  "candidateBranch": "feature/operations-realtime-hold-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.141.0",
-      "previousVersion": "1.140.0",
+      "version": "1.142.0",
+      "previousVersion": "1.141.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "candidateBranch": "feature/operations-realtime-hold-20261126",
+      "developCandidateBranch": "feature/operations-realtime-hold-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -29,7 +29,7 @@
       "component": "DholeApiGateway",
       "version": "1.11.1",
       "previousVersion": "1.11.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -40,24 +40,24 @@
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.22.0",
-      "previousVersion": "1.21.0",
-      "versionVerified": true,
-      "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "candidateSha": "5252af445345c490336825e528af80f4ab96a82b",
+      "previousVersion": "1.22.0",
+      "versionVerified": false,
+      "mergeState": "unchanged",
+      "candidateBranch": null,
+      "developCandidateBranch": null,
+      "candidateSha": null,
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.141.0",
-      "previousVersion": "1.140.0",
+      "version": "1.142.0",
+      "previousVersion": "1.141.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "candidateSha": "9f1a2463fdac4eb18c5c1acb24658b50d168a9a2",
+      "candidateBranch": "feature/operations-realtime-hold-20261126",
+      "developCandidateBranch": "feature/operations-realtime-hold-20261126",
+      "candidateSha": "42d08ed34b0e8471dc012752a38f0bbdb603fde4",
       "developMergeSha": null
     },
     {
@@ -65,7 +65,7 @@
       "component": "DholeConfigService",
       "version": "1.12.0",
       "previousVersion": "1.12.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -77,7 +77,7 @@
       "component": "DholeAuditLogsService",
       "version": "1.6.0",
       "previousVersion": "1.6.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -89,7 +89,7 @@
       "component": "DholeDataExtractionService",
       "version": "1.9.0",
       "previousVersion": "1.9.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -101,7 +101,7 @@
       "component": "DholePricingService",
       "version": "1.34.0",
       "previousVersion": "1.34.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -113,7 +113,7 @@
       "component": "DholeAIService",
       "version": "1.9.0",
       "previousVersion": "1.9.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -125,7 +125,7 @@
       "component": "DholeStorageService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -137,7 +137,7 @@
       "component": "DholeReportsService",
       "version": "1.8.1",
       "previousVersion": "1.8.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -149,7 +149,7 @@
       "component": "DholeNotificationsService",
       "version": "1.9.1",
       "previousVersion": "1.9.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -161,7 +161,7 @@
       "component": "DholeContentService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -173,7 +173,7 @@
       "component": "DholeAgentService",
       "version": "1.6.0",
       "previousVersion": "1.6.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -185,7 +185,7 @@
       "component": "DholeDynamicsConnectorService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -197,7 +197,7 @@
       "component": "DholeCRMService",
       "version": "1.45.0",
       "previousVersion": "1.45.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.35.0",
-      "previousVersion": "0.34.0",
+      "version": "0.36.0",
+      "previousVersion": "0.35.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "candidateSha": "cb3a91830000bfd2b871e6615d4663ac903a593b",
+      "candidateBranch": "feature/operations-realtime-hold-20261126",
+      "developCandidateBranch": "feature/operations-realtime-hold-20261126",
+      "candidateSha": "8017061c36fc33730dc06691b387e957c1dfc262",
       "developMergeSha": null
     }
   ],
@@ -221,27 +221,22 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Validar CI, compilación, pruebas y staging autenticado.",
-    "Eliminar Trámites no dispone de endpoint de eliminación de expediente completo.",
-    "Completar verificación de acciones de las nuevas etapas; menú de equipos corregido, CI pendiente.",
-    "Verificación cruzada Web/System falla HTTP 404; conservar gate y revisar acceso de lectura CI a DholeSystem."
+    "CI validation of revised candidate and authenticated staging validation pending"
   ],
   "validationEvidence": {
-    "status": "pending",
-    "componentVersionsVerified": true,
-    "componentVersionsVerifiedAgainst": "develop de 13 componentes sin cambios y metadata de las ramas candidatas",
-    "regressionTestsAdded": true
+    "status": "pending-final-candidate-ci",
+    "componentVersionsVerified": false,
+    "regressionTestsAdded": true,
+    "previousFeatureCI": "Web and Operations tests passed before isolated release metadata and UI cleanup"
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeAuthService",
-    "DholeOperationsService",
-    "DholeWeb"
+    "DholeWeb",
+    "DholeOperationsService"
   ],
   "changes": [
-    "Cuatro roles de negocio no protegidos de Auth.",
-    "Catálogo de permisos de trámites y equipos; permisos independientes de consulta, asignación y retiro de integrantes.",
-    "Sincronización automática por equipo con compatibilidad de scopes heredados."
+    "Web DH commercial comparison UI and review context.",
+    "Operations individual opening assignment email candidate."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -297,7 +292,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-OPS-TEAM-RESPONSIBILITIES",
+  "businessReleaseId": "DH-20261126-OPS-COMPARISON-OPENING-NOTICES",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -6055,5 +6050,14 @@
       }
     ],
     "status": "candidate-ci-staging-pending"
-  }
+  },
+  "scope": [
+    "DholeWeb commercial comparison with DH components and manual commercial review context",
+    "DholeOperationsService individual automatic opening assignment email plus existing system notification"
+  ],
+  "excludedScope": [
+    "Automatic HOLD rules and recotization",
+    "General pool extension",
+    "New Pricing and Auth contracts, requester exposure"
+  ]
 }
