@@ -1,3 +1,7 @@
+## [1.146.3] - 2026-11-27
+
+- PATCH: align opening edit serialization with Operations measurement validation for historical unknown cargo volume; preserve Origin-owned weight and equipment details. Web 1.146.3, Operations 0.39.3; CI and staging pending.
+
 ## [1.146.2] - 2026-11-27
 
 - Coordinate staging hosted image build and verified artifact transfer for Operations and Web; preserve production workflows. CI and staging pending.

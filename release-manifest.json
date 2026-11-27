@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-STAGING-HOSTED-BUILD",
+  "releaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.146.2",
+  "ecosystemVersion": "1.146.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/staging-hosted-image-build-20261127",
+    "develop": "fix/operations-opening-measurements-20261127",
     "master": null
   },
-  "candidateBranch": "fix/staging-hosted-image-build-20261127",
+  "candidateBranch": "fix/operations-opening-measurements-20261127",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.146.2",
-      "previousVersion": "1.146.1",
+      "version": "1.146.3",
+      "previousVersion": "1.146.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/staging-hosted-image-build-20261127",
-      "developCandidateBranch": "fix/staging-hosted-image-build-20261127",
+      "candidateBranch": "fix/operations-opening-measurements-20261127",
+      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
       "candidateSha": null,
       "developMergeSha": null,
       "masterCandidateBranch": null
@@ -54,13 +54,13 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.146.2",
-      "previousVersion": "1.146.1",
+      "version": "1.146.3",
+      "previousVersion": "1.146.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/staging-hosted-image-build-20261127",
-      "developCandidateBranch": "fix/staging-hosted-image-build-20261127",
-      "candidateSha": "7dc3b4183553ed956bf1868f83f474eef190915c",
+      "candidateBranch": "fix/operations-opening-measurements-20261127",
+      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+      "candidateSha": "c2ce7a1261be8fea7888d644c94e03d575b6d38b",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -223,13 +223,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.39.2",
-      "previousVersion": "0.39.1",
+      "version": "0.39.3",
+      "previousVersion": "0.39.2",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/staging-hosted-image-build-20261127",
-      "developCandidateBranch": "fix/staging-hosted-image-build-20261127",
-      "candidateSha": "559b30d54b2047f7dd011c6953e153aa836850fb",
+      "candidateBranch": "fix/operations-opening-measurements-20261127",
+      "developCandidateBranch": "fix/operations-opening-measurements-20261127",
+      "candidateSha": "8abcc810d746673cfc106aea20f760210d652753",
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
@@ -239,7 +239,8 @@
   "productionDeploymentAuthorized": false,
   "blockers": [
     "Hosted build and artifact transfer CI/staging not yet validated; server DNS remains unresolved.",
-    "Historical opening reconciliation and authenticated SignalR validation pending."
+    "Historical opening reconciliation and authenticated SignalR validation pending.",
+    "New release CI, authenticated opening PATCH and SignalR staging validation pending."
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
@@ -251,8 +252,8 @@
     "DholeSystem"
   ],
   "changes": [
-    "Build Operations API, Workers and Web staging images on GitHub-hosted runners; download and verify SHA-specific artifacts on self-hosted runner, deploy without registry pulls.",
-    "Preserve production workflows, local runtime environment, health checks and existing realtime flags."
+    "Accept legacy zero volume as unspecified on existing opening PATCH; strict manual creation and invalid measurements remain rejected.",
+    "Omit Origin-owned measurement keys from Web opening writes; retain existing REST, audit and realtime paths."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -308,7 +309,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-STAGING-HOSTED-BUILD",
+  "businessReleaseId": "DH-20261127-OPERATIONS-OPENING-MEASUREMENTS",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -6991,5 +6992,17 @@
         "masterCandidateBranch": null
       }
     ]
+  },
+  "openingMeasurementsPatch": {
+    "previousRelease": {
+      "releaseId": "DH-20261127-STAGING-HOSTED-BUILD",
+      "ecosystemVersion": "1.146.2",
+      "status": "candidate-ci-staging-pending",
+      "blockers": [
+        "Hosted build and artifact transfer CI/staging not yet validated; server DNS remains unresolved.",
+        "Historical opening reconciliation and authenticated SignalR validation pending."
+      ]
+    },
+    "rollback": "Revert coordinated changes via new versioned candidate; do not roll back Origin data."
   }
 }
