@@ -1,3 +1,6 @@
+## [1.146.0] - 2026-11-27
+- Coordinate the compact Operations drawer, full summary, related IDTRA projection and scoped communication history. Candidate only; CI and staging pending.
+
 ## [1.145.8] - 2026-11-27
 - Coordinate Operations opening UI and validation corrections; Pricing staging deployment retry after registry DNS failure.
 
