@@ -1,3 +1,7 @@
+## [1.145.2] - 2026-11-27
+
+- PATCH: DH-20261127-SELLER-CARGO-INSURANCE. Selective Web/System promotion 1.135.0 → 1.145.2. Preserve production baseline for other components. Staging, CI and component verification pending.
+
 ## [1.135.0] - 2026-11-26
 
 - MINOR: DH-20261126-PRICING-CATEGORY-REPORT. Promoción selectiva del reporte de tarifas por categoría: DholeSystem/Web 1.132.3 → 1.135.0; Pricing 1.32.0 → 1.34.0; Auth 1.17.1 → 1.18.0. Otros 13 componentes verificados contra master sin cambios. Staging automatizado exitoso; CI master y QA autenticada pendientes.
