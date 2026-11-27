@@ -57,7 +57,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
       "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
-      "candidateSha": "30e5bd5dddef6b99379f67a19862c866e354e986",
+      "candidateSha": "9f1a2463fdac4eb18c5c1acb24658b50d168a9a2",
       "developMergeSha": null
     },
     {
@@ -223,7 +223,8 @@
   "blockers": [
     "Validar CI, compilación, pruebas y staging autenticado.",
     "Eliminar Trámites no dispone de endpoint de eliminación de expediente completo.",
-    "Completar verificación de acciones de las nuevas etapas y del menú de equipos."
+    "Completar verificación de acciones de las nuevas etapas; menú de equipos corregido, CI pendiente.",
+    "Verificación cruzada Web/System falla HTTP 404; conservar gate y revisar acceso de lectura CI a DholeSystem."
   ],
   "validationEvidence": {
     "status": "pending",
