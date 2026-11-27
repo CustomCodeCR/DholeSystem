@@ -1,3 +1,7 @@
+## [1.141.0] - 2026-11-26
+
+- MINOR candidato: registro coordinado de roles de negocio y permisos de Operations para Auth, Web y Operations. Se mantienen 13 componentes sin cambios; CI, cobertura funcional y staging pendientes.
+
 ## [1.140.0] - 2026-11-26
 
 - MINOR candidato coordinado de Auth, Operations y Web: responsabilidades por integrante, lectura transversal por empresa/origen, grupos de integrantes con controles DH y scopes automáticos. CI, staging y aprovisionamiento de colaboradores pendientes. Producción no autorizada.
