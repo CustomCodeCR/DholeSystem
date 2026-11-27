@@ -1,5 +1,9 @@
 ## [1.145.4] - 2026-11-27
 
+## [1.145.5] - 2026-11-27
+- Coordinate compact Operations division and contact selection layout; backend versions unchanged.
+
+
 - PATCH: DH-20261127-SELLER-INSURANCE-CURRENCY. Web/System 1.145.3 → 1.145.4; fix canonical insurance currency, independent seller amendment validation and exchange-rate numeric input. CI and staging pending.
 
 ## [1.145.3] - 2026-11-27
