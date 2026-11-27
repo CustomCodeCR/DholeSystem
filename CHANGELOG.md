@@ -1,5 +1,9 @@
 ## [1.144.0] - 2026-11-27
 
+## [1.145.0] - 2026-11-27
+- Coordinate CRM account divisions and operational contact membership across CRM, Operations and Web. Staging CI and authenticated validation pending.
+
+
 - MINOR candidato: permisos independientes de Operations para consultar y vincular QUO aceptadas y referencias CRM/CABYS sin permisos comerciales generales. Registra Auth 1.24.0, Pricing 1.35.0, CRM 1.46.0, Operations 0.37.0 y Web 1.144.0; CI/staging pendientes. Producción no autorizada.
 
 ## [1.143.0] - 2026-11-27
