@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.145.2",
-  "ecosystemVersion": "1.145.2",
-  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
+  "version": "1.145.3",
+  "ecosystemVersion": "1.145.3",
+  "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
   "releaseStatus": "candidate-ci-staging-pending",
-  "businessReleaseId": "DH-20261127-OPERATIONS-DIVISION-UX"
+  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-DRAFT"
 }

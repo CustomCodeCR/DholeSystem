@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
+  "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.2",
+  "ecosystemVersion": "1.145.3",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/seller-cargo-insurance-20261127-develop",
-    "master": "hotfix/seller-cargo-insurance-20261127-master"
+    "develop": "fix/seller-insurance-draft-reconcile-20261127",
+    "master": "fix/seller-insurance-draft-reconcile-20261127-master"
   },
-  "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+  "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.2",
-      "previousVersion": "1.145.1",
+      "version": "1.145.3",
+      "previousVersion": "1.145.2",
       "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
-      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "versionVerified": false,
+      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
+      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
       "candidateSha": null,
       "developMergeSha": null,
-      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master"
+      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master"
     },
     {
       "repository": "CustomCodeCR/DholeApiGateway",
       "component": "DholeApiGateway",
       "version": "1.11.1",
       "previousVersion": "1.11.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -43,7 +43,7 @@
       "component": "DholeAuthService",
       "version": "1.24.0",
       "previousVersion": "1.24.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -54,22 +54,22 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.2",
-      "previousVersion": "1.145.1",
+      "version": "1.145.3",
+      "previousVersion": "1.145.2",
       "mergeState": "intermediate-only",
-      "versionVerified": true,
-      "candidateBranch": "fix/seller-cargo-insurance-20261127-develop",
-      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
-      "candidateSha": "3da082ffc23e778bd38381143de9ce1b8ff673a8",
+      "versionVerified": false,
+      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
+      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
+      "candidateSha": "8c6c9a03ebfbdbaef9453a5040e64514ca5232a3",
       "developMergeSha": null,
-      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master"
+      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master"
     },
     {
       "repository": "CustomCodeCR/DholeConfigService",
       "component": "DholeConfigService",
       "version": "1.12.0",
       "previousVersion": "1.12.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -82,7 +82,7 @@
       "component": "DholeAuditLogsService",
       "version": "1.6.0",
       "previousVersion": "1.6.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -95,7 +95,7 @@
       "component": "DholeDataExtractionService",
       "version": "1.9.0",
       "previousVersion": "1.9.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -108,7 +108,7 @@
       "component": "DholePricingService",
       "version": "1.35.0",
       "previousVersion": "1.35.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -121,7 +121,7 @@
       "component": "DholeAIService",
       "version": "1.9.0",
       "previousVersion": "1.9.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -134,7 +134,7 @@
       "component": "DholeStorageService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -147,7 +147,7 @@
       "component": "DholeReportsService",
       "version": "1.8.1",
       "previousVersion": "1.8.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -160,7 +160,7 @@
       "component": "DholeNotificationsService",
       "version": "1.9.1",
       "previousVersion": "1.9.1",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -173,7 +173,7 @@
       "component": "DholeContentService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -186,7 +186,7 @@
       "component": "DholeAgentService",
       "version": "1.6.0",
       "previousVersion": "1.6.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -199,7 +199,7 @@
       "component": "DholeDynamicsConnectorService",
       "version": "1.5.0",
       "previousVersion": "1.5.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -212,7 +212,7 @@
       "component": "DholeCRMService",
       "version": "1.47.0",
       "previousVersion": "1.47.0",
-      "versionVerified": true,
+      "versionVerified": false,
       "mergeState": "unchanged",
       "candidateBranch": null,
       "developCandidateBranch": null,
@@ -226,7 +226,7 @@
       "version": "0.38.0",
       "previousVersion": "0.38.0",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "developCandidateBranch": null,
       "candidateSha": null,
@@ -238,11 +238,11 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI and authenticated staging validation pending"
+    "CI and staging validation pending"
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
-    "componentVersionsVerified": true,
+    "componentVersionsVerified": false,
     "regressionTestsAdded": true
   },
   "releaseComponents": [
@@ -250,7 +250,7 @@
     "DholeSystem"
   ],
   "changes": [
-    "Normalize effective seller services and reconcile missing insurance on existing quotations without replacing negotiated line items."
+    "Isolate seller amendment draft storage by request; apply requested data after restoration; restore missing declared-value insurance independent of catalog response."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -306,7 +306,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
+  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -719,7 +719,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE"
+    "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
