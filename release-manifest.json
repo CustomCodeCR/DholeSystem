@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/DH-20261127-operations-summary",
       "developCandidateBranch": "feature/DH-20261127-operations-summary",
-      "candidateSha": "8c303a94730a6736c26d5814a4d1b6cd4dc76ba5",
+      "candidateSha": "1eee474aa88a5516da508c28762f440e91861f26",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
