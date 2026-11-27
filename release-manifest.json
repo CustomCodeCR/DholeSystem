@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE",
+  "releaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.7",
+  "ecosystemVersion": "1.146.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/pricing-edit-cargo-insurance-20261127",
-    "master": "fix/pricing-edit-cargo-insurance-20261127-master"
+    "develop": "fix/dynamics-ftl-26-7ton-20261127",
+    "master": "fix/dynamics-ftl-26-7ton-20261127-master"
   },
-  "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+  "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.7",
-      "previousVersion": "1.145.4",
+      "version": "1.146.4",
+      "previousVersion": "1.145.7",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
-      "developCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
-      "masterCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
       "candidateSha": null,
-      "developMergeSha": "80bd91b93efd781f144378465ddd6d20635fc3c6",
+      "developMergeSha": null,
       "masterMergeSha": null
     },
     {
@@ -57,15 +57,15 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.7",
-      "previousVersion": "1.145.4",
+      "version": "1.146.4",
+      "previousVersion": "1.145.7",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
-      "developCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
-      "masterCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
-      "candidateSha": "33d835330330f8bba5f6b18c9a41bc0b94c54d4d",
-      "developMergeSha": "1008e514fc51b96ec29378f646195e8a1f09a29f",
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
+      "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+      "candidateSha": "003c26735984352ca897b1c8536f6c98329e8e1f",
+      "developMergeSha": null,
       "masterMergeSha": null
     },
     {
@@ -113,15 +113,15 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.34.0",
+      "version": "1.35.2",
       "previousVersion": "1.34.0",
-      "mergeState": "unchanged",
+      "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": null,
-      "masterCandidateBranch": null,
-      "candidateSha": null,
+      "candidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+      "masterCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127-master",
+      "candidateSha": "73a856db57dede7152af32ccd659867a919ce95d",
       "masterMergeSha": null,
-      "developCandidateBranch": null,
+      "developCandidateBranch": "fix/dynamics-ftl-26-7ton-20261127",
       "developMergeSha": null
     },
     {
@@ -251,45 +251,29 @@
       "developMergeSha": null
     }
   ],
-  "policyCheck": "pending-ci",
+  "policyCheck": "pending",
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI and authenticated staging validation pending."
+    "Master candidate CI and authenticated staging validation pending.",
+    "New mapping CI and authenticated staging retry validation pending."
   ],
   "validationEvidence": {
-    "componentVersionMetadataRead": {
-      "DholeSystem": "1.145.7",
-      "DholeApiGateway": "1.11.1",
-      "DholeAuthService": "1.18.0",
-      "DholeWeb": "1.145.7",
-      "DholeConfigService": "1.12.0",
-      "DholeAuditLogsService": "1.2.1",
-      "DholeDataExtractionService": "1.8.1",
-      "DholePricingService": "1.34.0",
-      "DholeAIService": "1.8.1",
-      "DholeStorageService": "1.2.3",
-      "DholeReportsService": "1.8.1",
-      "DholeNotificationsService": "1.9.1",
-      "DholeContentService": "1.2.1",
-      "DholeAgentService": "1.2.2",
-      "DholeDynamicsConnectorService": "1.4.1",
-      "DholeCRMService": "1.43.1",
-      "DholeOperationsService": "0.17.0"
-    },
-    "ci": "pending",
-    "staging": "pending",
+    "status": "pending-candidate-ci",
     "regressionTestsAdded": true
   },
   "releaseComponents": [
     "DholeSystem",
-    "DholeWeb"
+    "DholeWeb",
+    "DholePricingService"
   ],
   "changes": [
-    "Promote only the saved QUO cargo insurance recovery patch from develop; no Operations changes."
+    "Explicit 26PIES7TONFTL -> 26\" FTL category alias, preserving original equipment description and totals.",
+    "Selective promotion; Web metadata only; existing REST and realtime paths unchanged."
   ],
   "stagingValidation": {
-    "status": "pending"
+    "status": "pending",
+    "authenticated": false
   },
   "f6F7F8": {
     "status": "pending"
@@ -341,7 +325,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE",
+  "businessReleaseId": "DH-20261127-DYNAMICS-FTL-26-7TON",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -3557,5 +3541,43 @@
     ],
     "restContract": "unchanged",
     "realtimeContract": "unchanged"
+  },
+  "previousReleaseSnapshot": {
+    "releaseId": "DH-20261127-PRICING-EDIT-CARGO-INSURANCE",
+    "ecosystemVersion": "1.145.7",
+    "status": "candidate-ci-staging-pending",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.145.7",
+        "previousVersion": "1.145.4",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+        "developCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
+        "masterCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+        "candidateSha": null,
+        "developMergeSha": "80bd91b93efd781f144378465ddd6d20635fc3c6",
+        "masterMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.145.7",
+        "previousVersion": "1.145.4",
+        "mergeState": "intermediate-only",
+        "versionVerified": true,
+        "candidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+        "developCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127",
+        "masterCandidateBranch": "fix/pricing-edit-cargo-insurance-20261127-master",
+        "candidateSha": "33d835330330f8bba5f6b18c9a41bc0b94c54d4d",
+        "developMergeSha": "1008e514fc51b96ec29378f646195e8a1f09a29f",
+        "masterMergeSha": null
+      }
+    ],
+    "blockers": [
+      "Master candidate CI and authenticated staging validation pending."
+    ]
   }
 }
