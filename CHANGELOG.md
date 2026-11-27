@@ -1,3 +1,7 @@
+## [1.140.0] - 2026-11-26
+
+- MINOR candidato coordinado de Auth, Operations y Web: responsabilidades por integrante, lectura transversal por empresa/origen, grupos de integrantes con controles DH y scopes automáticos. CI, staging y aprovisionamiento de colaboradores pendientes. Producción no autorizada.
+
 ## [1.139.0] - 2026-11-26
 
 - MINOR candidato coordinado de Auth, Operations y Web: scopes efectivos automáticos por equipo, proyección independiente y revocación selectiva, Outbox/Redis Streams, reconciliación y actualización de permisos. CI y staging pendientes. Sin promoción a producción.
