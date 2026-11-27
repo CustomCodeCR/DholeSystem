@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-OPS-TEAM-RESPONSIBILITIES",
+  "releaseId": "DH-20261126-OPS-AUTH-ROLES-SCOPES",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.140.0",
+  "ecosystemVersion": "1.141.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/operations-team-responsibilities-20261126",
+    "develop": "feature/operations-auth-roles-scopes-20261126",
     "master": null
   },
-  "candidateBranch": "feature/operations-team-responsibilities-20261126",
+  "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.140.0",
-      "previousVersion": "1.139.0",
+      "version": "1.141.0",
+      "previousVersion": "1.140.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-team-responsibilities-20261126",
-      "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
+      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,25 +39,25 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.21.0",
-      "previousVersion": "1.20.0",
+      "version": "1.22.0",
+      "previousVersion": "1.21.0",
       "versionVerified": true,
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/operations-team-responsibilities-20261126",
-      "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
-      "candidateSha": "c58160b257f22d3c036a324ed5321505411d1bbe",
+      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "candidateSha": "5252af445345c490336825e528af80f4ab96a82b",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.140.0",
-      "previousVersion": "1.139.0",
+      "version": "1.141.0",
+      "previousVersion": "1.140.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-team-responsibilities-20261126",
-      "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
-      "candidateSha": "7c14e62a6ca813381d393796519b5b19f9d7f6a0",
+      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "candidateSha": "9f1a2463fdac4eb18c5c1acb24658b50d168a9a2",
       "developMergeSha": null
     },
     {
@@ -207,13 +207,13 @@
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.34.0",
-      "previousVersion": "0.33.0",
+      "version": "0.35.0",
+      "previousVersion": "0.34.0",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "feature/operations-team-responsibilities-20261126",
-      "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
-      "candidateSha": "dfa4b57939ee9a1b365de78aba9a8f4057d6a0f9",
+      "candidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "developCandidateBranch": "feature/operations-auth-roles-scopes-20261126",
+      "candidateSha": "cb3a91830000bfd2b871e6615d4663ac903a593b",
       "developMergeSha": null
     }
   ],
@@ -221,14 +221,15 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "CI build/tests/version gates and authenticated staging validation pending.",
-    "Named employee accounts and memberships must be provisioned in authenticated staging, not in repository source.",
-    "Cross-team and tenant ACL/realtime end-to-end validation pending."
+    "Validar CI, compilación, pruebas y staging autenticado.",
+    "Eliminar Trámites no dispone de endpoint de eliminación de expediente completo.",
+    "Completar verificación de acciones de las nuevas etapas; menú de equipos corregido, CI pendiente.",
+    "Verificación cruzada Web/System falla HTTP 404; conservar gate y revisar acceso de lectura CI a DholeSystem."
   ],
   "validationEvidence": {
     "status": "pending",
     "componentVersionsVerified": true,
-    "componentVersionsVerifiedAgainst": "develop (13 unchanged components) and candidate version metadata (3 code components; System candidate metadata authored)",
+    "componentVersionsVerifiedAgainst": "develop de 13 componentes sin cambios y metadata de las ramas candidatas",
     "regressionTestsAdded": true
   },
   "releaseComponents": [
@@ -238,11 +239,9 @@
     "DholeWeb"
   ],
   "changes": [
-    "Explicit per-member responsibilities: logistics management, head of operations, origin supervisor, operator. Preserve legacy team supervisors without elevating them.",
-    "Company-bound global read access for management/head; active origin-only cross-team reads for origin supervisor; no automatic finance or administration grants.",
-    "Automatic Auth scope projection for supported operational departments; retain existing Outbox/Redis reconciliation and independent direct grants.",
-    "DH member responsibility selector and role-grouped directory; preserve routing team names internally.",
-    "Leadership excluded from workload pool. Provision employees via authenticated directory, without publishing staff emails."
+    "Cuatro roles de negocio no protegidos de Auth.",
+    "Catálogo de permisos de trámites y equipos; permisos independientes de consulta, asignación y retiro de integrantes.",
+    "Sincronización automática por equipo con compatibilidad de scopes heredados."
   ],
   "stagingValidation": {
     "status": "pending",
