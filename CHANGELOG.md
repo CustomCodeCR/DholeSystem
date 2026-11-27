@@ -1,3 +1,7 @@
+## [1.142.0] - 2026-11-26
+
+- MINOR candidato WIP: registro central de Web y Operations para UX comercial y correo de Aperturas. HOLD automático, recotización, Pricing/Auth y validación integral pendientes. No integrar como release completo ni promover a producción.
+
 ## [1.141.0] - 2026-11-26
 
 - MINOR candidato: registro coordinado de roles de negocio y permisos de Operations para Auth, Web y Operations. Se mantienen 13 componentes sin cambios; CI, cobertura funcional y staging pendientes.
