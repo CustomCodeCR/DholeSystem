@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/DH-20261127-operations-summary",
       "developCandidateBranch": "feature/DH-20261127-operations-summary",
-      "candidateSha": "1eee474aa88a5516da508c28762f440e91861f26",
+      "candidateSha": "b9211fc8c2d8b1a2194254f23acf74a9fb34e284",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -229,7 +229,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/DH-20261127-operations-summary",
       "developCandidateBranch": "feature/DH-20261127-operations-summary",
-      "candidateSha": "d1ee40e946ae29fdbf7e72e58087866ce665bf39",
+      "candidateSha": "a575f09d58d3716ebd159603c8d030e15dfe00fb",
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
