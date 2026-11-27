@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261126-PRICING-CATEGORY-REPORT",
+  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.135.0",
-  "status": "candidate-master-ci-pending",
+  "ecosystemVersion": "1.145.2",
+  "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/pricing-category-report-scope-20261126",
-    "master": "release/pricing-category-report-20261126-master"
+    "develop": "fix/seller-cargo-insurance-20261127-develop",
+    "master": "hotfix/seller-cargo-insurance-20261127-master"
   },
-  "candidateBranch": "release/pricing-category-report-20261126-master",
+  "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.135.0",
-      "previousVersion": "1.132.3",
-      "mergeState": "intermediate-master-backport",
-      "versionVerified": true,
-      "candidateBranch": "release/pricing-category-report-20261126-master",
-      "developCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "masterCandidateBranch": "release/pricing-category-report-20261126-master",
+      "version": "1.145.2",
+      "previousVersion": "1.135.0",
+      "mergeState": "intermediate-only",
+      "versionVerified": false,
+      "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
+      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterMergeSha": null
@@ -32,35 +32,39 @@
       "version": "1.11.1",
       "previousVersion": "1.11.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
       "version": "1.18.0",
-      "previousVersion": "1.17.1",
-      "mergeState": "intermediate-master-backport",
-      "versionVerified": true,
-      "candidateBranch": "release/pricing-category-report-20261126-master",
-      "masterCandidateBranch": "release/pricing-category-report-20261126-master",
-      "candidateSha": "1f46989d068b2e20e3142fb56e6f84fb8bfef101",
-      "masterMergeSha": null
+      "previousVersion": "1.18.0",
+      "mergeState": "unchanged",
+      "versionVerified": false,
+      "candidateBranch": null,
+      "masterCandidateBranch": null,
+      "candidateSha": null,
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.135.0",
-      "previousVersion": "1.132.3",
-      "mergeState": "intermediate-master-backport",
-      "versionVerified": true,
-      "candidateBranch": "release/pricing-category-report-20261126-master",
-      "developCandidateBranch": "fix/pricing-customs-scope-ftl-20261125-develop",
-      "masterCandidateBranch": "release/pricing-category-report-20261126-master",
-      "candidateSha": "8181e69fb752fff58bb58afe981103b2a099d634",
+      "version": "1.145.2",
+      "previousVersion": "1.135.0",
+      "mergeState": "intermediate-only",
+      "versionVerified": false,
+      "candidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
+      "developCandidateBranch": "fix/seller-cargo-insurance-20261127-develop",
+      "masterCandidateBranch": "hotfix/seller-cargo-insurance-20261127-master",
+      "candidateSha": "2cdab1490ec6ff830eea0cf19ed1616786894f7f",
       "developMergeSha": null,
       "masterMergeSha": null
     },
@@ -70,11 +74,13 @@
       "version": "1.12.0",
       "previousVersion": "1.12.0",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAuditLogsService",
@@ -82,11 +88,13 @@
       "version": "1.2.1",
       "previousVersion": "1.2.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDataExtractionService",
@@ -94,23 +102,27 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
       "version": "1.34.0",
-      "previousVersion": "1.32.0",
-      "mergeState": "intermediate-master-backport",
-      "versionVerified": true,
-      "candidateBranch": "release/pricing-category-report-20261126-master",
-      "masterCandidateBranch": "release/pricing-category-report-20261126-master",
-      "candidateSha": "c3306395f020441661bf12ad0b43bec721921a15",
-      "masterMergeSha": null
+      "previousVersion": "1.34.0",
+      "mergeState": "unchanged",
+      "versionVerified": false,
+      "candidateBranch": null,
+      "masterCandidateBranch": null,
+      "candidateSha": null,
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAIService",
@@ -118,11 +130,13 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeStorageService",
@@ -130,11 +144,13 @@
       "version": "1.2.3",
       "previousVersion": "1.2.3",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeReportsService",
@@ -142,11 +158,13 @@
       "version": "1.8.1",
       "previousVersion": "1.8.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeNotificationsService",
@@ -154,11 +172,13 @@
       "version": "1.9.1",
       "previousVersion": "1.9.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeContentService",
@@ -166,11 +186,13 @@
       "version": "1.2.1",
       "previousVersion": "1.2.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeAgentService",
@@ -178,11 +200,13 @@
       "version": "1.2.2",
       "previousVersion": "1.2.2",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeDynamicsConnectorService",
@@ -190,11 +214,13 @@
       "version": "1.4.1",
       "previousVersion": "1.4.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeCRMService",
@@ -202,11 +228,13 @@
       "version": "1.43.1",
       "previousVersion": "1.43.1",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
@@ -214,42 +242,36 @@
       "version": "0.17.0",
       "previousVersion": "0.17.0",
       "mergeState": "unchanged",
-      "versionVerified": true,
+      "versionVerified": false,
       "candidateBranch": null,
       "masterCandidateBranch": null,
       "candidateSha": null,
-      "masterMergeSha": null
+      "masterMergeSha": null,
+      "developCandidateBranch": null,
+      "developMergeSha": null
     }
   ],
   "policyCheck": "pending",
-  "mergeState": "intermediate-master-backport",
+  "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Master candidate CI pending",
-    "Authenticated category export and realtime/security regression pending"
+    "Develop integration and authenticated staging validation pending"
   ],
   "validationEvidence": {
-    "status": "staging-deploy-success-master-ci-pending",
-    "componentVersionsVerifiedAgainst": "master",
-    "componentVersionsVerified": true,
+    "status": "pending-candidate-ci",
+    "componentVersionsVerified": false,
     "regressionTestsAdded": true
   },
   "releaseComponents": [
     "DholeWeb",
-    "DholePricingService",
-    "DholeAuthService",
     "DholeSystem"
   ],
   "changes": [
-    "Dedicated pricing.rate.report.export scope for category XLSX; full commercial report retains existing access.",
-    "Nine requested columns; selective backport preserving master changes."
+    "Selective promotion of seller cargo insurance reconciliation without unrelated staging changes."
   ],
   "stagingValidation": {
-    "status": "automated-deploy-success",
-    "authenticated": false,
-    "authRun": 45842362889,
-    "pricingRun": 45842375744,
-    "webRun": 45842387563
+    "status": "pending",
+    "authenticated": false
   },
   "f6F7F8": {
     "status": "pending"
@@ -301,7 +323,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261126-PRICING-CATEGORY-REPORT",
+  "businessReleaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -714,7 +736,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261125-FTL-CUSTOMS-SCOPE"
+    "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
@@ -742,7 +764,7 @@
     "staging": "pending",
     "productionDeploymentAuthorized": false
   },
-  "productionDeploymentAuthorization": "Explicit user request: subelo a master",
+  "productionDeploymentAuthorization": null,
   "crmFollowupCreationRelease": {
     "releaseId": "DH-20261116-CRM-FOLLOWUPS-CREATE-171",
     "webFrom": "1.62.3",

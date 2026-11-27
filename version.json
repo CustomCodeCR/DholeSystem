@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "ecosystem": "Dhole",
   "component": "DholeSystem",
-  "version": "1.135.0",
-  "ecosystemVersion": "1.135.0",
-  "releaseId": "DH-20261126-PRICING-CATEGORY-REPORT",
+  "version": "1.145.2",
+  "ecosystemVersion": "1.145.2",
+  "releaseId": "DH-20261127-SELLER-CARGO-INSURANCE",
   "releaseStatus": "master-candidate-ci-pending",
   "businessReleaseId": "DH-20261126-PRICING-CATEGORY-REPORT"
 }
