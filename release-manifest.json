@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-APERTURAS-UNIFICADAS-PARTIAL",
+  "releaseId": "DH-20261127-OPS-QUOTE-SCOPES",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.143.0",
+  "ecosystemVersion": "1.144.0",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "feature/aperturas-unificadas-20261127",
+    "develop": "feature/operations-quote-scopes-20261127",
     "master": null
   },
-  "candidateBranch": "feature/aperturas-unificadas-20261127",
+  "candidateBranch": "feature/operations-quote-scopes-20261127",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.143.0",
-      "previousVersion": "1.142.0",
+      "version": "1.144.0",
+      "previousVersion": "1.143.0",
       "mergeState": "intermediate-only",
       "versionVerified": false,
-      "candidateBranch": "feature/aperturas-unificadas-20261127",
-      "developCandidateBranch": "feature/aperturas-unificadas-20261127",
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
       "candidateSha": null,
       "developMergeSha": null
     },
@@ -39,25 +39,25 @@
     {
       "repository": "CustomCodeCR/DholeAuthService",
       "component": "DholeAuthService",
-      "version": "1.23.0",
-      "previousVersion": "1.22.0",
+      "version": "1.24.0",
+      "previousVersion": "1.23.0",
       "versionVerified": false,
       "mergeState": "intermediate-only",
-      "candidateBranch": "feature/aperturas-unificadas-20261127",
-      "developCandidateBranch": "feature/aperturas-unificadas-20261127",
-      "candidateSha": "94ef06bd7bd2282f3cca91a453eccef15d852e23",
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
+      "candidateSha": "5ffce3bcf280c0ed5c54b4b954d25d312beed502",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.143.0",
-      "previousVersion": "1.142.0",
+      "version": "1.144.0",
+      "previousVersion": "1.143.0",
       "mergeState": "intermediate-only",
       "versionVerified": false,
-      "candidateBranch": "feature/aperturas-unificadas-20261127",
-      "developCandidateBranch": "feature/aperturas-unificadas-20261127",
-      "candidateSha": "1b9ba1d57b60c83251b998e8f551657e6a59393f",
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
+      "candidateSha": "425a3d486be9e0023583dcc4b952830f46775aef",
       "developMergeSha": null
     },
     {
@@ -99,13 +99,13 @@
     {
       "repository": "CustomCodeCR/DholePricingService",
       "component": "DholePricingService",
-      "version": "1.34.0",
+      "version": "1.35.0",
       "previousVersion": "1.34.0",
       "versionVerified": false,
-      "mergeState": "unchanged",
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
+      "candidateSha": "d11269f5235e1fa48101adf59ec72cc572d31557",
       "developMergeSha": null
     },
     {
@@ -195,25 +195,25 @@
     {
       "repository": "CustomCodeCR/DholeCRMService",
       "component": "DholeCRMService",
-      "version": "1.45.0",
+      "version": "1.46.0",
       "previousVersion": "1.45.0",
       "versionVerified": false,
-      "mergeState": "unchanged",
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "mergeState": "intermediate-only",
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
+      "candidateSha": "868c5b4a38781ddc767bd9fcaace8031ec79443b",
       "developMergeSha": null
     },
     {
       "repository": "CustomCodeCR/DholeOperationsService",
       "component": "DholeOperationsService",
-      "version": "0.36.0",
+      "version": "0.37.0",
       "previousVersion": "0.36.0",
-      "mergeState": "unchanged",
+      "mergeState": "intermediate-only",
       "versionVerified": false,
-      "candidateBranch": null,
-      "developCandidateBranch": null,
-      "candidateSha": null,
+      "candidateBranch": "feature/operations-quote-scopes-20261127",
+      "developCandidateBranch": "feature/operations-quote-scopes-20261127",
+      "candidateSha": "715665454b610a713270660c39c779ca71699845",
       "developMergeSha": null
     }
   ],
@@ -221,8 +221,7 @@
   "mergeState": "intermediate-only",
   "productionDeploymentAuthorized": false,
   "blockers": [
-    "Partial implementation only: coordinated Operations, Pricing, AuditLogs, Notifications and full Web workflow outstanding.",
-    "CI and authenticated staging pending."
+    "Coordinated CI and authenticated staging validation pending. Replacement of an already confirmed QUO remains excluded."
   ],
   "validationEvidence": {
     "status": "pending-candidate-ci",
@@ -230,13 +229,17 @@
     "regressionTestsAdded": true
   },
   "releaseComponents": [
-    "DholeSystem",
+    "DholeAuthService",
+    "DholePricingService",
+    "DholeCRMService",
+    "DholeOperationsService",
     "DholeWeb",
-    "DholeAuthService"
+    "DholeSystem"
   ],
   "changes": [
-    "Auth: creation scope for active logistics management and operations head memberships.",
-    "Web: bidirectional physical unit conversion and CABYS/cargo description on manual creation."
+    "Granular Operations quote read/link and CRM/CABYS scopes, automatic Aperturas and leadership grants.",
+    "Pricing operational projection excludes financial amounts, CRM operational account and contacts references.",
+    "Operations keeps case ACL, accepted-only linking and durable audit/outbox; Web uses scoped endpoints."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -292,7 +295,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-APERTURAS-UNIFICADAS-PARTIAL",
+  "businessReleaseId": "DH-20261127-OPS-QUOTE-SCOPES",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -6293,5 +6296,233 @@
       "Operations individual opening assignment email candidate."
     ],
     "productionDeploymentAuthorized": false
+  },
+  "previousPartialOpeningRelease": {
+    "releaseId": "DH-20261127-APERTURAS-UNIFICADAS-PARTIAL",
+    "ecosystemVersion": "1.143.0",
+    "components": [
+      {
+        "repository": "CustomCodeCR/DholeSystem",
+        "component": "DholeSystem",
+        "version": "1.143.0",
+        "previousVersion": "1.142.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": false,
+        "candidateBranch": "feature/aperturas-unificadas-20261127",
+        "developCandidateBranch": "feature/aperturas-unificadas-20261127",
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeApiGateway",
+        "component": "DholeApiGateway",
+        "version": "1.11.1",
+        "previousVersion": "1.11.1",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuthService",
+        "component": "DholeAuthService",
+        "version": "1.23.0",
+        "previousVersion": "1.22.0",
+        "versionVerified": false,
+        "mergeState": "intermediate-only",
+        "candidateBranch": "feature/aperturas-unificadas-20261127",
+        "developCandidateBranch": "feature/aperturas-unificadas-20261127",
+        "candidateSha": "94ef06bd7bd2282f3cca91a453eccef15d852e23",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeWeb",
+        "component": "DholeWeb",
+        "version": "1.143.0",
+        "previousVersion": "1.142.0",
+        "mergeState": "intermediate-only",
+        "versionVerified": false,
+        "candidateBranch": "feature/aperturas-unificadas-20261127",
+        "developCandidateBranch": "feature/aperturas-unificadas-20261127",
+        "candidateSha": "1b9ba1d57b60c83251b998e8f551657e6a59393f",
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeConfigService",
+        "component": "DholeConfigService",
+        "version": "1.12.0",
+        "previousVersion": "1.12.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAuditLogsService",
+        "component": "DholeAuditLogsService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeDataExtractionService",
+        "component": "DholeDataExtractionService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholePricingService",
+        "component": "DholePricingService",
+        "version": "1.34.0",
+        "previousVersion": "1.34.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAIService",
+        "component": "DholeAIService",
+        "version": "1.9.0",
+        "previousVersion": "1.9.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeStorageService",
+        "component": "DholeStorageService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeReportsService",
+        "component": "DholeReportsService",
+        "version": "1.8.1",
+        "previousVersion": "1.8.1",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeNotificationsService",
+        "component": "DholeNotificationsService",
+        "version": "1.9.1",
+        "previousVersion": "1.9.1",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeContentService",
+        "component": "DholeContentService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeAgentService",
+        "component": "DholeAgentService",
+        "version": "1.6.0",
+        "previousVersion": "1.6.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeDynamicsConnectorService",
+        "component": "DholeDynamicsConnectorService",
+        "version": "1.5.0",
+        "previousVersion": "1.5.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeCRMService",
+        "component": "DholeCRMService",
+        "version": "1.45.0",
+        "previousVersion": "1.45.0",
+        "versionVerified": false,
+        "mergeState": "unchanged",
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      },
+      {
+        "repository": "CustomCodeCR/DholeOperationsService",
+        "component": "DholeOperationsService",
+        "version": "0.36.0",
+        "previousVersion": "0.36.0",
+        "mergeState": "unchanged",
+        "versionVerified": false,
+        "candidateBranch": null,
+        "developCandidateBranch": null,
+        "candidateSha": null,
+        "developMergeSha": null
+      }
+    ],
+    "releaseComponents": [
+      "DholeSystem",
+      "DholeWeb",
+      "DholeAuthService"
+    ],
+    "validationEvidence": {
+      "status": "pending-candidate-ci",
+      "componentVersionsVerified": false,
+      "regressionTestsAdded": true
+    },
+    "stagingValidation": {
+      "status": "pending",
+      "authenticated": false
+    },
+    "changes": [
+      "Auth: creation scope for active logistics management and operations head memberships.",
+      "Web: bidirectional physical unit conversion and CABYS/cargo description on manual creation."
+    ]
   }
 }

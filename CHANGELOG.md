@@ -1,3 +1,7 @@
+## [1.144.0] - 2026-11-27
+
+- MINOR candidato: permisos independientes de Operations para consultar y vincular QUO aceptadas y referencias CRM/CABYS sin permisos comerciales generales. Registra Auth 1.24.0, Pricing 1.35.0, CRM 1.46.0, Operations 0.37.0 y Web 1.144.0; CI/staging pendientes. Producción no autorizada.
+
 ## [1.143.0] - 2026-11-27
 
 - MINOR candidato parcial: registra Auth 1.23.0 y Web 1.143.0; permisos de creación de gerencia/jefatura, conversiones bidireccionales y CABYS en aperturas manuales. Los demás componentes permanecen sin cambios. No integra el release completo; CI y staging pendientes; producción no autorizada.
