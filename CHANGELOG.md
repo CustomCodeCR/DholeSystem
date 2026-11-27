@@ -1,3 +1,7 @@
+## [1.145.4] - 2026-11-27
+
+- PATCH: DH-20261127-SELLER-INSURANCE-CURRENCY. Web/System 1.145.3 → 1.145.4; fix canonical insurance currency, independent seller amendment validation and exchange-rate numeric input. CI and staging pending.
+
 ## [1.145.3] - 2026-11-27
 
 - PATCH: DH-20261127-SELLER-INSURANCE-DRAFT. Web/System 1.145.2 → 1.145.3; isolate seller amendment drafts and recover requested insurance after restoration. CI, component verification and staging pending.

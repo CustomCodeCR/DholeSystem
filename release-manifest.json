@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
+  "releaseId": "DH-20261127-SELLER-INSURANCE-CURRENCY",
   "ecosystem": "Dhole",
-  "ecosystemVersion": "1.145.3",
+  "ecosystemVersion": "1.145.4",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/seller-insurance-draft-reconcile-20261127",
-    "master": "fix/seller-insurance-draft-reconcile-20261127-master"
+    "develop": "fix/seller-insurance-currency-20261127",
+    "master": "fix/seller-insurance-currency-20261127-master"
   },
-  "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
+  "candidateBranch": "fix/seller-insurance-currency-20261127-master",
   "expectedRepositories": 17,
   "frameworkRepositoryExcluded": "CustomCodeCR/CustomCodeFramework",
   "components": [
     {
       "repository": "CustomCodeCR/DholeSystem",
       "component": "DholeSystem",
-      "version": "1.145.3",
-      "previousVersion": "1.145.2",
+      "version": "1.145.4",
+      "previousVersion": "1.145.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
-      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
-      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
+      "candidateBranch": "fix/seller-insurance-currency-20261127-master",
+      "developCandidateBranch": "fix/seller-insurance-currency-20261127",
+      "masterCandidateBranch": "fix/seller-insurance-currency-20261127-master",
       "candidateSha": null,
       "developMergeSha": null,
       "masterMergeSha": null
@@ -57,14 +57,14 @@
     {
       "repository": "CustomCodeCR/DholeWeb",
       "component": "DholeWeb",
-      "version": "1.145.3",
-      "previousVersion": "1.145.2",
+      "version": "1.145.4",
+      "previousVersion": "1.145.3",
       "mergeState": "intermediate-only",
       "versionVerified": true,
-      "candidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
-      "developCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127",
-      "masterCandidateBranch": "fix/seller-insurance-draft-reconcile-20261127-master",
-      "candidateSha": "7fdd864430b18bbf332965b6cd18d92ef6e64013",
+      "candidateBranch": "fix/seller-insurance-currency-20261127-master",
+      "developCandidateBranch": "fix/seller-insurance-currency-20261127",
+      "masterCandidateBranch": "fix/seller-insurance-currency-20261127-master",
+      "candidateSha": "9aa6438f7a931c2be253b6170af04a27122eeb4b",
       "developMergeSha": null,
       "masterMergeSha": null
     },
@@ -267,7 +267,7 @@
     "DholeSystem"
   ],
   "changes": [
-    "Isolate seller amendment draft storage by request; apply requested data after restoration; restore missing declared-value insurance independent of catalog response."
+    "Resolve USD by canonical catalog Value, validate independent insurance-only seller amendments without route tariff lookup, accept valid decimal exchange rates."
   ],
   "stagingValidation": {
     "status": "pending",
@@ -323,7 +323,7 @@
     },
     "status": "candidate-develop-staging-pending"
   },
-  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-DRAFT",
+  "businessReleaseId": "DH-20261127-SELLER-INSURANCE-CURRENCY",
   "stagingCollectionRealtime": {
     "scope": "crm account/lead and pricing rate/cost",
     "hub": "/api/notifications/hub",
@@ -736,7 +736,7 @@
   },
   "productionDeployment": {
     "status": "not-authorized",
-    "releaseId": "DH-20261127-SELLER-INSURANCE-DRAFT"
+    "releaseId": "DH-20261127-SELLER-INSURANCE-CURRENCY"
   },
   "crmAgendaNotesRelease": {
     "releaseId": "DH-20261113-CRM-AGENDA-NOTES-FILTERS-136",
