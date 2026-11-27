@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "dbdffff89f8c5e646ac9820d44bd45d60b2d32a1",
+      "candidateSha": "0c9a9e5978c8e1f8e28c9a7fa403c542cfb7a230",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
@@ -229,7 +229,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
-      "candidateSha": "72bef6a0c0869abe651c530febf09608b2817573",
+      "candidateSha": "86e2f6ed4a2ff6f96a9342309f382b0aad624f19",
       "developMergeSha": null,
       "masterCandidateBranch": null
     }
