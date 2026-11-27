@@ -45,7 +45,7 @@
       "mergeState": "intermediate-only",
       "candidateBranch": "feature/operations-team-responsibilities-20261126",
       "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
-      "candidateSha": "bf38adc0e7620f65879c37eda546335fa8f1ae87",
+      "candidateSha": "c58160b257f22d3c036a324ed5321505411d1bbe",
       "developMergeSha": null
     },
     {
@@ -213,7 +213,7 @@
       "versionVerified": true,
       "candidateBranch": "feature/operations-team-responsibilities-20261126",
       "developCandidateBranch": "feature/operations-team-responsibilities-20261126",
-      "candidateSha": "7a7c63fd04bb274df429aa490bdf8b2e09ac318b",
+      "candidateSha": "dfa4b57939ee9a1b365de78aba9a8f4057d6a0f9",
       "developMergeSha": null
     }
   ],
