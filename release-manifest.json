@@ -60,7 +60,7 @@
       "versionVerified": true,
       "candidateBranch": "fix/operations-opening-controls-20261127",
       "developCandidateBranch": "fix/operations-opening-controls-20261127",
-      "candidateSha": "3d7e7e616630f33b74ffa5deb0acf0915b68cd41",
+      "candidateSha": "192d4ee2724ce7a67b428d75403e31aec8431d81",
       "developMergeSha": null,
       "masterCandidateBranch": null
     },
