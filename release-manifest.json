@@ -5,7 +5,7 @@
   "ecosystemVersion": "1.145.6",
   "status": "candidate-ci-staging-pending",
   "branches": {
-    "develop": "fix/operations-division-compact-20261127",
+    "develop": "fix/opening-essential-fields-20261127",
     "master": null
   },
   "candidateBranch": "fix/opening-essential-fields-20261127",
@@ -18,7 +18,7 @@
       "version": "1.145.6",
       "previousVersion": "1.145.5",
       "mergeState": "intermediate-only",
-      "versionVerified": false,
+      "versionVerified": true,
       "candidateBranch": "fix/opening-essential-fields-20261127",
       "developCandidateBranch": "fix/opening-essential-fields-20261127",
       "candidateSha": null,
