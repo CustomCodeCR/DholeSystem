@@ -1,3 +1,7 @@
+## [1.145.7] - 2026-11-27
+
+- Coordinate production candidate for saved QUO cargo insurance recovery, without promoting unrelated changes. CI and staging verification required.
+
 ## [1.145.4] - 2026-11-27
 
 - PATCH: DH-20261127-SELLER-INSURANCE-CURRENCY. Web/System 1.145.3 → 1.145.4; fix canonical insurance currency, independent seller amendment validation and exchange-rate numeric input. CI and staging pending.
